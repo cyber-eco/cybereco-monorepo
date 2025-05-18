@@ -1,0 +1,173 @@
+import React from 'react';
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import Button from '../common/Button';
+
+const SectionWrapper = styled.section`
+  background-color: ${({ theme }) => theme.background};
+  padding: var(--spacing-xl) 0;
+`;
+
+const Container = styled.div`
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+`;
+
+const SectionHeader = styled.div`
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+`;
+
+const SectionTitle = styled(motion.h2)`
+  margin-bottom: var(--spacing-sm);
+`;
+
+const SectionSubtitle = styled(motion.p)`
+  color: ${({ theme }) => theme.textSecondary};
+  max-width: 700px;
+  margin: 0 auto;
+`;
+
+const SolutionsGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+  
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+`;
+
+const SolutionCard = styled(motion.div)`
+  background: ${({ theme }) => theme.surface};
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: ${({ theme }) => theme.shadow};
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+`;
+
+const CardImage = styled.div`
+  height: 160px;
+  background-color: ${({ theme, color }) => color || `${theme.primary}20`};
+  position: relative;
+`;
+
+const CardContent = styled.div`
+  padding: var(--spacing-md);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+`;
+
+const CardTitle = styled.h3`
+  margin-bottom: var(--spacing-xs);
+`;
+
+const CardDescription = styled.p`
+  color: ${({ theme }) => theme.textSecondary};
+  margin-bottom: var(--spacing-md);
+  flex-grow: 1;
+`;
+
+const CardLink = styled(Link)`
+  display: inline-flex;
+  align-items: center;
+  color: ${({ theme }) => theme.primary};
+  font-weight: 500;
+  
+  &:after {
+    content: "→";
+    margin-left: var(--spacing-xs);
+    transition: transform 0.2s ease;
+  }
+  
+  &:hover:after {
+    transform: translateX(4px);
+  }
+`;
+
+const ButtonContainer = styled.div`
+  text-align: center;
+`;
+
+const SolutionsPreview = () => {
+  const solutions = [
+    {
+      id: "smart-home",
+      title: "Smart Home Automation",
+      description: "Intelligent systems that learn from your habits and optimize energy usage while maximizing comfort.",
+      color: "rgba(0, 98, 65, 0.2)"
+    },
+    {
+      id: "energy",
+      title: "Energy Management",
+      description: "Advanced monitoring and control systems for optimal energy use in residential and commercial buildings.",
+      color: "rgba(107, 191, 89, 0.2)"
+    }
+  ];
+
+  return (
+    <SectionWrapper>
+      <Container>
+        <SectionHeader>
+          <SectionTitle
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            Our Solutions
+          </SectionTitle>
+          <SectionSubtitle
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            Explore some of our innovative solutions designed to integrate technology and sustainability
+          </SectionSubtitle>
+        </SectionHeader>
+
+        <SolutionsGrid>
+          {solutions.map((solution, index) => (
+            <SolutionCard
+              key={solution.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 * index }}
+              viewport={{ once: true }}
+            >
+              <CardImage color={solution.color} />
+              <CardContent>
+                <CardTitle>{solution.title}</CardTitle>
+                <CardDescription>{solution.description}</CardDescription>
+                <CardLink to={`/portfolio#${solution.id}`}>
+                  Learn more
+                </CardLink>
+              </CardContent>
+            </SolutionCard>
+          ))}
+        </SolutionsGrid>
+
+        <ButtonContainer>
+          <Button to="/portfolio" variant="secondary" size="large">
+            View All Solutions
+          </Button>
+        </ButtonContainer>
+      </Container>
+    </SectionWrapper>
+  );
+};
+
+export default SolutionsPreview;
