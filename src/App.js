@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 import { ThemeContext, ThemeProvider } from './context/ThemeContext';
 import { LanguageProvider } from './context/LanguageContext';
