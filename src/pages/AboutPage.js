@@ -98,14 +98,14 @@ const AboutPage = () => {
           <TextContent>
             <SectionTitle>Who We Are</SectionTitle>
             <p>
-              CyberEco is an innovative parent company dedicated to developing technological solutions 
-              that integrate cybernetic control, automation, and sustainability. Our purpose is to transform 
-              the relationship between people and their environment through intelligent systems that 
-              harmonize technology, efficiency, and well-being.
+              CyberEco is an innovative parent company dedicated to developing digital applications 
+              that enhance financial collaboration, community engagement, and social connectivity. 
+              Our purpose is to transform how people manage resources, make decisions collectively, 
+              and interact with technology through intuitive, user-centered solutions.
             </p>
             <p>
-              Our team combines expertise in artificial intelligence, IoT, regenerative design, and 
-              energy efficiency to create comprehensive solutions for domestic, urban, and industrial environments.
+              Our team combines expertise in software development, user experience design, financial systems, 
+              and community building to create comprehensive digital tools for individuals and groups.
             </p>
           </TextContent>
           <ImagePlaceholder>Team Image</ImagePlaceholder>
@@ -118,17 +118,17 @@ const AboutPage = () => {
           <TextContent>
             <h3>Vision</h3>
             <p>
-              To be the global reference in technologies that connect artificial intelligence, the Internet of 
-              Things (IoT), and sustainable space management, empowering individuals and communities to live 
-              more consciously, connected, and resilient.
+              To be a leading creator of digital applications that empower individuals and communities 
+              to collaborate more effectively, make better decisions, and form meaningful connections in 
+              an increasingly digital world.
             </p>
           </TextContent>
           <TextContent>
             <h3>Mission</h3>
             <p>
-              To design and deploy user-centered digital solutions that automate, optimize, and harmonize 
-              domestic, urban, and industrial environments, integrating principles of cybernetics, regenerative 
-              design, and energy efficiency.
+              To design and deploy user-centered digital solutions that simplify financial management, 
+              facilitate community engagement, and enhance social connections while promoting transparency, 
+              sustainability, and digital wellbeing.
             </p>
           </TextContent>
         </AboutContent>

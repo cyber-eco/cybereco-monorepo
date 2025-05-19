@@ -108,10 +108,12 @@ const Footer = () => {
 
         <FooterSection>
           <FooterTitle>Solutions</FooterTitle>
-          <FooterLink to="/portfolio#smart-home">Smart Home</FooterLink>
-          <FooterLink to="/portfolio#energy">Energy Management</FooterLink>
-          <FooterLink to="/portfolio#community">Community Resources</FooterLink>
-          <FooterLink to="/portfolio#analytics">Analytics Systems</FooterLink>
+          <FooterLink to="/portfolio#justsplit">JustSplit</FooterLink>
+          <FooterLink to="/portfolio#platopio">Platopio</FooterLink>
+          <FooterLink to="/portfolio#demos">Demos</FooterLink>
+          <FooterLink to="/portfolio#nexus">Nexus</FooterLink>
+          <FooterLink to="/portfolio#tradepilot">TradePilot</FooterLink>
+          <FooterLink to="/portfolio#community-manager">Community Manager</FooterLink>
         </FooterSection>
       </FooterContainer>
 

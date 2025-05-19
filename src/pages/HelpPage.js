@@ -124,23 +124,23 @@ const HelpPage = () => {
   const faqs = [
     {
       question: "What is CyberEco?",
-      answer: "CyberEco is an innovative company focused on developing technological solutions that integrate cybernetic control, automation, and sustainability to transform how people interact with their environments."
+      answer: "CyberEco is an innovative company focused on developing digital applications that enhance financial collaboration, community engagement, and social connectivity through user-centered design."
     },
     {
-      question: "How can I start using CyberEco solutions?",
-      answer: "You can explore our solutions in the Portfolio section and contact us for more information on implementation and pricing for your specific needs."
+      question: "How can I start using CyberEco applications?",
+      answer: "You can explore our solutions in the Portfolio section and download or access them through the links provided for each application."
     },
     {
-      question: "Are CyberEco's solutions compatible with existing smart home devices?",
-      answer: "Yes, our solutions are designed with interoperability in mind and can integrate with many existing smart home ecosystems and devices."
+      question: "Are CyberEco's applications available on all platforms?",
+      answer: "Most of our applications are available as web apps, with iOS and Android versions available for our most popular tools like JustSplit and Nexus."
     },
     {
       question: "How does CyberEco ensure data privacy and security?",
-      answer: "We implement strong encryption, secure authentication protocols, and follow industry best practices for data protection. All our solutions are designed with security as a priority."
+      answer: "We implement strong encryption, secure authentication protocols, and follow industry best practices for data protection. All our applications are designed with security as a priority."
     },
     {
-      question: "Does CyberEco offer customized solutions?",
-      answer: "Yes, we can tailor our solutions to meet specific requirements for both individual and organizational needs."
+      question: "Can I use CyberEco applications for my organization or business?",
+      answer: "Yes, many of our applications like Demos and Community Manager have business/organization versions with enhanced features for professional use."
     }
   ];
 

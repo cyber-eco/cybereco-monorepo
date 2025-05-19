@@ -107,11 +107,11 @@ const MissionSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            At CyberEco, our mission is to design and implement user-centered digital solutions 
-            that automate, optimize, and harmonize domestic, urban, and industrial environments. 
-            We integrate principles of cybernetics, regenerative design, and energy efficiency 
-            to create systems that allow individuals and communities to live more consciously, 
-            connected, and resilient.
+            At CyberEco, our mission is to design and implement user-centered digital applications 
+            that enhance financial collaboration, community engagement, and social connectivity. 
+            We develop tools that promote transparency, efficiency, and healthy relationships 
+            between people and technology, enabling individuals and communities to thrive in our 
+            increasingly digital world.
           </SectionText>
           
           <motion.div

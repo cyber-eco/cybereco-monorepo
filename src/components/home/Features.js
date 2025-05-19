@@ -88,29 +88,29 @@ const Features = () => {
   const features = [
     {
       id: 1,
-      title: 'Smart Home Automation',
-      description: 'Intelligent systems that learn from your habits and optimize energy usage while maximizing comfort.',
+      title: 'Financial Management',
+      description: 'Simple and intuitive tools for expense tracking, sharing, and management across groups and communities.',
       icon: <FaHome />,
       color: '#006241'
     },
     {
       id: 2,
-      title: 'Sustainable Solutions',
-      description: 'Eco-friendly technology that reduces environmental impact without sacrificing functionality.',
+      title: 'Community Engagement',
+      description: 'Platforms that foster healthy communities through democratic processes, resource sharing, and collaboration.',
       icon: <FaLeaf />,
       color: '#6BBF59'
     },
     {
       id: 3,
-      title: 'Integrated Ecosystems',
-      description: 'Seamlessly connected devices and platforms that work together to create a comprehensive experience.',
+      title: 'Digital Wellbeing',
+      description: 'Solutions that promote meaningful online interactions and balanced digital consumption habits.',
       icon: <FaNetworkWired />,
       color: '#006241'
     },
     {
       id: 4,
-      title: 'Enhanced Security',
-      description: 'Advanced protection for your data and physical spaces with state-of-the-art cybersecurity measures.',
+      title: 'Data-Driven Decisions',
+      description: 'Analytics and tools that provide insights for better decision-making in finance, community management, and more.',
       icon: <FaShieldAlt />,
       color: '#6BBF59'
     }

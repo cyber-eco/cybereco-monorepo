@@ -104,15 +104,27 @@ const ButtonContainer = styled.div`
 const SolutionsPreview = () => {
   const solutions = [
     {
-      id: "smart-home",
-      title: "Smart Home Automation",
-      description: "Intelligent systems that learn from your habits and optimize energy usage while maximizing comfort.",
+      id: "justsplit",
+      title: "JustSplit",
+      description: "A simple and intuitive expense tracking and sharing app that helps friends, roommates, and groups easily manage shared finances.",
       color: "rgba(0, 98, 65, 0.2)"
     },
     {
-      id: "energy",
-      title: "Energy Management",
-      description: "Advanced monitoring and control systems for optimal energy use in residential and commercial buildings.",
+      id: "platopio",
+      title: "Platopio",
+      description: "Smart gardening platform that combines IoT technology with plant care knowledge to help users cultivate thriving gardens sustainably.",
+      color: "rgba(107, 191, 89, 0.2)"
+    },
+    {
+      id: "demos",
+      title: "Demos",
+      description: "Smart democracy platform that facilitates transparent decision-making processes for organizations, communities, and civic engagement.",
+      color: "rgba(0, 98, 65, 0.2)"
+    },
+    {
+      id: "nexus",
+      title: "Nexus",
+      description: "Integrated social media hub that helps users manage multiple platforms while preserving digital wellbeing and meaningful connections.",
       color: "rgba(107, 191, 89, 0.2)"
     }
   ];
@@ -135,7 +147,7 @@ const SolutionsPreview = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            Explore some of our innovative solutions designed to integrate technology and sustainability
+            Explore our diverse portfolio of digital applications designed to enhance productivity, connectivity, and community engagement
           </SectionSubtitle>
         </SectionHeader>
 

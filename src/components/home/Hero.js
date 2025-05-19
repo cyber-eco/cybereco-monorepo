@@ -124,7 +124,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            Intelligent Systems for a <HighlightedText>Sustainable Future</HighlightedText>
+            Digital Solutions for a <HighlightedText>Connected World</HighlightedText>
           </HeroTitle>
           
           <HeroSubtitle
@@ -132,8 +132,8 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            CyberEco connects innovative technology with sustainability, creating intelligent systems 
-            that transform how people interact with their environments.
+            CyberEco creates innovative applications that enhance how people manage finances,
+            engage with communities, and connect with each other in the digital age.
           </HeroSubtitle>
           
           <ButtonGroup

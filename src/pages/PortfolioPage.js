@@ -79,24 +79,34 @@ const ComingSoon = styled.div`
 const PortfolioPage = () => {
   const solutions = [
     {
-      id: "smart-home",
-      title: "Smart Home Automation",
-      description: "Intelligent systems that learn from your habits and optimize energy usage while maximizing comfort."
+      id: "justsplit",
+      title: "JustSplit",
+      description: "A simple and intuitive expense tracking and sharing app that helps friends, roommates, and groups easily manage shared finances."
     },
     {
-      id: "energy",
-      title: "Energy Management",
-      description: "Advanced monitoring and control systems for optimal energy use in residential and commercial buildings."
+      id: "platopio",
+      title: "Platopio",
+      description: "Smart gardening platform that combines IoT technology with plant care knowledge to help users cultivate thriving gardens sustainably."
     },
     {
-      id: "community",
-      title: "Community Resources",
-      description: "Collaborative platforms for managing shared resources in communities, events, and group activities."
+      id: "demos",
+      title: "Demos",
+      description: "Smart democracy platform that facilitates transparent decision-making processes for organizations, communities, and civic engagement."
     },
     {
-      id: "analytics",
-      title: "Analytics Systems",
-      description: "Comprehensive data analysis tools that provide insights for better decision-making and optimization."
+      id: "nexus",
+      title: "Nexus",
+      description: "Integrated social media hub that helps users manage multiple platforms while preserving digital wellbeing and meaningful connections."
+    },
+    {
+      id: "tradepilot",
+      title: "TradePilot",
+      description: "Advanced trading tool with analytics, automation, and educational resources for both novice and experienced investors."
+    },
+    {
+      id: "community-manager",
+      title: "Community Manager",
+      description: "Comprehensive platform to create, grow, and manage communities with powerful tools for engagement, governance, and resource sharing."
     }
   ];
 
@@ -115,8 +125,8 @@ const PortfolioPage = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          Explore our innovative technological solutions that integrate cybernetic control, 
-          automation, and sustainability to transform the relationship between people and their environment.
+          Explore our diverse portfolio of digital solutions designed to enhance productivity, sustainability,
+          connectivity, and community engagement through innovative technology.
         </Subtitle>
       </PageHeader>
 

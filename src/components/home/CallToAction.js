@@ -59,8 +59,8 @@ const CallToAction = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          Discover how CyberEco's innovative solutions can help you create a more efficient, 
-          sustainable, and harmonious environment.
+          Discover how CyberEco's innovative applications can help you manage finances, 
+          engage with communities, and navigate social connections more effectively.
         </Description>
         
         <ButtonGroup
