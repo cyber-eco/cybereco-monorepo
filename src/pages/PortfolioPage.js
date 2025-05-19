@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { LanguageContext } from '../context/LanguageContext';
 
 const PageContainer = styled.div`
   max-width: var(--max-width);
@@ -77,36 +78,39 @@ const ComingSoon = styled.div`
 `;
 
 const PortfolioPage = () => {
+  const { translations, language } = useContext(LanguageContext);
+  const t = translations.portfolioPage || {};
+  
   const solutions = [
     {
       id: "justsplit",
-      title: "JustSplit",
-      description: "A simple and intuitive expense tracking and sharing app that helps friends, roommates, and groups easily manage shared finances."
+      title: t.justSplitTitle || "JustSplit",
+      description: t.justSplitDesc || "A simple and intuitive expense tracking and sharing app that helps friends, roommates, and groups easily manage shared finances."
     },
     {
-      id: "platopio",
-      title: "Platopio",
-      description: "Smart gardening platform that combines IoT technology with plant care knowledge to help users cultivate thriving gardens sustainably."
+      id: "plantopia",
+      title: t.plantopiaTitle || "Plantopia",
+      description: t.plantopiaDesc || "Smart gardening platform that combines IoT technology with plant care knowledge to help users cultivate thriving gardens sustainably."
     },
     {
       id: "demos",
-      title: "Demos",
-      description: "Smart democracy platform that facilitates transparent decision-making processes for organizations, communities, and civic engagement."
+      title: t.demosTitle || "Demos",
+      description: t.demosDesc || "Smart democracy platform that facilitates transparent decision-making processes for organizations, communities, and civic engagement."
     },
     {
       id: "nexus",
-      title: "Nexus",
-      description: "Integrated social media hub that helps users manage multiple platforms while preserving digital wellbeing and meaningful connections."
+      title: t.nexusTitle || "Nexus",
+      description: t.nexusDesc || "Integrated social media hub that helps users manage multiple platforms while preserving digital wellbeing and meaningful connections."
     },
     {
       id: "tradepilot",
-      title: "TradePilot",
-      description: "Advanced trading tool with analytics, automation, and educational resources for both novice and experienced investors."
+      title: t.tradePilotTitle || "TradePilot",
+      description: t.tradePilotDesc || "Advanced trading tool with analytics, automation, and educational resources for both novice and experienced investors."
     },
     {
       id: "community-manager",
-      title: "Community Manager",
-      description: "Comprehensive platform to create, grow, and manage communities with powerful tools for engagement, governance, and resource sharing."
+      title: t.communityManagerTitle || "Community Manager",
+      description: t.communityManagerDesc || "Comprehensive platform to create, grow, and manage communities with powerful tools for engagement, governance, and resource sharing."
     }
   ];
 
@@ -118,15 +122,14 @@ const PortfolioPage = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          Our Solutions
+          {t.title || 'Our Solutions'}
         </Title>
         <Subtitle
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          Explore our diverse portfolio of digital solutions designed to enhance productivity, sustainability,
-          connectivity, and community engagement through innovative technology.
+          {t.subtitle || 'Explore our diverse portfolio of digital solutions designed to enhance productivity, sustainability, connectivity, and community engagement through innovative technology.'}
         </Subtitle>
       </PageHeader>
 
@@ -149,7 +152,7 @@ const PortfolioPage = () => {
       </SolutionsGrid>
       
       <ComingSoon>
-        <p>Detailed information about each solution coming soon.</p>
+        <p>{t.comingSoon || 'Detailed information about each solution coming soon.'}</p>
       </ComingSoon>
     </PageContainer>
   );

@@ -3,7 +3,9 @@ import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { ThemeContext } from '../../context/ThemeContext';
+import { LanguageContext } from '../../context/LanguageContext';
 import ThemeToggle from './ThemeToggle';
+import LanguageSelector from '../common/LanguageSelector';
 import Logo from '../common/Logo';
 
 const HeaderWrapper = styled.header`
@@ -105,6 +107,9 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   const { darkMode, toggleTheme } = useContext(ThemeContext);
+  const { translations } = useContext(LanguageContext);
+
+  const t = translations?.navigation || {};
 
   const isActive = (path) => location.pathname === path;
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -119,22 +124,23 @@ const Header = () => {
         </LogoContainer>
 
         <NavLinks isOpen={isMenuOpen}>
-          <NavLink to="/" active={isActive('/')}>
-            Home
+          <NavLink to="/" active={isActive('/') ? 'true' : undefined}>
+            {t.home || 'Home'}
           </NavLink>
-          <NavLink to="/portfolio" active={isActive('/portfolio')}>
-            Solutions
+          <NavLink to="/portfolio" active={isActive('/portfolio') ? 'true' : undefined}>
+            {t.portfolio || 'Solutions'}
           </NavLink>
-          <NavLink to="/about" active={isActive('/about')}>
-            About Us
+          <NavLink to="/about" active={isActive('/about') ? 'true' : undefined}>
+            {t.about || 'About Us'}
           </NavLink>
-          <NavLink to="/help" active={isActive('/help')}>
-            Help
+          <NavLink to="/help" active={isActive('/help') ? 'true' : undefined}>
+            {t.help || 'Help'}
           </NavLink>
         </NavLinks>
 
         <ToggleContainer>
           <ThemeToggle darkMode={darkMode} toggleTheme={toggleTheme} />
+          <LanguageSelector />
           <MenuToggle onClick={toggleMenu}>
             {isMenuOpen ? <FaTimes /> : <FaBars />}
           </MenuToggle>

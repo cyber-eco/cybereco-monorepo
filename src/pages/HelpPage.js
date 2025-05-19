@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { FaQuestion, FaBook, FaHeadset, FaEnvelope } from 'react-icons/fa';
+import { LanguageContext } from '../context/LanguageContext';
 
 const PageContainer = styled.div`
   max-width: var(--max-width);
@@ -98,49 +99,52 @@ const FaqAnswer = styled.p`
 `;
 
 const HelpPage = () => {
+  const { translations } = useContext(LanguageContext);
+  const t = translations.helpPage || {};
+
   const helpOptions = [
     {
       icon: <FaQuestion />,
-      title: "FAQs",
-      description: "Find answers to the most commonly asked questions about our products and services."
+      title: t.faqsTitle || "FAQs",
+      description: t.faqsDesc || "Find answers to the most commonly asked questions about our products and services."
     },
     {
       icon: <FaBook />,
-      title: "Documentation",
-      description: "Detailed guides and technical documentation for all our solutions."
+      title: t.docsTitle || "Documentation",
+      description: t.docsDesc || "Detailed guides and technical documentation for all our solutions."
     },
     {
       icon: <FaHeadset />,
-      title: "Support",
-      description: "Get help from our support team for any issues or questions."
+      title: t.supportTitle || "Support",
+      description: t.supportDesc || "Get help from our support team for any issues or questions."
     },
     {
       icon: <FaEnvelope />,
-      title: "Contact Us",
-      description: "Reach out to us directly for sales inquiries or partnership opportunities."
+      title: t.contactTitle || "Contact Us",
+      description: t.contactDesc || "Reach out to us directly for sales inquiries or partnership opportunities."
     }
   ];
 
   const faqs = [
     {
-      question: "What is CyberEco?",
-      answer: "CyberEco is an innovative company focused on developing digital applications that enhance financial collaboration, community engagement, and social connectivity through user-centered design."
+      question: t.faq1Q || "What is CyberEco?",
+      answer: t.faq1A || "CyberEco is an innovative company focused on developing digital applications that enhance financial collaboration, community engagement, and social connectivity through user-centered design."
     },
     {
-      question: "How can I start using CyberEco applications?",
-      answer: "You can explore our solutions in the Portfolio section and download or access them through the links provided for each application."
+      question: t.faq2Q || "How can I start using CyberEco applications?",
+      answer: t.faq2A || "You can explore our solutions in the Portfolio section and download or access them through the links provided for each application."
     },
     {
-      question: "Are CyberEco's applications available on all platforms?",
-      answer: "Most of our applications are available as web apps, with iOS and Android versions available for our most popular tools like JustSplit and Nexus."
+      question: t.faq3Q || "Are CyberEco's applications available on all platforms?",
+      answer: t.faq3A || "Most of our applications are available as web apps, with iOS and Android versions available for our most popular tools like JustSplit and Nexus."
     },
     {
-      question: "How does CyberEco ensure data privacy and security?",
-      answer: "We implement strong encryption, secure authentication protocols, and follow industry best practices for data protection. All our applications are designed with security as a priority."
+      question: t.faq4Q || "How does CyberEco ensure data privacy and security?",
+      answer: t.faq4A || "We implement strong encryption, secure authentication protocols, and follow industry best practices for data protection. All our applications are designed with security as a priority."
     },
     {
-      question: "Can I use CyberEco applications for my organization or business?",
-      answer: "Yes, many of our applications like Demos and Community Manager have business/organization versions with enhanced features for professional use."
+      question: t.faq5Q || "Can I use CyberEco applications for my organization or business?",
+      answer: t.faq5A || "Yes, many of our applications like Demos and Community Manager have business/organization versions with enhanced features for professional use."
     }
   ];
 
@@ -152,14 +156,14 @@ const HelpPage = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          Help & Support
+          {t.title || 'Help & Support'}
         </Title>
         <Subtitle
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          Find the resources and assistance you need to get the most out of CyberEco solutions.
+          {t.subtitle || 'Find the resources and assistance you need to get the most out of CyberEco solutions.'}
         </Subtitle>
       </PageHeader>
 
@@ -181,7 +185,7 @@ const HelpPage = () => {
       </HelpGrid>
 
       <FaqSection>
-        <FaqTitle>Frequently Asked Questions</FaqTitle>
+        <FaqTitle>{t.faqSectionTitle || 'Frequently Asked Questions'}</FaqTitle>
         
         {faqs.map((faq, index) => (
           <FaqItem

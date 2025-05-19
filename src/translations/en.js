@@ -1,0 +1,137 @@
+const translations = {
+  // Navigation and common UI elements
+  navigation: {
+    home: "Home",
+    portfolio: "Solutions",
+    about: "About Us",
+    help: "Help"
+  },
+  
+  footer: {
+    tagline: "Digital solutions for a connected world",
+    solutions: "Solutions",
+    company: "Company",
+    about: "About Us",
+    support: "Support",
+    privacy: "Privacy Policy",
+    terms: "Terms of Service",
+    contact: "Contact",
+    address: "123 Innovation Way",
+    cityCountry: "San Francisco, CA 94103",
+    rightsReserved: "All rights reserved."
+  },
+  
+  // HomePage translations
+  homePage: {
+    hero: {
+      title: "Digital Solutions for a Connected World",
+      subtitle: "CyberEco creates innovative applications that enhance how people manage finances, engage with communities, and connect with each other in the digital age.",
+      exploreSolutions: "Explore Solutions",
+      learnAboutUs: "Learn About Us"
+    },
+    features: {
+      sectionTitle: "Transformative Technology Solutions",
+      sectionSubtitle: "What sets our solutions apart from the rest",
+      communityTitle: "Community Building",
+      communityDesc: "Create and nurture thriving digital communities with tools designed for meaningful connection and collaboration.",
+      sustainabilityTitle: "Sustainability",
+      sustainabilityDesc: "Eco-friendly digital solutions designed with environmental impact in mind, promoting sustainable practices.",
+      securityTitle: "Enhanced Security",
+      securityDesc: "State-of-the-art security measures to protect your data and ensure privacy across all our applications.",
+      innovationTitle: "Innovative Tech",
+      innovationDesc: "Cutting-edge technology solutions that anticipate needs and solve problems before they arise."
+    },
+    mission: {
+      sectionTitle: "OUR MISSION",
+      sectionSubtitle: "Creating harmony between technology and sustainability",
+      missionText: "At CyberEco, our mission is to design and implement user-centered digital applications that enhance financial collaboration, community engagement, and social connectivity. We develop tools that promote transparency, efficiency, and healthy relationships between people and technology, enabling individuals and communities to thrive in our increasingly digital world.",
+      learnMore: "Learn More About Us",
+      vision: "Vision",
+      visionText: "A world where technology facilitates meaningful connections, efficient collaboration, and sustainable resource management.",
+      approach: "Approach",
+      approachText: "We develop user-centered applications that combine intuitive functionality with innovative features to solve real-world problems."
+    },
+    solutions: {
+      sectionTitle: "Our Solutions",
+      sectionSubtitle: "Explore our diverse portfolio of digital applications designed to enhance productivity, connectivity, and community engagement",
+      learnMore: "Learn more",
+      viewAll: "View All Solutions"
+    },
+    callToAction: {
+      title: "Ready to Transform Your Relationship with Technology?",
+      subtitle: "Discover how CyberEco's innovative applications can help you manage finances, engage with communities, and navigate social connections more effectively.",
+      exploreSolutions: "Explore Solutions",
+      contactUs: "Get Support"
+    }
+  },
+  
+  // AboutPage translations
+  aboutPage: {
+    title: "About CyberEco",
+    subtitle: "Learn about our mission, vision, and the values that guide our innovative technology solutions.",
+    whoWeAreTitle: "Who We Are",
+    whoWeAreP1: "CyberEco is an innovative parent company dedicated to developing digital applications that enhance financial collaboration, community engagement, and social connectivity. Our purpose is to transform how people manage resources, make decisions collectively, and interact with technology through intuitive, user-centered solutions.",
+    whoWeAreP2: "Our team combines expertise in software development, user experience design, financial systems, and community building to create comprehensive digital tools for individuals and groups.",
+    teamImage: "Team Image",
+    visionMissionTitle: "Our Vision & Mission",
+    visionTitle: "Vision",
+    visionText: "To be a leading creator of digital applications that empower individuals and communities to collaborate more effectively, make better decisions, and form meaningful connections in an increasingly digital world.",
+    missionTitle: "Mission",
+    missionText: "To design and deploy user-centered digital solutions that simplify financial management, facilitate community engagement, and enhance social connections while promoting transparency, sustainability, and digital wellbeing.",
+    valuesTitle: "Our Values",
+    value1Title: "Innovation with Purpose",
+    value1Text: "We create technology that solves real problems and improves quality of life.",
+    value2Title: "Environmental Stewardship",
+    value2Text: "All our solutions are designed with sustainability and reduced environmental impact in mind.",
+    value3Title: "User-Centered Design",
+    value3Text: "We prioritize intuitive, accessible, and enjoyable user experiences in everything we create.",
+    value4Title: "Collaborative Growth",
+    value4Text: "We believe in building communities and ecosystems where everyone can thrive together."
+  },
+  
+  // PortfolioPage translations
+  portfolioPage: {
+    title: "Our Solutions",
+    subtitle: "Explore our diverse portfolio of digital solutions designed to enhance productivity, sustainability, connectivity, and community engagement through innovative technology.",
+    justSplitTitle: "JustSplit",
+    justSplitDesc: "A simple and intuitive expense tracking and sharing app that helps friends, roommates, and groups easily manage shared finances.",
+    plantopiaTitle: "Plantopia",
+    plantopiaDesc: "Smart gardening platform that combines IoT technology with plant care knowledge to help users cultivate thriving gardens sustainably.",
+    demosTitle: "Demos",
+    demosDesc: "Smart democracy platform that facilitates transparent decision-making processes for organizations, communities, and civic engagement.",
+    nexusTitle: "Nexus",
+    nexusDesc: "Integrated social media hub that helps users manage multiple platforms while preserving digital wellbeing and meaningful connections.",
+    tradePilotTitle: "TradePilot",
+    tradePilotDesc: "Advanced trading tool with analytics, automation, and educational resources for both novice and experienced investors.",
+    communityManagerTitle: "Community Manager",
+    communityManagerDesc: "Comprehensive platform to create, grow, and manage communities with powerful tools for engagement, governance, and resource sharing.",
+    comingSoon: "Detailed information about each solution coming soon."
+  },
+  
+  // HelpPage translations
+  helpPage: {
+    title: "Help & Support",
+    subtitle: "Find the resources and assistance you need to get the most out of CyberEco solutions.",
+    faqsTitle: "FAQs",
+    faqsDesc: "Find answers to the most commonly asked questions about our products and services.",
+    docsTitle: "Documentation",
+    docsDesc: "Detailed guides and technical documentation for all our solutions.",
+    supportTitle: "Support",
+    supportDesc: "Get help from our support team for any issues or questions.",
+    contactTitle: "Contact Us",
+    contactDesc: "Reach out to us directly for sales inquiries or partnership opportunities.",
+    faqSectionTitle: "Frequently Asked Questions",
+    faq1Q: "What is CyberEco?",
+    faq1A: "CyberEco is an innovative company focused on developing digital applications that enhance financial collaboration, community engagement, and social connectivity through user-centered design.",
+    faq2Q: "How can I start using CyberEco applications?",
+    faq2A: "You can explore our solutions in the Portfolio section and download or access them through the links provided for each application.",
+    faq3Q: "Are CyberEco's applications available on all platforms?",
+    faq3A: "Most of our applications are available as web apps, with iOS and Android versions available for our most popular tools like JustSplit and Nexus.",
+    faq4Q: "How does CyberEco ensure data privacy and security?",
+    faq4A: "We implement strong encryption, secure authentication protocols, and follow industry best practices for data protection. All our applications are designed with security as a priority.",
+    faq5Q: "Can I use CyberEco applications for my organization or business?",
+    faq5A: "Yes, many of our applications like Demos and Community Manager have business/organization versions with enhanced features for professional use."
+  }
+};
+
+export default translations;

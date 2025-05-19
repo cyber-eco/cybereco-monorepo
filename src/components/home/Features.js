@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { FaHome, FaLeaf, FaNetworkWired, FaShieldAlt } from 'react-icons/fa';
+import { LanguageContext } from '../../context/LanguageContext';
+import { FaUsers, FaLeaf, FaLock, FaLaptopCode } from 'react-icons/fa';
 
 const FeaturesSection = styled.section`
   background-color: ${({ theme }) => theme.background};
@@ -17,6 +18,13 @@ const FeaturesContainer = styled.div`
 const SectionTitle = styled.h2`
   text-align: center;
   margin-bottom: var(--spacing-lg);
+`;
+
+const SectionSubtitle = styled.h3`
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  color: ${({ theme }) => theme.textSecondary};
+  font-size: 1.1rem;
 `;
 
 const FeaturesGrid = styled.div`
@@ -43,7 +51,7 @@ const FeatureCard = styled(motion.div)`
   }
 `;
 
-const FeatureIcon = styled.div`
+const IconContainer = styled.div`
   width: 70px;
   height: 70px;
   border-radius: 50%;
@@ -68,77 +76,58 @@ const FeatureDescription = styled.p`
 `;
 
 const Features = () => {
-  const featureVariants = {
-    offscreen: {
-      y: 50,
-      opacity: 0
-    },
-    onscreen: i => ({
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        bounce: 0.4,
-        duration: 0.8,
-        delay: i * 0.1
-      }
-    })
-  };
+  const { translations } = useContext(LanguageContext);
+  const t = translations?.homePage?.features || {};
 
   const features = [
     {
-      id: 1,
-      title: 'Financial Management',
-      description: 'Simple and intuitive tools for expense tracking, sharing, and management across groups and communities.',
-      icon: <FaHome />,
-      color: '#006241'
+      icon: <FaUsers />,
+      title: t.communityTitle || 'Community Building',
+      description: t.communityDesc || 'Create and nurture thriving digital communities with tools designed for meaningful connection and collaboration.'
     },
     {
-      id: 2,
-      title: 'Community Engagement',
-      description: 'Platforms that foster healthy communities through democratic processes, resource sharing, and collaboration.',
       icon: <FaLeaf />,
-      color: '#6BBF59'
+      title: t.sustainabilityTitle || 'Sustainability',
+      description: t.sustainabilityDesc || 'Eco-friendly digital solutions designed with environmental impact in mind, promoting sustainable practices.'
     },
     {
-      id: 3,
-      title: 'Digital Wellbeing',
-      description: 'Solutions that promote meaningful online interactions and balanced digital consumption habits.',
-      icon: <FaNetworkWired />,
-      color: '#006241'
+      icon: <FaLock />,
+      title: t.securityTitle || 'Enhanced Security',
+      description: t.securityDesc || 'State-of-the-art security measures to protect your data and ensure privacy across all our applications.'
     },
     {
-      id: 4,
-      title: 'Data-Driven Decisions',
-      description: 'Analytics and tools that provide insights for better decision-making in finance, community management, and more.',
-      icon: <FaShieldAlt />,
-      color: '#6BBF59'
+      icon: <FaLaptopCode />,
+      title: t.innovationTitle || 'Innovative Tech',
+      description: t.innovationDesc || 'Cutting-edge technology solutions that anticipate needs and solve problems before they arise.'
     }
   ];
 
   return (
     <FeaturesSection>
       <FeaturesContainer>
-        <SectionTitle>Transformative Technology Solutions</SectionTitle>
+        <SectionTitle>
+          {t.sectionTitle || 'Transformative Technology Solutions'}
+        </SectionTitle>
+        
+        <SectionSubtitle>
+          {t.sectionSubtitle || 'What sets our solutions apart from the rest'}
+        </SectionSubtitle>
         
         <FeaturesGrid>
-          {features.map((feature, i) => (
-            <motion.div
-              key={feature.id}
-              initial="offscreen"
-              whileInView="onscreen"
-              viewport={{ once: true, amount: 0.2 }}
-              custom={i}
-              variants={featureVariants}
+          {features.map((feature, index) => (
+            <FeatureCard
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 * index }}
+              viewport={{ once: true, margin: "-50px" }}
             >
-              <FeatureCard>
-                <FeatureIcon color={feature.color}>
-                  {feature.icon}
-                </FeatureIcon>
-                <FeatureTitle>{feature.title}</FeatureTitle>
-                <FeatureDescription>{feature.description}</FeatureDescription>
-              </FeatureCard>
-            </motion.div>
+              <IconContainer>
+                {feature.icon}
+              </IconContainer>
+              <FeatureTitle>{feature.title}</FeatureTitle>
+              <FeatureDescription>{feature.description}</FeatureDescription>
+            </FeatureCard>
           ))}
         </FeaturesGrid>
       </FeaturesContainer>

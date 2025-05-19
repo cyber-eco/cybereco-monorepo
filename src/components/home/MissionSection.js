@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import Button from '../common/Button';
+import { LanguageContext } from '../../context/LanguageContext';
 
 const Section = styled.section`
   background-color: ${({ theme }) => 
@@ -48,7 +49,7 @@ const SectionImage = styled(motion.div)`
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('/mission-image.jpg') center/cover;
+    background: url('/mission-image.png') center/cover;
     opacity: ${({ theme }) => theme.mode === 'dark' ? '0.8' : '1'};
     transition: opacity 0.3s ease;
   }
@@ -79,6 +80,9 @@ const SectionText = styled(motion.p)`
 `;
 
 const MissionSection = () => {
+  const { translations } = useContext(LanguageContext);
+  const t = translations?.homePage?.mission || {};
+
   return (
     <Section>
       <Container>
@@ -89,7 +93,7 @@ const MissionSection = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            OUR MISSION
+            {t.sectionTitle || 'OUR MISSION'}
           </SectionSubtitle>
           
           <SectionTitle
@@ -98,7 +102,7 @@ const MissionSection = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            Creating harmony between technology and sustainability
+            {t.sectionSubtitle || 'Creating harmony between technology and sustainability'}
           </SectionTitle>
           
           <SectionText
@@ -107,11 +111,7 @@ const MissionSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            At CyberEco, our mission is to design and implement user-centered digital applications 
-            that enhance financial collaboration, community engagement, and social connectivity. 
-            We develop tools that promote transparency, efficiency, and healthy relationships 
-            between people and technology, enabling individuals and communities to thrive in our 
-            increasingly digital world.
+            {t.missionText || 'At CyberEco, our mission is to design and implement user-centered digital applications that enhance financial collaboration, community engagement, and social connectivity. We develop tools that promote transparency, efficiency, and healthy relationships between people and technology, enabling individuals and communities to thrive in our increasingly digital world.'}
           </SectionText>
           
           <motion.div
@@ -120,7 +120,9 @@ const MissionSection = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <Button to="/about">Learn More About Us</Button>
+            <Button to="/about">
+              {t.learnMore || 'Learn More About Us'}
+            </Button>
           </motion.div>
         </TextContent>
         

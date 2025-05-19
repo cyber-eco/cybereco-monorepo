@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import Button from '../common/Button';
+import { LanguageContext } from '../../context/LanguageContext';
 
 const SectionWrapper = styled.section`
   background: linear-gradient(
@@ -41,6 +42,9 @@ const ButtonGroup = styled(motion.div)`
 `;
 
 const CallToAction = () => {
+  const { translations } = useContext(LanguageContext);
+  const t = translations?.homePage?.callToAction || {};
+
   return (
     <SectionWrapper>
       <Container>
@@ -50,7 +54,7 @@ const CallToAction = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          Ready to Transform Your Relationship with Technology?
+          {t.title || 'Ready to Transform Your Relationship with Technology?'}
         </Title>
         
         <Description
@@ -59,8 +63,7 @@ const CallToAction = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          Discover how CyberEco's innovative applications can help you manage finances, 
-          engage with communities, and navigate social connections more effectively.
+          {t.subtitle || 'Discover how CyberEco\'s innovative applications can help you manage finances, engage with communities, and navigate social connections more effectively.'}
         </Description>
         
         <ButtonGroup
@@ -70,10 +73,10 @@ const CallToAction = () => {
           viewport={{ once: true }}
         >
           <Button to="/portfolio" size="large" style={{ background: "white", color: "var(--primary-dark)" }}>
-            Explore Solutions
+            {t.exploreSolutions || 'Explore Solutions'}
           </Button>
           <Button to="/help" variant="secondary" size="large" style={{ borderColor: "white", color: "white" }}>
-            Get Support
+            {t.contactUs || 'Get Support'}
           </Button>
         </ButtonGroup>
       </Container>

@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import Button from '../common/Button';
+import { LanguageContext } from '../../context/LanguageContext';
 
 const SectionWrapper = styled.section`
   background-color: ${({ theme }) => theme.background};
@@ -102,29 +103,33 @@ const ButtonContainer = styled.div`
 `;
 
 const SolutionsPreview = () => {
+  const { translations } = useContext(LanguageContext);
+  const t = translations?.homePage?.solutions || {};
+  const portfolio = translations?.portfolioPage || {};
+
   const solutions = [
     {
       id: "justsplit",
-      title: "JustSplit",
-      description: "A simple and intuitive expense tracking and sharing app that helps friends, roommates, and groups easily manage shared finances.",
+      title: portfolio.justSplitTitle || "JustSplit",
+      description: portfolio.justSplitDesc || "A simple and intuitive expense tracking and sharing app that helps friends, roommates, and groups easily manage shared finances.",
       color: "rgba(0, 98, 65, 0.2)"
     },
     {
-      id: "platopio",
-      title: "Platopio",
-      description: "Smart gardening platform that combines IoT technology with plant care knowledge to help users cultivate thriving gardens sustainably.",
+      id: "plantopia",
+      title: portfolio.plantopiaTitle || "Plantopia",
+      description: portfolio.plantopiaDesc || "Smart gardening platform that combines IoT technology with plant care knowledge to help users cultivate thriving gardens sustainably.",
       color: "rgba(107, 191, 89, 0.2)"
     },
     {
       id: "demos",
-      title: "Demos",
-      description: "Smart democracy platform that facilitates transparent decision-making processes for organizations, communities, and civic engagement.",
+      title: portfolio.demosTitle || "Demos",
+      description: portfolio.demosDesc || "Smart democracy platform that facilitates transparent decision-making processes for organizations, communities, and civic engagement.",
       color: "rgba(0, 98, 65, 0.2)"
     },
     {
       id: "nexus",
-      title: "Nexus",
-      description: "Integrated social media hub that helps users manage multiple platforms while preserving digital wellbeing and meaningful connections.",
+      title: portfolio.nexusTitle || "Nexus",
+      description: portfolio.nexusDesc || "Integrated social media hub that helps users manage multiple platforms while preserving digital wellbeing and meaningful connections.",
       color: "rgba(107, 191, 89, 0.2)"
     }
   ];
@@ -139,7 +144,7 @@ const SolutionsPreview = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            Our Solutions
+            {t.sectionTitle || 'Our Solutions'}
           </SectionTitle>
           <SectionSubtitle
             initial={{ opacity: 0, y: 20 }}
@@ -147,7 +152,7 @@ const SolutionsPreview = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            Explore our diverse portfolio of digital applications designed to enhance productivity, connectivity, and community engagement
+            {t.sectionSubtitle || 'Explore our diverse portfolio of digital applications designed to enhance productivity, connectivity, and community engagement'}
           </SectionSubtitle>
         </SectionHeader>
 
@@ -165,7 +170,7 @@ const SolutionsPreview = () => {
                 <CardTitle>{solution.title}</CardTitle>
                 <CardDescription>{solution.description}</CardDescription>
                 <CardLink to={`/portfolio#${solution.id}`}>
-                  Learn more
+                  {t.learnMore || 'Learn more'}
                 </CardLink>
               </CardContent>
             </SolutionCard>
@@ -174,7 +179,7 @@ const SolutionsPreview = () => {
 
         <ButtonContainer>
           <Button to="/portfolio" variant="secondary" size="large">
-            View All Solutions
+            {t.viewAll || 'View All Solutions'}
           </Button>
         </ButtonContainer>
       </Container>

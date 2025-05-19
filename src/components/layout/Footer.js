@@ -1,60 +1,66 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import { FaTwitter, FaLinkedinIn, FaGithub, FaEnvelope } from 'react-icons/fa';
+import { LanguageContext } from '../../context/LanguageContext';
 import Logo from '../common/Logo';
 
-const FooterWrapper = styled.footer`
+const FooterContainer = styled.footer`
   background-color: ${({ theme }) => theme.surface};
   padding: var(--spacing-lg) 0;
-  height: var(--footer-height);
+  min-height: var(--footer-height);
   border-top: 1px solid ${({ theme }) => theme.border};
 `;
 
-const FooterContainer = styled.div`
+const FooterContent = styled.div`
   max-width: var(--max-width);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(1, 1fr);
   gap: var(--spacing-md);
   padding: 0 var(--spacing-md);
+  
+  @media (min-width: 576px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media (min-width: 992px) {
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  }
 `;
 
 const FooterSection = styled.div`
   display: flex;
   flex-direction: column;
+  margin-bottom: var(--spacing-md);
+  
+  @media (min-width: 992px) {
+    margin-bottom: 0;
+  }
 `;
 
-const FooterTitle = styled.h3`
-  font-size: 1.2rem;
+const FooterLogo = styled.div`
+  font-size: 1.5rem;
+  font-weight: bold;
   margin-bottom: var(--spacing-md);
   color: ${({ theme }) => theme.textPrimary};
 `;
 
-const FooterLink = styled(Link)`
-  margin-bottom: var(--spacing-xs);
-  color: ${({ theme }) => theme.textSecondary};
-  transition: color 0.2s;
-
-  &:hover {
-    color: ${({ theme }) => theme.primary};
-  }
-`;
-
-const FooterText = styled.p`
+const FooterTagline = styled.p`
   color: ${({ theme }) => theme.textSecondary};
   margin-top: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
 `;
 
-const SocialLinks = styled.div`
+const SocialIcons = styled.div`
   display: flex;
-  gap: var(--spacing-sm);
-  margin-top: var(--spacing-sm);
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-xs);
 `;
 
-const SocialLink = styled.a`
+const SocialIcon = styled.a`
   color: ${({ theme }) => theme.textSecondary};
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   transition: color 0.2s;
 
   &:hover {
@@ -62,65 +68,122 @@ const SocialLink = styled.a`
   }
 `;
 
-const Copyright = styled.div`
+const FooterHeading = styled.h3`
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-md);
+  color: ${({ theme }) => theme.textPrimary};
+  font-weight: 600;
+`;
+
+const FooterLinks = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+`;
+
+const FooterLink = styled(Link)`
+  color: ${({ theme }) => theme.textSecondary};
+  transition: color 0.2s;
+  font-size: 0.95rem;
+
+  &:hover {
+    color: ${({ theme }) => theme.primary};
+  }
+`;
+
+const ContactInfo = styled.div`
+  color: ${({ theme }) => theme.textSecondary};
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+`;
+
+const ContactItem = styled.p`
+  margin: 0;
+  font-size: 0.95rem;
+`;
+
+const FooterBottom = styled.div`
   text-align: center;
   padding-top: var(--spacing-md);
   color: ${({ theme }) => theme.textSecondary};
   font-size: 0.9rem;
   border-top: 1px solid ${({ theme }) => theme.border};
-  margin-top: var(--spacing-md);
+  margin-top: var(--spacing-lg);
   max-width: var(--max-width);
   margin-left: auto;
   margin-right: auto;
+  padding-left: var(--spacing-md);
+  padding-right: var(--spacing-md);
+`;
+
+const Copyright = styled.div`
+  color: ${({ theme }) => theme.textSecondary};
 `;
 
 const Footer = () => {
+  const { translations } = useContext(LanguageContext);
+  const t = translations.footer || {};
   const currentYear = new Date().getFullYear();
-
+  
   return (
-    <FooterWrapper>
-      <FooterContainer>
+    <FooterContainer>
+      <FooterContent>
         <FooterSection>
           <Logo height={40} />
-          <FooterText>
-            CyberEco: the balance between intelligent control and sustainable living. Your home, your life.
-          </FooterText>
-          <SocialLinks>
-            <SocialLink href="https://github.com/cybereco" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-              <FaGithub />
-            </SocialLink>
-            <SocialLink href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              <FaLinkedin />
-            </SocialLink>
-            <SocialLink href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+          <FooterTagline>
+            {t.tagline || 'Digital solutions for a connected world'}
+          </FooterTagline>
+          <SocialIcons>
+            <SocialIcon href="https://twitter.com" aria-label="Twitter">
               <FaTwitter />
-            </SocialLink>
-          </SocialLinks>
+            </SocialIcon>
+            <SocialIcon href="https://linkedin.com" aria-label="LinkedIn">
+              <FaLinkedinIn />
+            </SocialIcon>
+            <SocialIcon href="https://github.com" aria-label="GitHub">
+              <FaGithub />
+            </SocialIcon>
+            <SocialIcon href="mailto:info@cybereco.io" aria-label="Email">
+              <FaEnvelope />
+            </SocialIcon>
+          </SocialIcons>
         </FooterSection>
-
+        
         <FooterSection>
-          <FooterTitle>Explore</FooterTitle>
-          <FooterLink to="/">Home</FooterLink>
-          <FooterLink to="/portfolio">Solutions</FooterLink>
-          <FooterLink to="/about">About Us</FooterLink>
-          <FooterLink to="/help">Help</FooterLink>
+          <FooterHeading>{t.solutions || 'Solutions'}</FooterHeading>
+          <FooterLinks>
+            <FooterLink to="/portfolio#justsplit">JustSplit</FooterLink>
+            <FooterLink to="/portfolio#plantopia">Plantopia</FooterLink>
+            <FooterLink to="/portfolio#demos">Demos</FooterLink>
+            <FooterLink to="/portfolio#nexus">Nexus</FooterLink>
+          </FooterLinks>
         </FooterSection>
-
+        
         <FooterSection>
-          <FooterTitle>Solutions</FooterTitle>
-          <FooterLink to="/portfolio#justsplit">JustSplit</FooterLink>
-          <FooterLink to="/portfolio#platopio">Platopio</FooterLink>
-          <FooterLink to="/portfolio#demos">Demos</FooterLink>
-          <FooterLink to="/portfolio#nexus">Nexus</FooterLink>
-          <FooterLink to="/portfolio#tradepilot">TradePilot</FooterLink>
-          <FooterLink to="/portfolio#community-manager">Community Manager</FooterLink>
+          <FooterHeading>{t.company || 'Company'}</FooterHeading>
+          <FooterLinks>
+            <FooterLink to="/about">{t.about || 'About Us'}</FooterLink>
+            <FooterLink to="/help">{t.support || 'Support'}</FooterLink>
+            <FooterLink to="/privacy">{t.privacy || 'Privacy Policy'}</FooterLink>
+            <FooterLink to="/terms">{t.terms || 'Terms of Service'}</FooterLink>
+          </FooterLinks>
         </FooterSection>
-      </FooterContainer>
-
-      <Copyright>
-        © {currentYear} CyberEco. All rights reserved.
-      </Copyright>
-    </FooterWrapper>
+        
+        <FooterSection>
+          <FooterHeading>{t.contact || 'Contact'}</FooterHeading>
+          <ContactInfo>
+            <ContactItem>info@cybereco.io</ContactItem>
+          </ContactInfo>
+        </FooterSection>
+      </FooterContent>
+      
+      <FooterBottom>
+        <Copyright>
+          © {currentYear} CyberEco. {t.rightsReserved || 'All rights reserved.'}
+        </Copyright>
+      </FooterBottom>
+    </FooterContainer>
   );
 };
 
