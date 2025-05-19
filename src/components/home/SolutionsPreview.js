@@ -62,6 +62,10 @@ const CardImage = styled.div`
   height: 160px;
   background-color: ${({ theme, color }) => color || `${theme.primary}20`};
   position: relative;
+  background-image: ${({ image }) => image ? `url(${image})` : 'none'};
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 `;
 
 const CardContent = styled.div`
@@ -112,13 +116,16 @@ const SolutionsPreview = () => {
       id: "justsplit",
       title: portfolio.justSplitTitle || "JustSplit",
       description: portfolio.justSplitDesc || "A simple and intuitive expense tracking and sharing app that helps friends, roommates, and groups easily manage shared finances.",
-      color: "rgba(0, 98, 65, 0.2)"
-    },
+      color: "rgba(0, 98, 65, 0.2)",
+      image: `${process.env.PUBLIC_URL}/portfolio/justsplit.png`,
+      url: "https://justsplit.cybere.co"
+    },  
     {
       id: "plantopia",
       title: portfolio.plantopiaTitle || "Plantopia",
       description: portfolio.plantopiaDesc || "Smart gardening platform that combines IoT technology with plant care knowledge to help users cultivate thriving gardens sustainably.",
-      color: "rgba(107, 191, 89, 0.2)"
+      color: "rgba(107, 191, 89, 0.2)",
+      url: "https://plantopia.cybere.co"
     },
     {
       id: "demos",
@@ -165,11 +172,11 @@ const SolutionsPreview = () => {
               transition={{ duration: 0.5, delay: 0.1 * index }}
               viewport={{ once: true }}
             >
-              <CardImage color={solution.color} />
+              <CardImage color={solution.color} image={solution.image} />
               <CardContent>
                 <CardTitle>{solution.title}</CardTitle>
                 <CardDescription>{solution.description}</CardDescription>
-                <CardLink to={`/portfolio#${solution.id}`}>
+                <CardLink to={solution.url || `/portfolio#${solution.id}`}>
                   {t.learnMore || 'Learn more'}
                 </CardLink>
               </CardContent>

@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { LanguageContext } from '../context/LanguageContext';
 
 const PageContainer = styled.div`
@@ -40,15 +41,28 @@ const SolutionCard = styled(motion.div)`
   border-radius: var(--border-radius);
   overflow: hidden;
   box-shadow: ${({ theme }) => theme.shadow};
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  ${({ isClickable }) => isClickable && `
+    cursor: pointer;
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+  `}
 `;
 
 const CardImage = styled.div`
   height: 200px;
   background-color: ${({ theme }) => theme.primary}20;
   position: relative;
+  background-image: ${({ image }) => image ? `url(${image})` : 'none'};
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
   
   &::after {
-    content: "Solution Image";
+    content: ${({ image }) => image ? '""' : '"Solution Image"'};
     position: absolute;
     top: 50%;
     left: 50%;
@@ -77,6 +91,14 @@ const ComingSoon = styled.div`
   color: ${({ theme }) => theme.textSecondary};
 `;
 
+// Wrapper component that conditionally wraps content in a Link or div
+const CardWrapper = ({ children, url }) => {
+  if (url) {
+    return <Link to={url} style={{ textDecoration: 'none', display: 'block' }}>{children}</Link>;
+  }
+  return <>{children}</>;
+};
+
 const PortfolioPage = () => {
   const { translations, language } = useContext(LanguageContext);
   const t = translations.portfolioPage || {};
@@ -85,12 +107,15 @@ const PortfolioPage = () => {
     {
       id: "justsplit",
       title: t.justSplitTitle || "JustSplit",
-      description: t.justSplitDesc || "A simple and intuitive expense tracking and sharing app that helps friends, roommates, and groups easily manage shared finances."
+      description: t.justSplitDesc || "A simple and intuitive expense tracking and sharing app that helps friends, roommates, and groups easily manage shared finances.",
+      image: `${process.env.PUBLIC_URL}/portfolio/justsplit.png`,
+      url: "https://justsplit.cybere.co"
     },
     {
       id: "plantopia",
       title: t.plantopiaTitle || "Plantopia",
-      description: t.plantopiaDesc || "Smart gardening platform that combines IoT technology with plant care knowledge to help users cultivate thriving gardens sustainably."
+      description: t.plantopiaDesc || "Smart gardening platform that combines IoT technology with plant care knowledge to help users cultivate thriving gardens sustainably.",
+      url: "https://plantopia.cybere.co"
     },
     {
       id: "demos",
@@ -114,6 +139,13 @@ const PortfolioPage = () => {
     }
   ];
 
+  // Function to handle external URLs
+  const handleCardClick = (url) => {
+    if (url && url.startsWith('http')) {
+      window.open(url, '_blank', 'noopener,noreferrer');
+    }
+  };
+
   return (
     <PageContainer>
       <PageHeader>
@@ -134,21 +166,34 @@ const PortfolioPage = () => {
       </PageHeader>
 
       <SolutionsGrid>
-        {solutions.map((solution, index) => (
-          <SolutionCard 
-            key={solution.id}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 * index }}
-            id={solution.id}
-          >
-            <CardImage />
-            <CardContent>
-              <CardTitle>{solution.title}</CardTitle>
-              <CardDescription>{solution.description}</CardDescription>
-            </CardContent>
-          </SolutionCard>
-        ))}
+        {solutions.map((solution, index) => {
+          const isExternalLink = solution.url && solution.url.startsWith('http');
+          
+          return (
+            <SolutionCard 
+              key={solution.id}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 * index }}
+              id={solution.id}
+              isClickable={!!solution.url}
+              onClick={isExternalLink ? () => handleCardClick(solution.url) : undefined}
+            >
+              <CardWrapper url={!isExternalLink ? solution.url : undefined}>
+                <CardImage image={solution.image} />
+                <CardContent>
+                  <CardTitle>{solution.title}</CardTitle>
+                  <CardDescription>{solution.description}</CardDescription>
+                  {solution.url && (
+                    <p style={{ color: 'var(--color-primary)', fontWeight: 500 }}>
+                      {t.viewSolution || 'View Solution'} →
+                    </p>
+                  )}
+                </CardContent>
+              </CardWrapper>
+            </SolutionCard>
+          );
+        })}
       </SolutionsGrid>
       
       <ComingSoon>
