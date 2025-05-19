@@ -39,13 +39,6 @@ const FooterSection = styled.div`
   }
 `;
 
-const FooterLogo = styled.div`
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: var(--spacing-md);
-  color: ${({ theme }) => theme.textPrimary};
-`;
-
 const FooterTagline = styled.p`
   color: ${({ theme }) => theme.textSecondary};
   margin-top: var(--spacing-sm);

@@ -51,17 +51,6 @@ const TextContent = styled.div`
   }
 `;
 
-const ImagePlaceholder = styled.div`
-  background-color: ${({ theme }) => theme.primary}20;
-  border-radius: var(--border-radius);
-  height: 300px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: ${({ theme }) => theme.primary};
-  font-weight: 500;
-`;
-
 const ValueCard = styled(motion.div)`
   background: ${({ theme }) => theme.surface};
   padding: var(--spacing-md);

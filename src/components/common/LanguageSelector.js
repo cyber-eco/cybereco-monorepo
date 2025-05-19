@@ -29,7 +29,7 @@ const Divider = styled.span`
 `;
 
 const LanguageSelector = () => {
-  const { language, changeLanguage, translations } = useContext(LanguageContext);
+  const { language, changeLanguage } = useContext(LanguageContext);
   
   return (
     <LanguageSelectorContainer>

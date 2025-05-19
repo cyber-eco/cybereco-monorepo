@@ -7,7 +7,7 @@ import SolutionsPreview from '../components/home/SolutionsPreview';
 import CallToAction from '../components/home/CallToAction';
 
 const HomePage = () => {
-  const { translations } = useContext(LanguageContext);
+  const { /* translations, */ otherVariables } = useContext(LanguageContext);
   
   return (
     <>
