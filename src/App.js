@@ -15,6 +15,12 @@ import PortfolioPage from './pages/PortfolioPage';
 import AboutPage from './pages/AboutPage';
 import HelpPage from './pages/HelpPage';
 import StatusPage from './pages/StatusPage';
+import PrivacyPage from './pages/PrivacyPage';
+import TermsPage from './pages/TermsPage';
+import FaqPage from './pages/FaqPage';
+import DocumentationPage from './pages/DocumentationPage';
+import SupportPage from './pages/SupportPage';
+import ContactPage from './pages/ContactPage';
 
 const AppContent = () => {
   const { darkMode } = useContext(ThemeContext);
@@ -31,6 +37,12 @@ const AppContent = () => {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/help" element={<HelpPage />} />
             <Route path="/status" element={<StatusPage />} />
+            <Route path="/privacy" element={<PrivacyPage />} />
+            <Route path="/terms" element={<TermsPage />} />
+            <Route path="/faq" element={<FaqPage />} />
+            <Route path="/documentation" element={<DocumentationPage />} />
+            <Route path="/support" element={<SupportPage />} />
+            <Route path="/contact" element={<ContactPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Layout>

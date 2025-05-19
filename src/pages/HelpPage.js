@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { FaQuestion, FaBook, FaHeadset, FaEnvelope } from 'react-icons/fa';
 import { LanguageContext } from '../context/LanguageContext';
 
@@ -34,22 +35,51 @@ const HelpGrid = styled.div`
   @media (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
   }
+  
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
 `;
 
-const HelpCard = styled(motion.div)`
+const HelpCard = styled(motion(Link))`
   background: ${({ theme }) => theme.surface};
   border-radius: var(--border-radius);
   padding: var(--spacing-lg);
   box-shadow: ${({ theme }) => theme.shadow};
   text-align: center;
+  position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  color: inherit;
   
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  }
+  
+  &:focus {
+    outline: 2px solid ${({ theme }) => theme.primary};
+    outline-offset: 2px;
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: ${({ theme }) => theme.primary};
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  &:hover::before {
+    opacity: 1;
   }
 `;
 
@@ -106,22 +136,26 @@ const HelpPage = () => {
     {
       icon: <FaQuestion />,
       title: t.faqsTitle || "FAQs",
-      description: t.faqsDesc || "Find answers to the most commonly asked questions about our products and services."
+      description: t.faqsDesc || "Find answers to the most commonly asked questions about our products and services.",
+      path: "/faq"
     },
     {
       icon: <FaBook />,
       title: t.docsTitle || "Documentation",
-      description: t.docsDesc || "Detailed guides and technical documentation for all our solutions."
+      description: t.docsDesc || "Detailed guides and technical documentation for all our solutions.",
+      path: "/documentation"
     },
     {
       icon: <FaHeadset />,
       title: t.supportTitle || "Support",
-      description: t.supportDesc || "Get help from our support team for any issues or questions."
+      description: t.supportDesc || "Get help from our support team for any issues or questions.",
+      path: "/support"
     },
     {
       icon: <FaEnvelope />,
       title: t.contactTitle || "Contact Us",
-      description: t.contactDesc || "Reach out to us directly for sales inquiries or partnership opportunities."
+      description: t.contactDesc || "Reach out to us directly for sales inquiries or partnership opportunities.",
+      path: "/contact"
     }
   ];
 
@@ -171,6 +205,7 @@ const HelpPage = () => {
         {helpOptions.map((option, index) => (
           <HelpCard
             key={index}
+            to={option.path}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 * index }}
