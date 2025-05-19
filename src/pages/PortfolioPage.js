@@ -100,7 +100,7 @@ const CardWrapper = ({ children, url }) => {
 };
 
 const PortfolioPage = () => {
-  const { translations, language } = useContext(LanguageContext);
+  const { translations } = useContext(LanguageContext);
   const t = translations.portfolioPage || {};
   
   const solutions = [
