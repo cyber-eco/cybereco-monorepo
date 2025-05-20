@@ -8,6 +8,11 @@ interface Translations {
   footer: {
     tagline: string;
     solutions: string;
+    communityGovernanceTitle: string;
+    financeEconomyTitle: string;
+    sustainabilityHomeTitle: string;
+    educationTitle: string;
+    healthWellnessTitle: string;
     company: string;
     about: string;
     support: string;
@@ -81,29 +86,123 @@ interface Translations {
     value3Text: string;
     value4Title: string;
     value4Text: string;
+    value5Title: string;
+    value5Text: string;
   };
   portfolioPage: {
     title: string;
     subtitle: string;
+    
+    // Category headings
+    communityGovernanceTitle: string;
+    communityGovernanceDesc: string;
+    financeEconomyTitle: string;
+    financeEconomyDesc: string;
+    sustainabilityHomeTitle: string;
+    sustainabilityHomeDesc: string;
+    educationTitle: string;
+    educationDesc: string;
+    healthWellnessTitle: string;
+    healthWellnessDesc: string;
+    identityDataLegalTitle: string;
+    identityDataLegalDesc: string;
+    familyMemoryTitle: string;
+    familyMemoryDesc: string;
+    travelLocalDiscoveryTitle: string;
+    travelLocalDiscoveryDesc: string;
+    techProductivityTitle: string;
+    techProductivityDesc: string;
+    
+    // Phase indicators
+    phaseMvp: string;
+    phaseGreen: string;
+    phasePersonal: string;
+    phaseExpansion: string;
+    phaseFuture: string;
+    
+    filterLabel: string;
+    filterAll: string;
+    viewDetails: string;
+    viewSolution: string;
+    
+    // Solutions
     justSplitTitle: string;
     justSplitDesc: string;
-    plantopiaTitle: string;
-    plantopiaDesc: string;
     demosTitle: string;
     demosDesc: string;
-    nexusTitle: string;
-    nexusDesc: string;
-    tradePilotTitle: string;
-    tradePilotDesc: string;
     communityManagerTitle: string;
     communityManagerDesc: string;
+    myCommunityTitle: string;
+    myCommunityDesc: string;
+    conciliationTitle: string;
+    conciliationDesc: string;
+    crowdPoolTitle: string;
+    crowdPoolDesc: string;
+    myWealthTitle: string;
+    myWealthDesc: string;
+    myBusinessTitle: string;
+    myBusinessDesc: string;
+    crowdFundTitle: string;
+    crowdFundDesc: string;
+    offerMeTitle: string;
+    offerMeDesc: string;
+    plantopiaTitle: string;
+    plantopiaDesc: string;
+    ecoTulTitle: string;
+    ecoTulDesc: string;
+    myHomeTitle: string;
+    myHomeDesc: string;
+    educationHubTitle: string;
+    educationHubDesc: string;
+    skillShareTitle: string;
+    skillShareDesc: string;
+    habitsTitle: string;
+    habitsDesc: string;
+    oneStepTitle: string;
+    oneStepDesc: string;
+    healthyTitle: string;
+    healthyDesc: string;
+    petPalTitle: string;
+    petPalDesc: string;
+    lawPalTitle: string;
+    lawPalDesc: string;
+    myDataTitle: string;
+    myDataDesc: string;
+    digitalMeTitle: string;
+    digitalMeDesc: string;
+    myDocsTitle: string;
+    myDocsDesc: string;
+    govAccessTitle: string;
+    govAccessDesc: string;
+    somosTitle: string;
+    somosDesc: string;
+    rememberMeTitle: string;
+    rememberMeDesc: string;
+    travelMateTitle: string;
+    travelMateDesc: string;
+    eventConnectTitle: string;
+    eventConnectDesc: string;
+    localWondersTitle: string;
+    localWondersDesc: string;
+    hobbistTitle: string;
+    hobbistDesc: string;
+    tradePilotTitle: string;
+    tradePilotDesc: string;
+    nexusTitle: string;
+    nexusDesc: string;
+    providerConnectTitle: string;
+    providerConnectDesc: string;
+    myProjectsTitle: string;
+    myProjectsDesc: string;
+    myCareerTitle: string;
+    myCareerDesc: string;
     comingSoon: string;
   };
   helpPage: {
     title: string;
     subtitle: string;
-    faqsTitle: string;
-    faqsDesc: string;
+    faqTitle: string;
+    faqDesc: string;
     docsTitle: string;
     docsDesc: string;
     supportTitle: string;
@@ -144,23 +243,61 @@ interface Translations {
     introductionTitle: string;
     introductionText: string;
     accountCreationTitle: string;
-    accountCreationText: string;
+    digitalSovereigntyText: string;
     exploringSolutionsTitle: string;
     exploringSolutionsText: string;
+    
+    // Community & Governance section
+    communityGovernanceTitle: string;
+    communityGovernanceNavItem: string;
+    demosTitle: string;
+    demosDesc: string;
+    communityManagerTitle: string;
+    communityManagerDesc: string;
+    myCommunityTitle: string;
+    myCommunityDesc: string;
+    conciliationTitle: string;
+    conciliationDesc: string;
+    crowdPoolTitle: string;
+    crowdPoolDesc: string;
+    
+    // Finance & Economy section
+    financeEconomyTitle: string;
+    financeEconomyNavItem: string;
     justSplitTitle: string;
-    justSplitAboutTitle: string;
     justSplitAboutText: string;
-    justSplitGroupTitle: string;
-    justSplitGroupText: string;
-    justSplitExpensesTitle: string;
-    justSplitExpensesText: string;
+    myWealthTitle: string;
+    myWealthDesc: string;
+    myBusinessTitle: string;
+    myBusinessDesc: string;
+    crowdFundTitle: string;
+    crowdFundDesc: string;
+    offerMeTitle: string;
+    offerMeDesc: string;
+    
+    // Sustainability & Home Life section
+    sustainabilityHomeTitle: string;
+    sustainabilityHomeNavItem: string;
     plantopiaTitle: string;
-    plantopiaAboutTitle: string;
     plantopiaAboutText: string;
-    plantopiaSetupTitle: string;
-    plantopiaSetupText: string;
-    plantopiaIoTTitle: string;
-    plantopiaIoTText: string;
+    ecoTulTitle: string;
+    ecoTulDesc: string;
+    myHomeTitle: string;
+    myHomeDesc: string;
+    
+    // Education & Growth
+    educationTitle: string;
+    educationGrowthNavItem: string;
+    educationHubTitle: string;
+    educationHubDesc: string;
+    skillShareTitle: string;
+    skillShareDesc: string;
+    habitsTitle: string;
+    habitsDesc: string;
+    oneStepTitle: string;
+    oneStepDesc: string;
+    
+    // API Reference
     apiReferenceTitle: string;
     apiOverviewTitle: string;
     apiOverviewText: string;
@@ -261,8 +398,13 @@ const translations: Translations = {
   },
   
   footer: {
-    tagline: "Soluciones digitales para un mundo conectado",
+    tagline: "Un ecosistema digital centrado en el ser humano para una vida consciente, conectada y sostenible",
     solutions: "Soluciones",
+    communityGovernanceTitle: "Comunidad y Gobernanza",
+    financeEconomyTitle: "Finanzas y Economía",
+    sustainabilityHomeTitle: "Sostenibilidad y Hogar",
+    educationTitle: "Educación y Crecimiento",
+    healthWellnessTitle: "Salud y Bienestar",
     company: "Empresa",
     about: "Nosotros",
     support: "Soporte",
@@ -321,58 +463,203 @@ const translations: Translations = {
   // AboutPage translations
   aboutPage: {
     title: "Sobre CyberEco",
-    subtitle: "Conozca nuestra misión, visión y los valores que guían nuestras soluciones tecnológicas innovadoras.",
+    subtitle: "Un ecosistema digital centrado en el ser humano para una vida consciente, conectada y sostenible.",
     whoWeAreTitle: "Quiénes Somos",
-    whoWeAreP1: "CyberEco es una innovadora empresa  dedicada a desarrollar aplicaciones digitales que mejoran la colaboración financiera, el compromiso comunitario y la conectividad social. Nuestro propósito es transformar la forma en que las personas gestionan recursos, toman decisiones colectivas e interactúan con la tecnología a través de soluciones intuitivas y centradas en el usuario.",
-    whoWeAreP2: "Nuestro equipo combina experiencia en desarrollo de software, diseño de experiencia de usuario, sistemas financieros y construcción de comunidades para crear herramientas digitales completas para individuos y grupos.",
+    whoWeAreP1: "CyberEco es un ecosistema digital centrado en el ser humano para una vida consciente, conectada y sostenible. En un mundo donde la vida digital está fragmentada, es extractiva y abrumadora, CyberEco existe para ofrecer un mejor camino, uno arraigado en la soberanía, la comunidad y el equilibrio.",
+    whoWeAreP2: "Creemos que tu presencia digital debería empoderarte, no explotarte. Tu identidad debería pertenecerte. Tus datos deberían servirte. Tus acciones deberían conectarte significativamente con otras personas.",
     teamImage: "Imagen del Equipo",
     visionMissionTitle: "Nuestra Visión y Misión",
     visionTitle: "Visión",
-    visionText: "Ser un creador líder de aplicaciones digitales que empoderen a individuos y comunidades para colaborar de manera más efectiva, tomar mejores decisiones y formar conexiones significativas en un mundo cada vez más digital.",
+    visionText: "Empoderar a millones de personas, no con más notificaciones, sino con claridad, autonomía y conexión. Crear un entorno digital tan humano, intencional y resiliente como el mundo que merecemos offline.",
     missionTitle: "Misión",
-    missionText: "Diseñar e implementar soluciones digitales centradas en el usuario que simplifiquen la gestión financiera, faciliten el compromiso comunitario y mejoren las conexiones sociales, promoviendo la transparencia, la sostenibilidad y el bienestar digital.",
+    missionText: "Crear un ecosistema digital modular — un sistema operativo para la vida — donde cada plataforma resuelve una necesidad real mientras contribuye a un todo mayor, centrado en el CyberEco Hub como tu identidad, tu panel de control, tu hogar digital.",
     valuesTitle: "Nuestros Valores",
-    value1Title: "Innovación con Propósito",
-    value1Text: "Creamos tecnología que resuelve problemas reales y mejora la calidad de vida.",
-    value2Title: "Responsabilidad Ambiental",
-    value2Text: "Todas nuestras soluciones están diseñadas con sostenibilidad y reducción del impacto ambiental en mente.",
-    value3Title: "Diseño Centrado en el Usuario",
-    value3Text: "Priorizamos experiencias de usuario intuitivas, accesibles y agradables en todo lo que creamos.",
-    value4Title: "Crecimiento Colaborativo",
-    value4Text: "Creemos en construir comunidades y ecosistemas donde todos puedan prosperar juntos."
+    value1Title: "Soberanía Digital",
+    value1Text: "Tú eres dueño de tu identidad, tus datos, tu narrativa. Creamos tecnología que empodera en lugar de explotar.",
+    value2Title: "Bienestar por Diseño",
+    value2Text: "La tecnología debe servir a tu vida, no consumirla. Diseñamos soluciones que mejoran tu bienestar en lugar de agotarlo.",
+    value3Title: "Interconexión con Propósito",
+    value3Text: "Cada plataforma es útil por sí sola, pero transformadora en conjunto. Creamos un ecosistema de soluciones que se complementan entre sí.",
+    value4Title: "La Comunidad es el Núcleo",
+    value4Text: "Construimos herramientas para individuos, impulsadas por lo colectivo. El compromiso comunitario y el crecimiento colaborativo están en el corazón de nuestro ecosistema.",
+    value5Title: "Abiertos por Naturaleza",
+    value5Text: "Donde sea posible, CyberEco es modular, transparente e interoperable. Adoptamos la apertura y la colaboración en nuestro enfoque de desarrollo."
   },
   
   // PortfolioPage translations
   portfolioPage: {
     title: "Nuestras Soluciones",
     subtitle: "Explore nuestro diverso portafolio de soluciones digitales diseñadas para mejorar la productividad, la sostenibilidad, la conectividad y el compromiso comunitario a través de tecnología innovadora.",
+    
+    // Títulos de categorías
+    communityGovernanceTitle: "Comunidad y Gobernanza",
+    communityGovernanceDesc: "Herramientas para crear, gestionar y participar en comunidades digitales con gobernanza y participación transparentes.",
+    
+    financeEconomyTitle: "Finanzas y Economía Colaborativa",
+    financeEconomyDesc: "Soluciones para administrar finanzas personales, compartir gastos y apoyar operaciones comerciales.",
+    
+    sustainabilityHomeTitle: "Sostenibilidad y Hogar",
+    sustainabilityHomeDesc: "Aplicaciones para gestionar estilos de vida sostenibles, jardinería y mantenimiento del hogar.",
+    
+    educationTitle: "Educación y Crecimiento Personal",
+    educationDesc: "Plataformas para el aprendizaje, intercambio de habilidades y desarrollo personal.",
+    
+    healthWellnessTitle: "Salud y Bienestar",
+    healthWellnessDesc: "Herramientas para mejorar la salud física y mental, incluyendo el bienestar de mascotas.",
+    
+    identityDataLegalTitle: "Identidad, Datos y Legal",
+    identityDataLegalDesc: "Soluciones para gestionar tu identidad digital, datos personales, documentos importantes y obtener asistencia legal inteligente.",
+    
+    familyMemoryTitle: "Familia y Memoria",
+    familyMemoryDesc: "Aplicaciones para preservar historias personales y explorar el patrimonio cultural.",
+    
+    travelLocalDiscoveryTitle: "Viajes, Eventos y Descubrimiento Local",
+    travelLocalDiscoveryDesc: "Herramientas para explorar comunidades locales, organizar eventos y planificar viajes.",
+    
+    techProductivityTitle: "Tecnología, Productividad y Carrera",
+    techProductivityDesc: "Aplicaciones para mejorar el crecimiento profesional, el bienestar digital y la gestión de proyectos.",
+    
+    // Indicadores de fase
+    phaseMvp: "MVP Prioritario (Fase 1)",
+    phaseGreen: "Impacto Verde (Fase 2)",
+    phasePersonal: "Personalización (Fase 3)",
+    phaseExpansion: "Expansión (Fase 4)",
+    phaseFuture: "Desarrollo Futuro",
+    
+    filterLabel: "Filtrar por categoría",
+    filterAll: "Todas las Soluciones",
+    viewDetails: "Ver Detalles",
+    viewSolution: "Abrir Solución",
+    
+    // Soluciones de Comunidad y Gobernanza
     justSplitTitle: "JustSplit",
-    justSplitDesc: "Una aplicación simple e intuitiva de seguimiento y compartición de gastos que ayuda a amigos, compañeros de habitación y grupos a gestionar fácilmente las finanzas compartidas.",
-    plantopiaTitle: "Plantopia",
-    plantopiaDesc: "Plataforma de jardinería inteligente que combina tecnología IoT con conocimientos de cuidado de plantas para ayudar a los usuarios a cultivar jardines prósperos de manera sostenible.",
+    justSplitDesc: "Una aplicación simple e intuitiva para el seguimiento y división de gastos que ayuda a amigos, compañeros de piso y grupos a gestionar fácilmente sus finanzas compartidas.",
+    
     demosTitle: "Demos",
-    demosDesc: "Plataforma de democracia inteligente que facilita procesos de toma de decisiones transparentes para organizaciones, comunidades y participación cívica.",
-    nexusTitle: "Nexus",
-    nexusDesc: "Centro integrado de redes sociales que ayuda a los usuarios a gestionar múltiples plataformas mientras preserva el bienestar digital y las conexiones significativas.",
-    tradePilotTitle: "TradePilot",
-    tradePilotDesc: "Herramienta avanzada de trading con análisis, automatización y recursos educativos tanto para inversores novatos como experimentados.",
+    demosDesc: "Plataforma transparente de votación y toma de decisiones para organizaciones y vecindarios.",
+    
     communityManagerTitle: "Community Manager",
-    communityManagerDesc: "Plataforma integral para crear, hacer crecer y gestionar comunidades con potentes herramientas para el compromiso, la gobernanza y el intercambio de recursos.",
+    communityManagerDesc: "Herramientas para crear, organizar y gobernar comunidades digitales o físicas.",
+    
+    myCommunityTitle: "MyCommunity",
+    myCommunityDesc: "Descubre recursos, eventos e iniciativas locales relevantes en tu entorno.",
+    
+    conciliationTitle: "Conciliation",
+    conciliationDesc: "Resolución de conflictos con mediadores neutrales humanos o de IA de manera justa.",
+    
+    crowdPoolTitle: "CrowdPool", 
+    crowdPoolDesc: "Sistema para asignar tareas comunitarias o micro-trabajos con incentivos.",
+    
+    // Finanzas y Economía Colaborativa
+    myWealthTitle: "MyWealth",
+    myWealthDesc: "Plataforma para visualizar y controlar finanzas personales e inversiones.",
+    
+    myBusinessTitle: "MyBusiness",
+    myBusinessDesc: "Herramienta ligera para emprendedores que combina gestión operativa y contable.",
+    
+    crowdFundTitle: "CrowdFund",
+    crowdFundDesc: "Crea campañas de financiación colectiva para ideas, causas o productos.",
+    
+    offerMeTitle: "OfferMe",
+    offerMeDesc: "Encuentra ofertas, descuentos y promociones locales verificadas.",
+    
+    // Soluciones de Sostenibilidad y Hogar
+    plantopiaTitle: "Plantopia",
+    plantopiaDesc: "Plataforma de jardinería inteligente con sensores y recomendaciones personalizadas.",
+    
+    ecoTulTitle: "EcoTul",
+    ecoTulDesc: "Recomendador de productos y servicios ecológicos seleccionados por su impacto real.",
+    
+    myHomeTitle: "MyHome",
+    myHomeDesc: "Aplicación para organizar el mantenimiento, gastos y mejoras del hogar.",
+    
+    // Soluciones de Educación
+    educationHubTitle: "Education Hub",
+    educationHubDesc: "Plataforma modular para acceder a rutas de aprendizaje y contenido educativo.",
+    
+    skillShareTitle: "Skill Share",
+    skillShareDesc: "Red colaborativa donde las personas comparten y enseñan sus habilidades.",
+    
+    habitsTitle: "Habits",
+    habitsDesc: "Registra y realiza seguimiento de hábitos para lograr metas personales.",
+    
+    oneStepTitle: "One Step",
+    oneStepDesc: "Sistema de micro-acciones para avanzar hacia grandes objetivos con pequeños pasos.",
+    
+    // Salud y Bienestar
+    healthyTitle: "Healthy",
+    healthyDesc: "Recomendaciones personalizadas para mejorar la salud física y mental.",
+    
+    petPalTitle: "PetPal",
+    petPalDesc: "Aplicación para gestionar la salud y el bienestar de mascotas con conexión veterinaria.",
+    
+    // Identidad, Datos y Legal
+    lawPalTitle: "LawPal",
+    lawPalDesc: "Asistente legal con IA que ayuda a entender documentos y conectar con abogados.",
+    
+    myDataTitle: "MyData",
+    myDataDesc: "Panel de control para gestionar, autorizar y rastrear el uso de tus datos personales.",
+    
+    digitalMeTitle: "DigitalMe",
+    digitalMeDesc: "Gestión central de identidad digital, reputación y presencia online.",
+    
+    myDocsTitle: "MyDocs",
+    myDocsDesc: "Almacenamiento seguro para documentos legales, personales y educativos.",
+    
+    govAccessTitle: "GovAccess",
+    govAccessDesc: "Acceso unificado y simplificado a trámites y servicios gubernamentales.",
+    
+    // Familia y Memoria
+    somosTitle: "Somos",
+    somosDesc: "Plataforma para explorar raíces familiares, historia cultural y sentido de identidad.",
+    
+    rememberMeTitle: "Remember Me",
+    rememberMeDesc: "Herramienta para guardar memorias, historias y mensajes intergeneracionales.",
+    
+    // Viajes, Eventos y Descubrimiento Local
+    travelMateTitle: "TravelMate",
+    travelMateDesc: "Planificador de viajes con guías locales y recomendaciones personalizadas.",
+    
+    eventConnectTitle: "EventConnect",
+    eventConnectDesc: "Descubre o crea eventos comunitarios con impacto local.",
+    
+    localWondersTitle: "LocalWonders",
+    localWondersDesc: "Encuentra joyas culturales y naturales en tu entorno.",
+    
+    hobbistTitle: "Hobbist",
+    hobbistDesc: "Conecta con personas que comparten tus aficiones y pasiones.",
+    
+    // Tecnología, Productividad y Carrera
+    tradePilotTitle: "TradePilot",
+    tradePilotDesc: "Plataforma para traders con análisis, automatización y simulación educativa.",
+    
+    nexusTitle: "Nexus",
+    nexusDesc: "Centro para gestionar redes sociales mientras preserva el bienestar digital.",
+    
+    providerConnectTitle: "ProviderConnect",
+    providerConnectDesc: "Comparación de proveedores con calificaciones y transparencia para mejores elecciones.",
+    
+    myProjectsTitle: "MyProjects",
+    myProjectsDesc: "Aplicación ligera para gestionar tareas y proyectos personales o colaborativos.",
+    
+    myCareerTitle: "MyCareer",
+    myCareerDesc: "Seguimiento de carrera, objetivos y networking en un solo lugar.",
+    
     comingSoon: "Información detallada sobre cada solución próximamente."
   },
   
   // HelpPage translations
   helpPage: {
     title: "Ayuda y Soporte",
-    subtitle: "Encuentre los recursos y la asistencia que necesita para aprovechar al máximo las soluciones de CyberEco.",
-    faqsTitle: "Preguntas Frecuentes",
-    faqsDesc: "Encuentre respuestas a las preguntas más comunes sobre nuestros productos y servicios.",
-    docsTitle: "Documentación",
-    docsDesc: "Guías detalladas y documentación técnica para todas nuestras soluciones.",
-    supportTitle: "Soporte",
-    supportDesc: "Obtenga ayuda de nuestro equipo de soporte para cualquier problema o pregunta.",
-    contactTitle: "Contáctenos",
-    contactDesc: "Comuníquese con nosotros directamente para consultas de ventas u oportunidades de colaboración.",
+    subtitle: "Encuentre los recursos y la asistencia que necesita para navegar por el ecosistema digital de CyberEco.",
+    faqTitle: "Preguntas Frecuentes",
+    faqDesc: "Encuentre respuestas a preguntas comunes sobre nuestras soluciones y el ecosistema CyberEco",
+    docsTitle: "Documentación de Soluciones",
+    docsDesc: "Guías detalladas y documentación para todas las categorías de soluciones en nuestro ecosistema digital",
+    supportTitle: "Soporte Comunitario",
+    supportDesc: "Obtenga ayuda de nuestro equipo de soporte y la comunidad para cualquier problema en todas las categorías de soluciones",
+    contactTitle: "Contacto",
+    contactDesc: "Comuníquese directamente con nosotros para preguntas sobre cualquiera de nuestras soluciones o para sugerir nuevas funcionalidades",
     faqSectionTitle: "Preguntas Frecuentes",
     faq1Q: "¿Qué es CyberEco?",
     faq1A: "CyberEco es una empresa innovadora centrada en desarrollar aplicaciones digitales que mejoran la colaboración financiera, el compromiso comunitario y la conectividad social a través del diseño centrado en el usuario.",
@@ -404,29 +691,65 @@ const translations: Translations = {
   // DocumentationPage translations
   documentationPage: {
     title: "Documentación",
-    subtitle: "Guías completas y documentación técnica para las aplicaciones de CyberEco",
+    subtitle: "Guías completas y documentación técnica para el ecosistema digital de CyberEco",
     searchPlaceholder: "Buscar en la documentación...",
     gettingStartedTitle: "Primeros Pasos con CyberEco",
     introductionTitle: "Introducción",
-    introductionText: "¡Bienvenido a la documentación de CyberEco! Esta guía te ayudará a comenzar con nuestra plataforma y aplicaciones. CyberEco ofrece un conjunto de soluciones digitales diseñadas para mejorar la colaboración financiera, el compromiso comunitario y la conectividad social.",
-    accountCreationTitle: "Creando Tu Cuenta",
-    accountCreationText: "Para comenzar con cualquier aplicación de CyberEco, primero necesitarás crear una cuenta. Visita nuestro sitio web y haz clic en \"Registrarse\" para crear tu cuenta. Puedes registrarte utilizando tu dirección de correo electrónico o usando una opción de inicio de sesión social.",
+    introductionText: "¡Bienvenido a la documentación de CyberEco! Esta guía te ayudará a comenzar con nuestro ecosistema digital. CyberEco ofrece un conjunto de soluciones digitales diseñadas para mejorar la colaboración financiera, el compromiso comunitario y la conectividad social, todo dentro de un marco centrado en el ser humano para una vida consciente, conectada y sostenible.",
+    accountCreationTitle: "Soberanía Digital",
+    digitalSovereigntyText: "En el núcleo de CyberEco está el principio de soberanía digital. Tú eres dueño de tu identidad, tus datos y tu narrativa. Todas nuestras aplicaciones están diseñadas con este principio en mente, asegurando que tu presencia digital te empodere, no te explote.",
     exploringSolutionsTitle: "Explorando Nuestras Soluciones",
-    exploringSolutionsText: "Después de crear tu cuenta, puedes explorar nuestras diversas aplicaciones desde tu panel de control. Cada aplicación tiene su propia funcionalidad específica, pero todas comparten nuestro compromiso con el diseño intuitivo y la operación segura.",
-    justSplitTitle: "Documentación de JustSplit",
-    justSplitAboutTitle: "Acerca de JustSplit",
-    justSplitAboutText: "JustSplit es una aplicación para compartir gastos que ayuda a amigos, compañeros de habitación y grupos a realizar fácilmente el seguimiento y la división de gastos. Agiliza el proceso de gestión de finanzas compartidas, asegurando que todos paguen su parte justa.",
-    justSplitGroupTitle: "Creando un Grupo",
-    justSplitGroupText: "Para comenzar a usar JustSplit, crea un nuevo grupo haciendo clic en \"Nuevo Grupo\" desde tu panel de control. Dale un nombre a tu grupo e invita a miembros utilizando sus direcciones de correo electrónico o compartiendo un enlace de invitación único.",
-    justSplitExpensesTitle: "Añadiendo Gastos",
-    justSplitExpensesText: "Una vez que tu grupo esté configurado, puedes añadir gastos haciendo clic en el botón \"Añadir Gasto\". Ingresa el monto, descripción, fecha y quién pagó. Luego, selecciona cómo debe dividirse el gasto entre los miembros del grupo.",
-    plantopiaTitle: "Documentación de Plantopia",
-    plantopiaAboutTitle: "Acerca de Plantopia",
-    plantopiaAboutText: "Plantopia es una plataforma de jardinería inteligente que combina tecnología IoT con conocimientos sobre el cuidado de plantas para ayudar a los usuarios a cultivar jardines prósperos de manera sostenible.",
-    plantopiaSetupTitle: "Configurando Tu Jardín",
-    plantopiaSetupText: "Después de crear tu cuenta de Plantopia, configura tu jardín digital añadiendo tus plantas. Puedes buscar en nuestra extensa base de datos o escanear plantas usando nuestra aplicación móvil para identificación automática.",
-    plantopiaIoTTitle: "Conectando Dispositivos IoT",
-    plantopiaIoTText: "Plantopia funciona mejor cuando se conecta a dispositivos IoT compatibles como sensores de humedad del suelo y sistemas de riego automático. Para conectar un dispositivo, ve a \"Configuración\" > \"Dispositivos Conectados\" y sigue las instrucciones de emparejamiento.",
+    exploringSolutionsText: "CyberEco no es solo otra aplicación. Es un ecosistema digital modular — un sistema operativo para la vida — donde cada plataforma resuelve una necesidad real mientras contribuye a un todo mayor. Nuestras soluciones están organizadas en categorías que cubren diferentes aspectos de la vida, desde la gobernanza comunitaria hasta la sostenibilidad, desde las finanzas hasta la educación.",
+    // Community & Governance section
+    communityGovernanceTitle: "Comunidad y Gobernanza",
+    communityGovernanceNavItem: "Comunidad y Gobernanza",
+    demosTitle: "Demos",
+    demosDesc: "Una plataforma de democracia digital participativa que permite la votación transparente y la toma de decisiones para organizaciones y vecindarios.",
+    communityManagerTitle: "Community Manager",
+    communityManagerDesc: "Herramientas avanzadas para crear, organizar y gobernar comunidades digitales o físicas con facilidad y transparencia.",
+    myCommunityTitle: "MyCommunity",
+    myCommunityDesc: "Una plataforma para descubrir recursos locales relevantes, eventos e iniciativas en tu entorno y fortalecer los lazos comunitarios.",
+    conciliationTitle: "Conciliación",
+    conciliationDesc: "Herramientas de resolución de conflictos con mediadores neutrales humanos o de IA para resolver disputas de manera justa y constructiva.",
+    crowdPoolTitle: "CrowdPool",
+    crowdPoolDesc: "Sistema para asignar tareas comunitarias o micro-trabajos con incentivos para una participación equilibrada.",
+    
+    // Finance & Economy section
+    financeEconomyTitle: "Finanzas y Economía Colaborativa",
+    financeEconomyNavItem: "Finanzas y Economía",
+    justSplitTitle: "JustSplit",
+    justSplitAboutText: "Una aplicación simple e intuitiva para seguimiento y compartición de gastos que ayuda a amigos, compañeros de habitación y grupos a gestionar fácilmente las finanzas compartidas.",
+    myWealthTitle: "MyWealth",
+    myWealthDesc: "Una plataforma integral para visualizar y controlar finanzas personales e inversiones en un solo lugar seguro.",
+    myBusinessTitle: "MyBusiness",
+    myBusinessDesc: "Una herramienta ligera para emprendedores que combina la gestión operativa y contable en una sola interfaz.",
+    crowdFundTitle: "CrowdFund",
+    crowdFundDesc: "Crea campañas de financiamiento colectivo para ideas, causas o productos con seguimiento transparente.",
+    offerMeTitle: "OfferMe",
+    offerMeDesc: "Encuentra ofertas locales verificadas, descuentos y promociones de negocios en tu comunidad.",
+    
+    // Sustainability & Home Life section
+    sustainabilityHomeTitle: "Sostenibilidad y Vida en el Hogar",
+    sustainabilityHomeNavItem: "Sostenibilidad y Hogar",
+    plantopiaTitle: "Plantopia",
+    plantopiaAboutText: "Una plataforma de jardinería inteligente que combina tecnología IoT con conocimientos sobre el cuidado de plantas para ayudar a los usuarios a cultivar jardines prósperos de manera sostenible.",
+    ecoTulTitle: "EcoTul",
+    ecoTulDesc: "Un recomendador curado de productos y servicios ecológicos evaluados por su impacto ambiental real.",
+    myHomeTitle: "MyHome",
+    myHomeDesc: "Una aplicación completa para organizar el mantenimiento del hogar, rastrear gastos y planificar mejoras para una vida sostenible.",
+    // Education & Growth
+    educationTitle: "Educación y Crecimiento Personal",
+    educationGrowthNavItem: "Educación y Crecimiento",
+    educationHubTitle: "Education Hub",
+    educationHubDesc: "Una plataforma modular para acceder a rutas de aprendizaje y contenido educativo en un entorno orientado a la comunidad.",
+    skillShareTitle: "Skill Share",
+    skillShareDesc: "Una red colaborativa donde las personas pueden compartir y enseñar sus habilidades a otros en la comunidad.",
+    habitsTitle: "Habits",
+    habitsDesc: "Una herramienta para registrar y seguir hábitos para alcanzar objetivos personales y fomentar la mejora continua.",
+    oneStepTitle: "One Step",
+    oneStepDesc: "Un sistema de micro-acciones diseñado para ayudarte a avanzar hacia grandes metas con pequeños pasos manejables.",
+    
+    // API Reference
     apiReferenceTitle: "Referencia de API",
     apiOverviewTitle: "Descripción General",
     apiOverviewText: "CyberEco proporciona APIs RESTful para todas nuestras aplicaciones, permitiendo a los desarrolladores integrar nuestros servicios en sus propias soluciones. Nuestras APIs utilizan métodos HTTP estándar y devuelven respuestas en formato JSON.",
@@ -434,9 +757,11 @@ const translations: Translations = {
     apiAuthText: "Todas las solicitudes a la API requieren autenticación usando tokens bearer OAuth 2.0. Para obtener un token, realiza una solicitud POST a nuestro endpoint de autenticación con tus credenciales de cliente.",
     apiRequestsTitle: "Realizando Solicitudes a la API",
     apiRequestsText: "Una vez que tengas tu token, inclúyelo en el encabezado de Autorización para todas las solicitudes subsiguientes. Nuestros endpoints de API siguen una estructura consistente para todas las aplicaciones.",
+    
+    // Navigation items
     gettingStartedNavTitle: "Primeros Pasos",
     introductionNavItem: "Introducción",
-    applicationsNavTitle: "Aplicaciones",
+    applicationsNavTitle: "Categorías de Soluciones",
     justSplitNavItem: "JustSplit",
     plantopiaNavItem: "Plantopia",
     developerNavTitle: "Desarrollador",

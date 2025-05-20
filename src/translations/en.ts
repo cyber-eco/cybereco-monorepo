@@ -10,8 +10,13 @@ const translations: Translations = {
   },
   
   footer: {
-    tagline: "Digital solutions for a connected world",
+    tagline: "A human-centered digital ecosystem for conscious, connected, and sustainable living",
     solutions: "Solutions",
+    communityGovernanceTitle: "Community & Governance",
+    financeEconomyTitle: "Finance & Economy",
+    sustainabilityHomeTitle: "Sustainability & Home",
+    educationTitle: "Education & Growth",
+    healthWellnessTitle: "Health & Wellness",
     company: "Company",
     about: "About Us",
     support: "Support",
@@ -70,58 +75,203 @@ const translations: Translations = {
   // AboutPage translations
   aboutPage: {
     title: "About CyberEco",
-    subtitle: "Learn about our mission, vision, and the values that guide our innovative technology solutions.",
+    subtitle: "A human-centered digital ecosystem for conscious, connected, and sustainable living.",
     whoWeAreTitle: "Who We Are",
-    whoWeAreP1: "CyberEco is an innovative parent company dedicated to developing digital applications that enhance financial collaboration, community engagement, and social connectivity. Our purpose is to transform how people manage resources, make decisions collectively, and interact with technology through intuitive, user-centered solutions.",
-    whoWeAreP2: "Our team combines expertise in software development, user experience design, financial systems, and community building to create comprehensive digital tools for individuals and groups.",
+    whoWeAreP1: "CyberEco is a human-centered digital ecosystem for conscious, connected, and sustainable living. In a world where digital life is fragmented, extractive, and overwhelming, CyberEco exists to offer a better path — one rooted in sovereignty, community, and balance.",
+    whoWeAreP2: "We believe your digital presence should empower you, not exploit you. Your identity should belong to you. Your data should serve you. Your actions should connect you with others meaningfully.",
     teamImage: "Team Image",
     visionMissionTitle: "Our Vision & Mission",
     visionTitle: "Vision",
-    visionText: "To be a leading creator of digital applications that empower individuals and communities to collaborate more effectively, make better decisions, and form meaningful connections in an increasingly digital world.",
+    visionText: "To empower millions of people — not with more notifications, but with clarity, autonomy, and connection. To create a digital environment as human, intentional, and resilient as the world we deserve offline.",
     missionTitle: "Mission",
-    missionText: "To design and deploy user-centered digital solutions that simplify financial management, facilitate community engagement, and enhance social connections while promoting transparency, sustainability, and digital wellbeing.",
+    missionText: "To create a modular digital ecosystem — an operating system for life — where each platform solves a real need while contributing to a greater whole, centered around the CyberEco Hub as your identity, your dashboard, your digital home.",
     valuesTitle: "Our Values",
-    value1Title: "Innovation with Purpose",
-    value1Text: "We create technology that solves real problems and improves quality of life.",
-    value2Title: "Environmental Stewardship",
-    value2Text: "All our solutions are designed with sustainability and reduced environmental impact in mind.",
-    value3Title: "User-Centered Design",
-    value3Text: "We prioritize intuitive, accessible, and enjoyable user experiences in everything we create.",
-    value4Title: "Collaborative Growth",
-    value4Text: "We believe in building communities and ecosystems where everyone can thrive together."
+    value1Title: "Digital Sovereignty",
+    value1Text: "You own your identity, your data, your narrative. We create technology that empowers rather than exploits.",
+    value2Title: "Wellbeing by Design",
+    value2Text: "Tech must serve your life — not consume it. We design solutions that enhance your wellbeing rather than draining it.",
+    value3Title: "Interconnection with Purpose",
+    value3Text: "Every platform is useful alone, but transformative together. We create an ecosystem of solutions that complement each other.",
+    value4Title: "Community is Core",
+    value4Text: "We build tools for individuals, powered by the collective. Community engagement and collaborative growth are at the heart of our ecosystem.",
+    value5Title: "Open by Nature",
+    value5Text: "Wherever possible, CyberEco is modular, transparent, and interoperable. We embrace openness and collaboration in our development approach."
   },
   
   // PortfolioPage translations
   portfolioPage: {
     title: "Our Solutions",
     subtitle: "Explore our diverse portfolio of digital solutions designed to enhance the productivity, sustainability, connectivity, and community engagement through innovative technology.",
+    
+    // Category headings
+    communityGovernanceTitle: "Community & Governance",
+    communityGovernanceDesc: "Tools to create, manage, and participate in digital communities with transparent governance and engagement.",
+    
+    financeEconomyTitle: "Finance & Collaborative Economy",
+    financeEconomyDesc: "Solutions to manage personal finances, share expenses, and support business operations.",
+    
+    sustainabilityHomeTitle: "Sustainability & Home Life",
+    sustainabilityHomeDesc: "Applications to manage sustainable lifestyles, gardening, and home maintenance.",
+    
+    educationTitle: "Education & Personal Growth",
+    educationDesc: "Platforms for learning, skill sharing, and personal development.",
+    
+    healthWellnessTitle: "Health & Wellness",
+    healthWellnessDesc: "Tools to improve physical and mental health, including pet wellness.",
+    
+    identityDataLegalTitle: "Identity, Data & Legal",
+    identityDataLegalDesc: "Solutions for managing digital identity, personal data, documents, and legal assistance.",
+    
+    familyMemoryTitle: "Family & Memory",
+    familyMemoryDesc: "Applications to preserve personal stories and explore cultural heritage.",
+    
+    travelLocalDiscoveryTitle: "Travel, Events & Local Discovery",
+    travelLocalDiscoveryDesc: "Tools to explore local communities, organize events, and plan travels.",
+    
+    techProductivityTitle: "Tech, Productivity & Career",
+    techProductivityDesc: "Applications to enhance professional growth, digital wellbeing, and project management.",
+    
+    // Phase indicators
+    phaseMvp: "Priority MVP (Phase 1)",
+    phaseGreen: "Green Impact (Phase 2)",
+    phasePersonal: "Personalization (Phase 3)",
+    phaseExpansion: "Expansion (Phase 4)",
+    phaseFuture: "Future Development",
+    
+    filterLabel: "Filter by category",
+    filterAll: "All Solutions",
+    viewDetails: "View Details",
+    viewSolution: "Open Solution",
+    
+    // Community & Governance Solutions
     justSplitTitle: "JustSplit",
     justSplitDesc: "A simple and intuitive expense tracking and sharing app that helps friends, roommates, and groups easily manage shared finances.",
-    plantopiaTitle: "Plantopia",
-    plantopiaDesc: "Smart gardening platform that combines IoT technology with plant care knowledge to help users cultivate thriving gardens sustainably.",
+    
     demosTitle: "Demos",
-    demosDesc: "Smart democracy platform that facilitates transparent decision-making processes for organizations, communities, and civic engagement.",
-    nexusTitle: "Nexus",
-    nexusDesc: "Integrated social media hub that helps users manage multiple platforms while preserving digital wellbeing and meaningful connections.",
-    tradePilotTitle: "TradePilot",
-    tradePilotDesc: "Advanced trading tool with analytics, automation, and educational resources for both novice and experienced investors.",
+    demosDesc: "Transparent voting and decision-making platform for organizations and neighborhoods.",
+    
     communityManagerTitle: "Community Manager",
-    communityManagerDesc: "Comprehensive platform to create, grow, and manage communities with powerful tools for engagement, governance, and resource sharing.",
+    communityManagerDesc: "Tools to create, organize, and govern digital or physical communities.",
+    
+    myCommunityTitle: "MyCommunity",
+    myCommunityDesc: "Discover relevant local resources, events, and initiatives in your environment.",
+    
+    conciliationTitle: "Conciliation",
+    conciliationDesc: "Conflict resolution with neutral human or AI mediators in a fair manner.",
+    
+    crowdPoolTitle: "CrowdPool", 
+    crowdPoolDesc: "System to assign community tasks or micro-jobs with incentives.",
+    
+    // Finance & Collaborative Economy
+    myWealthTitle: "MyWealth",
+    myWealthDesc: "Platform to visualize and control personal finances and investments.",
+    
+    myBusinessTitle: "MyBusiness",
+    myBusinessDesc: "Lightweight tool for entrepreneurs that combines operational and accounting management.",
+    
+    crowdFundTitle: "CrowdFund",
+    crowdFundDesc: "Create collective funding campaigns for ideas, causes, or products.",
+    
+    offerMeTitle: "OfferMe",
+    offerMeDesc: "Find verified local offers, discounts, and promotions.",
+    
+    // Sustainability & Home Solutions
+    plantopiaTitle: "Plantopia",
+    plantopiaDesc: "Smart gardening platform with sensors and personalized recommendations.",
+    
+    ecoTulTitle: "EcoTul",
+    ecoTulDesc: "Recommender of eco-friendly products and services curated by real impact.",
+    
+    myHomeTitle: "MyHome",
+    myHomeDesc: "App to organize home maintenance, expenses, and improvements.",
+    
+    // Education Solutions
+    educationHubTitle: "Education Hub",
+    educationHubDesc: "Modular platform to access learning paths and educational content.",
+    
+    skillShareTitle: "Skill Share",
+    skillShareDesc: "Collaborative network where people share and teach their skills.",
+    
+    habitsTitle: "Habits",
+    habitsDesc: "Record and track habits to achieve personal goals.",
+    
+    oneStepTitle: "One Step",
+    oneStepDesc: "Micro-action system to advance toward big goals with small steps.",
+    
+    // Health & Wellness
+    healthyTitle: "Healthy",
+    healthyDesc: "Personalized recommendations to improve physical and mental health.",
+    
+    petPalTitle: "PetPal",
+    petPalDesc: "App to manage pet health and wellness with veterinary connection.",
+    
+    // Identity, Data & Legal
+    lawPalTitle: "LawPal",
+    lawPalDesc: "AI legal assistant that helps understand documents and connect with lawyers.",
+    
+    myDataTitle: "MyData",
+    myDataDesc: "Control panel to manage, authorize, and track use of your personal data.",
+    
+    digitalMeTitle: "DigitalMe",
+    digitalMeDesc: "Central management of digital identity, reputation, and online presence.",
+    
+    myDocsTitle: "MyDocs",
+    myDocsDesc: "Secure storage for legal, personal, and educational documents.",
+    
+    govAccessTitle: "GovAccess",
+    govAccessDesc: "Unified and simplified access to government procedures and services.",
+    
+    // Family & Memory
+    somosTitle: "Somos",
+    somosDesc: "Platform to explore family roots, cultural history, and sense of identity.",
+    
+    rememberMeTitle: "Remember Me",
+    rememberMeDesc: "Tool to save memories, stories, and intergenerational messages.",
+    
+    // Travel, Events & Local Discovery
+    travelMateTitle: "TravelMate",
+    travelMateDesc: "Trip planner with local guides and personalized recommendations.",
+    
+    eventConnectTitle: "EventConnect",
+    eventConnectDesc: "Discover or create community events with local impact.",
+    
+    localWondersTitle: "LocalWonders",
+    localWondersDesc: "Find cultural and natural gems in your environment.",
+    
+    hobbistTitle: "Hobbist",
+    hobbistDesc: "Connect with people who share your hobbies and passions.",
+    
+    // Tech, Productivity & Career
+    tradePilotTitle: "TradePilot",
+    tradePilotDesc: "Platform for traders with analytics, automation, and educational simulation.",
+    
+    nexusTitle: "Nexus",
+    nexusDesc: "Center to manage social networks while preserving digital wellbeing.",
+    
+    providerConnectTitle: "ProviderConnect",
+    providerConnectDesc: "Provider comparison with ratings and transparency for better choices.",
+    
+    myProjectsTitle: "MyProjects",
+    myProjectsDesc: "Lightweight app to manage personal or collaborative tasks and projects.",
+    
+    myCareerTitle: "MyCareer",
+    myCareerDesc: "Career tracking, goals, and networking in one place.",
+    
     comingSoon: "Detailed information about each solution coming soon."
   },
   
   // HelpPage translations
   helpPage: {
     title: "Help & Support",
-    subtitle: "Find the resources and assistance you need to get the most out of CyberEco solutions.",
-    faqsTitle: "FAQs",
-    faqsDesc: "Find answers to the most commonly asked questions about our products and services.",
-    docsTitle: "Documentation",
-    docsDesc: "Detailed guides and technical documentation for all our solutions.",
-    supportTitle: "Support",
-    supportDesc: "Get help from our support team for any issues or questions.",
-    contactTitle: "Contact Us",
-    contactDesc: "Reach out to us directly for sales inquiries or partnership opportunities.",
+    subtitle: "Find the resources and assistance you need to navigate the CyberEco digital ecosystem.",
+    faqTitle: "FAQ",
+    faqDesc: "Find answers to commonly asked questions about our solutions and the CyberEco ecosystem",
+    docsTitle: "Solution Documentation",
+    docsDesc: "Detailed guides and documentation for all solution categories in our digital ecosystem",
+    supportTitle: "Community Support",
+    supportDesc: "Get help from our support team and community for any issues across all solution categories",
+    contactTitle: "Contact",
+    contactDesc: "Reach out to us directly for questions about any of our solutions or to suggest new features",
     faqSectionTitle: "Frequently Asked Questions",
     faq1Q: "What is CyberEco?",
     faq1A: "CyberEco is an innovative company focused on developing digital applications that enhance financial collaboration, community engagement, and social connectivity through user-centered design.",
@@ -154,29 +304,67 @@ const translations: Translations = {
   // DocumentationPage translations
   documentationPage: {
     title: "Documentation",
-    subtitle: "Comprehensive guides and technical documentation for CyberEco applications",
+    subtitle: "Comprehensive guides and technical documentation for the CyberEco digital ecosystem",
     searchPlaceholder: "Search documentation...",
     gettingStartedTitle: "Getting Started with CyberEco",
     introductionTitle: "Introduction",
-    introductionText: "Welcome to CyberEco documentation! This guide will help you get started with our platform and applications. CyberEco offers a suite of digital solutions designed to enhance financial collaboration, community engagement, and social connectivity.",
-    accountCreationTitle: "Creating Your Account",
-    accountCreationText: "To get started with any CyberEco application, you'll first need to create an account. Visit our website and click on \"Sign Up\" to create your account. You can sign up using your email address or using a social login option.",
+    introductionText: "Welcome to CyberEco documentation! This guide will help you get started with our digital ecosystem. CyberEco offers a suite of digital solutions designed to enhance financial collaboration, community engagement, and social connectivity, all within a human-centered framework for conscious, connected, and sustainable living.",
+    accountCreationTitle: "Digital Sovereignty",
+    digitalSovereigntyText: "At the core of CyberEco is the principle of digital sovereignty. You own your identity, your data, and your narrative. All our applications are designed with this principle in mind, ensuring that your digital presence empowers you, not exploits you.",
     exploringSolutionsTitle: "Exploring Our Solutions",
-    exploringSolutionsText: "After creating your account, you can explore our various applications from your dashboard. Each application has its own specific functionality, but they all share our commitment to intuitive design and secure operation.",
-    justSplitTitle: "JustSplit Documentation",
-    justSplitAboutTitle: "About JustSplit",
-    justSplitAboutText: "JustSplit is an expense sharing application that helps friends, roommates, and groups easily track and split expenses. It streamlines the process of managing shared finances, ensuring everyone pays their fair share.",
-    justSplitGroupTitle: "Creating a Group",
-    justSplitGroupText: "To start using JustSplit, create a new group by clicking on \"New Group\" from your dashboard. Give your group a name and invite members using their email addresses or by sharing a unique invite link.",
-    justSplitExpensesTitle: "Adding Expenses",
-    justSplitExpensesText: "Once your group is set up, you can add expenses by clicking the \"Add Expense\" button. Enter the amount, description, date, and who paid. Then, select how the expense should be split among group members.",
-    plantopiaTitle: "Plantopia Documentation",
-    plantopiaAboutTitle: "About Plantopia",
-    plantopiaAboutText: "Plantopia is a smart gardening platform that combines IoT technology with plant care knowledge to help users cultivate thriving gardens sustainably.",
-    plantopiaSetupTitle: "Setting Up Your Garden",
-    plantopiaSetupText: "After creating your Plantopia account, set up your digital garden by adding your plants. You can search our extensive database or scan plants using our mobile app for automatic identification.",
-    plantopiaIoTTitle: "Connecting IoT Devices",
-    plantopiaIoTText: "Plantopia works best when connected to supported IoT devices like soil moisture sensors and automatic watering systems. To connect a device, go to \"Settings\" > \"Connected Devices\" and follow the pairing instructions.",
+    exploringSolutionsText: "CyberEco is not just another app. It is a modular digital ecosystem — an operating system for life — where each platform solves a real need while contributing to a greater whole. Our solutions are organized into categories that cover different aspects of life, from community governance to sustainability, from finance to education.",
+    
+    // Community & Governance section
+    communityGovernanceTitle: "Community & Governance",
+    communityGovernanceNavItem: "Community & Governance",
+    demosTitle: "Demos",
+    demosDesc: "A participatory digital democracy platform that enables transparent voting and decision-making for organizations and neighborhoods.",
+    communityManagerTitle: "Community Manager",
+    communityManagerDesc: "Advanced tools to create, organize, and govern digital or physical communities with ease and transparency.",
+    myCommunityTitle: "MyCommunity",
+    myCommunityDesc: "A platform to discover relevant local resources, events, and initiatives in your environment and strengthen community ties.",
+    conciliationTitle: "Conciliation",
+    conciliationDesc: "Conflict resolution tools with neutral human or AI mediators to resolve disputes in a fair and constructive manner.",
+    crowdPoolTitle: "CrowdPool",
+    crowdPoolDesc: "System to assign community tasks or micro-jobs with incentives for balanced participation.",
+    
+    // Finance & Economy section
+    financeEconomyTitle: "Finance & Collaborative Economy",
+    financeEconomyNavItem: "Finance & Economy",
+    justSplitTitle: "JustSplit",
+    justSplitAboutText: "A simple and intuitive expense tracking and sharing app that helps friends, roommates, and groups easily manage shared finances.",
+    myWealthTitle: "MyWealth",
+    myWealthDesc: "A comprehensive platform to visualize and control personal finances and investments in one secure place.",
+    myBusinessTitle: "MyBusiness",
+    myBusinessDesc: "A lightweight tool for entrepreneurs that combines operational and accounting management in a single interface.",
+    crowdFundTitle: "CrowdFund",
+    crowdFundDesc: "Create collective funding campaigns for ideas, causes, or products with transparent tracking.",
+    offerMeTitle: "OfferMe",
+    offerMeDesc: "Find verified local offers, discounts, and promotions from businesses in your community.",
+    
+    // Sustainability & Home Life section
+    sustainabilityHomeTitle: "Sustainability & Home Life",
+    sustainabilityHomeNavItem: "Sustainability & Home",
+    plantopiaTitle: "Plantopia",
+    plantopiaAboutText: "A smart gardening platform that combines IoT technology with plant care knowledge to help users cultivate thriving gardens sustainably.",
+    ecoTulTitle: "EcoTul",
+    ecoTulDesc: "A curated recommender of eco-friendly products and services evaluated by real environmental impact.",
+    myHomeTitle: "MyHome",
+    myHomeDesc: "A comprehensive app to organize home maintenance, track expenses, and plan improvements for sustainable living.",
+    
+    // Education & Growth
+    educationTitle: "Education & Personal Growth",
+    educationGrowthNavItem: "Education & Growth",
+    educationHubTitle: "Education Hub",
+    educationHubDesc: "A modular platform to access learning paths and educational content in a community-oriented environment.",
+    skillShareTitle: "Skill Share",
+    skillShareDesc: "A collaborative network where people can share and teach their skills to others in the community.",
+    habitsTitle: "Habits",
+    habitsDesc: "A tool to record and track habits to achieve personal goals and foster continuous improvement.",
+    oneStepTitle: "One Step",
+    oneStepDesc: "A micro-action system designed to help you advance toward big goals with manageable small steps.",
+    
+    // API Reference
     apiReferenceTitle: "API Reference",
     apiOverviewTitle: "Overview",
     apiOverviewText: "CyberEco provides RESTful APIs for all our applications, allowing developers to integrate our services into their own solutions. Our APIs use standard HTTP methods and return responses in JSON format.",
@@ -184,11 +372,11 @@ const translations: Translations = {
     apiAuthText: "All API requests require authentication using OAuth 2.0 bearer tokens. To obtain a token, make a POST request to our authentication endpoint with your client credentials.",
     apiRequestsTitle: "Making API Requests",
     apiRequestsText: "Once you have your token, include it in the Authorization header for all subsequent requests. Our API endpoints follow a consistent structure for all applications.",
+    
+    // Navigation items
     gettingStartedNavTitle: "Getting Started",
     introductionNavItem: "Introduction",
-    applicationsNavTitle: "Applications",
-    justSplitNavItem: "JustSplit",
-    plantopiaNavItem: "Plantopia",
+    applicationsNavTitle: "Solution Categories",
     developerNavTitle: "Developer",
     apiReferenceNavItem: "API Reference"
   },

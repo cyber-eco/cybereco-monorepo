@@ -15,6 +15,10 @@ interface CardImageProps extends ThemedProps {
   image?: string;
 }
 
+interface CardBadgeProps {
+  phase: string;
+}
+
 const SectionWrapper = styled.section<ThemedProps>`
   background-color: ${({ theme }) => theme.background};
   padding: var(--spacing-xl) 0;
@@ -61,6 +65,7 @@ const SolutionCard = styled(motion.div)<ThemedProps>`
   display: flex;
   flex-direction: column;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
   
   &:hover {
     transform: translateY(-5px);
@@ -78,6 +83,25 @@ const CardImage = styled.div<CardImageProps>`
   background-repeat: no-repeat;
 `;
 
+const CardBadge = styled.div<CardBadgeProps>`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: ${({ phase }) => 
+    phase === 'phase1' ? 'rgba(0, 123, 255, 0.85)' :
+    phase === 'phase2' ? 'rgba(40, 167, 69, 0.85)' :
+    phase === 'phase3' ? 'rgba(255, 193, 7, 0.85)' :
+    phase === 'phase4' ? 'rgba(111, 66, 193, 0.85)' :
+    'rgba(108, 117, 125, 0.85)'
+  };
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding: 4px 8px;
+  border-radius: 12px;
+  z-index: 1;
+`;
+
 const CardContent = styled.div`
   padding: var(--spacing-md);
   flex-grow: 1;
@@ -93,6 +117,15 @@ const CardDescription = styled.p<ThemedProps>`
   color: ${({ theme }) => theme.textSecondary};
   margin-bottom: var(--spacing-md);
   flex-grow: 1;
+`;
+
+const CardCategory = styled.span<ThemedProps>`
+  color: ${({ theme }) => theme.primary};
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--spacing-xs);
+  display: block;
 `;
 
 const CardLink = styled(Link)<ThemedProps>`
@@ -121,35 +154,53 @@ const SolutionsPreview: React.FC = () => {
   const t = translations?.homePage?.solutions || {};
   const portfolio = translations?.portfolioPage || {};
 
-  const solutions: Solution[] = [
+  const featuredSolutions: (Solution & { category: string, phase: string })[] = [
     {
       id: "justsplit",
       title: portfolio.justSplitTitle || "JustSplit",
       description: portfolio.justSplitDesc || "A simple and intuitive expense tracking and sharing app that helps friends, roommates, and groups easily manage shared finances.",
       color: "rgba(0, 98, 65, 0.2)",
       image: `${process.env.PUBLIC_URL}/portfolio/justsplit.png`,
-      url: "https://justsplit.cybere.co"
+      url: "https://justsplit.cybere.co",
+      category: portfolio.financeEconomyTitle || "Finance & Economy",
+      phase: "phase1"
     },  
-    {
-      id: "plantopia",
-      title: portfolio.plantopiaTitle || "Plantopia",
-      description: portfolio.plantopiaDesc || "Smart gardening platform that combines IoT technology with plant care knowledge to help users cultivate thriving gardens sustainably.",
-      color: "rgba(107, 191, 89, 0.2)",
-      url: "https://plantopia.cybere.co"
-    },
     {
       id: "demos",
       title: portfolio.demosTitle || "Demos",
-      description: portfolio.demosDesc || "Smart democracy platform that facilitates transparent decision-making processes for organizations, communities, and civic engagement.",
-      color: "rgba(0, 98, 65, 0.2)"
+      description: portfolio.demosDesc || "Transparent voting and decision-making platform for organizations and neighborhoods.",
+      color: "rgba(0, 123, 255, 0.2)",
+      category: portfolio.communityGovernanceTitle || "Community & Governance",
+      phase: "phase1"
     },
     {
-      id: "nexus",
-      title: portfolio.nexusTitle || "Nexus",
-      description: portfolio.nexusDesc || "Integrated social media hub that helps users manage multiple platforms while preserving digital wellbeing and meaningful connections.",
-      color: "rgba(107, 191, 89, 0.2)"
+      id: "plantopia",
+      title: portfolio.plantopiaTitle || "Plantopia",
+      description: portfolio.plantopiaDesc || "Smart gardening platform with sensors and personalized recommendations.",
+      color: "rgba(40, 167, 69, 0.2)",
+      url: "https://plantopia.cybere.co",
+      category: portfolio.sustainabilityHomeTitle || "Sustainability & Home",
+      phase: "phase2"
+    },
+    {
+      id: "educationhub",
+      title: portfolio.educationHubTitle || "Education Hub",
+      description: portfolio.educationHubDesc || "Modular platform to access learning paths and educational content in a community-oriented environment.",
+      color: "rgba(255, 193, 7, 0.2)",
+      category: portfolio.educationTitle || "Education & Growth",
+      phase: "phase2"
     }
   ];
+
+  const getPhaseName = (phase: string): string => {
+    switch(phase) {
+      case "phase1": return portfolio.phaseMvp || "Priority MVP (Phase 1)";
+      case "phase2": return portfolio.phaseGreen || "Green Impact (Phase 2)";
+      case "phase3": return portfolio.phasePersonal || "Personalization (Phase 3)";
+      case "phase4": return portfolio.phaseExpansion || "Expansion (Phase 4)";
+      default: return portfolio.phaseFuture || "Future Development";
+    }
+  };
 
   return (
     <SectionWrapper>
@@ -174,7 +225,7 @@ const SolutionsPreview: React.FC = () => {
         </SectionHeader>
 
         <SolutionsGrid>
-          {solutions.map((solution, index) => (
+          {featuredSolutions.map((solution, index) => (
             <SolutionCard
               key={solution.id}
               initial={{ opacity: 0, y: 20 }}
@@ -183,7 +234,11 @@ const SolutionsPreview: React.FC = () => {
               viewport={{ once: true }}
             >
               <CardImage color={solution.color} image={solution.image} />
+              <CardBadge phase={solution.phase}>
+                {getPhaseName(solution.phase)}
+              </CardBadge>
               <CardContent>
+                <CardCategory>{solution.category}</CardCategory>
                 <CardTitle>{solution.title}</CardTitle>
                 <CardDescription>{solution.description}</CardDescription>
                 <CardLink to={solution.url || `/portfolio#${solution.id}`}>

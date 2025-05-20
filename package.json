@@ -2,7 +2,7 @@
   "name": "cybereco-homepage",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://cybereco.github.io",
+  "homepage": ".",
   "dependencies": {
     "@types/node": "^16.18.0",
     "@types/react": "^18.0.0",

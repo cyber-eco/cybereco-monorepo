@@ -142,7 +142,7 @@ const Footer: React.FC = () => {
             <SocialIcon href="https://github.com/cyber-eco" aria-label="GitHub">
               <FaGithub />
             </SocialIcon>
-            <SocialIcon href="mailto:info@cybereco.io" aria-label="Email">
+            <SocialIcon href="mailto:info@cybere.co" aria-label="Email">
               <FaEnvelope />
             </SocialIcon>
           </SocialIcons>
@@ -151,10 +151,11 @@ const Footer: React.FC = () => {
         <FooterSection>
           <FooterHeading>{t.solutions || 'Solutions'}</FooterHeading>
           <FooterLinks>
-            <FooterLink to="/portfolio#justsplit">JustSplit</FooterLink>
-            <FooterLink to="/portfolio#plantopia">Plantopia</FooterLink>
-            <FooterLink to="/portfolio#demos">Demos</FooterLink>
-            <FooterLink to="/portfolio#nexus">Nexus</FooterLink>
+            <FooterLink to="/portfolio#community">{t.communityGovernanceTitle || 'Community & Governance'}</FooterLink>
+            <FooterLink to="/portfolio#finance">{t.financeEconomyTitle || 'Finance & Economy'}</FooterLink>
+            <FooterLink to="/portfolio#sustainability">{t.sustainabilityHomeTitle || 'Sustainability & Home'}</FooterLink>
+            <FooterLink to="/portfolio#education">{t.educationTitle || 'Education & Growth'}</FooterLink>
+            <FooterLink to="/portfolio#health">{t.healthWellnessTitle || 'Health & Wellness'}</FooterLink>
           </FooterLinks>
         </FooterSection>
         
@@ -171,7 +172,7 @@ const Footer: React.FC = () => {
         <FooterSection>
           <FooterHeading>{t.contact || 'Contact'}</FooterHeading>
           <ContactInfo>
-            <ContactItem>info@cybereco.io</ContactItem>
+            <ContactItem>info@cybere.co</ContactItem>
           </ContactInfo>
         </FooterSection>
       </FooterContent>

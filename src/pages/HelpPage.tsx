@@ -152,7 +152,7 @@ const HelpPage: React.FC = () => {
           </IconWrapper>
           <CardTitle>{t.faqTitle || 'FAQ'}</CardTitle>
           <CardDescription>
-            {t.faqDesc || 'Find answers to commonly asked questions about our services and applications'}
+            {t.faqDesc || 'Find answers to commonly asked questions about our solutions and the CyberEco ecosystem'}
           </CardDescription>
         </HelpCard>
 
@@ -165,9 +165,9 @@ const HelpPage: React.FC = () => {
           <IconWrapper>
             <FaBook />
           </IconWrapper>
-          <CardTitle>{t.docsTitle || 'Documentation'}</CardTitle>
+          <CardTitle>{t.docsTitle || 'Solution Documentation'}</CardTitle>
           <CardDescription>
-            {t.docsDesc || 'Detailed guides and documentation to help you get the most out of our solutions'}
+            {t.docsDesc || 'Detailed guides and documentation for all solution categories in our digital ecosystem'}
           </CardDescription>
         </HelpCard>
 
@@ -180,9 +180,9 @@ const HelpPage: React.FC = () => {
           <IconWrapper>
             <FaHeadset />
           </IconWrapper>
-          <CardTitle>{t.supportTitle || 'Support'}</CardTitle>
+          <CardTitle>{t.supportTitle || 'Community Support'}</CardTitle>
           <CardDescription>
-            {t.supportDesc || 'Get in touch with our support team for personalized assistance'}
+            {t.supportDesc || 'Get help from our support team and community for any issues across all solution categories'}
           </CardDescription>
         </HelpCard>
 
@@ -197,7 +197,7 @@ const HelpPage: React.FC = () => {
           </IconWrapper>
           <CardTitle>{t.contactTitle || 'Contact'}</CardTitle>
           <CardDescription>
-            {t.contactDesc || 'Have a specific question? Reach out to us directly'}
+            {t.contactDesc || 'Reach out to us directly for questions about any of our solutions or to suggest new features'}
           </CardDescription>
         </HelpCard>
       </HelpGrid>

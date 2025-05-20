@@ -182,63 +182,68 @@ const DocumentationPage: React.FC = () => {
           <ContentSection>
             <SubTitle>{t.introductionTitle || 'Introduction'}</SubTitle>
             <ContentText>
-              {t.introductionText || 'Welcome to CyberEco documentation! This guide will help you get started with our platform and applications. CyberEco offers a suite of digital solutions designed to enhance financial collaboration, community engagement, and social connectivity.'}
+              {t.introductionText || 'Welcome to CyberEco documentation! This guide will help you get started with our digital ecosystem. CyberEco offers a suite of digital solutions designed to enhance financial collaboration, community engagement, and social connectivity, all within a human-centered framework for conscious, connected, and sustainable living.'}
             </ContentText>
           </ContentSection>
 
           <ContentSection>
-            <SubTitle>{t.accountCreationTitle || 'Creating Your Account'}</SubTitle>
+            <SubTitle>{t.accountCreationTitle || 'Digital Sovereignty'}</SubTitle>
             <ContentText>
-              {t.accountCreationText || 'To get started with any CyberEco application, you\'ll first need to create an account. Visit our website and click on "Sign Up" to create your account. You can sign up using your email address or using a social login option.'}
+              {t.digitalSovereigntyText || 'At the core of CyberEco is the principle of digital sovereignty. You own your identity, your data, and your narrative. All our applications are designed with this principle in mind, ensuring that your digital presence empowers you, not exploits you.'}
             </ContentText>
-            
-            <CodeBlock>
-              {`// Sample API request for account creation
-fetch('https://api.cybereco.io/auth/register', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    email: 'user@example.com',
-    password: 'securePassword',
-    name: 'John Doe'
-  })
-})`}
-            </CodeBlock>
           </ContentSection>
 
           <ContentSection>
             <SubTitle>{t.exploringSolutionsTitle || 'Exploring Our Solutions'}</SubTitle>
             <ContentText>
-              {t.exploringSolutionsText || 'After creating your account, you can explore our various applications from your dashboard. Each application has its own specific functionality, but they all share our commitment to intuitive design and secure operation.'}
+              {t.exploringSolutionsText || 'CyberEco is not just another app. It is a modular digital ecosystem — an operating system for life — where each platform solves a real need while contributing to a greater whole. Our solutions are organized into categories that cover different aspects of life, from community governance to sustainability, from finance to education.'}
             </ContentText>
           </ContentSection>
         </>
       )
     },
-    'justsplit': {
-      title: t.justSplitTitle || 'JustSplit Documentation',
+    'community-governance': {
+      title: t.communityGovernanceTitle || 'Community & Governance',
       content: (
         <>
           <ContentSection>
-            <SubTitle>{t.justSplitAboutTitle || 'About JustSplit'}</SubTitle>
+            <SubTitle>{t.demosTitle || 'Demos'}</SubTitle>
             <ContentText>
-              {t.justSplitAboutText || 'JustSplit is an expense sharing application that helps friends, roommates, and groups easily track and split expenses. It streamlines the process of managing shared finances, ensuring everyone pays their fair share.'}
+              {t.demosDesc || 'A participatory digital democracy platform that enables transparent voting and decision-making for organizations and neighborhoods.'}
             </ContentText>
           </ContentSection>
 
           <ContentSection>
-            <SubTitle>{t.justSplitGroupTitle || 'Creating a Group'}</SubTitle>
+            <SubTitle>{t.communityManagerTitle || 'Community Manager'}</SubTitle>
             <ContentText>
-              {t.justSplitGroupText || 'To start using JustSplit, create a new group by clicking on "New Group" from your dashboard. Give your group a name and invite members using their email addresses or by sharing a unique invite link.'}
+              {t.communityManagerDesc || 'Advanced tools to create, organize, and govern digital or physical communities with ease and transparency.'}
             </ContentText>
           </ContentSection>
 
           <ContentSection>
-            <SubTitle>{t.justSplitExpensesTitle || 'Adding Expenses'}</SubTitle>
+            <SubTitle>{t.myCommunityTitle || 'MyCommunity'}</SubTitle>
             <ContentText>
-              {t.justSplitExpensesText || 'Once your group is set up, you can add expenses by clicking the "Add Expense" button. Enter the amount, description, date, and who paid. Then, select how the expense should be split among group members.'}
+              {t.myCommunityDesc || 'A platform to discover relevant local resources, events, and initiatives in your environment and strengthen community ties.'}
+            </ContentText>
+          </ContentSection>
+          
+          <ContentSection>
+            <SubTitle>{t.conciliationTitle || 'Conciliation'}</SubTitle>
+            <ContentText>
+              {t.conciliationDesc || 'Conflict resolution tools with neutral human or AI mediators to resolve disputes in a fair and constructive manner.'}
+            </ContentText>
+          </ContentSection>
+        </>
+      )
+    },
+    'finance-economy': {
+      title: t.financeEconomyTitle || 'Finance & Collaborative Economy',
+      content: (
+        <>
+          <ContentSection>
+            <SubTitle>{t.justSplitTitle || 'JustSplit'}</SubTitle>
+            <ContentText>
+              {t.justSplitAboutText || 'A simple and intuitive expense tracking and sharing app that helps friends, roommates, and groups easily manage shared finances.'}
             </ContentText>
             
             <CodeBlock>
@@ -254,31 +259,79 @@ fetch('https://api.cybereco.io/auth/register', {
 }`}
             </CodeBlock>
           </ContentSection>
+
+          <ContentSection>
+            <SubTitle>{t.myWealthTitle || 'MyWealth'}</SubTitle>
+            <ContentText>
+              {t.myWealthDesc || 'A comprehensive platform to visualize and control personal finances and investments in one secure place.'}
+            </ContentText>
+          </ContentSection>
+
+          <ContentSection>
+            <SubTitle>{t.myBusinessTitle || 'MyBusiness'}</SubTitle>
+            <ContentText>
+              {t.myBusinessDesc || 'A lightweight tool for entrepreneurs that combines operational and accounting management in a single interface.'}
+            </ContentText>
+          </ContentSection>
         </>
       )
     },
-    'plantopia': {
-      title: t.plantopiaTitle || 'Plantopia Documentation',
+    'sustainability-home': {
+      title: t.sustainabilityHomeTitle || 'Sustainability & Home Life',
       content: (
         <>
           <ContentSection>
-            <SubTitle>{t.plantopiaAboutTitle || 'About Plantopia'}</SubTitle>
+            <SubTitle>{t.plantopiaTitle || 'Plantopia'}</SubTitle>
             <ContentText>
-              {t.plantopiaAboutText || 'Plantopia is a smart gardening platform that combines IoT technology with plant care knowledge to help users cultivate thriving gardens sustainably.'}
+              {t.plantopiaAboutText || 'A smart gardening platform that combines IoT technology with plant care knowledge to help users cultivate thriving gardens sustainably.'}
             </ContentText>
           </ContentSection>
 
           <ContentSection>
-            <SubTitle>{t.plantopiaSetupTitle || 'Setting Up Your Garden'}</SubTitle>
+            <SubTitle>{t.ecoTulTitle || 'EcoTul'}</SubTitle>
             <ContentText>
-              {t.plantopiaSetupText || 'After creating your Plantopia account, set up your digital garden by adding your plants. You can search our extensive database or scan plants using our mobile app for automatic identification.'}
+              {t.ecoTulDesc || 'A curated recommender of eco-friendly products and services evaluated by real environmental impact.'}
             </ContentText>
           </ContentSection>
 
           <ContentSection>
-            <SubTitle>{t.plantopiaIoTTitle || 'Connecting IoT Devices'}</SubTitle>
+            <SubTitle>{t.myHomeTitle || 'MyHome'}</SubTitle>
             <ContentText>
-              {t.plantopiaIoTText || 'Plantopia works best when connected to supported IoT devices like soil moisture sensors and automatic watering systems. To connect a device, go to "Settings" > "Connected Devices" and follow the pairing instructions.'}
+              {t.myHomeDesc || 'A comprehensive app to organize home maintenance, track expenses, and plan improvements for sustainable living.'}
+            </ContentText>
+          </ContentSection>
+        </>
+      )
+    },
+    'education-growth': {
+      title: t.educationTitle || 'Education & Personal Growth',
+      content: (
+        <>
+          <ContentSection>
+            <SubTitle>{t.educationHubTitle || 'Education Hub'}</SubTitle>
+            <ContentText>
+              {t.educationHubDesc || 'A modular platform to access learning paths and educational content in a community-oriented environment.'}
+            </ContentText>
+          </ContentSection>
+
+          <ContentSection>
+            <SubTitle>{t.skillShareTitle || 'Skill Share'}</SubTitle>
+            <ContentText>
+              {t.skillShareDesc || 'A collaborative network where people can share and teach their skills to others in the community.'}
+            </ContentText>
+          </ContentSection>
+
+          <ContentSection>
+            <SubTitle>{t.habitsTitle || 'Habits'}</SubTitle>
+            <ContentText>
+              {t.habitsDesc || 'A tool to record and track habits to achieve personal goals and foster continuous improvement.'}
+            </ContentText>
+          </ContentSection>
+          
+          <ContentSection>
+            <SubTitle>{t.oneStepTitle || 'One Step'}</SubTitle>
+            <ContentText>
+              {t.oneStepDesc || 'A micro-action system designed to help you advance toward big goals with manageable small steps.'}
             </ContentText>
           </ContentSection>
         </>
@@ -386,17 +439,31 @@ fetch('https://api.cybereco.io/justsplit/expenses', {
           <NavSection>
             <NavTitle>{t.applicationsNavTitle || 'Applications'}</NavTitle>
             <NavItem 
-              onClick={() => setActiveDoc('justsplit')}
-              className={activeDoc === 'justsplit' ? 'active' : ''}
+              onClick={() => setActiveDoc('community-governance')}
+              className={activeDoc === 'community-governance' ? 'active' : ''}
             >
-              {t.justSplitNavItem || 'JustSplit'}
+              {t.communityGovernanceNavItem || 'Community & Governance'}
               <FaChevronRight size={10} />
             </NavItem>
             <NavItem 
-              onClick={() => setActiveDoc('plantopia')}
-              className={activeDoc === 'plantopia' ? 'active' : ''}
+              onClick={() => setActiveDoc('finance-economy')}
+              className={activeDoc === 'finance-economy' ? 'active' : ''}
             >
-              {t.plantopiaNavItem || 'Plantopia'}
+              {t.financeEconomyNavItem || 'Finance & Economy'}
+              <FaChevronRight size={10} />
+            </NavItem>
+            <NavItem 
+              onClick={() => setActiveDoc('sustainability-home')}
+              className={activeDoc === 'sustainability-home' ? 'active' : ''}
+            >
+              {t.sustainabilityHomeNavItem || 'Sustainability & Home'}
+              <FaChevronRight size={10} />
+            </NavItem>
+            <NavItem 
+              onClick={() => setActiveDoc('education-growth')}
+              className={activeDoc === 'education-growth' ? 'active' : ''}
+            >
+              {t.educationGrowthNavItem || 'Education & Growth'}
               <FaChevronRight size={10} />
             </NavItem>
           </NavSection>

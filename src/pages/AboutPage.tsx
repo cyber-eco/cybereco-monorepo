@@ -115,10 +115,10 @@ const AboutPage: React.FC = () => {
           <TextContent>
             <SectionTitle>{t.whoWeAreTitle || 'Who We Are'}</SectionTitle>
             <p>
-              {t.whoWeAreP1 || 'CyberEco is an innovative parent company dedicated to developing digital applications that enhance financial collaboration, community engagement, and social connectivity. Our purpose is to transform how people manage resources, make decisions collectively, and interact with technology through intuitive, user-centered solutions.'}
+              {t.whoWeAreP1 || 'CyberEco is a human-centered digital ecosystem for conscious, connected, and sustainable living. In a world where digital life is fragmented, extractive, and overwhelming, CyberEco exists to offer a better path — one rooted in sovereignty, community, and balance.'}
             </p>
             <p>
-              {t.whoWeAreP2 || 'Our team combines expertise in software development, user experience design, financial systems, and community building to create comprehensive digital tools for individuals and groups.'}
+              {t.whoWeAreP2 || 'We believe your digital presence should empower you, not exploit you. Your identity should belong to you. Your data should serve you. Your actions should connect you with others meaningfully.'}
             </p>
           </TextContent>
           <LogoContainer>
@@ -133,13 +133,13 @@ const AboutPage: React.FC = () => {
           <TextContent>
             <h3>{t.visionTitle || 'Vision'}</h3>
             <p>
-              {t.visionText || 'To be a leading creator of digital applications that empower individuals and communities to collaborate more effectively, make better decisions, and form meaningful connections in an increasingly digital world.'}
+              {t.visionText || 'To empower millions of people — not with more notifications, but with clarity, autonomy, and connection. To create a digital environment as human, intentional, and resilient as the world we deserve offline.'}
             </p>
           </TextContent>
           <TextContent>
             <h3>{t.missionTitle || 'Mission'}</h3>
             <p>
-              {t.missionText || 'To design and deploy user-centered digital solutions that simplify financial management, facilitate community engagement, and enhance social connections while promoting transparency, sustainability, and digital wellbeing.'}
+              {t.missionText || 'To create a modular digital ecosystem — an operating system for life — where each platform solves a real need while contributing to a greater whole, centered around the CyberEco Hub as your identity, your dashboard, your digital home.'}
             </p>
           </TextContent>
         </AboutContent>
@@ -153,8 +153,8 @@ const AboutPage: React.FC = () => {
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          <ValueTitle>{t.value1Title || 'Innovation with Purpose'}</ValueTitle>
-          <p>{t.value1Text || 'We create technology that solves real problems and improves quality of life.'}</p>
+          <ValueTitle>{t.value1Title || 'Digital Sovereignty'}</ValueTitle>
+          <p>{t.value1Text || 'You own your identity, your data, your narrative. We create technology that empowers rather than exploits.'}</p>
         </ValueCard>
         
         <ValueCard
@@ -163,8 +163,8 @@ const AboutPage: React.FC = () => {
           transition={{ duration: 0.5, delay: 0.1 }}
           viewport={{ once: true }}
         >
-          <ValueTitle>{t.value2Title || 'Environmental Stewardship'}</ValueTitle>
-          <p>{t.value2Text || 'All our solutions are designed with sustainability and reduced environmental impact in mind.'}</p>
+          <ValueTitle>{t.value2Title || 'Wellbeing by Design'}</ValueTitle>
+          <p>{t.value2Text || 'Tech must serve your life — not consume it. We design solutions that enhance your wellbeing rather than draining it.'}</p>
         </ValueCard>
         
         <ValueCard
@@ -173,8 +173,8 @@ const AboutPage: React.FC = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          <ValueTitle>{t.value3Title || 'User-Centered Design'}</ValueTitle>
-          <p>{t.value3Text || 'We prioritize intuitive, accessible, and enjoyable user experiences in everything we create.'}</p>
+          <ValueTitle>{t.value3Title || 'Interconnection with Purpose'}</ValueTitle>
+          <p>{t.value3Text || 'Every platform is useful alone, but transformative together. We create an ecosystem of solutions that complement each other.'}</p>
         </ValueCard>
         
         <ValueCard
@@ -183,8 +183,18 @@ const AboutPage: React.FC = () => {
           transition={{ duration: 0.5, delay: 0.3 }}
           viewport={{ once: true }}
         >
-          <ValueTitle>{t.value4Title || 'Collaborative Growth'}</ValueTitle>
-          <p>{t.value4Text || 'We believe in building communities and ecosystems where everyone can thrive together.'}</p>
+          <ValueTitle>{t.value4Title || 'Community is Core'}</ValueTitle>
+          <p>{t.value4Text || 'We build tools for individuals, powered by the collective. Community engagement and collaborative growth are at the heart of our ecosystem.'}</p>
+        </ValueCard>
+        
+        <ValueCard
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          viewport={{ once: true }}
+        >
+          <ValueTitle>{t.value5Title || 'Open by Nature'}</ValueTitle>
+          <p>{t.value5Text || 'Wherever possible, CyberEco is modular, transparent, and interoperable. We embrace openness and collaboration in our development approach.'}</p>
         </ValueCard>
       </Section>
     </PageContainer>

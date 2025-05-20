@@ -307,7 +307,7 @@ const ContactPage: React.FC = () => {
             </IconWrapper>
             <InfoContent>
               <InfoLabel>{t.emailContactLabel || 'Email'}</InfoLabel>
-              <InfoValue>info@cybereco.io</InfoValue>
+              <InfoValue>info@cybere.co</InfoValue>
             </InfoContent>
           </InfoItem>
           
