@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { FaTwitter, FaLinkedinIn, FaGithub, FaEnvelope } from 'react-icons/fa';
+import { FaLinkedinIn, FaGithub, FaEnvelope } from 'react-icons/fa';
 import { LanguageContext } from '../../context/LanguageContext';
 import Logo from '../common/Logo';
 import { ThemeType } from '../../types';
