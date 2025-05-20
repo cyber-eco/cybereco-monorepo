@@ -133,13 +133,13 @@ const Footer: React.FC = () => {
             {t.tagline || 'Digital solutions for a connected world'}
           </FooterTagline>
           <SocialIcons>
-            <SocialIcon href="https://twitter.com" aria-label="Twitter">
+            {/* <SocialIcon href="https://twitter.com" aria-label="Twitter">
               <FaTwitter />
-            </SocialIcon>
-            <SocialIcon href="https://linkedin.com" aria-label="LinkedIn">
+            </SocialIcon> */}
+            <SocialIcon href="https://www.linkedin.com/company/cybere-co" aria-label="LinkedIn">
               <FaLinkedinIn />
             </SocialIcon>
-            <SocialIcon href="https://github.com" aria-label="GitHub">
+            <SocialIcon href="https://github.com/cyber-eco" aria-label="GitHub">
               <FaGithub />
             </SocialIcon>
             <SocialIcon href="mailto:info@cybereco.io" aria-label="Email">
