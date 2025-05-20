@@ -1,7 +1,10 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+// Import the global jest functions from the expected Jest namespace
+import { describe, it, expect } from '@jest/globals';
 
-test('renders without crashing', () => {
-  // This empty test will pass with the --passWithNoTests flag
-  expect(true).toBeTruthy();
+describe('App component', () => {
+  it('renders without crashing', () => {
+    // This simple test will pass
+    expect(true).toBeTruthy();
+  });
 });

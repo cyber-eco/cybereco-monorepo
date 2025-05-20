@@ -43,6 +43,8 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^6.3.0"
+    "gh-pages": "^6.3.0",
+    "@jest/globals": "^29.5.0",
+    "@types/jest": "^29.5.0"
   }
 }
