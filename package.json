@@ -20,7 +20,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --passWithNoTests",
+    "test": "react-scripts test --passWithNoTests --watchAll=false",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
@@ -43,8 +43,9 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^6.3.0",
-    "@jest/globals": "^29.5.0",
-    "@types/jest": "^29.5.0"
+    "@jest/globals": "27.5.1",
+    "@types/jest": "^27.5.1",
+    "@types/mocha": "^10.0.10",
+    "gh-pages": "^6.3.0"
   }
 }
