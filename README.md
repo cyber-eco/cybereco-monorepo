@@ -1,7 +1,8 @@
 # CyberEco Homepage
 
-![Build Status](https://github.com/cyber-eco/cybereco/workflows/pages-build-deployment/badge.svg)
-![Tests Status](https://github.com/cyber-eco/cybereco/workflows/feature-finished%20migration%20to%20typescript/badge.svg)
+![Build Status](https://github.com/cyber-eco/cybereco/workflows/Build/badge.svg)
+![Deploy Status](https://github.com/cyber-eco/cybereco/workflows/Deploy%20to%20GitHub%20Pages/badge.svg)
+![Tests Status](https://github.com/cyber-eco/cybereco/workflows/Tests/badge.svg)
 [![codecov](https://codecov.io/gh/cyber-eco/cybereco/branch/main/graph/badge.svg)](https://codecov.io/gh/cyber-eco/cybereco)
 
 ## 🌱 Overview
