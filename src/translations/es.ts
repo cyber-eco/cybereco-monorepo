@@ -323,7 +323,7 @@ const translations: Translations = {
     title: "Sobre CyberEco",
     subtitle: "Conozca nuestra misión, visión y los valores que guían nuestras soluciones tecnológicas innovadoras.",
     whoWeAreTitle: "Quiénes Somos",
-    whoWeAreP1: "CyberEco es una innovadora empresa matriz dedicada a desarrollar aplicaciones digitales que mejoran la colaboración financiera, el compromiso comunitario y la conectividad social. Nuestro propósito es transformar la forma en que las personas gestionan recursos, toman decisiones colectivas e interactúan con la tecnología a través de soluciones intuitivas y centradas en el usuario.",
+    whoWeAreP1: "CyberEco es una innovadora empresa  dedicada a desarrollar aplicaciones digitales que mejoran la colaboración financiera, el compromiso comunitario y la conectividad social. Nuestro propósito es transformar la forma en que las personas gestionan recursos, toman decisiones colectivas e interactúan con la tecnología a través de soluciones intuitivas y centradas en el usuario.",
     whoWeAreP2: "Nuestro equipo combina experiencia en desarrollo de software, diseño de experiencia de usuario, sistemas financieros y construcción de comunidades para crear herramientas digitales completas para individuos y grupos.",
     teamImage: "Imagen del Equipo",
     visionMissionTitle: "Nuestra Visión y Misión",
