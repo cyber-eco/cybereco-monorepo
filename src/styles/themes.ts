@@ -14,7 +14,8 @@ export const lightTheme: ThemeType = {
   primaryDark: 'var(--primary-dark)',
   primaryLight: 'var(--primary-light)',
   secondaryDark: 'var(--secondary-dark)',
-  success: '#28a745'
+  success: '#28a745',
+  white: '#ffffff' // Add this property
 };
 
 export const darkTheme: ThemeType = {
@@ -31,5 +32,6 @@ export const darkTheme: ThemeType = {
   primaryDark: 'var(--primary-dark)',
   primaryLight: 'var(--primary-light)',
   secondaryDark: 'var(--secondary-dark)',
-  success: '#28a745'
+  success: '#28a745',
+  white: '#ffffff' // Add this property
 };

@@ -16,6 +16,7 @@ export interface ThemeType {
   border: string;
   shadow: string;
   success?: string;
+  white: string; // Add this property
 }
 
 export interface Solution {
@@ -51,6 +52,7 @@ export interface Translations {
   supportPage?: Record<string, string>;
   termsPage?: Record<string, string>;
   helpPage?: Record<string, string>;
+  notFoundPage?: Record<string, string>; // Add this property
   footer?: Record<string, string>;
   common?: Record<string, string>;
   navigation?: Record<string, string>;
