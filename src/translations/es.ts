@@ -1,4 +1,257 @@
-const translations = {
+interface Translations {
+  navigation: {
+    home: string;
+    portfolio: string;
+    about: string;
+    help: string;
+  };
+  footer: {
+    tagline: string;
+    solutions: string;
+    company: string;
+    about: string;
+    support: string;
+    privacy: string;
+    terms: string;
+    contact: string;
+    address: string;
+    cityCountry: string;
+    rightsReserved: string;
+  };
+  homePage: {
+    hero: {
+      title: string;
+      subtitle: string;
+      exploreSolutions: string;
+      learnAboutUs: string;
+    };
+    features: {
+      sectionTitle: string;
+      sectionSubtitle: string;
+      communityTitle: string;
+      communityDesc: string;
+      sustainabilityTitle: string;
+      sustainabilityDesc: string;
+      securityTitle: string;
+      securityDesc: string;
+      innovationTitle: string;
+      innovationDesc: string;
+    };
+    mission: {
+      sectionTitle: string;
+      sectionSubtitle: string;
+      missionText: string;
+      learnMore: string;
+      vision: string;
+      visionText: string;
+      approach: string;
+      approachText: string;
+    };
+    solutions: {
+      sectionTitle: string;
+      sectionSubtitle: string;
+      learnMore: string;
+      viewAll: string;
+    };
+    callToAction: {
+      title: string;
+      subtitle: string;
+      exploreSolutions: string;
+      contactUs: string;
+    };
+  };
+  aboutPage: {
+    title: string;
+    subtitle: string;
+    whoWeAreTitle: string;
+    whoWeAreP1: string;
+    whoWeAreP2: string;
+    teamImage: string;
+    visionMissionTitle: string;
+    visionTitle: string;
+    visionText: string;
+    missionTitle: string;
+    missionText: string;
+    valuesTitle: string;
+    value1Title: string;
+    value1Text: string;
+    value2Title: string;
+    value2Text: string;
+    value3Title: string;
+    value3Text: string;
+    value4Title: string;
+    value4Text: string;
+  };
+  portfolioPage: {
+    title: string;
+    subtitle: string;
+    justSplitTitle: string;
+    justSplitDesc: string;
+    plantopiaTitle: string;
+    plantopiaDesc: string;
+    demosTitle: string;
+    demosDesc: string;
+    nexusTitle: string;
+    nexusDesc: string;
+    tradePilotTitle: string;
+    tradePilotDesc: string;
+    communityManagerTitle: string;
+    communityManagerDesc: string;
+    comingSoon: string;
+  };
+  helpPage: {
+    title: string;
+    subtitle: string;
+    faqsTitle: string;
+    faqsDesc: string;
+    docsTitle: string;
+    docsDesc: string;
+    supportTitle: string;
+    supportDesc: string;
+    contactTitle: string;
+    contactDesc: string;
+    faqSectionTitle: string;
+    faq1Q: string;
+    faq1A: string;
+    faq2Q: string;
+    faq2A: string;
+    faq3Q: string;
+    faq3A: string;
+    faq4Q: string;
+    faq4A: string;
+    faq5Q: string;
+    faq5A: string;
+  };
+  contactPage: {
+    title: string;
+    subtitle: string;
+    nameLabel: string;
+    emailLabel: string;
+    subjectLabel: string;
+    messageLabel: string;
+    submitButton: string;
+    successMessage: string;
+    contactInfoTitle: string;
+    emailContactLabel: string;
+    addressLabel: string;
+    socialTitle: string;
+  };
+  documentationPage: {
+    title: string;
+    subtitle: string;
+    searchPlaceholder: string;
+    gettingStartedTitle: string;
+    introductionTitle: string;
+    introductionText: string;
+    accountCreationTitle: string;
+    accountCreationText: string;
+    exploringSolutionsTitle: string;
+    exploringSolutionsText: string;
+    justSplitTitle: string;
+    justSplitAboutTitle: string;
+    justSplitAboutText: string;
+    justSplitGroupTitle: string;
+    justSplitGroupText: string;
+    justSplitExpensesTitle: string;
+    justSplitExpensesText: string;
+    plantopiaTitle: string;
+    plantopiaAboutTitle: string;
+    plantopiaAboutText: string;
+    plantopiaSetupTitle: string;
+    plantopiaSetupText: string;
+    plantopiaIoTTitle: string;
+    plantopiaIoTText: string;
+    apiReferenceTitle: string;
+    apiOverviewTitle: string;
+    apiOverviewText: string;
+    apiAuthTitle: string;
+    apiAuthText: string;
+    apiRequestsTitle: string;
+    apiRequestsText: string;
+    gettingStartedNavTitle: string;
+    introductionNavItem: string;
+    applicationsNavTitle: string;
+    justSplitNavItem: string;
+    plantopiaNavItem: string;
+    developerNavTitle: string;
+    apiReferenceNavItem: string;
+  };
+  faqPage: {
+    title: string;
+    subtitle: string;
+    generalQuestionsTitle: string;
+    technicalQuestionsTitle: string;
+    businessEnterpriseTitle: string;
+    enterpriseQuestion: string;
+    enterpriseAnswer: string;
+    contactText: string;
+    contactButton: string;
+  };
+  supportPage: {
+    title: string;
+    subtitle: string;
+    commonIssuesTitle: string;
+    commonIssuesText: string;
+    viewCommonIssues: string;
+    knowledgeBaseTitle: string;
+    knowledgeBaseText: string;
+    browseKnowledgeBase: string;
+    communityForumsTitle: string;
+    communityForumsText: string;
+    visitForums: string;
+    liveChatTitle: string;
+    liveChatText: string;
+    startChat: string;
+    contactSupportTitle: string;
+    nameLabel: string;
+    emailLabel: string;
+    subjectLabel: string;
+    productLabel: string;
+    selectProduct: string;
+    messageLabel: string;
+    submitRequest: string;
+  };
+  privacyPage: {
+    title: string;
+    subtitle: string;
+    introTitle: string;
+    introText: string;
+    collectionTitle: string;
+    collectionText: string;
+    useTitle: string;
+    useText: string;
+    disclosureTitle: string;
+    disclosureText: string;
+    securityTitle: string;
+    securityText: string;
+    contactTitle: string;
+    contactText: string;
+    lastUpdated: string;
+  };
+  termsPage: {
+    title: string;
+    subtitle: string;
+    agreementTitle: string;
+    agreementText: string;
+    licenseTitle: string;
+    licenseText: string;
+    accountTitle: string;
+    accountText: string;
+    liabilityTitle: string;
+    liabilityText: string;
+    accuracyTitle: string;
+    accuracyText: string;
+    linksTitle: string;
+    linksText: string;
+    modificationsTitle: string;
+    modificationsText: string;
+    contactTitle: string;
+    contactText: string;
+    lastUpdated: string;
+  };
+}
+
+const translations: Translations = {
   // Navigation and common UI elements
   navigation: {
     home: "Inicio",
@@ -70,7 +323,7 @@ const translations = {
     title: "Sobre CyberEco",
     subtitle: "Conozca nuestra misión, visión y los valores que guían nuestras soluciones tecnológicas innovadoras.",
     whoWeAreTitle: "Quiénes Somos",
-    whoWeAreP1: "CyberEco es una innovadora empresa dedicada a desarrollar aplicaciones digitales que mejoran la colaboración financiera, el compromiso comunitario y la conectividad social. Nuestro propósito es transformar la forma en que las personas gestionan recursos, toman decisiones colectivas e interactúan con la tecnología a través de soluciones intuitivas y centradas en el usuario.",
+    whoWeAreP1: "CyberEco es una innovadora empresa matriz dedicada a desarrollar aplicaciones digitales que mejoran la colaboración financiera, el compromiso comunitario y la conectividad social. Nuestro propósito es transformar la forma en que las personas gestionan recursos, toman decisiones colectivas e interactúan con la tecnología a través de soluciones intuitivas y centradas en el usuario.",
     whoWeAreP2: "Nuestro equipo combina experiencia en desarrollo de software, diseño de experiencia de usuario, sistemas financieros y construcción de comunidades para crear herramientas digitales completas para individuos y grupos.",
     teamImage: "Imagen del Equipo",
     visionMissionTitle: "Nuestra Visión y Misión",
@@ -133,7 +386,6 @@ const translations = {
     faq5A: "Sí, muchas de nuestras aplicaciones como Demos y Community Manager tienen versiones para empresas/organizaciones con características mejoradas para uso profesional."
   },
   
-  // ContactPage translations
   contactPage: {
     title: "Contáctanos",
     subtitle: "Nos encantaría saber de ti. Envíanos un mensaje y te responderemos lo antes posible.",
