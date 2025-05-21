@@ -1,0 +1,274 @@
+graph TD
+    %% Main Structure
+    subgraph "Frontend Applications"
+        direction TB
+        subgraph "JustSplit Application"
+            JS_NEXT[Next.js App]
+            JS_COMP[App Components]
+            JS_PAGES[Pages/Routes]
+            JS_STATE[App State]
+            JS_CONFIG[App Config]
+            
+            JS_NEXT --> JS_COMP
+            JS_NEXT --> JS_PAGES
+            JS_COMP --> JS_STATE
+            JS_STATE --> JS_CONFIG
+        end
+        
+        subgraph "Demos Application"
+            DM_NEXT[Next.js App]
+            DM_COMP[App Components]
+            DM_PAGES[Pages/Routes]
+            DM_STATE[App State]
+            DM_VOTING[Voting System]
+            
+            DM_NEXT --> DM_COMP
+            DM_NEXT --> DM_PAGES
+            DM_COMP --> DM_STATE
+            DM_STATE --> DM_VOTING
+        end
+        
+        subgraph "Template Structure"
+            T_NEXT[Next.js App]
+            T_LAYOUT[App Layout]
+            T_AUTH[Auth System]
+            T_ROUTER[Routing]
+            
+            T_NEXT --> T_LAYOUT
+            T_NEXT --> T_AUTH
+            T_NEXT --> T_ROUTER
+        end
+    end
+    
+    %% Shared Packages
+    subgraph "Shared Packages"
+        direction TB
+        subgraph "@cybereco/core"
+            CORE_AUTH[Authentication]
+            CORE_STATE[State Management]
+            CORE_ROUTER[Router Guards]
+            CORE_ERROR[Error Handling]
+            
+            CORE_AUTH --> CORE_STATE
+            CORE_AUTH --> CORE_ROUTER
+            CORE_STATE --> CORE_ERROR
+        end
+        
+        subgraph "@cybereco/ui"
+            UI_BASE[Base Components]
+            UI_FORM[Form Elements]
+            UI_LAYOUT[Layout Components]
+            UI_THEME[Theme System]
+            UI_FEEDBACK[Notifications/Alerts]
+            
+            UI_BASE --> UI_THEME
+            UI_FORM --> UI_THEME
+            UI_LAYOUT --> UI_THEME
+            UI_FEEDBACK --> UI_THEME
+        end
+        
+        subgraph "@cybereco/hooks"
+            HOOKS_AUTH[useAuth]
+            HOOKS_DATA[useData]
+            HOOKS_FORM[useForm]
+            HOOKS_UI[useUI]
+            
+            HOOKS_AUTH --> HOOKS_DATA
+            HOOKS_DATA --> HOOKS_FORM
+            HOOKS_FORM --> HOOKS_UI
+        end
+        
+        subgraph "@cybereco/firebase-services"
+            FS_AUTH[Authentication Service]
+            FS_STORE[Firestore Service]
+            FS_STORAGE[Storage Service]
+            FS_FUNCTIONS[Functions Service]
+            FS_SECURITY[Security Rules]
+            
+            FS_AUTH --> FS_STORE
+            FS_STORE --> FS_STORAGE
+            FS_STORE --> FS_FUNCTIONS
+            FS_STORE --> FS_SECURITY
+        end
+        
+        subgraph "@cybereco/utils"
+            UTILS_FORMAT[Formatters]
+            UTILS_VALID[Validators]
+            UTILS_EXPORT[Exporters]
+            UTILS_DATE[Date Utils]
+            
+            UTILS_FORMAT --> UTILS_DATE
+            UTILS_VALID --> UTILS_DATE
+            UTILS_EXPORT --> UTILS_FORMAT
+        end
+        
+        subgraph "@cybereco/types"
+            TYPES_MODELS[Data Models]
+            TYPES_API[API Types]
+            TYPES_PROPS[Component Props]
+            
+            TYPES_MODELS --> TYPES_API
+            TYPES_API --> TYPES_PROPS
+        end
+        
+        subgraph "@cybereco/config"
+            CONFIG_ENV[Environment]
+            CONFIG_FEATURE[Feature Flags]
+            CONFIG_DEPLOY[Deployment]
+            
+            CONFIG_ENV --> CONFIG_FEATURE
+            CONFIG_FEATURE --> CONFIG_DEPLOY
+        end
+    end
+    
+    %% Backend Services
+    subgraph "Firebase Backend"
+        direction TB
+        FB_AUTH[Authentication]
+        FB_FIRESTORE[Firestore NoSQL DB]
+        FB_STORAGE[Cloud Storage]
+        FB_FUNCTIONS[Cloud Functions]
+        FB_HOSTING[Firebase Hosting]
+        FB_RULES[Security Rules]
+        
+        FB_AUTH --> FB_FIRESTORE
+        FB_FIRESTORE --> FB_STORAGE
+        FB_FIRESTORE --> FB_FUNCTIONS
+        FB_FUNCTIONS --> FB_FIRESTORE
+        FB_RULES --> FB_FIRESTORE
+        FB_RULES --> FB_STORAGE
+        FB_HOSTING --> FB_AUTH
+    end
+    
+    %% Development & CI/CD
+    subgraph "Development & CI/CD"
+        direction TB
+        NX[Nx Monorepo]
+        GENERATORS[Code Generators]
+        EXECUTORS[Build Executors]
+        AFFECTED[Affected Commands]
+        GITHUB[GitHub Actions]
+        DEPLOY[Deploy Pipeline]
+        
+        NX --> GENERATORS
+        NX --> EXECUTORS
+        NX --> AFFECTED
+        AFFECTED --> GITHUB
+        GITHUB --> DEPLOY
+    end
+    
+    %% Data Flows
+    JS_NEXT -.-> "@cybereco/core"
+    JS_NEXT -.-> "@cybereco/ui"
+    JS_NEXT -.-> "@cybereco/hooks"
+    DM_NEXT -.-> "@cybereco/core"
+    DM_NEXT -.-> "@cybereco/ui"
+    DM_NEXT -.-> "@cybereco/hooks"
+    T_NEXT -.-> "@cybereco/core"
+    T_NEXT -.-> "@cybereco/ui"
+    T_NEXT -.-> "@cybereco/hooks"
+    
+    "@cybereco/core" -.-> "@cybereco/firebase-services"
+    "@cybereco/hooks" -.-> "@cybereco/firebase-services"
+    "@cybereco/ui" -.-> "@cybereco/utils"
+    
+    "@cybereco/firebase-services" -.-> "Firebase Backend"
+    
+    HOOKS_AUTH -.-> FS_AUTH
+    HOOKS_DATA -.-> FS_STORE
+    FS_AUTH -.-> FB_AUTH
+    FS_STORE -.-> FB_FIRESTORE
+    FS_STORAGE -.-> FB_STORAGE
+    FS_FUNCTIONS -.-> FB_FUNCTIONS
+    FS_SECURITY -.-> FB_RULES
+    
+    subgraph "User-App-Backend Flow"
+        direction LR
+        USER[User]
+        APP[CyberEco App]
+        SHARED[Shared Packages]
+        BACKEND[Firebase Services]
+        DATA[User Data]
+        
+        USER -->|"1. Interaction"| APP
+        APP -->|"2. Use"| SHARED
+        SHARED -->|"3. Call"| BACKEND
+        BACKEND -->|"4. Store/Retrieve"| DATA
+        DATA -->|"5. Response"| BACKEND
+        BACKEND -->|"6. Process"| SHARED
+        SHARED -->|"7. Update"| APP
+        APP -->|"8. Render"| USER
+    end
+    
+    %% Update Process Flow
+    subgraph "Library Update Process"
+        direction LR
+        UPD1[Core Change]
+        UPD2[Version Bump]
+        UPD3[Tests]
+        UPD4[Publish]
+        UPD5[App Updates]
+        
+        UPD1 --> UPD2 --> UPD3 --> UPD4 --> UPD5
+    end
+    
+    %% New App Creation
+    subgraph "New App Creation"
+        direction LR
+        NEW1[Run Generator]
+        NEW2[Select Features]
+        NEW3[Configure Firebase]
+        NEW4[Customize UI]
+        NEW5[Deploy]
+        
+        NEW1 --> NEW2 --> NEW3 --> NEW4 --> NEW5
+    end
+    
+    %% Technical Implementation
+    subgraph "Technical Implementation Details"
+        direction TB
+        TECH1[Next.js 15+ with App Router]
+        TECH2[React 18+ with Hooks & Suspense]
+        TECH3[Tailwind CSS for Styling]
+        TECH4[TypeScript for Type Safety]
+        TECH5[Firebase SDK v9+ with Modular Imports]
+        TECH6[Nx for Workspace Management]
+        
+        TECH1 --> TECH2
+        TECH2 --> TECH3
+        TECH1 --> TECH4
+        TECH5 --> TECH4
+        TECH6 --> TECH1
+    end
+    
+    %% App Data Structure
+    subgraph "Data Structure"
+        direction TB
+        DATA1[User Collection]
+        DATA2[App-Specific Collections]
+        DATA3[Shared Collections]
+        DATA4[Security Rules]
+        
+        DATA1 --> DATA2
+        DATA1 --> DATA3
+        DATA4 --> DATA1
+        DATA4 --> DATA2
+        DATA4 --> DATA3
+    end
+    
+    %% Style classes
+    classDef appNode fill:#d4f1f9,stroke:#05a5d1,stroke-width:2px;
+    classDef packageNode fill:#e1d5e7,stroke:#9673a6,stroke-width:2px;
+    classDef backendNode fill:#dae8fc,stroke:#6c8ebf,stroke-width:2px;
+    classDef devNode fill:#fff2cc,stroke:#d6b656,stroke-width:2px;
+    classDef flowNode fill:#f8cecc,stroke:#b85450,stroke-width:2px;
+    classDef dataNode fill:#d5e8d4,stroke:#82b366,stroke-width:2px;
+    classDef techNode fill:#ffe6cc,stroke:#d79b00,stroke-width:2px;
+    
+    class JustSplit Application,Demos Application,Template Structure appNode;
+    class @cybereco/core,@cybereco/ui,@cybereco/hooks,@cybereco/firebase-services,@cybereco/utils,@cybereco/types,@cybereco/config packageNode;
+    class Firebase Backend backendNode;
+    class Development & CI/CD devNode;
+    class User-App-Backend Flow,Library Update Process,New App Creation flowNode;
+    class Data Structure dataNode;
+    class Technical Implementation Details techNode;
