@@ -72,6 +72,16 @@ interface Translations {
     whoWeAreP1: string;
     whoWeAreP2: string;
     teamImage: string;
+    whyWeExistTitle: string;
+    manifestoQuote: string;
+    whyWeExistText: string;
+    whatWeAreTitle: string;
+    whatWeAreText: string;
+    whatWeArePoint1: string;
+    whatWeArePoint2: string;
+    whatWeArePoint3: string;
+    whatWeArePoint4: string;
+    whatWeAreConclusion: string;
     visionMissionTitle: string;
     visionTitle: string;
     visionText: string;
@@ -88,6 +98,8 @@ interface Translations {
     value4Text: string;
     value5Title: string;
     value5Text: string;
+    joinUsTitle: string;
+    joinUsText: string;
   };
   portfolioPage: {
     title: string;
@@ -468,6 +480,16 @@ const translations: Translations = {
     whoWeAreP1: "CyberEco es un ecosistema digital centrado en el ser humano para una vida consciente, conectada y sostenible. En un mundo donde la vida digital está fragmentada, es extractiva y abrumadora, CyberEco existe para ofrecer un mejor camino, uno arraigado en la soberanía, la comunidad y el equilibrio.",
     whoWeAreP2: "Creemos que tu presencia digital debería empoderarte, no explotarte. Tu identidad debería pertenecerte. Tus datos deberían servirte. Tus acciones deberían conectarte significativamente con otras personas.",
     teamImage: "Imagen del Equipo",
+    whyWeExistTitle: "Por Qué Existimos",
+    manifestoQuote: "En un mundo donde la vida digital está fragmentada, es extractiva y abrumadora, CyberEco existe para ofrecer un mejor camino, uno arraigado en la soberanía, la comunidad y el equilibrio.",
+    whyWeExistText: "El mundo digital se ha desconectado cada vez más de los valores humanos. Creamos CyberEco para cerrar esta brecha, proporcionando soluciones digitales que se alinean con la forma en que las personas naturalmente quieren conectarse, colaborar y vivir de manera sostenible.",
+    whatWeAreTitle: "Qué Somos",
+    whatWeAreText: "CyberEco no es solo otra aplicación. Es un ecosistema digital modular — un sistema operativo para la vida — donde cada plataforma resuelve una necesidad real mientras contribuye a un todo mayor.",
+    whatWeArePoint1: "Un lugar para gestionar tus finanzas.",
+    whatWeArePoint2: "Un lugar para resolver conflictos pacíficamente.",
+    whatWeArePoint3: "Un lugar para crecer, aprender, votar, conectar y pertenecer.",
+    whatWeArePoint4: "Un lugar donde tus valores y tus datos se alinean.",
+    whatWeAreConclusion: "En el centro está el CyberEco Hub — tu identidad, tu panel de control, tu hogar digital.",
     visionMissionTitle: "Nuestra Visión y Misión",
     visionTitle: "Visión",
     visionText: "Empoderar a millones de personas, no con más notificaciones, sino con claridad, autonomía y conexión. Crear un entorno digital tan humano, intencional y resiliente como el mundo que merecemos offline.",
@@ -483,7 +505,9 @@ const translations: Translations = {
     value4Title: "La Comunidad es el Núcleo",
     value4Text: "Construimos herramientas para individuos, impulsadas por lo colectivo. El compromiso comunitario y el crecimiento colaborativo están en el corazón de nuestro ecosistema.",
     value5Title: "Abiertos por Naturaleza",
-    value5Text: "Donde sea posible, CyberEco es modular, transparente e interoperable. Adoptamos la apertura y la colaboración en nuestro enfoque de desarrollo."
+    value5Text: "Donde sea posible, CyberEco es modular, transparente e interoperable. Adoptamos la apertura y la colaboración en nuestro enfoque de desarrollo.",
+    joinUsTitle: "Únete a Nosotros",
+    joinUsText: "CyberEco es una plataforma, pero también un movimiento. Damos la bienvenida a creadores, colaboradores, soñadores y constructores. Formemos juntos un futuro digital en el que valga la pena vivir."
   },
   
   // PortfolioPage translations

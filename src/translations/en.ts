@@ -80,6 +80,16 @@ const translations: Translations = {
     whoWeAreP1: "CyberEco is a human-centered digital ecosystem for conscious, connected, and sustainable living. In a world where digital life is fragmented, extractive, and overwhelming, CyberEco exists to offer a better path — one rooted in sovereignty, community, and balance.",
     whoWeAreP2: "We believe your digital presence should empower you, not exploit you. Your identity should belong to you. Your data should serve you. Your actions should connect you with others meaningfully.",
     teamImage: "Team Image",
+    whyWeExistTitle: "Why We Exist",
+    manifestoQuote: "In a world where digital life is fragmented, extractive, and overwhelming, CyberEco exists to offer a better path — one rooted in sovereignty, community, and balance.",
+    whyWeExistText: "The digital world has become increasingly disconnected from human values. We created CyberEco to bridge this gap, providing digital solutions that align with how people naturally want to connect, collaborate, and live sustainably.",
+    whatWeAreTitle: "What We Are",
+    whatWeAreText: "CyberEco is not just another app. It is a modular digital ecosystem — an operating system for life — where each platform solves a real need while contributing to a greater whole.",
+    whatWeArePoint1: "A place to manage your finances.",
+    whatWeArePoint2: "A place to resolve conflicts peacefully.",
+    whatWeArePoint3: "A place to grow, learn, vote, connect, and belong.",
+    whatWeArePoint4: "A place where your values and data align.",
+    whatWeAreConclusion: "At the center is the CyberEco Hub — your identity, your dashboard, your digital home.",
     visionMissionTitle: "Our Vision & Mission",
     visionTitle: "Vision",
     visionText: "To empower millions of people — not with more notifications, but with clarity, autonomy, and connection. To create a digital environment as human, intentional, and resilient as the world we deserve offline.",
@@ -95,7 +105,9 @@ const translations: Translations = {
     value4Title: "Community is Core",
     value4Text: "We build tools for individuals, powered by the collective. Community engagement and collaborative growth are at the heart of our ecosystem.",
     value5Title: "Open by Nature",
-    value5Text: "Wherever possible, CyberEco is modular, transparent, and interoperable. We embrace openness and collaboration in our development approach."
+    value5Text: "Wherever possible, CyberEco is modular, transparent, and interoperable. We embrace openness and collaboration in our development approach.",
+    joinUsTitle: "Join Us",
+    joinUsText: "CyberEco is a platform — but also a movement. We welcome creators, collaborators, dreamers, and builders. Let's shape a digital future worth living in — together."
   },
   
   // PortfolioPage translations

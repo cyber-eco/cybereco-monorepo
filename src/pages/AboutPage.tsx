@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { LanguageContext } from '../context/LanguageContext';
 import { LanguageContextType, ThemeType } from '../types';
+import { FaHandshake } from 'react-icons/fa';
 
 interface ThemedProps {
   theme: ThemeType;
@@ -87,6 +88,42 @@ const LogoContainer = styled.div<ThemedProps>`
   box-shadow: ${({ theme }) => theme.shadow};
 `;
 
+const ManifestoQuote = styled.blockquote<ThemedProps>`
+  font-style: italic;
+  padding: var(--spacing-md);
+  margin: var(--spacing-md) 0;
+  border-left: 4px solid ${({ theme }) => theme.primary};
+  background-color: ${({ theme }) => theme.mode === 'dark' ? 'rgba(0, 40, 30, 0.3)' : 'rgba(0, 98, 65, 0.05)'};
+`;
+
+const JoinSection = styled(motion.div)<ThemedProps>`
+  background: linear-gradient(
+    135deg,
+    ${({ theme }) => theme.mode === 'dark' ? 'rgba(0, 40, 30, 0.95)' : 'rgba(0, 98, 65, 0.95)'},
+    ${({ theme }) => theme.mode === 'dark' ? 'rgba(0, 60, 45, 0.95)' : 'rgba(107, 191, 89, 0.95)'}
+  );
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  color: white;
+  text-align: center;
+  margin-top: var(--spacing-lg);
+`;
+
+const JoinTitle = styled.h2`
+  color: white;
+  margin-bottom: var(--spacing-md);
+`;
+
+const JoinText = styled.p`
+  margin-bottom: var(--spacing-md);
+  font-size: 1.1rem;
+`;
+
+const IconContainer = styled.div`
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-md);
+`;
+
 const AboutPage: React.FC = () => {
   const { translations } = useContext<LanguageContextType>(LanguageContext);
   const t = translations.aboutPage || {};
@@ -125,6 +162,26 @@ const AboutPage: React.FC = () => {
             <LogoImage src={`${process.env.PUBLIC_URL}/logo.svg`} alt="CyberEco Logo" />
           </LogoContainer>
         </AboutContent>
+      </Section>
+
+      <Section>
+        <SectionTitle>{t.whyWeExistTitle || 'Why We Exist'}</SectionTitle>
+        <ManifestoQuote>
+          {t.manifestoQuote || 'In a world where digital life is fragmented, extractive, and overwhelming, CyberEco exists to offer a better path — one rooted in sovereignty, community, and balance.'}
+        </ManifestoQuote>
+        <p>{t.whyWeExistText || 'The digital world has become increasingly disconnected from human values. We created CyberEco to bridge this gap, providing digital solutions that align with how people naturally want to connect, collaborate, and live sustainably.'}</p>
+      </Section>
+
+      <Section>
+        <SectionTitle>{t.whatWeAreTitle || 'What We Are'}</SectionTitle>
+        <p>{t.whatWeAreText || 'CyberEco is not just another app. It is a modular digital ecosystem — an operating system for life — where each platform solves a real need while contributing to a greater whole.'}</p>
+        <ul>
+          <li>{t.whatWeArePoint1 || 'A place to manage your finances.'}</li>
+          <li>{t.whatWeArePoint2 || 'A place to resolve conflicts peacefully.'}</li>
+          <li>{t.whatWeArePoint3 || 'A place to grow, learn, vote, connect, and belong.'}</li>
+          <li>{t.whatWeArePoint4 || 'A place where your values and data align.'}</li>
+        </ul>
+        <p>{t.whatWeAreConclusion || 'At the center is the CyberEco Hub — your identity, your dashboard, your digital home.'}</p>
       </Section>
 
       <Section>
@@ -197,6 +254,19 @@ const AboutPage: React.FC = () => {
           <p>{t.value5Text || 'Wherever possible, CyberEco is modular, transparent, and interoperable. We embrace openness and collaboration in our development approach.'}</p>
         </ValueCard>
       </Section>
+
+      <JoinSection
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        <IconContainer>
+          <FaHandshake />
+        </IconContainer>
+        <JoinTitle>{t.joinUsTitle || 'Join Us'}</JoinTitle>
+        <JoinText>{t.joinUsText || 'CyberEco is a platform — but also a movement. We welcome creators, collaborators, dreamers, and builders. Let\'s shape a digital future worth living in — together.'}</JoinText>
+      </JoinSection>
     </PageContainer>
   );
 };
