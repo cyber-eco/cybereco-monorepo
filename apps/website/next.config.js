@@ -5,8 +5,8 @@ const nextConfig = {
     unoptimized: true
   },
   trailingSlash: true,
-  // Only use relative asset prefix in production builds
-  assetPrefix: process.env.NODE_ENV === 'production' ? '.' : '',
+  // GitHub Pages deployment - use absolute path for assets
+  assetPrefix: process.env.NODE_ENV === 'production' ? '' : '',
   basePath: '',
 };
 
