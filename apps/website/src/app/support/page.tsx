@@ -126,7 +126,7 @@ export default function SupportPage() {
             <p className={styles.cardText}>
               {t('supportPage.communityForumsText') || "Join discussions, share experiences, and find solutions with other users in our community forums."}
             </p>
-            <a href="https://community.cybereco.io" target="_blank" rel="noopener noreferrer" className={styles.cardButton}>
+            <a href="https://github.com/cyber-eco/cybereco-monorepo/discussions" target="_blank" rel="noopener noreferrer" className={styles.cardButton}>
               {t('supportPage.visitForums') || "Visit Forums"}
             </a>
           </div>

@@ -268,7 +268,7 @@ Testing Schedule:
 **🐛 Vulnerability Disclosure**
 ```
 Responsible Disclosure Process:
-├── Public security contact: security@cybereco.io
+├── Public security contact: security@cybere.co
 ├── PGP key available for encrypted communications
 ├── Response acknowledgment within 24 hours
 ├── Regular updates during investigation

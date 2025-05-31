@@ -152,7 +152,7 @@ Groups help organize expenses for **ongoing relationships** like roommates, regu
 │ Or share group code: [WCF2024]             │
 │                                             │
 │ Group link:                                 │
-│ https://justsplit.cybereco.io/g/wcf2024     │
+│ https://justsplit.cybere.co/g/wcf2024     │
 │ [📋 Copy Link]                             │
 │                                             │
 │         [Done]                              │
@@ -659,7 +659,7 @@ JustSplit automatically:
 4. Peer-to-peer support
 
 **📧 Direct Support**:
-- Email: `justsplit-support@cybereco.io`
+- Email: `justsplit-support@cybere.co`
 - Response: Within 4 hours during business days
 - Include: Account email, expense ID, specific issue
 

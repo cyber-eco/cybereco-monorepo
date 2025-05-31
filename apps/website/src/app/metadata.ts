@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'CyberEco - Digital Lifestyle Platform',
-  description: 'A comprehensive platform for digital lifestyle management focusing on digital sovereignty and user wellbeing.',
+  description: 'A human-centered digital ecosystem for conscious, connected, and sustainable living.',
   icons: {
     icon: '/logo-ico.svg',
   },

@@ -67,10 +67,10 @@ export default function AccountSetupGuidePage() {
                 {t('accountSetupGuide.step1Title') || 'Visit the Registration Page'}
               </h3>
               <p className={styles.stepDescription}>
-                {t('accountSetupGuide.step1Desc') || 'Navigate to the CyberEco Hub registration page. You can access this from any CyberEco application or directly at hub.cybereco.io/signup.'}
+                {t('accountSetupGuide.step1Desc') || 'Navigate to the CyberEco Hub registration page. You can access this from any CyberEco application or directly at hub.cybere.co/signup.'}
               </p>
               <div className={styles.stepActions}>
-                <a href="https://hub.cybereco.io/signup" className={styles.actionButton} target="_blank" rel="noopener noreferrer">
+                <a href="https://hub.cybere.co/signup" className={styles.actionButton} target="_blank" rel="noopener noreferrer">
                   {t('accountSetupGuide.signUpNow') || 'Sign Up Now'} →
                 </a>
               </div>

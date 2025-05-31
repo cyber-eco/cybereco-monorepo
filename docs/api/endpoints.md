@@ -17,16 +17,16 @@ This comprehensive API reference covers all CyberEco applications, demonstrating
 
 ### Production Environment
 ```
-Hub (Authentication):     https://api.cybereco.io/hub/v1
-JustSplit (Expenses):     https://api.cybereco.io/justsplit/v1
-Somos (Family Trees):     https://api.cybereco.io/somos/v1      [Planned]
-Demos (Governance):       https://api.cybereco.io/demos/v1      [Planned]
-Plantopia (Gardening):    https://api.cybereco.io/plantopia/v1  [Planned]
+Hub (Authentication):     https://api.cybere.co/hub/v1
+JustSplit (Expenses):     https://api.cybere.co/justsplit/v1
+Somos (Family Trees):     https://api.cybere.co/somos/v1      [Planned]
+Demos (Governance):       https://api.cybere.co/demos/v1      [Planned]
+Plantopia (Gardening):    https://api.cybere.co/plantopia/v1  [Planned]
 ```
 
 ### Development Environment
 ```
-All Services: https://api-dev.cybereco.io/{service}/v1
+All Services: https://api-dev.cybere.co/{service}/v1
 ```
 
 ## 🔐 Authentication & Authorization
@@ -51,7 +51,7 @@ X-User-ID: {user_id}
 ### Token Request
 
 ```http
-POST https://api.cybereco.io/hub/v1/auth/token
+POST https://api.cybere.co/hub/v1/auth/token
 Content-Type: application/json
 
 {
@@ -74,7 +74,7 @@ Content-Type: application/json
     "id": "user_12345",
     "email": "user@example.com",
     "display_name": "John Doe",
-    "avatar_url": "https://cdn.cybereco.io/avatars/user_12345.jpg"
+    "avatar_url": "https://cdn.cybere.co/avatars/user_12345.jpg"
   }
 }
 ```
@@ -134,7 +134,7 @@ Content-Type: application/json
 
 {
   "display_name": "John Smith",
-  "avatar_url": "https://cdn.cybereco.io/avatars/new_avatar.jpg",
+  "avatar_url": "https://cdn.cybere.co/avatars/new_avatar.jpg",
   "preferences": {
     "language": "es",
     "theme": "dark"
@@ -206,7 +206,7 @@ Content-Type: application/json
       "lng": -74.0060
     }
   },
-  "receipt_url": "https://cdn.cybereco.io/receipts/receipt_12345.jpg",
+  "receipt_url": "https://cdn.cybere.co/receipts/receipt_12345.jpg",
   "tags": ["dinner", "celebration", "birthday"]
 }
 ```
@@ -223,7 +223,7 @@ Content-Type: application/json
   "paid_by": {
     "user_id": "user_12345",
     "display_name": "John Doe",
-    "avatar_url": "https://cdn.cybereco.io/avatars/user_12345.jpg"
+    "avatar_url": "https://cdn.cybere.co/avatars/user_12345.jpg"
   },
   "split_type": "equal",
   "participants": [
@@ -257,7 +257,7 @@ Content-Type: application/json
       "lng": -74.0060
     }
   },
-  "receipt_url": "https://cdn.cybereco.io/receipts/receipt_12345.jpg",
+  "receipt_url": "https://cdn.cybere.co/receipts/receipt_12345.jpg",
   "tags": ["dinner", "celebration", "birthday"],
   "status": "active"
 }

@@ -63,7 +63,7 @@ export default function TermsPage() {
               
               <h2>{t('termsPage.contactTitle') || "8. Contact Us"}</h2>
               <p>
-                {t('termsPage.contactText') || "If you have any questions about these Terms, please contact us at terms@cybereco.io."}
+                {t('termsPage.contactText') || "If you have any questions about these Terms, please contact us at terms@cybere.co."}
               </p>
             </div>
             

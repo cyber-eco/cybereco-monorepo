@@ -50,24 +50,24 @@
 
 ```
 Production Environment
-├── 🏭 Production (prod.cybereco.io)
+├── 🏭 Production (prod.cybere.co)
 │   ├── Real user data
 │   ├── Live payment processing
 │   └── Performance monitoring only
 │
-├── 🎭 Staging (staging.cybereco.io)
+├── 🎭 Staging (staging.cybere.co)
 │   ├── Production-like environment
 │   ├── Full integration testing
 │   ├── Performance testing
 │   └── UAT and demo environment
 │
-├── 🧪 Testing (test.cybereco.io)
+├── 🧪 Testing (test.cybere.co)
 │   ├── Automated test execution
 │   ├── CI/CD pipeline integration
 │   ├── Feature branch testing
 │   └── Load testing environment
 │
-└── 🛠️ Development (dev.cybereco.io)
+└── 🛠️ Development (dev.cybere.co)
     ├── Developer local testing
     ├── Feature development
     ├── Unit test execution
@@ -410,7 +410,7 @@ test.describe('Complete Expense Splitting Flow', () => {
 ```yaml
 # performance-tests/load-test-config.yml
 config:
-  target: 'https://test.cybereco.io'
+  target: 'https://test.cybere.co'
   phases:
     - duration: 60
       arrivalRate: 5
@@ -682,7 +682,7 @@ jobs:
       - name: Run OWASP ZAP scan
         uses: zaproxy/action-full-scan@v0.4.0
         with:
-          target: 'https://test.cybereco.io'
+          target: 'https://test.cybere.co'
 ```
 
 ## 📊 Test Metrics & Reporting

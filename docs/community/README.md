@@ -258,22 +258,22 @@ Approved changes are implemented with:
 **San Francisco Bay Area**
 - **Focus**: Tech industry engagement and ethical alternatives
 - **Meetings**: Bi-weekly, rotating locations
-- **Contact**: sf-community@cybereco.io
+- **Contact**: sf-community@cybere.co
 
 **Berlin, Germany**
 - **Focus**: European privacy regulations and digital sovereignty
 - **Meetings**: Monthly, primarily in German
-- **Contact**: berlin@cybereco.io
+- **Contact**: berlin@cybere.co
 
 **Toronto, Canada**
 - **Focus**: Community organizing and cooperative economics
 - **Meetings**: Weekly online, monthly in-person
-- **Contact**: toronto@cybereco.io
+- **Contact**: toronto@cybere.co
 
 **São Paulo, Brazil**
 - **Focus**: Digital inclusion and economic justice
 - **Meetings**: Bi-weekly, Portuguese and English
-- **Contact**: saopaulo@cybereco.io
+- **Contact**: saopaulo@cybere.co
 
 ## 💰 Community Funding & Resources
 
@@ -361,7 +361,7 @@ Approved changes are implemented with:
 ### For New Community Members
 
 **🎯 Start Here**:
-1. **Join the forums**: [community.cybereco.io](https://community.cybereco.io)
+1. **Join the forums**: [https://github.com/cyber-eco/cybereco-monorepo/discussions](https://github.com/cyber-eco/cybereco-monorepo/discussions)
 2. **Introduce yourself**: Share your interests and goals
 3. **Attend a coffee chat**: Low-pressure way to meet people
 4. **Find your working group**: Match your skills and interests
@@ -391,24 +391,24 @@ Approved changes are implemented with:
 ### Community Team
 
 **👋 Community Manager**: Sarah Rodriguez
-- **Email**: community@cybereco.io
+- **Email**: community@cybere.co
 - **Focus**: Day-to-day community support and coordination
 
 **🏛️ Governance Coordinator**: Marcus Thompson
-- **Email**: governance@cybereco.io
+- **Email**: governance@cybere.co
 - **Focus**: Council elections, proposal process, policy development
 
 **🌍 Local Groups Coordinator**: Priya Patel
-- **Email**: local-groups@cybereco.io
+- **Email**: local-groups@cybere.co
 - **Focus**: Supporting local community development
 
 ### Emergency Contacts
 
-**🚨 Community Safety**: safety@cybereco.io
+**🚨 Community Safety**: safety@cybere.co
 - For harassment, abuse, or safety concerns
 - 24/7 response for urgent issues
 
-**⚖️ Policy Violations**: violations@cybereco.io
+**⚖️ Policy Violations**: violations@cybere.co
 - For reports of guideline or terms of service violations
 - Formal complaint and appeal process
 

@@ -17,7 +17,7 @@ By the end of this guide, you'll have:
 
 ### Navigate to Hub Registration
 
-1. **Visit**: [https://hub.cybereco.io/signup](https://hub.cybereco.io/signup)
+1. **Visit**: [https://hub.cybere.co/signup](https://hub.cybere.co/signup)
 2. **Look for**: The "Create Your CyberEco Identity" form
 
 ### Choose Your Identity Information
@@ -75,7 +75,7 @@ By the end of this guide, you'll have:
 
 ### Email Verification Process
 
-1. **Check your email** for a message from `verify@cybereco.io`
+1. **Check your email** for a message from `verify@cybere.co`
 2. **Subject line**: "Welcome to CyberEco - Verify Your Account"
 3. **Click the verification link** (valid for 24 hours)
 4. **You'll see**: "Email verified successfully" confirmation
@@ -89,7 +89,7 @@ By the end of this guide, you'll have:
 
 **Still no email?**
 - Click "Resend verification email" on the login page
-- Contact support: `support@cybereco.io`
+- Contact support: `support@cybere.co`
 
 ## ⚙️ Step 3: Initial Privacy Configuration
 
@@ -316,7 +316,7 @@ After setup, your Hub dashboard shows:
 - Local user meetups
 
 **📧 Direct Support**:
-- Email: `support@cybereco.io`
+- Email: `support@cybere.co`
 - Response time: Within 24 hours
 - Include: Account email, specific issue, steps you've tried
 

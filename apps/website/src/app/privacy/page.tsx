@@ -63,7 +63,7 @@ export default function PrivacyPage() {
               
               <h2>{t('privacyPage.contactTitle') || "Contact Us"}</h2>
               <p>
-                {t('privacyPage.contactText') || "If you have questions or concerns about this Privacy Policy, please contact us at privacy@cybereco.io."}
+                {t('privacyPage.contactText') || "If you have questions or concerns about this Privacy Policy, please contact us at privacy@cybere.co."}
               </p>
             </div>
             

@@ -342,7 +342,7 @@ Our current application is **JustSplit** (honest expense splitting), with planne
 3. Local user group meetups
 
 **Direct Support**:
-- Email: support@cybereco.io
+- Email: support@cybere.co
 - Response time: 24 hours for free users, 4 hours for paid users
 - Video chat support available for complex issues
 
@@ -351,7 +351,7 @@ Our current application is **JustSplit** (honest expense splitting), with planne
 **Feedback Channels**:
 - In-app feedback form (Settings → Send Feedback)
 - Community forums and feature request voting
-- Email: feedback@cybereco.io
+- Email: feedback@cybere.co
 - User interviews and focus groups (volunteer basis)
 
 **Feature Request Process**:
@@ -365,7 +365,7 @@ Our current application is **JustSplit** (honest expense splitting), with planne
 
 **Yes!** We have active communities across multiple platforms:
 
-**Forums**: [community.cybereco.io](https://community.cybereco.io)
+**Forums**: [https://github.com/cyber-eco/cybereco-monorepo/discussions](https://github.com/cyber-eco/cybereco-monorepo/discussions)
 - Feature discussions and voting
 - User tips and tricks
 - Help from experienced users
@@ -432,4 +432,4 @@ Our current application is **JustSplit** (honest expense splitting), with planne
 
 ---
 
-> **💡 Still have questions?** We're here to help! Contact support@cybereco.io or visit our community forums at community.cybereco.io. Your questions help us improve this FAQ for everyone.
+> **💡 Still have questions?** We're here to help! Contact support@cybere.co or visit our community forums at https://github.com/cyber-eco/cybereco-monorepo/discussions. Your questions help us improve this FAQ for everyone.

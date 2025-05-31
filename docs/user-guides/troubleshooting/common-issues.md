@@ -39,7 +39,7 @@
 **Option 3: Account Recovery**
 ```
 If above options fail:
-1. Email: recovery@cybereco.io
+1. Email: recovery@cybere.co
 2. Include: Account email, approximate creation date
 3. Attach: Photo ID for verification
 4. Response time: Within 2 hours
@@ -81,7 +81,7 @@ Web App:
 **Option 3: Data Recovery Request**
 ```
 If data truly lost:
-1. Email: data-recovery@cybereco.io
+1. Email: data-recovery@cybere.co
 2. Include: Expense description, approximate date
 3. Include: Group name and participants
 4. We can recover from backups within 30 days
@@ -120,7 +120,7 @@ Android:
 2. Verify email address is correct
 3. Check all notification types you want
 4. Test with "Send Test Email" button
-5. Add support@cybereco.io to contacts
+5. Add support@cybere.co to contacts
 ```
 
 ## ⚠️ Common Issues (Frequently Encountered)
@@ -298,7 +298,7 @@ Corporate/School Networks:
 1. Check if CyberEco domains are blocked
 2. Try mobile data instead of WiFi
 3. Contact IT about domain whitelist:
-   - *.cybereco.io
+   - *.cybere.co
    - *.firebase.com
    - *.googleapis.com
 ```
@@ -415,7 +415,7 @@ IMMEDIATE ACTIONS (within 5 minutes):
 2. Enable 2FA if not already active
 3. Log out all devices: Settings → Security → Sign Out All
 4. Check recent activity log
-5. Email security@cybereco.io with details
+5. Email security@cybere.co with details
 
 FOLLOW-UP ACTIONS (within 24 hours):
 1. Review all recent expenses and changes
@@ -433,7 +433,7 @@ FOLLOW-UP ACTIONS (within 24 hours):
 DON'T PANIC - WE HAVE BACKUPS:
 1. Stop using the app immediately
 2. Don't try to "fix" it yourself
-3. Email emergency@cybereco.io immediately
+3. Email emergency@cybere.co immediately
 4. Include: Account email, what's missing, when noticed
 5. We maintain 30-day rolling backups of all data
 
@@ -467,19 +467,19 @@ Try these troubleshooting steps first for:
 
 ## 📧 Support Contact Information
 
-**📧 General Support**: `support@cybereco.io`
+**📧 General Support**: `support@cybere.co`
 - Response time: Within 24 hours
 - Include: Account email, specific issue, steps tried
 
-**🚨 Emergency Support**: `emergency@cybereco.io`
+**🚨 Emergency Support**: `emergency@cybere.co`
 - Response time: Within 2 hours
 - For critical issues only
 
-**🔐 Security Issues**: `security@cybereco.io`
+**🔐 Security Issues**: `security@cybere.co`
 - Response time: Within 1 hour
 - For suspected breaches or vulnerabilities
 
-**📊 Data Recovery**: `data-recovery@cybereco.io`
+**📊 Data Recovery**: `data-recovery@cybere.co`
 - Response time: Within 4 hours
 - For lost or corrupted data
 

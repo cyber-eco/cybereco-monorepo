@@ -348,7 +348,7 @@ groups:
 ```
 1. 📞 Automatic PagerDuty alert to on-call engineer
 2. 🔍 Initial assessment using monitoring dashboards
-3. 📢 Status page update (status.cybereco.io)
+3. 📢 Status page update (cybere.co/status)
 4. 🛠️ Immediate mitigation actions:
    - Route traffic to healthy instances
    - Scale up resources if needed
