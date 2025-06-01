@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useLanguage } from '@cybereco/ui-components';
 import styles from './page.module.css';
 
@@ -82,6 +82,13 @@ const getCategories = (t: (key: string) => string) => [
   { id: 'tech', name: t('portfolioPage.techSocial'), icon: '💻' },
 ];
 
+const getStatusFilters = (t: (key: string) => string) => [
+  { id: 'all', name: t('portfolioPage.allStatuses'), icon: '📊' },
+  { id: 'live', name: t('portfolioPage.liveLabel'), icon: '✅' },
+  { id: 'development', name: t('portfolioPage.planning2025Label'), icon: '🔄' },
+  { id: 'planned', name: t('portfolioPage.futureEcosystemLabel'), icon: '🌟' },
+];
+
 const getPhaseInfo = (t: (key: string) => string) => ({
   current: { label: t('portfolioPage.liveLabel'), color: '#006241' },
   priority: { label: t('portfolioPage.planning2025Label'), color: '#F57C00' },
@@ -91,28 +98,108 @@ const getPhaseInfo = (t: (key: string) => string) => ({
 export default function PortfolioPage() {
   const { t } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [selectedStatus, setSelectedStatus] = useState('all');
+
+  // Handle URL hash navigation
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '');
+      if (hash) {
+        // Check if hash matches a category
+        const categories = getCategories(t);
+        const matchingCategory = categories.find(cat => cat.id === hash);
+        if (matchingCategory) {
+          setSelectedCategory(hash);
+          // Scroll to the category section
+          setTimeout(() => {
+            const element = document.getElementById(hash);
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }, 100);
+        } else {
+          // Check if hash matches a specific solution
+          const solutions = getSolutions(t);
+          const matchingSolution = solutions.find(sol => sol.id === hash);
+          if (matchingSolution) {
+            setSelectedCategory(matchingSolution.category);
+            setTimeout(() => {
+              const element = document.getElementById(hash);
+              if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              }
+            }, 100);
+          }
+        }
+      }
+    };
+
+    // Handle initial hash on page load
+    handleHashChange();
+
+    // Listen for hash changes
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, [t]);
 
   const solutions = getSolutions(t);
   const categories = getCategories(t);
+  const statusFilters = getStatusFilters(t);
 
-  const filteredSolutions = selectedCategory === 'all' 
-    ? solutions 
-    : solutions.filter(solution => solution.category === selectedCategory);
+  // Apply both category and status filters
+  const filteredSolutions = solutions.filter(solution => {
+    const categoryMatch = selectedCategory === 'all' || solution.category === selectedCategory;
+    let statusMatch = true;
+    
+    if (selectedStatus !== 'all') {
+      switch (selectedStatus) {
+        case 'live':
+          statusMatch = solution.phase === 'current';
+          break;
+        case 'development':
+          statusMatch = solution.phase === 'priority';
+          break;
+        case 'planned':
+          statusMatch = solution.phase === 'future';
+          break;
+      }
+    }
+    
+    return categoryMatch && statusMatch;
+  });
+
+  // Apply status filter to grouped solutions when showing all categories
+  const applyStatusFilter = (solutionList: Solution[]) => {
+    if (selectedStatus === 'all') return solutionList;
+    
+    return solutionList.filter(solution => {
+      switch (selectedStatus) {
+        case 'live':
+          return solution.phase === 'current';
+        case 'development':
+          return solution.phase === 'priority';
+        case 'planned':
+          return solution.phase === 'future';
+        default:
+          return true;
+      }
+    });
+  };
 
   const groupedSolutions = selectedCategory === 'all'
     ? [
         // Priority-based grouping
-        { category: { id: 'current', name: t('portfolioPage.currentApplications'), icon: '🚀' }, solutions: solutions.filter(s => s.phase === 'current') },
-        { category: { id: 'priority', name: t('portfolioPage.priorityAppsSubtitle'), icon: '⭐' }, solutions: solutions.filter(s => s.phase === 'priority') },
+        { category: { id: 'current', name: t('portfolioPage.currentApplications'), icon: '🚀' }, solutions: applyStatusFilter(solutions.filter(s => s.phase === 'current')) },
+        { category: { id: 'priority', name: t('portfolioPage.priorityAppsSubtitle'), icon: '⭐' }, solutions: applyStatusFilter(solutions.filter(s => s.phase === 'priority')) },
         // Category-based grouping for future applications
-        { category: { id: 'finance', name: t('portfolioPage.financeEconomy'), icon: '💰' }, solutions: solutions.filter(s => s.category === 'finance') },
-        { category: { id: 'community', name: t('portfolioPage.communityGovernance'), icon: '🏛️' }, solutions: solutions.filter(s => s.category === 'community') },
-        { category: { id: 'sustainability', name: t('portfolioPage.sustainabilityHome'), icon: '🌱' }, solutions: solutions.filter(s => s.category === 'sustainability') },
-        { category: { id: 'education', name: t('portfolioPage.educationGrowth'), icon: '📚' }, solutions: solutions.filter(s => s.category === 'education') },
-        { category: { id: 'health', name: t('portfolioPage.healthWellness'), icon: '❤️' }, solutions: solutions.filter(s => s.category === 'health') },
-        { category: { id: 'identity', name: t('portfolioPage.identityLegal'), icon: '🔐' }, solutions: solutions.filter(s => s.category === 'identity') },
-        { category: { id: 'travel', name: t('portfolioPage.travelDiscovery'), icon: '✈️' }, solutions: solutions.filter(s => s.category === 'travel') },
-        { category: { id: 'tech', name: t('portfolioPage.techSocial'), icon: '💻' }, solutions: solutions.filter(s => s.category === 'tech') },
+        { category: { id: 'finance', name: t('portfolioPage.financeEconomy'), icon: '💰' }, solutions: applyStatusFilter(solutions.filter(s => s.category === 'finance')) },
+        { category: { id: 'community', name: t('portfolioPage.communityGovernance'), icon: '🏛️' }, solutions: applyStatusFilter(solutions.filter(s => s.category === 'community')) },
+        { category: { id: 'sustainability', name: t('portfolioPage.sustainabilityHome'), icon: '🌱' }, solutions: applyStatusFilter(solutions.filter(s => s.category === 'sustainability')) },
+        { category: { id: 'education', name: t('portfolioPage.educationGrowth'), icon: '📚' }, solutions: applyStatusFilter(solutions.filter(s => s.category === 'education')) },
+        { category: { id: 'health', name: t('portfolioPage.healthWellness'), icon: '❤️' }, solutions: applyStatusFilter(solutions.filter(s => s.category === 'health')) },
+        { category: { id: 'identity', name: t('portfolioPage.identityLegal'), icon: '🔐' }, solutions: applyStatusFilter(solutions.filter(s => s.category === 'identity')) },
+        { category: { id: 'travel', name: t('portfolioPage.travelDiscovery'), icon: '✈️' }, solutions: applyStatusFilter(solutions.filter(s => s.category === 'travel')) },
+        { category: { id: 'tech', name: t('portfolioPage.techSocial'), icon: '💻' }, solutions: applyStatusFilter(solutions.filter(s => s.category === 'tech')) },
       ].filter(group => group.solutions.length > 0)
     : null;
 
@@ -172,23 +259,44 @@ export default function PortfolioPage() {
       
       <section className={styles.portfolioSection}>
         <div className={styles.container}>
-            <div className={styles.categoryTabs}>
-              {categories.map(category => (
-                <button
-                  key={category.id}
-                  className={`${styles.categoryTab} ${selectedCategory === category.id ? styles.active : ''}`}
-                  onClick={() => setSelectedCategory(category.id)}
-                >
-                  <span className={styles.categoryIcon}>{category.icon}</span>
-                  <span className={styles.categoryName}>{category.name}</span>
-                </button>
-              ))}
+            <div className={styles.filterSection}>
+              <div className={styles.filterGroup}>
+                <h3 className={styles.filterTitle}>Category</h3>
+                <div className={styles.categoryTabs}>
+                  {categories.map(category => (
+                    <button
+                      key={category.id}
+                      className={`${styles.categoryTab} ${selectedCategory === category.id ? styles.active : ''}`}
+                      onClick={() => setSelectedCategory(category.id)}
+                    >
+                      <span className={styles.categoryIcon}>{category.icon}</span>
+                      <span className={styles.categoryName}>{category.name}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+              
+              <div className={styles.filterGroup}>
+                <h3 className={styles.filterTitle}>Development Status</h3>
+                <div className={styles.statusTabs}>
+                  {statusFilters.map(status => (
+                    <button
+                      key={status.id}
+                      className={`${styles.statusTab} ${selectedStatus === status.id ? styles.active : ''}`}
+                      onClick={() => setSelectedStatus(status.id)}
+                    >
+                      <span className={styles.statusIcon}>{status.icon}</span>
+                      <span className={styles.statusName}>{status.name}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
 
             {selectedCategory === 'all' && groupedSolutions ? (
               <div className={styles.groupedContainer}>
                 {groupedSolutions.map(group => (
-                  <div key={group.category.id} className={styles.categoryGroup}>
+                  <div key={group.category.id} id={group.category.id} className={styles.categoryGroup}>
                     <h2 className={styles.categoryTitle}>
                       <span className={styles.categoryIcon}>{group.category.icon}</span>
                       {group.category.name}
@@ -220,7 +328,7 @@ function SolutionCard({ solution }: { solution: Solution }) {
   const phase = phaseInfo[solution.phase as keyof typeof phaseInfo];
   
   return (
-    <div className={styles.projectCard}>
+    <div id={solution.id} className={styles.projectCard}>
       <div className={styles.projectImageWrapper}>
         {solution.image ? (
           <img 
