@@ -96,6 +96,17 @@
   font-size: 0.95rem;
 }
 
+.contactEmail {
+  color: var(--color-muted);
+  transition: color 0.2s;
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+
+.contactEmail:hover {
+  color: var(--color-primary);
+}
+
 .footerBottom {
   text-align: center;
   padding-top: var(--spacing-md);

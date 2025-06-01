@@ -20,6 +20,8 @@ export default function Footer() {
           <div className={styles.socialIcons}>
             <a 
               href="https://www.linkedin.com/company/cybere-co" 
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="LinkedIn"
               className={styles.socialIcon}
             >
@@ -29,6 +31,8 @@ export default function Footer() {
             </a>
             <a 
               href="https://github.com/cyber-eco" 
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="GitHub"
               className={styles.socialIcon}
             >
@@ -51,11 +55,15 @@ export default function Footer() {
         <div className={styles.footerSection}>
           <h3 className={styles.footerHeading}>{t('footer.solutions') || 'Solutions'}</h3>
           <div className={styles.footerLinks}>
-            <Link href="/portfolio#community">{t('footer.communityGovernanceTitle') || 'Community & Governance'}</Link>
-            <Link href="/portfolio#finance">{t('footer.financeEconomyTitle') || 'Finance & Economy'}</Link>
-            <Link href="/portfolio#sustainability">{t('footer.sustainabilityHomeTitle') || 'Sustainability & Home'}</Link>
-            <Link href="/portfolio#education">{t('footer.educationTitle') || 'Education & Growth'}</Link>
-            <Link href="/portfolio#health">{t('footer.healthWellnessTitle') || 'Health & Wellness'}</Link>
+            <Link href="/portfolio">{t('portfolioPage.allSolutions') || 'All Solutions'}</Link>
+            <Link href="/portfolio#finance">{t('portfolioPage.financeEconomy') || 'Finance & Economy'}</Link>
+            <Link href="/portfolio#community">{t('portfolioPage.communityGovernance') || 'Community & Governance'}</Link>
+            <Link href="/portfolio#sustainability">{t('portfolioPage.sustainabilityHome') || 'Sustainability & Home'}</Link>
+            <Link href="/portfolio#education">{t('portfolioPage.educationGrowth') || 'Education & Growth'}</Link>
+            <Link href="/portfolio#health">{t('portfolioPage.healthWellness') || 'Health & Wellness'}</Link>
+            <Link href="/portfolio#identity">{t('portfolioPage.identityLegal') || 'Identity & Legal'}</Link>
+            <Link href="/portfolio#travel">{t('portfolioPage.travelDiscovery') || 'Travel & Discovery'}</Link>
+            <Link href="/portfolio#tech">{t('portfolioPage.techSocial') || 'Tech & Social'}</Link>
           </div>
         </div>
 
@@ -73,7 +81,9 @@ export default function Footer() {
         <div className={styles.footerSection}>
           <h3 className={styles.footerHeading}>{t('footer.contact') || 'Contact'}</h3>
           <div className={styles.contactInfo}>
-            <p>info@cybere.co</p>
+            <a href="mailto:info@cybere.co" className={styles.contactEmail}>
+              info@cybere.co
+            </a>
           </div>
         </div>
       </div>
