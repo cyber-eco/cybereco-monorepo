@@ -174,6 +174,7 @@ const nestedTranslations = {
       techSocial: 'Tech & Social',
       
       // Phase labels
+      allStatuses: 'All Statuses',
       liveLabel: 'Live',
       planning2025Label: 'Planning 2025',
       futureEcosystemLabel: 'Future Ecosystem',
@@ -2459,6 +2460,7 @@ const nestedTranslations = {
       techSocial: 'Tecnología y Social',
       
       // Phase labels
+      allStatuses: 'Todos los Estados',
       liveLabel: 'En Vivo',
       planning2025Label: 'Planificado 2025',
       futureEcosystemLabel: 'Ecosistema Futuro',
