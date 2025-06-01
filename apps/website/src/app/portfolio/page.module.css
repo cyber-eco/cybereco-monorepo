@@ -13,23 +13,6 @@
   overflow: hidden;
 }
 
-.heroSection::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 10px,
-    rgba(255, 255, 255, 0.05) 10px,
-    rgba(255, 255, 255, 0.05) 20px
-  );
-  animation: subtle-move 20s linear infinite;
-  z-index: 0;
-}
 
 @keyframes subtle-move {
   0% { transform: translate(-50%, -50%) rotate(0deg); }
@@ -108,12 +91,6 @@
   left: 100%;
 }
 
-.statusIcon {
-  font-size: 2.5rem;
-  margin-bottom: var(--spacing-sm);
-  display: block;
-}
-
 .statusCard h3 {
   font-size: 1.25rem;
   font-weight: 600;
@@ -168,13 +145,7 @@
   margin-bottom: var(--spacing-md);
 }
 
-.categoryTabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacing-sm);
-  justify-content: center;
-}
-
+.categoryTabs,
 .statusTabs {
   display: flex;
   flex-wrap: wrap;
@@ -184,10 +155,11 @@
 
 .categoryTab,
 .statusTab {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr;
   align-items: center;
-  gap: var(--spacing-xs);
-  padding: var(--spacing-xs) var(--spacing-sm);
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
   border: 2px solid var(--color-border);
   border-radius: var(--border-radius-lg);
   background: var(--color-background);
@@ -198,6 +170,8 @@
   font-weight: 500;
   position: relative;
   overflow: hidden;
+  min-height: 2.5rem;
+  line-height: 1.2;
 }
 
 .categoryTab:hover,
@@ -235,7 +209,12 @@
 
 .categoryIcon,
 .statusIcon {
-  font-size: 1.2rem;
+  font-size: 1rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
 }
 
 .categoryName,
@@ -294,6 +273,11 @@
   .statusCard {
     padding: var(--spacing-lg) var(--spacing-xl);
   }
+  
+  .categoryTab,
+  .statusTab {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
 }
 
 @media (min-width: 1024px) {
@@ -340,14 +324,14 @@
 }
 
 .projectCard {
-  background: var(--color-card);
-  border-radius: var(--border-radius-lg);
-  overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: var(--color-background);
   border: 2px solid var(--color-border);
-  display: flex;
-  flex-direction: column;
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
+  overflow: hidden;
 }
 
 .projectCard:hover {
