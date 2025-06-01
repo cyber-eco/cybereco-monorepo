@@ -16,15 +16,15 @@ interface Solution {
 }
 
 const getSolutions = (t: (key: string) => string): Solution[] => [
-  // CURRENT APPLICATIONS (Live/In Development)
-  { id: 'hub', title: t('portfolioPage.hubTitle'), description: t('portfolioPage.hubDesc'), color: '#006241', url: 'https://hub.cybere.co', category: 'current', phase: 'current' },
-  { id: 'justsplit', title: t('portfolioPage.justSplitTitle'), description: t('portfolioPage.justSplitDesc'), color: '#006241', image: '/portfolio/justsplit.png', url: 'https://justsplit.cybere.co', category: 'current', phase: 'current' },
-  { id: 'website', title: t('portfolioPage.websiteTitle'), description: t('portfolioPage.websiteDesc'), color: '#006241', url: '/', category: 'current', phase: 'current' },
+  // CURRENT APPLICATIONS (Live/In Development) - Now properly categorized
+  { id: 'hub', title: t('portfolioPage.hubTitle'), description: t('portfolioPage.hubDesc'), color: '#006241', url: 'https://hub.cybere.co', category: 'tech', phase: 'current' },
+  { id: 'justsplit', title: t('portfolioPage.justSplitTitle'), description: t('portfolioPage.justSplitDesc'), color: '#006241', image: '/portfolio/justsplit.png', url: 'https://justsplit.cybere.co', category: 'finance', phase: 'current' },
+  { id: 'website', title: t('portfolioPage.websiteTitle'), description: t('portfolioPage.websiteDesc'), color: '#006241', url: '/', category: 'tech', phase: 'current' },
   
-  // PRIORITY APPLICATIONS (Next Wave 2025-2026)
-  { id: 'somos', title: t('portfolioPage.somosTitle'), description: t('portfolioPage.somosDesc'), color: '#8B4513', category: 'priority', phase: 'priority' },
-  { id: 'demos', title: t('portfolioPage.demosTitle'), description: t('portfolioPage.demosDesc'), color: '#4A5568', category: 'priority', phase: 'priority' },
-  { id: 'plantopia', title: t('portfolioPage.plantopiaTitle'), description: t('portfolioPage.plantopiaDesc'), color: '#48BB78', category: 'priority', phase: 'priority' },
+  // PRIORITY APPLICATIONS (Next Wave 2025-2026) - Now properly categorized
+  { id: 'somos', title: t('portfolioPage.somosTitle'), description: t('portfolioPage.somosDesc'), color: '#8B4513', category: 'identity', phase: 'priority' },
+  { id: 'demos', title: t('portfolioPage.demosTitle'), description: t('portfolioPage.demosDesc'), color: '#4A5568', category: 'community', phase: 'priority' },
+  { id: 'plantopia', title: t('portfolioPage.plantopiaTitle'), description: t('portfolioPage.plantopiaDesc'), color: '#48BB78', category: 'sustainability', phase: 'priority' },
   
   // FUTURE ECOSYSTEM - Finance & Economy
   { id: 'mywealth', title: t('portfolioPage.myWealthTitle'), description: t('portfolioPage.myWealthDesc'), color: '#F57C00', category: 'finance', phase: 'future' },
@@ -70,10 +70,8 @@ const getSolutions = (t: (key: string) => string): Solution[] => [
 
 const getCategories = (t: (key: string) => string) => [
   { id: 'all', name: t('portfolioPage.allSolutions'), icon: '🎯' },
-  { id: 'current', name: t('portfolioPage.currentApplications'), icon: '🚀' },
-  { id: 'priority', name: t('portfolioPage.priorityApplications'), icon: '⭐' },
-  { id: 'community', name: t('portfolioPage.communityGovernance'), icon: '🏛️' },
   { id: 'finance', name: t('portfolioPage.financeEconomy'), icon: '💰' },
+  { id: 'community', name: t('portfolioPage.communityGovernance'), icon: '🏛️' },
   { id: 'sustainability', name: t('portfolioPage.sustainabilityHome'), icon: '🌱' },
   { id: 'education', name: t('portfolioPage.educationGrowth'), icon: '📚' },
   { id: 'health', name: t('portfolioPage.healthWellness'), icon: '❤️' },
@@ -168,38 +166,18 @@ export default function PortfolioPage() {
     return categoryMatch && statusMatch;
   });
 
-  // Apply status filter to grouped solutions when showing all categories
-  const applyStatusFilter = (solutionList: Solution[]) => {
-    if (selectedStatus === 'all') return solutionList;
-    
-    return solutionList.filter(solution => {
-      switch (selectedStatus) {
-        case 'live':
-          return solution.phase === 'current';
-        case 'development':
-          return solution.phase === 'priority';
-        case 'planned':
-          return solution.phase === 'future';
-        default:
-          return true;
-      }
-    });
-  };
 
   const groupedSolutions = selectedCategory === 'all'
     ? [
-        // Priority-based grouping
-        { category: { id: 'current', name: t('portfolioPage.currentApplications'), icon: '🚀' }, solutions: applyStatusFilter(solutions.filter(s => s.phase === 'current')) },
-        { category: { id: 'priority', name: t('portfolioPage.priorityAppsSubtitle'), icon: '⭐' }, solutions: applyStatusFilter(solutions.filter(s => s.phase === 'priority')) },
-        // Category-based grouping for future applications
-        { category: { id: 'finance', name: t('portfolioPage.financeEconomy'), icon: '💰' }, solutions: applyStatusFilter(solutions.filter(s => s.category === 'finance')) },
-        { category: { id: 'community', name: t('portfolioPage.communityGovernance'), icon: '🏛️' }, solutions: applyStatusFilter(solutions.filter(s => s.category === 'community')) },
-        { category: { id: 'sustainability', name: t('portfolioPage.sustainabilityHome'), icon: '🌱' }, solutions: applyStatusFilter(solutions.filter(s => s.category === 'sustainability')) },
-        { category: { id: 'education', name: t('portfolioPage.educationGrowth'), icon: '📚' }, solutions: applyStatusFilter(solutions.filter(s => s.category === 'education')) },
-        { category: { id: 'health', name: t('portfolioPage.healthWellness'), icon: '❤️' }, solutions: applyStatusFilter(solutions.filter(s => s.category === 'health')) },
-        { category: { id: 'identity', name: t('portfolioPage.identityLegal'), icon: '🔐' }, solutions: applyStatusFilter(solutions.filter(s => s.category === 'identity')) },
-        { category: { id: 'travel', name: t('portfolioPage.travelDiscovery'), icon: '✈️' }, solutions: applyStatusFilter(solutions.filter(s => s.category === 'travel')) },
-        { category: { id: 'tech', name: t('portfolioPage.techSocial'), icon: '💻' }, solutions: applyStatusFilter(solutions.filter(s => s.category === 'tech')) },
+        // Category-based grouping for all applications
+        { category: { id: 'finance', name: t('portfolioPage.financeEconomy'), icon: '💰' }, solutions: filteredSolutions.filter(s => s.category === 'finance') },
+        { category: { id: 'community', name: t('portfolioPage.communityGovernance'), icon: '🏛️' }, solutions: filteredSolutions.filter(s => s.category === 'community') },
+        { category: { id: 'tech', name: t('portfolioPage.techSocial'), icon: '💻' }, solutions: filteredSolutions.filter(s => s.category === 'tech') },
+        { category: { id: 'sustainability', name: t('portfolioPage.sustainabilityHome'), icon: '🌱' }, solutions: filteredSolutions.filter(s => s.category === 'sustainability') },
+        { category: { id: 'identity', name: t('portfolioPage.identityLegal'), icon: '🔐' }, solutions: filteredSolutions.filter(s => s.category === 'identity') },
+        { category: { id: 'education', name: t('portfolioPage.educationGrowth'), icon: '📚' }, solutions: filteredSolutions.filter(s => s.category === 'education') },
+        { category: { id: 'health', name: t('portfolioPage.healthWellness'), icon: '❤️' }, solutions: filteredSolutions.filter(s => s.category === 'health') },
+        { category: { id: 'travel', name: t('portfolioPage.travelDiscovery'), icon: '✈️' }, solutions: filteredSolutions.filter(s => s.category === 'travel') },
       ].filter(group => group.solutions.length > 0)
     : null;
 

@@ -9,6 +9,8 @@
   justify-content: center;
   width: 40px;
   height: 40px;
+  min-width: 40px;
+  min-height: 40px;
   border: none;
   border-radius: 50%;
   background: var(--surface);
@@ -17,6 +19,7 @@
   transition: all 0.3s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   border: 2px solid transparent;
+  flex-shrink: 0;
 }
 
 .configButton:hover {
@@ -175,6 +178,14 @@
 }
 
 
+/* Tablet and mobile transition */
+@media (max-width: 900px) {
+  .dropdownMenu {
+    width: 260px;
+    right: -5px;
+  }
+}
+
 /* Mobile adjustments */
 @media (max-width: 768px) {
   .dropdownMenu {
@@ -196,20 +207,94 @@
   }
 }
 
-@media (max-width: 480px) {
-  .dropdownMenu {
-    width: calc(100vw - 40px);
-    right: -20px;
-    max-width: 280px;
+@media (max-width: 640px) {
+  .configButton {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    min-height: 38px;
   }
 
+  .configIcon {
+    font-size: 1.05rem;
+  }
+
+  .dropdownMenu {
+    width: calc(100vw - 32px);
+    right: -16px;
+    max-width: 260px;
+  }
+}
+
+@media (max-width: 480px) {
   .configButton {
     width: 36px;
     height: 36px;
+    min-width: 36px;
+    min-height: 36px;
   }
 
   .configIcon {
     font-size: 1rem;
+  }
+
+  .dropdownMenu {
+    width: calc(100vw - 24px);
+    right: -12px;
+    max-width: 280px;
+  }
+  
+  .dropdownHeader {
+    padding: 12px 14px 8px;
+  }
+
+  .dropdownSection {
+    padding: 12px 14px;
+  }
+  
+  .dropdownTitle {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .configButton {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    min-height: 32px;
+  }
+
+  .configIcon {
+    font-size: 0.9rem;
+  }
+
+  .dropdownMenu {
+    width: calc(100vw - 20px);
+    right: -10px;
+    max-width: 240px;
+  }
+  
+  .dropdownHeader {
+    padding: 10px 12px 6px;
+  }
+
+  .dropdownSection {
+    padding: 10px 12px;
+  }
+  
+  .dropdownTitle {
+    font-size: 0.95rem;
+  }
+  
+  .sectionTitle {
+    font-size: 0.9rem;
+  }
+  
+  .themeOption,
+  .languageOption {
+    padding: 10px 8px;
+    font-size: 0.85rem;
   }
 }
 
