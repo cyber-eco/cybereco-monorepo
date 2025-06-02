@@ -3,7 +3,8 @@
 import { usePathname } from 'next/navigation';
 import { Suspense, useEffect, useState } from 'react';
 import Providers from '../context/Providers'; // Ensure path is correct
-import Header from '../components/Header';     // Ensure path is correct
+import Header from '../components/Header/Header';     // Ensure path is correct
+import Footer from '../components/Footer/Footer';     // Import Footer
 import ProtectedRoute from '../components/Auth/ProtectedRoute'; // Ensure path is correct
 import DatabaseErrorRecovery from '../components/ui/DatabaseErrorRecovery'; // Import the recovery component
 
@@ -27,7 +28,10 @@ function ClientLayout({ children }: { children: React.ReactNode }) {
               If ProtectedRoute redirects or returns null (because user is not logged in),
               then Header also won't render */}
           <Header />
-          {children}
+          <main style={{ minHeight: 'calc(100vh - 64px - 200px)' }}>
+            {children}
+          </main>
+          <Footer />
         </ProtectedRoute>
       )}
     </Providers>

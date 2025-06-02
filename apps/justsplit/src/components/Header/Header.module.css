@@ -1,0 +1,15 @@
+/* JustSplit-specific header styles */
+.header {
+  background-color: var(--header-bg, #ffffff);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.userMenuWrapper {
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+.userMenuWrapper:hover {
+  background: none !important;
+}

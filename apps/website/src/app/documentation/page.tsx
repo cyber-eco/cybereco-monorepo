@@ -48,7 +48,7 @@ export default function DocumentationPage() {
       'troubleshooting': `troubleshooting common issues critical problems account access missing data notifications performance app crashes solutions steps emergency procedures support solución problemas comunes críticos acceso cuenta datos perdidos notificaciones rendimiento fallas aplicación soluciones pasos procedimientos emergencia soporte`,
       'community': `community support governance forums discord local groups events learning sessions coffee chats hackathons working groups council involvement leadership resources comunicad soporte gobernanza foros grupos locales eventos sesiones aprendizaje charlas café hackathons grupos trabajo consejo participación liderazgo recursos`,
       'development-setup': `development setup prerequisites nodejs firebase nx tools monorepo development workflow git clone install npm run dev hub justsplit website ports localhost environment configuración desarrollo requisitos previos herramientas flujo trabajo entorno puertos`,
-      'architecture': `architecture monorepo structure nx build system applications shared libraries firebase configuration tech stack nextjs typescript css modules jest testing arquitectura estructura sistema construcción aplicaciones bibliotecas compartidas configuración tecnología pila`
+      'architecture': `architecture monorepo structure nx build system applications shared libraries firebase configuration tech stack nextjs typescript css modules jest testing shared component architecture navigation usermenu footer configdropdown globalprovider design principles mobile-first responsive dark light theme multi-language accessibility arquitectura estructura sistema construcción aplicaciones bibliotecas compartidas configuración tecnología pila componentes compartidos navegación menú usuario pie página diseño principios móvil responsivo tema oscuro claro múltiples idiomas accesibilidad`
     };
     
     // Filter documents based on search query
@@ -1439,6 +1439,65 @@ git push origin feature/your-feature-name
               <li><strong>ui-components</strong>: {t('documentationPage.uiComponentsDesc') || 'Reusable React components with CSS Modules'}</li>
               <li><strong>shared-assets</strong>: {t('documentationPage.sharedAssetsDesc') || 'Common assets including logos and brand materials'}</li>
             </ul>
+          </div>
+
+          <div className={styles.contentSection}>
+            <h3 className={styles.subTitle}>{t('documentationPage.sharedComponentsTitle') || 'Shared Component Architecture'}</h3>
+            <p className={styles.contentText}>
+              {t('documentationPage.sharedComponentsIntro') || 'CyberEco implements a robust shared component architecture that ensures consistency across all applications while maintaining flexibility for app-specific needs.'}
+            </p>
+            
+            <h4 className={styles.listItemTitle}>📦 {t('documentationPage.keyComponentsTitle') || 'Key Components'}</h4>
+            <div className={styles.enhancedContentList}>
+              <div className={styles.contentListItem}>
+                <h5><strong>Navigation</strong></h5>
+                <p>{t('documentationPage.navigationDesc') || 'Configurable navigation bar with mobile support, theme/language switching, and customizable links and action buttons.'}</p>
+              </div>
+              <div className={styles.contentListItem}>
+                <h5><strong>UserMenu</strong></h5>
+                <p>{t('documentationPage.userMenuDesc') || 'Dropdown user menu with avatar support, configurable menu items, and responsive design for mobile devices.'}</p>
+              </div>
+              <div className={styles.contentListItem}>
+                <h5><strong>Footer</strong></h5>
+                <p>{t('documentationPage.footerDesc') || 'Flexible footer component with customizable sections, social links, and company information.'}</p>
+              </div>
+              <div className={styles.contentListItem}>
+                <h5><strong>ConfigDropdown</strong></h5>
+                <p>{t('documentationPage.configDropdownDesc') || 'Theme and language switcher with persistent settings and smooth transitions.'}</p>
+              </div>
+              <div className={styles.contentListItem}>
+                <h5><strong>GlobalProvider</strong></h5>
+                <p>{t('documentationPage.globalProviderDesc') || 'Unified context provider for theme and language settings across applications.'}</p>
+              </div>
+            </div>
+
+            <h4 className={styles.listItemTitle}>🎨 {t('documentationPage.designPrinciplesTitle') || 'Design Principles'}</h4>
+            <ul className={styles.conceptList}>
+              <li>{t('documentationPage.designPrinciple1') || 'Consistent user experience across all applications'}</li>
+              <li>{t('documentationPage.designPrinciple2') || 'Mobile-first responsive design'}</li>
+              <li>{t('documentationPage.designPrinciple3') || 'Dark/light theme support with smooth transitions'}</li>
+              <li>{t('documentationPage.designPrinciple4') || 'Multi-language support (English/Spanish)'}</li>
+              <li>{t('documentationPage.designPrinciple5') || 'Accessibility-first approach'}</li>
+              <li>{t('documentationPage.designPrinciple6') || 'Flexible configuration for app-specific needs'}</li>
+            </ul>
+
+            <h4 className={styles.listItemTitle}>📝 {t('documentationPage.usageExampleTitle') || 'Usage Example'}</h4>
+            <pre className={styles.codeBlock}>
+              {`// Import shared components
+import { Navigation, UserMenu, Footer } from '@cybereco/ui-components';
+
+// Use in your app
+export function AppHeader() {
+  return (
+    <Navigation
+      links={navLinks}
+      actionButton={userActionButton}
+      showConfig={true}
+      mobileMenuStorageKey="app-menu-state"
+    />
+  );
+}`}
+            </pre>
           </div>
         </>
       )

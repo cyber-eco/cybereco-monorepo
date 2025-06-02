@@ -249,3 +249,139 @@ nx affected:libs --base=main
 - **Task Runner**: Uses default NX task runner with caching enabled
 - **Target Dependencies**: Build targets depend on upstream library builds
 - **Named Inputs**: Production builds exclude test files and configs
+
+## Shared Component Architecture
+
+### Overview
+All CyberEco applications use a shared component library (`@cybereco/ui-components`) to ensure consistency and reduce code duplication. The shared components are highly configurable and support theming, internationalization, and responsive design.
+
+### Key Shared Components
+
+#### Navigation Component
+- **Location**: `libs/ui-components/src/Navigation/`
+- **Features**:
+  - Configurable navigation links
+  - Optional action button (e.g., Hub button, User menu)
+  - Mobile-responsive hamburger menu
+  - Active link detection
+  - LocalStorage persistence for mobile menu state
+  - Integration with ConfigDropdown for settings
+- **Usage Example**:
+  ```typescript
+  <Navigation
+    links={[
+      { href: '/', label: 'Home' },
+      { href: '/about', label: 'About' }
+    ]}
+    actionButton={{
+      href: '/hub',
+      label: 'Hub',
+      icon: <FaRocket />
+    }}
+    showConfig={true}
+    mobileMenuStorageKey="app-menu-state"
+  />
+  ```
+
+#### Footer Component
+- **Location**: `libs/ui-components/src/Footer/`
+- **Features**:
+  - Configurable sections with links
+  - Social media links with icons
+  - Company information display
+  - Copyright with current year
+  - Responsive grid layout
+- **Usage Example**:
+  ```typescript
+  <Footer
+    companyInfo={{
+      name: 'CyberEco',
+      tagline: 'Digital solutions',
+      email: 'info@cybere.co'
+    }}
+    sections={[
+      {
+        title: 'Products',
+        links: [
+          { label: 'Product 1', href: '/p1' }
+        ]
+      }
+    ]}
+    socialLinks={[
+      {
+        name: 'LinkedIn',
+        href: 'https://linkedin.com',
+        icon: <LinkedInIcon />
+      }
+    ]}
+  />
+  ```
+
+#### ConfigDropdown Component
+- **Location**: `libs/ui-components/src/ConfigDropdown/`
+- **Features**:
+  - Theme toggle (light/dark)
+  - Language selector (English/Spanish)
+  - Animated dropdown with outside click detection
+  - Keyboard navigation support
+  - Controlled/uncontrolled modes
+
+#### AppLayout Component
+- **Location**: `libs/ui-components/src/Layout/`
+- **Features**:
+  - Consistent layout structure
+  - Header/Footer composition
+  - Provider wrapping
+  - Main content area with proper spacing
+
+### Implementation Pattern
+
+Each app follows this pattern for using shared components:
+
+1. **Create app-specific wrapper components**:
+   ```
+   apps/{app-name}/src/components/Header/Header.tsx
+   apps/{app-name}/src/components/Footer/Footer.tsx
+   ```
+
+2. **Configure shared components with app-specific data**:
+   - Navigation links
+   - Action buttons
+   - Footer sections
+   - Theme/language settings
+
+3. **Use client layout wrapper**:
+   ```typescript
+   // apps/{app-name}/src/app/client-layout.tsx
+   <ThemeProvider>
+     <LanguageProvider>
+       <Header />
+       <main>{children}</main>
+       <Footer />
+     </LanguageProvider>
+   </ThemeProvider>
+   ```
+
+### Navigation Configurations
+
+Centralized navigation configurations are stored in `libs/shared-types/src/navigation.ts`:
+- `websiteNavConfig` - Website navigation links
+- `hubNavConfig` - Hub app navigation
+- `justSplitNavConfig` - JustSplit navigation
+
+### Testing Strategy
+
+All shared components have comprehensive test coverage:
+- Unit tests for component behavior
+- Integration tests for provider interactions
+- Accessibility tests
+- Responsive design tests
+- Mock utilities in `libs/ui-components/src/test-utils/`
+
+### Benefits
+
+1. **Consistency**: All apps have the same look and feel
+2. **Maintainability**: Single source of truth for UI components
+3. **Efficiency**: Faster development of new apps
+4. **Type Safety**: Full TypeScript support
+5. **Testability**: Shared test utilities and patterns

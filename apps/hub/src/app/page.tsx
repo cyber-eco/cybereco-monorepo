@@ -21,8 +21,8 @@ export default function Home() {
     return (
       <div className={styles.authContainer}>
         <div className={styles.authCard}>
-          <h1 className={styles.title}>Welcome to JustSplit Hub</h1>
-          <p className={styles.subtitle}>Sign in to access your applications</p>
+          <h1 className={styles.title}>Welcome to CyberEco Hub</h1>
+          <p className={styles.subtitle}>Sign in to access your digital ecosystem</p>
           <LoginForm />
         </div>
       </div>
@@ -31,17 +31,16 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
-      <header className={styles.header}>
+      <section className={styles.heroSection}>
         <div className="container">
-          <h1>JustSplit Hub</h1>
-          <div className={styles.userInfo}>
-            <span>Welcome, {user.displayName || user.email}</span>
-            <button onClick={() => window.location.href = '/profile'} className={styles.profileButton}>
-              Profile
-            </button>
-          </div>
+          <h1 className={styles.welcomeTitle}>
+            Welcome back, {user.displayName || user.email}!
+          </h1>
+          <p className={styles.welcomeSubtitle}>
+            Your digital ecosystem awaits
+          </p>
         </div>
-      </header>
+      </section>
       
       <section className={styles.appSection}>
         <div className="container">

@@ -33,7 +33,13 @@ const defaultTranslations: TranslationsMap = {
     login: 'Login',
     signup: 'Sign Up',
     language: 'Language',
-    theme: 'Theme'
+    theme: 'Theme',
+    'navigation.settings': 'Settings',
+    'theme.title': 'Theme',
+    'theme.light': 'Light',
+    'theme.dark': 'Dark',
+    'language.title': 'Language',
+    'footer.tagline': 'Building a sustainable digital future'
   },
   es: {
     welcome: 'Bienvenido',
@@ -44,7 +50,13 @@ const defaultTranslations: TranslationsMap = {
     login: 'Iniciar sesión',
     signup: 'Registrarse',
     language: 'Idioma',
-    theme: 'Tema'
+    theme: 'Tema',
+    'navigation.settings': 'Configuración',
+    'theme.title': 'Tema',
+    'theme.light': 'Claro',
+    'theme.dark': 'Oscuro',
+    'language.title': 'Idioma',
+    'footer.tagline': 'Construyendo un futuro digital sostenible'
   }
 };
 

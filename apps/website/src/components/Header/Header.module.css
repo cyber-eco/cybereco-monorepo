@@ -1,93 +1,12 @@
-.header {
-  height: var(--header-height, 70px);
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  background-color: var(--background);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border);
-}
+/* Website-specific header customizations */
+/* Most navigation styles are now in the shared Navigation component */
 
-.container {
-  max-width: var(--max-width, 1200px);
-  margin: 0 auto;
-  padding: 0 var(--spacing-md);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 100%;
-}
-
-.logoContainer {
-  display: flex;
-  align-items: center;
-}
-
-.navLinks {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-sm);
-}
-
-.navLink {
-  margin: 0 var(--spacing-sm);
-  padding: var(--spacing-xs) var(--spacing-sm);
-  color: var(--text-primary);
-  font-weight: 400;
-  position: relative;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.navLink:hover {
-  color: var(--primary);
-}
-
-.navLink::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: var(--primary);
-  transform: scaleX(0);
-  transform-origin: bottom right;
-  transition: transform 0.3s ease-in-out;
-}
-
-.navLink:hover::after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-}
-
-.navLink.active {
-  color: var(--primary);
-  font-weight: 600;
-}
-
-.navLink.active::after {
-  transform: scaleX(1);
-}
-
-.toggleContainer {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-sm);
-  flex-shrink: 0;
-  min-width: fit-content;
-}
-
-/* Beautiful Hub Button Styles */
+/* Hub Button Styles - These are website-specific */
 .hubButton {
   position: relative;
   display: flex;
   align-items: center;
+  gap: 8px;
   padding: 8px 16px;
   background: linear-gradient(135deg, #006241, #004D32, #006241);
   background-size: 200% 200%;
@@ -136,29 +55,15 @@
   transition: all 0.1s ease;
 }
 
-.hubButtonContent {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  position: relative;
-  z-index: 2;
+.hubButtonIcon {
+  font-size: 1rem;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
 }
 
-.hubButtonGlow {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, rgba(0, 98, 65, 0.6) 0%, transparent 70%);
-  border-radius: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  transition: transform 0.4s ease;
-  pointer-events: none;
-}
-
-.hubButton:hover .hubButtonGlow {
-  transform: translate(-50%, -50%) scale(1.5);
+.hubButton:hover .hubButtonIcon {
+  transform: translateY(-2px) rotate(10deg);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }
 
 .hubButtonText {
@@ -172,17 +77,6 @@
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.hubButtonIcon {
-  font-size: 1rem;
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
-}
-
-.hubButton:hover .hubButtonIcon {
-  transform: translateY(-2px) rotate(10deg);
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
-}
-
 .hubButtonExternal {
   font-size: 0.7rem;
   opacity: 0.8;
@@ -194,46 +88,8 @@
   opacity: 1;
 }
 
-.menuToggle {
-  display: none;
-  background: none;
-  border: none;
-  color: var(--text-primary);
-  font-size: 1.5rem;
-  cursor: pointer;
-  padding: var(--spacing-xs);
-  margin-left: var(--spacing-sm);
-}
-
-/* Large tablet styles */
-@media (max-width: 1200px) {
-  .container {
-    padding: 0 var(--spacing-sm);
-  }
-  
-  .navLinks {
-    gap: calc(var(--spacing-xs) / 2);
-  }
-  
-  .navLink {
-    margin: 0 calc(var(--spacing-xs) / 2);
-    padding: var(--spacing-xs);
-    font-size: 0.95rem;
-  }
-}
-
-/* Medium tablet styles */
+/* Responsive adjustments for hub button */
 @media (max-width: 1024px) {
-  .navLinks {
-    gap: 4px;
-  }
-  
-  .navLink {
-    margin: 0 4px;
-    padding: 6px 8px;
-    font-size: 0.9rem;
-  }
-  
   .hubButton {
     padding: 6px 12px;
     font-size: 0.85rem;
@@ -244,18 +100,7 @@
   }
 }
 
-/* Small tablet styles - transition zone */
 @media (max-width: 900px) {
-  .navLinks {
-    gap: 2px;
-  }
-  
-  .navLink {
-    margin: 0 2px;
-    padding: 4px 6px;
-    font-size: 0.85rem;
-  }
-  
   .hubButton {
     padding: 6px 10px;
     font-size: 0.8rem;
@@ -274,55 +119,11 @@
   }
 }
 
-/* Critical transition zone - hide nav links before mobile menu appears */
 @media (max-width: 820px) {
-  .navLinks {
-    display: none;
-  }
-  
-  .menuToggle {
-    display: block;
-  }
-}
-
-/* Mobile styles */
-@media (max-width: 820px) {
-  .navLinks {
-    position: fixed;
-    top: var(--header-height, 70px);
-    right: -100%;
-    width: 75%;
-    height: calc(100vh - var(--header-height, 70px));
-    background-color: var(--surface);
-    flex-direction: column;
-    align-items: flex-start;
-    padding: var(--spacing-md);
-    transition: right 0.3s ease-in-out;
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
-    display: flex; /* Override the display: none from above */
-  }
-
-  .navLinks.navOpen {
-    right: 0;
-  }
-
-  .navLink {
-    width: 100%;
-    margin: var(--spacing-sm) 0;
-    padding: var(--spacing-sm);
-    border-radius: 8px;
-    font-size: 1rem;
-  }
-
   .hubButton {
     padding: 8px 12px;
     border-radius: 20px;
     font-size: 0.85rem;
-  }
-
-  .hubButtonContent {
-    gap: 6px;
   }
 
   .hubButtonText {
@@ -336,30 +137,13 @@
   .hubButtonExternal {
     font-size: 0.6rem;
   }
-
-  .toggleContainer {
-    gap: var(--spacing-xs);
-  }
 }
 
-/* Small mobile styles */
 @media (max-width: 640px) {
-  .container {
-    padding: 0 12px;
-  }
-  
-  .logoContainer {
-    flex-shrink: 0;
-  }
-  
-  .navLinks {
-    width: 80%;
-  }
-  
   .hubButton {
     padding: 6px 10px;
     border-radius: 18px;
-    min-width: 44px; /* Ensure touch target */
+    min-width: 44px;
   }
 
   .hubButtonText {
@@ -373,23 +157,9 @@
   .hubButtonExternal {
     font-size: 0.55rem;
   }
-
-  .toggleContainer {
-    gap: 8px;
-    flex-shrink: 0;
-  }
 }
 
-/* Extra small mobile styles */
 @media (max-width: 480px) {
-  .container {
-    padding: 0 8px;
-  }
-  
-  .navLinks {
-    width: 85%;
-  }
-  
   .hubButton {
     padding: 8px 10px;
     border-radius: 20px;
@@ -407,24 +177,9 @@
   .hubButtonIcon {
     font-size: 1rem;
   }
-  
-  .menuToggle {
-    padding: 8px;
-    min-width: 40px;
-    min-height: 40px;
-  }
 }
 
-/* Very narrow screens */
 @media (max-width: 360px) {
-  .container {
-    padding: 0 6px;
-  }
-  
-  .navLinks {
-    width: 90%;
-  }
-  
   .hubButton {
     padding: 6px 8px;
     min-width: 36px;
@@ -432,16 +187,5 @@
   
   .hubButtonIcon {
     font-size: 0.9rem;
-  }
-  
-  .toggleContainer {
-    gap: 6px;
-  }
-  
-  .menuToggle {
-    padding: 6px;
-    min-width: 36px;
-    min-height: 36px;
-    font-size: 1.3rem;
   }
 }

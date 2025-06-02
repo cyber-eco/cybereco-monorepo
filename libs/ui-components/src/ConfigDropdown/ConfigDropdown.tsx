@@ -2,10 +2,11 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { FaCog, FaSun, FaMoon, FaGlobe, FaCheck } from 'react-icons/fa';
-import { ThemeToggle, LanguageSelector, useTheme, useLanguage } from '@cybereco/ui-components';
+import { useTheme } from '../theme/ThemeContext';
+import { useLanguage } from '../i18n/LanguageContext';
 import styles from './ConfigDropdown.module.css';
 
-interface ConfigDropdownProps {
+export interface ConfigDropdownProps {
   className?: string;
   isOpen?: boolean;
   onToggle?: (isOpen: boolean) => void;

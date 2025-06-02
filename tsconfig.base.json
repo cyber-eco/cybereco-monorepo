@@ -10,14 +10,23 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2020", "dom"],
+    "lib": [
+      "es2020",
+      "dom"
+    ],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@cybereco/shared-types": ["libs/shared-types/src/index.ts"],
-      "@cybereco/firebase-config": ["libs/firebase-config/src/index.ts"],
-      "@cybereco/ui-components": ["libs/ui-components/src/index.ts"]
+      "@cybereco/firebase-config": [
+        "libs/firebase-config/src/index.ts"
+      ],
+      "@cybereco/shared-types": [
+        "libs/shared-types/src/index.ts"
+      ],
+      "@cybereco/ui-components": [
+        "libs/ui-components/src/index.ts"
+      ]
     },
     "allowJs": true,
     "esModuleInterop": true,
@@ -30,5 +39,8 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
 }
