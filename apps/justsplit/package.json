@@ -16,6 +16,7 @@
     "deploy": "npm run build && firebase deploy --only hosting:justsplit"
   },
   "dependencies": {
+    "@cybereco/auth": "file:../../libs/auth",
     "@cybereco/firebase-config": "file:../../libs/firebase-config",
     "@cybereco/shared-types": "file:../../libs/shared-types",
     "@cybereco/ui-components": "file:../../libs/ui-components",

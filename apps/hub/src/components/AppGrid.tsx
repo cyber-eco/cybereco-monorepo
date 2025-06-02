@@ -6,6 +6,7 @@ import { getHubFirestore, queryDocuments, getCurrentUser } from '@cybereco/fireb
 import { where } from 'firebase/firestore';
 import type { App } from '@cybereco/shared-types';
 import { useAuth } from './AuthContext';
+import { createAppToken, generateAppUrl } from '../services/tokenService';
 import styles from './AppGrid.module.css';
 
 export function AppGrid() {
@@ -87,15 +88,20 @@ function AppCard({ app }: { app: App }) {
   const handleLaunch = async () => {
     if (!user || !currentUser) return;
 
-    // Get Firebase user and create a token for the app to verify
-    const token = await currentUser.getIdToken();
-    
-    // Redirect to app with token
-    const url = new URL(app.url);
-    url.searchParams.set('token', token);
-    url.searchParams.set('returnUrl', window.location.origin);
-    
-    window.location.href = url.toString();
+    try {
+      // Create a token for the app
+      const token = await createAppToken();
+      
+      // Generate the app URL with token
+      const appUrl = generateAppUrl(app.url, token);
+      
+      // Redirect to app
+      window.location.href = appUrl;
+    } catch (error) {
+      console.error('Error launching app:', error);
+      // Fall back to launching without token
+      window.location.href = app.url;
+    }
   };
 
   return (

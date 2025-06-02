@@ -28,8 +28,14 @@ export default function SignUp() {
 
   useEffect(() => {
     if (user && !loading) {
-      // Redirect to return URL or default dashboard
-      router.push(returnUrl);
+      // Check if returnUrl is an external app URL
+      if (returnUrl && returnUrl !== '/' && (returnUrl.startsWith('http://') || returnUrl.startsWith('https://'))) {
+        // For external URLs (like JustSplit), use window.location
+        window.location.href = returnUrl;
+      } else {
+        // For internal routes, use Next.js router
+        router.push(returnUrl || '/dashboard');
+      }
     }
   }, [user, loading, router, returnUrl]);
 

@@ -31,7 +31,28 @@ export {
 // Re-export common Firebase Auth types for convenience
 export type {
   User as FirebaseUser,
-  AuthProvider,
+  AuthProvider as FirebaseAuthProvider,
   UserCredential,
   AuthError as FirebaseAuthError
 } from 'firebase/auth';
+
+// Session synchronization exports
+export {
+  useSessionSync,
+  useSharedAuthState,
+  clearSharedAuthState
+} from './SessionSync';
+
+// Permission management exports
+export {
+  usePermissions,
+  withPermissions
+} from './usePermissions';
+
+// Cross-origin auth exports
+export {
+  useCrossOriginAuth,
+  getSharedAuthState,
+  clearSharedAuthState as clearCrossOriginAuth,
+  waitForSharedAuth
+} from './CrossOriginAuth';

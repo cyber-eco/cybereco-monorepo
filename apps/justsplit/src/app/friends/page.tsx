@@ -2,7 +2,7 @@
 
 import { useState, useEffect, FormEvent } from 'react';
 import { useAppContext } from '../../context/AppContext';
-import { useAuth } from '../../context/AuthContext';
+import { useAuth } from '../../context/JustSplitAuthContext';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './page.module.css';

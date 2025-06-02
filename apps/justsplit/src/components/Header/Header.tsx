@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { FaRocket, FaUser, FaBars, FaTimes, FaCog } from 'react-icons/fa';
-import { useAuth } from '@/context/AuthContext';
+import { useAuth } from '@/context/JustSplitAuthContext';
 import { useTheme } from '@/context/ThemeContext';
 import { useLanguage } from '@/context/LanguageContext';
 
@@ -90,8 +90,9 @@ export default function Header() {
         </Link>
       );
     }
+    const hubUrl = process.env.NEXT_PUBLIC_HUB_URL || 'http://localhost:40000';
     return (
-      <a href="https://hub.cybere.co" className={styles.actionButton} target="_blank" rel="noopener noreferrer">
+      <a href={hubUrl} className={styles.actionButton}>
         <FaRocket />
         <span>{t('hub')}</span>
       </a>

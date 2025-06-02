@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { AppProvider } from './AppContext';
-import { AuthProvider } from './AuthContext';
+import { JustSplitAuthProvider } from './JustSplitAuthContext';
 import { NotificationProvider } from './NotificationContext';
 import { ThemeProvider } from './ThemeContext';
 import { LanguageProvider } from './LanguageContext';
@@ -13,13 +13,13 @@ export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <ThemeProvider>
       <LanguageProvider>
-        <AuthProvider>
+        <JustSplitAuthProvider>
           <AppProvider initialState={{}}>
             <NotificationProvider>
               {children}
             </NotificationProvider>
           </AppProvider>
-        </AuthProvider>
+        </JustSplitAuthProvider>
       </LanguageProvider>
     </ThemeProvider>
   );

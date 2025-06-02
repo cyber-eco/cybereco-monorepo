@@ -1,7 +1,9 @@
 import React, { ReactNode } from 'react';
 import { render, RenderOptions } from '@testing-library/react';
 import { AppProvider, AppState, AppContext } from './context/AppContext';
-import { AuthContext, AuthContextType } from './context/AuthContext';
+import { JustSplitAuthProvider } from './context/JustSplitAuthContext';
+import { AuthContextType, AuthContext } from '@cybereco/auth';
+import { JustSplitUser } from '@cybereco/shared-types';
 import { ReactElement } from 'react';
 import { NotificationProvider } from './context/NotificationContext';
 import { User } from './types'; // Import User type
@@ -17,7 +19,7 @@ const defaultInitialAppState: AppState = { // Ensure this conforms to AppState f
 };
 
 // Mock auth values - ensure it conforms to AuthContextType
-const mockAuthValues: AuthContextType = {
+const mockAuthValues: AuthContextType<JustSplitUser> = {
   currentUser: null,
   userProfile: null,
   isLoading: false,

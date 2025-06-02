@@ -19,7 +19,7 @@ import {
   setPersistence,
   Auth
 } from 'firebase/auth';
-import type { AuthProvider } from 'firebase/auth';
+import type { AuthProvider as FirebaseAuthProvider } from 'firebase/auth';
 import { doc, setDoc, getDoc, Firestore } from 'firebase/firestore';
 
 // Base user interface that apps can extend
@@ -182,7 +182,7 @@ export function createAuthContext<T extends BaseUser = BaseUser>() {
     }, [auth, db, userCollection, userProfileCreator, onUserProfileLoaded]);
 
     // Authentication methods
-    const getProvider = (providerName: string): AuthProvider => {
+    const getProvider = (providerName: string): FirebaseAuthProvider => {
       switch (providerName) {
         case 'google': return new GoogleAuthProvider();
         case 'facebook': return new FacebookAuthProvider();

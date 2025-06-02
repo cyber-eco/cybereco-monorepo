@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useAuth } from '../../context/AuthContext';
+import { useAuth } from '../../context/JustSplitAuthContext';
 
 const DatabaseErrorRecovery: React.FC = () => {
   // Use local state to avoid hydration mismatch issues
@@ -11,7 +11,7 @@ const DatabaseErrorRecovery: React.FC = () => {
   
   // Use useEffect to set the state on the client side only
   useEffect(() => {
-    setShouldShow(hasDatabaseCorruption);
+    setShouldShow(hasDatabaseCorruption ?? false);
   }, [hasDatabaseCorruption]);
 
   // Don't render anything during SSR or if no corruption detected

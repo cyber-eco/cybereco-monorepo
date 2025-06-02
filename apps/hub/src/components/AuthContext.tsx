@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { getHubAuth, getHubFirestore, initializeFirebase } from '@cybereco/firebase-config';
-import { createAuthContext, BaseUser, type AuthConfig } from '@cybereco/auth';
+import { createAuthContext, BaseUser, type AuthConfig, useSessionSync, clearSharedAuthState, useCrossOriginAuth } from '@cybereco/auth';
 import type { AppPermission } from '@cybereco/auth';
 
 // Hub-specific user profile extending BaseUser
@@ -20,7 +20,7 @@ export interface HubUser extends BaseUser {
 }
 
 // Create Hub-specific auth context
-const { AuthProvider: BaseAuthProvider, useAuth } = createAuthContext<HubUser>();
+const { AuthProvider: BaseAuthProvider, useAuth, AuthContext } = createAuthContext<HubUser>();
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [authConfig, setAuthConfig] = useState<AuthConfig | null>(null);
@@ -109,8 +109,46 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       onUserProfileLoaded={handleUserProfileLoaded}
       enableCorruptionRecovery={true}
     >
-      {children}
+      <AuthContextWrapper>
+        {children}
+      </AuthContextWrapper>
     </BaseAuthProvider>
+  );
+}
+
+// Wrapper to add session synchronization and cross-origin auth
+function AuthContextWrapper({ children }: { children: React.ReactNode }) {
+  const authContext = useAuth();
+  const auth = getHubAuth();
+
+  // Set up cross-origin auth sharing
+  useCrossOriginAuth(auth);
+
+  // Set up session synchronization
+  useSessionSync({
+    auth,
+    onSessionChange: (isAuthenticated) => {
+      // Hub is the central auth provider, so we don't redirect on sign out
+      // Apps will handle their own redirects
+      console.log('Hub auth state changed:', isAuthenticated);
+    },
+    syncAcrossTabs: true
+  });
+
+  // Enhanced context with session management
+  const enhancedContext = {
+    ...authContext,
+    signOut: async () => {
+      // Clear shared auth state before signing out
+      clearSharedAuthState();
+      await authContext.signOut();
+    }
+  };
+
+  return (
+    <AuthContext.Provider value={enhancedContext}>
+      {children}
+    </AuthContext.Provider>
   );
 }
 

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { useAuth } from '../../context/AuthContext';
+import { useAuth } from '../../context/JustSplitAuthContext';
 import { User } from '../../types';
 import NotificationModule from '../../context/NotificationContext';
 import AvatarUploader from '../../components/AvatarUploader';

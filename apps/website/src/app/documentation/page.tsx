@@ -48,7 +48,8 @@ export default function DocumentationPage() {
       'troubleshooting': `troubleshooting common issues critical problems account access missing data notifications performance app crashes solutions steps emergency procedures support solución problemas comunes críticos acceso cuenta datos perdidos notificaciones rendimiento fallas aplicación soluciones pasos procedimientos emergencia soporte`,
       'community': `community support governance forums discord local groups events learning sessions coffee chats hackathons working groups council involvement leadership resources comunicad soporte gobernanza foros grupos locales eventos sesiones aprendizaje charlas café hackathons grupos trabajo consejo participación liderazgo recursos`,
       'development-setup': `development setup prerequisites nodejs firebase nx tools monorepo development workflow git clone install npm run dev hub justsplit website ports localhost environment configuración desarrollo requisitos previos herramientas flujo trabajo entorno puertos`,
-      'architecture': `architecture monorepo structure nx build system applications shared libraries firebase configuration tech stack nextjs typescript css modules jest testing shared component architecture navigation usermenu footer configdropdown globalprovider modal toast applayout design principles mobile-first responsive dark light theme multi-language accessibility portal rendering test infrastructure arquitectura estructura sistema construcción aplicaciones bibliotecas compartidas configuración tecnología pila componentes compartidos navegación menú usuario pie página diseño principios móvil responsivo tema oscuro claro múltiples idiomas accesibilidad renderizado portal infraestructura pruebas`
+      'architecture': `architecture monorepo structure nx build system applications shared libraries firebase configuration tech stack nextjs typescript css modules jest testing shared component architecture navigation usermenu footer configdropdown globalprovider modal toast applayout design principles mobile-first responsive dark light theme multi-language accessibility portal rendering test infrastructure arquitectura estructura sistema construcción aplicaciones bibliotecas compartidas configuración tecnología pila componentes compartidos navegación menú usuario pie página diseño principios móvil responsivo tema oscuro claro múltiples idiomas accesibilidad renderizado portal infraestructura pruebas`,
+      'data-architecture': `data layer architecture hub centralized single source truth shared profiles permissions financial groups activities notifications application consume api real-time sync websocket firebase subscription cache offline arquitectura capa datos centralizada única fuente verdad perfiles compartidos permisos financieros grupos actividades notificaciones aplicación consumir sincronización tiempo real suscripción caché sin conexión`
     };
     
     // Filter documents based on search query
@@ -1777,6 +1778,22 @@ export function MyComponent() {
                 {t('documentationPage.apiReferenceNavItem') || 'API Reference'}
                 <FaChevronRight size={10} />
               </button>
+              <a 
+                href="/documentation/authentication"
+                className={styles.navItem}
+                style={{ textDecoration: 'none' }}
+              >
+                {t('documentationPage.authenticationNavItem') || 'Authentication Integration'}
+                <FaChevronRight size={10} />
+              </a>
+              <a 
+                href="/documentation/data-architecture"
+                className={styles.navItem}
+                style={{ textDecoration: 'none' }}
+              >
+                {t('documentationPage.dataArchitectureNavItem') || 'Data Layer Architecture'}
+                <FaChevronRight size={10} />
+              </a>
             </div>
           )}
         </nav>

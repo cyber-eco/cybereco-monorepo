@@ -64,6 +64,9 @@
       ],
       "@cybereco/shared-assets": [
         "../../libs/shared-assets/src/index.ts"
+      ],
+      "@cybereco/auth": [
+        "../../libs/auth/src/index.ts"
       ]
     }
   },

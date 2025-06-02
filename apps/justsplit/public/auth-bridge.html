@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Auth Bridge</title>
+    <script>
+        // This page acts as a bridge to share auth state from Hub to JustSplit
+        // It's loaded in an iframe and uses postMessage for cross-origin communication
+        
+        window.addEventListener('message', async (event) => {
+            // Only accept messages from Hub
+            if (event.origin !== 'http://localhost:40000') {
+                return;
+            }
+            
+            if (event.data.type === 'AUTH_STATE') {
+                // Store auth state
+                localStorage.setItem('hub-auth-state', JSON.stringify(event.data.authState));
+                
+                // Reply to confirm
+                event.source.postMessage({ type: 'AUTH_STATE_SAVED' }, event.origin);
+            }
+            
+            if (event.data.type === 'GET_AUTH_STATE') {
+                // Return stored auth state
+                const authState = localStorage.getItem('hub-auth-state');
+                event.source.postMessage({ 
+                    type: 'AUTH_STATE_RESPONSE',
+                    authState: authState ? JSON.parse(authState) : null
+                }, event.origin);
+            }
+        });
+        
+        // Notify parent that bridge is ready
+        if (window.parent !== window) {
+            window.parent.postMessage({ type: 'AUTH_BRIDGE_READY' }, '*');
+        }
+    </script>
+</head>
+<body>
+    <p>Auth Bridge</p>
+</body>
+</html>
