@@ -1,0 +1,252 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-lg) var(--spacing-md);
+  min-height: calc(100vh - 180px); /* Account for header and padding */
+}
+
+.authCard {
+  background-color: var(--background);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: var(--spacing-xl);
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  border: 1px solid var(--border);
+}
+
+.title {
+  color: var(--primary);
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+  font-weight: 600;
+  font-size: var(--font-size-xxl);
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+  font-size: var(--font-size-lg);
+}
+
+.form {
+  margin-bottom: var(--spacing-lg);
+}
+
+.formGroup {
+  margin-bottom: var(--spacing-md);
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  font-weight: 500;
+  color: var(--text-primary);
+  font-size: var(--font-size-base);
+}
+
+.formGroup input {
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius-md);
+  font-size: var(--font-size-base);
+  transition: border-color var(--transition-speed) ease;
+  background-color: var(--background);
+  color: var(--text-primary);
+}
+
+.formGroup input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px var(--primary-light);
+}
+
+.passwordInput {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.passwordInput input {
+  padding-right: 60px;
+}
+
+.togglePassword {
+  position: absolute;
+  right: var(--spacing-sm);
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+  padding: var(--spacing-xs);
+}
+
+.togglePassword:hover {
+  color: var(--primary);
+}
+
+.submitButton {
+  width: 100%;
+  padding: var(--spacing-md);
+  margin-top: var(--spacing-md);
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius-md);
+  font-weight: 500;
+  font-size: var(--font-size-base);
+  cursor: pointer;
+  transition: background-color var(--transition-speed) ease;
+}
+
+.submitButton:hover:not(:disabled) {
+  background-color: var(--primary);
+  opacity: 0.9;
+}
+
+.submitButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  color: var(--text-secondary);
+  margin: var(--spacing-lg) 0;
+  font-size: var(--font-size-sm);
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid var(--border);
+}
+
+.divider::before {
+  margin-right: var(--spacing-md);
+}
+
+.divider::after {
+  margin-left: var(--spacing-md);
+}
+
+.socialButtons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-lg);
+}
+
+.socialButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-md);
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius-md);
+  background-color: var(--surface);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-speed) ease;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.socialButton:hover {
+  background-color: var(--border);
+}
+
+.google:hover {
+  background-color: #f1f1f1;
+}
+
+.facebook {
+  background-color: #4267B2;
+  color: white;
+  border-color: #4267B2;
+}
+
+.facebook:hover {
+  background-color: #365899;
+  border-color: #365899;
+}
+
+.twitter {
+  background-color: #1DA1F2;
+  color: white;
+  border-color: #1DA1F2;
+}
+
+.twitter:hover {
+  background-color: #1a91da;
+  border-color: #1a91da;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.links a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color var(--transition-speed) ease;
+  font-size: var(--font-size-sm);
+}
+
+.links a:hover {
+  color: var(--primary);
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+.error {
+  background-color: var(--color-error);
+  color: white;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  margin-bottom: var(--spacing-md);
+  font-size: var(--font-size-sm);
+  text-align: center;
+}
+
+.loading {
+  text-align: center;
+  color: var(--text-secondary);
+  padding: var(--spacing-xl);
+}
+
+@media (max-width: 768px) {
+  .authCard {
+    padding: var(--spacing-lg);
+    margin: var(--spacing-md);
+  }
+  
+  .container {
+    padding: var(--spacing-md);
+  }
+  
+  .socialButtons {
+    gap: var(--spacing-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .authCard {
+    padding: var(--spacing-md);
+  }
+  
+  .title {
+    font-size: var(--font-size-xl);
+  }
+}

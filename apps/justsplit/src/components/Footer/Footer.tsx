@@ -1,75 +1,64 @@
 'use client';
 
 import React from 'react';
-import { Footer as SharedFooter, FooterSection, GitHubIcon, EmailIcon } from '@cybereco/ui-components';
-import { useLanguage } from '@cybereco/ui-components';
-import styles from './Footer.module.css';
+import { Footer as SharedFooter } from '@cybereco/ui-components';
+import { FaGithub, FaEnvelope, FaLinkedin } from 'react-icons/fa';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function Footer() {
   const { t } = useLanguage();
-
-  const footerSections: FooterSection[] = [
-    {
-      title: t('footer.features') || 'Features',
-      links: [
-        { label: t('footer.expenseSplitting') || 'Expense Splitting', href: '/features#splitting' },
-        { label: t('footer.groupManagement') || 'Group Management', href: '/features#groups' },
-        { label: t('footer.realTimeSync') || 'Real-time Sync', href: '/features#sync' },
-        { label: t('footer.multiCurrency') || 'Multi-currency', href: '/features#currency' },
-      ]
+  
+  const footerConfig = {
+    companyInfo: {
+      name: 'JustSplit',
+      tagline: t('tagline'),
+      email: 'info@cybere.co'
     },
-    {
-      title: t('footer.resources') || 'Resources',
-      links: [
-        { label: t('footer.userGuide') || 'User Guide', href: '/help' },
-        { label: t('footer.faq') || 'FAQ', href: '/help#faq' },
-        { label: t('footer.api') || 'API', href: '/api', external: true },
-        { label: t('footer.changelog') || 'Changelog', href: '/changelog' },
-      ]
-    },
-    {
-      title: t('footer.company') || 'Company',
-      links: [
-        { label: t('footer.about') || 'About JustSplit', href: '/about' },
-        { label: t('footer.cybereco') || 'CyberEco', href: 'https://cybere.co', external: true },
-        { label: t('footer.privacy') || 'Privacy', href: '/privacy' },
-        { label: t('footer.terms') || 'Terms', href: '/terms' },
-      ]
-    }
-  ];
+    sections: [
+      {
+        title: t('features'),
+        links: [
+          { label: t('expenseTracking'), href: '/expenses' },
+          { label: t('groupManagement'), href: '/groups' },
+          { label: t('eventPlanning'), href: '/events' },
+          { label: t('settlements'), href: '/settlements' }
+        ]
+      },
+      {
+        title: t('support'),
+        links: [
+          { label: t('helpCenter'), href: '/help' },
+          { label: t('about'), href: '/about' },
+          { label: t('contact'), href: 'mailto:info@cybere.co' }
+        ]
+      },
+      {
+        title: t('legal'),
+        links: [
+          { label: t('privacyPolicy'), href: 'https://cybere.co/privacy' },
+          { label: t('termsOfService'), href: 'https://cybere.co/terms' },
+          { label: t('license'), href: 'https://cybere.co/license' }
+        ]
+      }
+    ],
+    socialLinks: [
+      {
+        name: 'GitHub',
+        href: 'https://github.com/cyber-eco/cybereco-monorepo',
+        icon: <FaGithub />
+      },
+      {
+        name: 'LinkedIn',
+        href: 'https://linkedin.com/company/cyberecotech',
+        icon: <FaLinkedin />
+      },
+      {
+        name: 'Email',
+        href: 'mailto:info@cybere.co',
+        icon: <FaEnvelope />
+      }
+    ]
+  };
 
-  const socialLinks = [
-    {
-      name: 'GitHub',
-      href: 'https://github.com/cyber-eco/justsplit',
-      icon: <GitHubIcon />,
-      ariaLabel: 'Visit JustSplit on GitHub'
-    },
-    {
-      name: 'Email',
-      href: 'mailto:support@justsplit.app',
-      icon: <EmailIcon />,
-      ariaLabel: 'Email JustSplit support'
-    }
-  ];
-
-  return (
-    <SharedFooter
-      companyInfo={{
-        name: 'JustSplit',
-        tagline: t('footer.tagline') || 'Split expenses, not friendships',
-        email: 'support@justsplit.app',
-        copyrightPrefix: '©'
-      }}
-      logo={{
-        show: true,
-        height: 40
-      }}
-      socialLinks={socialLinks}
-      sections={footerSections}
-      className={styles.footer}
-      showCopyright={true}
-      showSocialLinks={true}
-    />
-  );
+  return <SharedFooter {...footerConfig} />;
 }

@@ -1,30 +1,43 @@
 'use client';
 
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { useAuth } from '../components/AuthContext';
 import { AppGrid } from '../components/AppGrid';
-import { LoginForm } from '../components/LoginForm';
+import { useLanguage } from '@cybereco/ui-components';
 import styles from './page.module.css';
 
 export default function Home() {
-  const { user, loading } = useAuth();
+  const { userProfile: user, isLoading: loading } = useAuth();
+  const { t } = useLanguage();
+  const router = useRouter();
+
+  // Redirect to signin page if not authenticated, or to dashboard if authenticated
+  useEffect(() => {
+    if (!loading) {
+      if (!user) {
+        router.push('/auth/signin');
+      } else {
+        router.push('/dashboard');
+      }
+    }
+  }, [user, loading, router]);
 
   if (loading) {
     return (
       <div className={styles.loadingContainer}>
         <div className={styles.spinner} />
-        <p>Loading...</p>
+        <p>{t('hub.loading') || 'Loading...'}</p>
       </div>
     );
   }
 
+  // Show loading while redirecting unauthenticated users
   if (!user) {
     return (
-      <div className={styles.authContainer}>
-        <div className={styles.authCard}>
-          <h1 className={styles.title}>Welcome to CyberEco Hub</h1>
-          <p className={styles.subtitle}>Sign in to access your digital ecosystem</p>
-          <LoginForm />
-        </div>
+      <div className={styles.loadingContainer}>
+        <div className={styles.spinner} />
+        <p>{t('hub.loading') || 'Redirecting...'}</p>
       </div>
     );
   }
@@ -34,17 +47,18 @@ export default function Home() {
       <section className={styles.heroSection}>
         <div className="container">
           <h1 className={styles.welcomeTitle}>
-            Welcome back, {user.displayName || user.email}!
+            {t('hub.welcomeBack', { name: user.name || user.email || 'User' }) || 
+             `Welcome back, ${user.name || user.email}!`}
           </h1>
           <p className={styles.welcomeSubtitle}>
-            Your digital ecosystem awaits
+            {t('hub.ecosystem.subtitle') || 'Your digital ecosystem awaits'}
           </p>
         </div>
       </section>
       
       <section className={styles.appSection}>
         <div className="container">
-          <h2>Your Applications</h2>
+          <h2>{t('hub.apps.title') || 'Your Applications'}</h2>
           <AppGrid />
         </div>
       </section>

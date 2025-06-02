@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useAppContext } from '../context/AppContext';
+import { useLanguage } from '../context/LanguageContext';
 import CurrencyExchangeTicker from '../components/CurrencyExchangeTicker';
 import { clearExchangeRateCache } from '../utils/currencyExchange';
 
@@ -18,8 +19,12 @@ import { Event as LocalEvent, Expense, Settlement } from '../types';
 
 import styles from './page.module.css';
 
+// Force dynamic rendering to avoid static generation issues
+export const dynamic = 'force-dynamic';
+
 export default function Home() {
   const { state, isConvertingCurrencies, preferredCurrency } = useAppContext();
+  const { t } = useLanguage();
   
   const [localPreferredCurrency, setLocalPreferredCurrency] = useState(preferredCurrency);
   const localIsConvertingCurrencies = isConvertingCurrencies;
@@ -98,7 +103,7 @@ export default function Home() {
   };
 
   if (!state) {
-    return <div className={styles.loading}>Loading application data...</div>;
+    return <div className={styles.loading}>{t('loading')}</div>;
   }
   
   return hasData ? (
@@ -124,36 +129,36 @@ export default function Home() {
           highestExpense={financialSummary.highestExpense}
           avgPerDay={financialSummary.avgPerDay}
         />
+        
+        <ExpenseDistribution 
+          expenses={state.expenses || []}
+          preferredCurrency={localPreferredCurrency}
+          isConvertingCurrencies={localIsConvertingCurrencies}
+        />
+        
+        <BalanceOverview 
+          balanceDistribution={balanceDistribution} 
+          preferredCurrency={localPreferredCurrency}
+        />
+        
+        <RecentExpenses 
+          expenses={recentExpenses} 
+          users={state.users || []} 
+          events={convertEvents(state.events || [])}
+          preferredCurrency={localPreferredCurrency}
+          isConvertingCurrencies={localIsConvertingCurrencies}
+        />
+        
+        <RecentSettlements 
+          settlements={recentSettlements}
+          users={state.users || []}
+          preferredCurrency={localPreferredCurrency}
+          isConvertingCurrencies={localIsConvertingCurrencies}
+          expenses={state.expenses || []}
+        />
+        
+        <UpcomingEvents events={convertEvents(financialSummary.upcomingEvents)} users={state.users || []} />
       </div>
-      
-      <ExpenseDistribution 
-        expenses={state.expenses || []}
-        preferredCurrency={localPreferredCurrency}
-        isConvertingCurrencies={localIsConvertingCurrencies}
-      />
-      
-      <BalanceOverview 
-        balanceDistribution={balanceDistribution} 
-        preferredCurrency={localPreferredCurrency}
-      />
-      
-      <RecentExpenses 
-        expenses={recentExpenses} 
-        users={state.users || []} 
-        events={convertEvents(state.events || [])}
-        preferredCurrency={localPreferredCurrency}
-        isConvertingCurrencies={localIsConvertingCurrencies}
-      />
-      
-      <RecentSettlements 
-        settlements={recentSettlements}
-        users={state.users || []}
-        preferredCurrency={localPreferredCurrency}
-        isConvertingCurrencies={localIsConvertingCurrencies}
-        expenses={state.expenses || []}
-      />
-      
-      <UpcomingEvents events={convertEvents(financialSummary.upcomingEvents)} users={state.users || []} />
     </main>
   ) : (
     <WelcomeScreen />

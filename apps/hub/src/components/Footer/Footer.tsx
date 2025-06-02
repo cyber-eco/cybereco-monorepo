@@ -29,20 +29,12 @@ export default function Footer() {
 
   const sections = [
     {
-      title: t('footer.apps') || 'Apps',
-      links: [
-        { label: 'JustSplit', href: 'https://justsplit.cybere.co', external: true },
-        { label: t('footer.allApps') || 'All Apps', href: '/apps' },
-        { label: t('footer.marketplace') || 'Marketplace', href: '/marketplace' }
-      ]
-    },
-    {
       title: t('footer.resources') || 'Resources',
       links: [
-        { label: t('footer.documentation') || 'Documentation', href: '/docs' },
-        { label: t('footer.apiReference') || 'API Reference', href: '/api' },
-        { label: t('footer.tutorials') || 'Tutorials', href: '/tutorials' },
-        { label: t('footer.community') || 'Community', href: '/community' }
+        { label: t('footer.documentation') || 'Documentation', href: 'https://cybere.co/documentation', external: true },
+        { label: t('footer.apiReference') || 'API Reference', href: 'https://cybere.co/documentation#api', external: true },
+        { label: t('footer.tutorials') || 'Tutorials', href: 'https://cybere.co/guides', external: true },
+        { label: t('footer.community') || 'Community', href: 'https://cybere.co/about', external: true }
       ]
     },
     {
@@ -55,12 +47,21 @@ export default function Footer() {
       ]
     },
     {
+      title: t('footer.company') || 'Company',
+      links: [
+        { label: t('footer.about') || 'About', href: 'https://cybere.co/about', external: true },
+        { label: t('footer.philosophy') || 'Philosophy', href: 'https://cybere.co/philosophy', external: true },
+        { label: t('footer.privacy') || 'Privacy', href: 'https://cybere.co/privacy', external: true },
+        { label: t('footer.terms') || 'Terms', href: 'https://cybere.co/terms', external: true }
+      ]
+    },
+    {
       title: t('footer.support') || 'Support',
       links: [
-        { label: t('footer.helpCenter') || 'Help Center', href: '/help' },
-        { label: t('footer.contactSupport') || 'Contact Support', href: '/support' },
-        { label: t('footer.status') || 'System Status', href: 'https://status.cybere.co', external: true },
-        { label: t('footer.feedback') || 'Feedback', href: '/feedback' }
+        { label: t('footer.helpCenter') || 'Help Center', href: 'https://cybere.co/help', external: true },
+        { label: t('footer.contactSupport') || 'Contact Support', href: 'https://cybere.co/support', external: true },
+        { label: t('footer.status') || 'System Status', href: 'https://cybere.co/status', external: true },
+        { label: t('footer.feedback') || 'Feedback', href: 'https://cybere.co/contact', external: true }
       ]
     }
   ];

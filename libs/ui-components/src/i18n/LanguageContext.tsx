@@ -19,7 +19,7 @@ export interface TranslationsMap {
 interface LanguageContextType {
   language: LanguageType;
   setLanguage: (language: LanguageType) => void;
-  t: (key: string) => string;
+  t: (key: string, variables?: Record<string, string>) => string;
 }
 
 // Default English translations (minimal set)
@@ -39,7 +39,100 @@ const defaultTranslations: TranslationsMap = {
     'theme.light': 'Light',
     'theme.dark': 'Dark',
     'language.title': 'Language',
-    'footer.tagline': 'Building a sustainable digital future'
+    'footer.tagline': 'Building a sustainable digital future',
+    'footer.features': 'Features',
+    'footer.expenseSplitting': 'Expense Splitting',
+    'footer.groupManagement': 'Group Management',
+    'footer.realTimeSync': 'Real-time Sync',
+    'footer.multiCurrency': 'Multi-currency',
+    'footer.resources': 'Resources',
+    'footer.userGuide': 'User Guide',
+    'footer.faq': 'FAQ',
+    'footer.api': 'API',
+    'footer.changelog': 'Changelog',
+    'footer.company': 'Company',
+    'footer.about': 'About',
+    'footer.cybereco': 'CyberEco',
+    'footer.privacy': 'Privacy',
+    'footer.terms': 'Terms',
+    'navigation.dashboard': 'Dashboard',
+    'navigation.groups': 'Groups',
+    'navigation.events': 'Events',
+    'navigation.expenses': 'Expenses',
+    'navigation.settlements': 'Settlements',
+    'navigation.friends': 'Friends',
+    'navigation.profile': 'Profile',
+    'navigation.apps': 'Apps',
+    'navigation.signIn': 'Sign In',
+    'auth.logout': 'Logout',
+    // Hub-specific translations
+    'hub.loading': 'Loading...',
+    'hub.welcome.title': 'Welcome to CyberEco Hub',
+    'hub.welcome.subtitle': 'Sign in to access your digital ecosystem',
+    'hub.welcomeBack': 'Welcome back, {name}!',
+    'hub.ecosystem.subtitle': 'Your digital ecosystem awaits',
+    'hub.apps.title': 'Your Applications',
+    'hub.apps.description': 'Access all your CyberEco applications from one central hub',
+    // Footer Hub-specific translations
+    'footer.apps': 'Apps',
+    'footer.allApps': 'All Apps',
+    'footer.marketplace': 'Marketplace',
+    'footer.documentation': 'Documentation',
+    'footer.apiReference': 'API Reference',
+    'footer.tutorials': 'Tutorials',
+    'footer.community': 'Community',
+    'footer.profile': 'Profile',
+    'footer.settings': 'Settings',
+    'footer.billing': 'Billing',
+    'footer.security': 'Security',
+    'footer.support': 'Support',
+    'footer.helpCenter': 'Help Center',
+    'footer.contactSupport': 'Contact Support',
+    'footer.status': 'System Status',
+    'footer.feedback': 'Feedback',
+    'footer.hubTagline': 'Your digital ecosystem gateway',
+    'footer.contact': 'Contact',
+    'footer.allRightsReserved': 'All rights reserved.',
+    // AppGrid translations
+    'apps.loading': 'Loading applications...',
+    'apps.launch': 'Launch App',
+    'apps.justsplit.description': 'Split expenses with friends and family',
+    'apps.features.expenseTracking': 'Expense tracking',
+    'apps.features.groupManagement': 'Group management',
+    'apps.features.settlementTracking': 'Settlement tracking',
+    // Login form translations
+    'auth.email': 'Email',
+    'auth.password': 'Password',
+    'auth.emailPlaceholder': 'Enter your email',
+    'auth.passwordPlaceholder': 'Enter your password',
+    'auth.signIn': 'Sign In',
+    'auth.signingIn': 'Signing in...',
+    'auth.signInError': 'Failed to sign in',
+    'auth.signUp': 'Sign Up',
+    'auth.signingUp': 'Creating account...',
+    'auth.signUpSubtitle': 'Create your CyberEco account',
+    'auth.fullName': 'Full Name',
+    'auth.namePlaceholder': 'Enter your full name',
+    'auth.confirmPassword': 'Confirm Password',
+    'auth.confirmPasswordPlaceholder': 'Confirm your password',
+    'auth.passwordMismatch': 'Passwords do not match',
+    'auth.or': 'or',
+    'auth.show': 'Show',
+    'auth.hide': 'Hide',
+    'auth.continueWithGoogle': 'Continue with Google',
+    'auth.continueWithFacebook': 'Continue with Facebook',
+    'auth.continueWithTwitter': 'Continue with Twitter',
+    'auth.noAccount': "Don't have an account? Sign Up",
+    'auth.hasAccount': 'Already have an account? Sign In',
+    'auth.forgotPassword': 'Forgot your password?',
+    'auth.resetPassword': 'Reset Password',
+    'auth.resetPasswordSubtitle': 'Enter your email address and we\'ll send you a link to reset your password.',
+    'auth.sendResetLink': 'Send Reset Link',
+    'auth.sendingReset': 'Sending reset link...',
+    'auth.checkEmail': 'Check Your Email',
+    'auth.resetEmailSent': 'We sent a password reset link to your email address.',
+    'auth.backToSignIn': 'Back to Sign In',
+    'auth.invalidEmail': 'Please enter a valid email address'
   },
   es: {
     welcome: 'Bienvenido',
@@ -56,7 +149,100 @@ const defaultTranslations: TranslationsMap = {
     'theme.light': 'Claro',
     'theme.dark': 'Oscuro',
     'language.title': 'Idioma',
-    'footer.tagline': 'Construyendo un futuro digital sostenible'
+    'footer.tagline': 'Construyendo un futuro digital sostenible',
+    'footer.features': 'Características',
+    'footer.expenseSplitting': 'División de Gastos',
+    'footer.groupManagement': 'Gestión de Grupos',
+    'footer.realTimeSync': 'Sincronización en Tiempo Real',
+    'footer.multiCurrency': 'Multi-moneda',
+    'footer.resources': 'Recursos',
+    'footer.userGuide': 'Guía del Usuario',
+    'footer.faq': 'Preguntas Frecuentes',
+    'footer.api': 'API',
+    'footer.changelog': 'Registro de Cambios',
+    'footer.company': 'Empresa',
+    'footer.about': 'Acerca de',
+    'footer.cybereco': 'CyberEco',
+    'footer.privacy': 'Privacidad',
+    'footer.terms': 'Términos',
+    'navigation.dashboard': 'Panel',
+    'navigation.groups': 'Grupos',
+    'navigation.events': 'Eventos',
+    'navigation.expenses': 'Gastos',
+    'navigation.settlements': 'Liquidaciones',
+    'navigation.friends': 'Amigos',
+    'navigation.profile': 'Perfil',
+    'navigation.apps': 'Aplicaciones',
+    'navigation.signIn': 'Iniciar Sesión',
+    'auth.logout': 'Cerrar Sesión',
+    // Hub-specific translations in Spanish
+    'hub.loading': 'Cargando...',
+    'hub.welcome.title': 'Bienvenido a CyberEco Hub',
+    'hub.welcome.subtitle': 'Inicia sesión para acceder a tu ecosistema digital',
+    'hub.welcomeBack': '¡Bienvenido de vuelta, {name}!',
+    'hub.ecosystem.subtitle': 'Tu ecosistema digital te espera',
+    'hub.apps.title': 'Tus Aplicaciones',
+    'hub.apps.description': 'Accede a todas tus aplicaciones CyberEco desde un hub central',
+    // Footer Hub-specific translations in Spanish
+    'footer.apps': 'Aplicaciones',
+    'footer.allApps': 'Todas las Aplicaciones',
+    'footer.marketplace': 'Mercado',
+    'footer.documentation': 'Documentación',
+    'footer.apiReference': 'Referencia API',
+    'footer.tutorials': 'Tutoriales',
+    'footer.community': 'Comunidad',
+    'footer.profile': 'Perfil',
+    'footer.settings': 'Configuración',
+    'footer.billing': 'Facturación',
+    'footer.security': 'Seguridad',
+    'footer.support': 'Soporte',
+    'footer.helpCenter': 'Centro de Ayuda',
+    'footer.contactSupport': 'Contactar Soporte',
+    'footer.status': 'Estado del Sistema',
+    'footer.feedback': 'Comentarios',
+    'footer.hubTagline': 'Tu puerta de entrada al ecosistema digital',
+    'footer.contact': 'Contacto',
+    'footer.allRightsReserved': 'Todos los derechos reservados.',
+    // AppGrid translations in Spanish
+    'apps.loading': 'Cargando aplicaciones...',
+    'apps.launch': 'Abrir Aplicación',
+    'apps.justsplit.description': 'Divide gastos con amigos y familia',
+    'apps.features.expenseTracking': 'Seguimiento de gastos',
+    'apps.features.groupManagement': 'Gestión de grupos',
+    'apps.features.settlementTracking': 'Seguimiento de liquidaciones',
+    // Login form translations in Spanish
+    'auth.email': 'Correo electrónico',
+    'auth.password': 'Contraseña',
+    'auth.emailPlaceholder': 'Ingresa tu correo electrónico',
+    'auth.passwordPlaceholder': 'Ingresa tu contraseña',
+    'auth.signIn': 'Iniciar Sesión',
+    'auth.signingIn': 'Iniciando sesión...',
+    'auth.signInError': 'Error al iniciar sesión',
+    'auth.signUp': 'Registrarse',
+    'auth.signingUp': 'Creando cuenta...',
+    'auth.signUpSubtitle': 'Crea tu cuenta CyberEco',
+    'auth.fullName': 'Nombre Completo',
+    'auth.namePlaceholder': 'Ingresa tu nombre completo',
+    'auth.confirmPassword': 'Confirmar Contraseña',
+    'auth.confirmPasswordPlaceholder': 'Confirma tu contraseña',
+    'auth.passwordMismatch': 'Las contraseñas no coinciden',
+    'auth.or': 'o',
+    'auth.show': 'Mostrar',
+    'auth.hide': 'Ocultar',
+    'auth.continueWithGoogle': 'Continuar con Google',
+    'auth.continueWithFacebook': 'Continuar con Facebook',
+    'auth.continueWithTwitter': 'Continuar con Twitter',
+    'auth.noAccount': '¿No tienes cuenta? Regístrate',
+    'auth.hasAccount': '¿Ya tienes cuenta? Inicia Sesión',
+    'auth.forgotPassword': '¿Olvidaste tu contraseña?',
+    'auth.resetPassword': 'Restablecer Contraseña',
+    'auth.resetPasswordSubtitle': 'Ingresa tu dirección de correo electrónico y te enviaremos un enlace para restablecer tu contraseña.',
+    'auth.sendResetLink': 'Enviar Enlace de Restablecimiento',
+    'auth.sendingReset': 'Enviando enlace...',
+    'auth.checkEmail': 'Revisa Tu Correo',
+    'auth.resetEmailSent': 'Enviamos un enlace de restablecimiento de contraseña a tu dirección de correo.',
+    'auth.backToSignIn': 'Volver a Iniciar Sesión',
+    'auth.invalidEmail': 'Por favor ingresa una dirección de correo válida'
   }
 };
 
@@ -229,16 +415,26 @@ export function LanguageProvider({
     setLanguageState(lang);
   };
   
-  // Translation helper function with hydration-safe fallback
-  const t = (key: string): string => {
+  // Translation helper function with hydration-safe fallback and interpolation
+  const t = (key: string, variables?: Record<string, string>): string => {
     // During SSR or before hydration, always return English to prevent hydration mismatch
+    let translation: string;
     if (typeof window === 'undefined' || !isHydrated) {
       const englishTranslations = translations['en'];
-      return englishTranslations?.[key] || key;
+      translation = englishTranslations?.[key] || key;
+    } else {
+      const currentTranslations = translations[language];
+      translation = currentTranslations?.[key] || key;
     }
     
-    const currentTranslations = translations[language];
-    return currentTranslations?.[key] || key;
+    // Handle variable interpolation (e.g., "Welcome back, {name}!")
+    if (variables) {
+      Object.entries(variables).forEach(([varKey, value]) => {
+        translation = translation.replace(`{${varKey}}`, value);
+      });
+    }
+    
+    return translation;
   };
   
   return (

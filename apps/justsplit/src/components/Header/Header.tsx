@@ -1,80 +1,273 @@
 'use client';
 
-import React from 'react';
-import { FaUser, FaSignOutAlt, FaCog, FaUserCircle } from 'react-icons/fa';
-import { Navigation, UserMenu, useLanguage } from '@cybereco/ui-components';
-import type { UserMenuItem } from '@cybereco/ui-components';
+import React, { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
+import { FaRocket, FaUser, FaBars, FaTimes, FaCog } from 'react-icons/fa';
 import { useAuth } from '@/context/AuthContext';
-import { useRouter } from 'next/navigation';
+import { useTheme } from '@/context/ThemeContext';
+import { useLanguage } from '@/context/LanguageContext';
+
+// Local navigation configuration to avoid module resolution issues
+function getNavLinks(t: (key: string) => string) {
+  return [
+    { href: '/', label: t('dashboard') },
+    { href: '/groups', label: t('groups') },
+    { href: '/events', label: t('events') },
+    { href: '/expenses', label: t('expenses') },
+    { href: '/settlements', label: t('settlements') },
+    { href: '/friends', label: t('friends') },
+  ];
+}
 import styles from './Header.module.css';
 
 export default function Header() {
-  const { t } = useLanguage();
-  const { currentUser, signOut } = useAuth();
-  const router = useRouter();
+  const { currentUser } = useAuth();
+  const { theme, setTheme } = useTheme();
+  const { language, setLanguage, t } = useLanguage();
+  const pathname = usePathname();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isConfigOpen, setIsConfigOpen] = useState(false);
+  
+  const justSplitNavLinks = getNavLinks(t);
 
-  const navLinks = [
-    { href: '/', label: t('navigation.dashboard') || 'Dashboard' },
-    { href: '/groups', label: t('navigation.groups') || 'Groups' },
-    { href: '/events', label: t('navigation.events') || 'Events' },
-    { href: '/expenses', label: t('navigation.expenses') || 'Expenses' },
-    { href: '/settlements', label: t('navigation.settlements') || 'Settlements' },
-    { href: '/friends', label: t('navigation.friends') || 'Friends' },
-  ];
+  // Mobile menu management
+  useEffect(() => {
+    const savedState = localStorage.getItem('justsplit-menu-state');
+    if (savedState === 'true') {
+      setIsMobileMenuOpen(true);
+    }
+  }, []);
 
-  const handleLogout = async () => {
-    await signOut();
-    router.push('/auth/signin');
+  useEffect(() => {
+    localStorage.setItem('justsplit-menu-state', isMobileMenuOpen.toString());
+  }, [isMobileMenuOpen]);
+
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+    setIsConfigOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
+
+  // Close config dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Element;
+      if (isConfigOpen && !target.closest(`.${styles.configContainer}`)) {
+        setIsConfigOpen(false);
+      }
+    };
+
+    if (isConfigOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => document.removeEventListener('mousedown', handleClickOutside);
+    }
+  }, [isConfigOpen]);
+
+  const isActiveLink = (href: string) => {
+    if (href === '/') {
+      return pathname === '/';
+    }
+    return pathname.startsWith(href);
   };
 
-  // User menu items
-  const userMenuItems: UserMenuItem[] = [
-    {
-      label: t('navigation.profile') || 'Profile',
-      href: '/profile',
-      icon: <FaUserCircle />
-    },
-    {
-      label: t('navigation.settings') || 'Settings',
-      href: '/settings',
-      icon: <FaCog />
-    },
-    { divider: true },
-    {
-      label: t('auth.logout') || 'Logout',
-      onClick: handleLogout,
-      icon: <FaSignOutAlt />,
-      danger: true
+  const renderActionButton = () => {
+    if (currentUser) {
+      return (
+        <Link href="/profile" className={styles.actionButton}>
+          <FaUser />
+          <span>{currentUser.displayName || t('profile')}</span>
+        </Link>
+      );
     }
-  ];
-
-  // User menu action button with UserMenu component
-  const userActionButton = currentUser ? {
-    href: '#',
-    label: '',
-    icon: (
-      <UserMenu
-        user={{
-          name: currentUser.displayName,
-          email: currentUser.email,
-          photoURL: currentUser.photoURL
-        }}
-        items={userMenuItems}
-        avatarIcon={<FaUser />}
-      />
-    ),
-    className: styles.userMenuWrapper,
-    onClick: (e: React.MouseEvent) => e.preventDefault() // Prevent navigation
-  } : null;
+    return (
+      <a href="https://hub.cybere.co" className={styles.actionButton} target="_blank" rel="noopener noreferrer">
+        <FaRocket />
+        <span>{t('hub')}</span>
+      </a>
+    );
+  };
 
   return (
-    <Navigation
-      links={navLinks}
-      actionButton={userActionButton}
-      showConfig={true}
-      mobileMenuStorageKey="cybereco-justsplit-menu-state"
-      className={styles.header}
-      logoHref="/"
-    />
+    <nav className={styles.navigation}>
+      <div className={styles.navContainer}>
+        {/* JustSplit Logo */}
+        <Link href="/" className={styles.logoLink}>
+          <img 
+            src={theme === 'dark' ? "/images/logo-white.svg" : "/images/logo.svg"}
+            alt="JustSplit Logo" 
+            className={styles.logo}
+          />
+        </Link>
+
+        {/* Desktop Navigation */}
+        <div className={styles.desktopNav}>
+          <div className={styles.navLinks}>
+            {justSplitNavLinks.map(link => {
+              const isActive = isActiveLink(link.href);
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`${styles.navLink} ${isActive ? styles.active : ''}`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+          </div>
+          
+          <div className={styles.navActions}>
+            {renderActionButton()}
+            <div className={styles.configContainer}>
+              <button 
+                className={styles.configButton}
+                onClick={() => setIsConfigOpen(!isConfigOpen)}
+                aria-label={t('settings')}
+              >
+                <FaCog />
+              </button>
+              
+              {isConfigOpen && (
+                <div className={styles.configDropdown}>
+                  <div className={styles.configSection}>
+                    <h4>{t('theme')}</h4>
+                    <button 
+                      className={styles.configOption} 
+                      onClick={() => setTheme('light')}
+                      style={{ fontWeight: theme === 'light' ? 'bold' : 'normal' }}
+                    >
+                      {t('light')}
+                    </button>
+                    <button 
+                      className={styles.configOption} 
+                      onClick={() => setTheme('dark')}
+                      style={{ fontWeight: theme === 'dark' ? 'bold' : 'normal' }}
+                    >
+                      {t('dark')}
+                    </button>
+                  </div>
+                  <div className={styles.configSection}>
+                    <h4>{t('language')}</h4>
+                    <button 
+                      className={styles.configOption} 
+                      onClick={() => setLanguage('en')}
+                      style={{ fontWeight: language === 'en' ? 'bold' : 'normal' }}
+                    >
+                      {t('english')}
+                    </button>
+                    <button 
+                      className={styles.configOption} 
+                      onClick={() => setLanguage('es')}
+                      style={{ fontWeight: language === 'es' ? 'bold' : 'normal' }}
+                    >
+                      {t('spanish')}
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          className={styles.mobileMenuButton}
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+        >
+          {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
+        </button>
+      </div>
+
+      {/* Mobile Navigation */}
+      <div className={`${styles.mobileNav} ${isMobileMenuOpen ? styles.open : ''}`}>
+        <div className={styles.mobileNavContent}>
+          <div className={styles.mobileNavLinks}>
+            {justSplitNavLinks.map(link => {
+              const isActive = isActiveLink(link.href);
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`${styles.navLink} ${styles.mobileNavLink} ${isActive ? styles.active : ''}`}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+          </div>
+          
+          <div className={styles.mobileNavActions}>
+            {renderActionButton()}
+            <button 
+              className={styles.configButton}
+              onClick={() => setIsConfigOpen(!isConfigOpen)}
+              aria-label={t('settings')}
+            >
+              <FaCog /> {t('settings')}
+            </button>
+            
+            {isConfigOpen && (
+              <div className={styles.configDropdown}>
+                <div className={styles.configSection}>
+                  <h4>{t('theme')}</h4>
+                  <button 
+                    className={styles.configOption} 
+                    onClick={() => setTheme('light')}
+                    style={{ fontWeight: theme === 'light' ? 'bold' : 'normal' }}
+                  >
+                    {t('light')}
+                  </button>
+                  <button 
+                    className={styles.configOption} 
+                    onClick={() => setTheme('dark')}
+                    style={{ fontWeight: theme === 'dark' ? 'bold' : 'normal' }}
+                  >
+                    {t('dark')}
+                  </button>
+                </div>
+                <div className={styles.configSection}>
+                  <h4>{t('language')}</h4>
+                  <button 
+                    className={styles.configOption} 
+                    onClick={() => setLanguage('en')}
+                    style={{ fontWeight: language === 'en' ? 'bold' : 'normal' }}
+                  >
+                    {t('english')}
+                  </button>
+                  <button 
+                    className={styles.configOption} 
+                    onClick={() => setLanguage('es')}
+                    style={{ fontWeight: language === 'es' ? 'bold' : 'normal' }}
+                  >
+                    {t('spanish')}
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      {isMobileMenuOpen && (
+        <div 
+          className={styles.mobileMenuOverlay}
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+      )}
+    </nav>
   );
 }

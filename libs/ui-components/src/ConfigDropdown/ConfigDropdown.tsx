@@ -137,7 +137,7 @@ export default function ConfigDropdown({
                 onClick={() => handleLanguageChange('es')}
                 role="menuitem"
               >
-                <span className={styles.languageFlag}>🇪🇸</span>
+                <span className={styles.languageFlag}>🇲🇽</span>
                 <span>Español</span>
                 {language === 'es' && <FaCheck className={styles.checkIcon} />}
               </button>

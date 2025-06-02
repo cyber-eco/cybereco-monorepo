@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, Suspense } from 'react';
 import { useAppContext } from '../../context/AppContext';
 import { calculateSettlements, calculateSettlementsWithConversion } from '../../utils/expenseCalculator';
 import { getExchangeRate } from '../../utils/currencyExchange';
@@ -10,7 +10,7 @@ import styles from './page.module.css';
 import Button from '../../components/ui/Button';
 import CurrencySelector from '../../components/ui/CurrencySelector';
 
-export default function SettlementsPage() {
+function SettlementsContent() {
   const searchParams = useSearchParams();
   const { state, dispatch } = useAppContext();
   
@@ -606,5 +606,13 @@ export default function SettlementsPage() {
         </div>
       )}
     </div>
+  );
+}
+
+export default function SettlementsPage() {
+  return (
+    <Suspense fallback={<div>Loading settlements...</div>}>
+      <SettlementsContent />
+    </Suspense>
   );
 }

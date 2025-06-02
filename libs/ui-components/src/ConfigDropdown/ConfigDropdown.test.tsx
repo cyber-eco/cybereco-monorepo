@@ -243,7 +243,7 @@ describe('ConfigDropdown', () => {
       
       // Check for language flags
       expect(screen.getByText('🇺🇸')).toBeInTheDocument();
-      expect(screen.getByText('🇪🇸')).toBeInTheDocument();
+      expect(screen.getByText('🇲🇽')).toBeInTheDocument();
     });
   });
 

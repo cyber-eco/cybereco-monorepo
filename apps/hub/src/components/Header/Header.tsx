@@ -1,7 +1,9 @@
 'use client';
 
 import React from 'react';
-import { FaHome, FaThLarge, FaUser, FaCog, FaSignOutAlt, FaUserCircle } from 'react-icons/fa';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { FaHome, FaThLarge, FaUser, FaCog, FaSignOutAlt, FaUserCircle, FaShieldAlt, FaCreditCard } from 'react-icons/fa';
 import { Navigation, UserMenu, useLanguage } from '@cybereco/ui-components';
 import type { UserMenuItem } from '@cybereco/ui-components';
 import { useAuth } from '../AuthContext';
@@ -10,11 +12,11 @@ import styles from './Header.module.css';
 
 export default function Header() {
   const { t } = useLanguage();
-  const { user, signOut } = useAuth();
+  const { userProfile: user, signOut } = useAuth();
   const router = useRouter();
 
   const navLinks = [
-    { href: '/', label: t('navigation.dashboard') || 'Dashboard' },
+    { href: '/dashboard', label: t('navigation.dashboard') || 'Dashboard' },
     { href: '/apps', label: t('navigation.apps') || 'Apps' },
   ];
 
@@ -35,6 +37,16 @@ export default function Header() {
       href: '/settings',
       icon: <FaCog />
     },
+    {
+      label: t('footer.security') || 'Security',
+      href: '/security',
+      icon: <FaShieldAlt />
+    },
+    {
+      label: t('footer.billing') || 'Billing',
+      href: '/billing',
+      icon: <FaCreditCard />
+    },
     { divider: true },
     {
       label: t('auth.logout') || 'Logout',
@@ -46,21 +58,19 @@ export default function Header() {
 
   // User menu action button with UserMenu component
   const userActionButton = user ? {
-    href: '#',
-    label: '',
-    icon: (
+    element: (
       <UserMenu
         user={{
-          name: user.displayName,
+          name: user.name,
           email: user.email,
-          photoURL: user.photoURL
+          photoURL: user.avatarUrl
         }}
         items={userMenuItems}
         avatarIcon={<FaUser />}
+        LinkComponent={Link}
       />
     ),
-    className: styles.userMenuWrapper,
-    onClick: (e: React.MouseEvent) => e.preventDefault() // Prevent navigation
+    className: styles.userMenuWrapper
   } : {
     href: '/auth/signin',
     label: t('navigation.signIn') || 'Sign In',
@@ -74,6 +84,8 @@ export default function Header() {
       showConfig={true}
       mobileMenuStorageKey="cybereco-hub-menu-state"
       className={styles.header}
+      LinkComponent={Link}
+      usePathname={usePathname}
     />
   );
 }

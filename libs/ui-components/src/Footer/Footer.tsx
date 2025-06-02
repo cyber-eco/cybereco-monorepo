@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
 import { Logo } from '../Logo/Logo';
 import { useLanguage } from '../i18n/LanguageContext';
 import styles from './Footer.module.css';
@@ -42,6 +41,7 @@ export interface FooterProps {
   className?: string;
   showCopyright?: boolean;
   showSocialLinks?: boolean;
+  LinkComponent?: React.ComponentType<{ href: string; className?: string; children: React.ReactNode }>;
 }
 
 // Default social icons as components
@@ -101,7 +101,8 @@ export default function Footer({
   sections = [],
   className,
   showCopyright = true,
-  showSocialLinks = true
+  showSocialLinks = true,
+  LinkComponent = ({ href, className, children }) => <a href={href} className={className}>{children}</a>
 }: FooterProps) {
   const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
@@ -122,13 +123,13 @@ export default function Footer({
     }
 
     return (
-      <Link
+      <LinkComponent
         key={link.href}
         href={link.href}
         className={styles.footerLink}
       >
         {link.label}
-      </Link>
+      </LinkComponent>
     );
   };
 
@@ -139,9 +140,9 @@ export default function Footer({
           {/* Brand Section */}
           <div className={styles.brandSection}>
             {logo.show && (
-              <Link href="/" className={styles.logoLink}>
+              <LinkComponent href="/" className={styles.logoLink}>
                 <Logo height={logo.height} />
-              </Link>
+              </LinkComponent>
             )}
             {companyInfo.tagline && (
               <p className={styles.tagline}>

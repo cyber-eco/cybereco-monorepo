@@ -24,12 +24,12 @@ JustSplit can be deployed without Firebase using:
 ```
 ┌─────────────┐     ┌─────────────┐     ┌──────────────┐
 │   Nginx     │────▶│  Hub App    │────▶│              │
-│   Reverse   │     │  Port 3000  │     │  PostgreSQL  │
+│   Reverse   │     │  Port 40000  │     │  PostgreSQL  │
 │   Proxy     │     └─────────────┘     │  Database    │
 │   Port 80/  │                         │              │
 │   443       │     ┌─────────────┐     │              │
 │             │────▶│ JustSplit   │────▶│              │
-└─────────────┘     │  Port 4000  │     └──────────────┘
+└─────────────┘     │  Port 40002  │     └──────────────┘
                     └─────────────┘
 ```
 
@@ -104,7 +104,7 @@ services:
       context: .
       dockerfile: apps/hub/Dockerfile
     ports:
-      - "3000:3000"
+      - "40000:40000"
     environment:
       - NODE_ENV=production
       - DATABASE_URL=postgresql://justsplit_user:password@db:5432/justsplit_hub
@@ -117,11 +117,11 @@ services:
       context: .
       dockerfile: apps/justsplit/Dockerfile
     ports:
-      - "4000:4000"
+      - "40002:40002"
     environment:
       - NODE_ENV=production
       - DATABASE_URL=postgresql://justsplit_user:password@db:5432/justsplit_app
-      - HUB_URL=http://hub:3000
+      - HUB_URL=http://hub:40000
     depends_on:
       - db
       - hub
@@ -184,9 +184,9 @@ COPY --from=builder /app/apps/hub/public ./apps/hub/public
 
 USER nextjs
 
-EXPOSE 3000
+EXPOSE 40000
 
-ENV PORT 3000
+ENV PORT 40000
 
 CMD ["node", "apps/hub/server.js"]
 ```
@@ -241,7 +241,7 @@ module.exports = {
       cwd: './apps/hub',
       env: {
         NODE_ENV: 'production',
-        PORT: 3000,
+        PORT: 40000,
         DATABASE_URL: 'postgresql://user:pass@localhost:5432/justsplit_hub'
       }
     },
@@ -252,7 +252,7 @@ module.exports = {
       cwd: './apps/justsplit',
       env: {
         NODE_ENV: 'production',
-        PORT: 4000,
+        PORT: 40002,
         DATABASE_URL: 'postgresql://user:pass@localhost:5432/justsplit_app'
       }
     }
@@ -291,7 +291,7 @@ server {
 
     # Hub application
     location / {
-        proxy_pass http://localhost:3000;
+        proxy_pass http://localhost:40000;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection 'upgrade';
@@ -304,7 +304,7 @@ server {
 
     # JustSplit application
     location /app {
-        proxy_pass http://localhost:4000;
+        proxy_pass http://localhost:40002;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection 'upgrade';
@@ -453,8 +453,8 @@ add_header Content-Security-Policy "default-src 'self' http: https: data: blob: 
 
 1. **Port Conflicts**
    ```bash
-   sudo lsof -i :3000
-   sudo lsof -i :4000
+   sudo lsof -i :40000
+   sudo lsof -i :40002
    ```
 
 2. **Database Connection Issues**

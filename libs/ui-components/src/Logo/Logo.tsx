@@ -32,13 +32,15 @@ export function Logo({
   const getLogoSrc = () => {
     switch (variant) {
       case 'horizontal':
-        return '/logo-rectangle.svg';
+        return '/assets/brand/logo-rectangle.svg';
       case 'icon':
-        return '/logo-ico.svg';
+        return '/assets/brand/logo-ico.svg';
       default:
-        return '/logo-rectangle.svg';
+        return '/assets/brand/logo-rectangle.svg';
     }
   };
+
+  const logoSrc = getLogoSrc();
 
   // Only apply size classes if custom dimensions are not provided
   const sizeClass = !width && !height ? `logo-size-${size}` : '';
@@ -57,7 +59,7 @@ export function Logo({
       style={width || height ? { display: 'flex', alignItems: 'center' } : undefined}
     >
       <img 
-        src={getLogoSrc()}
+        src={logoSrc}
         alt={altText}
         className={`${styles.logo} ${sizeClass ? styles[sizeClass] : ''}`}
         style={imgStyle}

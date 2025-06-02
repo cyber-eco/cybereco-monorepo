@@ -1,6 +1,8 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { FaRocket, FaExternalLinkAlt } from 'react-icons/fa';
 import { Navigation, useLanguage } from '@cybereco/ui-components';
 import styles from './Header.module.css';
@@ -39,6 +41,8 @@ export default function Header() {
       showConfig={true}
       mobileMenuStorageKey="cybereco-website-menu-state"
       className={styles.header}
+      LinkComponent={Link}
+      usePathname={usePathname}
     />
   );
 }

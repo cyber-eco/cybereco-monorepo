@@ -45,9 +45,9 @@ sequenceDiagram
     rect rgb(248, 240, 255)
     note over D,APP: Working with Multiple Apps
     D->>NX: npm run dev
-    NX->>APP: Start Hub (port 3000)
-    NX->>APP: Start JustSplit (port 4000)
-    NX->>APP: Start Website (port 5000)
+    NX->>APP: Start Hub (port 40000)
+    NX->>APP: Start JustSplit (port 40002)
+    NX->>APP: Start Website (port 40001)
     APP->>FB: All connect to emulators
     D->>APP: Cross-app testing & development
     end

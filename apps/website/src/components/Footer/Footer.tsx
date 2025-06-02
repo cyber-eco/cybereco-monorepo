@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { Footer as SharedFooter, LinkedInIcon, GitHubIcon, EmailIcon, useLanguage } from '@cybereco/ui-components';
 
 export default function Footer() {
@@ -69,6 +70,7 @@ export default function Footer() {
       logo={{ show: true, height: 40 }}
       showCopyright={true}
       showSocialLinks={true}
+      LinkComponent={Link}
     />
   );
 }

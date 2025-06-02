@@ -9,9 +9,25 @@ export default function GlobalError({
 }) {
   return (
     <html>
-      <body>
+      <body style={{ fontFamily: 'Arial, sans-serif', padding: '50px', textAlign: 'center' }}>
         <h2>Something went wrong!</h2>
-        <button onClick={() => reset()}>Try again</button>
+        <p>An error occurred while loading the application.</p>
+        <button 
+          onClick={() => reset()}
+          style={{ 
+            padding: '10px 20px', 
+            backgroundColor: '#007cba', 
+            color: 'white', 
+            border: 'none', 
+            borderRadius: '4px', 
+            cursor: 'pointer' 
+          }}
+        >
+          Try again
+        </button>
+        <br />
+        <br />
+        <a href="/" style={{ color: '#007cba' }}>Go to Home</a>
       </body>
     </html>
   );

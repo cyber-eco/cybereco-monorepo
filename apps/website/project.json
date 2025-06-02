@@ -25,7 +25,7 @@
       "options": {
         "buildTarget": "website:build",
         "dev": true,
-        "port": 5001
+        "port": 40001
       },
       "configurations": {
         "development": {
@@ -44,7 +44,7 @@
       "options": {
         "buildTarget": "website:build",
         "dev": true,
-        "port": 5001
+        "port": 40001
       }
     },
     "lint": {
@@ -64,7 +64,7 @@
     "hosting:emulator": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "firebase serve --only hosting:website -p 5000",
+        "command": "firebase serve --only hosting:website -p 40001",
         "cwd": "."
       }
     },

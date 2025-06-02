@@ -4,7 +4,7 @@
   "private": true,
   "license": "SEE LICENSE IN ../../LICENSE",
   "scripts": {
-    "dev": "next dev -p 4000 --turbopack",
+    "dev": "next dev -p 40002",
     "build": "next build",
     "build:prod": "next build --experimental-build-mode compile",
     "start": "next start",
@@ -34,6 +34,7 @@
     "react": "^18.3.1",
     "react-chartjs-2": "^5.3.0",
     "react-dom": "^18.3.1",
+    "react-icons": "^5.5.0",
     "react-intersection-observer": "^9.5.2",
     "uuid": "^9.0.1"
   },

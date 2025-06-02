@@ -1,8 +1,6 @@
 'use client';
 
 import React, { useState, useEffect, ReactNode } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { Logo } from '../Logo/Logo';
 import { ConfigDropdown } from '../ConfigDropdown';
@@ -15,11 +13,13 @@ export interface NavigationLink {
 }
 
 export interface NavigationActionButton {
-  href: string;
-  label: string;
+  href?: string;
+  label?: string;
   icon?: ReactNode;
   external?: boolean;
   className?: string;
+  element?: ReactNode;
+  onClick?: (e: React.MouseEvent) => void;
 }
 
 export interface NavigationProps {
@@ -29,6 +29,8 @@ export interface NavigationProps {
   showConfig?: boolean;
   className?: string;
   mobileMenuStorageKey?: string;
+  LinkComponent?: React.ComponentType<{ href: string; className?: string; children: React.ReactNode }>;
+  usePathname?: () => string;
 }
 
 export default function Navigation({
@@ -37,7 +39,9 @@ export default function Navigation({
   actionButton,
   showConfig = true,
   className,
-  mobileMenuStorageKey = 'navigation-menu-open'
+  mobileMenuStorageKey = 'navigation-menu-open',
+  LinkComponent = ({ href, className, children }) => <a href={href} className={className}>{children}</a>,
+  usePathname = () => '/'
 }: NavigationProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -102,18 +106,27 @@ export default function Navigation({
     }
 
     return (
-      <Link
+      <LinkComponent
         key={link.href}
         href={link.href}
         className={linkClass}
       >
         {link.label}
-      </Link>
+      </LinkComponent>
     );
   };
 
   const renderActionButton = () => {
     if (!actionButton) return null;
+
+    // If a custom element is provided, render it directly
+    if (actionButton.element) {
+      return (
+        <div className={actionButton.className}>
+          {actionButton.element}
+        </div>
+      );
+    }
 
     const buttonElement = (
       <>
@@ -122,7 +135,7 @@ export default function Navigation({
       </>
     );
 
-    if (actionButton.external) {
+    if (actionButton.external && actionButton.href) {
       return (
         <a
           href={actionButton.href}
@@ -135,13 +148,25 @@ export default function Navigation({
       );
     }
 
+    if (actionButton.href) {
+      return (
+        <LinkComponent
+          href={actionButton.href}
+          className={actionButton.className || styles.actionButton}
+        >
+          {buttonElement}
+        </LinkComponent>
+      );
+    }
+
+    // For onClick handlers without href
     return (
-      <Link
-        href={actionButton.href}
+      <button
         className={actionButton.className || styles.actionButton}
+        onClick={actionButton.onClick}
       >
         {buttonElement}
-      </Link>
+      </button>
     );
   };
 
@@ -149,9 +174,9 @@ export default function Navigation({
     <nav className={`${styles.navigation} ${className || ''}`}>
       <div className={styles.navContainer}>
         {/* Logo */}
-        <Link href={logoHref} className={styles.logoLink}>
+        <LinkComponent href={logoHref} className={styles.logoLink}>
           <Logo />
-        </Link>
+        </LinkComponent>
 
         {/* Desktop Navigation */}
         <div className={styles.desktopNav}>
@@ -179,7 +204,6 @@ export default function Navigation({
       {/* Mobile Navigation */}
       <div 
         className={`${styles.mobileNav} ${isMobileMenuOpen ? styles.open : ''}`}
-        role="navigation"
         aria-hidden={!isMobileMenuOpen}
       >
         <div className={styles.mobileNavContent}>

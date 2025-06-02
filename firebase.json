@@ -1,6 +1,6 @@
 {
   "firestore": {
-    "rules": "firebase/justsplit/firestore.rules",
+    "rules": "firebase/hub/firestore.rules",
     "indexes": "firestore.indexes.json"
   },
   "hosting": [

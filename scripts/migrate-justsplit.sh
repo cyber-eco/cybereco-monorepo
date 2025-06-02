@@ -24,7 +24,7 @@ cat > apps/justsplit/package.json << 'EOF'
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 4000 --turbopack",
+    "dev": "next dev -p 40002 --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

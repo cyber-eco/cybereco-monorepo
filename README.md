@@ -27,9 +27,9 @@ npm install
 npm run dev
 
 # 3. Open in browser
-# Hub: http://localhost:3000
-# JustSplit: http://localhost:4000
-# Website: http://localhost:5000
+# Hub: http://localhost:40000
+# JustSplit: http://localhost:40002
+# Website: http://localhost:40001
 ```
 
 That's it! 🎉 You're now running the CyberEco platform locally.
@@ -52,9 +52,9 @@ We believe your digital presence should empower you, not exploit you. Your ident
 
 ### Current Applications
 
-- **🏠 Hub** - Central authentication and app launcher (port 3000)
-- **💰 JustSplit** - Expense splitting and financial management (port 4000)  
-- **🌐 Website** - Marketing site and documentation (port 5000)
+- **🏠 Hub** - Central authentication and app launcher (port 40000)
+- **💰 JustSplit** - Expense splitting and financial management (port 40002)  
+- **🌐 Website** - Marketing site and documentation (port 40001)
 - **🚀 Future Apps** - Somos, Demos, Plantopia, and more
 
 At the center is the **CyberEco Hub** — your identity, your dashboard, your digital home.
@@ -64,9 +64,9 @@ At the center is the **CyberEco Hub** — your identity, your dashboard, your di
 ```
 cybereco-monorepo/
 ├── apps/
-│   ├── hub/                 # 🏠 Authentication hub (port 3000)
-│   ├── justsplit/           # 💰 Expense splitting app (port 4000)
-│   └── website/             # 🌐 Marketing website (port 5000)
+│   ├── hub/                 # 🏠 Authentication hub (port 40000)
+│   ├── justsplit/           # 💰 Expense splitting app (port 40002)
+│   └── website/             # 🌐 Marketing website (port 40001)
 ├── libs/
 │   ├── shared-types/        # 📝 Common TypeScript interfaces
 │   ├── firebase-config/     # 🔥 Firebase utilities & multi-project config
@@ -92,9 +92,9 @@ npm run lint             # Check code quality
 
 ### App-Specific Commands
 ```bash
-nx serve hub             # Start Hub only (port 3000)
-nx serve justsplit-app   # Start JustSplit only (port 4000)
-nx serve website         # Start Website only (port 5000)
+nx serve hub             # Start Hub only (port 40000)
+nx serve justsplit-app   # Start JustSplit only (port 40002)
+nx serve website         # Start Website only (port 40001)
 nx test hub              # Test Hub only
 nx test justsplit-app    # Test JustSplit only
 nx test website          # Test Website only

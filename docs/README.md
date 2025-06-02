@@ -129,9 +129,9 @@ npm install
 
 # Start all applications
 npm run dev
-# Website: http://localhost:5000
-# Hub: http://localhost:3000
-# JustSplit: http://localhost:4000
+# Website: http://localhost:40001
+# Hub: http://localhost:40000
+# JustSplit: http://localhost:40002
 ```
 
 ### Testing
@@ -196,7 +196,7 @@ cybereco-monorepo/
 ## 📱 Applications
 
 ### Website Application
-**Port: 5000** | **Purpose**: Marketing website and application hub
+**Port: 40001** | **Purpose**: Marketing website and application hub
 
 Features:
 - Application showcase
@@ -204,7 +204,7 @@ Features:
 - Shared branding and assets
 
 ### Hub Application
-**Port: 3000** | **Purpose**: Central authentication and app launcher
+**Port: 40000** | **Purpose**: Central authentication and app launcher
 
 Features:
 - User authentication and management
@@ -213,7 +213,7 @@ Features:
 - Shared authentication context
 
 ### JustSplit Application
-**Port: 4000** | **Purpose**: Expense splitting and financial management
+**Port: 40002** | **Purpose**: Expense splitting and financial management
 
 Features:
 - Group expense management
@@ -231,9 +231,9 @@ Features:
 npm run emulators
 
 # Start hosting emulators for testing
-npm run hosting:website    # localhost:5000
-npm run hosting:justsplit  # localhost:4000
-npm run hosting:hub       # localhost:3000
+npm run hosting:website    # localhost:40001
+npm run hosting:justsplit  # localhost:40002
+npm run hosting:hub       # localhost:40000
 ```
 
 ### NX Commands

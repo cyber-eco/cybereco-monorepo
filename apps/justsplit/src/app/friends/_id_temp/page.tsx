@@ -1,5 +1,10 @@
 'use client';
 
+// Generate empty static params for static export
+export async function generateStaticParams() {
+  return [];
+}
+
 import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { useAppContext } from '../../../context/AppContext';

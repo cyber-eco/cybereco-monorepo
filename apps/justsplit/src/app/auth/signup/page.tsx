@@ -3,9 +3,9 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import Header from '../../../components/Header';
-import { useAuth } from '../../../context/AuthContext';
-import NotificationModule from '../../../context/NotificationContext';
+import Header from '@/components/Header';
+import { useAuth } from '@/context/AuthContext';
+import { useNotification } from '@/context/NotificationContext';
 import styles from '../page.module.css';
 
 export default function SignUp() {
@@ -16,7 +16,7 @@ export default function SignUp() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { signUp, signInWithProvider } = useAuth();
-  const { showNotification } = NotificationModule.useNotification();
+  const { showNotification } = useNotification();
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {

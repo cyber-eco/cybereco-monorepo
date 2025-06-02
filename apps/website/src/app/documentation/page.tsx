@@ -48,7 +48,7 @@ export default function DocumentationPage() {
       'troubleshooting': `troubleshooting common issues critical problems account access missing data notifications performance app crashes solutions steps emergency procedures support solución problemas comunes críticos acceso cuenta datos perdidos notificaciones rendimiento fallas aplicación soluciones pasos procedimientos emergencia soporte`,
       'community': `community support governance forums discord local groups events learning sessions coffee chats hackathons working groups council involvement leadership resources comunicad soporte gobernanza foros grupos locales eventos sesiones aprendizaje charlas café hackathons grupos trabajo consejo participación liderazgo recursos`,
       'development-setup': `development setup prerequisites nodejs firebase nx tools monorepo development workflow git clone install npm run dev hub justsplit website ports localhost environment configuración desarrollo requisitos previos herramientas flujo trabajo entorno puertos`,
-      'architecture': `architecture monorepo structure nx build system applications shared libraries firebase configuration tech stack nextjs typescript css modules jest testing shared component architecture navigation usermenu footer configdropdown globalprovider design principles mobile-first responsive dark light theme multi-language accessibility arquitectura estructura sistema construcción aplicaciones bibliotecas compartidas configuración tecnología pila componentes compartidos navegación menú usuario pie página diseño principios móvil responsivo tema oscuro claro múltiples idiomas accesibilidad`
+      'architecture': `architecture monorepo structure nx build system applications shared libraries firebase configuration tech stack nextjs typescript css modules jest testing shared component architecture navigation usermenu footer configdropdown globalprovider modal toast applayout design principles mobile-first responsive dark light theme multi-language accessibility portal rendering test infrastructure arquitectura estructura sistema construcción aplicaciones bibliotecas compartidas configuración tecnología pila componentes compartidos navegación menú usuario pie página diseño principios móvil responsivo tema oscuro claro múltiples idiomas accesibilidad renderizado portal infraestructura pruebas`
     };
     
     // Filter documents based on search query
@@ -1295,9 +1295,9 @@ npm install`}
                     <h5>🎉 {t('documentationPage.setupDoneTitle') || 'Development Ready!'}</h5>
                     <p>{t('documentationPage.setupDoneText') || 'Your development environment is now running on:'}</p>
                     <ul>
-                      <li>{t('documentationPage.hubPortLabel') || 'Hub: http://localhost:3000'}</li>
-                      <li>{t('documentationPage.justSplitPortLabel') || 'JustSplit: http://localhost:4000'}</li>
-                      <li>{t('documentationPage.websitePortLabel') || 'Website: http://localhost:5000'}</li>
+                      <li>{t('documentationPage.hubPortLabel') || 'Hub: http://localhost:40000'}</li>
+                      <li>{t('documentationPage.justSplitPortLabel') || 'JustSplit: http://localhost:40002'}</li>
+                      <li>{t('documentationPage.websitePortLabel') || 'Website: http://localhost:40001'}</li>
                     </ul>
                   </div>
                 </div>
@@ -1415,17 +1415,17 @@ git push origin feature/your-feature-name
             <div className={styles.principleCards}>
               <div className={styles.principleCard}>
                 <div className={styles.principleIcon}>🌐</div>
-                <h4 className={styles.principleTitle}>{t('documentationPage.websitePortTitle') || 'Website (Port 5000)'}</h4>
+                <h4 className={styles.principleTitle}>{t('documentationPage.websitePortTitle') || 'Website (Port 40001)'}</h4>
                 <p className={styles.principleDescription}>{t('documentationPage.websitePortDesc') || 'Marketing website and application hub'}</p>
               </div>
               <div className={styles.principleCard}>
                 <div className={styles.principleIcon}>🔐</div>
-                <h4 className={styles.principleTitle}>{t('documentationPage.hubPortTitle') || 'Hub (Port 3000)'}</h4>
+                <h4 className={styles.principleTitle}>{t('documentationPage.hubPortTitle') || 'Hub (Port 40000)'}</h4>
                 <p className={styles.principleDescription}>{t('documentationPage.hubPortDesc') || 'Central authentication and app launcher'}</p>
               </div>
               <div className={styles.principleCard}>
                 <div className={styles.principleIcon}>💰</div>
-                <h4 className={styles.principleTitle}>{t('documentationPage.justSplitPortTitle') || 'JustSplit (Port 4000)'}</h4>
+                <h4 className={styles.principleTitle}>{t('documentationPage.justSplitPortTitle') || 'JustSplit (Port 40002)'}</h4>
                 <p className={styles.principleDescription}>{t('documentationPage.justSplitPortDesc') || 'Expense splitting and financial management'}</p>
               </div>
             </div>
@@ -1466,6 +1466,18 @@ git push origin feature/your-feature-name
                 <p>{t('documentationPage.configDropdownDesc') || 'Theme and language switcher with persistent settings and smooth transitions.'}</p>
               </div>
               <div className={styles.contentListItem}>
+                <h5><strong>Modal</strong></h5>
+                <p>{t('documentationPage.modalDesc') || 'Accessible modal component with portal rendering, focus management, keyboard navigation, and customizable sizes.'}</p>
+              </div>
+              <div className={styles.contentListItem}>
+                <h5><strong>Toast</strong></h5>
+                <p>{t('documentationPage.toastDesc') || 'Full-featured notification system with position control, auto-dismiss, action buttons, and imperative API.'}</p>
+              </div>
+              <div className={styles.contentListItem}>
+                <h5><strong>AppLayout</strong></h5>
+                <p>{t('documentationPage.appLayoutDesc') || 'Consistent layout wrapper that combines header, footer, and main content with proper spacing and responsive design.'}</p>
+              </div>
+              <div className={styles.contentListItem}>
                 <h5><strong>GlobalProvider</strong></h5>
                 <p>{t('documentationPage.globalProviderDesc') || 'Unified context provider for theme and language settings across applications.'}</p>
               </div>
@@ -1481,10 +1493,23 @@ git push origin feature/your-feature-name
               <li>{t('documentationPage.designPrinciple6') || 'Flexible configuration for app-specific needs'}</li>
             </ul>
 
+            <h4 className={styles.listItemTitle}>🧪 {t('documentationPage.testInfrastructureTitle') || 'Test Infrastructure'}</h4>
+            <p className={styles.contentText}>
+              {t('documentationPage.testInfrastructureDesc') || 'Each shared component includes comprehensive test coverage with Jest and React Testing Library. The testing infrastructure includes:'}
+            </p>
+            <ul className={styles.conceptList}>
+              <li>{t('documentationPage.testFeature1') || 'Unit tests for component behavior and rendering'}</li>
+              <li>{t('documentationPage.testFeature2') || 'Integration tests for provider interactions'}</li>
+              <li>{t('documentationPage.testFeature3') || 'Accessibility testing with @testing-library/jest-dom'}</li>
+              <li>{t('documentationPage.testFeature4') || 'Mock utilities for consistent testing patterns'}</li>
+              <li>{t('documentationPage.testFeature5') || 'Portal rendering tests for Modal and Toast components'}</li>
+              <li>{t('documentationPage.testFeature6') || '90%+ test coverage across all shared components'}</li>
+            </ul>
+
             <h4 className={styles.listItemTitle}>📝 {t('documentationPage.usageExampleTitle') || 'Usage Example'}</h4>
             <pre className={styles.codeBlock}>
               {`// Import shared components
-import { Navigation, UserMenu, Footer } from '@cybereco/ui-components';
+import { Navigation, UserMenu, Footer, Modal, toast } from '@cybereco/ui-components';
 
 // Use in your app
 export function AppHeader() {
@@ -1495,6 +1520,26 @@ export function AppHeader() {
       showConfig={true}
       mobileMenuStorageKey="app-menu-state"
     />
+  );
+}
+
+// Use Modal and Toast
+export function MyComponent() {
+  const [showModal, setShowModal] = useState(false);
+  
+  const handleSuccess = () => {
+    toast.success('Operation completed successfully!');
+    setShowModal(false);
+  };
+  
+  return (
+    <>
+      <button onClick={() => setShowModal(true)}>Open Modal</button>
+      <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
+        <p>Modal content here</p>
+        <button onClick={handleSuccess}>Complete</button>
+      </Modal>
+    </>
   );
 }`}
             </pre>

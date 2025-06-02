@@ -18,7 +18,7 @@ export default function RootLayout({
         <style dangerouslySetInnerHTML={{ __html: themeTransitionCSS }} />
         <script dangerouslySetInnerHTML={{ __html: createThemeScript() }} />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>

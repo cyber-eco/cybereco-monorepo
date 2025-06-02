@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import Link from 'next/link';
 import styles from './UserMenu.module.css';
 
 export interface UserMenuItem {
@@ -24,6 +23,7 @@ export interface UserMenuProps {
   avatarClassName?: string;
   menuClassName?: string;
   avatarIcon?: React.ReactNode;
+  LinkComponent?: React.ComponentType<{ href: string; className?: string; children: React.ReactNode; role?: string; onClick?: () => void }>;
 }
 
 export function UserMenu({
@@ -32,7 +32,8 @@ export function UserMenu({
   className,
   avatarClassName,
   menuClassName,
-  avatarIcon
+  avatarIcon,
+  LinkComponent = ({ href, className, children, role, onClick }) => <a href={href} className={className} role={role} onClick={onClick}>{children}</a>
 }: UserMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -184,7 +185,7 @@ export function UserMenu({
 
               if (item.href) {
                 return (
-                  <Link
+                  <LinkComponent
                     key={index}
                     href={item.href}
                     className={itemClassName}
@@ -192,7 +193,7 @@ export function UserMenu({
                     onClick={() => setIsOpen(false)}
                   >
                     {itemContent}
-                  </Link>
+                  </LinkComponent>
                 );
               }
 

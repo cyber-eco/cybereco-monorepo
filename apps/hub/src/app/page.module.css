@@ -99,6 +99,784 @@
   background: linear-gradient(135deg, rgba(0, 98, 65, 0.1) 0%, transparent 100%);
 }
 
+/* Enhanced Hub Page Styles */
+
+.container {
+  min-height: calc(100vh - var(--header-height, 70px));
+  background: var(--background);
+  position: relative;
+  overflow-x: hidden;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 300px;
+  background: linear-gradient(135deg, 
+    var(--primary) 0%, 
+    var(--secondary) 50%, 
+    transparent 100%);
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem 0;
+  position: relative;
+}
+
+.header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  border-radius: 2px;
+}
+
+.titleIcon {
+  font-size: 0.8em;
+  color: var(--primary);
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+.formContainer {
+  display: grid;
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.appsSection {
+  margin-top: 3rem;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.sectionDescription {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  text-align: center;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Enhanced Cards */
+.profileCard,
+.settingsCard,
+.securityCard,
+.billingCard,
+.plansCard,
+.invoicesCard,
+.paymentMethodCard,
+.currentPlanCard {
+  background: var(--surface);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 
+    0 4px 6px rgba(0, 0, 0, 0.05),
+    0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.profileCard::before,
+.settingsCard::before,
+.securityCard::before,
+.billingCard::before,
+.plansCard::before,
+.invoicesCard::before,
+.paymentMethodCard::before,
+.currentPlanCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
+
+.profileCard:hover,
+.settingsCard:hover,
+.securityCard:hover,
+.billingCard:hover,
+.plansCard:hover,
+.invoicesCard:hover,
+.paymentMethodCard:hover,
+.currentPlanCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.1),
+    0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.cardIcon {
+  color: var(--primary);
+  font-size: 1.2em;
+}
+
+/* Form Styling */
+.formGroup {
+  margin-bottom: 1.5rem;
+}
+
+.formGroup label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.input,
+.select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  font-size: 1rem;
+  background: var(--background);
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+
+.input:focus,
+.select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(0, 98, 65, 0.1);
+}
+
+.input:hover,
+.select:hover {
+  border-color: var(--primary);
+}
+
+/* Button Styling */
+.editButton,
+.saveButton,
+.updateButton,
+.upgradeButton,
+.enableButton,
+.selectButton,
+.addPaymentButton {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.editButton::before,
+.saveButton::before,
+.updateButton::before,
+.upgradeButton::before,
+.enableButton::before,
+.selectButton::before,
+.addPaymentButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.editButton:hover::before,
+.saveButton:hover::before,
+.updateButton:hover::before,
+.upgradeButton:hover::before,
+.enableButton:hover::before,
+.selectButton:hover::before,
+.addPaymentButton:hover::before {
+  left: 100%;
+}
+
+.editButton:hover,
+.saveButton:hover,
+.updateButton:hover,
+.upgradeButton:hover,
+.enableButton:hover,
+.selectButton:hover,
+.addPaymentButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 98, 65, 0.3);
+}
+
+.cancelButton,
+.currentButton {
+  background: var(--surface);
+  color: var(--text-secondary);
+  border: 2px solid var(--border);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cancelButton:hover {
+  background: var(--border);
+  color: var(--text-primary);
+}
+
+.deleteButton {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.deleteButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(231, 76, 60, 0.3);
+}
+
+/* Profile specific styles */
+.profileHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.avatarSection {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--primary);
+}
+
+.avatarPlaceholder {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+}
+
+.profileInfo {
+  margin-top: 1rem;
+}
+
+.profileDetails {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.detailGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.detailGroup label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.detailGroup span {
+  font-size: 1rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.editForm {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.formActions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  margin-top: 2rem;
+}
+
+/* Settings specific styles */
+.settingGroup {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.settingGroup:last-child {
+  border-bottom: none;
+}
+
+.settingLabel {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.settingValue {
+  font-family: monospace;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  background: var(--surface);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+/* Toggle Switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--border);
+  transition: 0.3s;
+  border-radius: 24px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.3s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--primary);
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Security specific styles */
+.securityInfo {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.infoGroup {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: var(--background);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.infoValue {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.verified {
+  color: var(--color-success);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.notEnabled {
+  color: var(--color-warning);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.passwordForm {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.passwordInput {
+  position: relative;
+}
+
+.passwordToggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.passwordToggle:hover {
+  color: var(--primary);
+}
+
+.activityList {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.activityItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background: var(--background);
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+
+.activityDate {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.activityDescription {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.dangerZone {
+  padding: 1.5rem;
+  background: rgba(231, 76, 60, 0.05);
+  border: 1px solid rgba(231, 76, 60, 0.2);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.dangerZone p {
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+}
+
+/* Billing specific styles */
+.billingContainer {
+  display: grid;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.currentPlan {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.planInfo h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem 0;
+}
+
+.planPrice {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin: 0 0 0.5rem 0;
+}
+
+.planDescription {
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.plansGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.planCard {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.planCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.currentBadge {
+  position: absolute;
+  top: -10px;
+  right: 1rem;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.planHeader {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.planTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem 0;
+}
+
+.planPricing {
+  margin: 0.5rem 0;
+}
+
+.planPrice {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.planPeriod {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.planDesc {
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.planFeatures {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+}
+
+.planFeature {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+.featureIcon {
+  color: var(--primary);
+  font-size: 0.8rem;
+}
+
+.planAction {
+  text-align: center;
+}
+
+.invoicesTable {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.tableHeader {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--surface);
+  border-radius: 8px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tableRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--background);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  align-items: center;
+}
+
+.invoiceId {
+  font-family: monospace;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+.amount {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.status {
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.status.paid {
+  background: rgba(40, 167, 69, 0.1);
+  color: var(--color-success);
+}
+
+.downloadButton {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.downloadButton:hover {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.paymentMethod {
+  text-align: center;
+  padding: 2rem;
+}
+
+.noPaymentMethod {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.error {
+  background: rgba(231, 76, 60, 0.1);
+  border: 1px solid rgba(231, 76, 60, 0.3);
+  color: #c0392b;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
 /* Responsive styles */
 @media (max-width: 768px) {
   .authCard {
@@ -129,5 +907,165 @@
   .appSection h2 {
     font-size: 24px;
     margin-bottom: 24px;
+  }
+
+  .content {
+    padding: 1rem;
+  }
+
+  .profileHeader {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .currentPlan {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .formActions {
+    justify-content: center;
+  }
+
+  .tableHeader,
+  .tableRow {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .tableHeader {
+    display: none;
+  }
+
+  .tableRow {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .plansGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Dashboard-specific styles */
+.dashboardMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.lastUpdate {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.refreshButton {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.refreshButton:hover:not(:disabled) {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+  transform: translateY(-1px);
+}
+
+.refreshButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.spinning {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.metricsSection {
+  margin: 3rem 0;
+}
+
+.dashboardColumns {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.activitySection {
+  min-height: 500px;
+}
+
+.sectionHeader {
+  margin-bottom: 1.5rem;
+}
+
+.sectionHeader .sectionTitle {
+  margin-bottom: 0.5rem;
+}
+
+.sectionHeader .sectionDescription {
+  margin-bottom: 0;
+}
+
+/* Responsive dashboard layout */
+@media (max-width: 1200px) {
+  .dashboardColumns {
+    grid-template-columns: 1fr 350px;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .dashboardColumns {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .activitySection {
+    order: 2;
+  }
+  
+  .appsSection {
+    order: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboardMeta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .metricsSection {
+    margin: 2rem 0;
+  }
+  
+  .dashboardColumns {
+    gap: 1.5rem;
+    margin-top: 2rem;
   }
 }

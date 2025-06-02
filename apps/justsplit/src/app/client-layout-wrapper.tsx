@@ -1,7 +1,9 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import { Suspense, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+// Temporarily disable AppLayout for SSR compatibility
+// import { AppLayout } from '@cybereco/ui-components';
 import Providers from '../context/Providers'; // Ensure path is correct
 import Header from '../components/Header/Header';     // Ensure path is correct
 import Footer from '../components/Footer/Footer';     // Import Footer
@@ -24,14 +26,13 @@ function ClientLayout({ children }: { children: React.ReactNode }) {
       ) : (
         // For all other routes (e.g., /dashboard, /profile)
         <ProtectedRoute>
-          {/* Header is a child of ProtectedRoute.
-              If ProtectedRoute redirects or returns null (because user is not logged in),
-              then Header also won't render */}
-          <Header />
-          <main style={{ minHeight: 'calc(100vh - 64px - 200px)' }}>
-            {children}
-          </main>
-          <Footer />
+          <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+            <Header />
+            <main style={{ flex: 1 }}>
+              {children}
+            </main>
+            <Footer />
+          </div>
         </ProtectedRoute>
       )}
     </Providers>
@@ -49,9 +50,9 @@ export default function ClientLayoutWrapper({
     setIsClient(true);
   }, []);
 
-  // During SSR/SSG, just return children without providers
+  // During SSR/SSG, provide minimal providers to avoid context errors
   if (!isClient) {
-    return <>{children}</>;
+    return <Providers>{children}</Providers>;
   }
 
   return <ClientLayout>{children}</ClientLayout>;

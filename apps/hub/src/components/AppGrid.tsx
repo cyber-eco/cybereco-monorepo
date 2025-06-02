@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Card } from '@cybereco/ui-components';
+import { Card, useLanguage } from '@cybereco/ui-components';
 import { getHubFirestore, queryDocuments, getCurrentUser } from '@cybereco/firebase-config';
 import { where } from 'firebase/firestore';
 import type { App } from '@cybereco/shared-types';
@@ -9,7 +9,8 @@ import { useAuth } from './AuthContext';
 import styles from './AppGrid.module.css';
 
 export function AppGrid() {
-  const { user } = useAuth();
+  const { userProfile: user, currentUser } = useAuth();
+  const { t } = useLanguage();
   const [apps, setApps] = useState<App[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -38,7 +39,7 @@ export function AppGrid() {
   }, [user]);
 
   if (loading) {
-    return <div className={styles.loading}>Loading applications...</div>;
+    return <div className={styles.loading}>{t('apps.loading') || 'Loading applications...'}</div>;
   }
 
   if (apps.length === 0) {
@@ -46,13 +47,17 @@ export function AppGrid() {
     const defaultApps: App[] = [{
       id: 'justsplit',
       name: 'JustSplit',
-      description: 'Split expenses with friends and family',
+      description: t('apps.justsplit.description') || 'Split expenses with friends and family',
       icon: '💰',
-      url: process.env.NEXT_PUBLIC_JUSTSPLIT_URL || 'http://localhost:4000',
+      url: process.env.NEXT_PUBLIC_JUSTSPLIT_URL || 'http://localhost:40002',
       category: 'finance',
       status: 'active',
       requiresAuth: true,
-      features: ['Expense tracking', 'Group management', 'Settlement tracking'],
+      features: [
+        t('apps.features.expenseTracking') || 'Expense tracking',
+        t('apps.features.groupManagement') || 'Group management',
+        t('apps.features.settlementTracking') || 'Settlement tracking'
+      ],
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
     }];
@@ -76,14 +81,14 @@ export function AppGrid() {
 }
 
 function AppCard({ app }: { app: App }) {
-  const { user } = useAuth();
+  const { userProfile: user, currentUser } = useAuth();
+  const { t } = useLanguage();
 
   const handleLaunch = async () => {
-    if (!user) return;
+    if (!user || !currentUser) return;
 
     // Get Firebase user and create a token for the app to verify
-    const firebaseUser = await getCurrentUser();
-    const token = firebaseUser ? await firebaseUser.getIdToken() : '';
+    const token = await currentUser.getIdToken();
     
     // Redirect to app with token
     const url = new URL(app.url);
@@ -106,7 +111,7 @@ function AppCard({ app }: { app: App }) {
         ))}
       </div>
       <button className={styles.launchButton}>
-        Launch App →
+        {t('apps.launch') || 'Launch App'} →
       </button>
     </Card>
   );

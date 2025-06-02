@@ -11,9 +11,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## NX Monorepo Structure
 
 This is an NX 19.8.14 monorepo with the following **cleaned and optimized** structure:
-- `apps/hub` - Central authentication hub application (Next.js, port 3000)
-- `apps/justsplit` - Expense splitting application (Next.js, port 4000)
-- `apps/website` - Main CyberEco marketing website (Next.js, port 5000)
+- `apps/hub` - Central authentication hub application (Next.js, port 40000)
+- `apps/website` - Main CyberEco marketing website (Next.js, port 40001)
+- `apps/justsplit` - Expense splitting application (Next.js, port 40002)
 - `apps/somos` - Family roots explorer application (planned, Next.js)
 - `apps/demos` - Community governance application (planned, Next.js)
 - `apps/plantopia` - Smart gardening application (planned, Next.js)
@@ -43,10 +43,20 @@ This is an NX 19.8.14 monorepo with the following **cleaned and optimized** stru
 - `nx run-many --target=<target> --all` - Run target on all projects in parallel
 
 ### Root-Level npm Scripts
-- `npm run dev` - Start Hub (port 3000), JustSplit (port 4000), and Website (port 5000) in parallel
+
+**🚀 Primary Development Commands:**
+- `npm run dev` - **Default development**: Firebase emulators + All 3 apps + **data persistence** (RECOMMENDED)
+- `npm run dev:clean` - **Clean slate development**: Firebase emulators + All 3 apps with fresh data each time
+- `npm run dev:nosim` - **Frontend only**: Just the 3 apps without Firebase emulators
+
+**Individual App Commands:**
 - `npm run dev:website` - Start only the website app in development mode
+
+**Build Commands:**
 - `npm run build` - Build all applications (Hub, JustSplit, Website)
 - `npm run build:website` - Build only the website app for production (uses working npm build)
+
+**Testing & Linting:**
 - `npm run test` - Run all tests across all projects
 - `npm run lint` - Run ESLint across all projects using NX workspace config
 - `npm run clean` - Reset NX cache (equivalent to `nx reset`)
@@ -105,9 +115,9 @@ nx affected:test
 - Test reports are generated in `./reports/test-report.html`
 
 ### Project-Specific Commands
-- `nx serve hub` - Start Hub app (port 3000)
-- `nx serve justsplit-app` - Start JustSplit app (port 4000)
-- `nx serve website` - Start Website app (port 5000)
+- `nx serve hub` - Start Hub app (port 40000)
+- `nx serve website` - Start Website app (port 40001)
+- `nx serve justsplit-app` - Start JustSplit app (port 40002)
 - `nx build hub --configuration=production` - Production build for Hub
 - `nx build justsplit-app --configuration=production` - Production build for JustSplit
 - **KNOWN ISSUE**: `nx build website` - NX build fails with React rendering error during static export
@@ -192,9 +202,9 @@ Development uses Firebase emulators running on:
 - Firestore: localhost:8080
 - Auth: localhost:9099
 - UI: localhost:5002
-- Website hosting: localhost:5000
-- Hub hosting: localhost:3000
-- JustSplit hosting: localhost:4000
+- Hub hosting: localhost:40000
+- Website hosting: localhost:40001
+- JustSplit hosting: localhost:40002
 
 The emulator data persists in `./emulator-data/` and is automatically imported/exported on start/stop.
 

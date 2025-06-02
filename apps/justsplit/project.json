@@ -22,7 +22,7 @@
       "options": {
         "buildTarget": "justsplit-app:build",
         "dev": true,
-        "port": 4000
+        "port": 40002
       },
       "configurations": {
         "production": {
@@ -36,7 +36,7 @@
       "options": {
         "buildTarget": "justsplit-app:build",
         "dev": true,
-        "port": 4000
+        "port": 4002
       }
     },
     "export": {

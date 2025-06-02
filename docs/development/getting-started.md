@@ -42,7 +42,7 @@ NEXT_PUBLIC_HUB_MESSAGING_SENDER_ID=your-hub-sender-id
 NEXT_PUBLIC_HUB_APP_ID=your-hub-app-id
 
 # App URLs
-NEXT_PUBLIC_JUSTSPLIT_URL=http://localhost:4000
+NEXT_PUBLIC_JUSTSPLIT_URL=http://localhost:40002
 ```
 
 #### JustSplit Application (.env.local)
@@ -73,13 +73,13 @@ nx run-many --target=serve --all
 
 ### Start Individual Applications
 ```bash
-# Start the Hub (http://localhost:3000)
+# Start the Hub (http://localhost:40000)
 nx serve hub
 
-# Start JustSplit (http://localhost:4000)
+# Start JustSplit (http://localhost:40002)
 nx serve justsplit-app
 
-# Start Website (http://localhost:5000)
+# Start Website (http://localhost:40001)
 nx serve website
 ```
 

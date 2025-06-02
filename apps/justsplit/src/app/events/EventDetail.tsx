@@ -2,5 +2,8 @@
 
 // This file exposes the EventDetail component directly for testing
 // It's a wrapper around the real page component
-import EventDetail from './[id]/page';
-export default EventDetail;
+// Temporarily disabled due to dynamic route removal
+// import EventDetail from './[id]/page';
+export default function EventDetail() {
+  return <div>Event Detail - Coming Soon</div>;
+}

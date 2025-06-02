@@ -43,8 +43,8 @@ This guide outlines the development workflow for the CyberEco platform, covering
 npm run dev
 
 # Alternative: Start specific applications
-nx serve hub              # Hub on port 3000
-nx serve justsplit-app    # JustSplit on port 4000
+nx serve hub              # Hub on port 40000
+nx serve justsplit-app    # JustSplit on port 40002
 
 # Start Firebase emulators (optional for backend testing)
 npm run emulators
@@ -346,8 +346,8 @@ firebase hosting:channel:list
 
 ```bash
 # Test with hosting emulator
-npm run hosting:justsplit  # Test JustSplit on localhost:5000
-npm run hosting:hub       # Test Hub on localhost:5001
+npm run hosting:justsplit  # Test JustSplit on localhost:40002
+npm run hosting:hub       # Test Hub on localhost:40000
 ```
 
 ## 🔄 Git Workflow
@@ -527,8 +527,8 @@ rm -rf emulator-data
 
 ```bash
 # Kill processes on specific ports
-lsof -ti:3000 | xargs kill -9
-lsof -ti:4000 | xargs kill -9
+lsof -ti:40000 | xargs kill -9
+lsof -ti:40002 | xargs kill -9
 ```
 
 ---

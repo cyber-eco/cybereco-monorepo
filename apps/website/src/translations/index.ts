@@ -1076,15 +1076,15 @@ const nestedTranslations = {
       harassmentSafetyLabel: 'Harassment and safety concerns',
       
       // Hardcoded content fixes
-      hubPortLabel: 'Hub: http://localhost:3000',
-      justSplitPortLabel: 'JustSplit: http://localhost:4000',
-      websitePortLabel: 'Website: http://localhost:5000',
+      hubPortLabel: 'Hub: http://localhost:40000',
+      justSplitPortLabel: 'JustSplit: http://localhost:40002',
+      websitePortLabel: 'Website: http://localhost:40001',
       
-      websitePortTitle: 'Website (Port 5000)',
+      websitePortTitle: 'Website (Port 40001)',
       websitePortDesc: 'Marketing website and application hub',
-      hubPortTitle: 'Hub (Port 3000)',
+      hubPortTitle: 'Hub (Port 40000)',
       hubPortDesc: 'Central authentication and app launcher',
-      justSplitPortTitle: 'JustSplit (Port 4000)',
+      justSplitPortTitle: 'JustSplit (Port 40002)',
       justSplitPortDesc: 'Expense splitting and financial management',
       
       // Shared libraries descriptions
@@ -3389,15 +3389,15 @@ const nestedTranslations = {
       harassmentSafetyLabel: 'Acoso y preocupaciones de seguridad',
       
       // Hardcoded content fixes
-      hubPortLabel: 'Hub: http://localhost:3000',
-      justSplitPortLabel: 'JustSplit: http://localhost:4000',
-      websitePortLabel: 'Website: http://localhost:5000',
+      hubPortLabel: 'Hub: http://localhost:40000',
+      justSplitPortLabel: 'JustSplit: http://localhost:40002',
+      websitePortLabel: 'Website: http://localhost:40001',
       
-      websitePortTitle: 'Website (Puerto 5000)',
+      websitePortTitle: 'Website (Puerto 40001)',
       websitePortDesc: 'Sitio web de marketing y hub de aplicaciones',
-      hubPortTitle: 'Hub (Puerto 3000)',
+      hubPortTitle: 'Hub (Puerto 40000)',
       hubPortDesc: 'Autenticación central y lanzador de aplicaciones',
-      justSplitPortTitle: 'JustSplit (Puerto 4000)',
+      justSplitPortTitle: 'JustSplit (Puerto 40002)',
       justSplitPortDesc: 'División de gastos y gestión financiera',
       
       // Shared libraries descriptions

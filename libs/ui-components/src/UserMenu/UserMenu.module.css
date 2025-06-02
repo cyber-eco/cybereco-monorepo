@@ -8,7 +8,7 @@
   gap: 8px;
   padding: 4px 12px 4px 4px;
   background: transparent;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border);
   border-radius: 24px;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -18,13 +18,13 @@
 }
 
 .userButton:hover {
-  background-color: var(--bg-hover);
-  border-color: var(--border-hover);
+  background-color: var(--surface);
+  border-color: var(--primary);
 }
 
 .userButton:focus {
   outline: none;
-  box-shadow: 0 0 0 2px var(--focus-ring);
+  box-shadow: 0 0 0 2px rgba(0, 98, 65, 0.2);
 }
 
 .avatar {
@@ -32,7 +32,7 @@
   height: 32px;
   border-radius: 50%;
   overflow: hidden;
-  background-color: var(--bg-secondary);
+  background-color: var(--surface);
 }
 
 .avatarImage {
@@ -47,8 +47,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-primary-light);
-  color: var(--color-primary);
+  background-color: var(--primary-light, rgba(0, 98, 65, 0.1));
+  color: var(--primary);
   font-weight: 600;
   font-size: 14px;
 }
@@ -74,13 +74,17 @@
   top: calc(100% + 8px);
   right: 0;
   min-width: 280px;
-  background-color: var(--bg-primary);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  background-color: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.15),
+    0 4px 12px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.05);
   overflow: hidden;
-  z-index: 100;
+  z-index: 1000;
   animation: slideDown 0.2s ease;
+  backdrop-filter: blur(10px);
 }
 
 @keyframes slideDown {
@@ -99,7 +103,8 @@
   align-items: center;
   gap: 12px;
   padding: 16px;
-  background-color: var(--bg-secondary);
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--border);
 }
 
 .userInfoAvatar {
@@ -139,7 +144,7 @@
 
 .menuDivider {
   height: 1px;
-  background-color: var(--border-color);
+  background-color: var(--border);
 }
 
 .menuItems {
@@ -165,12 +170,12 @@
 }
 
 .menuItem:hover {
-  background-color: var(--bg-hover);
+  background-color: var(--surface);
 }
 
 .menuItem:focus {
   outline: none;
-  box-shadow: inset 0 0 0 2px var(--focus-ring);
+  box-shadow: inset 0 0 0 2px rgba(0, 98, 65, 0.2);
 }
 
 .menuItemIcon {
@@ -188,16 +193,16 @@
 }
 
 .menuItemDanger {
-  color: var(--color-danger);
+  color: var(--color-error, #e74c3c);
 }
 
 .menuItemDanger:hover {
-  background-color: var(--color-danger-light);
-  color: var(--color-danger);
+  background-color: rgba(231, 76, 60, 0.1);
+  color: var(--color-error, #e74c3c);
 }
 
 .menuItemDanger .menuItemIcon {
-  color: var(--color-danger);
+  color: var(--color-error, #e74c3c);
 }
 
 /* Mobile responsiveness */
@@ -233,17 +238,22 @@
 
 /* Dark mode specific styles */
 [data-theme="dark"] .menuDropdown {
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.4),
+    0 4px 12px rgba(0, 0, 0, 0.3),
+    0 1px 3px rgba(0, 0, 0, 0.2);
+  background-color: var(--surface);
 }
 
 [data-theme="dark"] .userInfo {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: var(--background);
+  border-bottom-color: var(--border);
 }
 
 [data-theme="dark"] .menuItem:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
 [data-theme="dark"] .menuItemDanger:hover {
-  background-color: rgba(220, 38, 38, 0.2);
+  background-color: rgba(231, 76, 60, 0.1);
 }
