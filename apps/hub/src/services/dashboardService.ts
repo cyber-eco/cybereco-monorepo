@@ -299,6 +299,43 @@ export class DashboardDataService {
     if (!data.groups) data.groups = [];
     if (!data.events) data.events = [];
     if (!data.settlements) data.settlements = [];
+    
+    // If no data at all, return getting started metrics
+    const hasAnyData = data.expenses.length > 0 || data.groups.length > 0 || 
+                      data.events.length > 0 || data.settlements.length > 0;
+    
+    if (!hasAnyData) {
+      return [
+        {
+          id: 'get-started',
+          label: 'Get Started',
+          value: 'Launch JustSplit',
+          format: 'text' as any,
+          color: '#006241'
+        },
+        {
+          id: 'create-group',
+          label: 'Create Your First Group',
+          value: 'Organize expenses',
+          format: 'text' as any,
+          color: '#6BBF59'
+        },
+        {
+          id: 'add-expense',
+          label: 'Track Expenses',
+          value: 'Split with friends',
+          format: 'text' as any,
+          color: '#28a745'
+        },
+        {
+          id: 'explore-apps',
+          label: 'Explore Apps',
+          value: 'Discover ecosystem',
+          format: 'text' as any,
+          color: '#f39c12'
+        }
+      ];
+    }
     const now = new Date();
     const lastMonth = new Date(now.getFullYear(), now.getMonth() - 1, now.getDate());
     const thisMonth = new Date(now.getFullYear(), now.getMonth(), 1);

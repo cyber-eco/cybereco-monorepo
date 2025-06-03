@@ -35,7 +35,12 @@ function SimpleMetricCard({ metric, loading }: { metric: any, loading: boolean }
     );
   }
 
-  const formatValue = (value: number, format?: string) => {
+  const formatValue = (value: number | string, format?: string) => {
+    if (format === 'text' || typeof value === 'string') {
+      return value.toString();
+    }
+    
+    const numValue = Number(value);
     switch (format) {
       case 'currency':
         return new Intl.NumberFormat('en-US', {
@@ -43,11 +48,11 @@ function SimpleMetricCard({ metric, loading }: { metric: any, loading: boolean }
           currency: 'USD',
           minimumFractionDigits: 0,
           maximumFractionDigits: 2
-        }).format(value);
+        }).format(numValue);
       case 'percentage':
-        return `${value}%`;
+        return `${numValue}%`;
       case 'number':
-        return new Intl.NumberFormat('en-US').format(value);
+        return new Intl.NumberFormat('en-US').format(numValue);
       default:
         return value.toString();
     }
@@ -59,7 +64,9 @@ function SimpleMetricCard({ metric, loading }: { metric: any, loading: boolean }
         <div className={styles.metricIcon}>{metric.icon}</div>
       </div>
       <div className={styles.metricLabel}>{metric.label}</div>
-      <div className={styles.metricValue}>{formatValue(metric.value, metric.format)}</div>
+      <div className={styles.metricValue} style={metric.format === 'text' ? { fontSize: '1.1rem' } : {}}>
+        {formatValue(metric.value, metric.format)}
+      </div>
       {metric.change && (
         <div className={`${styles.metricChange} ${metric.change.direction === 'up' ? styles.positive : styles.negative}`}>
           {metric.change.direction === 'up' ? <FaArrowUp /> : <FaArrowUp style={{ transform: 'rotate(180deg)' }} />}
@@ -258,16 +265,14 @@ export default function Dashboard() {
     console.log('Loading dashboard data for user:', user.id);
 
     try {
-      // For now, show mock data to avoid cross-app Firebase issues
-      // TODO: Implement proper cross-app data aggregation
-      const justSplitData = {
-        expenses: [],
-        settlements: [],
-        groups: [],
-        events: [],
-        users: []
-      };
-      console.log('Using simplified dashboard data');
+      // Fetch real data from Firebase
+      const justSplitData = await dataService.getUserJustSplitData(user.id);
+      console.log('Fetched Firebase data:', {
+        expenses: justSplitData.expenses.length,
+        settlements: justSplitData.settlements.length,
+        groups: justSplitData.groups.length,
+        events: justSplitData.events.length
+      });
 
       // Get user names for better activity descriptions
       const allUserIds = [
