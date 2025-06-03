@@ -56,3 +56,26 @@ export {
   clearSharedAuthState as clearCrossOriginAuth,
   waitForSharedAuth
 } from './CrossOriginAuth';
+
+// Shared auth state exports for cross-app SSO
+export {
+  saveSharedAuthState,
+  getSharedAuthState as getSharedAuth,
+  clearSharedAuthState as clearSharedAuth,
+  subscribeToAuthStateChanges,
+  waitForAuth,
+  type SharedAuthUser,
+  type SharedAuthState
+} from './shared-auth-state';
+
+// Lightweight app auth exports
+export {
+  useHubAuth,
+  type HubUser,
+  type HubAuthState
+} from './hooks/useHubAuth';
+
+export {
+  AuthTokenService,
+  type AuthUser
+} from './services/authTokenService';

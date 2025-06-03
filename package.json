@@ -6,6 +6,8 @@
   "description": "CyberEco - A human-centered digital ecosystem for conscious, connected, and sustainable living",
   "scripts": {
     "dev": "concurrently --names \"🔥FIREBASE,🌐WEBSITE,🏠HUB,💰JUSTSPLIT\" --prefix-colors \"red,green,blue,yellow\" \"npm run emulators\" \"npm run dev:website\" \"nx serve hub\" \"cd apps/justsplit && npm run dev\"",
+    "dev:lan": "concurrently --names \"🔥FIREBASE,🌐WEBSITE,🏠HUB,💰JUSTSPLIT\" --prefix-colors \"red,green,blue,yellow\" \"npm run emulators\" \"npm run dev:website:lan\" \"nx serve hub --hostname 0.0.0.0\" \"cd apps/justsplit && npm run dev -- --hostname 0.0.0.0\"",
+    "dev:website:lan": "cd apps/website && npm run dev -- --hostname 0.0.0.0",
     "dev:nosim": "nx run-many --target=dev --projects=justsplit-app,hub,website --parallel",
     "dev:core": "concurrently --names \"🔥FIREBASE,🌐WEBSITE,🏠HUB,💰JUSTSPLIT\" --prefix-colors \"red,green,blue,yellow\" \"npm run emulators:core\" \"npm run dev:website\" \"nx serve hub\" \"cd apps/justsplit && npm run dev\"",
     "dev:clean": "concurrently --names \"🔥FIREBASE,🌐WEBSITE,🏠HUB,💰JUSTSPLIT\" --prefix-colors \"red,green,blue,yellow\" \"npm run emulators:hosting\" \"npm run dev:website\" \"nx serve hub\" \"cd apps/justsplit && npm run dev\"",
@@ -41,6 +43,7 @@
     "@swc-node/register": "^1.6.7",
     "@swc/core": ">= 1.4.13",
     "@swc/helpers": ">=0.5.17",
+    "@types/jest": "^29.5.14",
     "@types/react": "^19.1.6",
     "@types/react-dom": "^19.1.5",
     "@types/uuid": "^10.0.0",
@@ -48,7 +51,9 @@
     "@typescript-eslint/parser": "^8.0.0",
     "concurrently": "^9.1.2",
     "eslint-config-next": "^15.3.3",
+    "jest-environment-jsdom": "^30.0.0-beta.3",
     "nx": "19.8.14",
-    "typescript": "^5"
+    "ts-jest": "^29.3.4",
+    "typescript": "^5.3.3"
   }
 }

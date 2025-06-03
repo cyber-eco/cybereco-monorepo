@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { FaRocket, FaUser, FaBars, FaTimes, FaCog } from 'react-icons/fa';
+import { FaRocket, FaUser, FaBars, FaTimes, FaCog, FaSignOutAlt } from 'react-icons/fa';
 import { useAuth } from '@/context/JustSplitAuthContext';
 import { useTheme } from '@/context/ThemeContext';
 import { useLanguage } from '@/context/LanguageContext';
@@ -22,12 +22,13 @@ function getNavLinks(t: (key: string) => string) {
 import styles from './Header.module.css';
 
 export default function Header() {
-  const { currentUser } = useAuth();
+  const { currentUser, userProfile, signOut } = useAuth();
   const { theme, setTheme } = useTheme();
   const { language, setLanguage, t } = useLanguage();
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isConfigOpen, setIsConfigOpen] = useState(false);
+  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   
   const justSplitNavLinks = getNavLinks(t);
 
@@ -59,20 +60,23 @@ export default function Header() {
     };
   }, [isMobileMenuOpen]);
 
-  // Close config dropdown when clicking outside
+  // Close dropdowns when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Element;
       if (isConfigOpen && !target.closest(`.${styles.configContainer}`)) {
         setIsConfigOpen(false);
       }
+      if (isUserMenuOpen && !target.closest(`.${styles.userMenuContainer}`)) {
+        setIsUserMenuOpen(false);
+      }
     };
 
-    if (isConfigOpen) {
+    if (isConfigOpen || isUserMenuOpen) {
       document.addEventListener('mousedown', handleClickOutside);
       return () => document.removeEventListener('mousedown', handleClickOutside);
     }
-  }, [isConfigOpen]);
+  }, [isConfigOpen, isUserMenuOpen]);
 
   const isActiveLink = (href: string) => {
     if (href === '/') {
@@ -81,21 +85,55 @@ export default function Header() {
     return pathname.startsWith(href);
   };
 
-  const renderActionButton = () => {
-    if (currentUser) {
-      return (
-        <Link href="/profile" className={styles.actionButton}>
-          <FaUser />
-          <span>{currentUser.displayName || t('profile')}</span>
-        </Link>
-      );
-    }
-    const hubUrl = process.env.NEXT_PUBLIC_HUB_URL || 'http://localhost:40000';
+  const hubUrl = process.env.NEXT_PUBLIC_HUB_URL || 'http://localhost:40000';
+
+  const renderUserMenu = () => {
+    if (!currentUser || !userProfile) return null;
+
     return (
-      <a href={hubUrl} className={styles.actionButton}>
-        <FaRocket />
-        <span>{t('hub')}</span>
-      </a>
+      <div className={styles.userMenuContainer}>
+        <button 
+          className={styles.userMenuButton}
+          onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
+          aria-label="User menu"
+        >
+          {userProfile.avatarUrl ? (
+            <img 
+              src={userProfile.avatarUrl} 
+              alt={userProfile.name} 
+              className={styles.userAvatar}
+            />
+          ) : (
+            <div className={styles.userAvatarPlaceholder}>
+              {userProfile.name?.charAt(0).toUpperCase()}
+            </div>
+          )}
+        </button>
+        
+        {isUserMenuOpen && (
+          <div className={styles.userMenuDropdown}>
+            <div className={styles.userMenuHeader}>
+              <div className={styles.userName}>{userProfile.name}</div>
+              <div className={styles.userEmail}>{userProfile.email}</div>
+            </div>
+            <div className={styles.userMenuDivider} />
+            <a 
+              href={`${hubUrl}/profile`} 
+              className={styles.userMenuItem}
+            >
+              <FaUser />
+              <span>{t('profile')}</span>
+            </a>
+            <button 
+              onClick={() => signOut()}
+              className={styles.userMenuItem}
+            >
+              <FaSignOutAlt />
+              <span>{t('signOut')}</span>
+            </button>
+          </div>
+        )}
+      </div>
     );
   };
 
@@ -129,7 +167,10 @@ export default function Header() {
           </div>
           
           <div className={styles.navActions}>
-            {renderActionButton()}
+            <a href={hubUrl} className={styles.actionButton}>
+              <FaRocket />
+              <span>{t('hub')}</span>
+            </a>
             <div className={styles.configContainer}>
               <button 
                 className={styles.configButton}
@@ -178,6 +219,7 @@ export default function Header() {
                 </div>
               )}
             </div>
+            {renderUserMenu()}
           </div>
         </div>
 
@@ -211,7 +253,28 @@ export default function Header() {
           </div>
           
           <div className={styles.mobileNavActions}>
-            {renderActionButton()}
+            <a href={hubUrl} className={styles.actionButton}>
+              <FaRocket />
+              <span>{t('hub')}</span>
+            </a>
+            {currentUser && userProfile && (
+              <>
+                <a 
+                  href={`${hubUrl}/profile`} 
+                  className={styles.actionButton}
+                >
+                  <FaUser />
+                  <span>{t('profile')}</span>
+                </a>
+                <button 
+                  onClick={() => signOut()}
+                  className={styles.actionButton}
+                >
+                  <FaSignOutAlt />
+                  <span>{t('signOut')}</span>
+                </button>
+              </>
+            )}
             <button 
               className={styles.configButton}
               onClick={() => setIsConfigOpen(!isConfigOpen)}

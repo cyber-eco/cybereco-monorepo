@@ -16,6 +16,8 @@ jest.mock('firebase/auth', () => ({
   ...jest.requireActual('firebase/auth'),
   onAuthStateChanged: jest.fn(),
   signOut: jest.fn(),
+  signInAnonymously: jest.fn(),
+  updateProfile: jest.fn(),
   setPersistence: jest.fn().mockResolvedValue(undefined),
   browserLocalPersistence: 'local'
 }));
@@ -80,10 +82,14 @@ jest.mock('@cybereco/auth', () => ({
   }),
   generateAuthRedirectUrl: jest.fn(),
   clearSharedAuthState: jest.fn(),
+  clearSharedAuth: jest.fn(),
   hasIndexedDBCorruption: jest.fn().mockReturnValue(false),
   recoverFromCorruption: jest.fn(),
   parseReturnUrl: jest.fn(),
-  useSessionSync: jest.fn()
+  useSessionSync: jest.fn(),
+  waitForAuth: jest.fn(),
+  getSharedAuth: jest.fn(),
+  subscribeToAuthStateChanges: jest.fn()
 }));
 
 // Test component that uses auth hooks
@@ -311,6 +317,146 @@ describe('JustSplitAuthContext', () => {
 
       await waitFor(() => {
         expect(screen.getByTestId('child')).toBeInTheDocument();
+      });
+    });
+  });
+
+  describe('SSO Hub Authentication Flow', () => {
+    beforeEach(() => {
+      jest.clearAllMocks();
+    });
+
+    it('should detect and process Hub authentication from URL', async () => {
+      window.location.search = '?fromHub=true';
+      
+      const mockSharedAuth = {
+        user: {
+          uid: 'hub-user-123',
+          email: 'hub@example.com',
+          displayName: 'Hub User',
+          photoURL: 'https://example.com/photo.jpg',
+          emailVerified: true
+        },
+        token: null,
+        timestamp: Date.now()
+      };
+
+      const { waitForAuth, getSharedAuth } = require('@cybereco/auth');
+      const { signInAnonymously, updateProfile } = require('firebase/auth');
+      
+      getSharedAuth.mockReturnValue(null);
+      waitForAuth.mockResolvedValue(mockSharedAuth);
+      signInAnonymously.mockResolvedValue({ user: { uid: 'anon-123' } });
+
+      render(
+        <JustSplitAuthProvider>
+          <TestComponent />
+        </JustSplitAuthProvider>
+      );
+
+      await waitFor(() => {
+        expect(waitForAuth).toHaveBeenCalledWith(5000);
+      });
+
+      await waitFor(() => {
+        expect(signInAnonymously).toHaveBeenCalled();
+        expect(updateProfile).toHaveBeenCalledWith(
+          { uid: 'anon-123' },
+          {
+            displayName: 'Hub User',
+            photoURL: 'https://example.com/photo.jpg'
+          }
+        );
+      });
+
+      // Should clear URL parameters
+      expect(window.history.replaceState).toHaveBeenCalledWith({}, '', 'http://localhost:40002/');
+    });
+
+    it('should check existing shared auth when not from Hub', async () => {
+      const mockSharedAuth = {
+        user: {
+          uid: 'existing-user-123',
+          email: 'existing@example.com',
+          displayName: 'Existing User',
+          photoURL: null,
+          emailVerified: true
+        },
+        token: null,
+        timestamp: Date.now()
+      };
+
+      const { getSharedAuth } = require('@cybereco/auth');
+      const { signInAnonymously, updateProfile } = require('firebase/auth');
+      
+      getSharedAuth.mockReturnValue(mockSharedAuth);
+      signInAnonymously.mockResolvedValue({ user: { uid: 'anon-456' } });
+
+      render(
+        <JustSplitAuthProvider>
+          <TestComponent />
+        </JustSplitAuthProvider>
+      );
+
+      await waitFor(() => {
+        expect(getSharedAuth).toHaveBeenCalled();
+      });
+
+      await waitFor(() => {
+        expect(signInAnonymously).toHaveBeenCalled();
+        expect(updateProfile).toHaveBeenCalledWith(
+          { uid: 'anon-456' },
+          {
+            displayName: 'Existing User',
+            photoURL: null
+          }
+        );
+      });
+    });
+
+    it('should handle no shared auth state gracefully', async () => {
+      window.location.search = '?fromHub=true';
+      
+      const { waitForAuth } = require('@cybereco/auth');
+      const { signInAnonymously } = require('firebase/auth');
+      
+      waitForAuth.mockResolvedValue(null);
+
+      render(
+        <JustSplitAuthProvider>
+          <TestComponent />
+        </JustSplitAuthProvider>
+      );
+
+      await waitFor(() => {
+        expect(waitForAuth).toHaveBeenCalled();
+      });
+
+      // Should not attempt to sign in if no shared auth
+      expect(signInAnonymously).not.toHaveBeenCalled();
+    });
+
+    it('should clear shared auth state on sign out', async () => {
+      const { clearSharedAuth } = require('@cybereco/auth');
+      
+      const TestSignOut = () => {
+        const { signOut } = useAuth();
+        
+        React.useEffect(() => {
+          signOut();
+        }, [signOut]);
+        
+        return null;
+      };
+
+      render(
+        <JustSplitAuthProvider>
+          <TestSignOut />
+        </JustSplitAuthProvider>
+      );
+
+      await waitFor(() => {
+        expect(clearSharedAuth).toHaveBeenCalled();
       });
     });
   });

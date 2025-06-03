@@ -6,13 +6,13 @@ import { usePathname } from 'next/navigation';
 import { FaHome, FaThLarge, FaUser, FaCog, FaSignOutAlt, FaUserCircle, FaShieldAlt, FaCreditCard } from 'react-icons/fa';
 import { Navigation, UserMenu, useLanguage } from '@cybereco/ui-components';
 import type { UserMenuItem } from '@cybereco/ui-components';
-import { useAuth } from '../AuthContext';
+import { useHubAuth } from '../../hooks/useHubAuth';
 import { useRouter } from 'next/navigation';
 import styles from './Header.module.css';
 
 export default function Header() {
   const { t } = useLanguage();
-  const { userProfile: user, signOut } = useAuth();
+  const { userProfile: user, signOut } = useHubAuth();
   const router = useRouter();
 
   const navLinks = [

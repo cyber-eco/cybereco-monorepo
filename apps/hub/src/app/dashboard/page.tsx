@@ -1,8 +1,9 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { useLanguage } from '@cybereco/ui-components';
-import { useAuth } from '../../components/AuthContext';
+import { useHubAuth } from '../../hooks/useHubAuth';
 import { DashboardDataService, DashboardMetric, ActivityItem } from '../../services/dashboardService';
 import { AppGrid } from '../../components/AppGrid';
 import { 
@@ -18,75 +19,18 @@ import {
   FaCheckCircle,
   FaInfoCircle
 } from 'react-icons/fa';
-import styles from '../page.module.css';
+import styles from './dashboard.module.css';
 
 // Simple inline metric card component
 function SimpleMetricCard({ metric, loading }: { metric: any, loading: boolean }) {
-  const cardStyle = {
-    background: 'var(--surface)',
-    borderRadius: '16px',
-    padding: '1.5rem',
-    border: '1px solid var(--border)',
-    position: 'relative' as const,
-    overflow: 'hidden' as const,
-    transition: 'all 0.3s ease'
-  };
-
-  const headerStyle = {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginBottom: '1rem'
-  };
-
-  const iconStyle = {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '40px',
-    height: '40px',
-    borderRadius: '12px',
-    background: 'rgba(0, 98, 65, 0.1)',
-    color: metric.color || 'var(--primary)',
-    fontSize: '1.2rem'
-  };
-
-  const labelStyle = {
-    fontSize: '0.9rem',
-    color: 'var(--text-secondary)',
-    fontWeight: '500',
-    textTransform: 'uppercase' as const,
-    letterSpacing: '0.5px',
-    marginBottom: '0.5rem'
-  };
-
-  const valueStyle = {
-    fontSize: '2rem',
-    fontWeight: '700',
-    color: 'var(--text-primary)',
-    margin: '0.5rem 0',
-    lineHeight: '1.2'
-  };
-
-  const changeStyle = {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '0.25rem',
-    fontSize: '0.85rem',
-    fontWeight: '600',
-    color: metric.change?.direction === 'up' ? '#28a745' : '#e74c3c'
-  };
-
   if (loading) {
     return (
-      <div style={cardStyle}>
-        <div style={headerStyle}>
-          <div style={iconStyle}>{metric.icon}</div>
+      <div className={styles.metricCard}>
+        <div className={styles.metricHeader}>
+          <div className={styles.metricIcon}>{metric.icon}</div>
         </div>
-        <div style={labelStyle}>{metric.label}</div>
-        <div style={{ ...valueStyle, background: '#f0f0f0', borderRadius: '4px', color: 'transparent' }}>
-          Loading...
-        </div>
+        <div className={`${styles.skeleton}`} style={{ height: '1rem', width: '60%', marginBottom: '0.5rem' }} />
+        <div className={`${styles.skeleton}`} style={{ height: '2rem', width: '80%' }} />
       </div>
     );
   }
@@ -110,14 +54,14 @@ function SimpleMetricCard({ metric, loading }: { metric: any, loading: boolean }
   };
 
   return (
-    <div style={cardStyle}>
-      <div style={headerStyle}>
-        <div style={iconStyle}>{metric.icon}</div>
+    <div className={styles.metricCard}>
+      <div className={styles.metricHeader}>
+        <div className={styles.metricIcon}>{metric.icon}</div>
       </div>
-      <div style={labelStyle}>{metric.label}</div>
-      <div style={valueStyle}>{formatValue(metric.value, metric.format)}</div>
+      <div className={styles.metricLabel}>{metric.label}</div>
+      <div className={styles.metricValue}>{formatValue(metric.value, metric.format)}</div>
       {metric.change && (
-        <div style={changeStyle}>
+        <div className={`${styles.metricChange} ${metric.change.direction === 'up' ? styles.positive : styles.negative}`}>
           {metric.change.direction === 'up' ? <FaArrowUp /> : <FaArrowUp style={{ transform: 'rotate(180deg)' }} />}
           <span>{Math.abs(metric.change.value)}%</span>
           <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', fontWeight: '400', marginLeft: '0.25rem' }}>
@@ -131,14 +75,6 @@ function SimpleMetricCard({ metric, loading }: { metric: any, loading: boolean }
 
 // Simple activity feed component
 function SimpleActivityFeed({ activities, loading, onRefresh }: { activities: any[], loading: boolean, onRefresh: () => void }) {
-  const feedStyle = {
-    background: 'var(--surface)',
-    borderRadius: '16px',
-    padding: '1.5rem',
-    border: '1px solid var(--border)',
-    height: 'fit-content'
-  };
-
   const headerStyle = {
     display: 'flex',
     alignItems: 'center',
@@ -218,7 +154,7 @@ function SimpleActivityFeed({ activities, loading, onRefresh }: { activities: an
   };
 
   return (
-    <div style={feedStyle}>
+    <div className={styles.activitySection}>
       <div style={headerStyle}>
         <h3 style={titleStyle}>
           <FaHistory style={{ color: 'var(--primary)' }} />
@@ -294,9 +230,9 @@ function SimpleActivityFeed({ activities, loading, onRefresh }: { activities: an
 }
 
 export default function Dashboard() {
-  const { userProfile: user, isLoading: loading } = useAuth();
+  const { userProfile: user, isLoading: loading } = useHubAuth();
   const { t } = useLanguage();
-  const [dashboardLoading, setDashboardLoading] = useState(true);
+  const [dashboardLoading, setDashboardLoading] = useState(false);
   const [lastRefresh, setLastRefresh] = useState(new Date());
 
   // Real dashboard data from APIs
@@ -307,19 +243,31 @@ export default function Dashboard() {
   useEffect(() => {
     if (user) {
       loadDashboardData();
+    } else {
+      // Set default empty state when no user
+      setDashboardLoading(false);
+      setMetrics([]);
+      setActivities([]);
     }
-  }, [user]);
+  }, [user, dataService]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const loadDashboardData = async () => {
-    if (!user?.uid) return;
+    if (!user?.id) return;
     
     setDashboardLoading(true);
-    console.log('Loading dashboard data for user:', user.uid);
+    console.log('Loading dashboard data for user:', user.id);
 
     try {
-      // Fetch real data from JustSplit
-      const justSplitData = await dataService.getUserJustSplitData(user.uid);
-      console.log('JustSplit data loaded:', justSplitData);
+      // For now, show mock data to avoid cross-app Firebase issues
+      // TODO: Implement proper cross-app data aggregation
+      const justSplitData = {
+        expenses: [],
+        settlements: [],
+        groups: [],
+        events: [],
+        users: []
+      };
+      console.log('Using simplified dashboard data');
 
       // Get user names for better activity descriptions
       const allUserIds = [
@@ -359,23 +307,16 @@ export default function Dashboard() {
               <FaInfoCircle />
       }));
 
-      // Add welcome message if user is new (less than 7 days)
-      if (user.createdAt) {
-        const userCreatedDate = new Date(user.createdAt);
-        const weekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
-        
-        if (userCreatedDate > weekAgo) {
-          activitiesWithIcons.unshift({
-            id: 'welcome-hub',
-            title: 'Welcome to CyberEco Hub!',
-            description: 'Your account has been successfully created',
-            timestamp: user.createdAt,
-            type: 'success',
-            icon: <FaRocket />,
-            metadata: { badge: 'Hub' }
-          });
-        }
-      }
+      // Add welcome message
+      activitiesWithIcons.unshift({
+        id: 'welcome-hub',
+        title: 'Welcome to CyberEco Hub!',
+        description: 'Your digital ecosystem awaits',
+        timestamp: new Date().toISOString(),
+        type: 'success',
+        icon: <FaRocket />,
+        metadata: { badge: 'Hub' }
+      });
 
       setMetrics(metricsWithIcons);
       setActivities(activitiesWithIcons);
@@ -391,55 +332,55 @@ export default function Dashboard() {
       
       // Fallback to basic metrics on error
       setMetrics([
-        {
-          id: 'total-apps',
-          label: 'Active Applications',
-          value: 1,
-          change: { value: 0, direction: 'neutral', period: 'last month' },
-          icon: <FaRocket />,
-          format: 'number',
-          color: '#006241'
-        },
-        {
-          id: 'total-expenses',
-          label: 'Total Expenses (This Month)',
-          value: 0,
-          change: { value: 0, direction: 'neutral', period: 'last month' },
-          icon: <FaDollarSign />,
-          format: 'currency',
-          color: '#6BBF59'
-        },
-        {
-          id: 'active-groups',
-          label: 'Active Groups',
-          value: 0,
-          change: { value: 0, direction: 'neutral', period: 'this month' },
-          icon: <FaUsers />,
-          format: 'number',
-          color: '#28a745'
-        },
-        {
-          id: 'recent-activity',
-          label: 'Actions This Week',
-          value: 0,
-          change: { value: 0, direction: 'neutral', period: 'last week' },
-          icon: <FaChartLine />,
-          format: 'number',
-          color: '#f39c12'
-        }
-      ]);
-      
-      setActivities([
-        {
-          id: 'welcome-hub',
-          title: 'Welcome to CyberEco Hub!',
-          description: 'Start by exploring JustSplit for expense management',
-          timestamp: new Date().toISOString(),
-          type: 'info',
-          icon: <FaRocket />,
-          metadata: { badge: 'Hub' }
-        }
-      ]);
+          {
+            id: 'total-apps',
+            label: 'Active Applications',
+            value: 1,
+            change: { value: 0, direction: 'neutral', period: 'last month' },
+            icon: <FaRocket />,
+            format: 'number',
+            color: '#006241'
+          },
+          {
+            id: 'total-expenses',
+            label: 'Total Expenses (This Month)',
+            value: 0,
+            change: { value: 0, direction: 'neutral', period: 'last month' },
+            icon: <FaDollarSign />,
+            format: 'currency',
+            color: '#6BBF59'
+          },
+          {
+            id: 'active-groups',
+            label: 'Active Groups',
+            value: 0,
+            change: { value: 0, direction: 'neutral', period: 'this month' },
+            icon: <FaUsers />,
+            format: 'number',
+            color: '#28a745'
+          },
+          {
+            id: 'recent-activity',
+            label: 'Actions This Week',
+            value: 0,
+            change: { value: 0, direction: 'neutral', period: 'last week' },
+            icon: <FaChartLine />,
+            format: 'number',
+            color: '#f39c12'
+          }
+        ]);
+        
+        setActivities([
+          {
+            id: 'welcome-hub',
+            title: 'Welcome to CyberEco Hub!',
+            description: 'Start by exploring JustSplit for expense management',
+            timestamp: new Date().toISOString(),
+            type: 'info',
+            icon: <FaRocket />,
+            metadata: { badge: 'Hub' }
+          }
+        ]);
     } finally {
       setDashboardLoading(false);
     }
@@ -449,6 +390,22 @@ export default function Dashboard() {
     loadDashboardData();
   };
 
+  // Show sign-in message immediately if auth is loaded and no user
+  if (!loading && !user) {
+    return (
+      <div className={styles.container}>
+        <div className={styles.errorContainer}>
+          <FaRocket className={styles.titleIcon} />
+          <h2>{t('auth.signInError') || 'Please sign in to access your dashboard'}</h2>
+          <Link href="/auth/signin" className={styles.signInButton}>
+            {t('auth.signIn') || 'Sign In'}
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
+  // Show loading only while auth is loading
   if (loading) {
     return (
       <div className={styles.container}>
@@ -460,12 +417,16 @@ export default function Dashboard() {
     );
   }
 
+  // If we reach here but no user, show sign-in (edge case)
   if (!user) {
     return (
       <div className={styles.container}>
         <div className={styles.errorContainer}>
           <FaRocket className={styles.titleIcon} />
           <h2>{t('auth.signInError') || 'Please sign in to access your dashboard'}</h2>
+          <Link href="/auth/signin" className={styles.signInButton}>
+            {t('auth.signIn') || 'Sign In'}
+          </Link>
         </div>
       </div>
     );
@@ -503,12 +464,7 @@ export default function Dashboard() {
             <FaChartLine className={styles.titleIcon} />
             Overview
           </h2>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '1.5rem',
-            marginBottom: '2rem'
-          }}>
+          <div className={styles.metricsGrid}>
             {metrics.map((metric) => (
               <SimpleMetricCard
                 key={metric.id}

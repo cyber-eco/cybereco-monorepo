@@ -1,8 +1,9 @@
 "use client";
 // Presumed structure of ProtectedRouter.tsx
-import { useAuth, useHubAuth } from '../../context/JustSplitAuthContext';
+import { useAuth } from '../../context/JustSplitAuthContext';
 import { useRouter, usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { debugLog, debugWarn, debugAuthState } from '../../utils/debug-auth';
 
 // Define public paths that don't require authentication
 const PUBLIC_PATHS = [
@@ -17,58 +18,119 @@ const PUBLIC_PATHS = [
 ];
 
 export default function ProtectedRouter({ children }: { children: React.ReactNode }) {
-  const { currentUser, isLoading } = useAuth();
-  const { redirectToHub } = useHubAuth();
+  const { currentUser, isLoading, redirectToHub } = useAuth();
   const router = useRouter();
   const pathname = usePathname();
   const [hasRedirected, setHasRedirected] = useState(false);
 
-  // DEVELOPMENT ONLY: Check if we have user info in URL from Hub
-  const urlParams = new URLSearchParams(window.location.search);
-  const hasHubUserInfo = urlParams.has('uid') && urlParams.has('email');
-  const isDevelopment = process.env.NODE_ENV === 'development';
+  // Check if we're coming from Hub
+  const [isFromHub, setIsFromHub] = useState(false);
+  const [hasProcessedHubAuth, setHasProcessedHubAuth] = useState(false);
+  const [authCheckComplete, setAuthCheckComplete] = useState(false);
+  
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const urlParams = new URLSearchParams(window.location.search);
+      const fromHub = urlParams.has('fromHub');
+      setIsFromHub(fromHub);
+      debugLog('ProtectedRoute', 'Initial URL check', { fromHub, pathname, search: window.location.search });
+    }
+  }, [pathname]);
 
-  console.log('ProtectedRouter - Auth State:', { 
+  debugLog('ProtectedRoute', 'Component rendered', { 
     user: currentUser?.uid, 
     isLoading, 
     pathname,
     hasRedirected,
-    hasHubUserInfo,
-    isDevelopment
+    isFromHub,
+    hasProcessedHubAuth,
+    authCheckComplete
   });
+  
+  // Log auth state on first render
+  useEffect(() => {
+    debugAuthState();
+  }, []);
 
   useEffect(() => {
+    // If we're coming from Hub, give the auth context time to process
+    if (isFromHub && !hasProcessedHubAuth) {
+      debugLog('ProtectedRoute', 'Detected fromHub=true, waiting for auth processing...');
+      setHasProcessedHubAuth(true);
+      
+      // Give AuthContext 5 seconds to process Hub auth and shared state
+      const timeout = setTimeout(() => {
+        debugWarn('ProtectedRoute', 'Auth processing timeout reached (5s)');
+        debugAuthState(); // Check what's in storage after timeout
+        setAuthCheckComplete(true);
+        
+        // Check if we have user after timeout
+        if (!currentUser) {
+          debugWarn('ProtectedRoute', 'No user after timeout, will allow redirect');
+          setHasRedirected(false); // Allow redirect
+        } else {
+          debugLog('ProtectedRoute', 'User found after timeout', { uid: currentUser.uid });
+        }
+      }, 5000);
+      
+      return () => clearTimeout(timeout);
+    }
+
+    // Mark auth check as complete if not from Hub
+    if (!isFromHub && !authCheckComplete) {
+      setAuthCheckComplete(true);
+    }
+  }, [isFromHub, hasProcessedHubAuth, currentUser]);
+  
+  useEffect(() => {
+    // Only check for redirects after auth check is complete
+    if (!authCheckComplete) return;
+    
     // Allow access to public paths without authentication
     const isPublicPath = PUBLIC_PATHS.some(path => pathname?.startsWith(path));
     
-    // Check if we just came from Hub with a token
-    const hasToken = urlParams.has('token');
+    debugLog('ProtectedRoute', 'Auth check in effect', {
+      authCheckComplete,
+      isLoading,
+      hasUser: !!currentUser,
+      isPublicPath,
+      hasRedirected,
+      isFromHub
+    });
     
-    // DEVELOPMENT BYPASS: If we have Hub user info in dev mode, don't redirect
-    const shouldBypassAuth = isDevelopment && hasHubUserInfo;
-    
-    if (!isLoading && !currentUser && !isPublicPath && !hasRedirected && !hasToken && !shouldBypassAuth) {
-      console.log('ProtectedRouter: No user, redirecting to Hub');
+    // Only redirect if auth check is complete and no user
+    if (!isLoading && !currentUser && !isPublicPath && !hasRedirected) {
+      debugWarn('ProtectedRoute', 'No user found, redirecting to Hub for authentication');
       setHasRedirected(true);
-      // Add a small delay to prevent immediate redirects
+      
+      // Small delay to prevent race conditions
       setTimeout(() => {
+        debugLog('ProtectedRoute', 'Executing redirect to Hub');
         redirectToHub('signin');
       }, 100);
     }
-  }, [currentUser, isLoading, pathname, redirectToHub, hasRedirected, hasHubUserInfo, isDevelopment]);
+  }, [currentUser, isLoading, pathname, redirectToHub, hasRedirected, authCheckComplete]);
 
-  if (isLoading) {
-    console.log('ProtectedRouter: Loading auth state...');
+  // Show loading while processing auth
+  if (isLoading || (isFromHub && !authCheckComplete)) {
+    debugLog('ProtectedRoute', 'Showing loading state', { 
+      isLoading, 
+      isFromHub, 
+      authCheckComplete,
+      hasProcessedHubAuth,
+      currentUser: !!currentUser 
+    });
+    
     return (
       <div className="flex items-center justify-center min-h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900"></div>
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 mx-auto"></div>
+          <p className="mt-4 text-gray-600">
+            {isFromHub ? 'Authenticating with Hub...' : 'Loading...'}
+          </p>
+        </div>
       </div>
     );
-  }
-
-  // DEVELOPMENT MODE: Show warning if using bypass
-  if (isDevelopment && hasHubUserInfo && !currentUser) {
-    console.warn('DEVELOPMENT MODE: Bypassing auth check - Hub user info present in URL');
   }
 
   return <>{children}</>;

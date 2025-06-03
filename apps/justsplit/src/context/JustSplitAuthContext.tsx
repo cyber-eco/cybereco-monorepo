@@ -1,173 +1,56 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
-import { createAuthContext, BaseUser, AuthProviderProps } from '@cybereco/auth';
-import { JustSplitUser } from '@cybereco/shared-types';
-import { auth, db } from '../firebase/config';
-import { User as FirebaseUser } from 'firebase/auth';
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import { JustSplitUser, AuthUser } from '@cybereco/shared-types';
+import { debugLog, debugError, debugWarn } from '../utils/debug-auth';
 import { 
-  signInWithCustomToken,
-  signInAnonymously,
-  signOut as firebaseSignOut,
-  setPersistence,
-  browserLocalPersistence,
-  onAuthStateChanged,
-  updateProfile
-} from 'firebase/auth';
-import { 
-  hasIndexedDBCorruption, 
-  recoverFromCorruption,
-  parseReturnUrl,
   generateAuthRedirectUrl,
-  useSessionSync,
-  clearSharedAuthState,
-  waitForSharedAuth,
-  getSharedAuthState
+  clearSharedAuth,
+  getSharedAuth
 } from '@cybereco/auth';
+import { getAuthFromAnySource, clearBridgedAuth } from '../services/auth-bridge';
+import { AuthTokenService } from '../services/authTokenService';
 
-// Create JustSplit-specific auth context
-const { AuthProvider: BaseAuthProvider, useAuth, AuthContext } = createAuthContext<JustSplitUser>();
+// Auth context interface
+export interface AuthContextType {
+  currentUser: AuthUser | null;
+  userProfile: JustSplitUser | null;
+  isLoading: boolean;
+  signOut: () => Promise<void>;
+  redirectToHub: (action: 'signin' | 'signup') => void;
+  refreshAuth: () => Promise<void>;
+}
 
-// Custom auth provider that handles Hub token authentication
+// Create auth context
+export const AuthContext = createContext<AuthContextType | undefined>(undefined);
+
+// Auth hook
+export function useAuth() {
+  const context = useContext(AuthContext);
+  if (context === undefined) {
+    throw new Error('useAuth must be used within an AuthProvider');
+  }
+  return context;
+}
+
+// JustSplit auth provider that only consumes Hub authentication
 export function JustSplitAuthProvider({ children }: { children: React.ReactNode }) {
-  const [isCheckingToken, setIsCheckingToken] = useState(true);
-  const [isInitializing, setIsInitializing] = useState(true);
+  const [currentUser, setCurrentUser] = useState<AuthUser | null>(null);
+  const [userProfile, setUserProfile] = useState<JustSplitUser | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
   const hubUrl = process.env.NEXT_PUBLIC_HUB_URL || 'http://localhost:40000';
 
-  // Initialize auth and check for Hub token
-  useEffect(() => {
-    let mounted = true;
-    let unsubscribe: (() => void) | undefined;
-    
-    const initializeAuth = async () => {
-      try {
-        // Enable persistence first
-        await setPersistence(auth, browserLocalPersistence);
-        
-        // Check if we have a token in URL params or auth pending flag
-        const params = new URLSearchParams(window.location.search);
-        const hasToken = params.get('token') !== null;
-        const authPending = localStorage.getItem('cybereco-auth-pending') === 'true';
-        
-        if (hasToken || authPending) {
-          console.log('Auth pending from Hub...');
-          
-          // Get user info from URL if available
-          const uid = params.get('uid');
-          const email = params.get('email');
-          const name = params.get('name');
-          
-          console.log('User info from URL:', { uid, email, name });
-          
-          // Clean up URL
-          if (hasToken) {
-            params.delete('token');
-            params.delete('uid');
-            params.delete('email');
-            params.delete('name');
-            const newUrl = `${window.location.pathname}${params.toString() ? '?' + params.toString() : ''}`;
-            window.history.replaceState({}, '', newUrl);
-          }
-          
-          // For development with emulators, we need to wait for the auth state
-          // The issue is that Firebase Auth state doesn't persist across different ports
-          // So we'll wait and see if the auth propagates
-          
-          console.log('Waiting for Firebase auth to propagate...');
-          
-          let authResolved = false;
-          let waitTime = 0;
-          const checkInterval = 200; // Check every 200ms
-          const maxWaitTime = 5000; // Wait up to 5 seconds
-          
-          while (!authResolved && waitTime < maxWaitTime) {
-            // Check current user
-            const currentUser = auth.currentUser;
-            if (currentUser) {
-              console.log('Firebase auth found!', currentUser.uid);
-              authResolved = true;
-              break;
-            }
-            
-            // Wait a bit
-            await new Promise(resolve => setTimeout(resolve, checkInterval));
-            waitTime += checkInterval;
-            
-            if (waitTime % 1000 === 0) {
-              console.log(`Still waiting for auth... ${waitTime/1000}s`);
-            }
-          }
-          
-          if (!authResolved) {
-            console.log('Firebase auth did not propagate after 5 seconds');
-            
-            // DEVELOPMENT ONLY: Create anonymous session with user info
-            // This is a workaround for Firebase emulator not sharing auth across ports
-            if (process.env.NODE_ENV === 'development' && uid && email && name) {
-              console.log('Development mode: Creating anonymous session with user info');
-              try {
-                // Sign in anonymously first
-                const result = await signInAnonymously(auth);
-                
-                // Update the profile with Hub user info
-                await updateProfile(result.user, {
-                  displayName: name,
-                  // We'll store the real user ID and email in a custom claim or user doc
-                });
-                
-                console.log('Created anonymous session for development');
-                authResolved = true;
-              } catch (error) {
-                console.error('Failed to create anonymous session:', error);
-              }
-            }
-          }
-        } else {
-          // No token, check for existing auth
-          console.log('No token in URL, checking existing auth...');
-          
-          // Check shared auth state first
-          const sharedAuth = getSharedAuthState();
-          if (sharedAuth) {
-            console.log('Found existing shared auth state:', sharedAuth.uid);
-          }
-          
-          const existingUser = auth.currentUser;
-          if (existingUser) {
-            console.log('Already authenticated as:', existingUser.uid);
-          }
-        }
-      } catch (error) {
-        console.error('Auth initialization error:', error);
-      } finally {
-        if (mounted) {
-          setIsCheckingToken(false);
-          setIsInitializing(false);
-        }
-      }
-    };
-
-    initializeAuth();
-    
-    return () => {
-      mounted = false;
-      if (unsubscribe) {
-        unsubscribe();
-      }
-    };
-  }, []);
-
-  // Custom user profile creator
-  const createJustSplitUserProfile = (firebaseUser: FirebaseUser, extraData?: Partial<JustSplitUser>): JustSplitUser => {
+  // Function to create a local user profile from Hub auth data
+  const createLocalUserProfile = (authUser: AuthUser): JustSplitUser => {
     return {
-      id: firebaseUser.uid,
-      name: firebaseUser.displayName || 'User',
-      email: firebaseUser.email || undefined,
-      avatarUrl: firebaseUser.photoURL || undefined,
+      id: authUser.uid,
+      name: authUser.displayName || authUser.email?.split('@')[0] || 'User',
+      email: authUser.email || undefined,
+      avatarUrl: authUser.photoURL || undefined,
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
       
-      // JustSplit specific fields
+      // JustSplit specific fields (local only, not synced with Hub)
       balance: 0,
       preferredCurrency: 'USD',
       friends: [],
@@ -175,21 +58,140 @@ export function JustSplitAuthProvider({ children }: { children: React.ReactNode 
       friendRequestsReceived: [],
       
       // Hub integration
-      hubUserId: firebaseUser.uid,
-      
-      // Merge any extra data
-      ...extraData
+      hubUserId: authUser.uid,
     };
   };
 
-  // Custom sign out that redirects to Hub
-  const customSignOut = async () => {
-    await firebaseSignOut(auth);
-    // Redirect to Hub after sign out
-    window.location.href = hubUrl;
+  // Function to redirect to Hub for authentication
+  const redirectToHub = (action: 'signin' | 'signup' = 'signin') => {
+    const currentUrl = new URL(window.location.href);
+    // Clean URL before using as return URL
+    currentUrl.searchParams.delete('authToken');
+    currentUrl.searchParams.delete('fromHub');
+    currentUrl.searchParams.delete('appId');
+    currentUrl.searchParams.delete('timestamp');
+    const returnUrl = currentUrl.toString();
+    window.location.href = generateAuthRedirectUrl(hubUrl, returnUrl, action);
   };
 
-  if (isCheckingToken || isInitializing) {
+  // Function to refresh authentication from Hub
+  const refreshAuth = async () => {
+    setIsLoading(true);
+    
+    try {
+      // Try to get auth from various sources
+      const authData = await AuthTokenService.processUrlAuthToken() || 
+                      AuthTokenService.getBackupAuth() || 
+                      getAuthFromAnySource();
+      
+      if (authData) {
+        setCurrentUser(authData);
+        setUserProfile(createLocalUserProfile(authData));
+        debugLog('JustSplitAuth', 'Refreshed auth from Hub', authData);
+      } else {
+        setCurrentUser(null);
+        setUserProfile(null);
+      }
+    } catch (error) {
+      debugError('JustSplitAuth', 'Error refreshing auth', error);
+      setCurrentUser(null);
+      setUserProfile(null);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  // Sign out function that clears local state and redirects to Hub
+  const signOut = async () => {
+    // Clear local auth state
+    setCurrentUser(null);
+    setUserProfile(null);
+    
+    // Clear any shared auth state
+    clearSharedAuth();
+    
+    // Clear any local storage
+    localStorage.removeItem('cybereco-hub-user-id');
+    localStorage.removeItem('hub-auth-backup');
+    
+    // Redirect to Hub for sign out
+    window.location.href = `${hubUrl}/auth/signout`;
+  };
+
+  // Check for Hub authentication on mount
+  useEffect(() => {
+    let mounted = true;
+
+    const checkHubAuth = async () => {
+      try {
+        // First, try to process auth token from URL
+        const authFromToken = await AuthTokenService.processUrlAuthToken();
+        
+        if (authFromToken) {
+          if (mounted) {
+            debugLog('JustSplitAuth', 'Successfully processed auth token from URL', authFromToken);
+            setCurrentUser(authFromToken);
+            setUserProfile(createLocalUserProfile(authFromToken));
+            setIsLoading(false);
+          }
+          return;
+        }
+
+        // Check for other auth sources
+        const authData = AuthTokenService.getBackupAuth() || getAuthFromAnySource();
+        
+        if (authData) {
+          if (mounted) {
+            debugLog('JustSplitAuth', 'Found Hub authentication data', authData);
+            setCurrentUser(authData);
+            setUserProfile(createLocalUserProfile(authData));
+            clearBridgedAuth();
+          }
+        } else {
+          debugLog('JustSplitAuth', 'No Hub auth found');
+          
+          // Check if we were supposed to have auth (came from Hub)
+          const urlParams = new URLSearchParams(window.location.search);
+          const fromHub = urlParams.get('fromHub');
+          
+          if (fromHub === 'true') {
+            debugWarn('JustSplitAuth', 'Expected auth from Hub but none found, redirecting back');
+            redirectToHub('signin');
+            return;
+          }
+        }
+      } catch (error) {
+        debugError('JustSplitAuth', 'Auth initialization error', error);
+      } finally {
+        if (mounted) {
+          setIsLoading(false);
+        }
+      }
+    };
+
+    checkHubAuth();
+
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
+  // Clear URL parameters after processing
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    
+    const url = new URL(window.location.href);
+    if (url.searchParams.has('authToken') || url.searchParams.has('fromHub')) {
+      url.searchParams.delete('authToken');
+      url.searchParams.delete('fromHub');
+      url.searchParams.delete('appId');
+      url.searchParams.delete('timestamp');
+      window.history.replaceState({}, '', url.toString());
+    }
+  }, []);
+
+  // Loading state while checking auth
+  if (isLoading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
         <div className="text-center">
@@ -200,139 +202,21 @@ export function JustSplitAuthProvider({ children }: { children: React.ReactNode 
     );
   }
 
-  // Provide auth configuration
-  const authConfig = {
-    auth,
-    db,
-    userCollection: 'users',
-    enableIndexedDBRecovery: true
+  const value: AuthContextType = {
+    currentUser,
+    userProfile,
+    isLoading,
+    signOut,
+    redirectToHub,
+    refreshAuth
   };
 
   return (
-    <BaseAuthProvider
-      config={authConfig}
-      createUserProfile={createJustSplitUserProfile}
-      enableCorruptionRecovery={true}
-    >
-      <AuthContextWrapper>
-        {children}
-      </AuthContextWrapper>
-    </BaseAuthProvider>
-  );
-}
-
-// Wrapper to override sign out behavior and add session sync
-function AuthContextWrapper({ children }: { children: React.ReactNode }) {
-  const authContext = useAuth();
-  const hubUrl = process.env.NEXT_PUBLIC_HUB_URL || 'http://localhost:40000';
-  const [mockUser, setMockUser] = useState<JustSplitUser | null>(null);
-
-  // DEVELOPMENT: Check for mock user from URL
-  useEffect(() => {
-    if (process.env.NODE_ENV === 'development' && !authContext.currentUser) {
-      const params = new URLSearchParams(window.location.search);
-      const uid = params.get('uid');
-      const email = params.get('email');
-      const name = params.get('name');
-      
-      if (uid && email && name) {
-        console.log('DEVELOPMENT: Creating mock user from URL params');
-        const mockUserProfile: JustSplitUser = {
-          id: uid,
-          name: name,
-          email: email,
-          avatarUrl: undefined,
-          createdAt: new Date().toISOString(),
-          updatedAt: new Date().toISOString(),
-          balance: 0,
-          preferredCurrency: 'USD',
-          friends: [],
-          friendRequestsSent: [],
-          friendRequestsReceived: [],
-          hubUserId: uid,
-        };
-        setMockUser(mockUserProfile);
-      }
-    }
-  }, [authContext.currentUser]);
-
-  // Set up session synchronization
-  useSessionSync({
-    auth,
-    onSessionChange: (isAuthenticated) => {
-      if (!isAuthenticated) {
-        // If user signed out in another tab/app, redirect to Hub
-        window.location.href = hubUrl;
-      }
-    },
-    syncAcrossTabs: true
-  });
-
-  // Enhanced context with Hub integration and dev mock
-  const enhancedContext = {
-    ...authContext,
-    // Override userProfile to include mock user in development
-    userProfile: authContext.userProfile || mockUser,
-    signOut: async () => {
-      await authContext.signOut();
-      // Clear shared auth state
-      clearSharedAuthState();
-      // Clear mock user
-      setMockUser(null);
-      // Redirect to Hub after sign out
-      window.location.href = hubUrl;
-    },
-    redirectToHub: (action: 'signin' | 'signup' = 'signin') => {
-      // Clean the current URL to avoid nested returnUrl parameters
-      const currentUrl = new URL(window.location.href);
-      currentUrl.searchParams.delete('returnUrl');
-      currentUrl.searchParams.delete('token');
-      currentUrl.searchParams.delete('uid');
-      currentUrl.searchParams.delete('email');
-      currentUrl.searchParams.delete('name');
-      const returnUrl = currentUrl.toString();
-      window.location.href = generateAuthRedirectUrl(hubUrl, returnUrl, action);
-    }
-  };
-
-  return (
-    <AuthContext.Provider value={enhancedContext}>
+    <AuthContext.Provider value={value}>
       {children}
     </AuthContext.Provider>
   );
 }
 
-// Export the auth hook and types
-export { useAuth };
+// Export types
 export type { JustSplitUser };
-
-// Export utility for checking if user is authenticated via Hub
-export const useHubAuth = () => {
-  const { currentUser, userProfile, isLoading } = useAuth();
-  const [needsHubAuth, setNeedsHubAuth] = useState(false);
-
-  useEffect(() => {
-    if (!isLoading && !currentUser) {
-      setNeedsHubAuth(true);
-    } else {
-      setNeedsHubAuth(false);
-    }
-  }, [currentUser, isLoading]);
-
-  const redirectToHub = (action: 'signin' | 'signup' = 'signin') => {
-    const hubUrl = process.env.NEXT_PUBLIC_HUB_URL || 'http://localhost:40000';
-    // Clean the current URL to avoid nested returnUrl parameters
-    const currentUrl = new URL(window.location.href);
-    currentUrl.searchParams.delete('returnUrl');
-    currentUrl.searchParams.delete('token');
-    const returnUrl = currentUrl.toString();
-    window.location.href = generateAuthRedirectUrl(hubUrl, returnUrl, action);
-  };
-
-  return {
-    isAuthenticated: !!currentUser,
-    needsHubAuth,
-    redirectToHub,
-    userProfile
-  };
-};

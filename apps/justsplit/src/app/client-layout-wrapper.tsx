@@ -2,7 +2,6 @@
 
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { usePermissions } from '@cybereco/auth';
 import { useAuth } from '../context/JustSplitAuthContext';
 // Temporarily disable AppLayout for SSR compatibility
 // import { AppLayout } from '@cybereco/ui-components';
@@ -13,45 +12,8 @@ import ProtectedRoute from '../components/Auth/ProtectedRoute'; // Ensure path i
 import DatabaseErrorRecovery from '../components/ui/DatabaseErrorRecovery'; // Import the recovery component
 
 function PermissionWrapper({ children }: { children: React.ReactNode }) {
-  const { userProfile } = useAuth();
-  const { hasAccess, isLoading } = usePermissions({
-    appId: 'justsplit',
-    user: userProfile,
-    requiredFeatures: ['expense-tracking'] // Basic feature required for JustSplit
-  });
-
-  // Only check permissions for authenticated users
-  if (!userProfile) {
-    return <>{children}</>;
-  }
-
-  if (isLoading) {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900"></div>
-      </div>
-    );
-  }
-
-  if (!hasAccess) {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="text-center">
-          <h2 className="text-2xl font-bold mb-4">Access Denied</h2>
-          <p className="text-gray-600 mb-4">
-            You do not have permission to access JustSplit.
-          </p>
-          <a 
-            href={process.env.NEXT_PUBLIC_HUB_URL || 'http://localhost:40000'} 
-            className="inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-          >
-            Return to Hub
-          </a>
-        </div>
-      </div>
-    );
-  }
-
+  // In the lightweight architecture, JustSplit accepts any authenticated Hub user
+  // No permission checks needed - if you're authenticated, you can use JustSplit
   return <>{children}</>;
 }
 

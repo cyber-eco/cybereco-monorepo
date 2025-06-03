@@ -156,6 +156,20 @@ export class DashboardDataService {
     userProfile?: JustSplitUser;
   }> {
     try {
+      // Check if we have a valid auth state before querying
+      const { getCurrentUser } = await import('@cybereco/firebase-config');
+      const currentUser = await getCurrentUser();
+      
+      if (!currentUser || currentUser.uid !== userId) {
+        console.log('No valid auth state for dashboard data fetch');
+        return {
+          expenses: [],
+          groups: [],
+          events: [],
+          settlements: []
+        };
+      }
+      
       console.log('Fetching JustSplit data for user:', userId);
 
       // Fetch user profile

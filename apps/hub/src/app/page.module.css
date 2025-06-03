@@ -59,23 +59,47 @@
 
 .heroSection {
   background: linear-gradient(135deg, var(--primary-light, rgba(0, 98, 65, 0.05)) 0%, transparent 100%);
-  padding: 3rem 0 2rem;
-  margin-bottom: 2rem;
+  padding: 4rem 0 3rem;
+  margin-bottom: 4rem;
   text-align: center;
   border-bottom: 1px solid var(--border);
+  position: relative;
+}
+
+.heroSection::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+  opacity: 0.5;
 }
 
 .welcomeTitle {
-  margin: 0 0 0.5rem 0;
-  font-size: 2rem;
+  margin: 0 0 1rem 0;
+  font-size: 2.5rem;
   color: var(--text-primary);
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.welcomeTitle .titleIcon {
+  display: inline-block;
+  margin-right: 0.5rem;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .welcomeSubtitle {
   margin: 0;
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   color: var(--text-secondary);
+  line-height: 1.6;
+  opacity: 0.9;
 }
 
 .appSection {
@@ -106,6 +130,18 @@
   background: var(--background);
   position: relative;
   overflow-x: hidden;
+  animation: containerFadeIn 0.6s ease-out;
+}
+
+@keyframes containerFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .container::before {
@@ -127,9 +163,16 @@
 .content {
   position: relative;
   z-index: 1;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 3rem 2rem;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(var(--background-rgb), 0.8) 20%,
+    var(--background) 50%
+  );
+  min-height: 100%;
 }
 
 .header {
@@ -179,26 +222,70 @@
   text-align: center;
 }
 
+.signInButton {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-top: 1rem;
+}
+
+.signInButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 98, 65, 0.3);
+}
+
 .appsSection {
-  margin-top: 3rem;
+  margin-top: 4rem;
+  padding: 3rem 0;
+  position: relative;
+}
+
+.appsSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
 }
 
 .sectionTitle {
-  font-size: 2rem;
-  font-weight: 600;
+  font-size: 2.5rem;
+  font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   text-align: center;
+  letter-spacing: -0.5px;
+  position: relative;
+}
+
+.sectionTitle span {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .sectionDescription {
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   color: var(--text-secondary);
   text-align: center;
-  margin-bottom: 2rem;
-  max-width: 600px;
+  margin-bottom: 3rem;
+  max-width: 700px;
   margin-left: auto;
   margin-right: auto;
+  line-height: 1.6;
+  opacity: 0.9;
 }
 
 /* Enhanced Cards */

@@ -38,8 +38,24 @@ export function initializeFirebase(env: FirebaseEnvironment) {
       const auth = getAuth(hubApp);
       const db = getFirestore(hubApp);
       
-      connectAuthEmulator(auth, `http://localhost:${env.emulatorPorts.auth}`);
-      connectFirestoreEmulator(db, 'localhost', env.emulatorPorts.firestore);
+      // Use the current hostname for emulator connections to support custom domains
+      const hostname = typeof window !== 'undefined' ? window.location.hostname : 'localhost';
+      
+      // For auth emulator, we need to use localhost due to Firebase Auth limitations
+      // but we'll add the hostname to the allowed list
+      try {
+        connectAuthEmulator(auth, `http://localhost:${env.emulatorPorts.auth}`, {
+          disableWarnings: true
+        });
+      } catch (error) {
+        // Ignore "already connected" errors
+        if (!error.message?.includes('already')) {
+          console.warn('Auth emulator connection warning:', error);
+        }
+      }
+      
+      // Firestore can use the actual hostname
+      connectFirestoreEmulator(db, hostname, env.emulatorPorts.firestore);
     }
   }
   

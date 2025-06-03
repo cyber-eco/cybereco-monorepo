@@ -668,8 +668,17 @@ export const AppProvider: React.FC<{ children: React.ReactNode, initialState?: P
   
   const addExpense = async (expenseData: Omit<Expense, 'id'>) => {
     console.log('addExpense called with data:', expenseData);
+    
+    // Sanitize the data to remove undefined values
+    const sanitizedData = Object.entries(expenseData).reduce<Record<string, any>>((acc, [key, value]) => {
+      if (value !== undefined) {
+        acc[key] = value;
+      }
+      return acc;
+    }, {});
+    
     const dataToSave = {
-      ...expenseData,
+      ...sanitizedData,
       createdAt: serverTimestamp()
     };
     

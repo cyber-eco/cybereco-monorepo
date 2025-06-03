@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { useLanguage } from '@cybereco/ui-components';
 import { getAuthErrorMessage, parseReturnUrl, validatePassword } from '@cybereco/auth';
-import { useAuth } from '../../../components/AuthContext';
+import { useHubAuth } from '../../../hooks/useHubAuth';
 import styles from '../page.module.css';
 
 export default function SignUp() {
@@ -18,7 +18,7 @@ export default function SignUp() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [error, setError] = useState('');
   
-  const { userProfile: user, isLoading: loading, signUp, signInWithProvider } = useAuth();
+  const { userProfile: user, isLoading: loading, signUp, signInWithProvider } = useHubAuth();
   const { t } = useLanguage();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -80,21 +80,9 @@ export default function SignUp() {
     }
   };
 
-  // Show loading state while checking authentication
-  if (loading) {
-    return (
-      <div className={styles.container}>
-        <div className={styles.authCard}>
-          <div className={styles.loading}>
-            {t('hub.loading') || 'Loading...'}
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  // If user is already signed in, don't show the form
-  if (user) {
+  // If user is already signed in, show redirecting message
+  // Don't wait for loading to finish - check user immediately
+  if (user && !loading) {
     return (
       <div className={styles.container}>
         <div className={styles.authCard}>

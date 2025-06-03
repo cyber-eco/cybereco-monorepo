@@ -11,7 +11,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## NX Monorepo Structure
 
 This is an NX 19.8.14 monorepo with the following **cleaned and optimized** structure:
-- `apps/hub` - Central authentication hub application (Next.js, port 40000)
+- `apps/hub` - Central authentication hub application with proxy features (Next.js, port 40000)
 - `apps/website` - Main CyberEco marketing website (Next.js, port 40001)
 - `apps/justsplit` - Expense splitting application (Next.js, port 40002)
 - `apps/somos` - Family roots explorer application (planned, Next.js)
@@ -46,6 +46,7 @@ This is an NX 19.8.14 monorepo with the following **cleaned and optimized** stru
 
 **🚀 Primary Development Commands:**
 - `npm run dev` - **Default development**: Firebase emulators + All 3 apps + **data persistence** (RECOMMENDED)
+- `npm run dev:lan` - **LAN development**: All apps available on local network (use 0.0.0.0)
 - `npm run dev:clean` - **Clean slate development**: Firebase emulators + All 3 apps with fresh data each time
 - `npm run dev:nosim` - **Frontend only**: Just the 3 apps without Firebase emulators
 
@@ -160,6 +161,13 @@ nx affected:test
 - Shared configuration in `libs/firebase-config`
 - Cross-project token verification and user management
 
+**Single Sign-On (SSO) Implementation**:
+- Development: Uses shared auth state via localStorage (`libs/auth/src/shared-auth-state.ts`)
+- Production: Uses Firebase Auth with custom domains and subdomain cookies
+- Hub saves auth state when users sign in, apps check this state on load
+- Handles Firebase Auth emulator limitations in development
+- See `docs/deployment/production-auth-setup.md` for production configuration
+
 **Shared Libraries Structure**:
 - `libs/shared-types` (`@cybereco/shared-types`) - Common TypeScript interfaces and types
 - `libs/firebase-config` (`@cybereco/firebase-config`) - Firebase utilities and multi-project configuration
@@ -207,6 +215,30 @@ Development uses Firebase emulators running on:
 - JustSplit hosting: localhost:40002
 
 The emulator data persists in `./emulator-data/` and is automatically imported/exported on start/stop.
+
+### Gateway Application (Cross-Port Authentication Solution)
+
+The Gateway app (port 3000) acts as a unified entry point that proxies requests to all other apps, solving Firebase Auth's cross-port authentication issues:
+
+**Why Gateway?**
+- Firebase Auth tokens are tied to the origin (protocol + domain + port)
+- Apps on different ports (40000, 40001, 40002) can't share auth state
+- The gateway proxies all apps through port 3000, maintaining a single auth origin
+
+**How it works:**
+1. All apps are accessed through gateway paths:
+   - `http://localhost:3000/hub` → Hub app (40000)
+   - `http://localhost:3000/website` → Website (40001)
+   - `http://localhost:3000/justsplit` → JustSplit (40002)
+2. Auth routes are centralized through Hub:
+   - `/auth/*` → Hub's auth pages
+   - `/api/auth/*` → Hub's auth API
+3. Firebase Auth sees all requests from the same origin (localhost:3000)
+
+**Gateway Routes Configuration:**
+- `beforeFiles`: Auth and API routes (highest priority)
+- `afterFiles`: App-specific routes
+- `fallback`: Default redirect to website
 
 ### Module Aliases
 

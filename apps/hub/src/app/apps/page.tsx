@@ -1,27 +1,17 @@
 'use client';
 
 import { useLanguage } from '@cybereco/ui-components';
-import { useAuth } from '../../components/AuthContext';
+import { useHubAuth } from '../../hooks/useHubAuth';
 import { AppGrid } from '../../components/AppGrid';
 import { FaThLarge, FaRocket } from 'react-icons/fa';
 import styles from '../page.module.css';
 
 export default function Apps() {
-  const { userProfile: user, isLoading: loading } = useAuth();
+  const { userProfile: user, isLoading: loading } = useHubAuth();
   const { t } = useLanguage();
 
-  if (loading) {
-    return (
-      <div className={styles.container}>
-        <div className={styles.loadingContainer}>
-          <div className={styles.spinner} />
-          <p>{t('hub.loading') || 'Loading applications...'}</p>
-        </div>
-      </div>
-    );
-  }
-
-  if (!user) {
+  // Show sign in message only if auth is loaded and no user
+  if (!loading && !user) {
     return (
       <div className={styles.container}>
         <div className={styles.errorContainer}>
@@ -46,6 +36,12 @@ export default function Apps() {
         </header>
 
         <section className={styles.appsSection}>
+          <h2 className={styles.sectionTitle}>
+            {t('hub.apps.available') || 'Available Applications'}
+          </h2>
+          <p className={styles.sectionDescription}>
+            {t('hub.apps.explore') || 'Explore our suite of integrated applications designed to enhance your digital lifestyle'}
+          </p>
           <AppGrid />
         </section>
       </div>

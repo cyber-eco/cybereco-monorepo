@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { useLanguage } from '@cybereco/ui-components';
 import { getAuthErrorMessage, parseReturnUrl } from '@cybereco/auth';
-import { useAuth } from '../../../components/AuthContext';
+import { useHubAuth } from '../../../hooks/useHubAuth';
 import styles from '../page.module.css';
 
 export default function SignIn() {
@@ -14,14 +14,25 @@ export default function SignIn() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
+  const [showHostnameWarning, setShowHostnameWarning] = useState(false);
   
-  const { userProfile: user, isLoading: loading, signIn, signInWithProvider } = useAuth();
+  const { userProfile: user, isLoading: loading, signIn, signInWithProvider } = useHubAuth();
   const { t } = useLanguage();
   const router = useRouter();
   const searchParams = useSearchParams();
 
   // Get return URL from query params
   const returnUrl = parseReturnUrl(searchParams);
+
+  // Check if using custom hostname with Firebase emulator
+  useEffect(() => {
+    if (typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
+      const hostname = window.location.hostname;
+      if (hostname !== 'localhost' && hostname !== '127.0.0.1') {
+        setShowHostnameWarning(true);
+      }
+    }
+  }, []);
 
   useEffect(() => {
     if (user && !loading) {
@@ -43,6 +54,7 @@ export default function SignIn() {
     
     try {
       await signIn(email, password);
+      // Remove delay - it's making login feel slow
       // Redirect will happen via useEffect
     } catch (err: unknown) {
       const authError = getAuthErrorMessage(err);
@@ -56,6 +68,7 @@ export default function SignIn() {
     setError('');
     try {
       await signInWithProvider(provider);
+      // Remove delay - it's making login feel slow
       // Redirect will happen via useEffect
     } catch (err: unknown) {
       const authError = getAuthErrorMessage(err);
@@ -63,21 +76,9 @@ export default function SignIn() {
     }
   };
 
-  // Show loading state while checking authentication
-  if (loading) {
-    return (
-      <div className={styles.container}>
-        <div className={styles.authCard}>
-          <div className={styles.loading}>
-            {t('hub.loading') || 'Loading...'}
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  // If user is already signed in, don't show the form
-  if (user) {
+  // If user is already signed in, show redirecting message
+  // Don't wait for loading to finish - check user immediately
+  if (user && !loading) {
     return (
       <div className={styles.container}>
         <div className={styles.authCard}>
@@ -98,6 +99,36 @@ export default function SignIn() {
         <p className={styles.subtitle}>
           {t('hub.welcome.subtitle') || 'Sign in to access your digital ecosystem'}
         </p>
+        
+        {showHostnameWarning && (
+          <div className={styles.warningBox}>
+            <p className={styles.warningTitle}>
+              ⚠️ {t('auth.customHostnameWarning') || 'Custom Hostname Detected'}
+            </p>
+            <p className={styles.warningText}>
+              {t('auth.customHostnameMessage') || 
+              `You're accessing via ${window.location.hostname}. For Google Sign-In to work with Firebase emulator, please use:`}
+            </p>
+            <a href={`http://localhost:40000${window.location.pathname}${window.location.search}`} 
+               className={styles.warningLink}>
+              http://localhost:40000
+            </a>
+            <p className={styles.warningNote}>
+              {t('auth.emailSignInNote') || 'Email sign-in will work normally.'}
+            </p>
+            {process.env.NODE_ENV === 'development' && (
+              <>
+                <div className={styles.demoCredentials}>
+                  <p>{t('auth.demoCredentialsTitle') || 'Demo Credentials:'}</p>
+                  <code>demo@cybere.co / demo123</code>
+                </div>
+                <div className={styles.demoNote}>
+                  <p>{t('auth.demoNoteText') || 'Or create a new account with any email/password'}</p>
+                </div>
+              </>
+            )}
+          </div>
+        )}
         
         <form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.formGroup}>

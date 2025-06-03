@@ -49,7 +49,8 @@ export default function DocumentationPage() {
       'community': `community support governance forums discord local groups events learning sessions coffee chats hackathons working groups council involvement leadership resources comunicad soporte gobernanza foros grupos locales eventos sesiones aprendizaje charlas café hackathons grupos trabajo consejo participación liderazgo recursos`,
       'development-setup': `development setup prerequisites nodejs firebase nx tools monorepo development workflow git clone install npm run dev hub justsplit website ports localhost environment configuración desarrollo requisitos previos herramientas flujo trabajo entorno puertos`,
       'architecture': `architecture monorepo structure nx build system applications shared libraries firebase configuration tech stack nextjs typescript css modules jest testing shared component architecture navigation usermenu footer configdropdown globalprovider modal toast applayout design principles mobile-first responsive dark light theme multi-language accessibility portal rendering test infrastructure arquitectura estructura sistema construcción aplicaciones bibliotecas compartidas configuración tecnología pila componentes compartidos navegación menú usuario pie página diseño principios móvil responsivo tema oscuro claro múltiples idiomas accesibilidad renderizado portal infraestructura pruebas`,
-      'data-architecture': `data layer architecture hub centralized single source truth shared profiles permissions financial groups activities notifications application consume api real-time sync websocket firebase subscription cache offline arquitectura capa datos centralizada única fuente verdad perfiles compartidos permisos financieros grupos actividades notificaciones aplicación consumir sincronización tiempo real suscripción caché sin conexión`
+      'data-architecture': `data layer architecture hub centralized single source truth shared profiles permissions financial groups activities notifications application consume api real-time sync websocket firebase subscription cache offline arquitectura capa datos centralizada única fuente verdad perfiles compartidos permisos financieros grupos actividades notificaciones aplicación consumir sincronización tiempo real suscripción caché sin conexión`,
+      'hub-gateway': `hub gateway proxy intelligent routing sso single sign on authentication center app discovery middleware security headers cors firebase deployment lan access proxied requests unified entry point coming soon pages request filtering caching compression performance pasarela enrutamiento inteligente centro autenticación descubrimiento aplicaciones cabeceras seguridad implementación acceso lan solicitudes proxy punto entrada unificado páginas próximamente filtrado solicitudes almacenamiento caché compresión rendimiento`
     };
     
     // Filter documents based on search query
@@ -1547,6 +1548,226 @@ export function MyComponent() {
           </div>
         </>
       )
+    },
+    'hub-gateway': {
+      title: t('documentationPage.hubGatewayTitle') || 'Hub Gateway & Proxy',
+      content: (
+        <>
+          <div className={styles.contentSection}>
+            <div className={styles.progressIndicator}>
+              <span className={styles.progressLabel}>🌐 {t('documentationPage.hubGatewayLabel') || 'Unified Entry Point'}</span>
+              <div className={styles.estimatedTime}>{t('documentationPage.hubGatewayTime') || '⏱️ 3 minute read'}</div>
+            </div>
+            <h3 className={styles.subTitle}>{t('documentationPage.hubGatewayOverviewTitle') || 'Hub as Your Digital Gateway'}</h3>
+            <p className={styles.contentText}>
+              {t('documentationPage.hubGatewayOverviewText') || 'The Hub serves as both the authentication center and intelligent proxy for the entire CyberEco ecosystem. It provides seamless access to all applications through a single entry point, eliminating the need for multiple logins and separate application URLs.'}
+            </p>
+          </div>
+
+          <div className={styles.contentSection}>
+            <h3 className={styles.subTitle}>✨ {t('documentationPage.hubGatewayFeaturesTitle') || 'Key Gateway Features'}</h3>
+            <div className={styles.featureGrid}>
+              <div className={styles.featureCard}>
+                <div className={styles.featureIcon}>🔐</div>
+                <h4>{t('documentationPage.ssoFeatureTitle') || 'Single Sign-On (SSO)'}</h4>
+                <p>{t('documentationPage.ssoFeatureDesc') || 'Authenticate once and seamlessly access all CyberEco applications without additional logins.'}</p>
+              </div>
+              <div className={styles.featureCard}>
+                <div className={styles.featureIcon}>🚦</div>
+                <h4>{t('documentationPage.proxyFeatureTitle') || 'Intelligent Proxy'}</h4>
+                <p>{t('documentationPage.proxyFeatureDesc') || 'Smart routing that automatically directs requests to the appropriate application while maintaining authentication state.'}</p>
+              </div>
+              <div className={styles.featureCard}>
+                <div className={styles.featureIcon}>🎯</div>
+                <h4>{t('documentationPage.discoveryFeatureTitle') || 'App Discovery'}</h4>
+                <p>{t('documentationPage.discoveryFeatureDesc') || 'Beautiful landing page showcasing all available applications with real-time status indicators.'}</p>
+              </div>
+              <div className={styles.featureCard}>
+                <div className={styles.featureIcon}>🛡️</div>
+                <h4>{t('documentationPage.securityFeatureTitle') || 'Security Gateway'}</h4>
+                <p>{t('documentationPage.securityFeatureDesc') || 'Centralized security headers, CORS handling, and request filtering for all proxied applications.'}</p>
+              </div>
+            </div>
+          </div>
+
+          <div className={styles.contentSection}>
+            <h3 className={styles.subTitle}>🔀 {t('documentationPage.appAccessTitle') || 'Application Access'}</h3>
+            <p className={styles.contentText}>
+              {t('documentationPage.appAccessText') || 'Access CyberEco applications through the Hub launcher with seamless authentication:'}
+            </p>
+            <div className={styles.routingTable}>
+              <table className={styles.dataTable}>
+                <thead>
+                  <tr>
+                    <th>{t('documentationPage.applicationColumn') || 'Application'}</th>
+                    <th>{t('documentationPage.directAccessColumn') || 'Direct Access'}</th>
+                    <th>{t('documentationPage.authMethodColumn') || 'Authentication Method'}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Hub</td>
+                    <td><code>http://localhost:40000</code></td>
+                    <td>Primary Auth</td>
+                  </tr>
+                  <tr>
+                    <td>JustSplit</td>
+                    <td><code>http://localhost:40002</code></td>
+                    <td>Hub SSO</td>
+                  </tr>
+                  <tr>
+                    <td>Website</td>
+                    <td><code>http://localhost:40001</code></td>
+                    <td>Public</td>
+                  </tr>
+                  <tr>
+                    <td>Somos <span className={styles.comingSoonBadge}>Coming Soon</span></td>
+                    <td>-</td>
+                    <td>Hub SSO</td>
+                  </tr>
+                  <tr>
+                    <td>Demos <span className={styles.comingSoonBadge}>Coming Soon</span></td>
+                    <td>-</td>
+                    <td>Hub SSO</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div className={styles.noteBox}>
+              <p><strong>Note:</strong> Due to Firebase Auth emulator limitations, applications run on separate ports but share authentication through secure token exchange.</p>
+            </div>
+          </div>
+
+          <div className={styles.contentSection}>
+            <h3 className={styles.subTitle}>🏗️ {t('documentationPage.middlewareArchitectureTitle') || 'Middleware Architecture'}</h3>
+            <p className={styles.contentText}>
+              {t('documentationPage.middlewareArchitectureText') || 'The Hub uses Next.js middleware to intelligently route requests:'}
+            </p>
+            <pre className={styles.codeBlock}>
+              {`// apps/hub/src/middleware.ts
+export function middleware(request: NextRequest) {
+  const pathname = request.nextUrl.pathname;
+  
+  // Proxy routes for applications
+  if (pathname.startsWith('/app/')) {
+    const appName = pathname.split('/')[2];
+    
+    // Add authentication and security headers
+    const headers = new Headers(request.headers);
+    headers.set('x-hub-proxy', 'true');
+    headers.set('X-Frame-Options', 'DENY');
+    headers.set('X-Content-Type-Options', 'nosniff');
+    
+    // Route to appropriate application
+    return NextResponse.rewrite(
+      new URL(pathname, request.url),
+      { headers }
+    );
+  }
+  
+  // Show landing page for unauthenticated root access
+  if (pathname === '/' && !isAuthenticated(request)) {
+    return NextResponse.rewrite(
+      new URL('/landing', request.url)
+    );
+  }
+}`}
+            </pre>
+          </div>
+
+          <div className={styles.contentSection}>
+            <h3 className={styles.subTitle}>🌐 {t('documentationPage.lanAccessTitle') || 'LAN Access Configuration'}</h3>
+            <p className={styles.contentText}>
+              {t('documentationPage.lanAccessText') || 'Access your CyberEco Hub from any device on your local network:'}
+            </p>
+            <div className={styles.stepByStepGuide}>
+              <div className={styles.step}>
+                <div className={styles.stepNumber}>1</div>
+                <div className={styles.stepContent}>
+                  <h4>{t('documentationPage.lanStep1Title') || 'Start Hub with LAN Access'}</h4>
+                  <pre className={styles.codeBlock}>
+                    {`npm run dev:hub:lan`}
+                  </pre>
+                </div>
+              </div>
+              <div className={styles.step}>
+                <div className={styles.stepNumber}>2</div>
+                <div className={styles.stepContent}>
+                  <h4>{t('documentationPage.lanStep2Title') || 'Access from Other Devices'}</h4>
+                  <p>{t('documentationPage.lanStep2Desc') || 'Use your computer\'s hostname or IP address:'}</p>
+                  <pre className={styles.codeBlock}>
+                    {`http://[your-hostname].local:40000
+http://[your-ip-address]:40000`}
+                  </pre>
+                </div>
+              </div>
+              <div className={styles.step}>
+                <div className={styles.stepNumber}>3</div>
+                <div className={styles.stepContent}>
+                  <h4>{t('documentationPage.lanStep3Title') || 'Access Proxied Apps'}</h4>
+                  <pre className={styles.codeBlock}>
+                    {`http://[your-hostname].local:40000/app/justsplit`}
+                  </pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className={styles.contentSection}>
+            <h3 className={styles.subTitle}>🚀 {t('documentationPage.productionDeploymentTitle') || 'Production Deployment'}</h3>
+            <p className={styles.contentText}>
+              {t('documentationPage.productionDeploymentText') || 'The Hub is configured for Firebase hosting with dynamic routing:'}
+            </p>
+            <pre className={styles.codeBlock}>
+              {`// firebase/hub/firebase.json
+{
+  "hosting": {
+    "source": ".",
+    "frameworksBackend": {
+      "region": "us-central1"
+    },
+    "rewrites": [
+      {
+        "source": "/app/**",
+        "function": "hubProxy"
+      },
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ],
+    "headers": [
+      {
+        "source": "**",
+        "headers": [
+          {
+            "key": "X-Frame-Options",
+            "value": "DENY"
+          },
+          {
+            "key": "X-Content-Type-Options",
+            "value": "nosniff"
+          }
+        ]
+      }
+    ]
+  }
+}`}
+            </pre>
+          </div>
+
+          <div className={styles.contentSection}>
+            <div className={styles.redirectCard}>
+              <h4>{t('documentationPage.completeHubGatewayDoc') || 'Complete Hub Gateway Documentation'}</h4>
+              <p>{t('documentationPage.completeHubGatewayDesc') || 'Explore advanced proxy features, security configurations, and deployment strategies.'}</p>
+              <a href="/documentation/hub-gateway" className={styles.redirectButton}>
+                {t('documentationPage.viewFullHubGateway') || 'View Full Hub Gateway Docs'}
+                <FaChevronRight />
+              </a>
+            </div>
+          </div>
+        </>
+      )
     }
   };
   
@@ -1607,7 +1828,8 @@ export function MyComponent() {
                   'troubleshooting': t('documentationPage.troubleshootingNavItem') || 'Troubleshooting',
                   'community': t('documentationPage.communityNavItem') || 'Community & Support',
                   'development-setup': t('documentationPage.developmentNavItem') || 'Development Setup',
-                  'architecture': t('documentationPage.architectureNavItem') || 'System Architecture'
+                  'architecture': t('documentationPage.architectureNavItem') || 'System Architecture',
+                  'hub-gateway': t('documentationPage.hubGatewayNavItem') || 'Hub Gateway & Proxy'
                 };
                 
                 return (
@@ -1792,6 +2014,14 @@ export function MyComponent() {
                 style={{ textDecoration: 'none' }}
               >
                 {t('documentationPage.dataArchitectureNavItem') || 'Data Layer Architecture'}
+                <FaChevronRight size={10} />
+              </a>
+              <a 
+                href="/documentation/hub-gateway"
+                className={styles.navItem}
+                style={{ textDecoration: 'none' }}
+              >
+                {t('documentationPage.hubGatewayNavItem') || 'Hub Gateway & Proxy'}
                 <FaChevronRight size={10} />
               </a>
             </div>

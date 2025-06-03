@@ -346,6 +346,149 @@
   z-index: 998;
 }
 
+/* User Menu Styles */
+.userMenuContainer {
+  position: relative;
+}
+
+.userMenuButton {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: opacity 0.2s ease;
+}
+
+.userMenuButton:hover {
+  opacity: 0.8;
+}
+
+.userAvatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--nav-border-light);
+}
+
+[data-theme="dark"] .userAvatar {
+  border-color: var(--nav-border-dark);
+}
+
+.userAvatarPlaceholder {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-secondary-light) 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1rem;
+  border: 2px solid var(--nav-border-light);
+}
+
+[data-theme="dark"] .userAvatarPlaceholder {
+  border-color: var(--nav-border-dark);
+}
+
+.userMenuDropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--nav-border-light);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  min-width: 220px;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+[data-theme="dark"] .userMenuDropdown {
+  background: rgba(26, 54, 93, 0.95);
+  border-color: var(--nav-border-dark);
+}
+
+.userMenuHeader {
+  padding: 1rem;
+  border-bottom: 1px solid var(--nav-border-light);
+}
+
+[data-theme="dark"] .userMenuHeader {
+  border-bottom-color: var(--nav-border-dark);
+}
+
+.userName {
+  font-weight: 600;
+  color: var(--nav-text-light);
+  margin-bottom: 0.25rem;
+}
+
+[data-theme="dark"] .userName {
+  color: var(--nav-text-dark);
+}
+
+.userEmail {
+  font-size: 0.875rem;
+  color: var(--nav-text-light);
+  opacity: 0.7;
+}
+
+[data-theme="dark"] .userEmail {
+  color: var(--nav-text-dark);
+}
+
+.userMenuDivider {
+  height: 1px;
+  background: var(--nav-border-light);
+  margin: 0;
+}
+
+[data-theme="dark"] .userMenuDivider {
+  background: var(--nav-border-dark);
+}
+
+.userMenuItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  text-decoration: none;
+  color: var(--nav-text-light);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.userMenuItem:hover {
+  background-color: rgba(45, 55, 72, 0.1);
+}
+
+[data-theme="dark"] .userMenuItem {
+  color: var(--nav-text-dark);
+}
+
+[data-theme="dark"] .userMenuItem:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.userMenuItem svg {
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
 /* Mobile Styles */
 @media (max-width: 768px) {
   .desktopNav {

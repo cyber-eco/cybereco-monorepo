@@ -5,52 +5,28 @@ import { Card, useLanguage } from '@cybereco/ui-components';
 import { getHubFirestore, queryDocuments, getCurrentUser } from '@cybereco/firebase-config';
 import { where } from 'firebase/firestore';
 import type { App } from '@cybereco/shared-types';
-import { useAuth } from './AuthContext';
-import { createAppToken, generateAppUrl } from '../services/tokenService';
+import { useHubAuth } from '../hooks/useHubAuth';
+import { saveSharedAuthState } from '@cybereco/auth';
+import { prepareAuthForApp } from '../services/auth-bridge';
+import { AuthTokenService } from '../services/authTokenService';
 import styles from './AppGrid.module.css';
 
 export function AppGrid() {
-  const { userProfile: user, currentUser } = useAuth();
+  const { userProfile: user, currentUser } = useHubAuth();
   const { t } = useLanguage();
   const [apps, setApps] = useState<App[]>([]);
   const [loading, setLoading] = useState(true);
+  const [hasLoadedFromDB, setHasLoadedFromDB] = useState(false);
 
-  useEffect(() => {
-    async function loadApps() {
-      if (!user) return;
-
-      try {
-        const db = getHubFirestore();
-        const availableApps = await queryDocuments<App>(
-          db,
-          'apps',
-          where('status', '==', 'active')
-        );
-
-        // In production, filter by user permissions
-        setApps(availableApps);
-      } catch (error) {
-        console.error('Failed to load apps:', error);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    loadApps();
-  }, [user]);
-
-  if (loading) {
-    return <div className={styles.loading}>{t('apps.loading') || 'Loading applications...'}</div>;
-  }
-
-  if (apps.length === 0) {
-    // Show default JustSplit app
-    const defaultApps: App[] = [{
+  // Default apps to show immediately
+  const defaultApps: App[] = [
+    {
       id: 'justsplit',
       name: 'JustSplit',
       description: t('apps.justsplit.description') || 'Split expenses with friends and family',
       icon: '💰',
-      url: process.env.NEXT_PUBLIC_JUSTSPLIT_URL || 'http://localhost:40002',
+      url: 'http://localhost:40002',
+      proxyPath: '/app/justsplit',
       category: 'finance',
       status: 'active',
       requiresAuth: true,
@@ -60,18 +36,51 @@ export function AppGrid() {
         t('apps.features.settlementTracking') || 'Settlement tracking'
       ],
       createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-    }];
+      updatedAt: new Date().toISOString()
+    }
+  ];
 
-    return (
-      <div className={styles.grid}>
-        {defaultApps.map(app => (
-          <AppCard key={app.id} app={app} />
-        ))}
-      </div>
-    );
-  }
+  useEffect(() => {
+    async function loadApps() {
+      // Show default apps immediately
+      if (!hasLoadedFromDB) {
+        setApps(defaultApps);
+        setLoading(false);
+      }
 
+      // Then try to load from database if user is available
+      if (!user) return;
+
+      try {
+        // Double-check auth state before querying
+        const currentUser = await getCurrentUser();
+        if (!currentUser) {
+          console.log('No auth state, skipping apps query');
+          return;
+        }
+        
+        const db = getHubFirestore();
+        const availableApps = await queryDocuments<App>(
+          db,
+          'apps',
+          where('status', '==', 'active')
+        );
+
+        // If we got apps from DB, use them; otherwise keep defaults
+        if (availableApps.length > 0) {
+          setApps(availableApps);
+        }
+        setHasLoadedFromDB(true);
+      } catch (error) {
+        console.error('Failed to load apps:', error);
+        // Keep showing default apps on error
+      }
+    }
+
+    loadApps();
+  }, [user, hasLoadedFromDB, t]);
+
+  // Always show apps grid (default apps load immediately)
   return (
     <div className={styles.grid}>
       {apps.map(app => (
@@ -82,26 +91,35 @@ export function AppGrid() {
 }
 
 function AppCard({ app }: { app: App }) {
-  const { userProfile: user, currentUser } = useAuth();
+  const { userProfile: user, currentUser } = useHubAuth();
   const { t } = useLanguage();
 
   const handleLaunch = async () => {
     if (!user || !currentUser) return;
 
-    try {
-      // Create a token for the app
-      const token = await createAppToken();
-      
-      // Generate the app URL with token
-      const appUrl = generateAppUrl(app.url, token);
-      
-      // Redirect to app
-      window.location.href = appUrl;
-    } catch (error) {
-      console.error('Error launching app:', error);
-      // Fall back to launching without token
-      window.location.href = app.url;
-    }
+    // Make sure shared auth is saved before navigating
+    const sharedUser = {
+      uid: user.id,
+      email: user.email || null,
+      displayName: user.name,
+      photoURL: user.avatarUrl || null,
+      emailVerified: true
+    };
+    
+    // Use auth bridge for reliable auth transfer
+    console.log('🚀 AppGrid: Preparing auth for app launch', app.id);
+    await prepareAuthForApp(sharedUser, app.id);
+    
+    // Generate secure app URL with auth token
+    const targetUrl = await AuthTokenService.generateAppUrl(
+      app.url,
+      sharedUser,
+      app.id
+    );
+    
+    console.log('🚀 AppGrid: Launching app with auth token', targetUrl);
+    // Use window.open to keep Hub running
+    window.open(targetUrl, '_self');
   };
 
   return (

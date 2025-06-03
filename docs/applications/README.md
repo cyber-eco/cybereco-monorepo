@@ -4,17 +4,19 @@
 
 ## Current Applications
 
-### [Hub](./hub.md)
+### [Hub](./hub/README.md)
 
-Central authentication and application management platform that serves as the digital home for users across the CyberEco ecosystem.
+Central authentication gateway and intelligent proxy that serves as the unified entry point for all CyberEco applications.
 
 **Status**: 🟡 Active Development
 
 **Key Features**:
-- User authentication and account management
-- Application discovery and access
-- User profile management
-- Cross-app permissions
+- Single Sign-On (SSO) authentication
+- Intelligent proxy routing to applications
+- Enhanced landing page with app discovery
+- Security gateway with header injection
+- Coming soon pages for future apps
+- LAN access support for local development
 
 ### [JustSplit](./justsplit.md)
 
