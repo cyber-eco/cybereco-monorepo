@@ -199,6 +199,9 @@ function AuthContextWrapper({ children }: { children: React.ReactNode }) {
       // Cache the user profile for faster navigation
       setCachedAuthState<HubUser>(authContext.userProfile);
       
+      // Set cookie for middleware
+      document.cookie = `cybereco-hub-auth=true; path=/; max-age=300`; // 5 minute cookie
+      
       const sharedUser: SharedAuthUser = {
         uid: authContext.userProfile.id,
         email: authContext.userProfile.email,
@@ -231,6 +234,8 @@ function AuthContextWrapper({ children }: { children: React.ReactNode }) {
       // Clear all auth caches when user explicitly signs out
       clearSharedAuthState();
       clearCachedAuthState();
+      // Clear auth cookie
+      document.cookie = 'cybereco-hub-auth=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
       await authContext.signOut();
     }
   };

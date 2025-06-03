@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { FaHome, FaThLarge, FaUser, FaCog, FaSignOutAlt, FaUserCircle, FaShieldAlt, FaCreditCard } from 'react-icons/fa';
+import { FaHome, FaThLarge, FaUser, FaCog, FaSignOutAlt, FaUserCircle, FaShieldAlt, FaCreditCard, FaDatabase } from 'react-icons/fa';
 import { Navigation, UserMenu, useLanguage } from '@cybereco/ui-components';
 import type { UserMenuItem } from '@cybereco/ui-components';
 import { useHubAuth } from '../../hooks/useHubAuth';
@@ -15,10 +15,12 @@ export default function Header() {
   const { userProfile: user, signOut } = useHubAuth();
   const router = useRouter();
 
-  const navLinks = [
+  // Only show navigation links if user is authenticated
+  const navLinks = user ? [
     { href: '/dashboard', label: t('navigation.dashboard') || 'Dashboard' },
     { href: '/apps', label: t('navigation.apps') || 'Apps' },
-  ];
+    { href: '/my-data', label: t('navigation.myData') || 'My Data' },
+  ] : [];
 
   const handleLogout = async () => {
     await signOut();
