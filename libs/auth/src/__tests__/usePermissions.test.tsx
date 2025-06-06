@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import { renderHook } from '@testing-library/react-hooks';
 import { usePermissions, withPermissions } from '../usePermissions';
-import { BaseUser } from '../AuthContext';
+import { BaseUser } from '@cybereco/shared-types';
 
 describe('usePermissions', () => {
   const mockUser: BaseUser & { permissions?: any[] } = {

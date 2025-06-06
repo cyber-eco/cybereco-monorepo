@@ -1,4 +1,4 @@
-import { BaseUser } from '@cybereco/auth';
+import { BaseUser } from './user';
 
 // JustSplit User extends BaseUser with expense-specific fields
 export interface JustSplitUser extends BaseUser {

@@ -57,7 +57,7 @@ export default function SupportPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          {t('supportPage.title') || "Support Center"}
+          {t('common:supportPage.title') || "Support Center"}
         </motion.h1>
         <motion.p
           className={styles.subtitle}
@@ -65,7 +65,7 @@ export default function SupportPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          {t('supportPage.subtitle') || "Get the assistance you need to solve problems and make the most of CyberEco applications"}
+          {t('common:supportPage.subtitle') || "Get the assistance you need to solve problems and make the most of CyberEco applications"}
         </motion.p>
       </header>
 
@@ -80,13 +80,13 @@ export default function SupportPage() {
             <div className={styles.iconWrapper}>
               <FaExclamationCircle />
             </div>
-            <h3 className={styles.cardTitle}>{t('supportPage.commonIssuesTitle') || "Common Issues"}</h3>
+            <h3 className={styles.cardTitle}>{t('common:supportPage.commonIssuesTitle') || "Common Issues"}</h3>
           </div>
           <div className={styles.cardContent}>
             <p className={styles.cardText}>
-              {t('supportPage.commonIssuesText') || "Find quick solutions to the most frequently encountered problems with our applications."}
+              {t('common:supportPage.commonIssuesText') || "Find quick solutions to the most frequently encountered problems with our applications."}
             </p>
-            <Link href="/faq" className={styles.cardButton}>{t('supportPage.viewCommonIssues') || "View Common Issues"}</Link>
+            <Link href="/faq" className={styles.cardButton}>{t('common:supportPage.viewCommonIssues') || "View Common Issues"}</Link>
           </div>
         </motion.div>
 
@@ -100,13 +100,13 @@ export default function SupportPage() {
             <div className={styles.iconWrapper}>
               <FaLightbulb />
             </div>
-            <h3 className={styles.cardTitle}>{t('supportPage.knowledgeBaseTitle') || "Knowledge Base"}</h3>
+            <h3 className={styles.cardTitle}>{t('common:supportPage.knowledgeBaseTitle') || "Knowledge Base"}</h3>
           </div>
           <div className={styles.cardContent}>
             <p className={styles.cardText}>
-              {t('supportPage.knowledgeBaseText') || "Access our detailed documentation and step-by-step guides for all CyberEco applications."}
+              {t('common:supportPage.knowledgeBaseText') || "Access our detailed documentation and step-by-step guides for all CyberEco applications."}
             </p>
-            <Link href="/documentation" className={styles.cardButton}>{t('supportPage.browseKnowledgeBase') || "Browse Knowledge Base"}</Link>
+            <Link href="/documentation" className={styles.cardButton}>{t('common:supportPage.browseKnowledgeBase') || "Browse Knowledge Base"}</Link>
           </div>
         </motion.div>
 
@@ -120,14 +120,14 @@ export default function SupportPage() {
             <div className={styles.iconWrapper}>
               <FaComment />
             </div>
-            <h3 className={styles.cardTitle}>{t('supportPage.communityForumsTitle') || "Community Forums"}</h3>
+            <h3 className={styles.cardTitle}>{t('common:supportPage.communityForumsTitle') || "Community Forums"}</h3>
           </div>
           <div className={styles.cardContent}>
             <p className={styles.cardText}>
-              {t('supportPage.communityForumsText') || "Join discussions, share experiences, and find solutions with other users in our community forums."}
+              {t('common:supportPage.communityForumsText') || "Join discussions, share experiences, and find solutions with other users in our community forums."}
             </p>
             <a href="https://github.com/cyber-eco/cybereco-monorepo/discussions" target="_blank" rel="noopener noreferrer" className={styles.cardButton}>
-              {t('supportPage.visitForums') || "Visit Forums"}
+              {t('common:supportPage.visitForums') || "Visit Forums"}
             </a>
           </div>
         </motion.div>
@@ -142,11 +142,11 @@ export default function SupportPage() {
             <div className={styles.iconWrapper}>
               <FaLifeRing />
             </div>
-            <h3 className={styles.cardTitle}>{t('supportPage.liveChatTitle') || "Live Chat"}</h3>
+            <h3 className={styles.cardTitle}>{t('common:supportPage.liveChatTitle') || "Live Chat"}</h3>
           </div>
           <div className={styles.cardContent}>
             <p className={styles.cardText}>
-              {t('supportPage.liveChatText') || "Connect with our support team in real-time for immediate assistance with urgent issues."}
+              {t('common:supportPage.liveChatText') || "Connect with our support team in real-time for immediate assistance with urgent issues."}
             </p>
             <button 
               className={styles.cardButton}
@@ -155,17 +155,17 @@ export default function SupportPage() {
                 alert('Live chat feature coming soon!');
               }}
             >
-              {t('supportPage.startChat') || "Start Chat"}
+              {t('common:supportPage.startChat') || "Start Chat"}
             </button>
           </div>
         </motion.div>
       </div>
 
       <section className={styles.contactFormSection}>
-        <h2 className={styles.contactFormTitle}>{t('supportPage.contactSupportTitle') || "Contact Support"}</h2>
+        <h2 className={styles.contactFormTitle}>{t('common:supportPage.contactSupportTitle') || "Contact Support"}</h2>
         <form className={styles.form} onSubmit={handleSubmit}>
           <div className={styles.formGroup}>
-            <label htmlFor="name" className={styles.label}>{t('supportPage.nameLabel') || "Your Name"}</label>
+            <label htmlFor="name" className={styles.label}>{t('common:supportPage.nameLabel') || "Your Name"}</label>
             <input 
               type="text" 
               id="name" 
@@ -178,7 +178,7 @@ export default function SupportPage() {
           </div>
           
           <div className={styles.formGroup}>
-            <label htmlFor="email" className={styles.label}>{t('supportPage.emailLabel') || "Email Address"}</label>
+            <label htmlFor="email" className={styles.label}>{t('common:supportPage.emailLabel') || "Email Address"}</label>
             <input 
               type="email" 
               id="email" 
@@ -191,7 +191,7 @@ export default function SupportPage() {
           </div>
           
           <div className={styles.formGroup}>
-            <label htmlFor="subject" className={styles.label}>{t('supportPage.subjectLabel') || "Subject"}</label>
+            <label htmlFor="subject" className={styles.label}>{t('common:supportPage.subjectLabel') || "Subject"}</label>
             <input 
               type="text" 
               id="subject" 
@@ -204,7 +204,7 @@ export default function SupportPage() {
           </div>
           
           <div className={styles.formGroup}>
-            <label htmlFor="product" className={styles.label}>{t('supportPage.productLabel') || "Product"}</label>
+            <label htmlFor="product" className={styles.label}>{t('common:supportPage.productLabel') || "Product"}</label>
             <select 
               id="product" 
               name="product" 
@@ -213,7 +213,7 @@ export default function SupportPage() {
               className={styles.select}
               required
             >
-              <option value="">{t('supportPage.selectProduct') || "Select a product"}</option>
+              <option value="">{t('common:supportPage.selectProduct') || "Select a product"}</option>
               <option value="justsplit">JustSplit</option>
               <option value="plantopia">Plantopia</option>
               <option value="demos">Demos</option>
@@ -225,7 +225,7 @@ export default function SupportPage() {
           </div>
           
           <div className={styles.formGroup}>
-            <label htmlFor="message" className={styles.label}>{t('supportPage.messageLabel') || "Message"}</label>
+            <label htmlFor="message" className={styles.label}>{t('common:supportPage.messageLabel') || "Message"}</label>
             <textarea 
               id="message" 
               name="message" 
@@ -242,7 +242,7 @@ export default function SupportPage() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <FaPaperPlane className={styles.submitIcon} /> {t('supportPage.submitRequest') || "Submit Request"}
+            <FaPaperPlane className={styles.submitIcon} /> {t('common:supportPage.submitRequest') || "Submit Request"}
           </motion.button>
         </form>
       </section>

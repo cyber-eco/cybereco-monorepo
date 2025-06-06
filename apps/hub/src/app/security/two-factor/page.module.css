@@ -1,0 +1,505 @@
+.container {
+  min-height: calc(100vh - var(--header-height, 70px));
+  background: var(--background);
+  padding: 2rem;
+}
+
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0;
+}
+
+.titleIcon {
+  color: var(--primary);
+}
+
+/* Error Message */
+.errorMessage {
+  background: rgba(var(--error-rgb), 0.1);
+  border: 1px solid var(--error);
+  color: var(--error);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Intro Section */
+.introSection {
+  display: flex;
+  justify-content: center;
+}
+
+.infoCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 3rem;
+  max-width: 600px;
+  width: 100%;
+}
+
+.infoCard h2 {
+  font-size: 1.75rem;
+  margin: 0 0 1rem 0;
+  color: var(--text-primary);
+}
+
+.infoCard p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.benefit {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.benefitIcon {
+  font-size: 1.5rem;
+  color: var(--primary);
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+
+.benefit h3 {
+  font-size: 1.1rem;
+  margin: 0 0 0.25rem 0;
+  color: var(--text-primary);
+}
+
+.benefit p {
+  font-size: 0.95rem;
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+/* Setup Section */
+.setupSection {
+  display: flex;
+  justify-content: center;
+}
+
+.setupCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 3rem;
+  max-width: 600px;
+  width: 100%;
+}
+
+.setupCard h2 {
+  font-size: 1.75rem;
+  margin: 0 0 2rem 0;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.step {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.stepNumber {
+  width: 40px;
+  height: 40px;
+  background: var(--primary);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.stepContent {
+  flex: 1;
+}
+
+.stepContent h3 {
+  font-size: 1.1rem;
+  margin: 0 0 0.5rem 0;
+  color: var(--text-primary);
+}
+
+.stepContent p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.qrCodeContainer {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  display: inline-block;
+  margin: 1rem 0;
+}
+
+.qrCode {
+  display: block;
+  width: 200px;
+  height: 200px;
+}
+
+.alternativeText {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 1rem 0 0.5rem 0;
+}
+
+.secretCode {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin-top: 0.5rem;
+}
+
+.secretCode code {
+  font-family: monospace;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  word-break: break-all;
+  flex: 1;
+}
+
+.copyButton {
+  background: transparent;
+  border: none;
+  color: var(--primary);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.copyButton:hover {
+  background: var(--hover-background);
+}
+
+/* Verify Section */
+.verifySection {
+  display: flex;
+  justify-content: center;
+}
+
+.verifyCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 3rem;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+}
+
+.verifyCard h2 {
+  font-size: 1.75rem;
+  margin: 0 0 0.5rem 0;
+  color: var(--text-primary);
+}
+
+.verifyCard p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin: 0 0 2rem 0;
+}
+
+.codeInput {
+  margin-bottom: 2rem;
+}
+
+.verificationInput {
+  width: 200px;
+  padding: 1rem;
+  font-size: 2rem;
+  text-align: center;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  background: var(--background);
+  color: var(--text-primary);
+  letter-spacing: 0.5rem;
+  font-family: monospace;
+}
+
+.verificationInput:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+/* Backup Section */
+.backupSection {
+  display: flex;
+  justify-content: center;
+}
+
+.backupCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 3rem;
+  max-width: 600px;
+  width: 100%;
+}
+
+.backupCard h2 {
+  font-size: 1.75rem;
+  margin: 0 0 0.5rem 0;
+  color: var(--text-primary);
+}
+
+.backupCard > p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin: 0 0 2rem 0;
+  line-height: 1.5;
+}
+
+.backupCodes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.backupCode {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+}
+
+.backupCode code {
+  font-family: monospace;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  flex: 1;
+}
+
+.copyCodeButton {
+  background: transparent;
+  border: none;
+  color: var(--primary);
+  cursor: pointer;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.backupActions {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.downloadButton {
+  flex: 1;
+  padding: 0.75rem 1.5rem;
+  background: var(--background);
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.downloadButton:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.warning {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--warning);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Complete Section */
+.completeSection {
+  display: flex;
+  justify-content: center;
+}
+
+.completeCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 3rem;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+}
+
+.successIcon {
+  width: 80px;
+  height: 80px;
+  background: rgba(var(--success-rgb), 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 2rem;
+  font-size: 2.5rem;
+  color: var(--success);
+}
+
+.completeCard h2 {
+  font-size: 1.75rem;
+  margin: 0 0 1rem 0;
+  color: var(--text-primary);
+}
+
+.completeCard p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin: 0 0 2rem 0;
+}
+
+.completeActions {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Buttons */
+.primaryButton {
+  padding: 0.75rem 2rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.primaryButton:hover:not(:disabled) {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.3);
+}
+
+.primaryButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.secondaryButton {
+  padding: 0.75rem 2rem;
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+}
+
+.secondaryButton:hover {
+  background: var(--hover-background);
+  color: var(--text-primary);
+  border-color: var(--text-secondary);
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .infoCard,
+  .setupCard,
+  .verifyCard,
+  .backupCard,
+  .completeCard {
+    padding: 2rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .backupCodes {
+    grid-template-columns: 1fr;
+  }
+
+  .backupActions {
+    flex-direction: column;
+  }
+
+  .completeActions {
+    flex-direction: column;
+  }
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .qrCodeContainer {
+  background: #f0f0f0;
+}

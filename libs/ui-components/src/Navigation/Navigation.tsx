@@ -31,6 +31,7 @@ export interface NavigationProps {
   mobileMenuStorageKey?: string;
   LinkComponent?: React.ComponentType<{ href: string; className?: string; children: React.ReactNode }>;
   usePathname?: () => string;
+  configElement?: ReactNode;
 }
 
 export default function Navigation({
@@ -41,7 +42,8 @@ export default function Navigation({
   className,
   mobileMenuStorageKey = 'navigation-menu-open',
   LinkComponent = ({ href, className, children }) => <a href={href} className={className}>{children}</a>,
-  usePathname = () => '/'
+  usePathname = () => '/',
+  configElement
 }: NavigationProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -186,7 +188,7 @@ export default function Navigation({
           
           <div className={styles.navActions}>
             {renderActionButton()}
-            {showConfig && <ConfigDropdown />}
+            {showConfig && (configElement || <ConfigDropdown />)}
           </div>
         </div>
 
@@ -215,7 +217,7 @@ export default function Navigation({
             {renderActionButton()}
             {showConfig && (
               <div className={styles.mobileConfigWrapper}>
-                <ConfigDropdown />
+                {configElement || <ConfigDropdown />}
               </div>
             )}
           </div>

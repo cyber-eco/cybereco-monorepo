@@ -2,8 +2,8 @@
 
 import React from 'react';
 import { ThemeProvider, LanguageProvider } from '@cybereco/ui-components';
-import Header from '@/components/Header/Header';
-import Footer from '@/components/Footer/Footer';
+import Header from '../components/Header/Header';
+import Footer from '../components/Footer/Footer';
 import styles from './client-layout.module.css';
 
 export default function ClientLayout({

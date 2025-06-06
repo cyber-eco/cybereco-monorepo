@@ -3,7 +3,7 @@
  * These models enable data reusability across the CyberEco ecosystem
  */
 
-import { BaseUser } from '@cybereco/auth';
+import { BaseUser } from './user';
 
 // ========== User Management ==========
 

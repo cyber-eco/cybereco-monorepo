@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
+import { applySecurityHeaders } from './middleware/security';
+import { applyPrivacyHeaders } from './middleware/dataVisibility';
 
 // Coming soon app routes
 const COMING_SOON_APPS = {
@@ -9,7 +11,7 @@ const COMING_SOON_APPS = {
 };
 
 // Protected routes that require authentication
-const PROTECTED_ROUTES = ['/dashboard', '/apps', '/my-data', '/profile', '/settings', '/security', '/billing'];
+const PROTECTED_ROUTES = ['/dashboard', '/apps', '/my-data', '/profile', '/settings', '/security', '/billing', '/auth-logs'];
 
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
@@ -22,6 +24,9 @@ export function middleware(request: NextRequest) {
     const authState = request.cookies.get('cybereco-hub-auth');
     
     if (!authState) {
+      // Note: Logging removed from middleware due to Edge Runtime limitations
+      // Auth logging should be done in API routes or server components
+      
       // Redirect to landing page with return URL
       const url = request.nextUrl.clone();
       url.pathname = '/';
@@ -37,26 +42,35 @@ export function middleware(request: NextRequest) {
     }
   }
 
-  // Add security headers
+  // Create response
   const response = NextResponse.next();
   
-  // Security headers
-  response.headers.set('X-Frame-Options', 'DENY');
-  response.headers.set('X-Content-Type-Options', 'nosniff');
-  response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
-  response.headers.set(
-    'Permissions-Policy',
-    'camera=(), microphone=(), geolocation=(), interest-cohort=()'
-  );
+  // Apply comprehensive security headers
+  let secureResponse = applySecurityHeaders(request, response);
+
+  // Apply privacy headers for data endpoints
+  if (pathname.startsWith('/api/')) {
+    secureResponse = applyPrivacyHeaders(secureResponse);
+  }
 
   // CORS headers for API routes
   if (pathname.startsWith('/api/')) {
-    response.headers.set('Access-Control-Allow-Origin', '*');
-    response.headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-    response.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    // Allow specific origins in production
+    const allowedOrigins = process.env.NODE_ENV === 'production' 
+      ? ['https://hub.cybere.co', 'https://cybere.co', 'https://justsplit.cybere.co']
+      : ['http://localhost:40000', 'http://localhost:40001', 'http://localhost:40002'];
+    
+    const origin = request.headers.get('origin');
+    if (origin && allowedOrigins.includes(origin)) {
+      secureResponse.headers.set('Access-Control-Allow-Origin', origin);
+    }
+    
+    secureResponse.headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    secureResponse.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    secureResponse.headers.set('Access-Control-Allow-Credentials', 'true');
   }
 
-  return response;
+  return secureResponse;
 }
 
 export const config = {

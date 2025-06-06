@@ -35,6 +35,9 @@
       ],
       "@cybereco/dashboard-components": [
         "libs/dashboard-components/src/index.ts"
+      ],
+      "@cybereco/i18n": [
+        "libs/i18n/src/index.ts"
       ]
     },
     "allowJs": true,

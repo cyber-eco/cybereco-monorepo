@@ -1,9 +1,9 @@
 'use client';
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { FaCog, FaSun, FaMoon, FaGlobe, FaCheck } from 'react-icons/fa';
 import { useTheme } from '../theme/ThemeContext';
-import { useLanguage } from '../i18n/LanguageContext';
+import { useLanguage } from '../i18n';
 import styles from './ConfigDropdown.module.css';
 
 export interface ConfigDropdownProps {
@@ -18,6 +18,7 @@ export default function ConfigDropdown({
   onToggle
 }: ConfigDropdownProps) {
   const [internalIsOpen, setInternalIsOpen] = useState(false);
+  const [changingLanguage, setChangingLanguage] = useState<string | null>(null);
   
   // Use controlled state if provided, otherwise use internal state
   const isOpen = controlledIsOpen !== undefined ? controlledIsOpen : internalIsOpen;
@@ -54,17 +55,45 @@ export default function ConfigDropdown({
     }
   }, [isOpen, setIsOpen]);
 
-  const handleThemeToggle = () => {
+  const handleThemeToggle = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
     toggleTheme();
-    // Optional: close dropdown after action
-    // setIsOpen(false);
+    // Keep dropdown open for consistency with language toggle
   };
 
-  const handleLanguageChange = (lang: 'en' | 'es') => {
-    setLanguage(lang);
-    // Optional: close dropdown after action
-    // setIsOpen(false);
-  };
+  // Debounce timer ref
+  const languageChangeTimer = useRef<NodeJS.Timeout | null>(null);
+
+  const handleLanguageChange = useCallback((lang: 'en' | 'es', e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    if (language !== lang) {
+      // Clear any pending language changes
+      if (languageChangeTimer.current) {
+        clearTimeout(languageChangeTimer.current);
+      }
+      
+      // Show loading state immediately
+      setChangingLanguage(lang);
+      
+      // Debounce the language change to prevent rapid switching
+      languageChangeTimer.current = setTimeout(() => {
+        setLanguage(lang);
+        // Clear loading state after a short delay
+        setTimeout(() => {
+          setChangingLanguage(null);
+        }, 300);
+      }, 100);
+    }
+  }, [language, setLanguage]);
+
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (languageChangeTimer.current) {
+        clearTimeout(languageChangeTimer.current);
+      }
+    };
+  }, []);
 
   return (
     <div className={`${styles.configDropdown} ${className || ''}`} ref={dropdownRef}>
@@ -98,6 +127,7 @@ export default function ConfigDropdown({
                 className={`${styles.themeOption} ${theme === 'light' ? styles.selected : ''}`}
                 onClick={handleThemeToggle}
                 role="menuitem"
+                type="button"
               >
                 <FaSun className={styles.themeIcon} />
                 <span>{t('theme.light') || 'Light'}</span>
@@ -107,6 +137,7 @@ export default function ConfigDropdown({
                 className={`${styles.themeOption} ${theme === 'dark' ? styles.selected : ''}`}
                 onClick={handleThemeToggle}
                 role="menuitem"
+                type="button"
               >
                 <FaMoon className={styles.themeIcon} />
                 <span>{t('theme.dark') || 'Dark'}</span>
@@ -124,18 +155,24 @@ export default function ConfigDropdown({
             </div>
             <div className={styles.languageOptions}>
               <button
-                className={`${styles.languageOption} ${language === 'en' ? styles.selected : ''}`}
-                onClick={() => handleLanguageChange('en')}
+                className={`${styles.languageOption} ${language === 'en' ? styles.selected : ''} ${changingLanguage === 'en' ? styles.changing : ''}`}
+                onClick={(e) => {
+                  handleLanguageChange('en', e);
+                }}
                 role="menuitem"
+                type="button"
               >
                 <span className={styles.languageFlag}>🇺🇸</span>
                 <span>English</span>
                 {language === 'en' && <FaCheck className={styles.checkIcon} />}
               </button>
               <button
-                className={`${styles.languageOption} ${language === 'es' ? styles.selected : ''}`}
-                onClick={() => handleLanguageChange('es')}
+                className={`${styles.languageOption} ${language === 'es' ? styles.selected : ''} ${changingLanguage === 'es' ? styles.changing : ''}`}
+                onClick={(e) => {
+                  handleLanguageChange('es', e);
+                }}
                 role="menuitem"
+                type="button"
               >
                 <span className={styles.languageFlag}>🇲🇽</span>
                 <span>Español</span>

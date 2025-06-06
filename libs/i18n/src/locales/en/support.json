@@ -1,0 +1,103 @@
+{
+  "supportPage": {
+    "title": "Support Center",
+    "subtitle": "Get help with CyberEco applications and services",
+    "searchPlaceholder": "Search for help...",
+    "categories": {
+      "gettingStarted": {
+        "title": "Getting Started",
+        "description": "New to CyberEco? Start here for the basics",
+        "articles": {
+          "createAccount": "How to create your CyberEco account",
+          "firstSteps": "First steps with CyberEco Hub",
+          "appOverview": "Overview of available applications",
+          "navigation": "Navigating the ecosystem"
+        }
+      },
+      "accountSecurity": {
+        "title": "Account & Security",
+        "description": "Manage your account and security settings",
+        "articles": {
+          "resetPassword": "Reset your password",
+          "enable2FA": "Enable two-factor authentication",
+          "manageDevices": "Manage connected devices",
+          "privacySettings": "Configure privacy settings"
+        }
+      },
+      "justsplitHelp": {
+        "title": "JustSplit Help",
+        "description": "Help with expense sharing and group management",
+        "articles": {
+          "createGroup": "Creating and managing groups",
+          "addExpense": "Adding and editing expenses",
+          "splitMethods": "Understanding split methods",
+          "settlements": "Settling up with friends"
+        }
+      },
+      "troubleshooting": {
+        "title": "Troubleshooting",
+        "description": "Solutions to common problems",
+        "articles": {
+          "loginIssues": "Can't sign in to your account",
+          "syncProblems": "Data not syncing across devices",
+          "appCrashes": "Application crashes or freezes",
+          "displayIssues": "Display or layout problems"
+        }
+      },
+      "billing": {
+        "title": "Billing & Subscriptions",
+        "description": "Information about pricing and subscriptions",
+        "articles": {
+          "pricing": "Understanding CyberEco pricing",
+          "freeFeatures": "What's included in the free tier",
+          "premiumBenefits": "Premium features and benefits",
+          "manageSub": "Managing your subscription"
+        }
+      },
+      "developers": {
+        "title": "For Developers",
+        "description": "Technical documentation and API guides",
+        "articles": {
+          "apiDocs": "API documentation",
+          "integration": "Integrating with CyberEco",
+          "webhooks": "Setting up webhooks",
+          "sdkGuides": "SDK guides and examples"
+        }
+      }
+    },
+    "contactOptions": {
+      "title": "Still Need Help?",
+      "description": "Our support team is here to assist you",
+      "email": {
+        "title": "Email Support",
+        "description": "Get help via email within 24 hours",
+        "action": "Send Email",
+        "address": "support@cybere.co"
+      },
+      "community": {
+        "title": "Community Forum",
+        "description": "Connect with other users and experts",
+        "action": "Visit Forum"
+      },
+      "docs": {
+        "title": "Documentation",
+        "description": "Detailed technical guides and tutorials",
+        "action": "View Docs"
+      }
+    },
+    "popularArticles": {
+      "title": "Popular Articles",
+      "article1": "Getting started with CyberEco Hub",
+      "article2": "How to split expenses in JustSplit",
+      "article3": "Setting up two-factor authentication",
+      "article4": "Understanding privacy controls",
+      "article5": "Troubleshooting sync issues"
+    },
+    "emergencySupport": {
+      "title": "Emergency Support",
+      "description": "For urgent security issues or account compromise",
+      "contact": "Emergency: security@cybere.co",
+      "availability": "Monitored 24/7 for critical issues"
+    }
+  }
+}

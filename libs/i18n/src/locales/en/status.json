@@ -1,0 +1,76 @@
+{
+  "statusPage": {
+    "title": "System Status",
+    "subtitle": "Current operational status of CyberEco services",
+    "allOperational": "All Systems Operational",
+    "someIssues": "Some Systems Experiencing Issues",
+    "majorOutage": "Major Service Outage",
+    "lastUpdated": "Last updated",
+    "refreshing": "Refreshing...",
+    "services": {
+      "hub": {
+        "name": "CyberEco Hub",
+        "description": "Authentication and identity management"
+      },
+      "justsplit": {
+        "name": "JustSplit",
+        "description": "Expense sharing application"
+      },
+      "website": {
+        "name": "Website",
+        "description": "Main website and documentation"
+      },
+      "api": {
+        "name": "API Services",
+        "description": "Backend API endpoints"
+      },
+      "database": {
+        "name": "Database",
+        "description": "Data storage and retrieval"
+      },
+      "auth": {
+        "name": "Authentication",
+        "description": "Login and security services"
+      }
+    },
+    "status": {
+      "operational": "Operational",
+      "degraded": "Degraded Performance",
+      "partial": "Partial Outage",
+      "major": "Major Outage",
+      "maintenance": "Under Maintenance",
+      "unknown": "Unknown"
+    },
+    "incidents": {
+      "title": "Recent Incidents",
+      "noIncidents": "No recent incidents",
+      "resolved": "Resolved",
+      "investigating": "Investigating",
+      "monitoring": "Monitoring",
+      "identified": "Identified",
+      "viewDetails": "View Details"
+    },
+    "metrics": {
+      "title": "System Metrics",
+      "uptime": "Uptime",
+      "responseTime": "Response Time",
+      "errorRate": "Error Rate",
+      "last24h": "Last 24 hours",
+      "last7d": "Last 7 days",
+      "last30d": "Last 30 days"
+    },
+    "subscribe": {
+      "title": "Subscribe to Updates",
+      "description": "Get notified about system status changes",
+      "email": "Email notifications",
+      "sms": "SMS alerts",
+      "webhook": "Webhook integration",
+      "subscribe": "Subscribe"
+    },
+    "history": {
+      "title": "Status History",
+      "viewHistory": "View Full History",
+      "noHistory": "No historical data available"
+    }
+  }
+}

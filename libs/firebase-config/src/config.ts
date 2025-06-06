@@ -49,7 +49,7 @@ export function initializeFirebase(env: FirebaseEnvironment) {
         });
       } catch (error) {
         // Ignore "already connected" errors
-        if (!error.message?.includes('already')) {
+        if (error instanceof Error && !error.message?.includes('already')) {
           console.warn('Auth emulator connection warning:', error);
         }
       }

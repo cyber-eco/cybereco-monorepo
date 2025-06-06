@@ -10,7 +10,15 @@ import {
   Auth
 } from 'firebase/auth';
 import { getHubApp } from './config';
-import type { AuthUser } from '@cybereco/shared-types';
+
+// AuthUser type definition
+export interface AuthUser {
+  uid: string;
+  email: string | null;
+  displayName: string | null;
+  photoURL: string | null;
+  emailVerified: boolean;
+}
 
 export function getHubAuth(): Auth {
   return getAuth(getHubApp());

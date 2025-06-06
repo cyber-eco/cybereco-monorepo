@@ -1,236 +1,205 @@
 'use client';
 
-import { useState } from 'react';
-import { useLanguage, Card } from '@cybereco/ui-components';
-import { useAuth } from '../../components/AuthContext';
-import { FaShieldAlt, FaKey, FaEye, FaEyeSlash } from 'react-icons/fa';
-import styles from '../page.module.css';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+import { useHubAuth } from '../../hooks/useHubAuth';
+import { securityService } from '../../services/securityService';
+import { 
+  FaShieldAlt, 
+  FaKey,
+  FaHistory,
+  FaDesktop,
+  FaLock,
+  FaBell,
+  FaUserShield,
+  FaChevronRight,
+  FaCheck,
+  FaExclamationTriangle
+} from 'react-icons/fa';
+import styles from './page.module.css';
 
-export default function Security() {
-  const { userProfile: user, isLoading: loading, currentUser } = useAuth();
-  const { t } = useLanguage();
-  const [showCurrentPassword, setShowCurrentPassword] = useState(false);
-  const [showNewPassword, setShowNewPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [passwordForm, setPasswordForm] = useState({
-    currentPassword: '',
-    newPassword: '',
-    confirmPassword: ''
-  });
-  const [isUpdating, setIsUpdating] = useState(false);
-  const [error, setError] = useState('');
+export default function SecurityPage() {
+  const { userProfile: user, isLoading } = useHubAuth();
+  const router = useRouter();
+  const [is2FAEnabled, setIs2FAEnabled] = useState(false);
+  const [activeSessionCount, setActiveSessionCount] = useState(0);
 
-  if (loading) {
-    return (
-      <div className={styles.container}>
-        <div className={styles.loadingContainer}>
-          {t('hub.loading') || 'Loading...'}
-        </div>
-      </div>
-    );
-  }
+  useEffect(() => {
+    if (!isLoading && !user) {
+      router.push('/');
+    }
+  }, [user, isLoading, router]);
 
-  if (!user) {
-    return (
-      <div className={styles.container}>
-        <div className={styles.errorContainer}>
-          {t('auth.signInError') || 'Please sign in to access security settings'}
-        </div>
-      </div>
-    );
-  }
+  useEffect(() => {
+    if (user) {
+      check2FAStatus();
+      fetchActiveSessions();
+    }
+  }, [user]);
 
-  const handlePasswordChange = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setError('');
+  const check2FAStatus = async () => {
+    if (!user) return;
     
-    if (passwordForm.newPassword !== passwordForm.confirmPassword) {
-      setError(t('auth.passwordMismatch') || 'Passwords do not match');
-      return;
-    }
-
-    if (passwordForm.newPassword.length < 6) {
-      setError('Password must be at least 6 characters long');
-      return;
-    }
-
-    setIsUpdating(true);
     try {
-      // In a real implementation, you would use Firebase Auth updatePassword
-      // const credential = EmailAuthProvider.credential(user.email, passwordForm.currentPassword);
-      // await reauthenticateWithCredential(currentUser, credential);
-      // await updatePassword(currentUser, passwordForm.newPassword);
-      
-      console.log('Password change requested');
-      setPasswordForm({ currentPassword: '', newPassword: '', confirmPassword: '' });
-      alert('Password updated successfully');
-    } catch (error: any) {
-      setError(error.message || 'Failed to update password');
-    } finally {
-      setIsUpdating(false);
+      const { enabled } = await securityService.check2FAStatus();
+      setIs2FAEnabled(enabled);
+    } catch (error) {
+      console.error('Error checking 2FA status:', error);
     }
   };
 
-  const isGoogleAccount = currentUser?.providerData.some(provider => provider.providerId === 'google.com');
-  const isFacebookAccount = currentUser?.providerData.some(provider => provider.providerId === 'facebook.com');
+  const fetchActiveSessions = async () => {
+    // In a real implementation, this would fetch from the API
+    setActiveSessionCount(1);
+  };
+
+  if (isLoading || !user) {
+    return null;
+  }
+
+  const securityItems = [
+    {
+      icon: FaShieldAlt,
+      title: 'Two-Factor Authentication',
+      description: is2FAEnabled 
+        ? 'Your account is protected with 2FA' 
+        : 'Add an extra layer of security to your account',
+      status: is2FAEnabled ? 'enabled' : 'recommended',
+      href: '/security/two-factor'
+    },
+    {
+      icon: FaKey,
+      title: 'Password',
+      description: 'Change your password or update security settings',
+      status: 'secure',
+      href: '/security/password'
+    },
+    {
+      icon: FaDesktop,
+      title: 'Active Sessions',
+      description: `${activeSessionCount} active session${activeSessionCount !== 1 ? 's' : ''} on your account`,
+      status: activeSessionCount > 3 ? 'warning' : 'normal',
+      href: '/security/sessions'
+    },
+    {
+      icon: FaHistory,
+      title: 'Security Activity',
+      description: 'Review recent security events and login attempts',
+      status: 'normal',
+      href: '/security/activity'
+    },
+    {
+      icon: FaBell,
+      title: 'Security Alerts',
+      description: 'Configure how you receive security notifications',
+      status: 'normal',
+      href: '/security/alerts'
+    },
+    {
+      icon: FaUserShield,
+      title: 'Privacy Settings',
+      description: 'Control your data sharing and privacy preferences',
+      status: 'normal',
+      href: '/privacy'
+    }
+  ];
 
   return (
     <div className={styles.container}>
       <div className={styles.content}>
         <header className={styles.header}>
           <h1 className={styles.title}>
-            <FaShieldAlt className={styles.titleIcon} />
-            {t('footer.security') || 'Security'}
+            <FaLock className={styles.titleIcon} />
+            Security Settings
           </h1>
           <p className={styles.subtitle}>
             Manage your account security and privacy settings
           </p>
         </header>
 
-        <div className={styles.formContainer}>
-          <Card className={styles.securityCard}>
-            <h2 className={styles.cardTitle}>
-              <FaKey className={styles.cardIcon} />
-              Account Information
-            </h2>
-            
-            <div className={styles.securityInfo}>
-              <div className={styles.infoGroup}>
-                <label>Email Address</label>
-                <span className={styles.infoValue}>{user.email}</span>
-                <span className={styles.verified}>✓ Verified</span>
-              </div>
-              
-              <div className={styles.infoGroup}>
-                <label>Account Type</label>
-                <span className={styles.infoValue}>
-                  {isGoogleAccount ? 'Google Account' : 
-                   isFacebookAccount ? 'Facebook Account' : 
-                   'Email Account'}
-                </span>
-              </div>
-              
-              <div className={styles.infoGroup}>
-                <label>Two-Factor Authentication</label>
-                <span className={styles.infoValue}>
-                  <span className={styles.notEnabled}>Not Enabled</span>
-                  <button className={styles.enableButton}>Enable</button>
-                </span>
-              </div>
+        <div className={styles.securityScore}>
+          <div className={styles.scoreHeader}>
+            <h2>Security Score</h2>
+            <div className={styles.scoreValue}>
+              <span className={styles.score}>{is2FAEnabled ? '85' : '60'}</span>
+              <span className={styles.scoreMax}>/100</span>
             </div>
-          </Card>
+          </div>
+          <div className={styles.scoreBar}>
+            <div 
+              className={styles.scoreProgress} 
+              style={{ width: `${is2FAEnabled ? 85 : 60}%` }}
+            />
+          </div>
+          <p className={styles.scoreMessage}>
+            {is2FAEnabled 
+              ? 'Your account has strong security. Keep it up!'
+              : 'Enable two-factor authentication to improve your security score.'}
+          </p>
+        </div>
 
-          {!isGoogleAccount && !isFacebookAccount && (
-            <Card className={styles.securityCard}>
-              <h2 className={styles.cardTitle}>
-                <FaKey className={styles.cardIcon} />
-                Change Password
-              </h2>
-              
-              <form onSubmit={handlePasswordChange} className={styles.passwordForm}>
-                <div className={styles.formGroup}>
-                  <label htmlFor="currentPassword">Current Password</label>
-                  <div className={styles.passwordInput}>
-                    <input
-                      id="currentPassword"
-                      type={showCurrentPassword ? 'text' : 'password'}
-                      value={passwordForm.currentPassword}
-                      onChange={(e) => setPasswordForm({ ...passwordForm, currentPassword: e.target.value })}
-                      required
-                      className={styles.input}
-                    />
-                    <button
-                      type="button"
-                      onClick={() => setShowCurrentPassword(!showCurrentPassword)}
-                      className={styles.passwordToggle}
-                    >
-                      {showCurrentPassword ? <FaEyeSlash /> : <FaEye />}
-                    </button>
-                  </div>
-                </div>
-
-                <div className={styles.formGroup}>
-                  <label htmlFor="newPassword">New Password</label>
-                  <div className={styles.passwordInput}>
-                    <input
-                      id="newPassword"
-                      type={showNewPassword ? 'text' : 'password'}
-                      value={passwordForm.newPassword}
-                      onChange={(e) => setPasswordForm({ ...passwordForm, newPassword: e.target.value })}
-                      required
-                      minLength={6}
-                      className={styles.input}
-                    />
-                    <button
-                      type="button"
-                      onClick={() => setShowNewPassword(!showNewPassword)}
-                      className={styles.passwordToggle}
-                    >
-                      {showNewPassword ? <FaEyeSlash /> : <FaEye />}
-                    </button>
-                  </div>
-                </div>
-
-                <div className={styles.formGroup}>
-                  <label htmlFor="confirmPassword">Confirm New Password</label>
-                  <div className={styles.passwordInput}>
-                    <input
-                      id="confirmPassword"
-                      type={showConfirmPassword ? 'text' : 'password'}
-                      value={passwordForm.confirmPassword}
-                      onChange={(e) => setPasswordForm({ ...passwordForm, confirmPassword: e.target.value })}
-                      required
-                      minLength={6}
-                      className={styles.input}
-                    />
-                    <button
-                      type="button"
-                      onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                      className={styles.passwordToggle}
-                    >
-                      {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
-                    </button>
-                  </div>
-                </div>
-
-                {error && (
-                  <div className={styles.error}>
-                    {error}
-                  </div>
+        <div className={styles.securityItems}>
+          {securityItems.map((item, index) => (
+            <Link 
+              key={index} 
+              href={item.href} 
+              className={styles.securityItem}
+            >
+              <div className={styles.itemIcon}>
+                <item.icon />
+              </div>
+              <div className={styles.itemContent}>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </div>
+              <div className={styles.itemStatus}>
+                {item.status === 'enabled' && (
+                  <span className={`${styles.status} ${styles.statusEnabled}`}>
+                    <FaCheck /> Enabled
+                  </span>
                 )}
+                {item.status === 'recommended' && (
+                  <span className={`${styles.status} ${styles.statusRecommended}`}>
+                    <FaExclamationTriangle /> Recommended
+                  </span>
+                )}
+                {item.status === 'warning' && (
+                  <span className={`${styles.status} ${styles.statusWarning}`}>
+                    <FaExclamationTriangle /> Review
+                  </span>
+                )}
+                <FaChevronRight className={styles.chevron} />
+              </div>
+            </Link>
+          ))}
+        </div>
 
-                <button 
-                  type="submit" 
-                  disabled={isUpdating}
-                  className={styles.updateButton}
-                >
-                  {isUpdating ? 'Updating...' : 'Update Password'}
-                </button>
-              </form>
-            </Card>
-          )}
-
-          <Card className={styles.securityCard}>
-            <h2 className={styles.cardTitle}>Recent Activity</h2>
-            <div className={styles.activityList}>
-              <div className={styles.activityItem}>
-                <span className={styles.activityDate}>
-                  {user.lastLoginAt ? new Date(user.lastLoginAt).toLocaleString() : 'No recent activity'}
-                </span>
-                <span className={styles.activityDescription}>Last sign in</span>
+        <div className={styles.tips}>
+          <h2>Security Tips</h2>
+          <div className={styles.tipsList}>
+            <div className={styles.tip}>
+              <FaKey className={styles.tipIcon} />
+              <div>
+                <h4>Use a strong, unique password</h4>
+                <p>Don't reuse passwords across different services</p>
               </div>
             </div>
-          </Card>
-
-          <Card className={styles.securityCard}>
-            <h2 className={styles.cardTitle}>Danger Zone</h2>
-            <div className={styles.dangerZone}>
-              <p>Once you delete your account, there is no going back. Please be certain.</p>
-              <button className={styles.deleteButton}>
-                Delete Account
-              </button>
+            <div className={styles.tip}>
+              <FaShieldAlt className={styles.tipIcon} />
+              <div>
+                <h4>Enable two-factor authentication</h4>
+                <p>Add an extra layer of protection to your account</p>
+              </div>
             </div>
-          </Card>
+            <div className={styles.tip}>
+              <FaDesktop className={styles.tipIcon} />
+              <div>
+                <h4>Review active sessions regularly</h4>
+                <p>Sign out of devices you don't recognize</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

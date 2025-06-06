@@ -10,7 +10,7 @@ interface AuthCacheWrapperProps {
 }
 
 export function AuthCacheWrapper({ children }: AuthCacheWrapperProps) {
-  const { user, loading } = useAuth();
+  const { currentUser, isLoading } = useAuth();
   const [cachedUser, setCachedUser] = useState<User | null>(null);
   const [isCacheChecked, setIsCacheChecked] = useState(false);
 
@@ -38,12 +38,12 @@ export function AuthCacheWrapper({ children }: AuthCacheWrapperProps) {
     }
 
     // If Firebase is still loading but we have cached auth, show the app
-    if (loading && cachedUser) {
+    if (isLoading && cachedUser) {
       return false;
     }
 
     // If Firebase is still loading and no cached auth, show loading
-    if (loading) {
+    if (isLoading) {
       return true;
     }
 

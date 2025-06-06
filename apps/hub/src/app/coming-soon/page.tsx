@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { FaArrowLeft, FaRocket, FaBell } from 'react-icons/fa';
 import { useState } from 'react';
 import styles from './page.module.css';
+import { subscriptionService } from '../../services/subscriptionService';
 
 const appInfo = {
   somos: {
@@ -50,15 +51,44 @@ export default function ComingSoonPage() {
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState('');
   
   const appName = searchParams.get('app') || 'unknown';
   const app = appInfo[appName as keyof typeof appInfo] || appInfo.somos;
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Implement email subscription
-    setSubscribed(true);
-    setTimeout(() => setSubscribed(false), 3000);
+    setLoading(true);
+    setMessage('');
+    
+    try {
+      const result = await subscriptionService.subscribe(
+        email,
+        appName,
+        'coming-soon',
+        {
+          userAgent: navigator.userAgent,
+          referrer: document.referrer
+        }
+      );
+      
+      if (result.success) {
+        setSubscribed(true);
+        setMessage(result.message);
+        setEmail('');
+        setTimeout(() => {
+          setSubscribed(false);
+          setMessage('');
+        }, 5000);
+      } else {
+        setMessage(result.message);
+      }
+    } catch (error) {
+      setMessage('Something went wrong. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -91,7 +121,7 @@ export default function ComingSoonPage() {
             </h3>
             {subscribed ? (
               <div className={styles.success}>
-                <FaRocket /> Thanks! We'll notify you when {app.name} is ready.
+                <FaRocket /> {message || `Thanks! We'll notify you when ${app.name} is ready.`}
               </div>
             ) : (
               <form onSubmit={handleSubscribe} className={styles.form}>
@@ -102,11 +132,15 @@ export default function ComingSoonPage() {
                   onChange={(e) => setEmail(e.target.value)}
                   required
                   className={styles.input}
+                  disabled={loading}
                 />
-                <button type="submit" className={styles.button}>
-                  Notify Me
+                <button type="submit" className={styles.button} disabled={loading}>
+                  {loading ? 'Subscribing...' : 'Notify Me'}
                 </button>
               </form>
+            )}
+            {message && !subscribed && (
+              <p className={styles.error}>{message}</p>
             )}
           </div>
 

@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useLanguage } from '@cybereco/ui-components';
 import { useAuth } from '../../components/AuthContext';
+import type { HubUser } from '../../components/AuthContext';
 import { AppGrid } from '../../components/AppGrid';
 import { 
   FaHome, 
@@ -12,7 +13,7 @@ import {
   FaDollarSign,
   FaClock,
   FaArrowUp,
-  FaTrendingUp,
+  FaChartArea,
   FaSync,
   FaHistory,
   FaCheckCircle,
@@ -471,7 +472,7 @@ export default function Dashboard() {
         {/* Dashboard Metrics */}
         <section className={styles.metricsSection}>
           <h2 className={styles.sectionTitle}>
-            <FaTrendingUp className={styles.titleIcon} />
+            <FaChartArea className={styles.titleIcon} />
             Overview
           </h2>
           <div style={gridStyle}>

@@ -1,0 +1,102 @@
+{
+  "termsPage": {
+    "title": "Términos de Servicio",
+    "subtitle": "Términos y condiciones para usar los servicios de CyberEco",
+    "lastUpdated": "Última actualización: Enero 2025",
+    "intro": "Bienvenido a CyberEco. Al usar nuestros servicios, aceptas estos términos. Por favor léelos cuidadosamente.",
+    "sections": {
+      "acceptance": {
+        "title": "Aceptación de Términos",
+        "content": "Al crear una cuenta o usar los servicios de CyberEco, aceptas estar sujeto a estos Términos de Servicio y nuestra Política de Privacidad. Si no estás de acuerdo con estos términos, por favor no uses nuestros servicios."
+      },
+      "definitions": {
+        "title": "Definiciones",
+        "service": "\"Servicio\" se refiere a todas las aplicaciones, sitios web y servicios relacionados de CyberEco",
+        "user": "\"Usuario\" o \"Tú\" se refiere a individuos que usan nuestros servicios",
+        "content": "\"Contenido\" incluye texto, imágenes, datos y otros materiales que subes o creas",
+        "account": "\"Cuenta\" se refiere a tu cuenta de usuario CyberEco y datos asociados"
+      },
+      "accountTerms": {
+        "title": "Términos de Cuenta",
+        "item1": "Debes tener 13 años o más para usar nuestros servicios",
+        "item2": "Debes proporcionar información precisa y completa",
+        "item3": "Eres responsable de mantener la seguridad de la cuenta",
+        "item4": "No debes compartir tus credenciales de cuenta",
+        "item5": "Eres responsable de toda actividad bajo tu cuenta",
+        "item6": "Debes notificarnos inmediatamente de cualquier uso no autorizado"
+      },
+      "acceptableUse": {
+        "title": "Uso Aceptable",
+        "intro": "Aceptas no usar nuestros servicios para:",
+        "item1": "Violar leyes o regulaciones",
+        "item2": "Infringir derechos de propiedad intelectual de otros",
+        "item3": "Transmitir malware o código dañino",
+        "item4": "Acosar, abusar o dañar a otros",
+        "item5": "Enviar spam o comunicaciones no solicitadas",
+        "item6": "Intentar obtener acceso no autorizado",
+        "item7": "Interferir con la operación del servicio",
+        "item8": "Crear contenido falso o engañoso"
+      },
+      "content": {
+        "title": "Tu Contenido",
+        "ownership": "Mantienes la propiedad del contenido que creas",
+        "license": "Nos otorgas una licencia para usar, almacenar y mostrar tu contenido según sea necesario para proporcionar nuestros servicios",
+        "responsibility": "Eres responsable de tu contenido y debes tener los derechos necesarios",
+        "removal": "Podemos eliminar contenido que viole estos términos o leyes aplicables"
+      },
+      "privacy": {
+        "title": "Privacidad y Protección de Datos",
+        "summary": "Tu privacidad es importante para nosotros. Nuestra Política de Privacidad explica cómo recopilamos, usamos y protegemos tus datos. Al usar nuestros servicios, aceptas nuestras prácticas de datos como se describe en la Política de Privacidad."
+      },
+      "payments": {
+        "title": "Pagos y Facturación",
+        "free": "Los servicios básicos de CyberEco se proporcionan sin cargo",
+        "premium": "Las características premium pueden ofrecerse con términos de precios separados",
+        "refunds": "Las políticas de reembolso se indicarán claramente para cualquier servicio pagado",
+        "currency": "Todos los precios están en USD a menos que se especifique lo contrario"
+      },
+      "termination": {
+        "title": "Terminación",
+        "userRight": "Puedes terminar tu cuenta en cualquier momento a través de configuraciones de cuenta",
+        "ourRight": "Podemos suspender o terminar cuentas que violen estos términos",
+        "dataRetention": "Al terminar, tus datos se manejarán según nuestra Política de Privacidad",
+        "survival": "Las disposiciones que deban sobrevivir a la terminación permanecerán vigentes"
+      },
+      "disclaimers": {
+        "title": "Descargos de Responsabilidad",
+        "asIs": "Los servicios se proporcionan \"tal cual\" sin garantías de ningún tipo",
+        "availability": "No garantizamos servicio ininterrumpido o libre de errores",
+        "content": "No somos responsables del contenido generado por usuarios",
+        "thirdParty": "No somos responsables de servicios o contenido de terceros"
+      },
+      "liability": {
+        "title": "Limitación de Responsabilidad",
+        "limit": "En la máxima medida permitida por la ley, CyberEco no será responsable por daños indirectos, incidentales, especiales, consecuentes o punitivos",
+        "cap": "Nuestra responsabilidad total no excederá $100 o la cantidad que nos hayas pagado en los últimos 12 meses, lo que sea mayor"
+      },
+      "indemnification": {
+        "title": "Indemnización",
+        "content": "Aceptas indemnizar y mantener indemne a CyberEco de cualquier reclamo que surja de tu uso del servicio, violación de estos términos o infracción de cualquier derecho."
+      },
+      "changes": {
+        "title": "Cambios a los Términos",
+        "notice": "Podemos modificar estos términos en cualquier momento. Te notificaremos cambios significativos",
+        "continued": "El uso continuado después de cambios constituye aceptación de nuevos términos",
+        "review": "Por favor revisa estos términos periódicamente para actualizaciones"
+      },
+      "governing": {
+        "title": "Ley Aplicable",
+        "law": "Estos términos se rigen por las leyes de California, EE.UU.",
+        "disputes": "Cualquier disputa se resolverá en los tribunales de San Francisco, California",
+        "arbitration": "Las disputas pueden estar sujetas a arbitraje vinculante como se detalla en los términos completos"
+      },
+      "contact": {
+        "title": "Información de Contacto",
+        "general": "Consultas generales: info@cybere.co",
+        "legal": "Asuntos legales: legal@cybere.co",
+        "address": "CyberEco, 123 Camino de Innovación, San Francisco, CA 94103"
+      }
+    },
+    "agreement": "Al usar los servicios de CyberEco, reconoces que has leído, entendido y aceptas estar sujeto a estos Términos de Servicio."
+  }
+}

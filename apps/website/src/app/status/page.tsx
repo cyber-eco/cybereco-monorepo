@@ -10,10 +10,10 @@ export default function StatusPage() {
         <div className={styles.container}>
           <header className={styles.pageHeader}>
             <h1 className={styles.title}>
-              {t('statusPage.title') || 'System Status'}
+              {t('common:statusPage.title') || 'System Status'}
             </h1>
             <p className={styles.subtitle}>
-              {t('statusPage.subtitle') || 'Current operational status of all CyberEco services and applications'}
+              {t('common:statusPage.subtitle') || 'Current operational status of all CyberEco services and applications'}
             </p>
           </header>
           

@@ -1,0 +1,401 @@
+{
+  "portfolioPage": {
+    "title": "Solutions Portfolio",
+    "subtitle": "Building a complete digital ecosystem for modern life",
+    "statusTitle": "Application Status",
+    "currentAppsTitle": "Current Applications",
+    "currentAppsDesc": "Live and actively maintained",
+    "priorityDevTitle": "Priority Development",
+    "priorityDevDesc": "Next wave 2025-2026",
+    "futureEcosystemTitle": "Future Ecosystem",
+    "futureEcosystemDesc": "Long-term vision applications",
+    "allSolutions": "All Solutions",
+    "allStatuses": "All Statuses",
+    "liveLabel": "Live",
+    "planning2025Label": "Planning 2025",
+    "futureEcosystemLabel": "Future Ecosystem",
+    "financeEconomy": "Finance & Economy",
+    "communityGovernance": "Community & Governance",
+    "sustainabilityHome": "Sustainability & Home",
+    "educationGrowth": "Education & Growth",
+    "healthWellness": "Health & Wellness",
+    "identityLegal": "Identity & Legal",
+    "travelDiscovery": "Travel & Discovery",
+    "techSocial": "Tech & Social",
+    "financeArea": "Finance",
+    "communityArea": "Community",
+    "sustainabilityArea": "Sustainability",
+    "educationArea": "Education",
+    "healthArea": "Health",
+    "identityArea": "Identity",
+    "travelArea": "Travel",
+    "techArea": "Tech",
+    "viewSolution": "View Solution",
+    "categories": {
+      "finance": {
+        "title": "Finance & Economy",
+        "description": "Smart financial management and collaborative economy"
+      },
+      "community": {
+        "title": "Community & Governance",
+        "description": "Tools for democratic participation and community building"
+      },
+      "sustainability": {
+        "title": "Sustainability & Home",
+        "description": "Sustainable living and home management solutions"
+      },
+      "education": {
+        "title": "Education & Growth",
+        "description": "Personal development and collaborative learning"
+      },
+      "health": {
+        "title": "Health & Wellness",
+        "description": "Physical and mental wellbeing support"
+      },
+      "identity": {
+        "title": "Identity"
+      },
+      "travel": {
+        "title": "Travel"
+      },
+      "tech": {
+        "title": "Tech"
+      }
+    },
+    "stats": {
+      "current": "Current",
+      "planned": "Planned",
+      "priority": "Priority",
+      "totalApps": "Total Applications",
+      "liveUsers": "Active Users",
+      "inDevelopment": "In Development"
+    },
+    "applications": {
+      "justsplit": {
+        "title": "JustSplit",
+        "description": "Split expenses with friends, track balances, and settle debts effortlessly",
+        "name": "JustSplit",
+        "tagline": "Fair Expense Sharing Made Simple",
+        "status": "Live"
+      },
+      "hub": {
+        "title": "Hub",
+        "description": "Central authentication and application launcher for the CyberEco ecosystem",
+        "name": "Hub",
+        "tagline": "Your Digital Identity Center",
+        "status": "Live"
+      },
+      "somos": {
+        "title": "Somos",
+        "description": "Explore family heritage, build family trees, and preserve cultural memories",
+        "name": "Somos",
+        "tagline": "Discover Your Roots, Share Your Story",
+        "status": "In Development"
+      },
+      "demos": {
+        "title": "Demos",
+        "description": "Participatory democracy platform for transparent community decision-making",
+        "name": "Demos",
+        "tagline": "Democracy in Action",
+        "status": "In Development"
+      },
+      "plantopia": {
+        "title": "Plantopia",
+        "description": "IoT-powered plant care with personalized guidance for thriving gardens",
+        "name": "Plantopia",
+        "tagline": "Smart Gardening Companion",
+        "status": "In Development"
+      },
+      "cybereco": {
+        "title": "CyberEco",
+        "description": "Main website and ecosystem portal"
+      },
+      "wallet": {
+        "title": "Wallet",
+        "description": "Digital wallet and payment management"
+      },
+      "health": {
+        "title": "Health Hub",
+        "description": "Personal health tracking and wellness management"
+      },
+      "educa": {
+        "title": "Educa",
+        "description": "Learning platform and educational resources"
+      },
+      "smartcitizen": {
+        "title": "Smart Citizen",
+        "description": "Civic engagement and smart city integration"
+      },
+      "travel": {
+        "title": "Travel Planner",
+        "description": "Smart travel planning and itinerary management"
+      },
+      "nexus": {
+        "title": "Nexus",
+        "description": "Interconnected app ecosystem platform"
+      },
+      "kiddoscore": {
+        "title": "KiddoScore",
+        "description": "Children's development and milestone tracking"
+      },
+      "communitrust": {
+        "title": "CommuniTrust",
+        "description": "Community trust and reputation system"
+      },
+      "greengrid": {
+        "title": "GreenGrid",
+        "description": "Sustainable energy and resource management"
+      },
+      "safekey": {
+        "title": "SafeKey",
+        "description": "Secure password and credential management"
+      },
+      "eco": {
+        "title": "Eco Tracker",
+        "description": "Environmental impact and sustainability tracking"
+      },
+      "worklife": {
+        "title": "WorkLife",
+        "description": "Work-life balance and productivity tools"
+      },
+      "tasker": {
+        "title": "Tasker",
+        "description": "Task management and team collaboration"
+      },
+      "vault": {
+        "title": "Vault",
+        "description": "Secure file storage and document management"
+      },
+      "vitals": {
+        "title": "Vitals",
+        "description": "Health vitals monitoring and tracking"
+      },
+      "mindscape": {
+        "title": "MindScape",
+        "description": "Mental health and mindfulness platform"
+      },
+      "fitforge": {
+        "title": "FitForge",
+        "description": "Fitness tracking and workout planning"
+      },
+      "nutriwise": {
+        "title": "NutriWise",
+        "description": "Nutrition tracking and meal planning"
+      },
+      "idguard": {
+        "title": "ID Guard",
+        "description": "Identity protection and fraud prevention"
+      },
+      "docs": {
+        "title": "Docs",
+        "description": "Document collaboration and management"
+      },
+      "nextravel": {
+        "title": "NexTravel",
+        "description": "Next-generation travel experiences"
+      },
+      "local": {
+        "title": "Local Connect",
+        "description": "Local community networking and events"
+      },
+      "social": {
+        "title": "Social Hub",
+        "description": "Privacy-focused social networking"
+      },
+      "stream": {
+        "title": "Stream",
+        "description": "Content streaming and media platform"
+      },
+      "website": {
+        "name": "Website",
+        "tagline": "Community Hub & Information Center",
+        "description": "Learn about CyberEco, access documentation, and join our community",
+        "status": "Live"
+      },
+      "mywealth": {
+        "name": "MyWealth",
+        "tagline": "Complete Financial Overview",
+        "description": "Comprehensive personal finance management and investment tracking",
+        "status": "Planned"
+      },
+      "mybusiness": {
+        "name": "MyBusiness",
+        "tagline": "Business Management Simplified",
+        "description": "Lightweight business operations and accounting in one place",
+        "status": "Planned"
+      },
+      "myhome": {
+        "name": "MyHome",
+        "tagline": "Smart Home Management",
+        "description": "Organize maintenance, track expenses, and plan home improvements",
+        "status": "Planned"
+      },
+      "educationhub": {
+        "name": "Education Hub",
+        "tagline": "Learn, Grow, Share",
+        "description": "Modular learning platform with community-driven content",
+        "status": "Planned"
+      },
+      "skillshare": {
+        "name": "Skill Share",
+        "tagline": "Share Your Expertise",
+        "description": "Connect with others to teach and learn practical skills",
+        "status": "Planned"
+      },
+      "habits": {
+        "name": "Habits",
+        "tagline": "Build Better Routines",
+        "description": "Track habits and achieve personal goals with micro-actions",
+        "status": "Planned"
+      }
+    },
+    "hubTitle": "Hub",
+    "hubDesc": "Central authentication and user management platform",
+    "justSplitTitle": "JustSplit",
+    "justSplitDesc": "Smart expense sharing and group financial management",
+    "websiteTitle": "CyberEco Website",
+    "websiteDesc": "Main website and documentation portal",
+    "somosTitle": "Somos",
+    "somosDesc": "Family roots explorer and cultural heritage preservation",
+    "demosTitle": "Demos",
+    "demosDesc": "Community governance and democratic decision-making",
+    "plantopiaTitle": "Plantopia",
+    "plantopiaDesc": "Smart gardening assistant and plant care management",
+    "myWealthTitle": "MyWealth",
+    "myWealthDesc": "Personal finance management and investment tracking",
+    "myBusinessTitle": "MyBusiness",
+    "myBusinessDesc": "Small business management and operations platform",
+    "crowdFundTitle": "CrowdFund",
+    "crowdFundDesc": "Community-driven fundraising and investment platform",
+    "offerMeTitle": "OfferMe",
+    "offerMeDesc": "Marketplace for services and freelance opportunities",
+    "communityManagerTitle": "Community Manager",
+    "communityManagerDesc": "Tools for community leaders and organizers",
+    "myCommunityTitle": "MyCommunity",
+    "myCommunityDesc": "Local community connection and engagement platform",
+    "conciliationTitle": "Conciliation",
+    "conciliationDesc": "Dispute resolution and mediation services",
+    "crowdPoolTitle": "CrowdPool",
+    "crowdPoolDesc": "Resource sharing and community pooling platform",
+    "ecoTulTitle": "EcoTul",
+    "ecoTulDesc": "Sustainable living and eco-friendly lifestyle tracker",
+    "myHomeTitle": "MyHome",
+    "myHomeDesc": "Smart home management and maintenance platform",
+    "educationHubTitle": "Education Hub",
+    "educationHubDesc": "Lifelong learning and skill development platform",
+    "skillShareTitle": "SkillShare",
+    "skillShareDesc": "Peer-to-peer skill sharing and mentorship",
+    "healthTrackerTitle": "Health Tracker",
+    "healthTrackerDesc": "Personal health monitoring and wellness management",
+    "wellnessCoachTitle": "Wellness Coach",
+    "wellnessCoachDesc": "AI-powered health and fitness coaching",
+    "identityVaultTitle": "Identity Vault",
+    "identityVaultDesc": "Secure digital identity and document management",
+    "legalAidTitle": "Legal Aid",
+    "legalAidDesc": "Legal document templates and guidance platform",
+    "travelPlannerTitle": "Travel Planner",
+    "travelPlannerDesc": "Smart travel planning and itinerary management",
+    "localExplorerTitle": "Local Explorer",
+    "localExplorerDesc": "Discover local experiences and hidden gems",
+    "digitalAssistantTitle": "Digital Assistant",
+    "digitalAssistantDesc": "AI-powered personal productivity assistant",
+    "socialConnectTitle": "Social Connect",
+    "socialConnectDesc": "Privacy-focused social networking platform",
+    "nexusTitle": "Nexus",
+    "nexusDesc": "Interconnected app ecosystem and API platform",
+    "timeSyncTitle": "TimeSync",
+    "timeSyncDesc": "Calendar and time management across all apps",
+    "habitsTitle": "Habits",
+    "habitsDesc": "Personal habit tracking and behavior change",
+    "oneStepTitle": "OneStep",
+    "oneStepDesc": "Micro-learning and daily improvement platform",
+    "healthyTitle": "Healthy",
+    "healthyDesc": "Comprehensive health and wellness tracking",
+    "petPalTitle": "PetPal",
+    "petPalDesc": "Pet care management and health tracking",
+    "travelMateTitle": "TravelMate",
+    "travelMateDesc": "Smart travel companion and expense tracking",
+    "eventConnectTitle": "EventConnect",
+    "eventConnectDesc": "Local events discovery and community meetups",
+    "lawPalTitle": "LawPal",
+    "lawPalDesc": "Legal assistance and document management",
+    "myDataTitle": "MyData",
+    "myDataDesc": "Personal data vault and privacy controls",
+    "digitalMeTitle": "DigitalMe",
+    "digitalMeDesc": "Digital identity and reputation management",
+    "myDocsTitle": "MyDocs",
+    "myDocsDesc": "Secure document storage and sharing platform",
+    "viewApplication": "View Application",
+    "comingSoon": "Coming Soon",
+    "plannedFeature": "Planned Feature",
+    "apps": {
+      "justsplit": {
+        "name": "JustSplit",
+        "tagline": "Smart expense sharing made simple",
+        "description": "Track shared expenses, split bills fairly, and settle debts with friends and groups. Perfect for roommates, trips, and social events.",
+        "features": {
+          "1": "Real-time expense tracking",
+          "2": "Multiple currency support",
+          "3": "Smart bill splitting algorithms",
+          "4": "Group settlements"
+        },
+        "status": "Available Now"
+      },
+      "somos": {
+        "name": "Somos",
+        "tagline": "Discover your roots, preserve your legacy",
+        "description": "Explore family heritage, build genealogy trees, and preserve cultural memories for future generations.",
+        "features": {
+          "1": "Interactive family trees",
+          "2": "Cultural heritage preservation",
+          "3": "Story and memory sharing",
+          "4": "DNA integration support"
+        },
+        "status": "Coming Soon"
+      },
+      "demos": {
+        "name": "Demos",
+        "tagline": "Democracy reimagined for communities",
+        "description": "Facilitate transparent decision-making, voting, and governance for communities and organizations.",
+        "features": {
+          "1": "Secure digital voting",
+          "2": "Proposal management",
+          "3": "Community discussions",
+          "4": "Transparent governance"
+        },
+        "status": "In Development"
+      },
+      "plantopia": {
+        "name": "Plantopia",
+        "tagline": "Your intelligent gardening companion",
+        "description": "Get personalized plant care recommendations, track garden health, and connect with fellow gardeners.",
+        "features": {
+          "1": "Plant identification",
+          "2": "Care reminders",
+          "3": "Garden planning tools",
+          "4": "Community marketplace"
+        },
+        "status": "Planned"
+      }
+    },
+    "cta": {
+      "title": "Ready to Get Started?",
+      "button": "Create Your Account",
+      "tryNow": "Try Now",
+      "comingSoon": "Coming Soon",
+      "joinWaitlist": "Join Waitlist",
+      "learnMore": "Learn More"
+    },
+    "footer": {
+      "allSolutions": "All Solutions",
+      "financeEconomy": "Finance & Economy",
+      "communityGovernance": "Community & Governance",
+      "sustainabilityHome": "Sustainability & Home",
+      "educationGrowth": "Education & Growth",
+      "healthWellness": "Health & Wellness",
+      "identityLegal": "Identity & Legal",
+      "travelDiscovery": "Travel & Discovery",
+      "techSocial": "Tech & Social"
+    }
+  }
+}

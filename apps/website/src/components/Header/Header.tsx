@@ -4,28 +4,30 @@ import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { FaRocket, FaExternalLinkAlt } from 'react-icons/fa';
-import { Navigation, useLanguage } from '@cybereco/ui-components';
+import { Navigation } from '@cybereco/ui-components';
+import { useI18n } from '@cybereco/i18n';
+import ConfigDropdownWrapper from '../ConfigDropdownWrapper';
 import styles from './Header.module.css';
 
 export default function Header() {
-  const { t } = useLanguage();
+  const { t } = useI18n();
 
   const navLinks = [
-    { href: '/', label: t('navigation.home') || 'Home' },
-    { href: '/portfolio', label: t('navigation.portfolio') || 'Solutions' },
-    { href: '/documentation', label: t('navigation.documentation') || 'Documentation' },
-    { href: '/about', label: t('navigation.about') || 'About Us' },
-    { href: '/help', label: t('navigation.help') || 'Help' },
+    { href: '/', label: t('common:navigation.home') || 'Home' },
+    { href: '/portfolio', label: t('common:navigation.portfolio') || 'Solutions' },
+    { href: '/documentation', label: t('common:navigation.documentation') || 'Documentation' },
+    { href: '/about', label: t('common:navigation.about') || 'About Us' },
+    { href: '/help', label: t('common:navigation.help') || 'Help' },
   ];
 
   const hubActionButton = {
     href: 'https://hub.cybere.co',
-    label: t('navigation.hub') || 'Hub',
+    label: '',  // Empty label since we're using icon with text
     icon: (
       <>
         <FaRocket className={styles.hubButtonIcon} />
         <span className={styles.hubButtonText}>
-          {t('navigation.hub') || 'Hub'}
+          {t('common:navigation.hub') || 'Hub'}
         </span>
         <FaExternalLinkAlt className={styles.hubButtonExternal} />
       </>
@@ -39,6 +41,7 @@ export default function Header() {
       links={navLinks}
       actionButton={hubActionButton}
       showConfig={true}
+      configElement={<ConfigDropdownWrapper />}
       mobileMenuStorageKey="cybereco-website-menu-state"
       className={styles.header}
       LinkComponent={Link}

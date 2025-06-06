@@ -13,6 +13,68 @@ import {
   getFirestore
 } from 'firebase/firestore';
 import { getHubFirestore, getAppFirestore } from '@cybereco/firebase-config';
+import { ConsentType, createLogger } from '@cybereco/auth';
+
+const logger = createLogger('DashboardService');
+
+// Helper functions to replace server-only services
+async function getUserConsent(userId: string): Promise<Record<ConsentType, boolean>> {
+  try {
+    const response = await fetch('/api/privacy/consent');
+    if (response.ok) {
+      return await response.json();
+    }
+  } catch (error) {
+    logger.error('Failed to fetch user consent', { error });
+  }
+  
+  // Return default consents
+  return {
+    [ConsentType.NECESSARY]: true,
+    [ConsentType.FUNCTIONAL]: false,
+    [ConsentType.ANALYTICS]: false,
+    [ConsentType.MARKETING]: false,
+    [ConsentType.PERSONALIZATION]: false
+  };
+}
+
+// Since we can't filter on the server, we'll do basic client-side filtering
+function filterResultsByPrivacy<T extends Record<string, any>>(results: T[], userId: string): T[] {
+  // For now, just filter to show user's own data
+  return results.filter(item => {
+    // Handle different types of objects
+    if ('paidBy' in item) {
+      // Expense: check if user paid or is a participant
+      return item.paidBy === userId || (item.participants && item.participants.includes(userId));
+    } else if ('members' in item) {
+      // Group/Event: check if user is a member
+      return item.members && item.members.includes(userId);
+    } else if ('fromUserId' in item || 'toUserId' in item) {
+      // Settlement: check if user is involved
+      return item.fromUserId === userId || item.toUserId === userId;
+    } else if ('userId' in item) {
+      // Generic user data
+      return item.userId === userId;
+    } else if ('ownerId' in item) {
+      // Generic owned data
+      return item.ownerId === userId;
+    }
+    // Default: include the item
+    return true;
+  });
+}
+
+// Basic anonymization for non-owned data
+function anonymizeData<T extends { displayName?: string; email?: string; photoURL?: string }>(data: T, userId: string, ownerId: string): T {
+  if (userId === ownerId) return data;
+  
+  return {
+    ...data,
+    displayName: 'Anonymous User',
+    email: undefined,
+    photoURL: undefined
+  };
+}
 
 // Types for dashboard data
 export interface DashboardMetric {
@@ -120,9 +182,9 @@ export class DashboardDataService {
       try {
         // Use Hub Firestore (which connects to the same Firebase project as JustSplit)
         this.db = getHubFirestore();
-        console.log('Successfully connected to Hub Firestore');
+        logger.info('Successfully connected to Hub Firestore');
       } catch (error) {
-        console.error('Failed to connect to Firestore:', error);
+        logger.error('Failed to connect to Firestore', { error });
         throw new Error('Unable to connect to database. Please check your Firebase configuration.');
       }
     }
@@ -147,7 +209,7 @@ export class DashboardDataService {
     return timestamp || new Date().toISOString();
   }
 
-  // Get user's JustSplit data
+  // Get user's JustSplit data with privacy filtering
   async getUserJustSplitData(userId: string): Promise<{
     expenses: JustSplitExpense[];
     groups: JustSplitGroup[];
@@ -161,7 +223,19 @@ export class DashboardDataService {
       const currentUser = await getCurrentUser();
       
       if (!currentUser || currentUser.uid !== userId) {
-        console.log('No valid auth state for dashboard data fetch');
+        logger.info('No valid auth state for dashboard data fetch');
+        return {
+          expenses: [],
+          groups: [],
+          events: [],
+          settlements: []
+        };
+      }
+
+      // Check user's consent for data processing
+      const userConsents = await getUserConsent(userId);
+      if (!userConsents[ConsentType.FUNCTIONAL]) {
+        logger.info('User has not consented to functional data processing', { userId });
         return {
           expenses: [],
           groups: [],
@@ -170,7 +244,7 @@ export class DashboardDataService {
         };
       }
       
-      console.log('Fetching JustSplit data for user:', userId);
+      logger.info('Fetching JustSplit data', { userId });
 
       // Fetch user profile
       const db = this.getDatabase();
@@ -179,7 +253,7 @@ export class DashboardDataService {
       const userProfile = usersSnapshot.docs[0]?.data() as JustSplitUser;
       
       if (!userProfile) {
-        console.log('No JustSplit user profile found for user:', userId);
+        logger.info('No JustSplit user profile found', { userId });
         // User may not have used JustSplit yet
       }
 
@@ -191,12 +265,15 @@ export class DashboardDataService {
         limit(100)
       );
       const expensesSnapshot = await getDocs(expensesQuery);
-      const expenses: JustSplitExpense[] = expensesSnapshot.docs.map(doc => ({
+      let expenses: JustSplitExpense[] = expensesSnapshot.docs.map(doc => ({
         id: doc.id,
         ...doc.data(),
         date: this.timestampToString(doc.data().date),
         createdAt: this.timestampToString(doc.data().createdAt)
       } as JustSplitExpense));
+
+      // Apply privacy filtering for expenses
+      expenses = filterResultsByPrivacy(expenses, userId) as JustSplitExpense[];
 
       // Fetch groups where user is a member
       const groupsQuery = query(
@@ -206,11 +283,14 @@ export class DashboardDataService {
         limit(50)
       );
       const groupsSnapshot = await getDocs(groupsQuery);
-      const groups: JustSplitGroup[] = groupsSnapshot.docs.map(doc => ({
+      let groups: JustSplitGroup[] = groupsSnapshot.docs.map(doc => ({
         id: doc.id,
         ...doc.data(),
         createdAt: this.timestampToString(doc.data().createdAt)
       } as JustSplitGroup));
+
+      // Apply privacy filtering for groups
+      groups = filterResultsByPrivacy(groups, userId) as JustSplitGroup[];
 
       // Fetch events where user is a member
       const eventsQuery = query(
@@ -220,7 +300,7 @@ export class DashboardDataService {
         limit(50)
       );
       const eventsSnapshot = await getDocs(eventsQuery);
-      const events: JustSplitEvent[] = eventsSnapshot.docs.map(doc => ({
+      let events: JustSplitEvent[] = eventsSnapshot.docs.map(doc => ({
         id: doc.id,
         ...doc.data(),
         date: this.timestampToString(doc.data().date),
@@ -228,6 +308,9 @@ export class DashboardDataService {
         endDate: doc.data().endDate ? this.timestampToString(doc.data().endDate) : undefined,
         createdAt: this.timestampToString(doc.data().createdAt)
       } as JustSplitEvent));
+
+      // Apply privacy filtering for events
+      events = filterResultsByPrivacy(events, userId) as JustSplitEvent[];
 
       // Fetch settlements where user is involved
       const settlementsFromQuery = query(
@@ -248,7 +331,7 @@ export class DashboardDataService {
         getDocs(settlementsToQuery)
       ]);
 
-      const settlements: JustSplitSettlement[] = [
+      let settlements: JustSplitSettlement[] = [
         ...settlementsFromSnapshot.docs.map(doc => ({
           id: doc.id,
           ...doc.data(),
@@ -261,12 +344,18 @@ export class DashboardDataService {
         } as JustSplitSettlement))
       ].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
-      console.log('JustSplit data fetched:', {
-        expenses: expenses.length,
-        groups: groups.length,
-        events: events.length,
-        settlements: settlements.length,
-        userProfile: !!userProfile
+      // Apply privacy filtering for settlements
+      settlements = filterResultsByPrivacy(settlements, userId) as JustSplitSettlement[];
+
+      logger.info('JustSplit data fetched', {
+        userId,
+        metrics: {
+          expenses: expenses.length,
+          groups: groups.length,
+          events: events.length,
+          settlements: settlements.length,
+          userProfile: !!userProfile
+        }
       });
 
       return {
@@ -277,7 +366,7 @@ export class DashboardDataService {
         userProfile
       };
     } catch (error) {
-      console.error('Error fetching JustSplit data:', error);
+      logger.error('Error fetching JustSplit data', { error, userId });
       return {
         expenses: [],
         groups: [],
@@ -497,8 +586,8 @@ export class DashboardDataService {
       .slice(0, 15);
   }
 
-  // Get user names for display purposes
-  async getUserNames(userIds: string[]): Promise<Record<string, string>> {
+  // Get user names for display purposes with privacy anonymization
+  async getUserNames(userIds: string[], viewerId: string): Promise<Record<string, string>> {
     if (userIds.length === 0) return {};
 
     try {
@@ -515,15 +604,25 @@ export class DashboardDataService {
         );
         const usersSnapshot = await getDocs(usersQuery);
         
-        usersSnapshot.docs.forEach(doc => {
+        for (const doc of usersSnapshot.docs) {
           const userData = doc.data();
-          userNames[userData.id] = userData.name || userData.displayName || 'Unknown User';
-        });
+          
+          // Apply privacy-aware anonymization
+          const anonymizedData = anonymizeData(
+            userData,
+            viewerId,
+            userData.id
+          );
+          
+          userNames[userData.id] = anonymizedData.name || 
+                                   anonymizedData.displayName || 
+                                   'Anonymous User';
+        }
       }
 
       return userNames;
     } catch (error) {
-      console.error('Error fetching user names:', error);
+      logger.error('Error fetching user names', { error, userIds });
       return {};
     }
   }

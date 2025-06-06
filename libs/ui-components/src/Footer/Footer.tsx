@@ -28,6 +28,7 @@ export interface CompanyInfo {
   tagline?: string;
   email?: string;
   copyrightPrefix?: string;
+  copyrightSuffix?: string;
 }
 
 export interface FooterProps {
@@ -146,7 +147,7 @@ export default function Footer({
             )}
             {companyInfo.tagline && (
               <p className={styles.tagline}>
-                {t('footer.tagline') || companyInfo.tagline}
+                {companyInfo.tagline}
               </p>
             )}
             {showSocialLinks && socialLinks.length > 0 && (
@@ -181,31 +182,13 @@ export default function Footer({
             </div>
           ))}
 
-          {/* Contact Section - if email is provided */}
-          {companyInfo.email && (
-            <div className={styles.footerSection}>
-              <h3 className={styles.sectionTitle}>
-                {t('footer.contact') || 'Contact'}
-              </h3>
-              <ul className={styles.sectionLinks}>
-                <li>
-                  <a 
-                    href={`mailto:${companyInfo.email}`}
-                    className={styles.footerLink}
-                  >
-                    {companyInfo.email}
-                  </a>
-                </li>
-              </ul>
-            </div>
-          )}
         </div>
 
         {/* Bottom Section */}
         {showCopyright && (
           <div className={styles.footerBottom}>
             <p className={styles.copyright}>
-              {companyInfo.copyrightPrefix} {currentYear} {companyInfo.name}. {t('footer.allRightsReserved') || 'All rights reserved.'}
+              {companyInfo.copyrightPrefix} {currentYear} {companyInfo.name}. {companyInfo.copyrightSuffix || t('common:footer.allRightsReserved') || 'All rights reserved'}
             </p>
           </div>
         )}

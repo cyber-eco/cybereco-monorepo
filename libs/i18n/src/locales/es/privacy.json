@@ -1,0 +1,118 @@
+{
+  "privacyPage": {
+    "title": "Política de Privacidad",
+    "subtitle": "Cómo recopilamos, usamos y protegemos tus datos",
+    "lastUpdated": "Última actualización: Enero 2025",
+    "intro": "En CyberEco, la privacidad no es solo una característica — es un principio fundamental. Esta política explica cómo manejamos tu información en todas las aplicaciones CyberEco.",
+    "sections": {
+      "overview": {
+        "title": "Resumen de Privacidad",
+        "principle1": "Eres dueño de tus datos",
+        "principle2": "Minimizamos la recopilación de datos",
+        "principle3": "No vendemos información personal",
+        "principle4": "Prácticas de datos transparentes",
+        "principle5": "Seguridad fuerte por defecto"
+      },
+      "dataCollection": {
+        "title": "Qué Recopilamos",
+        "accountData": {
+          "title": "Información de Cuenta",
+          "item1": "Dirección de correo (para autenticación)",
+          "item2": "Nombre para mostrar (tú eliges)",
+          "item3": "Foto de perfil (opcional)",
+          "item4": "Credenciales de autenticación"
+        },
+        "usageData": {
+          "title": "Información de Uso",
+          "item1": "Características que usas (anonimizado)",
+          "item2": "Métricas de rendimiento de la app",
+          "item3": "Reportes de errores (sanitizados)",
+          "item4": "Patrones generales de uso"
+        },
+        "appSpecific": {
+          "title": "Datos Específicos de Aplicación",
+          "justsplit": "JustSplit: Registros de gastos, membresías de grupo, historial de pagos",
+          "hub": "Hub: Permisos de app, configuraciones de seguridad, historial de inicio de sesión",
+          "future": "Las aplicaciones futuras tendrán sus necesidades específicas de datos documentadas"
+        }
+      },
+      "dataUsage": {
+        "title": "Cómo Usamos Tus Datos",
+        "purpose1": "Proporcionar y mejorar nuestros servicios",
+        "purpose2": "Autenticar y asegurar tu cuenta",
+        "purpose3": "Sincronizar datos entre tus dispositivos",
+        "purpose4": "Enviar actualizaciones importantes del servicio",
+        "purpose5": "Depurar y corregir problemas técnicos",
+        "purpose6": "Desarrollar nuevas características basadas en patrones de uso"
+      },
+      "dataSharing": {
+        "title": "Compartir Datos",
+        "never": "Nunca:",
+        "never1": "Vendemos tu información personal",
+        "never2": "Compartimos datos con anunciantes",
+        "never3": "Usamos tus datos para anuncios dirigidos",
+        "never4": "Accedemos a tus datos sin permiso",
+        "exceptions": "Excepciones limitadas:",
+        "exception1": "Requisitos legales (con notificación cuando sea posible)",
+        "exception2": "Proteger la seguridad",
+        "exception3": "Con tu consentimiento explícito"
+      },
+      "dataControl": {
+        "title": "Tu Control",
+        "right1": "Accede a todos tus datos en cualquier momento",
+        "right2": "Exporta datos en formatos estándar",
+        "right3": "Elimina datos específicos o toda la cuenta",
+        "right4": "Controla configuraciones de privacidad por aplicación",
+        "right5": "Opta por no participar en recopilación de análisis",
+        "right6": "Gestiona preferencias de compartir datos"
+      },
+      "security": {
+        "title": "Medidas de Seguridad",
+        "measure1": "Cifrado de extremo a extremo para datos sensibles",
+        "measure2": "Protocolos de autenticación seguros",
+        "measure3": "Auditorías de seguridad regulares",
+        "measure4": "Transmisión de datos cifrada",
+        "measure5": "Almacenamiento seguro en la nube",
+        "measure6": "Procedimientos de respuesta a incidentes"
+      },
+      "retention": {
+        "title": "Retención de Datos",
+        "active": "Cuentas activas: Datos retenidos mientras la cuenta está activa",
+        "inactive": "Cuentas inactivas: Recordatorio enviado después de 12 meses",
+        "deleted": "Cuentas eliminadas: Datos personales eliminados en 30 días",
+        "logs": "Registros del sistema: Retenidos por 90 días",
+        "analytics": "Datos de análisis: Anonimizados y agregados"
+      },
+      "cookies": {
+        "title": "Cookies y Seguimiento",
+        "essential": "Cookies esenciales: Autenticación, seguridad, preferencias",
+        "analytics": "Cookies de análisis: Opcionales, para mejorar servicios",
+        "none": "No usamos: Cookies de publicidad, píxeles de seguimiento, rastreadores de terceros"
+      },
+      "gdpr": {
+        "title": "Cumplimiento GDPR",
+        "text": "Para usuarios en la Unión Europea, cumplimos con los requisitos GDPR incluyendo:",
+        "right1": "Derecho a acceder a tus datos",
+        "right2": "Derecho a rectificación",
+        "right3": "Derecho al olvido",
+        "right4": "Derecho a portabilidad de datos",
+        "right5": "Derecho a objetar el procesamiento",
+        "right6": "Derecho a restringir el procesamiento"
+      },
+      "children": {
+        "title": "Privacidad de Menores",
+        "text": "Las aplicaciones CyberEco no están destinadas a menores de 13 años. No recopilamos datos de menores a sabiendas. Si crees que hemos recopilado datos de un menor, contáctanos inmediatamente."
+      },
+      "changes": {
+        "title": "Cambios a la Política",
+        "text": "Te notificaremos sobre cambios significativos a esta política de privacidad por correo y notificaciones en la app. El uso continuado después de cambios constituye aceptación."
+      },
+      "contact": {
+        "title": "Contáctanos",
+        "text": "¿Preguntas sobre privacidad? Contacta a nuestro equipo de privacidad:",
+        "email": "privacy@cybere.co",
+        "address": "Equipo de Privacidad, CyberEco, 123 Camino de Innovación, San Francisco, CA 94103"
+      }
+    }
+  }
+}

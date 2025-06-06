@@ -32,10 +32,28 @@ import {
   ActivitySummary,
   DataSyncStatus
 } from '@cybereco/shared-types';
+import { createLogger } from '@cybereco/auth';
 
+const logger = createLogger('SharedDataService');
 const db = getHubFirestore();
 
 // ========== User Profile Management ==========
+
+/**
+ * Get user preferences
+ */
+async function getUserPreferences(userId: string): Promise<{ currency?: string; locale?: string } | null> {
+  try {
+    const prefsDoc = await getDoc(doc(db, 'userPreferences', userId));
+    if (prefsDoc.exists()) {
+      return prefsDoc.data() as { currency?: string; locale?: string };
+    }
+    return null;
+  } catch (error) {
+    logger.error('Failed to get user preferences', { error, userId });
+    return null;
+  }
+}
 
 export async function getSharedUserProfile(userId: string): Promise<SharedUserProfile | null> {
   try {
@@ -285,7 +303,7 @@ export async function checkPermission(
     
     return permission.permissions.includes(requiredPermission);
   } catch (error) {
-    console.error('Error checking permission:', error);
+    logger.error('Error checking permission', { error, userId, resourceId, requiredPermission });
     return false;
   }
 }
@@ -300,6 +318,10 @@ export async function generateFinancialSummary(
   try {
     const transactions = await getUserTransactions(userId, { startDate, endDate });
     
+    // Get user preferences for currency
+    const userPrefs = await getUserPreferences(userId);
+    const currency = userPrefs?.currency || 'USD';
+    
     const summary: FinancialSummary = {
       userId,
       period: { start: startDate, end: endDate },
@@ -308,7 +330,7 @@ export async function generateFinancialSummary(
       netAmount: 0,
       byCategory: [],
       byApp: [],
-      currency: 'USD', // TODO: Get from user preferences
+      currency,
       lastUpdated: new Date().toISOString()
     };
     

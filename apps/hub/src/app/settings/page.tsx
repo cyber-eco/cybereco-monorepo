@@ -8,11 +8,15 @@ import styles from '../page.module.css';
 export default function Settings() {
   const { userProfile: user, isLoading: loading, updateProfile } = useAuth();
   const { t, language, setLanguage } = useLanguage();
-  const { theme, setTheme } = useTheme();
-  const [preferences, setPreferences] = useState({
+  const { theme, toggleTheme } = useTheme();
+  const [preferences, setPreferences] = useState<{
+    theme: 'light' | 'dark' | 'auto';
+    language: 'en' | 'es';
+    notifications: boolean;
+  }>({
     theme: user?.preferences?.theme || 'auto',
     language: user?.preferences?.language || 'en',
-    notifications: user?.preferences?.notifications || true
+    notifications: user?.preferences?.notifications ?? true
   });
   const [isUpdating, setIsUpdating] = useState(false);
 
@@ -44,8 +48,12 @@ export default function Settings() {
         setLanguage(preferences.language as 'en' | 'es');
       }
       
-      if (preferences.theme !== theme) {
-        setTheme(preferences.theme as 'light' | 'dark' | 'auto');
+      if (preferences.theme !== theme && (preferences.theme === 'light' || preferences.theme === 'dark')) {
+        // Only toggle if the current theme doesn't match the preference
+        if ((theme === 'light' && preferences.theme === 'dark') || 
+            (theme === 'dark' && preferences.theme === 'light')) {
+          toggleTheme();
+        }
       }
 
       // Update user profile
@@ -88,7 +96,7 @@ export default function Settings() {
               </label>
               <select
                 value={preferences.theme}
-                onChange={(e) => setPreferences({ ...preferences, theme: e.target.value })}
+                onChange={(e) => setPreferences({ ...preferences, theme: e.target.value as 'light' | 'dark' | 'auto' })}
                 className={styles.select}
               >
                 <option value="light">{t('theme.light') || 'Light'}</option>
@@ -103,7 +111,7 @@ export default function Settings() {
               </label>
               <select
                 value={preferences.language}
-                onChange={(e) => setPreferences({ ...preferences, language: e.target.value })}
+                onChange={(e) => setPreferences({ ...preferences, language: e.target.value as 'en' | 'es' })}
                 className={styles.select}
               >
                 <option value="en">English</option>
@@ -141,7 +149,7 @@ export default function Settings() {
             <div className={styles.settingGroup}>
               <label className={styles.settingLabel}>Account Created</label>
               <span className={styles.settingValue}>
-                {new Date(user.createdAt).toLocaleDateString()}
+                {user.createdAt ? new Date(user.createdAt).toLocaleDateString() : 'Unknown'}
               </span>
             </div>
           </Card>

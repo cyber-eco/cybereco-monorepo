@@ -9,6 +9,7 @@ import { useHubAuth } from '../hooks/useHubAuth';
 import { saveSharedAuthState } from '@cybereco/auth';
 import { prepareAuthForApp } from '../services/auth-bridge';
 import { AuthTokenService } from '../services/authTokenService';
+import type { SharedAuthUser, AuthUser } from '@cybereco/auth';
 import styles from './AppGrid.module.css';
 
 export function AppGrid() {
@@ -98,7 +99,7 @@ function AppCard({ app }: { app: App }) {
     if (!user || !currentUser) return;
 
     // Make sure shared auth is saved before navigating
-    const sharedUser = {
+    const sharedUser: SharedAuthUser = {
       uid: user.id,
       email: user.email || null,
       displayName: user.name,
@@ -110,10 +111,19 @@ function AppCard({ app }: { app: App }) {
     console.log('🚀 AppGrid: Preparing auth for app launch', app.id);
     await prepareAuthForApp(sharedUser, app.id);
     
+    // Convert to AuthUser for token generation
+    const authUser: AuthUser = {
+      uid: sharedUser.uid,
+      email: sharedUser.email || undefined,
+      displayName: sharedUser.displayName || undefined,
+      photoURL: sharedUser.photoURL,
+      emailVerified: sharedUser.emailVerified
+    };
+    
     // Generate secure app URL with auth token
     const targetUrl = await AuthTokenService.generateAppUrl(
       app.url,
-      sharedUser,
+      authUser,
       app.id
     );
     

@@ -1,0 +1,14 @@
+{
+  "helpPage": {
+    "title": "How Can We Help?",
+    "subtitle": "Find the support you need with our help resources and documentation",
+    "faqTitle": "Frequently Asked Questions",
+    "faqDesc": "Find answers to commonly asked questions about our solutions and the CyberEco ecosystem",
+    "docsTitle": "Documentation",
+    "docsDesc": "Comprehensive guides and technical documentation for the CyberEco digital ecosystem",
+    "supportTitle": "Support",
+    "supportDesc": "Get help from our support team and community for any issues across all solution categories",
+    "contactTitle": "Contact",
+    "contactDesc": "Reach out to us directly for questions about any of our solutions or to suggest new features"
+  }
+}

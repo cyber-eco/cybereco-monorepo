@@ -1,6 +1,16 @@
 // Import Jest DOM utilities
 import '@testing-library/jest-dom';
 
+// Polyfill for Request/Response in Node environment
+import { TextEncoder, TextDecoder } from 'util';
+global.TextEncoder = TextEncoder;
+global.TextDecoder = TextDecoder;
+
+// Mock fetch if not available
+if (!global.fetch) {
+  global.fetch = jest.fn();
+}
+
 // Mock the Next.js router
 jest.mock('next/router', () => ({
   useRouter: jest.fn(() => ({

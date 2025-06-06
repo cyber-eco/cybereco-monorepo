@@ -1,10 +1,10 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { BaseUser } from './AuthContext';
+import type { BaseUserConstraint } from './AuthContext';
 import type { AppPermission } from './utils';
 
-interface PermissionCheckResult {
+export interface PermissionCheck {
   hasAccess: boolean;
   hasFeature: (feature: string) => boolean;
   hasRole: (role: string) => boolean;
@@ -12,9 +12,15 @@ interface PermissionCheckResult {
   error?: Error;
 }
 
+// Extended user type with permissions
+export interface UserWithPermissions extends BaseUserConstraint {
+  permissions?: AppPermission[];
+  apps?: string[];
+}
+
 interface UsePermissionsConfig {
   appId: string;
-  user: BaseUser | null;
+  user: UserWithPermissions | null;
   requiredFeatures?: string[];
   requiredRoles?: string[];
 }
@@ -27,7 +33,7 @@ export function usePermissions({
   user, 
   requiredFeatures = [], 
   requiredRoles = [] 
-}: UsePermissionsConfig): PermissionCheckResult {
+}: UsePermissionsConfig): PermissionCheck {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<Error | undefined>();
   const [permissions, setPermissions] = useState<AppPermission | null>(null);
@@ -45,14 +51,13 @@ export function usePermissions({
         
         // In a real implementation, this would fetch from the Hub API
         // For now, we'll check the user's local permissions
-        const userWithPermissions = user as any;
         
-        if (userWithPermissions.permissions) {
-          const appPermission = userWithPermissions.permissions.find(
+        if (user.permissions) {
+          const appPermission = user.permissions.find(
             (p: AppPermission) => p.appId === appId
           );
           setPermissions(appPermission || null);
-        } else if (userWithPermissions.apps && userWithPermissions.apps.includes(appId)) {
+        } else if (user.apps && user.apps.includes(appId)) {
           // Legacy support - user has app access but no detailed permissions
           setPermissions({
             appId,
@@ -106,7 +111,7 @@ export function withPermissions<P extends object>(
   Component: React.ComponentType<P>,
   config: Omit<UsePermissionsConfig, 'user'>
 ) {
-  return function ProtectedComponent(props: P & { user: BaseUser | null }) {
+  return function ProtectedComponent(props: P & { user: UserWithPermissions | null }) {
     const { user, ...componentProps } = props;
     const { hasAccess, isLoading, error } = usePermissions({
       ...config,

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@cybereco/i18n": "*",
     "framer-motion": "^12.15.0",
     "next": "^15.3.2",
     "react": "^18.3.1",

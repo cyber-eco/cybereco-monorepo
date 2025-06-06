@@ -3,14 +3,18 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styles from './UserMenu.module.css';
 
-export interface UserMenuItem {
-  label: string;
-  href?: string;
-  onClick?: () => void;
-  icon?: React.ReactNode;
-  divider?: boolean;
-  danger?: boolean;
-}
+export type UserMenuItem = 
+  | {
+      label: string;
+      href?: string;
+      onClick?: () => void;
+      icon?: React.ReactNode;
+      divider?: false;
+      danger?: boolean;
+    }
+  | {
+      divider: true;
+    };
 
 export interface UserMenuProps {
   user: {
@@ -80,7 +84,7 @@ export function UserMenu({
   };
 
   const handleMenuItemClick = (item: UserMenuItem) => {
-    if (item.onClick) {
+    if ('onClick' in item && item.onClick) {
       item.onClick();
     }
     setIsOpen(false);
@@ -166,7 +170,7 @@ export function UserMenu({
           {/* Menu items */}
           <div className={styles.menuItems}>
             {items.map((item, index) => {
-              if (item.divider) {
+              if ('divider' in item && item.divider) {
                 return <div key={index} className={styles.menuDivider} />;
               }
 

@@ -1,5 +1,29 @@
-import { NavigationProps, NavigationLink, NavigationActionButton } from '@cybereco/ui-components';
-import { FaRocket, FaExternalLinkAlt } from 'react-icons/fa';
+// Navigation types - copied from ui-components to avoid circular dependency
+export interface NavigationLink {
+  href: string;
+  label: string;
+  external?: boolean;
+}
+
+export interface NavigationActionButton {
+  href?: string;
+  label?: string;
+  onClick?: () => void;
+  element?: React.ReactNode;
+  className?: string;
+  icon?: React.ReactNode;
+  external?: boolean;
+}
+
+export interface NavigationProps {
+  links: NavigationLink[];
+  actionButton?: NavigationActionButton;
+  showConfig?: boolean;
+  mobileMenuStorageKey?: string;
+  className?: string;
+  LinkComponent?: React.ComponentType<any>;
+  usePathname?: () => string;
+}
 
 // Website Navigation Configuration
 export const websiteNavLinks: NavigationLink[] = [

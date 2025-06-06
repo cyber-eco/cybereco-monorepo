@@ -310,6 +310,29 @@
   background-color: rgba(255, 255, 255, 0.1);
 }
 
+/* 2FA Verification Styles */
+.verificationInput {
+  font-size: 1.5rem;
+  letter-spacing: 0.5rem;
+  text-align: center;
+  font-family: monospace;
+}
+
+.linkButton {
+  background: none;
+  border: none;
+  color: var(--primary);
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: var(--font-size-base);
+  padding: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.linkButton:hover {
+  opacity: 0.8;
+}
+
 @media (max-width: 768px) {
   .authCard {
     padding: var(--spacing-lg);

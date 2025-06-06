@@ -1,0 +1,182 @@
+{
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome back, {{name}}!",
+    "overview": "Overview",
+    "quickActions": "Quick Actions",
+    "recentActivity": "Recent Activity",
+    "statistics": {
+      "totalApps": "Total Apps",
+      "activeUsers": "Active Users",
+      "dataUsage": "Data Usage",
+      "apiCalls": "API Calls"
+    }
+  },
+  "apps": {
+    "title": "Applications",
+    "myApps": "My Apps",
+    "allApps": "All Apps",
+    "featured": "Featured",
+    "categories": {
+      "productivity": "Productivity",
+      "finance": "Finance",
+      "social": "Social",
+      "utilities": "Utilities",
+      "entertainment": "Entertainment"
+    },
+    "actions": {
+      "launch": "Launch",
+      "install": "Install",
+      "uninstall": "Uninstall",
+      "update": "Update",
+      "configure": "Configure"
+    },
+    "status": {
+      "installed": "Installed",
+      "available": "Available",
+      "updating": "Updating",
+      "disabled": "Disabled"
+    }
+  },
+  "profile": {
+    "title": "Profile",
+    "personalInfo": "Personal Information",
+    "accountSettings": "Account Settings",
+    "preferences": "Preferences",
+    "fields": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "phone": "Phone",
+      "timezone": "Timezone",
+      "language": "Language",
+      "dateFormat": "Date Format"
+    }
+  },
+  "security": {
+    "title": "Security",
+    "overview": "Security Overview",
+    "password": {
+      "title": "Password",
+      "change": "Change Password",
+      "requirements": "Password Requirements",
+      "lastChanged": "Last changed {{date}}"
+    },
+    "devices": {
+      "title": "Devices",
+      "trustedDevices": "Trusted Devices",
+      "activeSessions": "Active Sessions",
+      "deviceInfo": "Device Information"
+    },
+    "activity": {
+      "title": "Security Activity",
+      "recentLogins": "Recent Logins",
+      "suspiciousActivity": "Suspicious Activity",
+      "securityAlerts": "Security Alerts"
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "general": "General",
+    "notifications": {
+      "title": "Notifications",
+      "email": "Email Notifications",
+      "push": "Push Notifications",
+      "sms": "SMS Notifications",
+      "frequency": "Notification Frequency"
+    },
+    "privacy": {
+      "title": "Privacy",
+      "dataCollection": "Data Collection",
+      "dataSharing": "Data Sharing",
+      "visibility": "Profile Visibility"
+    },
+    "appearance": {
+      "title": "Appearance",
+      "theme": "Theme",
+      "fontSize": "Font Size",
+      "colorScheme": "Color Scheme"
+    }
+  },
+  "billing": {
+    "title": "Billing",
+    "overview": "Billing Overview",
+    "currentPlan": "Current Plan",
+    "usage": "Usage",
+    "invoices": "Invoices",
+    "paymentMethods": "Payment Methods",
+    "subscription": {
+      "free": "Free",
+      "basic": "Basic",
+      "pro": "Pro",
+      "enterprise": "Enterprise"
+    },
+    "actions": {
+      "upgrade": "Upgrade Plan",
+      "downgrade": "Downgrade Plan",
+      "cancelSubscription": "Cancel Subscription",
+      "updatePayment": "Update Payment Method"
+    }
+  },
+  "myData": {
+    "title": "My Data",
+    "overview": "Data Overview",
+    "storage": {
+      "title": "Storage",
+      "used": "{{used}} of {{total}} used",
+      "breakdown": "Storage Breakdown"
+    },
+    "export": {
+      "title": "Export Data",
+      "formats": "Available Formats",
+      "requestExport": "Request Export",
+      "downloadReady": "Your export is ready to download"
+    },
+    "import": {
+      "title": "Import Data",
+      "selectFile": "Select File",
+      "supportedFormats": "Supported Formats",
+      "importHistory": "Import History"
+    },
+    "management": {
+      "title": "Data Management",
+      "retention": "Data Retention",
+      "deletion": "Data Deletion",
+      "portability": "Data Portability"
+    }
+  },
+  "navigation": {
+    "dashboard": "Dashboard",
+    "apps": "Apps",
+    "profile": "Profile",
+    "security": "Security",
+    "settings": "Settings",
+    "billing": "Billing",
+    "myData": "My Data",
+    "help": "Help",
+    "signOut": "Sign Out"
+  },
+  "common": {
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "refresh": "Refresh",
+    "more": "More",
+    "less": "Less",
+    "viewAll": "View All",
+    "close": "Close",
+    "open": "Open",
+    "yes": "Yes",
+    "no": "No",
+    "ok": "OK",
+    "apply": "Apply",
+    "reset": "Reset",
+    "clear": "Clear",
+    "loading": "Loading..."
+  },
+  "welcome": {
+    "title": "Welcome to CyberEco Hub",
+    "subtitle": "Sign in to access your digital ecosystem"
+  },
+  "loading": "Redirecting..."
+}

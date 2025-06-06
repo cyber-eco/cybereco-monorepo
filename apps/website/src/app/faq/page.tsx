@@ -71,8 +71,8 @@ export default function FaqPage() {
       },
       {
         id: 'enterprise-solutions',
-        question: t('faqPage.enterpriseQuestion') || "Do you offer enterprise solutions?",
-        answer: t('faqPage.enterpriseAnswer') || "Yes, we provide customized enterprise solutions for larger organizations. Please contact our sales team for more information about enterprise pricing and features."
+        question: t('common:faqPage.enterpriseQuestion') || "Do you offer enterprise solutions?",
+        answer: t('common:faqPage.enterpriseAnswer') || "Yes, we provide customized enterprise solutions for larger organizations. Please contact our sales team for more information about enterprise pricing and features."
       }
     ]
   };
@@ -86,7 +86,7 @@ export default function FaqPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          {t('faqPage.title') || "Frequently Asked Questions"}
+          {t('common:faqPage.title') || "Frequently Asked Questions"}
         </motion.h1>
         <motion.p
           className={styles.subtitle}
@@ -94,7 +94,7 @@ export default function FaqPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          {t('faqPage.subtitle') || "Find answers to common questions about CyberEco and our applications"}
+          {t('common:faqPage.subtitle') || "Find answers to common questions about CyberEco and our applications"}
         </motion.p>
       </header>
       
@@ -104,7 +104,7 @@ export default function FaqPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className={styles.faqCategory}>{t('faqPage.generalQuestionsTitle') || "General Questions"}</h2>
+          <h2 className={styles.faqCategory}>{t('common:faqPage.generalQuestionsTitle') || "General Questions"}</h2>
           {faqData.general.map((faq) => (
             <div key={faq.id} className={styles.faqItem}>
               <button 
@@ -136,7 +136,7 @@ export default function FaqPage() {
             </div>
           ))}
 
-          <h2 className={styles.faqCategory}>{t('faqPage.technicalQuestionsTitle') || "Technical Questions"}</h2>
+          <h2 className={styles.faqCategory}>{t('common:faqPage.technicalQuestionsTitle') || "Technical Questions"}</h2>
           {faqData.technical.map((faq) => (
             <div key={faq.id} className={styles.faqItem}>
               <button 
@@ -168,7 +168,7 @@ export default function FaqPage() {
             </div>
           ))}
 
-          <h2 className={styles.faqCategory}>{t('faqPage.businessEnterpriseTitle') || "Business & Enterprise"}</h2>
+          <h2 className={styles.faqCategory}>{t('common:faqPage.businessEnterpriseTitle') || "Business & Enterprise"}</h2>
           {faqData.business.map((faq) => (
             <div key={faq.id} className={styles.faqItem}>
               <button 
@@ -203,13 +203,13 @@ export default function FaqPage() {
       </section>
       
       <div className={styles.contactSection}>
-        <p className={styles.contactText}>{t('faqPage.contactText') || "Still have questions? We're here to help."}</p>
+        <p className={styles.contactText}>{t('common:faqPage.contactText') || "Still have questions? We're here to help."}</p>
         <motion.div
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
           <Link href="/contact" className={styles.contactButton}>
-            {t('faqPage.contactButton') || "Contact Support"}
+            {t('common:faqPage.contactButton') || "Contact Support"}
           </Link>
         </motion.div>
       </div>

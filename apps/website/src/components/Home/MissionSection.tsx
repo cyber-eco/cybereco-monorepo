@@ -2,11 +2,11 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useLanguage } from '@cybereco/ui-components';
+import { useI18n } from '@cybereco/i18n';
 import styles from './MissionSection.module.css';
 
 export default function MissionSection() {
-  const { t } = useLanguage();
+  const { t } = useI18n();
 
   return (
     <section className={styles.missionSection}>
@@ -20,7 +20,7 @@ export default function MissionSection() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              {t('homePage.mission.sectionTitle') || 'OUR MISSION'}
+              {t('home:homePage.mission.approach') || 'Our Approach'}
             </motion.p>
             
             <motion.h2 
@@ -30,7 +30,7 @@ export default function MissionSection() {
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
             >
-              {t('homePage.mission.sectionSubtitle') || 'Creating harmony between technology and sustainability'}
+              {t('home:homePage.mission.title') || 'Human-Centered Technology'}
             </motion.h2>
             
             <motion.p 
@@ -40,7 +40,7 @@ export default function MissionSection() {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              {t('homePage.mission.missionText') || 'At CyberEco, our mission is to design and implement user-centered digital applications that enhance financial collaboration, community engagement, and social connectivity. We develop tools that promote transparency, efficiency, and healthy relationships between people and technology, enabling individuals and communities to thrive in our increasingly digital world.'}
+              {t('home:homePage.mission.text') || 'We believe technology should serve humanity, not exploit it. Our mission is to create digital solutions that enhance human well-being, foster authentic connections, and support sustainable living.'}
             </motion.p>
             
             <motion.div 
@@ -51,7 +51,7 @@ export default function MissionSection() {
               viewport={{ once: true }}
             >
               <a href="/about" className={styles.learnMoreButton}>
-                {t('homePage.mission.learnMore') || 'Learn More About Us'}
+                {t('common:actions.learnMore') || 'Learn More'}
               </a>
             </motion.div>
           </div>

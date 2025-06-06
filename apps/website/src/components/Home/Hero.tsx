@@ -3,11 +3,11 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { useLanguage } from '@cybereco/ui-components';
+import { useI18n } from '@cybereco/i18n';
 import styles from './Hero.module.css';
 
 export default function Hero() {
-  const { t } = useLanguage();
+  const { t } = useI18n();
 
   return (
     <section className={styles.heroContainer}>
@@ -23,7 +23,7 @@ export default function Hero() {
             transition={{ duration: 0.7 }}
           >
             <span className={styles.primaryText}>
-              {t('homePage.hero.title') || 'Digital Solutions for a Connected World'}
+              {t('home:homePage.hero.title') || 'Digital Solutions for a Connected World'}
             </span>
           </motion.h1>
           
@@ -33,7 +33,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
           >
-            {t('homePage.hero.subtitle') || 'CyberEco creates innovative applications that enhance how people manage finances, engage with communities, and connect with each other in the digital age.'}
+            {t('home:homePage.hero.subtitle') || 'CyberEco creates innovative applications that improve how people manage finances, participate in communities, and connect with each other in the digital age.'}
           </motion.p>
           
           <motion.div 
@@ -43,10 +43,10 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.4 }}
           >
             <Link href="/portfolio" className={styles.primaryButton}>
-              {t('homePage.hero.exploreSolutions') || 'Explore Solutions'}
+              {t('home:homePage.hero.exploreSolutions') || 'Explore Solutions'}
             </Link>
             <Link href="/about" className={styles.secondaryButton}>
-              {t('homePage.hero.learnAboutUs') || 'Learn About Us'}
+              {t('home:homePage.hero.learnMore') || 'Learn More'}
             </Link>
           </motion.div>
         </div>

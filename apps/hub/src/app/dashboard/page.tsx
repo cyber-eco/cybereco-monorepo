@@ -283,7 +283,7 @@ export default function Dashboard() {
           ...justSplitData.events.flatMap(e => e.members)
         ])
       ];
-      const userNames = await dataService.getUserNames(allUserIds);
+      const userNames = await dataService.getUserNames(allUserIds, user.id);
       console.log('User names loaded:', Object.keys(userNames).length);
 
       // Calculate metrics from real data

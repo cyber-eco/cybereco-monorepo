@@ -5,6 +5,39 @@
   "main": "src/index.ts",
   "types": "src/index.ts",
   "license": "SEE LICENSE IN ../../LICENSE",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "require": "./src/index.ts",
+      "types": "./src/index.ts"
+    },
+    "./serverOnly": {
+      "import": "./serverOnly.ts",
+      "require": "./serverOnly.ts",
+      "types": "./serverOnly.ts"
+    },
+    "./src/server": {
+      "import": "./src/server.ts",
+      "require": "./src/server.ts",
+      "types": "./src/server.ts"
+    }
+  },
+  "dependencies": {
+    "winston": "^3.11.0",
+    "zod": "^3.22.4",
+    "jsonwebtoken": "^9.0.2",
+    "speakeasy": "^2.0.0",
+    "qrcode": "^1.5.3",
+    "bcryptjs": "^2.4.3",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.5",
+    "@types/speakeasy": "^2.0.10",
+    "@types/qrcode": "^1.5.5",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/uuid": "^9.0.7"
+  },
   "peerDependencies": {
     "react": ">=18.0.0",
     "firebase": ">=11.0.0"

@@ -1,0 +1,262 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}
+
+.section {
+  margin-bottom: 3rem;
+}
+
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.section h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.section p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.features ul,
+.resourcesList {
+  list-style: none;
+  padding: 0;
+}
+
+.features li,
+.resourcesList li {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+}
+
+.features li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.codeBlock {
+  background-color: var(--code-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+}
+
+.codeBlock h4 {
+  margin: 0 0 1rem 0;
+  color: var(--text-primary);
+  font-size: 1.2rem;
+}
+
+.codeBlock pre {
+  margin: 0;
+  font-family: 'Consolas', 'Monaco', 'Andale Mono', 'Ubuntu Mono', monospace;
+}
+
+.codeBlock code {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--code-text);
+}
+
+.flowList {
+  counter-reset: flow-counter;
+  list-style: none;
+  padding: 0;
+}
+
+.flowList li {
+  counter-increment: flow-counter;
+  position: relative;
+  padding-left: 3rem;
+  margin-bottom: 2rem;
+}
+
+.flowList li::before {
+  content: counter(flow-counter);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.flowList strong {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.flowList p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.securityGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.securityItem {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.securityItem h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.securityItem ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.securityItem li {
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.securityItem li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+}
+
+.migrationTable {
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+.migrationTable table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.migrationTable th,
+.migrationTable td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.migrationTable th {
+  background-color: var(--table-header-bg);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.migrationTable tr:last-child td {
+  border-bottom: none;
+}
+
+.migrationTable tr:hover {
+  background-color: var(--table-hover-bg);
+}
+
+.resourcesList li {
+  padding-left: 0;
+}
+
+.resourcesList a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.resourcesList a:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}
+
+/* Dark mode support */
+[data-theme='dark'] .container {
+  --code-bg: #1e1e1e;
+  --code-text: #d4d4d4;
+  --card-bg: #1a1a1a;
+  --table-header-bg: #2a2a2a;
+  --table-hover-bg: #252525;
+}
+
+/* Light mode support */
+[data-theme='light'] .container {
+  --code-bg: #f5f5f5;
+  --code-text: #333333;
+  --card-bg: #ffffff;
+  --table-header-bg: #f0f0f0;
+  --table-hover-bg: #f8f8f8;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .container h1 {
+    font-size: 2rem;
+  }
+
+  .section h2 {
+    font-size: 1.5rem;
+  }
+
+  .securityGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .codeBlock {
+    padding: 1rem;
+  }
+
+  .flowList li {
+    padding-left: 2.5rem;
+  }
+}

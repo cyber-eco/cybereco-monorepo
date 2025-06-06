@@ -15,11 +15,15 @@ import {
   FaShieldAlt,
   FaHistory,
   FaClock,
-  FaExclamationTriangle
+  FaExclamationTriangle,
+  FaFileExport,
+  FaCalendar,
+  FaSpinner
 } from 'react-icons/fa';
 import Link from 'next/link';
-import { getHubFirestore } from '@cybereco/firebase-config';
+import { getHubFirestore, getHubAuth } from '@cybereco/firebase-config';
 import { collection, getDocs, query, where } from 'firebase/firestore';
+import { dataExportService } from '../../services/dataExportService';
 import styles from './my-data.module.css';
 
 interface AppDataConnection {
@@ -47,12 +51,76 @@ export default function MyDataPage() {
   const [activeTab, setActiveTab] = useState<'overview' | 'connections' | 'privacy'>('overview');
   const [connectedApps, setConnectedApps] = useState<AppDataConnection[]>([]);
   const [dataMetrics, setDataMetrics] = useState<DataMetric[]>([]);
+  const [isExporting, setIsExporting] = useState(false);
+  const [showExportModal, setShowExportModal] = useState(false);
+  const [exportFormat, setExportFormat] = useState<'json' | 'csv'>('json');
+  const [includeMetadata, setIncludeMetadata] = useState(true);
+  const [dateRange, setDateRange] = useState<{ start: string; end: string } | null>(null);
 
   useEffect(() => {
     if (!isLoading && !user) {
       router.push('/');
     }
   }, [user, isLoading, router]);
+
+  const handleExportData = async () => {
+    if (!user) return;
+    
+    setIsExporting(true);
+    try {
+      const auth = getHubAuth();
+      const idToken = await auth.currentUser?.getIdToken();
+      if (!idToken) {
+        throw new Error('No authentication token');
+      }
+
+      const response = await fetch('/api/export', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${idToken}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          format: exportFormat,
+          includeMetadata,
+          dateRange: dateRange ? {
+            start: new Date(dateRange.start).toISOString(),
+            end: new Date(dateRange.end).toISOString()
+          } : undefined
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error('Export failed');
+      }
+
+      const blob = await response.blob();
+      const url = URL.createObjectURL(blob);
+      const filename = dataExportService.getExportFilename(exportFormat);
+      
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+      
+      setShowExportModal(false);
+      
+      // Update export count in metrics
+      setDataMetrics(prev => prev.map(metric => 
+        metric.label === (t('myData.dataExports') || 'Data Exports')
+          ? { ...metric, value: Number(metric.value) + 1 }
+          : metric
+      ));
+    } catch (error) {
+      console.error('Export error:', error);
+      alert(t('myData.exportError') || 'Failed to export data. Please try again.');
+    } finally {
+      setIsExporting(false);
+    }
+  };
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -287,7 +355,7 @@ export default function MyDataPage() {
                   {t('myData.quickActions') || 'Quick Actions'}
                 </h2>
                 <div className={styles.actionGrid}>
-                  <button className={styles.actionCard}>
+                  <button className={styles.actionCard} onClick={() => setShowExportModal(true)}>
                     <FaDownload className={styles.actionIcon} />
                     <span>{t('myData.exportData') || 'Export My Data'}</span>
                   </button>
@@ -426,6 +494,104 @@ export default function MyDataPage() {
             </div>
           )}
         </div>
+
+        {/* Export Modal */}
+        {showExportModal && (
+          <div className={styles.modalOverlay} onClick={() => setShowExportModal(false)}>
+            <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
+              <div className={styles.modalHeader}>
+                <h2>{t('myData.exportDataTitle') || 'Export Your Data'}</h2>
+                <button className={styles.closeButton} onClick={() => setShowExportModal(false)}>×</button>
+              </div>
+              
+              <div className={styles.modalContent}>
+                <div className={styles.exportOption}>
+                  <h3>{t('myData.exportFormat') || 'Export Format'}</h3>
+                  <div className={styles.formatOptions}>
+                    <label className={styles.radioLabel}>
+                      <input
+                        type="radio"
+                        name="format"
+                        value="json"
+                        checked={exportFormat === 'json'}
+                        onChange={(e) => setExportFormat(e.target.value as 'json' | 'csv')}
+                      />
+                      <span>JSON</span>
+                      <small>{t('myData.jsonDesc') || 'Machine-readable format with full data structure'}</small>
+                    </label>
+                    <label className={styles.radioLabel}>
+                      <input
+                        type="radio"
+                        name="format"
+                        value="csv"
+                        checked={exportFormat === 'csv'}
+                        onChange={(e) => setExportFormat(e.target.value as 'json' | 'csv')}
+                      />
+                      <span>CSV</span>
+                      <small>{t('myData.csvDesc') || 'Spreadsheet-compatible format'}</small>
+                    </label>
+                  </div>
+                </div>
+
+                <div className={styles.exportOption}>
+                  <label className={styles.checkboxLabel}>
+                    <input
+                      type="checkbox"
+                      checked={includeMetadata}
+                      onChange={(e) => setIncludeMetadata(e.target.checked)}
+                    />
+                    <span>{t('myData.includeMetadata') || 'Include metadata (export date, version)'}</span>
+                  </label>
+                </div>
+
+                <div className={styles.exportOption}>
+                  <h3>{t('myData.dateRange') || 'Date Range (Optional)'}</h3>
+                  <div className={styles.dateInputs}>
+                    <input
+                      type="date"
+                      placeholder={t('myData.startDate') || 'Start date'}
+                      onChange={(e) => setDateRange(prev => ({ ...prev, start: e.target.value } as any))}
+                    />
+                    <span>to</span>
+                    <input
+                      type="date"
+                      placeholder={t('myData.endDate') || 'End date'}
+                      onChange={(e) => setDateRange(prev => ({ ...prev, end: e.target.value } as any))}
+                    />
+                  </div>
+                </div>
+
+                <div className={styles.exportInfo}>
+                  <FaFileExport className={styles.infoIcon} />
+                  <p>{t('myData.exportInfo') || 'Your export will include: profile data, permissions, activities, sessions, and authorized applications.'}</p>
+                </div>
+              </div>
+
+              <div className={styles.modalActions}>
+                <button className={styles.cancelButton} onClick={() => setShowExportModal(false)}>
+                  {t('common.cancel') || 'Cancel'}
+                </button>
+                <button 
+                  className={styles.exportButton} 
+                  onClick={handleExportData}
+                  disabled={isExporting}
+                >
+                  {isExporting ? (
+                    <>
+                      <FaSpinner className={styles.spinner} />
+                      {t('myData.exporting') || 'Exporting...'}
+                    </>
+                  ) : (
+                    <>
+                      <FaDownload />
+                      {t('myData.export') || 'Export'}
+                    </>
+                  )}
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

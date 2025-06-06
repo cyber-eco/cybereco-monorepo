@@ -9,7 +9,8 @@ const nextConfig = {
     '@cybereco/shared-types',
     '@cybereco/firebase-config',
     '@cybereco/ui-components',
-    '@cybereco/shared-assets'
+    '@cybereco/shared-assets',
+    '@cybereco/i18n'
   ],
   // GitHub Pages deployment - use absolute path for assets
   assetPrefix: process.env.NODE_ENV === 'production' ? '' : '',

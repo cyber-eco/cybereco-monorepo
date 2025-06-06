@@ -2,11 +2,11 @@
 
 import { motion } from 'framer-motion';
 import { FaHandshake } from 'react-icons/fa';
-import { useLanguage } from '@cybereco/ui-components';
+import { useI18n } from '@cybereco/i18n';
 import styles from './page.module.css';
 
 export default function AboutPage() {
-  const { t } = useLanguage();
+  const { t } = useI18n();
 
   return (
     <div className={styles.pageContainer}>
@@ -17,7 +17,7 @@ export default function AboutPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          {t('aboutPage.title') || 'About CyberEco'}
+          {t('about:aboutPage.title') || 'Building Technology for Human Flourishing'}
         </motion.h1>
         <motion.p
           className={styles.subtitle}
@@ -25,19 +25,19 @@ export default function AboutPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          {t('aboutPage.subtitle') || 'Learn about our mission, vision, and the values that guide our innovative technology solutions.'}
+          {t('about:aboutPage.subtitle') || 'CyberEco is on a mission to create digital tools that empower individuals and strengthen communities'}
         </motion.p>
       </header>
 
       <section className={styles.section}>
         <div className={styles.aboutContent}>
           <div className={styles.textContent}>
-            <h2 className={styles.sectionTitle}>{t('aboutPage.whoWeAreTitle') || 'Who We Are'}</h2>
+            <h2 className={styles.sectionTitle}>{t('about:aboutPage.sections.story.title') || 'Our Story'}</h2>
             <p>
-              {t('aboutPage.whoWeAreP1') || 'CyberEco is a human-centered digital ecosystem for conscious, connected, and sustainable living. In a world where digital life is fragmented, extractive, and overwhelming, CyberEco exists to offer a better path — one rooted in sovereignty, community, and balance.'}
+              {t('about:aboutPage.sections.story.content') || 'CyberEco was born from the frustration of seeing technology increasingly designed to extract value from users rather than provide it. We witnessed social media platforms optimizing for addiction, financial apps charging hidden fees, and data being harvested without consent. We knew there had to be a better way.'}
             </p>
             <p>
-              {t('aboutPage.whoWeAreP2') || 'We believe your digital presence should empower you, not exploit you. Your identity should belong to you. Your data should serve you. Your actions should connect you with others meaningfully.'}
+              {t('about:aboutPage.sections.story.continuation') || 'Starting with JustSplit, a simple expense-sharing app, we proved that useful software doesn\'t need to exploit users. Now we\'re building an entire ecosystem of applications based on principles of digital sovereignty, privacy, and human-centered design.'}
             </p>
           </div>
           <div className={styles.logoContainer}>
@@ -47,45 +47,40 @@ export default function AboutPage() {
       </section>
 
       <section className={styles.section}>
-        <h2 className={styles.sectionTitle}>{t('aboutPage.whyWeExistTitle') || 'Why We Exist'}</h2>
+        <h2 className={styles.sectionTitle}>{t('about:aboutPage.sections.mission.title') || 'Mission & Values'}</h2>
         <blockquote className={styles.manifestoQuote}>
-          {t('aboutPage.manifestoQuote') || 'In a world where digital life is fragmented, extractive, and overwhelming, CyberEco exists to offer a better path — one rooted in sovereignty, community, and balance.'}
+          {t('about:aboutPage.sections.story.quote') || '"Technology is best when it brings people together." - Matt Mullenweg'}
         </blockquote>
-        <p>{t('aboutPage.whyWeExistText') || 'The digital world has become increasingly disconnected from human values. We created CyberEco to bridge this gap, providing digital solutions that align with how people naturally want to connect, collaborate, and live sustainably.'}</p>
+        <p>{t('about:aboutPage.sections.mission.missionStatement') || 'To create a digital ecosystem that enhances human well-being, fosters authentic connections, and supports sustainable living through technology that respects user sovereignty and privacy.'}</p>
       </section>
 
       <section className={styles.section}>
-        <h2 className={styles.sectionTitle}>{t('aboutPage.whatWeAreTitle') || 'What We Are'}</h2>
-        <p>{t('aboutPage.whatWeAreText') || 'CyberEco is not just another app. It is a modular digital ecosystem — an operating system for life — where each platform solves a real need while contributing to a greater whole.'}</p>
+        <h2 className={styles.sectionTitle}>{t('about:aboutPage.sections.approach.title') || 'Our Approach'}</h2>
+        <p>{t('about:aboutPage.sections.approach.subtitle') || 'Building Different'}</p>
         <ul>
-          <li>{t('aboutPage.whatWeArePoint1') || 'A place to manage your finances.'}</li>
-          <li>{t('aboutPage.whatWeArePoint2') || 'A place to resolve conflicts peacefully.'}</li>
-          <li>{t('aboutPage.whatWeArePoint3') || 'A place to grow, learn, vote, connect, and belong.'}</li>
-          <li>{t('aboutPage.whatWeArePoint4') || 'A place where your values and data align.'}</li>
+          <li>{t('about:aboutPage.sections.approach.principles.openSource.title') || 'Open Source When Possible'} - {t('about:aboutPage.sections.approach.principles.openSource.description') || 'We believe in transparency and community contribution'}</li>
+          <li>{t('about:aboutPage.sections.approach.principles.privacyFirst.title') || 'Privacy by Design'} - {t('about:aboutPage.sections.approach.principles.privacyFirst.description') || 'Your data stays yours, always'}</li>
+          <li>{t('about:aboutPage.sections.approach.principles.noVenture.title') || 'No Venture Capital'} - {t('about:aboutPage.sections.approach.principles.noVenture.description') || 'We grow sustainably without pressure to exploit users'}</li>
+          <li>{t('about:aboutPage.sections.approach.principles.community.title') || 'Community Governance'} - {t('about:aboutPage.sections.approach.principles.community.description') || 'Users have a real voice in platform development'}</li>
         </ul>
-        <p>{t('aboutPage.whatWeAreConclusion') || 'At the center is the CyberEco Hub — your identity, your dashboard, your digital home.'}</p>
       </section>
 
       <section className={styles.section}>
-        <h2 className={styles.sectionTitle}>{t('aboutPage.visionMissionTitle') || 'Our Vision & Mission'}</h2>
+        <h2 className={styles.sectionTitle}>{t('about:aboutPage.sections.future.title') || 'The Future We\'re Building'}</h2>
         <div className={styles.aboutContent}>
           <div className={styles.textContent}>
-            <h3>{t('aboutPage.visionTitle') || 'Vision'}</h3>
             <p>
-              {t('aboutPage.visionText') || 'To empower millions of people — not with more notifications, but with clarity, autonomy, and connection. To create a digital environment as human, intentional, and resilient as the world we deserve offline.'}
+              {t('about:aboutPage.sections.future.description') || 'By 2030, we envision CyberEco as a fully decentralized ecosystem where users have complete sovereignty over their digital lives. No central servers, no data harvesting, no surveillance capitalism - just useful tools that make life better.'}
             </p>
-          </div>
-          <div className={styles.textContent}>
-            <h3>{t('aboutPage.missionTitle') || 'Mission'}</h3>
             <p>
-              {t('aboutPage.missionText') || 'To create a modular digital ecosystem — an operating system for life — where each platform solves a real need while contributing to a greater whole, centered around the CyberEco Hub as your identity, your dashboard, your digital home.'}
+              {t('about:aboutPage.sections.future.callToAction') || 'Join us in building a more human digital future.'}
             </p>
           </div>
         </div>
       </section>
 
       <section className={styles.section}>
-        <h2 className={styles.sectionTitle}>{t('aboutPage.valuesTitle') || 'Our Values'}</h2>
+        <h2 className={styles.sectionTitle}>{t('about:aboutPage.sections.team.title') || 'The Team'}</h2>
         <motion.div 
           className={styles.valueCard}
           initial={{ opacity: 0, y: 20 }}
@@ -93,8 +88,8 @@ export default function AboutPage() {
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          <h3 className={styles.valueTitle}>{t('aboutPage.value1Title') || 'Digital Sovereignty'}</h3>
-          <p>{t('aboutPage.value1Text') || 'You own your identity, your data, your narrative. We create technology that empowers rather than exploits.'}</p>
+          <h3 className={styles.valueTitle}>{t('about:aboutPage.sections.mission.values.sovereignty.title') || 'Digital Sovereignty'}</h3>
+          <p>{t('about:aboutPage.sections.mission.values.sovereignty.description') || 'Users own their data, identity, and digital presence'}</p>
         </motion.div>
         
         <motion.div 
@@ -104,8 +99,8 @@ export default function AboutPage() {
           transition={{ duration: 0.5, delay: 0.1 }}
           viewport={{ once: true }}
         >
-          <h3 className={styles.valueTitle}>{t('aboutPage.value2Title') || 'Wellbeing by Design'}</h3>
-          <p>{t('aboutPage.value2Text') || 'Tech must serve your life — not consume it. We design solutions that enhance your wellbeing rather than draining it.'}</p>
+          <h3 className={styles.valueTitle}>{t('about:aboutPage.sections.mission.values.humanCentered.title') || 'Human-Centered Design'}</h3>
+          <p>{t('about:aboutPage.sections.mission.values.humanCentered.description') || 'Technology serves people, not profit metrics'}</p>
         </motion.div>
         
         <motion.div 
@@ -115,8 +110,8 @@ export default function AboutPage() {
           transition={{ duration: 0.5, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          <h3 className={styles.valueTitle}>{t('aboutPage.value3Title') || 'Interconnection with Purpose'}</h3>
-          <p>{t('aboutPage.value3Text') || 'Every platform is useful alone, but transformative together. We create an ecosystem of solutions that complement each other.'}</p>
+          <h3 className={styles.valueTitle}>{t('about:aboutPage.sections.mission.values.transparency.title') || 'Radical Transparency'}</h3>
+          <p>{t('about:aboutPage.sections.mission.values.transparency.description') || 'Open development, clear business models, honest communication'}</p>
         </motion.div>
         
         <motion.div 
@@ -126,20 +121,13 @@ export default function AboutPage() {
           transition={{ duration: 0.5, delay: 0.3 }}
           viewport={{ once: true }}
         >
-          <h3 className={styles.valueTitle}>{t('aboutPage.value4Title') || 'Community is Core'}</h3>
-          <p>{t('aboutPage.value4Text') || 'We build tools for individuals, powered by the collective. Community engagement and collaborative growth are at the heart of our ecosystem.'}</p>
+          <h3 className={styles.valueTitle}>{t('about:aboutPage.sections.mission.values.sustainability.title') || 'Long-term Thinking'}</h3>
+          <p>{t('about:aboutPage.sections.mission.values.sustainability.description') || 'Building for decades, not quarterly reports'}</p>
         </motion.div>
         
-        <motion.div 
-          className={styles.valueCard}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          viewport={{ once: true }}
-        >
-          <h3 className={styles.valueTitle}>{t('aboutPage.value5Title') || 'Open by Nature'}</h3>
-          <p>{t('aboutPage.value5Text') || 'Wherever possible, CyberEco is modular, transparent, and interoperable. We embrace openness and collaboration in our development approach.'}</p>
-        </motion.div>
+        <p className={styles.teamDescription}>
+          {t('about:aboutPage.sections.team.description') || 'CyberEco is built by a distributed team of developers, designers, and dreamers who believe in a better digital future.'}
+        </p>
       </section>
 
       <motion.div 
@@ -152,8 +140,8 @@ export default function AboutPage() {
         <div className={styles.iconContainer}>
           <FaHandshake />
         </div>
-        <h2 className={styles.joinTitle}>{t('aboutPage.joinUsTitle') || 'Join Us'}</h2>
-        <p className={styles.joinText}>{t('aboutPage.joinUsText') || 'CyberEco is a platform — but also a movement. We welcome creators, collaborators, dreamers, and builders. Let\'s shape a digital future worth living in — together.'}</p>
+        <h2 className={styles.joinTitle}>{t('about:aboutPage.cta.joinCommunity') || 'Join Our Community'}</h2>
+        <p className={styles.joinText}>{t('about:aboutPage.sections.future.callToAction') || 'Join us in building a more human digital future.'}</p>
       </motion.div>
     </div>
   );

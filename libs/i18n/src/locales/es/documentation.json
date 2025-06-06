@@ -1,0 +1,725 @@
+{
+  "documentationPage": {
+    "title": "Documentación",
+    "subtitle": "Guías completas y documentación técnica para el ecosistema digital CyberEco",
+    "searchPlaceholder": "Buscar documentación...",
+    "search": "Buscar documentación...",
+    "tableOfContents": "Tabla de Contenidos",
+    "nextSteps": "Siguientes Pasos",
+    "gettingStartedTitle": "Comenzando con CyberEco",
+    "introductionTitle": "Introducción",
+    "introductionText": "¡Bienvenido a la documentación de CyberEco! Esta guía te ayudará a comenzar con nuestro ecosistema digital. CyberEco ofrece un conjunto de soluciones digitales diseñadas para mejorar la colaboración financiera, el compromiso comunitario y la conectividad social, todo dentro de un marco centrado en el ser humano para una vida consciente, conectada y sostenible.",
+    "quickStartTitle": "Inicio Rápido",
+    "quickStartLabel": "📍 Guía de Inicio Rápido",
+    "quickStartTime": "⏱️ 5 minutos",
+    "step1Title": "Crea Tu Cuenta",
+    "step1Desc": "Regístrate para una cuenta de CyberEco Hub para acceder a todas las aplicaciones con una sola identidad.",
+    "step2Title": "Explora Aplicaciones",
+    "step2Desc": "Comienza con JustSplit para compartir gastos, luego descubre nuestro creciente ecosistema.",
+    "step3Title": "Únete a la Comunidad",
+    "step3Desc": "Conéctate con otros usuarios y contribuye a nuestra visión de tecnología centrada en el ser humano.",
+    "signUpNow": "Registrarse Ahora",
+    "exploreApps": "Explorar Apps",
+    "joinCommunity": "Unirse a la Comunidad",
+    "keyConceptsTitle": "Conceptos Clave y Arquitectura",
+    "digitalSovereigntyConceptTitle": "Soberanía Digital",
+    "digitalSovereigntyConceptText": "En el centro de CyberEco está el principio de soberanía digital: la idea de que las personas deben poseer y controlar su identidad y datos digitales. Nuestra arquitectura garantiza que:",
+    "digitalSovereigntyPoint1": "Los usuarios mantienen la propiedad de sus datos personales",
+    "digitalSovereigntyPoint2": "Las aplicaciones están diseñadas para ser interoperables y controladas por el usuario",
+    "digitalSovereigntyPoint3": "Ninguna entidad tiene control monopolístico sobre la información del usuario",
+    "digitalSovereigntyPoint4": "La privacidad está integrada en el diseño central, no añadida como una ocurrencia tardía",
+    "coreDocumentationTitle": "Documentación Principal",
+    "developerNavTitle": "Desarrollador",
+    "authenticationNavItem": "Integración de Autenticación",
+    "jwtAuthNavItem": "Autenticación JWT",
+    "ssoIntegrationNavItem": "Integración SSO",
+    "authLoggingNavItem": "Registro de Auth",
+    "dataArchitectureNavItem": "Arquitectura de Capa de Datos",
+    "hubGatewayNavItem": "Hub Gateway y Proxy",
+    "apiReferenceNavItem": "Referencia de API",
+    "developmentNavItem": "Configuración de Desarrollo",
+    "communityNavItem": "Comunidad y Soporte",
+    "jwt": {
+      "title": "Autenticación JWT",
+      "description": "Implementación de autenticación basada en tokens",
+      "overview": {
+        "title": "Visión General",
+        "description": "CyberEco utiliza JSON Web Tokens (JWT) para autenticación segura en todas las aplicaciones. Este enfoque moderno proporciona mejor seguridad, escalabilidad y características comparado con la autenticación tradicional basada en sesiones."
+      },
+      "features": {
+        "title": "Características Clave",
+        "secure": "Generación segura de tokens con algoritmo HS256",
+        "shortLived": "Tokens de acceso de corta duración (1 hora) con tokens de actualización (7 días)",
+        "crossApp": "Autenticación entre aplicaciones con reclamaciones de audiencia compartidas",
+        "csrf": "Protección CSRF para envíos de formularios",
+        "autoRefresh": "Actualización automática de tokens antes del vencimiento",
+        "secureCookie": "Gestión segura de cookies con flags HttpOnly y SameSite"
+      },
+      "structure": {
+        "title": "Estructura del Token",
+        "description": "Los tokens JWT constan de tres partes: encabezado, carga útil y firma. Esto es lo que contienen nuestros tokens:",
+        "accessToken": "Carga Útil del Token de Acceso"
+      },
+      "flow": {
+        "title": "Flujo de Autenticación",
+        "step1": {
+          "title": "Inicio de Sesión Inicial",
+          "description": "El usuario inicia sesión con credenciales de Firebase Auth"
+        },
+        "step2": {
+          "title": "Generación de Token",
+          "description": "El servidor genera tokens JWT de acceso y actualización"
+        },
+        "step3": {
+          "title": "Almacenamiento de Token",
+          "description": "Los tokens se almacenan de forma segura en sessionStorage/cookies"
+        },
+        "step4": {
+          "title": "Navegación Entre Aplicaciones",
+          "description": "Los tokens se usan para SSO sin problemas entre aplicaciones"
+        },
+        "step5": {
+          "title": "Actualización de Token",
+          "description": "Actualización automática cuando expira el token de acceso"
+        }
+      },
+      "security": {
+        "title": "Mejores Prácticas de Seguridad",
+        "storage": {
+          "title": "Almacenamiento de Tokens",
+          "access": "Tokens de acceso: sessionStorage o memoria",
+          "refresh": "Tokens de actualización: cookies httpOnly",
+          "never": "Nunca almacenar en localStorage para producción"
+        },
+        "expiry": {
+          "title": "Vencimiento de Token",
+          "access": "Tokens de acceso: 1 hora",
+          "refresh": "Tokens de actualización: 7 días",
+          "check": "Siempre verificar antes de usar"
+        },
+        "csrf": {
+          "title": "Protección CSRF",
+          "generate": "Generar tokens para formularios",
+          "verify": "Verificar al enviar",
+          "samesite": "Usar cookies SameSite"
+        }
+      },
+      "implementation": {
+        "title": "Ejemplo de Implementación"
+      },
+      "migration": {
+        "title": "Guía de Migración",
+        "description": "Si estás migrando del sistema de tokens antiguo a JWT:",
+        "aspect": "Aspecto",
+        "old": "Sistema Antiguo",
+        "new": "Sistema JWT",
+        "format": "Formato de Token",
+        "expiry": "Vencimiento",
+        "validation": "Validación",
+        "storage": "Almacenamiento"
+      },
+      "resources": {
+        "title": "Recursos Adicionales",
+        "api": "Referencia de API",
+        "sso": "Guía de Integración SSO",
+        "logging": "Registro de Autenticación",
+        "troubleshooting": "Guía de Solución de Problemas"
+      }
+    },
+    "sso": {
+      "title": "Integración de Single Sign-On (SSO)",
+      "description": "Guía de implementación de Single Sign-On",
+      "overview": {
+        "title": "Visión General",
+        "description": "El sistema de Single Sign-On (SSO) de CyberEco permite a los usuarios autenticarse una vez a través del Hub y acceder sin problemas a todas las aplicaciones del ecosistema sin volver a ingresar credenciales."
+      },
+      "benefits": {
+        "title": "Beneficios",
+        "seamless": "Experiencia de usuario fluida en todas las aplicaciones",
+        "security": "Seguridad mejorada con autenticación centralizada",
+        "management": "Gestión simplificada de cuentas de usuario",
+        "consistent": "Experiencia de inicio de sesión consistente",
+        "reduced": "Fatiga de contraseña reducida"
+      },
+      "architecture": {
+        "title": "Arquitectura",
+        "description": "El sistema SSO está construido sobre estos componentes clave:",
+        "hub": {
+          "title": "CyberEco Hub",
+          "description": "Proveedor de autenticación central que gestiona sesiones de usuario y emite tokens JWT para otras aplicaciones."
+        },
+        "jwt": {
+          "title": "Tokens JWT",
+          "description": "Tokens seguros que contienen identidad y permisos del usuario, válidos en todas las aplicaciones del ecosistema."
+        },
+        "shared": {
+          "title": "Estado de Auth Compartido",
+          "description": "Gestión del estado de autenticación entre aplicaciones para navegación fluida entre aplicaciones."
+        },
+        "firebase": {
+          "title": "Firebase Auth",
+          "description": "Servicio de autenticación subyacente que proporciona gestión segura de usuarios y múltiples proveedores de autenticación."
+        }
+      },
+      "flow": {
+        "title": "Flujo SSO",
+        "step1": {
+          "title": "Inicio de Sesión del Usuario",
+          "description": "El usuario se autentica en el Hub usando email/contraseña o proveedores sociales"
+        },
+        "step2": {
+          "title": "Generación de Token",
+          "description": "Hub genera tokens JWT de acceso y actualización con permisos de usuario"
+        },
+        "step3": {
+          "title": "Navegación de Aplicación",
+          "description": "El usuario navega a otra aplicación (ej. JustSplit) con token de autenticación"
+        },
+        "step4": {
+          "title": "Verificación de Token",
+          "description": "La aplicación destino verifica el token y crea una sesión local"
+        }
+      },
+      "implementation": {
+        "title": "Guía de Implementación",
+        "hub": {
+          "title": "1. Configuración del Hub (Proveedor de Autenticación)"
+        },
+        "app": {
+          "title": "2. Configuración de Aplicación (Consumidor SSO)"
+        },
+        "middleware": {
+          "title": "3. Protección de Middleware"
+        }
+      },
+      "development": {
+        "title": "Entorno de Desarrollo",
+        "description": "En desarrollo, SSO funciona a través de diferentes puertos usando estado de autenticación compartido:",
+        "ports": {
+          "title": "Puertos de Aplicación"
+        },
+        "note": {
+          "title": "Nota de Desarrollo",
+          "description": "Los tokens de Firebase Auth son específicos del origen. En desarrollo, usamos estado compartido en localStorage para simular SSO entre diferentes puertos. En producción, usa configuración adecuada de subdominios con cookies compartidas."
+        }
+      },
+      "production": {
+        "title": "Configuración de Producción",
+        "domains": {
+          "title": "Configuración de Dominios"
+        },
+        "firebase": {
+          "title": "Configuración de Firebase",
+          "domains": "Añadir todos los subdominios a los dominios autorizados de Firebase",
+          "cors": "Configurar CORS para solicitudes entre subdominios",
+          "cookies": "Habilitar compartición de cookies entre subdominios"
+        }
+      },
+      "security": {
+        "title": "Consideraciones de Seguridad",
+        "tokens": {
+          "title": "Seguridad de Tokens",
+          "https": "Siempre usar HTTPS en producción",
+          "expiry": "Implementar tiempos cortos de vencimiento de tokens",
+          "rotation": "Rotar tokens de actualización al usar"
+        },
+        "validation": {
+          "title": "Validación de Token",
+          "signature": "Verificar firma JWT",
+          "audience": "Verificar reclamaciones de audiencia",
+          "expiry": "Validar tiempo de vencimiento"
+        },
+        "session": {
+          "title": "Gestión de Sesión",
+          "logout": "Implementar cierre de sesión global",
+          "monitor": "Monitorear sesiones activas",
+          "revoke": "Permitir revocación de tokens"
+        }
+      },
+      "troubleshooting": {
+        "title": "Solución de Problemas",
+        "loops": {
+          "title": "Bucles de Autenticación",
+          "description": "Si los usuarios experimentan bucles de redirección:",
+          "check1": "Verificar lógica de validación de tokens",
+          "check2": "Verificar URLs de redirección",
+          "check3": "Asegurar que las cookies estén configuradas correctamente"
+        },
+        "cors": {
+          "title": "Problemas CORS",
+          "description": "Para autenticación entre orígenes:",
+          "headers": "Configurar encabezados CORS adecuados",
+          "credentials": "Habilitar credenciales en solicitudes",
+          "origins": "Lista blanca de orígenes permitidos"
+        }
+      },
+      "resources": {
+        "title": "Documentación Relacionada",
+        "jwt": "Guía de Autenticación JWT",
+        "logging": "Registro de Autenticación",
+        "api": "Referencia de API",
+        "examples": "Implementaciones de Ejemplo"
+      }
+    },
+    "privacy": {
+      "title": "Controles de Privacidad y Cumplimiento GDPR",
+      "description": "Cumplimiento GDPR y controles de privacidad",
+      "subtitle": "Características integrales de privacidad que te dan control sobre tus datos",
+      "overview": {
+        "title": "Visión General",
+        "description": "CyberEco implementa una arquitectura integral centrada en la privacidad que garantiza que los usuarios mantengan control completo sobre sus datos personales. Nuestros controles de privacidad están integrados en cada capa de la plataforma, desde la recolección de datos hasta el procesamiento y compartir."
+      },
+      "features": {
+        "granularConsent": {
+          "title": "Consentimiento Granular",
+          "description": "Controla exactamente cómo se usan tus datos con opciones de consentimiento específicas por propósito"
+        },
+        "visibilityControls": {
+          "title": "Controles de Visibilidad",
+          "description": "Decide quién puede ver tus datos con configuraciones de privacidad a nivel de perfil y actividad"
+        },
+        "dataAnonymization": {
+          "title": "Anonimización de Datos",
+          "description": "La anonimización automática protege tu identidad basada en preferencias de privacidad"
+        },
+        "gdprCompliance": {
+          "title": "Cumplimiento GDPR",
+          "description": "Cumplimiento total con regulaciones de protección de datos incluyendo derecho al olvido"
+        }
+      },
+      "consent": {
+        "title": "Gestión de Consentimiento",
+        "types": {
+          "title": "Tipos de Consentimiento",
+          "description": "CyberEco usa un sistema de consentimiento granular con cinco categorías distintas:"
+        },
+        "banner": {
+          "title": "Banner de Consentimiento",
+          "description": "Los nuevos usuarios ven un banner de consentimiento que explica claramente el uso de datos:",
+          "keyFeatures": "Características Clave:",
+          "feature1": "Explicación clara de cada tipo de consentimiento",
+          "feature2": "Controles granulares de aceptar/rechazar",
+          "feature3": "Acceso fácil a la política de privacidad",
+          "feature4": "Preferencias persistentes entre sesiones"
+        },
+        "managing": {
+          "title": "Gestionando el Consentimiento"
+        }
+      },
+      "settings": {
+        "title": "Configuración de Privacidad",
+        "profileVisibility": {
+          "title": "Visibilidad del Perfil",
+          "description": "Controla quién puede ver tu información de perfil:",
+          "public": "Público",
+          "publicDesc": "Cualquiera puede ver tu perfil",
+          "friends": "Solo Amigos",
+          "friendsDesc": "Solo conexiones aprobadas pueden ver tu perfil",
+          "private": "Privado",
+          "privateDesc": "El perfil está oculto para todos los usuarios"
+        },
+        "activityVisibility": {
+          "title": "Visibilidad de Actividad",
+          "description": "Control detallado sobre diferentes tipos de actividades:"
+        },
+        "dataSharing": {
+          "title": "Preferencias de Compartir Datos",
+          "analytics": "Datos de Análisis",
+          "analyticsDesc": "Ayuda a mejorar nuestros servicios",
+          "ads": "Anuncios Personalizados",
+          "adsDesc": "Publicidad relevante",
+          "thirdParty": "Aplicaciones de Terceros",
+          "thirdPartyDesc": "Compartir datos con aplicaciones conectadas"
+        }
+      },
+      "dataVisibility": {
+        "title": "Controles de Visibilidad de Datos",
+        "queries": {
+          "title": "Consultas Conscientes de Privacidad",
+          "description": "Todas las consultas de datos respetan automáticamente la configuración de privacidad:"
+        },
+        "anonymization": {
+          "title": "Anonimización de Datos",
+          "description": "La información personal se anonimiza automáticamente según la configuración de privacidad:",
+          "fields": "Campos Anonimizados:",
+          "field1": "Nombres de usuario → \"Usuario Anónimo\"",
+          "field2": "Direcciones de email → \"oculto@example.com\"",
+          "field3": "Fotos de perfil → Eliminadas",
+          "field4": "Números de teléfono → Eliminados"
+        },
+        "auditLogging": {
+          "title": "Registro de Auditoría",
+          "description": "Todo acceso a datos se registra para seguridad y cumplimiento:"
+        }
+      },
+      "gdpr": {
+        "title": "Implementación de Derechos GDPR",
+        "rightToAccess": {
+          "title": "Derecho de Acceso",
+          "description": "Los usuarios pueden solicitar y descargar todos sus datos personales:"
+        },
+        "rightToErasure": {
+          "title": "Derecho al Olvido",
+          "description": "Los usuarios pueden solicitar la eliminación completa de sus datos personales:",
+          "process": "Proceso de Eliminación:",
+          "step1": "El usuario envía solicitud de eliminación",
+          "step2": "La solicitud se registra con marca de tiempo y razón",
+          "step3": "Período de gracia para que el usuario reconsidere (configurable)",
+          "step4": "Anonimización automatizada de datos",
+          "step5": "Eliminación de índices de búsqueda",
+          "step6": "Confirmación enviada al usuario"
+        },
+        "rightToPortability": {
+          "title": "Derecho a la Portabilidad de Datos"
+        },
+        "rightToRectification": {
+          "title": "Derecho de Rectificación",
+          "description": "Los usuarios pueden actualizar su información personal en cualquier momento a través de la configuración del perfil."
+        }
+      },
+      "implementation": {
+        "title": "Guía de Implementación",
+        "step1": {
+          "title": "1. Inicializar Servicios de Privacidad"
+        },
+        "step2": {
+          "title": "2. Implementar Verificaciones de Consentimiento"
+        },
+        "step3": {
+          "title": "3. Aplicar Filtros de Privacidad"
+        },
+        "step4": {
+          "title": "4. Configurar Middleware"
+        }
+      },
+      "api": {
+        "title": "Referencia de API",
+        "method": "Método",
+        "description": "Descripción",
+        "parameters": "Parámetros",
+        "privacyService": {
+          "title": "Métodos del Servicio de Privacidad",
+          "getUserPrivacySettings": "Obtener configuración de privacidad del usuario",
+          "updatePrivacySettings": "Actualizar preferencias de privacidad",
+          "canViewData": "Verificar si el visor puede acceder a los datos",
+          "filterResults": "Filtrar resultados basados en privacidad",
+          "anonymizeData": "Anonimizar información personal"
+        },
+        "gdprService": {
+          "title": "Métodos del Servicio GDPR",
+          "recordConsent": "Registrar consentimiento del usuario",
+          "getUserConsent": "Obtener estado del consentimiento",
+          "requestDataDeletion": "Solicitar eliminación de datos",
+          "requestDataPortability": "Exportar datos del usuario",
+          "generatePrivacyReport": "Generar informe de privacidad"
+        }
+      }
+    },
+    "dataExport": {
+      "title": "Guía de Exportación de Datos",
+      "description": "Características de exportación y portabilidad"
+    },
+    "twoFactor": {
+      "title": "Autenticación de Dos Factores",
+      "description": "Configuración y setup de 2FA"
+    },
+    "authLogging": {
+      "title": "Registro y Monitoreo de Autenticación",
+      "description": "Auditoría de seguridad y monitoreo",
+      "overview": {
+        "title": "Visión General",
+        "description": "El sistema de autenticación de CyberEco incluye capacidades integrales de registro y monitoreo para rastrear eventos de autenticación, detectar problemas de seguridad y analizar el comportamiento del usuario en todo el ecosistema."
+      },
+      "features": {
+        "title": "Características Clave",
+        "realtime": "Registro de eventos en tiempo real para todas las actividades de autenticación",
+        "structured": "Registro estructurado con tipos de eventos consistentes",
+        "performance": "Seguimiento de métricas de rendimiento",
+        "error": "Seguimiento integral de errores",
+        "session": "Gestión y seguimiento de sesiones",
+        "export": "Capacidades de exportación para auditoría"
+      },
+      "events": {
+        "title": "Tipos de Eventos",
+        "event": "Evento",
+        "description": "Descripción",
+        "level": "Nivel",
+        "auth": {
+          "title": "Eventos de Autenticación",
+          "attempt": "El usuario intenta iniciar sesión",
+          "success": "Inicio de sesión exitoso",
+          "failure": "Intento de inicio de sesión fallido",
+          "logout": "El usuario cierra sesión"
+        },
+        "token": {
+          "title": "Eventos de Token",
+          "generated": "Nuevo token creado",
+          "verified": "Token verificado",
+          "expired": "Token expirado",
+          "refresh": "Token actualizado"
+        }
+      },
+      "usage": {
+        "title": "Ejemplos de Uso",
+        "login": {
+          "title": "Registrando Flujo de Inicio de Sesión"
+        },
+        "sso": {
+          "title": "Registrando Navegación SSO"
+        }
+      },
+      "metrics": {
+        "title": "Métricas y Análisis",
+        "example": "Obteniendo Métricas",
+        "login": {
+          "title": "Métricas de Inicio de Sesión",
+          "attempts": "Total de intentos de inicio de sesión",
+          "success": "Tasa de éxito",
+          "average": "Tiempo promedio de inicio de sesión",
+          "failures": "Razones de fallo"
+        },
+        "token": {
+          "title": "Métricas de Token",
+          "active": "Tokens activos",
+          "refresh": "Conteo de actualizaciones",
+          "expired": "Tokens expirados",
+          "invalid": "Intentos inválidos"
+        },
+        "sso": {
+          "title": "Métricas SSO",
+          "navigation": "Navegaciones entre aplicaciones",
+          "apps": "Aplicaciones más usadas",
+          "flow": "Tasa de finalización de flujo",
+          "errors": "Errores SSO"
+        }
+      },
+      "dashboard": {
+        "title": "Panel de Monitoreo",
+        "description": "El Hub proporciona un panel de monitoreo de autenticación para administradores en /auth-logs.",
+        "features": {
+          "title": "Características del Panel",
+          "realtime": {
+            "title": "Actualizaciones en Tiempo Real",
+            "description": "Las métricas en vivo se actualizan cada 10 segundos"
+          },
+          "filtering": {
+            "title": "Filtrado de Registros",
+            "description": "Filtrar por nivel, usuario o tipo de evento"
+          },
+          "export": {
+            "title": "Exportar Registros",
+            "description": "Descargar registros como JSON para análisis"
+          },
+          "reports": {
+            "title": "Generar Informes",
+            "description": "Crear informes detallados de autenticación"
+          }
+        }
+      },
+      "querying": {
+        "title": "Consultando Registros",
+        "recent": {
+          "title": "Obtener Registros Recientes"
+        },
+        "reports": {
+          "title": "Generar Informes"
+        }
+      },
+      "security": {
+        "title": "Consideraciones de Seguridad",
+        "privacy": {
+          "title": "Privacidad de Datos",
+          "passwords": "Nunca registrar contraseñas o tokens",
+          "sanitize": "Sanitizar entrada de usuario",
+          "hash": "Hash de identificadores sensibles"
+        },
+        "retention": {
+          "title": "Retención de Registros",
+          "memory": "1000 entradas en memoria",
+          "storage": "100 entradas en localStorage",
+          "archive": "Archivar para cumplimiento"
+        },
+        "access": {
+          "title": "Control de Acceso",
+          "admin": "Panel solo para administradores",
+          "export": "Exportaciones restringidas",
+          "monitor": "Monitorear acceso a registros"
+        }
+      },
+      "integration": {
+        "title": "Integraciones Externas",
+        "sentry": {
+          "title": "Integración con Sentry"
+        },
+        "cloudwatch": {
+          "title": "Métricas de CloudWatch"
+        }
+      },
+      "troubleshooting": {
+        "title": "Solución de Problemas",
+        "persist": {
+          "title": "Registros No Persisten",
+          "solution": "Verificar cuota y permisos de localStorage"
+        },
+        "session": {
+          "title": "IDs de Sesión Faltantes",
+          "solution": "Asegurar que el registrador se inicialice temprano en el ciclo de vida de la aplicación"
+        },
+        "performance": {
+          "title": "Impacto en el Rendimiento",
+          "solution": "Reducir verbosidad de registros en producción"
+        },
+        "memory": {
+          "title": "Uso de Memoria",
+          "solution": "Implementar rotación de registros para sesiones de larga duración"
+        }
+      },
+      "resources": {
+        "title": "Recursos Relacionados",
+        "jwt": "Autenticación JWT",
+        "sso": "Guía de Integración SSO",
+        "api": "Referencia de API",
+        "security": "Mejores Prácticas de Seguridad"
+      }
+    },
+    "authentication": {
+      "subtitle": "Autenticación segura y centralizada para todo el ecosistema CyberEco",
+      "tabs": {
+        "overview": "Visión General",
+        "quickstart": "Inicio Rápido",
+        "architecture": "Arquitectura",
+        "api": "Referencia de API",
+        "examples": "Ejemplos"
+      },
+      "overview": {
+        "title": "Sistema de Autenticación Unificado",
+        "description": "El sistema de autenticación de CyberEco proporciona una experiencia de inicio de sesión único en todas las aplicaciones, con gestión centralizada de usuarios, control de permisos y manejo seguro de sesiones."
+      },
+      "features": {
+        "sso": {
+          "title": "Inicio de Sesión Único",
+          "description": "Una cuenta para todas las aplicaciones CyberEco. Inicia sesión una vez, accede a todo."
+        },
+        "profiles": {
+          "title": "Perfiles Centralizados",
+          "description": "Perfiles de usuario gestionados en Hub, accesibles en todas las aplicaciones conectadas."
+        },
+        "permissions": {
+          "title": "Control de Permisos",
+          "description": "Permisos detallados para acceso a aplicaciones, características y control a nivel de recursos."
+        }
+      },
+      "benefits": {
+        "title": "Beneficios Clave",
+        "benefit1": "Experiencia de usuario fluida entre aplicaciones",
+        "benefit2": "Complejidad de autenticación reducida para desarrolladores",
+        "benefit3": "Seguridad mejorada con control de acceso centralizado",
+        "benefit4": "Sincronización de sesión entre pestañas y aplicaciones",
+        "benefit5": "Soporte para proveedores de inicio de sesión social",
+        "benefit6": "Gestión integrada de permisos y roles"
+      },
+      "quickstart": {
+        "title": "Guía de Inicio Rápido",
+        "step1": {
+          "title": "Instalar Dependencias"
+        },
+        "step2": {
+          "title": "Definir Tu Tipo de Usuario"
+        },
+        "step3": {
+          "title": "Crear Contexto de Autenticación"
+        },
+        "step4": {
+          "title": "Envolver Tu Aplicación"
+        },
+        "step5": {
+          "title": "Usar en Componentes"
+        }
+      },
+      "architecture": {
+        "title": "Arquitectura del Sistema",
+        "hub": {
+          "title": "Hub (Autenticación Central)",
+          "item1": "Registro e inicio de sesión de usuarios",
+          "item2": "Gestión de perfiles",
+          "item3": "Control de permisos",
+          "item4": "Generación de tokens"
+        },
+        "libraries": {
+          "title": "Bibliotecas Compartidas"
+        },
+        "applications": {
+          "title": "Aplicaciones"
+        },
+        "flow": {
+          "title": "Flujo de Autenticación",
+          "step1": "Usuario accede a app sin autenticación",
+          "step2": "App redirige a inicio de sesión del Hub",
+          "step3": "Usuario se autentica en el Hub",
+          "step4": "Hub genera token de autenticación",
+          "step5": "Redirige de vuelta a la app con token",
+          "step6": "App valida token y crea sesión"
+        },
+        "models": {
+          "title": "Modelos de Datos",
+          "baseUser": "Campos de usuario principales compartidos en todas las apps",
+          "appPermission": "Configuración de permisos por app",
+          "sharedUserProfile": "Perfil extendido con datos entre aplicaciones"
+        }
+      },
+      "api": {
+        "title": "Referencia de API",
+        "coreFunctions": "Funciones Principales",
+        "createAuthContext": "Función factory para crear contextos de autenticación con tipos seguros",
+        "useAuth": "Hook para acceder al estado y métodos de autenticación",
+        "usePermissions": "Verificar permisos de usuario para características y roles",
+        "useSessionSync": "Sincronizar estado de autenticación entre pestañas y apps",
+        "utilityFunctions": "Funciones de Utilidad",
+        "validateEmail": "Validar formato de email",
+        "validatePassword": "Verificar fortaleza de contraseña",
+        "generateAuthRedirectUrl": "Crear URLs de redirección de autenticación",
+        "getAuthErrorMessage": "Mensajes de error amigables"
+      },
+      "examples": {
+        "title": "Ejemplos de Implementación",
+        "protectedRoute": {
+          "title": "Componente de Ruta Protegida"
+        },
+        "crossApp": {
+          "title": "Navegación Entre Aplicaciones"
+        },
+        "permissions": {
+          "title": "Características Basadas en Permisos"
+        },
+        "errorHandling": {
+          "title": "Manejo de Errores"
+        }
+      }
+    },
+    "apiReference": {
+      "description": "Documentación completa de API y endpoints"
+    },
+    "development": {
+      "description": "Configura tu entorno local"
+    },
+    "community": {
+      "description": "Únete a nuestra comunidad de desarrolladores"
+    },
+    "gettingStartedNavTitle": "Primeros Pasos",
+    "introductionNavItem": "Introducción",
+    "applicationsNavTitle": "Categorías de Soluciones",
+    "userResourcesNavTitle": "Recursos del Usuario",
+    "userGuidesNavItem": "Guías de Usuario",
+    "faqNavItem": "Preguntas Frecuentes",
+    "troubleshootingNavItem": "Solución de Problemas",
+    "architectureNavItem": "Arquitectura del Sistema",
+    "communityGovernanceNavItem": "Comunidad y Gobernanza",
+    "financeEconomyNavItem": "Finanzas y Economía",
+    "sustainabilityHomeNavItem": "Sostenibilidad y Hogar",
+    "educationGrowthNavItem": "Educación y Crecimiento",
+    "philosophyDocTitle": "Filosofía de la Plataforma",
+    "visionDocTitle": "Visión del Futuro Descentralizado",
+    "roadmapDocTitle": "Hoja de Ruta de Desarrollo",
+    "portfolioDocTitle": "Portafolio de Soluciones"
+  }
+}

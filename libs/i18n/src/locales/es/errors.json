@@ -1,0 +1,24 @@
+{
+  "errorPage": {
+    "title": "Algo salió mal",
+    "subtitle": "Ocurrió un error inesperado",
+    "backHome": "Volver al Inicio",
+    "tryAgain": "Intentar de Nuevo",
+    "contactSupport": "Contactar Soporte"
+  },
+  "notFoundPage": {
+    "title": "Página No Encontrada",
+    "subtitle": "La página que buscas no existe",
+    "backHome": "Volver al Inicio"
+  },
+  "errors": {
+    "generic": "Ocurrió un error. Por favor intenta de nuevo.",
+    "network": "Error de red. Por favor verifica tu conexión.",
+    "serverError": "Error del servidor. Por favor intenta más tarde.",
+    "unauthorized": "No tienes permiso para acceder a este recurso.",
+    "forbidden": "Acceso denegado.",
+    "notFound": "Recurso no encontrado.",
+    "validation": "Por favor verifica tu entrada e intenta de nuevo.",
+    "timeout": "La solicitud expiró. Por favor intenta de nuevo."
+  }
+}

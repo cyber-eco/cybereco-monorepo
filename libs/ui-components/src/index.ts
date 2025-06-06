@@ -4,6 +4,7 @@ export { LoadingSpinner } from './LoadingSpinner';
 export { Alert } from './Alert';
 export { Logo } from './Logo/Logo';
 export { ConfigDropdown } from './ConfigDropdown';
+export type { ConfigDropdownProps } from './ConfigDropdown';
 export { Navigation } from './Navigation';
 export type { NavigationProps, NavigationLink, NavigationActionButton } from './Navigation';
 export { AppLayout } from './Layout';

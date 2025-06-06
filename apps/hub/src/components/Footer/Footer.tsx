@@ -3,7 +3,7 @@
 import React from 'react';
 import { Footer as SharedFooter, LinkedInIcon, GitHubIcon, EmailIcon, useLanguage } from '@cybereco/ui-components';
 
-export default function Footer() {
+function Footer() {
   const { t } = useLanguage();
 
   const socialLinks = [
@@ -84,3 +84,5 @@ export default function Footer() {
     />
   );
 }
+
+export default Footer;

@@ -4,11 +4,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { FaQuestion, FaBook, FaHeadset, FaEnvelope } from 'react-icons/fa';
-import { useLanguage } from '@cybereco/ui-components';
+import { useI18n } from '@cybereco/i18n';
 import styles from './page.module.css';
 
 export default function HelpPage() {
-  const { t } = useLanguage();
+  const { t } = useI18n();
 
   return (
     <div className={styles.pageContainer}>
@@ -19,7 +19,7 @@ export default function HelpPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          {t('helpPage.title') || 'How Can We Help?'}
+          {t('common:messages.help') || 'How Can We Help?'}
         </motion.h1>
         <motion.p
           className={styles.subtitle}
@@ -27,7 +27,7 @@ export default function HelpPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          {t('helpPage.subtitle') || 'Find the support you need with our help resources and documentation'}
+          {t('common:messages.helpSubtitle') || 'Find the support you need with our help resources and documentation'}
         </motion.p>
       </header>
 
@@ -42,10 +42,10 @@ export default function HelpPage() {
               <FaQuestion />
             </div>
             <h3 className={styles.cardTitle}>
-              {t('helpPage.faqTitle') || 'FAQ'}
+              {t('documentation:documentationPage.faqNavItem') || 'FAQ'}
             </h3>
             <p className={styles.cardDescription}>
-              {t('helpPage.faqDesc') || 'Find answers to commonly asked questions about our solutions and the CyberEco ecosystem'}
+              {t('common:messages.faqDescription') || 'Find answers to commonly asked questions about our solutions and the CyberEco ecosystem'}
             </p>
           </Link>
         </motion.div>
@@ -60,10 +60,10 @@ export default function HelpPage() {
               <FaBook />
             </div>
             <h3 className={styles.cardTitle}>
-              {t('helpPage.docsTitle') || 'Solution Documentation'}
+              {t('documentation:documentationPage.title') || 'Documentation'}
             </h3>
             <p className={styles.cardDescription}>
-              {t('helpPage.docsDesc') || 'Detailed guides and documentation for all solution categories in our digital ecosystem'}
+              {t('documentation:documentationPage.subtitle') || 'Comprehensive guides and technical documentation for the CyberEco digital ecosystem'}
             </p>
           </Link>
         </motion.div>
@@ -78,10 +78,10 @@ export default function HelpPage() {
               <FaHeadset />
             </div>
             <h3 className={styles.cardTitle}>
-              {t('helpPage.supportTitle') || 'Community Support'}
+              {t('common:footer.support') || 'Support'}
             </h3>
             <p className={styles.cardDescription}>
-              {t('helpPage.supportDesc') || 'Get help from our support team and community for any issues across all solution categories'}
+              {t('common:messages.supportDescription') || 'Get help from our support team and community for any issues across all solution categories'}
             </p>
           </Link>
         </motion.div>
@@ -96,10 +96,10 @@ export default function HelpPage() {
               <FaEnvelope />
             </div>
             <h3 className={styles.cardTitle}>
-              {t('helpPage.contactTitle') || 'Contact'}
+              {t('common:footer.contact') || 'Contact'}
             </h3>
             <p className={styles.cardDescription}>
-              {t('helpPage.contactDesc') || 'Reach out to us directly for questions about any of our solutions or to suggest new features'}
+              {t('common:messages.contactDescription') || 'Reach out to us directly for questions about any of our solutions or to suggest new features'}
             </p>
           </Link>
         </motion.div>

@@ -3,46 +3,46 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaUsers, FaLeaf, FaLock, FaLaptopCode } from 'react-icons/fa';
-import { useLanguage } from '@cybereco/ui-components';
+import { useI18n } from '@cybereco/i18n';
 import styles from './Features.module.css';
 
 const featuresData = [
   {
     id: 1,
     icon: FaUsers,
-    titleKey: 'homePage.features.communityTitle',
-    descKey: 'homePage.features.communityDesc',
-    defaultTitle: 'Community Building',
-    defaultDesc: 'Create and nurture thriving digital communities with tools designed for meaningful connection and collaboration.',
+    titleKey: 'home:homePage.mission.transparency',
+    descKey: 'home:homePage.mission.transparencyDesc',
+    defaultTitle: 'Transparency',
+    defaultDesc: 'Open development and clear data practices',
   },
   {
     id: 2,
-    icon: FaLeaf,
-    titleKey: 'homePage.features.sustainabilityTitle',
-    descKey: 'homePage.features.sustainabilityDesc',
-    defaultTitle: 'Sustainability',
-    defaultDesc: 'Eco-friendly digital solutions designed with environmental impact in mind, promoting sustainable practices.',
+    icon: FaLock,
+    titleKey: 'home:homePage.mission.privacy',
+    descKey: 'home:homePage.mission.privacyDesc',
+    defaultTitle: 'Privacy First',
+    defaultDesc: 'Your data belongs to you, always',
   },
   {
     id: 3,
-    icon: FaLock,
-    titleKey: 'homePage.features.securityTitle',
-    descKey: 'homePage.features.securityDesc',
-    defaultTitle: 'Enhanced Security',
-    defaultDesc: 'State-of-the-art security measures to protect your data and ensure privacy across all our applications.',
+    icon: FaUsers,
+    titleKey: 'home:homePage.mission.community',
+    descKey: 'home:homePage.mission.communityDesc',
+    defaultTitle: 'Community Driven',
+    defaultDesc: 'Built by and for the people who use it',
   },
   {
     id: 4,
-    icon: FaLaptopCode,
-    titleKey: 'homePage.features.innovationTitle',
-    descKey: 'homePage.features.innovationDesc',
-    defaultTitle: 'Innovative Tech',
-    defaultDesc: 'Cutting-edge technology solutions that anticipate needs and solve problems before they arise.',
+    icon: FaLeaf,
+    titleKey: 'home:homePage.mission.sustainable',
+    descKey: 'home:homePage.mission.sustainableDesc',
+    defaultTitle: 'Sustainable',
+    defaultDesc: 'Long-term thinking over short-term profits',
   },
 ];
 
 export default function Features() {
-  const { t } = useLanguage();
+  const { t } = useI18n();
 
   return (
     <section className={styles.featuresSection}>
@@ -54,7 +54,7 @@ export default function Features() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          {t('homePage.features.sectionTitle') || 'Transformative Technology Solutions'}
+          {t('home:homePage.mission.approach') || 'Our Approach'}
         </motion.h2>
         <motion.p 
           className={styles.sectionDescription}
@@ -63,7 +63,7 @@ export default function Features() {
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          {t('homePage.features.sectionSubtitle') || 'What sets our solutions apart from the rest'}
+          {t('home:homePage.mission.subtitle') || 'Building digital tools that empower people and communities'}
         </motion.p>
         
         <div className={styles.featuresGrid}>

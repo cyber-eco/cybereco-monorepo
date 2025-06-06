@@ -247,7 +247,7 @@ export async function getUserPermissions(userId: string): Promise<AppPermission[
 export async function addUserRole(
   userId: string,
   appId: string,
-  role: string
+  role: 'user' | 'admin' | 'owner'
 ): Promise<void> {
   try {
     const userRef = doc(db, 'users', userId);
@@ -285,7 +285,7 @@ export async function addUserRole(
 export async function hasRole(
   userId: string,
   appId: string,
-  role: string
+  role: 'user' | 'admin' | 'owner'
 ): Promise<boolean> {
   try {
     const userDoc = await getDoc(doc(db, 'users', userId));
@@ -452,7 +452,7 @@ export function requirePermission(
   requiredPermissions: {
     appId?: string;
     feature?: string;
-    role?: string;
+    role?: 'user' | 'admin' | 'owner';
     resourceType?: string;
     resourceId?: string;
     action?: 'read' | 'write' | 'delete';

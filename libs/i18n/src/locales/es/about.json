@@ -1,0 +1,155 @@
+{
+  "aboutPage": {
+    "title": "Construyendo Tecnología para el Florecimiento Humano",
+    "subtitle": "CyberEco tiene la misión de crear herramientas digitales que empoderen a las personas y fortalezcan las comunidades",
+    "intro": {
+      "title": "Quiénes Somos",
+      "paragraph1": "CyberEco es más que una plataforma tecnológica: somos un movimiento hacia la soberanía digital, donde las personas recuperan el control sobre sus vidas digitales. Fundada en 2024, estamos construyendo la infraestructura para un futuro digital más equitativo, sostenible y centrado en el ser humano.",
+      "paragraph2": "Nuestro viaje comenzó con una simple observación: el panorama digital actual a menudo trata a las personas como productos en lugar de participantes. Creemos que es hora de un cambio fundamental en cómo pensamos e interactuamos con la tecnología."
+    },
+    "purpose": {
+      "title": "Por Qué Existimos",
+      "quote": "La tecnología debe adaptarse a la humanidad, no al revés.",
+      "text": "En una era donde las plataformas digitales a menudo priorizan las ganancias sobre las personas, CyberEco se erige como un faro de cambio. Existimos para demostrar que la tecnología puede ser tanto poderosa como respetuosa, innovadora e inclusiva, rentable y con principios."
+    },
+    "what": {
+      "title": "Qué Somos",
+      "text": "CyberEco es un ecosistema digital integral diseñado desde cero con valores humanos en su núcleo. No somos solo otra empresa tecnológica: somos arquitectos de un nuevo paradigma digital.",
+      "point1": "Una plataforma unificada que respeta la privacidad del usuario y la soberanía de datos",
+      "point2": "Una colección de aplicaciones interconectadas que funcionan perfectamente juntas",
+      "point3": "Una iniciativa impulsada por la comunidad que prioriza las necesidades del usuario sobre los intereses corporativos",
+      "point4": "Un modelo de tecnología sostenible que considera el impacto ambiental y social",
+      "conclusion": "Cada línea de código que escribimos, cada función que implementamos y cada decisión que tomamos está guiada por un principio simple: la tecnología debe mejorar la vida humana, no complicarla."
+    },
+    "visionMission": {
+      "title": "Visión y Misión",
+      "visionTitle": "Nuestra Visión",
+      "visionText": "Un mundo donde la tecnología sirve a la humanidad, permitiendo que las personas prosperen en un ecosistema digital conectado, sostenible y equitativo.",
+      "missionTitle": "Nuestra Misión",
+      "missionText": "Construir y nutrir una plataforma digital integral que empodere a las personas con herramientas para la colaboración financiera, el compromiso comunitario y el crecimiento personal, manteniendo los más altos estándares de privacidad, seguridad y soberanía del usuario."
+    },
+    "values": {
+      "title": "Nuestros Valores",
+      "value1": {
+        "title": "Dignidad Humana",
+        "text": "Cada persona merece respeto y autonomía en su vida digital. Diseñamos con empatía y consideración para todos los usuarios."
+      },
+      "value2": {
+        "title": "Soberanía Digital",
+        "text": "Tus datos te pertenecen. Defendemos el control del usuario y las prácticas transparentes de datos."
+      },
+      "value3": {
+        "title": "Innovación Sostenible",
+        "text": "Construimos para el largo plazo, considerando los impactos ambientales y sociales en cada decisión."
+      },
+      "value4": {
+        "title": "Comunidad Primero",
+        "text": "Nuestro éxito se mide por el valor que creamos para nuestra comunidad, no solo por nuestros resultados financieros."
+      },
+      "value5": {
+        "title": "Transparencia Radical",
+        "text": "Creemos en la comunicación abierta, la documentación clara y las relaciones honestas con nuestros usuarios."
+      }
+    },
+    "joinUs": {
+      "title": "Únete a Nuestro Viaje",
+      "text": "Ya seas un desarrollador apasionado por la tecnología ética, un usuario que busca mejores herramientas digitales, o alguien que cree en nuestra visión de un futuro digital centrado en el ser humano, hay un lugar para ti en la comunidad CyberEco."
+    },
+    "team": {
+      "title": "Conoce al Equipo",
+      "description": "Somos un equipo distribuido de tecnólogos apasionados, diseñadores y defensores de los derechos digitales."
+    },
+    "contact": {
+      "title": "Contáctanos",
+      "email": "Correo Electrónico",
+      "social": "Síguenos"
+    },
+    "sections": {
+      "story": {
+        "title": "Nuestra Historia",
+        "content": "CyberEco nació de la frustración de ver tecnología cada vez más diseñada para extraer valor de los usuarios en lugar de proporcionarlo. Fuimos testigos de plataformas de redes sociales optimizando para la adicción, aplicaciones financieras cobrando tarifas ocultas, y datos siendo recolectados sin consentimiento. Sabíamos que tenía que haber una mejor manera.",
+        "quote": "\"La tecnología es mejor cuando une a las personas.\" - Matt Mullenweg",
+        "continuation": "Comenzando con JustSplit, una simple aplicación para compartir gastos, demostramos que el software útil no necesita explotar a los usuarios. Ahora estamos construyendo un ecosistema completo de aplicaciones basado en principios de soberanía digital, privacidad y diseño centrado en el ser humano."
+      },
+      "values": {
+        "title": "Nuestros Valores",
+        "content": "Nos guiamos por principios de dignidad humana, soberanía digital, innovación sostenible, enfoque comunitario primero y transparencia radical. Estos valores dan forma a cada decisión que tomamos y cada línea de código que escribimos."
+      },
+      "team": {
+        "title": "El Equipo",
+        "content": "Somos un equipo diverso y distribuido de personas apasionadas unidas por una visión común. Nuestro equipo incluye ingenieros de software, diseñadores, defensores de la privacidad y constructores de comunidades de todo el mundo, todos trabajando juntos para crear un futuro digital más humano.",
+        "description": "CyberEco es construido por un equipo distribuido de desarrolladores, diseñadores y soñadores que creen en un mejor futuro digital.",
+        "roles": {
+          "founder": "Fundador y Visión",
+          "development": "Desarrollo Principal",
+          "design": "Diseño y Experiencia",
+          "community": "Comunidad y Crecimiento"
+        }
+      },
+      "future": {
+        "title": "El Futuro que Estamos Construyendo",
+        "content": "Visualizamos un mundo donde la tecnología se adapta a la humanidad, no al revés. Nuestra hoja de ruta incluye expandir nuestro ecosistema con nuevas aplicaciones que aborden las necesidades humanas reales mientras mantenemos nuestro compromiso con la privacidad, la sostenibilidad y el empoderamiento del usuario.",
+        "description": "Para 2030, visualizamos CyberEco como un ecosistema completamente descentralizado donde los usuarios tienen soberanía completa sobre sus vidas digitales. Sin servidores centrales, sin recolección de datos, sin capitalismo de vigilancia - solo herramientas útiles que mejoran la vida.",
+        "callToAction": "Únete a nosotros para construir un futuro digital más humano."
+      },
+      "mission": {
+        "title": "Misión y Valores",
+        "missionStatement": "Crear un ecosistema digital que mejore el bienestar humano, fomente conexiones auténticas y apoye una vida sostenible a través de tecnología que respete la soberanía y privacidad del usuario.",
+        "values": {
+          "sovereignty": {
+            "title": "Soberanía Digital",
+            "description": "Los usuarios poseen sus datos, identidad y presencia digital"
+          },
+          "humanCentered": {
+            "title": "Diseño Centrado en el Humano",
+            "description": "La tecnología sirve a las personas, no a métricas de ganancias"
+          },
+          "transparency": {
+            "title": "Transparencia Radical",
+            "description": "Desarrollo abierto, modelos de negocio claros, comunicación honesta"
+          },
+          "sustainability": {
+            "title": "Pensamiento a Largo Plazo",
+            "description": "Construyendo para décadas, no para informes trimestrales"
+          }
+        }
+      },
+      "approach": {
+        "title": "Nuestro Enfoque",
+        "subtitle": "Construyendo Diferente",
+        "principles": {
+          "openSource": {
+            "title": "Código Abierto Cuando Sea Posible",
+            "description": "Creemos en la transparencia y contribución comunitaria"
+          },
+          "privacyFirst": {
+            "title": "Privacidad por Diseño",
+            "description": "Tus datos permanecen tuyos, siempre"
+          },
+          "noVenture": {
+            "title": "Sin Capital de Riesgo",
+            "description": "Crecemos sosteniblemente sin presión para explotar usuarios"
+          },
+          "community": {
+            "title": "Gobernanza Comunitaria",
+            "description": "Los usuarios tienen voz real en el desarrollo de la plataforma"
+          }
+        }
+      }
+    },
+    "hero": {
+      "backgroundText": "Creemos que la tecnología debe servir a la humanidad, no explotarla. Nuestro viaje comenzó con una simple pregunta: ¿Y si las herramientas digitales realmente mejoraran la vida?"
+    },
+    "stats": {
+      "founded": "Fundado",
+      "users": "Usuarios Activos",
+      "applications": "Aplicaciones",
+      "countries": "Países"
+    },
+    "cta": {
+      "joinCommunity": "Únete a Nuestra Comunidad",
+      "readManifesto": "Lee Nuestro Manifiesto",
+      "getStarted": "Comenzar"
+    }
+  }
+}

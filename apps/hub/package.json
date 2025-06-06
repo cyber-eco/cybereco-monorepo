@@ -9,25 +9,38 @@
     "start": "next start",
     "lint": "next lint",
     "type-check": "tsc --noEmit",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
     "deploy": "npm run build && firebase deploy --only hosting:hub"
   },
   "dependencies": {
     "@cybereco/auth": "file:../../libs/auth",
-    "@cybereco/shared-types": "file:../../libs/shared-types",
     "@cybereco/firebase-config": "file:../../libs/firebase-config",
-    "@cybereco/ui-components": "file:../../libs/ui-components",
     "@cybereco/shared-assets": "file:../../libs/shared-assets",
+    "@cybereco/shared-types": "file:../../libs/shared-types",
+    "@cybereco/ui-components": "file:../../libs/ui-components",
+    "@nodelib/fs.stat": "^4.0.0",
+    "@nodelib/fs.walk": "^3.0.1",
+    "firebase": "^11.7.3",
+    "firebase-admin": "^13.4.0",
     "next": "^15.3.2",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "firebase": "^11.7.3"
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/jest": "^29.5.14",
     "@types/node": "^20",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
     "eslint": "^8",
     "eslint-config-next": "^15.3.1",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^30.0.0-beta.3",
     "typescript": "^5"
   }
 }

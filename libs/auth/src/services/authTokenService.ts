@@ -10,7 +10,9 @@ export interface AuthUser {
   email?: string;
   displayName?: string;
   photoURL?: string | null;
+  emailVerified?: boolean;
   permissions?: string[];
+  apps?: string[];
 }
 
 export class AuthTokenService {

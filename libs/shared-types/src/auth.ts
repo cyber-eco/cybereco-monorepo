@@ -17,6 +17,7 @@ export interface AuthToken {
 
 export interface AppPermission {
   appId: string;
-  role: 'user' | 'admin' | 'owner';
-  grantedAt: string;
+  roles: ('user' | 'admin' | 'owner')[];
+  features: string[];
+  grantedAt?: string;
 }

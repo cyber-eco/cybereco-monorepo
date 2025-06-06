@@ -5,6 +5,7 @@ import './globals.css';
 import '../styles/theme-variables.css';
 import { Providers } from '../components/Providers';
 import ClientLayout from './client-layout';
+import { ErrorBoundary } from '../components/ErrorBoundary';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -30,11 +31,13 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: createThemeScript() }} />
       </head>
       <body className={inter.className} suppressHydrationWarning>
-        <Providers>
-          <ClientLayout>
-            {children}
-          </ClientLayout>
-        </Providers>
+        <ErrorBoundary>
+          <Providers>
+            <ClientLayout>
+              {children}
+            </ClientLayout>
+          </Providers>
+        </ErrorBoundary>
       </body>
     </html>
   );

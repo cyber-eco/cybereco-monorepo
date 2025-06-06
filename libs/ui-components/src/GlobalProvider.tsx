@@ -26,7 +26,7 @@ function ToastSetup() {
 export function GlobalProvider({ children, translations, toastPosition = 'bottom-right' }: GlobalProviderProps) {
   return (
     <ThemeProvider>
-      <LanguageProvider initialTranslations={translations}>
+      <LanguageProvider>
         <ToastProvider position={toastPosition}>
           <ToastSetup />
           {children}

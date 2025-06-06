@@ -3,11 +3,11 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { useLanguage } from '@cybereco/ui-components';
+import { useI18n } from '@cybereco/i18n';
 import styles from './CallToAction.module.css';
 
 export default function CallToAction() {
-  const { t } = useLanguage();
+  const { t } = useI18n();
 
   return (
     <section className={styles.ctaSection}>
@@ -19,7 +19,7 @@ export default function CallToAction() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          {t('homePage.callToAction.title') || 'Ready to Transform Your Relationship with Technology?'}
+          {t('home:homePage.cta.title') || 'Ready to Join the Future of Digital Living?'}
         </motion.h2>
         <motion.p 
           className={styles.ctaDescription}
@@ -28,7 +28,7 @@ export default function CallToAction() {
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          {t('homePage.callToAction.subtitle') || 'Discover how CyberEco\'s innovative applications can help you manage finances, engage with communities, and navigate social connections more effectively.'}
+          {t('home:homePage.cta.subtitle') || 'Start with our flagship applications or explore our vision for tomorrow'}
         </motion.p>
         <motion.div 
           className={styles.ctaButtons}
@@ -38,10 +38,10 @@ export default function CallToAction() {
           viewport={{ once: true }}
         >
           <Link href="/portfolio" className={styles.primaryButton}>
-            {t('homePage.callToAction.exploreSolutions') || 'Explore Solutions'}
+            {t('home:homePage.cta.primaryButton') || 'Get Started with Hub'}
           </Link>
           <Link href="/help" className={styles.secondaryButton}>
-            {t('homePage.callToAction.contactUs') || 'Get Support'}
+            {t('home:homePage.cta.secondaryButton') || 'Explore Our Vision'}
           </Link>
         </motion.div>
       </div>

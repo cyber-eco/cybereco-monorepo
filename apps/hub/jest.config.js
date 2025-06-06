@@ -14,6 +14,11 @@ const customJestConfig = {
     '^@/pages/(.*)$': '<rootDir>/src/pages/$1',
     '^@/context/(.*)$': '<rootDir>/src/context/$1',
     '^@/utils/(.*)$': '<rootDir>/src/utils/$1',
+    '^@/(.*)$': '<rootDir>/src/$1',
+    // Handle @cybereco packages
+    '^@cybereco/(.*)$': '<rootDir>/../../libs/$1/src',
+    // Mock react-icons
+    'react-icons/(.*)': '<rootDir>/__mocks__/react-icons.js',
     // Mock CSS Modules
     '\\.module\\.(css|scss)$': 'identity-obj-proxy',
     // Mock other CSS files

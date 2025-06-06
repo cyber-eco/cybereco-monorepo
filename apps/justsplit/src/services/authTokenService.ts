@@ -1,54 +1,35 @@
 import type { AuthUser } from '@cybereco/shared-types';
-import { saveSharedAuthState } from '@cybereco/auth';
+import { saveSharedAuthState, JWTAuthService } from '@cybereco/auth';
 import { debugLog } from '../utils/debug-auth';
 
-interface AuthToken {
-  user: AuthUser;
-  timestamp: number;
-  expires: number;
-  signature: string;
-}
-
-// Handle auth tokens from Hub
+// Handle JWT auth tokens from Hub
 export class AuthTokenService {
-  private static readonly SECRET_KEY = 'cybereco-hub-auth-2025'; // Must match Hub's secret
+  private static jwtService = JWTAuthService.getInstance();
 
-  // Generate a simple hash for integrity check
-  private static async generateHash(data: string): Promise<string> {
-    const encoder = new TextEncoder();
-    const dataBuffer = encoder.encode(data);
-    const hashBuffer = await crypto.subtle.digest('SHA-256', dataBuffer);
-    const hashArray = Array.from(new Uint8Array(hashBuffer));
-    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-  }
-
-  // Verify and decode auth token from URL
+  // Verify and decode JWT auth token from URL
   static async verifyAuthToken(tokenString: string): Promise<AuthUser | null> {
     try {
-      // Decode from base64url
-      const base64 = tokenString.replace(/-/g, '+').replace(/_/g, '/');
-      const padding = '='.repeat((4 - (base64.length % 4)) % 4);
-      const decoded = atob(base64 + padding);
-      const token: AuthToken = JSON.parse(decoded);
-
-      // Check expiry
-      if (Date.now() > token.expires) {
-        debugLog('AuthTokenService', 'Auth token expired');
+      // Verify JWT token
+      const decoded = this.jwtService.verifyToken(tokenString);
+      
+      if (!decoded) {
+        debugLog('AuthTokenService', 'Invalid or expired auth token');
         return null;
       }
 
-      // Verify signature
-      const { signature, ...tokenData } = token;
-      const dataString = JSON.stringify(tokenData);
-      const expectedSignature = await this.generateHash(dataString + this.SECRET_KEY);
+      // Reconstruct AuthUser from JWT payload
+      const user: AuthUser = {
+        uid: decoded.sub,
+        email: decoded.email || '',
+        displayName: decoded.name || '',
+        photoURL: null,
+        emailVerified: true,
+        permissions: decoded.permissions || [],
+        apps: decoded.apps || []
+      };
 
-      if (signature !== expectedSignature) {
-        debugLog('AuthTokenService', 'Auth token signature mismatch');
-        return null;
-      }
-
-      debugLog('AuthTokenService', 'Auth token verified successfully', token.user);
-      return token.user;
+      debugLog('AuthTokenService', 'Auth token verified successfully', user);
+      return user;
     } catch (error) {
       debugLog('AuthTokenService', 'Failed to verify auth token', error);
       return null;

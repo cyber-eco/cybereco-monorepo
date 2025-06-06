@@ -1,0 +1,17 @@
+{
+  "contactPage": {
+    "title": "Contáctanos",
+    "subtitle": "Nos encantaría saber de ti. Envíanos un mensaje y te responderemos lo antes posible.",
+    "successMessage": "Tu mensaje ha sido enviado exitosamente. ¡Te responderemos pronto!",
+    "nameLabel": "Nombre",
+    "emailLabel": "Correo Electrónico",
+    "subjectLabel": "Asunto",
+    "messageLabel": "Mensaje",
+    "sendingButton": "Enviando...",
+    "submitButton": "Enviar Mensaje",
+    "contactInfoTitle": "Ponte en Contacto",
+    "emailContactLabel": "Email",
+    "addressLabel": "Dirección",
+    "socialTitle": "Síguenos"
+  }
+}

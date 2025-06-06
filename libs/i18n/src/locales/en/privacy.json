@@ -1,0 +1,118 @@
+{
+  "privacyPage": {
+    "title": "Privacy Policy",
+    "subtitle": "How we collect, use, and protect your data",
+    "lastUpdated": "Last updated: January 2025",
+    "intro": "At CyberEco, privacy is not just a feature — it's a fundamental principle. This policy explains how we handle your information across all CyberEco applications.",
+    "sections": {
+      "overview": {
+        "title": "Privacy Overview",
+        "principle1": "You own your data",
+        "principle2": "We minimize data collection",
+        "principle3": "No selling of personal information",
+        "principle4": "Transparent data practices",
+        "principle5": "Strong security by default"
+      },
+      "dataCollection": {
+        "title": "What We Collect",
+        "accountData": {
+          "title": "Account Information",
+          "item1": "Email address (for authentication)",
+          "item2": "Display name (you choose)",
+          "item3": "Profile photo (optional)",
+          "item4": "Authentication credentials"
+        },
+        "usageData": {
+          "title": "Usage Information",
+          "item1": "Features you use (anonymized)",
+          "item2": "App performance metrics",
+          "item3": "Error reports (sanitized)",
+          "item4": "General usage patterns"
+        },
+        "appSpecific": {
+          "title": "Application-Specific Data",
+          "justsplit": "JustSplit: Expense records, group memberships, payment history",
+          "hub": "Hub: App permissions, security settings, login history",
+          "future": "Future apps will have their specific data needs documented"
+        }
+      },
+      "dataUsage": {
+        "title": "How We Use Your Data",
+        "purpose1": "Provide and improve our services",
+        "purpose2": "Authenticate and secure your account",
+        "purpose3": "Sync data across your devices",
+        "purpose4": "Send important service updates",
+        "purpose5": "Debug and fix technical issues",
+        "purpose6": "Develop new features based on usage patterns"
+      },
+      "dataSharing": {
+        "title": "Data Sharing",
+        "never": "We never:",
+        "never1": "Sell your personal information",
+        "never2": "Share data with advertisers",
+        "never3": "Use your data for targeted ads",
+        "never4": "Access your data without permission",
+        "exceptions": "Limited exceptions:",
+        "exception1": "Legal requirements (with notification when possible)",
+        "exception2": "Protecting safety and security",
+        "exception3": "With your explicit consent"
+      },
+      "dataControl": {
+        "title": "Your Control",
+        "right1": "Access all your data anytime",
+        "right2": "Export data in standard formats",
+        "right3": "Delete specific data or entire account",
+        "right4": "Control privacy settings per application",
+        "right5": "Opt out of analytics collection",
+        "right6": "Manage data sharing preferences"
+      },
+      "security": {
+        "title": "Security Measures",
+        "measure1": "End-to-end encryption for sensitive data",
+        "measure2": "Secure authentication protocols",
+        "measure3": "Regular security audits",
+        "measure4": "Encrypted data transmission",
+        "measure5": "Secure cloud storage",
+        "measure6": "Incident response procedures"
+      },
+      "retention": {
+        "title": "Data Retention",
+        "active": "Active accounts: Data retained while account is active",
+        "inactive": "Inactive accounts: Reminder sent after 12 months",
+        "deleted": "Deleted accounts: Personal data removed within 30 days",
+        "logs": "System logs: Retained for 90 days",
+        "analytics": "Analytics data: Anonymized and aggregated"
+      },
+      "cookies": {
+        "title": "Cookies and Tracking",
+        "essential": "Essential cookies: Authentication, security, preferences",
+        "analytics": "Analytics cookies: Optional, for improving services",
+        "none": "We don't use: Advertising cookies, tracking pixels, third-party trackers"
+      },
+      "gdpr": {
+        "title": "GDPR Compliance",
+        "text": "For users in the European Union, we comply with GDPR requirements including:",
+        "right1": "Right to access your data",
+        "right2": "Right to rectification",
+        "right3": "Right to erasure ('right to be forgotten')",
+        "right4": "Right to data portability",
+        "right5": "Right to object to processing",
+        "right6": "Right to restrict processing"
+      },
+      "children": {
+        "title": "Children's Privacy",
+        "text": "CyberEco applications are not intended for children under 13. We do not knowingly collect data from children. If you believe we have collected data from a child, please contact us immediately."
+      },
+      "changes": {
+        "title": "Policy Changes",
+        "text": "We'll notify you of any significant changes to this privacy policy via email and in-app notifications. Continued use after changes constitutes acceptance."
+      },
+      "contact": {
+        "title": "Contact Us",
+        "text": "Questions about privacy? Contact our privacy team:",
+        "email": "privacy@cybere.co",
+        "address": "Privacy Team, CyberEco, 123 Innovation Way, San Francisco, CA 94103"
+      }
+    }
+  }
+}

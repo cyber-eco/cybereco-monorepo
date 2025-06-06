@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import { getHubAuth, getHubFirestore, initializeFirebase } from '@cybereco/firebase-config';
 import { 
   createAuthContext, 
-  BaseUser, 
   type AuthConfig, 
   useSessionSync, 
   clearSharedAuthState, 
@@ -12,11 +11,21 @@ import {
   saveSharedAuthState,
   type SharedAuthUser
 } from '@cybereco/auth';
+import type { BaseUser } from '@cybereco/shared-types';
 import type { AppPermission } from '@cybereco/auth';
 import { getCachedAuthState, setCachedAuthState, clearCachedAuthState } from '../lib/auth-persistence';
+import { authLogger, AuthEventType } from '@cybereco/auth';
 
 // Hub-specific user profile extending BaseUser
 export interface HubUser extends BaseUser {
+  // Explicitly include BaseUser properties to avoid type resolution issues
+  id: string;
+  name: string;
+  email?: string;
+  avatarUrl?: string;
+  createdAt?: string;
+  updatedAt?: string;
+  
   // Hub-specific fields
   apps: string[]; // List of app IDs the user has access to
   permissions: AppPermission[]; // App-specific permissions
@@ -103,7 +112,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     // Save to shared auth state for cross-app SSO
     const sharedUser: SharedAuthUser = {
       uid: userProfile.id,
-      email: userProfile.email,
+      email: userProfile.email || null,
       displayName: userProfile.name,
       photoURL: userProfile.avatarUrl || null,
       emailVerified: true // Assuming verified since they're logged in
@@ -204,7 +213,7 @@ function AuthContextWrapper({ children }: { children: React.ReactNode }) {
       
       const sharedUser: SharedAuthUser = {
         uid: authContext.userProfile.id,
-        email: authContext.userProfile.email,
+        email: authContext.userProfile.email || null,
         displayName: authContext.userProfile.name,
         photoURL: authContext.userProfile.avatarUrl || null,
         emailVerified: true
@@ -218,6 +227,10 @@ function AuthContextWrapper({ children }: { children: React.ReactNode }) {
       setTimeout(() => {
         if (!authContext.userProfile && !isNavigating && !authContext.isLoading) {
           // console.log('Hub AuthContext: Confirmed sign out, clearing shared auth');
+          authLogger.logSessionEvent(AuthEventType.SESSION_CLEAR, undefined, {
+            source: 'hub',
+            reason: 'User profile cleared'
+          });
           clearSharedAuthState();
         }
       }, 100); // Reduced from 1000ms to 100ms for faster response
@@ -231,6 +244,18 @@ function AuthContextWrapper({ children }: { children: React.ReactNode }) {
     ...authContext,
     signOut: async () => {
       // console.log('Hub AuthContext: User explicitly signing out, clearing shared auth');
+      const userId = authContext.userProfile?.id;
+      const email = authContext.userProfile?.email;
+      
+      // Log explicit sign out
+      if (userId) {
+        authLogger.logSessionEvent(AuthEventType.LOGOUT, userId, {
+          email,
+          source: 'hub',
+          method: 'explicit'
+        });
+      }
+      
       // Clear all auth caches when user explicitly signs out
       clearSharedAuthState();
       clearCachedAuthState();

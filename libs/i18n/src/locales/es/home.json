@@ -1,0 +1,60 @@
+{
+  "homePage": {
+    "hero": {
+      "title": "Soluciones Digitales para un Mundo Conectado",
+      "subtitle": "CyberEco crea aplicaciones innovadoras que mejoran cómo las personas gestionan sus finanzas, participan en comunidades y se conectan entre sí en la era digital.",
+      "ctaMain": "Comenzar",
+      "ctaSecondary": "Saber Más",
+      "exploreSolutions": "Explorar Soluciones",
+      "learnMore": "Más Información"
+    },
+    "features": {
+      "sectionTitle": "¿Por qué CyberEco?",
+      "sectionSubtitle": "Herramientas integrales para la vida digital moderna",
+      "communityTitle": "Comunidad Primero",
+      "communityDesc": "Construye conexiones significativas y colabora con personas afines en un entorno que respeta la privacidad",
+      "sustainabilityTitle": "Vida Sostenible",
+      "sustainabilityDesc": "Toma decisiones eco-conscientes con herramientas que ayudan a rastrear y reducir tu impacto ambiental",
+      "securityTitle": "Privacidad y Seguridad",
+      "securityDesc": "Tus datos te pertenecen. Control total, prácticas transparentes y encriptación de extremo a extremo",
+      "innovationTitle": "Innovación Abierta",
+      "innovationDesc": "Construido sobre estándares abiertos con desarrollo impulsado por la comunidad y gobernanza transparente"
+    },
+    "mission": {
+      "title": "Tecnología Centrada en el Ser Humano",
+      "content": "CyberEco existe para empoderar a las personas con tecnología que respeta la privacidad, promueve la colaboración y mejora la calidad de vida. Creemos en crear herramientas digitales que sirvan a la humanidad, no al revés.",
+      "approach": "Nuestro Enfoque",
+      "subtitle": "Construyendo herramientas digitales que empoderan a personas y comunidades",
+      "text": "Creemos que la tecnología debe servir a la humanidad, no explotarla. Nuestra misión es crear soluciones digitales que mejoren el bienestar humano, fomenten conexiones auténticas y apoyen una vida sostenible.",
+      "transparencyTitle": "Transparencia",
+      "transparencyDesc": "Desarrollo abierto y prácticas de datos claras",
+      "privacyTitle": "Privacidad Primero",
+      "privacyDesc": "Tus datos te pertenecen, siempre",
+      "communityTitle": "Impulsado por la Comunidad",
+      "communityDesc": "Construido por y para las personas que lo usan",
+      "sustainableTitle": "Tecnología Sostenible",
+      "sustainableDesc": "Pensamiento a largo plazo sobre ganancias a corto plazo",
+      "transparency": "Transparencia",
+      "privacy": "Privacidad Primero",
+      "community": "Impulsado por la Comunidad",
+      "sustainable": "Sostenible"
+    },
+    "solutions": {
+      "title": "Soluciones Para Cada Aspecto de la Vida",
+      "subtitle": "Explora nuestro creciente ecosistema de aplicaciones",
+      "current": "Soluciones Actuales",
+      "priority": "Desarrollo Prioritario",
+      "future": "Ecosistema Futuro",
+      "tryNow": "Probar Ahora",
+      "comingSoon": "Próximamente",
+      "planned": "Planificado"
+    },
+    "cta": {
+      "title": "¿Listo para Unirte al Futuro de la Vida Digital?",
+      "subtitle": "Comienza con nuestras aplicaciones insignia o explora nuestra visión para el mañana",
+      "button": "Crear Tu Cuenta",
+      "primaryButton": "Comenzar con Hub",
+      "secondaryButton": "Explorar Nuestra Visión"
+    }
+  }
+}

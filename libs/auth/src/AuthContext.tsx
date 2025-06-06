@@ -21,16 +21,7 @@ import {
 } from 'firebase/auth';
 import type { AuthProvider as FirebaseAuthProvider } from 'firebase/auth';
 import { doc, setDoc, getDoc, Firestore } from 'firebase/firestore';
-
-// Base user interface that apps can extend
-export interface BaseUser {
-  id: string;
-  name: string;
-  email?: string;
-  avatarUrl?: string;
-  createdAt?: string;
-  updatedAt?: string;
-}
+import { authLogger, AuthEventType } from './services/authLogger';
 
 // Auth configuration interface
 export interface AuthConfig {
@@ -40,8 +31,18 @@ export interface AuthConfig {
   enableIndexedDBRecovery?: boolean;
 }
 
+// Base user interface constraint
+export interface BaseUserConstraint {
+  id: string;
+  name: string;
+  email?: string;
+  avatarUrl?: string;
+  createdAt?: string;
+  updatedAt?: string;
+}
+
 // Auth context interface
-export interface AuthContextType<T extends BaseUser = BaseUser> {
+export interface AuthContextType<T extends BaseUserConstraint = BaseUserConstraint> {
   currentUser: FirebaseUser | null;
   userProfile: T | null;
   isLoading: boolean;
@@ -57,7 +58,7 @@ export interface AuthContextType<T extends BaseUser = BaseUser> {
 }
 
 // Provider props interface
-export interface AuthProviderProps<T extends BaseUser = BaseUser> {
+export interface AuthProviderProps<T extends BaseUserConstraint = BaseUserConstraint> {
   children: React.ReactNode;
   config: AuthConfig;
   createUserProfile?: (firebaseUser: FirebaseUser, extraData?: Partial<T>) => T;
@@ -77,7 +78,7 @@ export function sanitizeForFirestore(obj: Record<string, unknown>): Record<strin
 }
 
 // Create auth context factory
-export function createAuthContext<T extends BaseUser = BaseUser>() {
+export function createAuthContext<T extends BaseUserConstraint = BaseUserConstraint>() {
   const AuthContext = createContext<AuthContextType<T> | undefined>(undefined);
 
   function useAuth() {
@@ -104,7 +105,7 @@ export function createAuthContext<T extends BaseUser = BaseUser>() {
 
     // Default user profile creator
     const defaultCreateUserProfile = (firebaseUser: FirebaseUser, extraData?: Partial<T>): T => {
-      const baseProfile: BaseUser = {
+      const baseProfile: BaseUserConstraint = {
         id: firebaseUser.uid,
         name: firebaseUser.displayName || 'User',
         ...(firebaseUser.email && { email: firebaseUser.email }),
@@ -160,15 +161,28 @@ export function createAuthContext<T extends BaseUser = BaseUser>() {
               const userData = sanitizeForFirestore(userDoc.data()) as T;
               setUserProfile(userData);
               onUserProfileLoaded?.(userData);
+              
+              // Log session restoration
+              authLogger.logSessionEvent(AuthEventType.SESSION_RESTORE, user.uid, {
+                email: user.email || 'unknown',
+                displayName: user.displayName || 'User'
+              });
             } else {
               // Create new user profile
               const newUserData = userProfileCreator(user);
               await setDoc(userDocRef, sanitizeForFirestore(newUserData as Record<string, unknown>));
               setUserProfile(newUserData);
               onUserProfileLoaded?.(newUserData);
+              
+              // Log new session creation
+              authLogger.logSessionEvent(AuthEventType.SESSION_CREATE, user.uid, {
+                email: user.email || 'unknown',
+                displayName: user.displayName || 'User'
+              });
             }
           } catch (error) {
             console.error('Error handling user profile:', error);
+            authLogger.logAuthError(error as Error, { userId: user.uid });
             setUserProfile(null);
           }
         } else {
@@ -184,28 +198,86 @@ export function createAuthContext<T extends BaseUser = BaseUser>() {
     // Authentication methods
     const getProvider = (providerName: string): FirebaseAuthProvider => {
       switch (providerName) {
-        case 'google': return new GoogleAuthProvider();
-        case 'facebook': return new FacebookAuthProvider();
-        case 'twitter': return new TwitterAuthProvider();
-        default: throw new Error(`Unsupported provider: ${providerName}`);
+        case 'google': 
+          const googleProvider = new GoogleAuthProvider();
+          // Add custom parameters for emulator compatibility
+          googleProvider.setCustomParameters({
+            prompt: 'select_account',
+            // Add auth_type for emulator
+            auth_type: 'rerequest'
+          });
+          return googleProvider;
+        case 'facebook': 
+          const facebookProvider = new FacebookAuthProvider();
+          facebookProvider.setCustomParameters({
+            display: 'popup'
+          });
+          return facebookProvider;
+        case 'twitter': 
+          return new TwitterAuthProvider();
+        default: 
+          throw new Error(`Unsupported provider: ${providerName}`);
       }
     };
 
     const signIn = async (email: string, password: string) => {
-      await signInWithEmailAndPassword(auth, email, password);
+      const startTime = Date.now();
+      authLogger.logLoginAttempt(email, { method: 'email' });
+      
+      try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        const duration = Date.now() - startTime;
+        authLogger.logLoginSuccess(userCredential.user.uid, email, duration, { method: 'email' });
+      } catch (error: any) {
+        authLogger.logLoginFailure(email, error.code || 'unknown', error.message || 'Login failed');
+        throw error;
+      }
     };
 
     const signUp = async (email: string, password: string, displayName: string, extraData?: Partial<T>) => {
-      const result = await createUserWithEmailAndPassword(auth, email, password);
-      await firebaseUpdateProfile(result.user, { displayName });
+      const startTime = Date.now();
+      authLogger.logLoginAttempt(email, { method: 'signup' });
       
-      // User profile will be created by the auth state listener
+      try {
+        const result = await createUserWithEmailAndPassword(auth, email, password);
+        await firebaseUpdateProfile(result.user, { displayName });
+        
+        const duration = Date.now() - startTime;
+        authLogger.logLoginSuccess(result.user.uid, email, duration, { method: 'signup', displayName });
+        
+        // User profile will be created by the auth state listener
+      } catch (error: any) {
+        authLogger.logLoginFailure(email, error.code || 'unknown', error.message || 'Signup failed');
+        throw error;
+      }
     };
 
     const signInWithProvider = async (providerName: 'google' | 'facebook' | 'twitter') => {
+      const startTime = Date.now();
       const provider = getProvider(providerName);
-      await signInWithPopup(auth, provider);
-      // User profile creation handled by auth state listener
+      
+      // In development, log provider details for debugging
+      if (process.env.NODE_ENV === 'development') {
+        console.log('SignInWithProvider:', {
+          providerName,
+          providerId: provider.providerId,
+          authInstance: auth.name,
+          emulatorConfig: auth.config
+        });
+      }
+      
+      authLogger.logLoginAttempt(providerName, { method: providerName });
+      
+      try {
+        const result = await signInWithPopup(auth, provider);
+        const duration = Date.now() - startTime;
+        const email = result.user.email || 'unknown';
+        authLogger.logLoginSuccess(result.user.uid, email, duration, { method: providerName });
+        // User profile creation handled by auth state listener
+      } catch (error: any) {
+        authLogger.logLoginFailure(providerName, error.code || 'unknown', error.message || 'Provider login failed');
+        throw error;
+      }
     };
 
     const linkAccount = async (providerName: 'google' | 'facebook' | 'twitter') => {
@@ -214,7 +286,16 @@ export function createAuthContext<T extends BaseUser = BaseUser>() {
       await linkWithPopup(currentUser, provider);
     };
 
-    const signOut = () => firebaseSignOut(auth);
+    const signOut = async () => {
+      const userId = currentUser?.uid;
+      const email = currentUser?.email || 'unknown';
+      
+      await firebaseSignOut(auth);
+      
+      if (userId) {
+        authLogger.logSessionEvent(AuthEventType.LOGOUT, userId, { email });
+      }
+    };
 
     const resetPassword = (email: string) => sendPasswordResetEmail(auth, email);
 
@@ -273,4 +354,7 @@ export function createAuthContext<T extends BaseUser = BaseUser>() {
 }
 
 // Export default auth context for basic use cases
-export const { AuthProvider, useAuth, AuthContext } = createAuthContext<BaseUser>();
+const defaultAuthContext = createAuthContext<BaseUserConstraint>();
+export const AuthProvider = defaultAuthContext.AuthProvider;
+export const useAuth = defaultAuthContext.useAuth;
+export const AuthContext = defaultAuthContext.AuthContext;

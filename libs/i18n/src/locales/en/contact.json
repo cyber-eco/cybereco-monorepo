@@ -1,0 +1,17 @@
+{
+  "contactPage": {
+    "title": "Contact Us",
+    "subtitle": "We'd love to hear from you. Send us a message and we'll respond as soon as possible.",
+    "successMessage": "Your message has been sent successfully. We'll get back to you soon!",
+    "nameLabel": "Name",
+    "emailLabel": "Email",
+    "subjectLabel": "Subject",
+    "messageLabel": "Message",
+    "sendingButton": "Sending...",
+    "submitButton": "Send Message",
+    "contactInfoTitle": "Get in Touch",
+    "emailContactLabel": "Email",
+    "addressLabel": "Address",
+    "socialTitle": "Follow Us"
+  }
+}

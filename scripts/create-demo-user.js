@@ -1,39 +1,29 @@
-// Script to create a demo user in Firebase Auth emulator
-const admin = require('firebase-admin');
+#!/usr/bin/env node
 
-// Initialize admin SDK with emulator
-process.env.FIREBASE_AUTH_EMULATOR_HOST = 'localhost:9099';
+console.log(`
+==============================================
+Firebase Auth Emulator - Create Demo User
+==============================================
 
-admin.initializeApp({
-  projectId: 'demo-cybereco-hub',
-});
+To create a demo user, please follow these steps:
 
-async function createDemoUser() {
-  try {
-    // Create demo user
-    const user = await admin.auth().createUser({
-      uid: 'demo-user-123',
-      email: 'demo@cybere.co',
-      password: 'demo123',
-      displayName: 'Demo User',
-      emailVerified: true,
-    });
+1. Open the Firebase Emulator UI:
+   http://localhost:4001
 
-    console.log('Successfully created demo user:', user.uid);
-    console.log('Email:', user.email);
-    console.log('Password: demo123');
-    
-    process.exit(0);
-  } catch (error) {
-    if (error.code === 'auth/email-already-exists') {
-      console.log('Demo user already exists');
-      process.exit(0);
-    } else {
-      console.error('Error creating demo user:', error);
-      process.exit(1);
-    }
-  }
-}
+2. Click on "Authentication" in the sidebar
 
-createDemoUser();
-EOF < /dev/null
+3. Click "Add user" button
+
+4. Enter the following details:
+   - Email: demo@cybere.co
+   - Password: demo123
+   - Display Name: Demo User
+
+5. Click "Save"
+
+Alternatively, you can:
+- Sign up through the Hub app at http://localhost:40000/auth/signup
+- Use any email/password combination to create a new account
+
+The Firebase Auth emulator allows you to create users on the fly!
+`);

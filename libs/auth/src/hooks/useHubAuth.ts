@@ -1,3 +1,5 @@
+'use client';
+
 /**
  * Lightweight auth hook for CyberEco apps
  * Apps consume Hub authentication without managing users
@@ -51,7 +53,13 @@ export function useHubAuth(): HubAuthState {
           // 2. Check for existing auth in storage
           const storedAuth = AuthTokenService.getStoredAuth();
           if (storedAuth) {
-            setUser(storedAuth);
+            setUser({
+              id: storedAuth.uid,
+              email: storedAuth.email || '',
+              name: storedAuth.displayName || 'User',
+              photoURL: storedAuth.photoURL,
+              permissions: storedAuth.permissions
+            });
           }
         }
       } catch (error) {
