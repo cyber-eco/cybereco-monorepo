@@ -1,7 +1,27 @@
 {
   "supportPage": {
     "title": "Support Center",
-    "subtitle": "Get help with CyberEco applications and services",
+    "subtitle": "Get the assistance you need to solve problems and make the most of CyberEco applications",
+    "commonIssuesTitle": "Common Issues",
+    "commonIssuesText": "Find quick solutions to the most frequently encountered problems with our applications.",
+    "viewCommonIssues": "View Common Issues",
+    "knowledgeBaseTitle": "Knowledge Base",
+    "knowledgeBaseText": "Access our detailed documentation and step-by-step guides for all CyberEco applications.",
+    "browseKnowledgeBase": "Browse Knowledge Base",
+    "communityForumsTitle": "Community Forums",
+    "communityForumsText": "Join discussions, share experiences, and find solutions with other users in our community forums.",
+    "visitForums": "Visit Forums",
+    "liveChatTitle": "Live Chat",
+    "liveChatText": "Connect with our support team in real-time for immediate assistance with urgent issues.",
+    "startChat": "Start Chat",
+    "contactSupportTitle": "Contact Support",
+    "nameLabel": "Your Name",
+    "emailLabel": "Email Address",
+    "subjectLabel": "Subject",
+    "productLabel": "Product",
+    "selectProduct": "Select a product",
+    "messageLabel": "Message",
+    "submitRequest": "Submit Request",
     "searchPlaceholder": "Search for help...",
     "categories": {
       "gettingStarted": {

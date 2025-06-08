@@ -19,7 +19,7 @@ export default function DevelopmentSetupPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <FaTerminal /> Development Setup
+          <FaTerminal /> {t('documentation:documentationPage.development.title') || 'Development Setup'}
         </motion.h1>
         <motion.p
           className={styles.subtitle}
@@ -27,7 +27,7 @@ export default function DevelopmentSetupPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          Get your local CyberEco development environment up and running
+          {t('documentation:documentationPage.development.subtitle') || 'Get your local CyberEco development environment up and running'}
         </motion.p>
       </header>
 
@@ -35,14 +35,14 @@ export default function DevelopmentSetupPage() {
         <section className={styles.step}>
           <div className={styles.stepHeader}>
             <div className={styles.stepNumber}>1</div>
-            <h2>Prerequisites</h2>
+            <h2>{t('documentation:documentationPage.development.prerequisites') || 'Prerequisites'}</h2>
           </div>
           <div className={styles.stepContent}>
             <ul className={styles.requirementsList}>
-              <li><FaGitAlt /> Git version 2.0 or higher</li>
-              <li><FaNpm /> Node.js 18.x or higher</li>
-              <li><FaNpm /> npm 9.x or higher</li>
-              <li><FaDocker /> Docker (optional, for containerized setup)</li>
+              <li><FaGitAlt /> {t('documentation:documentationPage.development.gitRequirement') || 'Git version 2.0 or higher'}</li>
+              <li><FaNpm /> {t('documentation:documentationPage.development.nodeRequirement') || 'Node.js 18.x or higher'}</li>
+              <li><FaNpm /> {t('documentation:documentationPage.development.npmRequirement') || 'npm 9.x or higher'}</li>
+              <li><FaDocker /> {t('documentation:documentationPage.development.dockerRequirement') || 'Docker (optional, for containerized setup)'}</li>
             </ul>
           </div>
         </section>
@@ -50,7 +50,7 @@ export default function DevelopmentSetupPage() {
         <section className={styles.step}>
           <div className={styles.stepHeader}>
             <div className={styles.stepNumber}>2</div>
-            <h2>Clone the Repository</h2>
+            <h2>{t('documentation:documentationPage.development.cloneRepository') || 'Clone the Repository'}</h2>
           </div>
           <div className={styles.stepContent}>
             <div className={styles.codeBlock}>
@@ -65,15 +65,15 @@ cd cybereco-monorepo`}
         <section className={styles.step}>
           <div className={styles.stepHeader}>
             <div className={styles.stepNumber}>3</div>
-            <h2>Install Dependencies</h2>
+            <h2>{t('documentation:documentationPage.development.installDependencies') || 'Install Dependencies'}</h2>
           </div>
           <div className={styles.stepContent}>
             <div className={styles.codeBlock}>
               <pre>
-{`# Install all dependencies
+{`# ${t('documentation:documentationPage.development.installAllDeps') || 'Install all dependencies'}
 npm install
 
-# Install Firebase tools globally
+# ${t('documentation:documentationPage.development.installFirebase') || 'Install Firebase tools globally'}
 npm install -g firebase-tools`}
               </pre>
             </div>
@@ -83,15 +83,15 @@ npm install -g firebase-tools`}
         <section className={styles.step}>
           <div className={styles.stepHeader}>
             <div className={styles.stepNumber}>4</div>
-            <h2>Start Development Servers</h2>
+            <h2>{t('documentation:documentationPage.development.startServers') || 'Start Development Servers'}</h2>
           </div>
           <div className={styles.stepContent}>
             <div className={styles.codeBlock}>
               <pre>
-{`# Start all apps with Firebase emulators
+{`# ${t('documentation:documentationPage.development.startAllApps') || 'Start all apps with Firebase emulators'}
 npm run dev
 
-# Or start individual apps
+# ${t('documentation:documentationPage.development.startIndividual') || 'Or start individual apps'}
 nx serve hub          # Hub at localhost:40000
 nx serve website      # Website at localhost:40001
 nx serve justsplit    # JustSplit at localhost:40002`}

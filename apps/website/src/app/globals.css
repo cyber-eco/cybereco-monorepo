@@ -1,3 +1,7 @@
+/* Import documentation styles */
+@import '../styles/documentation-static.css';
+@import '../styles/documentation-shared.css';
+
 * {
   box-sizing: border-box;
   padding: 0;

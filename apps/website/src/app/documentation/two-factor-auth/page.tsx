@@ -1,52 +1,70 @@
 'use client';
 
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { FaLock, FaMobileAlt, FaQrcode, FaShieldAlt, FaKey, FaCheckCircle } from 'react-icons/fa';
+import { useI18n } from '@cybereco/i18n';
 import styles from '../page.module.css';
 
 export default function TwoFactorAuthDocumentation() {
+  const { t } = useI18n();
+  const [mounted, setMounted] = useState(false);
+  
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return (
+      <div className={styles.pageContainer}>
+        <div className={styles.pageHeader}>
+          <h1 className={styles.title}>Loading...</h1>
+        </div>
+      </div>
+    );
+  }
+  
   return (
-    <div className={styles.container}>
-      <div className={styles.docHeader}>
-        <h1>
-          <FaLock /> Two-Factor Authentication (2FA)
+    <div className={styles.pageContainer}>
+      <div className={styles.pageHeader}>
+        <h1 className={styles.title}>
+          {t('documentation:documentationPage.twoFactor.title') || 'Two-Factor Authentication (2FA)'}
         </h1>
         <p className={styles.subtitle}>
-          Add an extra layer of security to your CyberEco account with TOTP-based authentication
+          {t('documentation:documentationPage.twoFactor.description') || 'Add an extra layer of security to your CyberEco account with TOTP-based authentication'}
         </p>
       </div>
 
       <nav className={styles.tableOfContents}>
-        <h2>Table of Contents</h2>
+        <h2>{t('documentation:documentationPage.tableOfContents') || 'Table of Contents'}</h2>
         <ul>
-          <li><a href="#overview">Overview</a></li>
-          <li><a href="#setup-guide">Setup Guide</a></li>
-          <li><a href="#how-it-works">How It Works</a></li>
-          <li><a href="#backup-codes">Backup Codes</a></li>
-          <li><a href="#integration">Integration Guide</a></li>
-          <li><a href="#troubleshooting">Troubleshooting</a></li>
-          <li><a href="#api-reference">API Reference</a></li>
+          <li><a href="#overview">{t('documentation:documentationPage.twoFactor.overview.title') || 'Overview'}</a></li>
+          <li><a href="#setup-guide">{t('documentation:documentationPage.twoFactor.setup.title') || 'Setup Guide'}</a></li>
+          <li><a href="#how-it-works">{t('documentation:documentationPage.twoFactor.howItWorks.title') || 'How It Works'}</a></li>
+          <li><a href="#backup-codes">{t('documentation:documentationPage.twoFactor.backupCodes.title') || 'Backup Codes'}</a></li>
+          <li><a href="#integration">{t('documentation:documentationPage.twoFactor.integration.title') || 'Integration Guide'}</a></li>
+          <li><a href="#troubleshooting">{t('documentation:documentationPage.twoFactor.troubleshooting.title') || 'Troubleshooting'}</a></li>
+          <li><a href="#api-reference">{t('documentation:documentationPage.twoFactor.api.title') || 'API Reference'}</a></li>
         </ul>
       </nav>
 
-      <section id="overview" className={styles.section}>
-        <h2>Overview</h2>
+      <section id="overview" className={styles.contentSection}>
+        <h3 className={styles.subTitle}>{t('documentation:documentationPage.twoFactor.overview.title') || 'Overview'}</h3>
         <p>
-          Two-Factor Authentication (2FA) provides an additional security layer beyond just a password.
-          CyberEco implements Time-based One-Time Password (TOTP) authentication, compatible with
-          popular authenticator apps like Google Authenticator, Authy, and Microsoft Authenticator.
+          {t('documentation:documentationPage.twoFactor.overview.description') || 
+          'Two-Factor Authentication (2FA) provides an additional security layer beyond just a password. CyberEco implements Time-based One-Time Password (TOTP) authentication, compatible with popular authenticator apps like Google Authenticator, Authy, and Microsoft Authenticator.'}
         </p>
 
         <div className={styles.featureGrid}>
           <div className={styles.featureCard}>
             <FaMobileAlt className={styles.featureIcon} />
-            <h3>Mobile Authentication</h3>
-            <p>Use your smartphone as a second factor with any TOTP-compatible app</p>
+            <h3>{t('documentation:documentationPage.twoFactor.features.mobile.title') || 'Mobile Authentication'}</h3>
+            <p>{t('documentation:documentationPage.twoFactor.features.mobile.description') || 'Use your smartphone as a second factor with any TOTP-compatible app'}</p>
           </div>
           <div className={styles.featureCard}>
             <FaQrcode className={styles.featureIcon} />
-            <h3>Easy Setup</h3>
-            <p>Quick QR code scanning for seamless authenticator app configuration</p>
+            <h3>{t('documentation:documentationPage.twoFactor.features.easySetup.title') || 'Easy Setup'}</h3>
+            <p>{t('documentation:documentationPage.twoFactor.features.easySetup.description') || 'Quick QR code scanning for seamless authenticator app configuration'}</p>
           </div>
           <div className={styles.featureCard}>
             <FaKey className={styles.featureIcon} />
@@ -61,8 +79,8 @@ export default function TwoFactorAuthDocumentation() {
         </div>
       </section>
 
-      <section id="setup-guide" className={styles.section}>
-        <h2>Setup Guide</h2>
+      <section id="setup-guide" className={styles.contentSection}>
+        <h3 className={styles.subTitle}>Setup Guide</h3>
         
         <h3>Step 1: Enable 2FA</h3>
         <ol className={styles.numberedList}>
@@ -100,8 +118,8 @@ otpauth://totp/CyberEco%20Hub:user@example.com?secret=JBSWY3DPEHPK3PXP&issuer=Cy
         </div>
       </section>
 
-      <section id="how-it-works" className={styles.section}>
-        <h2>How It Works</h2>
+      <section id="how-it-works" className={styles.contentSection}>
+        <h3 className={styles.subTitle}>How It Works</h3>
         
         <h3>TOTP Algorithm</h3>
         <p>
@@ -117,36 +135,36 @@ otpauth://totp/CyberEco%20Hub:user@example.com?secret=JBSWY3DPEHPK3PXP&issuer=Cy
         </div>
 
         <h3>Authentication Flow</h3>
-        <div className={styles.flowDiagram}>
-          <div className={styles.flowStep}>
+        <div className={styles.stepByStepGuide}>
+          <div className={styles.step}>
             <div className={styles.stepNumber}>1</div>
             <div className={styles.stepContent}>
               <h4>Enter Credentials</h4>
               <p>User provides email and password</p>
             </div>
           </div>
-          <div className={styles.flowStep}>
+          <div className={styles.step}>
             <div className={styles.stepNumber}>2</div>
             <div className={styles.stepContent}>
               <h4>Verify Password</h4>
               <p>System validates credentials</p>
             </div>
           </div>
-          <div className={styles.flowStep}>
+          <div className={styles.step}>
             <div className={styles.stepNumber}>3</div>
             <div className={styles.stepContent}>
               <h4>Request 2FA Code</h4>
               <p>If 2FA enabled, prompt for code</p>
             </div>
           </div>
-          <div className={styles.flowStep}>
+          <div className={styles.step}>
             <div className={styles.stepNumber}>4</div>
             <div className={styles.stepContent}>
               <h4>Verify TOTP</h4>
               <p>Validate 6-digit code</p>
             </div>
           </div>
-          <div className={styles.flowStep}>
+          <div className={styles.step}>
             <div className={styles.stepNumber}>5</div>
             <div className={styles.stepContent}>
               <h4>Grant Access</h4>
@@ -171,8 +189,8 @@ const isValid = await twoFactorService.verifyToken(
         </div>
       </section>
 
-      <section id="backup-codes" className={styles.section}>
-        <h2>Backup Codes</h2>
+      <section id="backup-codes" className={styles.contentSection}>
+        <h3 className={styles.subTitle}>Backup Codes</h3>
         
         <h3>What Are Backup Codes?</h3>
         <p>
@@ -224,8 +242,8 @@ const newCodes = await twoFactorService.regenerateBackupCodes(
         </ul>
       </section>
 
-      <section id="integration" className={styles.section}>
-        <h2>Integration Guide</h2>
+      <section id="integration" className={styles.contentSection}>
+        <h3 className={styles.subTitle}>Integration Guide</h3>
         
         <h3>1. Setup 2FA Service</h3>
         <div className={styles.codeBlock}>
@@ -348,8 +366,8 @@ function TwoFactorVerification({ userId, onSuccess }) {
         </div>
       </section>
 
-      <section id="troubleshooting" className={styles.section}>
-        <h2>Troubleshooting</h2>
+      <section id="troubleshooting" className={styles.contentSection}>
+        <h3 className={styles.subTitle}>Troubleshooting</h3>
         
         <h3>Common Issues</h3>
         
@@ -393,11 +411,11 @@ function TwoFactorVerification({ userId, onSuccess }) {
         </div>
       </section>
 
-      <section id="api-reference" className={styles.section}>
-        <h2>API Reference</h2>
+      <section id="api-reference" className={styles.contentSection}>
+        <h3 className={styles.subTitle}>API Reference</h3>
         
         <h3>TwoFactorService Methods</h3>
-        <table className={styles.apiTable}>
+        <table className={styles.dataTable}>
           <thead>
             <tr>
               <th>Method</th>
@@ -476,23 +494,23 @@ interface DeviceInfo {
         </div>
       </section>
 
-      <div className={styles.nextSteps}>
-        <h2>Next Steps</h2>
-        <div className={styles.linkGrid}>
-          <Link href="/documentation/privacy-controls" className={styles.docLink}>
+      <section className={styles.contentSection}>
+        <h3 className={styles.subTitle}>Next Steps</h3>
+        <div className={styles.cardGrid}>
+          <Link href="/documentation/privacy-controls" className={styles.docCard}>
             <FaShieldAlt />
             <span>Privacy Controls</span>
           </Link>
-          <Link href="/documentation/data-export" className={styles.docLink}>
+          <Link href="/documentation/data-export" className={styles.docCard}>
             <FaKey />
             <span>Data Export Guide</span>
           </Link>
-          <Link href="/documentation/authentication" className={styles.docLink}>
+          <Link href="/documentation/authentication" className={styles.docCard}>
             <FaLock />
             <span>Authentication Overview</span>
           </Link>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

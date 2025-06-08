@@ -1,10 +1,10 @@
 'use client';
 
 import styles from './page.module.css';
-import { useLanguage } from '@cybereco/ui-components';
+import { useI18n } from '@cybereco/i18n';
 
 export default function JWTAuthenticationDocs() {
-  const { t } = useLanguage();
+  const { t } = useI18n();
 
   return (
     <div className={styles.container}>

@@ -2,51 +2,53 @@
 
 import Link from 'next/link';
 import { FaDatabase, FaDownload, FaFileExport, FaFileCsv, FaFileCode, FaCheckCircle } from 'react-icons/fa';
+import { useI18n } from '@cybereco/i18n';
 import styles from '../page.module.css';
 
 export default function DataExportDocumentation() {
+  const { t } = useI18n();
+  
   return (
-    <div className={styles.container}>
-      <div className={styles.docHeader}>
-        <h1>
-          <FaDatabase /> Data Export & Portability
+    <div className={styles.pageContainer}>
+      <div className={styles.pageHeader}>
+        <h1 className={styles.title}>
+          <FaDatabase /> {t('documentation:documentationPage.dataExport.title') || 'Data Export & Portability'}
         </h1>
         <p className={styles.subtitle}>
-          Export your CyberEco data in multiple formats for backup, analysis, or migration
+          {t('documentation:documentationPage.dataExport.description') || 'Export your CyberEco data in multiple formats for backup, analysis, or migration'}
         </p>
       </div>
 
       <nav className={styles.tableOfContents}>
-        <h2>Table of Contents</h2>
+        <h2>{t('documentation:documentationPage.tableOfContents') || 'Table of Contents'}</h2>
         <ul>
-          <li><a href="#overview">Overview</a></li>
-          <li><a href="#export-formats">Export Formats</a></li>
-          <li><a href="#data-included">What's Included</a></li>
-          <li><a href="#how-to-export">How to Export</a></li>
-          <li><a href="#api-integration">API Integration</a></li>
-          <li><a href="#rate-limits">Rate Limits & Security</a></li>
-          <li><a href="#gdpr-compliance">GDPR Compliance</a></li>
+          <li><a href="#overview">{t('documentation:documentationPage.dataExport.overview.title') || 'Overview'}</a></li>
+          <li><a href="#export-formats">{t('documentation:documentationPage.dataExport.formats.title') || 'Export Formats'}</a></li>
+          <li><a href="#data-included">{t('documentation:documentationPage.dataExport.included.title') || "What's Included"}</a></li>
+          <li><a href="#how-to-export">{t('documentation:documentationPage.dataExport.howTo.title') || 'How to Export'}</a></li>
+          <li><a href="#api-integration">{t('documentation:documentationPage.dataExport.api.title') || 'API Integration'}</a></li>
+          <li><a href="#rate-limits">{t('documentation:documentationPage.dataExport.rateLimits.title') || 'Rate Limits & Security'}</a></li>
+          <li><a href="#gdpr-compliance">{t('documentation:documentationPage.dataExport.gdpr.title') || 'GDPR Compliance'}</a></li>
         </ul>
       </nav>
 
-      <section id="overview" className={styles.section}>
-        <h2>Overview</h2>
+      <div id="overview" className={styles.contentSection}>
+        <h3 className={styles.subTitle}>{t('documentation:documentationPage.dataExport.overview.title') || 'Overview'}</h3>
         <p>
-          CyberEco provides comprehensive data export functionality that allows users to download
-          all their personal data in machine-readable formats. This feature supports data portability
-          rights under GDPR and gives users full control over their information.
+          {t('documentation:documentationPage.dataExport.overview.description') || 
+          'CyberEco provides comprehensive data export functionality that allows users to download all their personal data in machine-readable formats. This feature supports data portability rights under GDPR and gives users full control over their information.'}
         </p>
 
         <div className={styles.featureGrid}>
           <div className={styles.featureCard}>
             <FaFileCode className={styles.featureIcon} />
-            <h3>JSON Export</h3>
-            <p>Structured data format ideal for developers and data analysis</p>
+            <h3>{t('documentation:documentationPage.dataExport.formats.json.title') || 'JSON Export'}</h3>
+            <p>{t('documentation:documentationPage.dataExport.formats.json.description') || 'Structured data format ideal for developers and data analysis'}</p>
           </div>
           <div className={styles.featureCard}>
             <FaFileCsv className={styles.featureIcon} />
-            <h3>CSV Export</h3>
-            <p>Spreadsheet-compatible format for easy viewing and analysis</p>
+            <h3>{t('documentation:documentationPage.dataExport.formats.csv.title') || 'CSV Export'}</h3>
+            <p>{t('documentation:documentationPage.dataExport.formats.csv.description') || 'Spreadsheet-compatible format for easy viewing and analysis'}</p>
           </div>
           <div className={styles.featureCard}>
             <FaDownload className={styles.featureIcon} />
@@ -59,18 +61,18 @@ export default function DataExportDocumentation() {
             <p>Export all your data including metadata and relationships</p>
           </div>
         </div>
-      </section>
+      </div>
 
-      <section id="export-formats" className={styles.section}>
-        <h2>Export Formats</h2>
+      <div id="export-formats" className={styles.contentSection}>
+        <h3 className={styles.subTitle}>Export Formats</h3>
         
-        <h3>JSON Format</h3>
+        <h4>JSON Format</h4>
         <p>
           JSON (JavaScript Object Notation) provides a hierarchical structure that preserves
           data relationships and types.
         </p>
         
-        <div className={styles.codeBlock}>
+        <div className={styles.codeSection}>
           <pre>{`{
   "userData": {
     "profile": {
@@ -98,13 +100,13 @@ export default function DataExportDocumentation() {
 }`}</pre>
         </div>
 
-        <h3>CSV Format</h3>
+        <h4>CSV Format</h4>
         <p>
           CSV (Comma-Separated Values) flattens hierarchical data into tables, making it
           easy to import into spreadsheet applications.
         </p>
         
-        <div className={styles.infoBox}>
+        <div className={styles.featureCard}>
           <h4>CSV Structure:</h4>
           <ul>
             <li><strong>profile.csv</strong> - User profile information</li>
@@ -115,42 +117,42 @@ export default function DataExportDocumentation() {
           </ul>
         </div>
 
-        <div className={styles.codeBlock}>
+        <div className={styles.codeSection}>
           <pre>{`// Example: expenses.csv
 id,description,amount,currency,date,paidBy,category,settled
 exp_123,"Dinner",45.50,USD,2024-06-01,user123,Food,false
 exp_124,"Movie tickets",24.00,USD,2024-06-02,user456,Entertainment,true`}</pre>
         </div>
-      </section>
+      </div>
 
-      <section id="data-included" className={styles.section}>
-        <h2>What's Included in Your Export</h2>
+      <div id="data-included" className={styles.contentSection}>
+        <h3 className={styles.subTitle}>What's Included in Your Export</h3>
         
-        <h3>Core User Data</h3>
-        <div className={styles.featureList}>
-          <div className={styles.featureItem}>
-            <FaCheckCircle className={styles.checkIcon} />
+        <h4>Core User Data</h4>
+        <div style={{display: 'grid', gap: 'var(--spacing-sm)'}}>
+          <div style={{display: 'flex', alignItems: 'center', gap: 'var(--spacing-sm)'}}>
+            <FaCheckCircle style={{color: 'var(--primary)', fontSize: '1.2rem'}} />
             <div>
               <strong>Profile Information:</strong> Name, email, avatar, account creation date
             </div>
           </div>
-          <div className={styles.featureItem}>
-            <FaCheckCircle className={styles.checkIcon} />
+          <div style={{display: 'flex', alignItems: 'center', gap: 'var(--spacing-sm)'}}>
+            <FaCheckCircle style={{color: 'var(--primary)', fontSize: '1.2rem'}} />
             <div>
               <strong>Authentication Data:</strong> Login history, sessions, security settings
             </div>
           </div>
-          <div className={styles.featureItem}>
-            <FaCheckCircle className={styles.checkIcon} />
+          <div style={{display: 'flex', alignItems: 'center', gap: 'var(--spacing-sm)'}}>
+            <FaCheckCircle style={{color: 'var(--primary)', fontSize: '1.2rem'}} />
             <div>
               <strong>Privacy Settings:</strong> Consent records, visibility preferences
             </div>
           </div>
         </div>
 
-        <h3>Application Data</h3>
-        <div className={styles.appDataGrid}>
-          <div className={styles.appDataCard}>
+        <h4>Application Data</h4>
+        <div className={styles.cardGrid}>
+          <div className={styles.featureCard}>
             <h4>JustSplit</h4>
             <ul>
               <li>Expenses (created and participated)</li>
@@ -160,7 +162,7 @@ exp_124,"Movie tickets",24.00,USD,2024-06-02,user456,Entertainment,true`}</pre>
               <li>Friend connections</li>
             </ul>
           </div>
-          <div className={styles.appDataCard}>
+          <div className={styles.featureCard}>
             <h4>Hub</h4>
             <ul>
               <li>Connected applications</li>
@@ -172,7 +174,7 @@ exp_124,"Movie tickets",24.00,USD,2024-06-02,user456,Entertainment,true`}</pre>
           </div>
         </div>
 
-        <h3>Metadata</h3>
+        <h4>Metadata</h4>
         <p>Each export includes comprehensive metadata:</p>
         <ul>
           <li>Export timestamp</li>
@@ -181,7 +183,7 @@ exp_124,"Movie tickets",24.00,USD,2024-06-02,user456,Entertainment,true`}</pre>
           <li>Processing notes</li>
         </ul>
 
-        <div className={styles.warningBox}>
+        <div className={styles.featureCard} style={{borderLeft: '4px solid #ff9800'}}>
           <h4>Excluded Data:</h4>
           <ul>
             <li>Internal system identifiers</li>
@@ -190,13 +192,13 @@ exp_124,"Movie tickets",24.00,USD,2024-06-02,user456,Entertainment,true`}</pre>
             <li>Other users' private data</li>
           </ul>
         </div>
-      </section>
+      </div>
 
-      <section id="how-to-export" className={styles.section}>
-        <h2>How to Export Your Data</h2>
+      <div id="how-to-export" className={styles.contentSection}>
+        <h3 className={styles.subTitle}>How to Export Your Data</h3>
         
-        <h3>Via Web Interface</h3>
-        <ol className={styles.numberedList}>
+        <h4>Via Web Interface</h4>
+        <ol style={{paddingLeft: 'var(--spacing-lg)', lineHeight: '1.8'}}>
           <li>Sign in to CyberEco Hub</li>
           <li>Navigate to <strong>My Data</strong> page</li>
           <li>Click the <strong>Export Data</strong> button</li>
@@ -205,8 +207,8 @@ exp_124,"Movie tickets",24.00,USD,2024-06-02,user456,Entertainment,true`}</pre>
           <li>Click <strong>Download</strong></li>
         </ol>
 
-        <h3>Via API</h3>
-        <div className={styles.codeBlock}>
+        <h4>Via API</h4>
+        <div className={styles.codeSection}>
           <pre>{`// Request data export via API
 const response = await fetch('/api/export', {
   method: 'POST',
@@ -229,13 +231,13 @@ a.href = url;
 a.download = \`cybereco-export-\${Date.now()}.json\`;
 a.click();`}</pre>
         </div>
-      </section>
+      </div>
 
-      <section id="api-integration" className={styles.section}>
-        <h2>API Integration</h2>
+      <div id="api-integration" className={styles.contentSection}>
+        <h3 className={styles.subTitle}>API Integration</h3>
         
-        <h3>Export Service Implementation</h3>
-        <div className={styles.codeBlock}>
+        <h4>Export Service Implementation</h4>
+        <div className={styles.codeSection}>
           <pre>{`import { dataExportService } from '@cybereco/auth';
 
 // Initialize export with options
@@ -262,10 +264,10 @@ const exportData = await dataExportService.exportUserData(
 );`}</pre>
         </div>
 
-        <h3>Handling Large Exports</h3>
+        <h4>Handling Large Exports</h4>
         <p>For users with extensive data, exports are processed efficiently:</p>
         
-        <div className={styles.codeBlock}>
+        <div className={styles.codeSection}>
           <pre>{`// Chunked export for large datasets
 async function exportLargeDataset(userId: string) {
   const exporter = dataExportService.createExporter(userId);
@@ -286,8 +288,8 @@ async function exportLargeDataset(userId: string) {
 }`}</pre>
         </div>
 
-        <h3>Custom Export Formats</h3>
-        <div className={styles.codeBlock}>
+        <h4>Custom Export Formats</h4>
+        <div className={styles.codeSection}>
           <pre>{`// Register custom export transformer
 dataExportService.registerTransformer('custom-csv', {
   transform: (data) => {
@@ -304,15 +306,15 @@ const customExport = await dataExportService.exportUserData(
   { format: 'custom-csv' }
 );`}</pre>
         </div>
-      </section>
+      </div>
 
-      <section id="rate-limits" className={styles.section}>
-        <h2>Rate Limits & Security</h2>
+      <div id="rate-limits" className={styles.contentSection}>
+        <h3 className={styles.subTitle}>Rate Limits & Security</h3>
         
-        <h3>Export Rate Limits</h3>
+        <h4>Export Rate Limits</h4>
         <p>To prevent abuse and ensure system stability:</p>
         
-        <div className={styles.infoBox}>
+        <div className={styles.featureCard}>
           <h4>Default Limits:</h4>
           <ul>
             <li><strong>5 exports</strong> per 24-hour period</li>
@@ -322,36 +324,36 @@ const customExport = await dataExportService.exportUserData(
           </ul>
         </div>
 
-        <h3>Security Measures</h3>
-        <div className={styles.featureList}>
-          <div className={styles.featureItem}>
-            <FaCheckCircle className={styles.checkIcon} />
+        <h4>Security Measures</h4>
+        <div style={{display: 'grid', gap: 'var(--spacing-sm)'}}>
+          <div style={{display: 'flex', alignItems: 'center', gap: 'var(--spacing-sm)'}}>
+            <FaCheckCircle style={{color: 'var(--primary)', fontSize: '1.2rem'}} />
             <div>
               <strong>Authentication Required:</strong> Valid session token must be present
             </div>
           </div>
-          <div className={styles.featureItem}>
-            <FaCheckCircle className={styles.checkIcon} />
+          <div style={{display: 'flex', alignItems: 'center', gap: 'var(--spacing-sm)'}}>
+            <FaCheckCircle style={{color: 'var(--primary)', fontSize: '1.2rem'}} />
             <div>
               <strong>Data Sanitization:</strong> Sensitive fields automatically removed
             </div>
           </div>
-          <div className={styles.featureItem}>
-            <FaCheckCircle className={styles.checkIcon} />
+          <div style={{display: 'flex', alignItems: 'center', gap: 'var(--spacing-sm)'}}>
+            <FaCheckCircle style={{color: 'var(--primary)', fontSize: '1.2rem'}} />
             <div>
               <strong>Audit Logging:</strong> All exports tracked for security
             </div>
           </div>
-          <div className={styles.featureItem}>
-            <FaCheckCircle className={styles.checkIcon} />
+          <div style={{display: 'flex', alignItems: 'center', gap: 'var(--spacing-sm)'}}>
+            <FaCheckCircle style={{color: 'var(--primary)', fontSize: '1.2rem'}} />
             <div>
               <strong>Encrypted Transport:</strong> HTTPS required for all exports
             </div>
           </div>
         </div>
 
-        <h3>Rate Limit Headers</h3>
-        <div className={styles.codeBlock}>
+        <h4>Rate Limit Headers</h4>
+        <div className={styles.codeSection}>
           <pre>{`// Response headers for rate limiting
 X-RateLimit-Limit: 5
 X-RateLimit-Remaining: 3
@@ -359,36 +361,36 @@ X-RateLimit-Reset: 1717430400
 X-Export-Status: completed
 X-Export-Size: 15728640`}</pre>
         </div>
-      </section>
+      </div>
 
-      <section id="gdpr-compliance" className={styles.section}>
-        <h2>GDPR Compliance</h2>
+      <div id="gdpr-compliance" className={styles.contentSection}>
+        <h3 className={styles.subTitle}>GDPR Compliance</h3>
         
-        <h3>Right to Data Portability</h3>
+        <h4>Right to Data Portability</h4>
         <p>
           The data export feature fully implements GDPR Article 20 requirements:
         </p>
         
-        <div className={styles.gdprGrid}>
-          <div className={styles.gdprCard}>
+        <div className={styles.cardGrid}>
+          <div className={styles.docCard}>
             <h4>Machine-Readable Format</h4>
             <p>JSON and CSV formats ensure data can be easily processed</p>
           </div>
-          <div className={styles.gdprCard}>
+          <div className={styles.docCard}>
             <h4>Commonly Used Format</h4>
             <p>Standard formats compatible with most applications</p>
           </div>
-          <div className={styles.gdprCard}>
+          <div className={styles.docCard}>
             <h4>Direct Transfer</h4>
             <p>API support for direct transfer to other services</p>
           </div>
-          <div className={styles.gdprCard}>
+          <div className={styles.docCard}>
             <h4>Complete Data Set</h4>
             <p>All personal data provided by the user included</p>
           </div>
         </div>
 
-        <h3>Compliance Features</h3>
+        <h4>Compliance Features</h4>
         <ul>
           <li>Export includes all data "provided by" the data subject</li>
           <li>Excludes inferred or derived data</li>
@@ -396,8 +398,8 @@ X-Export-Size: 15728640`}</pre>
           <li>Audit trail maintained for all exports</li>
         </ul>
 
-        <h3>Data Retention</h3>
-        <div className={styles.warningBox}>
+        <h4>Data Retention</h4>
+        <div className={styles.featureCard} style={{borderLeft: '4px solid #ff9800'}}>
           <h4>Export Retention Policy:</h4>
           <ul>
             <li>Export links expire after 30 minutes</li>
@@ -406,13 +408,13 @@ X-Export-Size: 15728640`}</pre>
             <li>No permanent storage of export files</li>
           </ul>
         </div>
-      </section>
+      </div>
 
-      <div className={styles.apiReference}>
-        <h2>API Reference</h2>
+      <div className={styles.contentSection}>
+        <h3 className={styles.subTitle}>API Reference</h3>
         
-        <h3>Export Endpoints</h3>
-        <table className={styles.apiTable}>
+        <h4>Export Endpoints</h4>
+        <table style={{width: '100%', borderCollapse: 'collapse', marginTop: 'var(--spacing-md)'}}>
           <thead>
             <tr>
               <th>Endpoint</th>
@@ -439,8 +441,8 @@ X-Export-Size: 15728640`}</pre>
           </tbody>
         </table>
 
-        <h3>Export Options Interface</h3>
-        <div className={styles.codeBlock}>
+        <h4>Export Options Interface</h4>
+        <div className={styles.codeSection}>
           <pre>{`interface ExportOptions {
   format: 'json' | 'csv';
   categories?: string[];
@@ -463,18 +465,18 @@ interface ExportResponse {
         </div>
       </div>
 
-      <div className={styles.nextSteps}>
-        <h2>Next Steps</h2>
-        <div className={styles.linkGrid}>
-          <Link href="/documentation/privacy-controls" className={styles.docLink}>
+      <div className={styles.contentSection}>
+        <h3 className={styles.subTitle}>Next Steps</h3>
+        <div className={styles.cardGrid}>
+          <Link href="/documentation/privacy-controls" className={styles.docCard}>
             <FaDatabase />
             <span>Privacy Controls</span>
           </Link>
-          <Link href="/documentation/two-factor-auth" className={styles.docLink}>
+          <Link href="/documentation/two-factor-auth" className={styles.docCard}>
             <FaDownload />
             <span>Two-Factor Auth</span>
           </Link>
-          <Link href="/documentation/authentication" className={styles.docLink}>
+          <Link href="/documentation/authentication" className={styles.docCard}>
             <FaFileExport />
             <span>Authentication</span>
           </Link>

@@ -14,12 +14,15 @@ if (typeof window !== 'undefined') {
 }
 
 function ClientLayoutContent({ children }: { children: React.ReactNode }) {
-  // Make sure window has the latest i18n module
+  const i18nContext = useI18n();
+  
+  // Make sure window has the latest i18n module and context
   useEffect(() => {
     if (typeof window !== 'undefined') {
       (window as any).__cybereco_i18n = i18nModule;
+      (window as any).__cybereco_current_i18n = i18nContext;
     }
-  }, []);
+  }, [i18nContext]);
 
   return (
     <>

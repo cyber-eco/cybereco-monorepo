@@ -1,7 +1,7 @@
 'use client';
 
 import styles from '../page.module.css';
-import { useLanguage } from '@cybereco/ui-components';
+import { useI18n } from '@cybereco/i18n';
 import { FaChevronRight } from 'react-icons/fa';
 
 interface CoreDocProps {
@@ -9,7 +9,7 @@ interface CoreDocProps {
 }
 
 export function CoreDoc({ docKey }: CoreDocProps) {
-  const { t } = useLanguage();
+  const { t } = useI18n();
 
   const renderPhilosophy = () => (
     <div className={styles.coreDocSection}>

@@ -1,0 +1,36 @@
+import { NextRequest, NextResponse } from 'next/server';
+
+export function middleware(request: NextRequest) {
+  const isDevelopment = process.env.NODE_ENV === 'development';
+  const pathname = request.nextUrl.pathname;
+  
+  // List of development-only paths
+  const devOnlyPaths = [
+    '/test-translation',
+    '/test-i18n',
+    '/test-translations'
+  ];
+  
+  // Check if the current path is a dev-only path
+  const isDevOnlyPath = devOnlyPaths.some(path => pathname.startsWith(path));
+  
+  if (isDevOnlyPath && !isDevelopment) {
+    // In production, redirect to 404
+    return NextResponse.rewrite(new URL('/not-found', request.url));
+  }
+  
+  return NextResponse.next();
+}
+
+export const config = {
+  matcher: [
+    /*
+     * Match all request paths except for the ones starting with:
+     * - api (API routes)
+     * - _next/static (static files)
+     * - _next/image (image optimization files)
+     * - favicon.ico (favicon file)
+     */
+    '/((?!api|_next/static|_next/image|favicon.ico).*)',
+  ],
+};

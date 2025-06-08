@@ -49,14 +49,18 @@ export default function Footer() {
       links: [
         { label: t('common:footer.about') || 'About Us', href: '/about' },
         { label: t('common:footer.status') || 'Status', href: '/status' },
-        { label: t('common:footer.support') || 'Support', href: '/help' },
+        { label: t('common:footer.support') || 'Support', href: '/support' },
+        { label: t('common:footer.contact') || 'Contact Us', href: '/contact' },
         { label: t('common:footer.privacy') || 'Privacy Policy', href: '/privacy' },
         { label: t('common:footer.terms') || 'Terms of Service', href: '/terms' }
       ]
     },
     {
-      title: t('common:footer.contact') || 'Contact',
+      title: t('common:footer.resources') || 'Resources',
       links: [
+        { label: t('common:footer.documentation') || 'Documentation', href: '/documentation' },
+        { label: t('common:footer.faq') || 'FAQ', href: '/documentation/faq' },
+        { label: t('common:footer.help') || 'Help Center', href: '/help' },
         { label: 'info@cybere.co', href: 'mailto:info@cybere.co' }
       ]
     }

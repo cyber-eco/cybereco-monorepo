@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, ChangeEvent, FormEvent, useEffect, useRef } from 'react';
-import { useLanguage } from '@cybereco/ui-components';
+import { useI18n } from '@cybereco/i18n';
 import styles from './page.module.css';
 
 declare global {
@@ -19,7 +19,7 @@ interface FormData {
 }
 
 export default function ContactPage() {
-  const { t } = useLanguage();
+  const { t } = useI18n();
   const recaptchaRef = useRef<HTMLDivElement>(null);
   const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
   
@@ -146,10 +146,10 @@ export default function ContactPage() {
         <div className={styles.container}>
           <header className={styles.pageHeader}>
             <h1 className={styles.title}>
-              {t('common:contactPage.title') || 'Contact Us'}
+              {t('contact:contactPage.title') || 'Contact Us'}
             </h1>
             <p className={styles.subtitle}>
-              {t('common:contactPage.subtitle') || "We'd love to hear from you. Send us a message and we'll respond as soon as possible."}
+              {t('contact:contactPage.subtitle') || "We'd love to hear from you. Send us a message and we'll respond as soon as possible."}
             </p>
           </header>
           
@@ -168,7 +168,7 @@ export default function ContactPage() {
               
               {isSubmitted && (
                 <div className={styles.successMessage}>
-                  {t('common:contactPage.successMessage') || "Your message has been sent successfully. We'll get back to you soon!"}
+                  {t('contact:contactPage.successMessage') || "Your message has been sent successfully. We'll get back to you soon!"}
                 </div>
               )}
               
@@ -180,7 +180,7 @@ export default function ContactPage() {
               
               <div className={styles.formGroup}>
                 <label htmlFor="name" className={styles.label}>
-                  {t('common:contactPage.nameLabel') || 'Name'}
+                  {t('contact:contactPage.nameLabel') || 'Name'}
                 </label>
                 <input 
                   type="text" 
@@ -195,7 +195,7 @@ export default function ContactPage() {
               
               <div className={styles.formGroup}>
                 <label htmlFor="email" className={styles.label}>
-                  {t('common:contactPage.emailLabel') || 'Email'}
+                  {t('contact:contactPage.emailLabel') || 'Email'}
                 </label>
                 <input 
                   type="email" 
@@ -210,7 +210,7 @@ export default function ContactPage() {
               
               <div className={styles.formGroup}>
                 <label htmlFor="subject" className={styles.label}>
-                  {t('common:contactPage.subjectLabel') || 'Subject'}
+                  {t('contact:contactPage.subjectLabel') || 'Subject'}
                 </label>
                 <input 
                   type="text" 
@@ -225,7 +225,7 @@ export default function ContactPage() {
               
               <div className={styles.formGroup}>
                 <label htmlFor="message" className={styles.label}>
-                  {t('common:contactPage.messageLabel') || 'Message'}
+                  {t('contact:contactPage.messageLabel') || 'Message'}
                 </label>
                 <textarea 
                   id="message" 
@@ -252,15 +252,15 @@ export default function ContactPage() {
                   <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
                 </svg>
                 {isSubmitting 
-                  ? (t('common:contactPage.sendingButton') || 'Sending...') 
-                  : (t('common:contactPage.submitButton') || 'Send Message')
+                  ? (t('contact:contactPage.sendingButton') || 'Sending...') 
+                  : (t('contact:contactPage.submitButton') || 'Send Message')
                 }
               </button>
             </form>
             
             <div className={styles.contactInfo}>
               <h2 className={styles.infoTitle}>
-                {t('common:contactPage.contactInfoTitle') || 'Get in Touch'}
+                {t('contact:contactPage.contactInfoTitle') || 'Get in Touch'}
               </h2>
               
               <div className={styles.infoItem}>
@@ -271,7 +271,7 @@ export default function ContactPage() {
                 </div>
                 <div className={styles.infoContent}>
                   <h3 className={styles.infoLabel}>
-                    {t('common:contactPage.emailContactLabel') || 'Email'}
+                    {t('contact:contactPage.emailContactLabel') || 'Email'}
                   </h3>
                   <p className={styles.infoValue}>info@cybere.co</p>
                 </div>
@@ -285,7 +285,7 @@ export default function ContactPage() {
                 </div>
                 <div className={styles.infoContent}>
                   <h3 className={styles.infoLabel}>
-                    {t('common:contactPage.addressLabel') || 'Address'}
+                    {t('contact:contactPage.addressLabel') || 'Address'}
                   </h3>
                   <p className={styles.infoValue}>Mexico City</p>
                 </div>
@@ -293,7 +293,7 @@ export default function ContactPage() {
               
               <div className={styles.socialLinks}>
                 <h3 className={styles.socialTitle}>
-                  {t('common:contactPage.socialTitle') || 'Follow Us'}
+                  {t('contact:contactPage.socialTitle') || 'Follow Us'}
                 </h3>
                 {/* Add your social links here */}
               </div>

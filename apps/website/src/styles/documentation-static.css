@@ -1,0 +1,183 @@
+/* Static Documentation Components Styles */
+/* These styles work with Next.js static export */
+
+/* Layout */
+.static-doc-layout {
+  min-height: 100vh;
+  background-color: var(--background);
+}
+
+.static-doc-header {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  color: white;
+  padding: 4rem 2rem;
+  margin-bottom: 3rem;
+}
+
+.static-doc-header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.static-doc-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.static-doc-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.static-doc-subtitle {
+  font-size: 1.25rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.static-doc-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 4rem;
+}
+
+/* Section */
+.static-doc-section {
+  margin-bottom: 4rem;
+}
+
+.static-doc-section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.static-doc-section-icon {
+  font-size: 1.5rem;
+}
+
+.static-doc-section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--foreground);
+  margin: 0;
+}
+
+.static-doc-section-content {
+  color: var(--foreground);
+}
+
+/* Grid */
+.static-doc-grid {
+  display: grid;
+  width: 100%;
+}
+
+.static-doc-grid-1 {
+  grid-template-columns: 1fr;
+}
+
+.static-doc-grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.static-doc-grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.static-doc-grid-4 {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.static-doc-gap-small {
+  gap: 1rem;
+}
+
+.static-doc-gap-medium {
+  gap: 1.5rem;
+}
+
+.static-doc-gap-large {
+  gap: 2rem;
+}
+
+/* Card */
+.static-doc-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  transition: all 0.2s ease;
+}
+
+.static-doc-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.static-doc-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: var(--primary);
+}
+
+.static-doc-card-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+.static-doc-card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--foreground);
+}
+
+.static-doc-card-content {
+  color: var(--muted-foreground);
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .static-doc-header {
+    padding: 3rem 1.5rem;
+  }
+
+  .static-doc-title {
+    font-size: 2rem;
+  }
+
+  .static-doc-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .static-doc-content {
+    padding: 0 1.5rem 3rem;
+  }
+
+  .static-doc-grid-2,
+  .static-doc-grid-3,
+  .static-doc-grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .static-doc-card {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .static-doc-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+}

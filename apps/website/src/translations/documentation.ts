@@ -650,6 +650,199 @@ export const documentationTranslations = {
         }
       },
       
+      // Key Concepts translations
+      ecosystemArchitectureTitle: 'Ecosystem Architecture',
+      ecosystemArchitectureText: 'CyberEco is built as a modular ecosystem where each application serves a specific purpose while contributing to the greater whole:',
+      architecturePoint1: 'Hub: Central authentication and identity management',
+      architecturePoint2: 'Application Layer: Specialized apps for different life domains',
+      architecturePoint3: 'Data Layer: User-controlled data storage and sharing',
+      architecturePoint4: 'Integration Layer: APIs and protocols for seamless interaction',
+      
+      humanCenteredDesignTitle: 'Human-Centered Design',
+      humanCenteredDesignText: 'Every application in the CyberEco ecosystem is designed with human well-being and authentic connection at its center. This means:',
+      humanCenteredPoint1: 'Minimizing addictive design patterns',
+      humanCenteredPoint2: 'Promoting real-world relationships and activities',
+      humanCenteredPoint3: 'Supporting individual growth and community building',
+      humanCenteredPoint4: 'Respecting human attention and mental health',
+      
+      communityDrivenTitle: 'Community-Driven Development',
+      communityDrivenText: 'Our development process is guided by actual community needs rather than profit maximization. We prioritize:',
+      communityDrivenPoint1: 'Open-source development where possible',
+      communityDrivenPoint2: 'Community feedback and involvement in feature development',
+      communityDrivenPoint3: 'Transparent roadmaps and decision-making processes',
+      communityDrivenPoint4: 'Sustainable business models that align with user interests',
+      
+      // Learning paths
+      learningPathTitle: 'Choose Your Learning Path',
+      businessUserPath: 'Business User',
+      businessUserDesc: 'Learn to use applications for team collaboration and expense management.',
+      fiveTopics: '📚 5 topics',
+      developerPath: 'Developer',
+      developerDesc: 'Technical integration, API usage, and platform architecture.',
+      twelveTopics: '📚 12 topics',
+      communityPath: 'Community Leader',
+      communityDesc: 'Governance, digital sovereignty, and platform philosophy.',
+      eightTopics: '📚 8 topics',
+      
+      // Core Documentation
+      coreDocument: 'Core Document',
+      philosophyDocSummary: 'The foundational principles and values that guide the CyberEco ecosystem',
+      keyPrinciples: 'Key Principles',
+      digitalSovereigntyPrinciple: 'Digital Sovereignty',
+      digitalSovereigntyDesc: 'You own your data, identity, and digital relationships',
+      humanCenteredPrinciple: 'Human-Centered',
+      humanCenteredDesc: 'Technology that serves human flourishing, not addiction',
+      sustainablePrinciple: 'Sustainable',
+      sustainableDesc: 'Built for long-term value, not short-term profit',
+      philosophyDocPreview: 'Our platform philosophy is grounded in the belief that technology should empower individuals and communities, not exploit them. We reject surveillance capitalism and embrace a model where users maintain sovereignty over their digital lives.',
+      completePhilosophyDoc: 'Complete Philosophy Document',
+      completePhilosophyDesc: 'Read our full philosophical manifesto and understand why we\'re building differently',
+      viewFullPhilosophy: 'View Full Philosophy',
+      
+      // Vision Document
+      futureVision: 'Future Vision',
+      visionDocSummary: 'Our long-term vision for a decentralized, user-owned digital ecosystem',
+      visionComponents: 'Vision Components',
+      mobileP2PComponent: 'Mobile P2P Networks',
+      mobileP2PDesc: 'Serverless communication directly between devices',
+      dataSovereigntyComponent: 'Data Sovereignty',
+      dataSovereigntyDesc: 'Complete user control over personal information',
+      tokenEconomicsComponent: 'Token Economics',
+      tokenEconomicsDesc: 'Fair value distribution through blockchain technology',
+      globalAccessComponent: 'Global Access',
+      globalAccessDesc: 'Inclusive design for worldwide adoption',
+      visionDocPreview: 'We envision a future where digital infrastructure is as decentralized as the internet itself was meant to be. Through mobile peer-to-peer networks, blockchain technology, and user-centric design, we\'re building the foundation for true digital sovereignty.',
+      completeVisionDoc: 'Complete Vision Document',
+      completeVisionDesc: 'Explore our detailed vision for the future of decentralized technology',
+      viewFullVision: 'View Full Vision',
+      
+      // Vision Page
+      vision: {
+        title: 'Decentralized Future Vision',
+        subtitle: 'Transitioning from centralized cloud infrastructure to a distributed, privacy-first, blockchain-based ecosystem',
+        executiveSummary: {
+          title: 'Executive Summary',
+          description: 'The CyberEco Platform envisions a future where digital lifestyle management operates on a decentralized network powered by mobile devices, secured by blockchain technology, and governed by cryptographic privacy principles. This approach will transform how users interact with their data, shifting from traditional cloud dependency to a user-owned, privacy-preserving ecosystem.'
+        },
+        visionOverview: {
+          title: 'Vision Overview',
+          currentState: 'Current State',
+          futureState: 'Future State'
+        },
+        architecture: {
+          title: 'Decentralized Architecture Vision',
+          mobileP2P: {
+            title: 'Mobile-First P2P Network',
+            deviceParticipation: 'Device Participation Model',
+            personalNodes: 'Personal Nodes',
+            contributionIncentives: 'Contribution Incentives',
+            dynamicLoadBalancing: 'Dynamic Load Balancing',
+            offlineFirst: 'Offline-First Design'
+          },
+          blockchain: {
+            title: 'Blockchain Integration Strategy',
+            onChain: 'On-Chain Components',
+            offChain: 'Off-Chain Components',
+            hybrid: 'Hybrid Approach (Transition Phase)'
+          },
+          privacy: {
+            title: 'Privacy-Preserving Cryptography',
+            zeroKnowledge: 'Zero-Knowledge Architecture',
+            selectiveDisclosure: 'Selective Disclosure',
+            proofGeneration: 'Proof Generation',
+            granularPermissions: 'Granular Permissions'
+          }
+        },
+        roadmap: {
+          title: 'Technical Implementation Roadmap',
+          phases: {
+            hybrid: 'Phase 1: Hybrid Foundation (2025-2026)',
+            network: 'Phase 2: Network Foundation (2026-2027)',
+            full: 'Phase 3: Full Decentralization (2027-2028)'
+          }
+        },
+        economics: {
+          title: 'Economic Model & Incentives',
+          tokenEconomics: 'Token Economics (Future CyberEco Token - CYE)',
+          utilityFunctions: 'Utility Functions',
+          networkRewards: 'Network Participation Rewards',
+          privacyIncentives: 'Data Privacy Incentives',
+          applicationAccess: 'Application Access'
+        },
+        migration: {
+          title: 'Migration Strategy',
+          gradualTransition: 'Gradual Transition Approach',
+          phaseA: 'Phase A: Hybrid Operation',
+          phaseB: 'Phase B: Primary Decentralization',
+          phaseC: 'Phase C: Full Decentralization'
+        },
+        impact: {
+          title: 'Global Impact & Benefits',
+          forUsers: 'For Individual Users',
+          forSociety: 'For Society',
+          digitalRights: 'Digital Rights',
+          economicDemocratization: 'Economic Democratization'
+        },
+        security: {
+          title: 'Security & Risk Mitigation',
+          guarantees: 'Security Guarantees',
+          technicalSecurity: 'Technical Security',
+          economicSecurity: 'Economic Security',
+          riskAssessment: 'Risk Assessment & Mitigation'
+        },
+        longTerm: {
+          title: 'Long-Term Vision (2030+)',
+          expandedEcosystem: 'Expanded Ecosystem',
+          interoperability: 'Interoperability',
+          globalNetwork: 'Global Network Vision'
+        },
+        getInvolved: {
+          title: 'Getting Involved',
+          forDevelopers: 'For Developers',
+          forUsers: 'For Users',
+          forOrganizations: 'For Organizations'
+        },
+        callToAction: {
+          title: 'Call to Action',
+          description: 'The future of digital privacy and data sovereignty starts with the choices we make today. CyberEco\'s decentralized vision represents more than just a technical upgrade—it\'s a fundamental shift toward user empowerment and digital rights.'
+        }
+      },
+      
+      // Roadmap Document
+      developmentPlan: 'Development Plan',
+      roadmapDocSummary: 'Our phased approach to building the complete CyberEco ecosystem',
+      developmentPhases: 'Development Phases',
+      foundationPhase: 'Foundation Phase',
+      foundationDesc: 'Core infrastructure, authentication, and initial applications',
+      growthPhase: 'Growth Phase',
+      growthDesc: 'Expanding application suite and user adoption',
+      integrationPhase: 'Integration Phase',
+      integrationDesc: 'Cross-app synergies and ecosystem effects',
+      decentralizationPhase: 'Decentralization Phase',
+      decentralizationDesc: 'Transition to fully distributed infrastructure',
+      completeRoadmapDoc: 'Complete Roadmap',
+      completeRoadmapDesc: 'View our detailed development timeline and upcoming features',
+      viewFullRoadmap: 'View Full Roadmap',
+      
+      // Portfolio Document
+      solutionsOverview: 'Solutions Overview',
+      portfolioDocSummary: 'Our comprehensive suite of applications covering all aspects of digital life',
+      solutionCategories: 'Solution Categories',
+      currentSolutions: 'Current Solutions',
+      priorityApplications: 'Priority Applications',
+      inDevelopment: 'In Development',
+      futureEcosystem: 'Future Ecosystem',
+      thirtyPlusApplications: '30+ planned applications',
+      portfolioDocPreview: 'The CyberEco ecosystem includes applications for finance, community, sustainability, education, health, and more. Each app is designed to work seamlessly with others while respecting user privacy and autonomy.',
+      completeSolutionsPortfolio: 'Complete Solutions Portfolio',
+      completeSolutionsDesc: 'Explore all current and planned applications in the CyberEco ecosystem',
+      viewFullPortfolio: 'View Full Portfolio',
+      
+      // Navigation items
+      privacyControlsNavItem: 'Privacy Controls & GDPR',
+      twoFactorAuthNavItem: 'Two-Factor Authentication',
+      dataExportNavItem: 'Data Export & Portability',
+      
       // Documentation descriptions
       apiReference: {
         description: 'Complete API documentation and endpoints'
@@ -1316,6 +1509,199 @@ export const documentationTranslations = {
           }
         }
       },
+      
+      // Key Concepts translations
+      ecosystemArchitectureTitle: 'Arquitectura del Ecosistema',
+      ecosystemArchitectureText: 'CyberEco está construido como un ecosistema modular donde cada aplicación sirve un propósito específico mientras contribuye al todo mayor:',
+      architecturePoint1: 'Hub: Gestión central de autenticación e identidad',
+      architecturePoint2: 'Capa de Aplicaciones: Apps especializadas para diferentes dominios de vida',
+      architecturePoint3: 'Capa de Datos: Almacenamiento y compartición de datos controlados por el usuario',
+      architecturePoint4: 'Capa de Integración: APIs y protocolos para interacción fluida',
+      
+      humanCenteredDesignTitle: 'Diseño Centrado en el Humano',
+      humanCenteredDesignText: 'Cada aplicación en el ecosistema CyberEco está diseñada con el bienestar humano y la conexión auténtica en su centro. Esto significa:',
+      humanCenteredPoint1: 'Minimizar patrones de diseño adictivos',
+      humanCenteredPoint2: 'Promover relaciones y actividades del mundo real',
+      humanCenteredPoint3: 'Apoyar el crecimiento individual y la construcción de comunidad',
+      humanCenteredPoint4: 'Respetar la atención humana y la salud mental',
+      
+      communityDrivenTitle: 'Desarrollo Impulsado por la Comunidad',
+      communityDrivenText: 'Nuestro proceso de desarrollo está guiado por las necesidades reales de la comunidad en lugar de la maximización de ganancias. Priorizamos:',
+      communityDrivenPoint1: 'Desarrollo de código abierto cuando sea posible',
+      communityDrivenPoint2: 'Retroalimentación e involucramiento de la comunidad en el desarrollo de características',
+      communityDrivenPoint3: 'Hojas de ruta transparentes y procesos de toma de decisiones',
+      communityDrivenPoint4: 'Modelos de negocio sostenibles que se alinean con los intereses del usuario',
+      
+      // Learning paths
+      learningPathTitle: 'Elige Tu Ruta de Aprendizaje',
+      businessUserPath: 'Usuario de Negocios',
+      businessUserDesc: 'Aprende a usar aplicaciones para colaboración en equipo y gestión de gastos.',
+      fiveTopics: '📚 5 temas',
+      developerPath: 'Desarrollador',
+      developerDesc: 'Integración técnica, uso de API y arquitectura de plataforma.',
+      twelveTopics: '📚 12 temas',
+      communityPath: 'Líder Comunitario',
+      communityDesc: 'Gobernanza, soberanía digital y filosofía de la plataforma.',
+      eightTopics: '📚 8 temas',
+      
+      // Core Documentation
+      coreDocument: 'Documento Principal',
+      philosophyDocSummary: 'Los principios y valores fundamentales que guían el ecosistema CyberEco',
+      keyPrinciples: 'Principios Clave',
+      digitalSovereigntyPrinciple: 'Soberanía Digital',
+      digitalSovereigntyDesc: 'Tú eres dueño de tus datos, identidad y relaciones digitales',
+      humanCenteredPrinciple: 'Centrado en el Humano',
+      humanCenteredDesc: 'Tecnología que sirve al florecimiento humano, no a la adicción',
+      sustainablePrinciple: 'Sostenible',
+      sustainableDesc: 'Construido para valor a largo plazo, no ganancias a corto plazo',
+      philosophyDocPreview: 'Nuestra filosofía de plataforma se basa en la creencia de que la tecnología debe empoderar a individuos y comunidades, no explotarlos. Rechazamos el capitalismo de vigilancia y adoptamos un modelo donde los usuarios mantienen soberanía sobre sus vidas digitales.',
+      completePhilosophyDoc: 'Documento Completo de Filosofía',
+      completePhilosophyDesc: 'Lee nuestro manifiesto filosófico completo y entiende por qué estamos construyendo de manera diferente',
+      viewFullPhilosophy: 'Ver Filosofía Completa',
+      
+      // Vision Document
+      futureVision: 'Visión del Futuro',
+      visionDocSummary: 'Nuestra visión a largo plazo para un ecosistema digital descentralizado y propiedad del usuario',
+      visionComponents: 'Componentes de la Visión',
+      mobileP2PComponent: 'Redes P2P Móviles',
+      mobileP2PDesc: 'Comunicación sin servidor directamente entre dispositivos',
+      dataSovereigntyComponent: 'Soberanía de Datos',
+      dataSovereigntyDesc: 'Control completo del usuario sobre información personal',
+      tokenEconomicsComponent: 'Economía de Tokens',
+      tokenEconomicsDesc: 'Distribución justa de valor a través de tecnología blockchain',
+      globalAccessComponent: 'Acceso Global',
+      globalAccessDesc: 'Diseño inclusivo para adopción mundial',
+      visionDocPreview: 'Imaginamos un futuro donde la infraestructura digital es tan descentralizada como el internet mismo estaba destinado a ser. A través de redes móviles peer-to-peer, tecnología blockchain y diseño centrado en el usuario, estamos construyendo la base para la verdadera soberanía digital.',
+      completeVisionDoc: 'Documento Completo de Visión',
+      completeVisionDesc: 'Explora nuestra visión detallada para el futuro de la tecnología descentralizada',
+      viewFullVision: 'Ver Visión Completa',
+      
+      // Vision Page
+      vision: {
+        title: 'Visión del Futuro Descentralizado',
+        subtitle: 'Transición de infraestructura en la nube centralizada a un ecosistema distribuido, privacidad primero y basado en blockchain',
+        executiveSummary: {
+          title: 'Resumen Ejecutivo',
+          description: 'La Plataforma CyberEco visualiza un futuro donde la gestión del estilo de vida digital opera en una red descentralizada impulsada por dispositivos móviles, asegurada por tecnología blockchain y gobernada por principios de privacidad criptográfica. Este enfoque transformará cómo los usuarios interactúan con sus datos, cambiando de la dependencia tradicional de la nube a un ecosistema propiedad del usuario que preserva la privacidad.'
+        },
+        visionOverview: {
+          title: 'Visión General',
+          currentState: 'Estado Actual',
+          futureState: 'Estado Futuro'
+        },
+        architecture: {
+          title: 'Visión de Arquitectura Descentralizada',
+          mobileP2P: {
+            title: 'Red P2P Móvil Primero',
+            deviceParticipation: 'Modelo de Participación de Dispositivos',
+            personalNodes: 'Nodos Personales',
+            contributionIncentives: 'Incentivos de Contribución',
+            dynamicLoadBalancing: 'Equilibrio de Carga Dinámico',
+            offlineFirst: 'Diseño Fuera de Línea Primero'
+          },
+          blockchain: {
+            title: 'Estrategia de Integración Blockchain',
+            onChain: 'Componentes En Cadena',
+            offChain: 'Componentes Fuera de Cadena',
+            hybrid: 'Enfoque Híbrido (Fase de Transición)'
+          },
+          privacy: {
+            title: 'Criptografía que Preserva la Privacidad',
+            zeroKnowledge: 'Arquitectura de Conocimiento Cero',
+            selectiveDisclosure: 'Divulgación Selectiva',
+            proofGeneration: 'Generación de Pruebas',
+            granularPermissions: 'Permisos Granulares'
+          }
+        },
+        roadmap: {
+          title: 'Hoja de Ruta de Implementación Técnica',
+          phases: {
+            hybrid: 'Fase 1: Fundación Híbrida (2025-2026)',
+            network: 'Fase 2: Fundación de Red (2026-2027)',
+            full: 'Fase 3: Descentralización Completa (2027-2028)'
+          }
+        },
+        economics: {
+          title: 'Modelo Económico e Incentivos',
+          tokenEconomics: 'Economía de Tokens (Futuro Token CyberEco - CYE)',
+          utilityFunctions: 'Funciones de Utilidad',
+          networkRewards: 'Recompensas de Participación en la Red',
+          privacyIncentives: 'Incentivos de Privacidad de Datos',
+          applicationAccess: 'Acceso a Aplicaciones'
+        },
+        migration: {
+          title: 'Estrategia de Migración',
+          gradualTransition: 'Enfoque de Transición Gradual',
+          phaseA: 'Fase A: Operación Híbrida',
+          phaseB: 'Fase B: Descentralización Primaria',
+          phaseC: 'Fase C: Descentralización Completa'
+        },
+        impact: {
+          title: 'Impacto Global y Beneficios',
+          forUsers: 'Para Usuarios Individuales',
+          forSociety: 'Para la Sociedad',
+          digitalRights: 'Derechos Digitales',
+          economicDemocratization: 'Democratización Económica'
+        },
+        security: {
+          title: 'Seguridad y Mitigación de Riesgos',
+          guarantees: 'Garantías de Seguridad',
+          technicalSecurity: 'Seguridad Técnica',
+          economicSecurity: 'Seguridad Económica',
+          riskAssessment: 'Evaluación y Mitigación de Riesgos'
+        },
+        longTerm: {
+          title: 'Visión a Largo Plazo (2030+)',
+          expandedEcosystem: 'Ecosistema Expandido',
+          interoperability: 'Interoperabilidad',
+          globalNetwork: 'Visión de Red Global'
+        },
+        getInvolved: {
+          title: 'Cómo Involucrarse',
+          forDevelopers: 'Para Desarrolladores',
+          forUsers: 'Para Usuarios',
+          forOrganizations: 'Para Organizaciones'
+        },
+        callToAction: {
+          title: 'Llamado a la Acción',
+          description: 'El futuro de la privacidad digital y la soberanía de datos comienza con las decisiones que tomamos hoy. La visión descentralizada de CyberEco representa más que una actualización técnica: es un cambio fundamental hacia el empoderamiento del usuario y los derechos digitales.'
+        }
+      },
+      
+      // Roadmap Document
+      developmentPlan: 'Plan de Desarrollo',
+      roadmapDocSummary: 'Nuestro enfoque por fases para construir el ecosistema completo de CyberEco',
+      developmentPhases: 'Fases de Desarrollo',
+      foundationPhase: 'Fase de Fundación',
+      foundationDesc: 'Infraestructura central, autenticación y aplicaciones iniciales',
+      growthPhase: 'Fase de Crecimiento',
+      growthDesc: 'Expansión del conjunto de aplicaciones y adopción de usuarios',
+      integrationPhase: 'Fase de Integración',
+      integrationDesc: 'Sinergias entre aplicaciones y efectos del ecosistema',
+      decentralizationPhase: 'Fase de Descentralización',
+      decentralizationDesc: 'Transición a infraestructura completamente distribuida',
+      completeRoadmapDoc: 'Hoja de Ruta Completa',
+      completeRoadmapDesc: 'Ver nuestra línea de tiempo detallada de desarrollo y características próximas',
+      viewFullRoadmap: 'Ver Hoja de Ruta Completa',
+      
+      // Portfolio Document
+      solutionsOverview: 'Resumen de Soluciones',
+      portfolioDocSummary: 'Nuestro conjunto integral de aplicaciones que cubren todos los aspectos de la vida digital',
+      solutionCategories: 'Categorías de Soluciones',
+      currentSolutions: 'Soluciones Actuales',
+      priorityApplications: 'Aplicaciones Prioritarias',
+      inDevelopment: 'En Desarrollo',
+      futureEcosystem: 'Ecosistema Futuro',
+      thirtyPlusApplications: '30+ aplicaciones planificadas',
+      portfolioDocPreview: 'El ecosistema CyberEco incluye aplicaciones para finanzas, comunidad, sostenibilidad, educación, salud y más. Cada aplicación está diseñada para funcionar sin problemas con otras mientras respeta la privacidad y autonomía del usuario.',
+      completeSolutionsPortfolio: 'Portafolio Completo de Soluciones',
+      completeSolutionsDesc: 'Explora todas las aplicaciones actuales y planificadas en el ecosistema CyberEco',
+      viewFullPortfolio: 'Ver Portafolio Completo',
+      
+      // Navigation items
+      privacyControlsNavItem: 'Controles de Privacidad y GDPR',
+      twoFactorAuthNavItem: 'Autenticación de Dos Factores',
+      dataExportNavItem: 'Exportación y Portabilidad de Datos',
       
       // Documentation descriptions
       apiReference: {

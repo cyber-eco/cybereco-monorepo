@@ -3,21 +3,35 @@
 import React, { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  FaBook, FaSearch, FaChevronRight, FaShieldAlt, FaKey, 
+  FaBook, FaSearch, FaChevronRight, FaChevronDown, FaShieldAlt, FaKey, 
   FaUserShield, FaDatabase, FaFileExport, FaServer, FaCode,
-  FaLock, FaUsers, FaMobileAlt
+  FaLock, FaUsers, FaMobileAlt, FaBars, FaTimes, FaRocket,
+  FaChartBar, FaGraduationCap, FaQuestionCircle, FaTools
 } from 'react-icons/fa';
 import { useI18n } from '@cybereco/i18n';
 import styles from './page.module.css';
 
-interface DocSection {
+interface NavSection {
   id: string;
   title: string;
-  icon: React.ReactElement;
+  icon?: React.ReactElement;
+  sections?: NavItem[];
+  externalLinks?: ExternalLink[];
+}
+
+interface NavItem {
+  id: string;
+  title: string;
   path: string;
-  description: string;
+  icon?: React.ReactElement;
+}
+
+interface ExternalLink {
+  href: string;
+  label: string;
+  icon?: string;
 }
 
 export default function DocumentationLayout({
@@ -26,130 +40,379 @@ export default function DocumentationLayout({
   children: React.ReactNode;
 }) {
   const [searchQuery, setSearchQuery] = useState('');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [expandedSections, setExpandedSections] = useState<string[]>(['nav-getting-started']);
   const pathname = usePathname();
   const { t } = useI18n();
 
-  const docSections: DocSection[] = [
+  // Add keyboard shortcut for search (Ctrl/Cmd + K)
+  React.useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+        e.preventDefault();
+        const searchInput = document.getElementById('documentation-search-input') as HTMLInputElement;
+        if (searchInput) {
+          searchInput.focus();
+          searchInput.select();
+        }
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
+  // Navigation structure with all sections and subpages
+  const navStructure: NavSection[] = [
     {
-      id: 'overview',
-      title: t('documentation:documentationPage.title') || 'Documentation Overview',
-      icon: <FaBook />,
-      path: '/documentation',
-      description: t('documentation:documentationPage.subtitle') || 'Getting started and key concepts'
+      id: 'nav-getting-started',
+      title: t('documentation:documentationPage.gettingStartedTitle') || 'GETTING STARTED',
+      sections: [
+        {
+          id: 'introduction',
+          title: t('documentation:documentationPage.introductionNavItem') || 'Introduction',
+          path: '/documentation',
+          icon: <FaBook />
+        },
+        {
+          id: 'key-concepts',
+          title: t('documentation:documentationPage.keyConceptsNavItem') || 'Key Concepts & Architecture',
+          path: '/documentation/key-concepts',
+          icon: <FaRocket />
+        },
+        {
+          id: 'development',
+          title: t('documentation:documentationPage.developmentNavItem') || 'Development Setup',
+          path: '/documentation/development',
+          icon: <FaCode />
+        },
+        {
+          id: 'architecture',
+          title: t('documentation:documentationPage.architectureNavItem') || 'System Architecture',
+          path: '/documentation/architecture',
+          icon: <FaServer />
+        }
+      ]
     },
     {
-      id: 'authentication',
-      title: t('documentation:documentationPage.authenticationNavItem') || 'Authentication',
-      icon: <FaKey />,
-      path: '/documentation/authentication',
-      description: t('documentation:documentationPage.authenticationNavItem') || 'Authentication system and SSO'
+      id: 'nav-core-docs',
+      title: t('documentation:documentationPage.centralDocumentationTitle') || 'CENTRAL DOCUMENTATION',
+      sections: [
+        {
+          id: 'philosophy',
+          title: t('documentation:documentationPage.philosophyNavItem') || 'Platform Philosophy',
+          path: '/documentation/philosophy',
+          icon: <FaBook />
+        },
+        {
+          id: 'vision',
+          title: t('documentation:documentationPage.visionNavItem') || 'Future Vision Decentralized',
+          path: '/documentation/vision',
+          icon: <FaChartBar />
+        },
+        {
+          id: 'roadmap',
+          title: t('documentation:documentationPage.roadmapNavItem') || 'Development Roadmap',
+          path: '/documentation/roadmap',
+          icon: <FaTools />
+        },
+        {
+          id: 'portfolio',
+          title: t('documentation:documentationPage.portfolioNavItem') || 'Solutions Portfolio',
+          path: '/documentation/portfolio',
+          icon: <FaRocket />
+        }
+      ]
     },
     {
-      id: 'jwt-authentication',
-      title: t('documentation:documentationPage.jwt.title') || 'JWT Authentication',
-      icon: <FaLock />,
-      path: '/documentation/jwt-authentication',
-      description: t('documentation:documentationPage.jwtAuthNavItem') || 'Token-based authentication'
+      id: 'nav-solution-categories',
+      title: t('documentation:documentationPage.solutionCategoriesTitle') || 'SOLUTION CATEGORIES',
+      sections: [
+        {
+          id: 'community-governance',
+          title: t('documentation:documentationPage.communityGovernanceItem') || 'Community & Governance',
+          path: '/documentation/solutions/community-governance',
+          icon: <FaUsers />
+        },
+        {
+          id: 'finance-economy',
+          title: t('documentation:documentationPage.financeEconomyItem') || 'Finance & Economy',
+          path: '/documentation/solutions/finance-economy',
+          icon: <FaChartBar />
+        },
+        {
+          id: 'sustainability-home',
+          title: t('documentation:documentationPage.sustainabilityHomeItem') || 'Sustainability & Home',
+          path: '/documentation/solutions/sustainability-home',
+          icon: <FaRocket />
+        },
+        {
+          id: 'education-growth',
+          title: t('documentation:documentationPage.educationGrowthItem') || 'Education & Growth',
+          path: '/documentation/solutions/education-growth',
+          icon: <FaGraduationCap />
+        }
+      ]
     },
     {
-      id: 'sso-integration',
-      title: t('documentation:documentationPage.sso.title') || 'SSO Integration',
-      icon: <FaUsers />,
-      path: '/documentation/sso-integration',
-      description: t('documentation:documentationPage.ssoIntegrationNavItem') || 'Single Sign-On implementation'
+      id: 'nav-user-resources',
+      title: t('documentation:documentationPage.userResourcesTitle') || 'USER RESOURCES',
+      sections: [
+        {
+          id: 'user-guides',
+          title: t('documentation:documentationPage.userGuidesNavItem') || 'User Guides',
+          path: '/documentation/guides',
+          icon: <FaBook />
+        },
+        {
+          id: 'learning-paths',
+          title: t('documentation:documentationPage.learningPathsNavItem') || 'Learning Paths',
+          path: '/documentation/learning-paths',
+          icon: <FaGraduationCap />
+        },
+        {
+          id: 'faq',
+          title: t('documentation:documentationPage.faqNavItem') || 'Frequently Asked Questions',
+          path: '/documentation/faq',
+          icon: <FaQuestionCircle />
+        },
+        {
+          id: 'troubleshooting',
+          title: t('documentation:documentationPage.troubleshootingNavItem') || 'Troubleshooting',
+          path: '/documentation/troubleshooting',
+          icon: <FaTools />
+        },
+        {
+          id: 'community-support',
+          title: t('documentation:documentationPage.communitySupportNavItem') || 'Community & Support',
+          path: '/documentation/community',
+          icon: <FaUsers />
+        }
+      ]
     },
     {
-      id: 'two-factor-auth',
-      title: t('documentation:documentationPage.twoFactor.title') || 'Two-Factor Authentication',
-      icon: <FaMobileAlt />,
-      path: '/documentation/two-factor-auth',
-      description: t('documentation:documentationPage.twoFactor.description') || '2FA setup and configuration'
-    },
-    {
-      id: 'privacy-controls',
-      title: t('documentation:documentationPage.privacy.title') || 'Privacy Controls',
-      icon: <FaShieldAlt />,
-      path: '/documentation/privacy-controls',
-      description: t('documentation:documentationPage.privacy.description') || 'GDPR compliance and privacy'
-    },
-    {
-      id: 'data-export',
-      title: t('documentation:documentationPage.dataExport.title') || 'Data Export',
-      icon: <FaFileExport />,
-      path: '/documentation/data-export',
-      description: t('documentation:documentationPage.dataExport.description') || 'Export and portability features'
-    },
-    {
-      id: 'auth-logging',
-      title: t('documentation:documentationPage.authLogging.title') || 'Auth Logging & Monitoring',
-      icon: <FaDatabase />,
-      path: '/documentation/auth-logging',
-      description: t('documentation:documentationPage.authLoggingNavItem') || 'Security audit and monitoring'
-    },
-    {
-      id: 'data-architecture',
-      title: t('documentation:documentationPage.dataArchitectureNavItem') || 'Data Architecture',
-      icon: <FaServer />,
-      path: '/documentation/data-architecture',
-      description: t('documentation:documentationPage.dataArchitectureNavItem') || 'Platform data structure'
-    },
-    {
-      id: 'hub-gateway',
-      title: t('documentation:documentationPage.hubGatewayNavItem') || 'Hub Gateway',
-      icon: <FaCode />,
-      path: '/documentation/hub-gateway',
-      description: t('documentation:documentationPage.hubGatewayNavItem') || 'Gateway architecture'
+      id: 'nav-developer',
+      title: t('documentation:documentationPage.developerTitle') || 'DEVELOPER',
+      sections: [
+        {
+          id: 'api',
+          title: t('documentation:documentationPage.apiReferenceNavItem') || 'API Reference',
+          path: '/documentation/api',
+          icon: <FaCode />
+        },
+        {
+          id: 'authentication',
+          title: t('documentation:documentationPage.authenticationNavItem') || 'Authentication Integration',
+          path: '/documentation/authentication',
+          icon: <FaKey />
+        },
+        {
+          id: 'jwt-authentication',
+          title: t('documentation:documentationPage.jwt.title') || 'JWT Authentication',
+          path: '/documentation/jwt-authentication',
+          icon: <FaLock />
+        },
+        {
+          id: 'sso-integration',
+          title: t('documentation:documentationPage.sso.title') || 'SSO Integration',
+          path: '/documentation/sso-integration',
+          icon: <FaUsers />
+        },
+        {
+          id: 'two-factor-auth',
+          title: t('documentation:documentationPage.twoFactor.title') || 'Two-Factor Authentication (2FA)',
+          path: '/documentation/two-factor-auth',
+          icon: <FaMobileAlt />
+        },
+        {
+          id: 'auth-logging',
+          title: t('documentation:documentationPage.authLogging.title') || 'Auth Logging & Monitoring',
+          path: '/documentation/auth-logging',
+          icon: <FaDatabase />
+        },
+        {
+          id: 'data-privacy',
+          title: t('documentation:documentationPage.dataPrivacyNavItem') || 'Data & Privacy',
+          path: '/documentation/data-privacy',
+          icon: <FaShieldAlt />
+        },
+        {
+          id: 'privacy-controls',
+          title: t('documentation:documentationPage.privacy.title') || 'Privacy Controls & GDPR',
+          path: '/documentation/privacy-controls',
+          icon: <FaShieldAlt />
+        },
+        {
+          id: 'data-export',
+          title: t('documentation:documentationPage.dataExport.title') || 'Data Export & Portability',
+          path: '/documentation/data-export',
+          icon: <FaFileExport />
+        },
+        {
+          id: 'data-architecture',
+          title: t('documentation:documentationPage.dataArchitectureNavItem') || 'Data Layer Architecture',
+          path: '/documentation/data-architecture',
+          icon: <FaServer />
+        },
+        {
+          id: 'hub-gateway',
+          title: t('documentation:documentationPage.hubGatewayNavItem') || 'Hub Gateway & Proxy',
+          path: '/documentation/hub-gateway',
+          icon: <FaServer />
+        }
+      ]
     }
   ];
 
-  const currentSection = docSections.find(section => section.path === pathname);
+  // Get all navigation items for search
+  const allNavItems = navStructure.flatMap(section => 
+    section.sections?.map(item => ({
+      ...item,
+      sectionTitle: section.title
+    })) || []
+  );
 
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(e.target.value);
+  // Search functionality
+  const filteredItems = searchQuery
+    ? allNavItems.filter(item =>
+        item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.sectionTitle.toLowerCase().includes(searchQuery.toLowerCase())
+      )
+    : [];
+
+  // Toggle section expansion
+  const toggleSection = (sectionId: string) => {
+    setExpandedSections(prev =>
+      prev.includes(sectionId)
+        ? prev.filter(id => id !== sectionId)
+        : [...prev, sectionId]
+    );
   };
 
-  const filteredSections = docSections.filter(section =>
-    section.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    section.description.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  // Get current page title for breadcrumb
+  const currentPage = allNavItems.find(item => item.path === pathname);
+  const isMainPage = pathname === '/documentation';
 
   return (
     <div className={styles.container}>
       <div className={styles.documentationLayout}>
+        {/* Mobile menu toggle */}
+        <button
+          className={styles.mobileMenuToggle}
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle documentation menu"
+        >
+          {mobileMenuOpen ? <FaTimes /> : <FaBars />}
+        </button>
+
         {/* Sidebar Navigation */}
-        <aside className={styles.sidebar}>
+        <aside className={`${styles.sidebar} ${mobileMenuOpen ? styles.sidebarOpen : ''}`}>
           <div className={styles.sidebarHeader}>
             <h2>{t('documentation:documentationPage.title') || 'Documentation'}</h2>
             <div className={styles.searchContainer}>
               <FaSearch className={styles.searchIcon} />
               <input
+                id="documentation-search-input"
                 type="text"
                 placeholder={t('documentation:documentationPage.search') || 'Search docs...'}
                 value={searchQuery}
-                onChange={handleSearch}
+                onChange={(e) => setSearchQuery(e.target.value)}
                 className={styles.searchInput}
+                aria-label={t('documentation:documentationPage.searchAriaLabel') || 'Search documentation'}
               />
             </div>
           </div>
 
           <nav className={styles.sidebarNav}>
-            {filteredSections.map((section) => {
-              const isActive = pathname === section.path;
-              return (
-                <Link
-                  key={section.id}
-                  href={section.path}
-                  className={`${styles.navItem} ${isActive ? styles.navItemActive : ''}`}
+            {/* Search Results */}
+            {searchQuery && filteredItems.length > 0 && (
+              <div className={`${styles.navSection} ${styles.searchSection}`}>
+                <h3 className={`${styles.navTitle} ${styles.searchTitle}`}>
+                  🔍 Search Results ({filteredItems.length})
+                </h3>
+                {filteredItems.map(item => (
+                  <Link
+                    key={item.id}
+                    href={item.path}
+                    className={`${styles.navItem} ${styles.searchResult} ${pathname === item.path ? styles.active : ''}`}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.icon}
+                    <span>{item.title}</span>
+                    <FaChevronRight size={10} />
+                  </Link>
+                ))}
+              </div>
+            )}
+
+            {/* No Results */}
+            {searchQuery && filteredItems.length === 0 && (
+              <div className={styles.navSection}>
+                <div className={styles.noResults}>
+                  <p>{t('documentation:layout.noResultsFound') || 'No results found for'} "{searchQuery}"</p>
+                </div>
+              </div>
+            )}
+
+            {/* Navigation Sections */}
+            {!searchQuery && navStructure.map(navGroup => (
+              <div key={navGroup.id} className={`${styles.navSection} ${expandedSections.includes(navGroup.id) ? styles.expanded : ''}`}>
+                <div
+                  className={styles.navSectionHeader}
+                  onClick={() => toggleSection(navGroup.id)}
+                  aria-expanded={expandedSections.includes(navGroup.id)}
+                  role="button"
+                  tabIndex={0}
                 >
-                  <div className={styles.navItemIcon}>{section.icon}</div>
-                  <div className={styles.navItemContent}>
-                    <h3>{section.title}</h3>
-                    <p>{section.description}</p>
+                  <div className={styles.navSectionTitle}>
+                    {navGroup.title}
                   </div>
-                  {isActive && <FaChevronRight className={styles.navItemArrow} />}
-                </Link>
-              );
-            })}
+                  <div className={styles.expandIcon}>
+                    {expandedSections.includes(navGroup.id) ? <FaChevronDown /> : <FaChevronRight />}
+                  </div>
+                </div>
+
+                <AnimatePresence>
+                  {expandedSections.includes(navGroup.id) && (
+                    <motion.ul
+                      className={styles.navList}
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      {navGroup.sections?.map(item => (
+                        <li key={item.id}>
+                          <Link
+                            href={item.path}
+                            className={`${styles.navItem} ${pathname === item.path ? styles.active : ''}`}
+                            onClick={() => setMobileMenuOpen(false)}
+                          >
+                            {item.icon}
+                            <span>{item.title}</span>
+                            <FaChevronRight size={10} />
+                          </Link>
+                        </li>
+                      ))}
+
+                      {navGroup.externalLinks?.map(link => (
+                        <li key={link.href}>
+                          <Link
+                            href={link.href}
+                            className={styles.navItem}
+                            onClick={() => setMobileMenuOpen(false)}
+                          >
+                            <span>{link.icon}</span>
+                            <span>{link.label}</span>
+                            <FaChevronRight size={10} />
+                          </Link>
+                        </li>
+                      ))}
+                    </motion.ul>
+                  )}
+                </AnimatePresence>
+              </div>
+            ))}
           </nav>
         </aside>
 
@@ -161,20 +424,29 @@ export default function DocumentationLayout({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
           >
-            {currentSection && (
+            {/* Breadcrumb */}
+            {!isMainPage && currentPage && (
               <div className={styles.pageHeader}>
                 <div className={styles.breadcrumb}>
                   <Link href="/documentation">
                     {t('documentation:documentationPage.title') || 'Documentation'}
                   </Link>
                   <FaChevronRight />
-                  <span>{currentSection.title}</span>
+                  <span>{currentPage.title}</span>
                 </div>
               </div>
             )}
             {children}
           </motion.div>
         </main>
+
+        {/* Mobile overlay */}
+        {mobileMenuOpen && (
+          <div
+            className={styles.mobileOverlay}
+            onClick={() => setMobileMenuOpen(false)}
+          />
+        )}
       </div>
     </div>
   );

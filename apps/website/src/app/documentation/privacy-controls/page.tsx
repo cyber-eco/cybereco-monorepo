@@ -9,10 +9,10 @@ export default function PrivacyControlsDocumentation() {
   const { t } = useI18n();
   
   return (
-    <>
-      <div className={styles.docHeader}>
-        <h1>
-          <FaShieldAlt /> {t('documentation:documentationPage.privacy.title') || 'Privacy Controls & GDPR Compliance'}
+    <div className={styles.pageContainer}>
+      <div className={styles.pageHeader}>
+        <h1 className={styles.title}>
+          {t('documentation:documentationPage.privacy.title') || 'Privacy Controls & GDPR Compliance'}
         </h1>
         <p className={styles.subtitle}>
           {t('documentation:documentationPage.privacy.subtitle') || 'Comprehensive privacy features that put you in control of your data'}
@@ -32,8 +32,8 @@ export default function PrivacyControlsDocumentation() {
         </ul>
       </nav>
 
-      <section id="overview" className={styles.section}>
-        <h2>{t('documentation:documentationPage.privacy.overview.title') || 'Overview'}</h2>
+      <div id="overview" className={styles.contentSection}>
+        <h3 className={styles.subTitle}>{t('documentation:documentationPage.privacy.overview.title') || 'Overview'}</h3>
         <p>
           {t('documentation:documentationPage.privacy.overview.description') || 'CyberEco implements a comprehensive privacy-first architecture that ensures users maintain complete control over their personal data. Our privacy controls are built into every layer of the platform, from data collection to processing and sharing.'}
         </p>
@@ -60,10 +60,10 @@ export default function PrivacyControlsDocumentation() {
             <p>{t('documentation:documentationPage.privacy.features.gdprCompliance.description') || 'Full compliance with data protection regulations including right to erasure'}</p>
           </div>
         </div>
-      </section>
+      </div>
 
-      <section id="consent-management" className={styles.section}>
-        <h2>{t('documentation:documentationPage.privacy.consent.title') || 'Consent Management'}</h2>
+      <div id="consent-management" className={styles.contentSection}>
+        <h3 className={styles.subTitle}>{t('documentation:documentationPage.privacy.consent.title') || 'Consent Management'}</h3>
         
         <h3>{t('documentation:documentationPage.privacy.consent.types.title') || 'Consent Types'}</h3>
         <p>{t('documentation:documentationPage.privacy.consent.types.description') || 'CyberEco uses a granular consent system with five distinct categories:'}</p>
@@ -112,10 +112,10 @@ const hasConsent = await gdprService.canTrackUser(
   ConsentType.ANALYTICS
 );`}</pre>
         </div>
-      </section>
+      </div>
 
-      <section id="privacy-settings" className={styles.section}>
-        <h2>{t('documentation:documentationPage.privacy.settings.title') || 'Privacy Settings'}</h2>
+      <div id="privacy-settings" className={styles.contentSection}>
+        <h3 className={styles.subTitle}>{t('documentation:documentationPage.privacy.settings.title') || 'Privacy Settings'}</h3>
         
         <h3>{t('documentation:documentationPage.privacy.settings.profileVisibility.title') || 'Profile Visibility'}</h3>
         <p>{t('documentation:documentationPage.privacy.settings.profileVisibility.description') || 'Control who can see your profile information:'}</p>
@@ -158,10 +158,10 @@ const hasConsent = await gdprService.canTrackUser(
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
-      <section id="data-visibility" className={styles.section}>
-        <h2>{t('documentation:documentationPage.privacy.dataVisibility.title') || 'Data Visibility Controls'}</h2>
+      <div id="data-visibility" className={styles.contentSection}>
+        <h3 className={styles.subTitle}>{t('documentation:documentationPage.privacy.dataVisibility.title') || 'Data Visibility Controls'}</h3>
         
         <h3>{t('documentation:documentationPage.privacy.dataVisibility.queries.title') || 'Privacy-Aware Queries'}</h3>
         <p>
@@ -215,10 +215,10 @@ const canView = await privacyAwareDataService.canViewData({
   metadata?: Record<string, any>;
 }`}</pre>
         </div>
-      </section>
+      </div>
 
-      <section id="gdpr-rights" className={styles.section}>
-        <h2>{t('documentation:documentationPage.privacy.gdpr.title') || 'GDPR Rights Implementation'}</h2>
+      <div id="gdpr-rights" className={styles.contentSection}>
+        <h3 className={styles.subTitle}>{t('documentation:documentationPage.privacy.gdpr.title') || 'GDPR Rights Implementation'}</h3>
         
         <h3>{t('documentation:documentationPage.privacy.gdpr.rightToAccess.title') || 'Right to Access'}</h3>
         <p>{t('documentation:documentationPage.privacy.gdpr.rightToAccess.description') || 'Users can request and download all their personal data:'}</p>
@@ -264,10 +264,10 @@ const requestId = await gdprService.requestDataPortability(
 
         <h3>{t('documentation:documentationPage.privacy.gdpr.rightToRectification.title') || 'Right to Rectification'}</h3>
         <p>{t('documentation:documentationPage.privacy.gdpr.rightToRectification.description') || 'Users can update their personal information at any time through the profile settings.'}</p>
-      </section>
+      </div>
 
-      <section id="implementation" className={styles.section}>
-        <h2>{t('documentation:documentationPage.privacy.implementation.title') || 'Implementation Guide'}</h2>
+      <div id="implementation" className={styles.contentSection}>
+        <h3 className={styles.subTitle}>{t('documentation:documentationPage.privacy.implementation.title') || 'Implementation Guide'}</h3>
         
         <h3>{t('documentation:documentationPage.privacy.implementation.step1.title') || '1. Initialize Privacy Services'}</h3>
         <div className={styles.codeBlock}>
@@ -341,10 +341,10 @@ export function middleware(request: NextRequest) {
   return response;
 }`}</pre>
         </div>
-      </section>
+      </div>
 
-      <section id="api-reference" className={styles.section}>
-        <h2>{t('documentation:documentationPage.privacy.api.title') || 'API Reference'}</h2>
+      <div id="api-reference" className={styles.contentSection}>
+        <h3 className={styles.subTitle}>{t('documentation:documentationPage.privacy.api.title') || 'API Reference'}</h3>
         
         <h3>{t('documentation:documentationPage.privacy.api.privacyService.title') || 'Privacy Service Methods'}</h3>
         <table className={styles.apiTable}>
@@ -421,25 +421,25 @@ export function middleware(request: NextRequest) {
             </tr>
           </tbody>
         </table>
-      </section>
+      </div>
 
       <div className={styles.nextSteps}>
         <h2>{t('documentation:documentationPage.nextSteps') || 'Next Steps'}</h2>
-        <div className={styles.linkGrid}>
-          <Link href="/documentation/two-factor-auth" className={styles.docLink}>
+        <div className={styles.cardGrid}>
+          <Link href="/documentation/two-factor-auth" className={styles.docCard}>
             <FaLock />
             <span>{t('documentation:documentationPage.twoFactor.title') || 'Two-Factor Authentication'}</span>
           </Link>
-          <Link href="/documentation/data-export" className={styles.docLink}>
+          <Link href="/documentation/data-export" className={styles.docCard}>
             <FaDatabase />
             <span>{t('documentation:documentationPage.dataExport.title') || 'Data Export Guide'}</span>
           </Link>
-          <Link href="/documentation/authentication" className={styles.docLink}>
+          <Link href="/documentation/authentication" className={styles.docCard}>
             <FaShieldAlt />
             <span>{t('documentation:documentationPage.authenticationNavItem') || 'Authentication Overview'}</span>
           </Link>
         </div>
       </div>
-    </>
+    </div>
   );
 }

@@ -14,7 +14,7 @@ export default function TestTranslation() {
 
   return (
     <div style={{ padding: '2rem' }}>
-      <h1>Translation Test Page</h1>
+      <h1>Translation Test Page (Development Only)</h1>
       
       <div style={{ marginBottom: '2rem', padding: '1rem', background: '#f0f0f0', borderRadius: '8px' }}>
         <p><strong>Current Language:</strong> {language}</p>

@@ -18,6 +18,8 @@ import enAbout from './locales/en/about.json';
 import esAbout from './locales/es/about.json';
 import enHelp from './locales/en/help.json';
 import esHelp from './locales/es/help.json';
+import enContact from './locales/en/contact.json';
+import esContact from './locales/es/contact.json';
 
 // Bundled translations
 const bundledTranslations: Record<string, Record<string, TranslationNamespace>> = {
@@ -30,6 +32,7 @@ const bundledTranslations: Record<string, Record<string, TranslationNamespace>> 
     portfolio: enPortfolio as TranslationNamespace,
     about: enAbout as TranslationNamespace,
     help: enHelp as TranslationNamespace,
+    contact: enContact as TranslationNamespace,
   },
   es: {
     common: esCommon as TranslationNamespace,
@@ -40,6 +43,7 @@ const bundledTranslations: Record<string, Record<string, TranslationNamespace>> 
     portfolio: esPortfolio as TranslationNamespace,
     about: esAbout as TranslationNamespace,
     help: esHelp as TranslationNamespace,
+    contact: esContact as TranslationNamespace,
   },
 };
 

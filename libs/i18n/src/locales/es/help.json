@@ -9,6 +9,16 @@
     "supportTitle": "Soporte",
     "supportDesc": "Obtén ayuda de nuestro equipo de soporte y comunidad para cualquier problema en todas las categorías de soluciones",
     "contactTitle": "Contacto",
-    "contactDesc": "Contáctanos directamente para preguntas sobre cualquiera de nuestras soluciones o para sugerir nuevas características"
+    "contactDesc": "Contáctanos directamente para preguntas sobre cualquiera de nuestras soluciones o para sugerir nuevas características",
+    "faq1Q": "¿Qué es CyberEco?",
+    "faq1A": "CyberEco es una empresa innovadora enfocada en desarrollar aplicaciones digitales que mejoran la colaboración financiera, el compromiso comunitario y la conectividad social a través del diseño centrado en el usuario.",
+    "faq2Q": "¿Cómo puedo empezar a usar las aplicaciones de CyberEco?",
+    "faq2A": "Puedes explorar nuestras soluciones en la sección de Portafolio y descargar o acceder a ellas a través de los enlaces proporcionados para cada aplicación.",
+    "faq3Q": "¿Las aplicaciones de CyberEco están disponibles en todas las plataformas?",
+    "faq3A": "La mayoría de nuestras aplicaciones están disponibles como aplicaciones web, con versiones para iOS y Android disponibles para nuestras herramientas más populares como JustSplit y Nexus.",
+    "faq4Q": "¿Cómo garantiza CyberEco la privacidad y seguridad de los datos?",
+    "faq4A": "Implementamos cifrado sólido, protocolos de autenticación seguros y seguimos las mejores prácticas de la industria para la protección de datos. Todas nuestras aplicaciones están diseñadas con la seguridad como prioridad.",
+    "faq5Q": "¿Puedo usar las aplicaciones de CyberEco para mi organización o negocio?",
+    "faq5A": "Sí, muchas de nuestras aplicaciones como Demos y Community Manager tienen versiones para negocios/organizaciones con características mejoradas para uso profesional."
   }
 }

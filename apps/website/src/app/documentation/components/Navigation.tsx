@@ -1,7 +1,7 @@
 'use client';
 
 import styles from '../page.module.css';
-import { useLanguage } from '@cybereco/ui-components';
+import { useI18n } from '@cybereco/i18n';
 import { FaChevronRight } from 'react-icons/fa';
 
 interface NavigationProps {
@@ -12,27 +12,27 @@ interface NavigationProps {
 }
 
 export function Navigation({ activeDoc, setActiveDoc, searchQuery, filteredDocs }: NavigationProps) {
-  const { t } = useLanguage();
+  const { t } = useI18n();
 
   const docTitles: {[key: string]: string} = {
-    'getting-started': t('documentationPage.introductionNavItem') || 'Introduction',
-    'key-concepts': t('documentationPage.keyConceptsTitle'),
-    'philosophy': t('documentationPage.philosophyDocTitle'),
-    'vision': t('documentationPage.visionDocTitle'),
-    'roadmap': t('documentationPage.roadmapDocTitle'),
-    'portfolio': t('documentationPage.portfolioDocTitle'),
-    'community-governance': t('documentationPage.communityGovernanceNavItem') || 'Community & Governance',
-    'finance-economy': t('documentationPage.financeEconomyNavItem') || 'Finance & Economy',
-    'sustainability-home': t('documentationPage.sustainabilityHomeNavItem') || 'Sustainability & Home',
-    'education-growth': t('documentationPage.educationGrowthNavItem') || 'Education & Growth',
-    'api-reference': t('documentationPage.apiReferenceNavItem') || 'API Reference',
-    'user-guides': t('documentationPage.userGuidesNavItem') || 'User Guides',
-    'faq': t('documentationPage.faqNavItem') || 'FAQ',
-    'troubleshooting': t('documentationPage.troubleshootingNavItem') || 'Troubleshooting',
-    'community': t('documentationPage.communityNavItem') || 'Community & Support',
-    'development-setup': t('documentationPage.developmentNavItem') || 'Development Setup',
-    'architecture': t('documentationPage.architectureNavItem') || 'System Architecture',
-    'hub-gateway': t('documentationPage.hubGatewayNavItem') || 'Hub Gateway & Proxy'
+    'getting-started': t('documentation:documentationPage.introductionNavItem') || 'Introduction',
+    'key-concepts': t('documentation:documentationPage.keyConceptsTitle'),
+    'philosophy': t('documentation:documentationPage.philosophyDocTitle'),
+    'vision': t('documentation:documentationPage.visionDocTitle'),
+    'roadmap': t('documentation:documentationPage.roadmapDocTitle'),
+    'portfolio': t('documentation:documentationPage.portfolioDocTitle'),
+    'community-governance': t('documentation:documentationPage.communityGovernanceNavItem') || 'Community & Governance',
+    'finance-economy': t('documentation:documentationPage.financeEconomyNavItem') || 'Finance & Economy',
+    'sustainability-home': t('documentation:documentationPage.sustainabilityHomeNavItem') || 'Sustainability & Home',
+    'education-growth': t('documentation:documentationPage.educationGrowthNavItem') || 'Education & Growth',
+    'api-reference': t('documentation:documentationPage.apiReferenceNavItem') || 'API Reference',
+    'user-guides': t('documentation:documentationPage.userGuidesNavItem') || 'User Guides',
+    'faq': t('documentation:documentationPage.faqNavItem') || 'FAQ',
+    'troubleshooting': t('documentation:documentationPage.troubleshootingNavItem') || 'Troubleshooting',
+    'community': t('documentation:documentationPage.communityNavItem') || 'Community & Support',
+    'development-setup': t('documentation:documentationPage.developmentNavItem') || 'Development Setup',
+    'architecture': t('documentation:documentationPage.architectureNavItem') || 'System Architecture',
+    'hub-gateway': t('documentation:documentationPage.hubGatewayNavItem') || 'Hub Gateway & Proxy'
   };
 
   return (
@@ -63,33 +63,33 @@ export function Navigation({ activeDoc, setActiveDoc, searchQuery, filteredDocs 
       
       {!searchQuery && (
         <div className={styles.navSection}>
-          <h3 className={styles.navTitle}>{t('documentationPage.gettingStartedNavTitle') || 'Getting Started'}</h3>
+          <h3 className={styles.navTitle}>{t('documentation:documentationPage.gettingStartedNavTitle') || 'Getting Started'}</h3>
           <button 
             onClick={() => setActiveDoc('getting-started')}
             className={`${styles.navItem} ${activeDoc === 'getting-started' ? styles.active : ''}`}
           >
-            {t('documentationPage.introductionNavItem') || 'Introduction'}
+            {t('documentation:documentationPage.introductionNavItem') || 'Introduction'}
             <FaChevronRight size={10} />
           </button>
           <button 
             onClick={() => setActiveDoc('key-concepts')}
             className={`${styles.navItem} ${activeDoc === 'key-concepts' ? styles.active : ''}`}
           >
-            {t('documentationPage.keyConceptsTitle')}
+            {t('documentation:documentationPage.keyConceptsTitle')}
             <FaChevronRight size={10} />
           </button>
           <button 
             onClick={() => setActiveDoc('development-setup')}
             className={`${styles.navItem} ${activeDoc === 'development-setup' ? styles.active : ''}`}
           >
-            💻 {t('documentationPage.developmentNavItem') || 'Development Setup'}
+            💻 {t('documentation:documentationPage.developmentNavItem') || 'Development Setup'}
             <FaChevronRight size={10} />
           </button>
           <button 
             onClick={() => setActiveDoc('architecture')}
             className={`${styles.navItem} ${activeDoc === 'architecture' ? styles.active : ''}`}
           >
-            🏗️ {t('documentationPage.architectureNavItem') || 'System Architecture'}
+            🏗️ {t('documentation:documentationPage.architectureNavItem') || 'System Architecture'}
             <FaChevronRight size={10} />
           </button>
         </div>
@@ -97,33 +97,33 @@ export function Navigation({ activeDoc, setActiveDoc, searchQuery, filteredDocs 
       
       {!searchQuery && (
         <div className={styles.navSection}>
-          <h3 className={styles.navTitle}>{t('documentationPage.coreDocumentationTitle')}</h3>
+          <h3 className={styles.navTitle}>{t('documentation:documentationPage.coreDocumentationTitle')}</h3>
           <button 
             onClick={() => setActiveDoc('philosophy')}
             className={`${styles.navItem} ${activeDoc === 'philosophy' ? styles.active : ''}`}
           >
-            📖 {t('documentationPage.philosophyDocTitle')}
+            📖 {t('documentation:documentationPage.philosophyDocTitle')}
             <FaChevronRight size={10} />
           </button>
           <button 
             onClick={() => setActiveDoc('vision')}
             className={`${styles.navItem} ${activeDoc === 'vision' ? styles.active : ''}`}
           >
-            🔮 {t('documentationPage.visionDocTitle')}
+            🔮 {t('documentation:documentationPage.visionDocTitle')}
             <FaChevronRight size={10} />
           </button>
           <button 
             onClick={() => setActiveDoc('roadmap')}
             className={`${styles.navItem} ${activeDoc === 'roadmap' ? styles.active : ''}`}
           >
-            🛠️ {t('documentationPage.roadmapDocTitle')}
+            🛠️ {t('documentation:documentationPage.roadmapDocTitle')}
             <FaChevronRight size={10} />
           </button>
           <button 
             onClick={() => setActiveDoc('portfolio')}
             className={`${styles.navItem} ${activeDoc === 'portfolio' ? styles.active : ''}`}
           >
-            🚀 {t('documentationPage.portfolioDocTitle')}
+            🚀 {t('documentation:documentationPage.portfolioDocTitle')}
             <FaChevronRight size={10} />
           </button>
         </div>
@@ -131,33 +131,33 @@ export function Navigation({ activeDoc, setActiveDoc, searchQuery, filteredDocs 
       
       {!searchQuery && (
         <div className={styles.navSection}>
-          <h3 className={styles.navTitle}>{t('documentationPage.applicationsNavTitle') || 'Solution Categories'}</h3>
+          <h3 className={styles.navTitle}>{t('documentation:documentationPage.applicationsNavTitle') || 'Solution Categories'}</h3>
           <button 
             onClick={() => setActiveDoc('community-governance')}
             className={`${styles.navItem} ${activeDoc === 'community-governance' ? styles.active : ''}`}
           >
-            {t('documentationPage.communityGovernanceNavItem') || 'Community & Governance'}
+            {t('documentation:documentationPage.communityGovernanceNavItem') || 'Community & Governance'}
             <FaChevronRight size={10} />
           </button>
           <button 
             onClick={() => setActiveDoc('finance-economy')}
             className={`${styles.navItem} ${activeDoc === 'finance-economy' ? styles.active : ''}`}
           >
-            {t('documentationPage.financeEconomyNavItem') || 'Finance & Economy'}
+            {t('documentation:documentationPage.financeEconomyNavItem') || 'Finance & Economy'}
             <FaChevronRight size={10} />
           </button>
           <button 
             onClick={() => setActiveDoc('sustainability-home')}
             className={`${styles.navItem} ${activeDoc === 'sustainability-home' ? styles.active : ''}`}
           >
-            {t('documentationPage.sustainabilityHomeNavItem') || 'Sustainability & Home'}
+            {t('documentation:documentationPage.sustainabilityHomeNavItem') || 'Sustainability & Home'}
             <FaChevronRight size={10} />
           </button>
           <button 
             onClick={() => setActiveDoc('education-growth')}
             className={`${styles.navItem} ${activeDoc === 'education-growth' ? styles.active : ''}`}
           >
-            {t('documentationPage.educationGrowthNavItem') || 'Education & Growth'}
+            {t('documentation:documentationPage.educationGrowthNavItem') || 'Education & Growth'}
             <FaChevronRight size={10} />
           </button>
         </div>
@@ -165,33 +165,33 @@ export function Navigation({ activeDoc, setActiveDoc, searchQuery, filteredDocs 
       
       {!searchQuery && (
         <div className={styles.navSection}>
-          <h3 className={styles.navTitle}>{t('documentationPage.userResourcesNavTitle') || 'User Resources'}</h3>
+          <h3 className={styles.navTitle}>{t('documentation:documentationPage.userResourcesNavTitle') || 'User Resources'}</h3>
           <button 
             onClick={() => setActiveDoc('user-guides')}
             className={`${styles.navItem} ${activeDoc === 'user-guides' ? styles.active : ''}`}
           >
-            📚 {t('documentationPage.userGuidesNavItem') || 'User Guides'}
+            📚 {t('documentation:documentationPage.userGuidesNavItem') || 'User Guides'}
             <FaChevronRight size={10} />
           </button>
           <button 
             onClick={() => setActiveDoc('faq')}
             className={`${styles.navItem} ${activeDoc === 'faq' ? styles.active : ''}`}
           >
-            ❓ {t('documentationPage.faqNavItem') || 'FAQ'}
+            ❓ {t('documentation:documentationPage.faqNavItem') || 'FAQ'}
             <FaChevronRight size={10} />
           </button>
           <button 
             onClick={() => setActiveDoc('troubleshooting')}
             className={`${styles.navItem} ${activeDoc === 'troubleshooting' ? styles.active : ''}`}
           >
-            🛠️ {t('documentationPage.troubleshootingNavItem') || 'Troubleshooting'}
+            🛠️ {t('documentation:documentationPage.troubleshootingNavItem') || 'Troubleshooting'}
             <FaChevronRight size={10} />
           </button>
           <button 
             onClick={() => setActiveDoc('community')}
             className={`${styles.navItem} ${activeDoc === 'community' ? styles.active : ''}`}
           >
-            🤝 {t('documentationPage.communityNavItem') || 'Community & Support'}
+            🤝 {t('documentation:documentationPage.communityNavItem') || 'Community & Support'}
             <FaChevronRight size={10} />
           </button>
         </div>
@@ -199,12 +199,12 @@ export function Navigation({ activeDoc, setActiveDoc, searchQuery, filteredDocs 
       
       {!searchQuery && (
         <div className={styles.navSection}>
-          <h3 className={styles.navTitle}>{t('documentationPage.developerNavTitle') || 'Developer'}</h3>
+          <h3 className={styles.navTitle}>{t('documentation:documentationPage.developerNavTitle') || 'Developer'}</h3>
           <button 
             onClick={() => setActiveDoc('api-reference')}
             className={`${styles.navItem} ${activeDoc === 'api-reference' ? styles.active : ''}`}
           >
-            {t('documentationPage.apiReferenceNavItem') || 'API Reference'}
+            {t('documentation:documentationPage.apiReferenceNavItem') || 'API Reference'}
             <FaChevronRight size={10} />
           </button>
           <a 
@@ -212,7 +212,7 @@ export function Navigation({ activeDoc, setActiveDoc, searchQuery, filteredDocs 
             className={styles.navItem}
             style={{ textDecoration: 'none' }}
           >
-            🔐 {t('documentationPage.jwtAuthNavItem') || 'JWT Authentication'}
+            🔐 {t('documentation:documentationPage.jwtAuthNavItem') || 'JWT Authentication'}
             <FaChevronRight size={10} />
           </a>
           <a 
@@ -220,7 +220,7 @@ export function Navigation({ activeDoc, setActiveDoc, searchQuery, filteredDocs 
             className={styles.navItem}
             style={{ textDecoration: 'none' }}
           >
-            🔗 {t('documentationPage.ssoIntegrationNavItem') || 'SSO Integration'}
+            🔗 {t('documentation:documentationPage.ssoIntegrationNavItem') || 'SSO Integration'}
             <FaChevronRight size={10} />
           </a>
           <a 
@@ -228,7 +228,7 @@ export function Navigation({ activeDoc, setActiveDoc, searchQuery, filteredDocs 
             className={styles.navItem}
             style={{ textDecoration: 'none' }}
           >
-            📊 {t('documentationPage.authLoggingNavItem') || 'Auth Logging'}
+            📊 {t('documentation:documentationPage.authLoggingNavItem') || 'Auth Logging'}
             <FaChevronRight size={10} />
           </a>
           <a 
@@ -236,7 +236,7 @@ export function Navigation({ activeDoc, setActiveDoc, searchQuery, filteredDocs 
             className={styles.navItem}
             style={{ textDecoration: 'none' }}
           >
-            {t('documentationPage.authenticationNavItem') || 'Authentication Integration'}
+            {t('documentation:documentationPage.authenticationNavItem') || 'Authentication Integration'}
             <FaChevronRight size={10} />
           </a>
           <a 
@@ -244,7 +244,7 @@ export function Navigation({ activeDoc, setActiveDoc, searchQuery, filteredDocs 
             className={styles.navItem}
             style={{ textDecoration: 'none' }}
           >
-            {t('documentationPage.dataArchitectureNavItem') || 'Data Layer Architecture'}
+            {t('documentation:documentationPage.dataArchitectureNavItem') || 'Data Layer Architecture'}
             <FaChevronRight size={10} />
           </a>
           <a 
@@ -252,7 +252,7 @@ export function Navigation({ activeDoc, setActiveDoc, searchQuery, filteredDocs 
             className={styles.navItem}
             style={{ textDecoration: 'none' }}
           >
-            {t('documentationPage.hubGatewayNavItem') || 'Hub Gateway & Proxy'}
+            {t('documentation:documentationPage.hubGatewayNavItem') || 'Hub Gateway & Proxy'}
             <FaChevronRight size={10} />
           </a>
           <a 
@@ -260,7 +260,7 @@ export function Navigation({ activeDoc, setActiveDoc, searchQuery, filteredDocs 
             className={styles.navItem}
             style={{ textDecoration: 'none' }}
           >
-            🛡️ {t('documentationPage.privacyControlsNavItem') || 'Privacy Controls & GDPR'}
+            🛡️ {t('documentation:documentationPage.privacyControlsNavItem') || 'Privacy Controls & GDPR'}
             <FaChevronRight size={10} />
           </a>
           <a 
@@ -268,7 +268,7 @@ export function Navigation({ activeDoc, setActiveDoc, searchQuery, filteredDocs 
             className={styles.navItem}
             style={{ textDecoration: 'none' }}
           >
-            🔒 {t('documentationPage.twoFactorAuthNavItem') || 'Two-Factor Authentication'}
+            🔒 {t('documentation:documentationPage.twoFactorAuthNavItem') || 'Two-Factor Authentication'}
             <FaChevronRight size={10} />
           </a>
           <a 
@@ -276,7 +276,7 @@ export function Navigation({ activeDoc, setActiveDoc, searchQuery, filteredDocs 
             className={styles.navItem}
             style={{ textDecoration: 'none' }}
           >
-            💾 {t('documentationPage.dataExportNavItem') || 'Data Export & Portability'}
+            💾 {t('documentation:documentationPage.dataExportNavItem') || 'Data Export & Portability'}
             <FaChevronRight size={10} />
           </a>
         </div>

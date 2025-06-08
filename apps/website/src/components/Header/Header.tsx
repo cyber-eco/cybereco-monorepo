@@ -16,6 +16,7 @@ export default function Header() {
     { href: '/', label: t('common:navigation.home') || 'Home' },
     { href: '/portfolio', label: t('common:navigation.portfolio') || 'Solutions' },
     { href: '/documentation', label: t('common:navigation.documentation') || 'Documentation' },
+    { href: '/community', label: t('common:navigation.community') || 'Community' },
     { href: '/about', label: t('common:navigation.about') || 'About Us' },
     { href: '/help', label: t('common:navigation.help') || 'Help' },
   ];

@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { FaLifeRing, FaExclamationCircle, FaLightbulb, FaComment, FaPaperPlane } from 'react-icons/fa';
-import { useLanguage } from '@cybereco/ui-components';
+import { useI18n } from '@cybereco/i18n';
 import styles from './page.module.css';
 
 interface FormData {
@@ -24,7 +24,7 @@ export default function SupportPage() {
     message: ''
   });
   
-  const { t } = useLanguage();
+  const { t } = useI18n();
   
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>): void => {
     const { name, value } = e.target;

@@ -11,7 +11,14 @@
         "outputPath": "dist/libs/i18n",
         "main": "libs/i18n/src/index.ts",
         "tsConfig": "libs/i18n/tsconfig.lib.json",
-        "assets": ["libs/i18n/*.md"]
+        "assets": [
+          "libs/i18n/*.md",
+          {
+            "input": "libs/i18n/src",
+            "glob": "**/*.json",
+            "output": "."
+          }
+        ]
       }
     },
     "lint": {
