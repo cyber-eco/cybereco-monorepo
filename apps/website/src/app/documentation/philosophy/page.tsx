@@ -16,6 +16,7 @@ import {
   FaChartLine,
   FaRocket
 } from 'react-icons/fa';
+import DocumentationHero from '../components/DocumentationHero';
 import styles from './page.module.css';
 
 export default function PhilosophyDocs() {
@@ -48,15 +49,12 @@ export default function PhilosophyDocs() {
 
   return (
     <div className={styles.pageContainer}>
-      <div className={styles.pageHeader}>
-        <FaHeart className={styles.headerIcon} />
-        <h1 className={styles.title}>
-          {t('common:philosophyPage.title') || 'Platform Philosophy'}
-        </h1>
-        <p className={styles.subtitle}>
-          {t('common:philosophyPage.subtitle') || 'The foundational principles and values that guide the CyberEco ecosystem'}
-        </p>
-      </div>
+      <DocumentationHero
+        icon={<FaHeart />}
+        title={t('common:philosophyPage.title') || 'Platform Philosophy'}
+        subtitle={t('common:philosophyPage.subtitle') || 'The foundational principles and values that guide the CyberEco ecosystem'}
+        gradient="linear-gradient(135deg, #f59e0b 0%, #ef4444 50%, #ec4899 100%)"
+      />
 
       {/* Core Philosophy Section */}
       <div className={styles.contentSection}>

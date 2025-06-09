@@ -752,34 +752,6 @@
         "csv": {
           "title": "CSV Export",
           "description": "Spreadsheet-compatible format for easy viewing and analysis"
-        },
-        "jsonFormat": "JSON Format",
-        "jsonFormatDesc": "JSON (JavaScript Object Notation) provides a hierarchical structure that preserves data relationships and types.",
-        "csvFormat": "CSV Format",
-        "csvFormatDesc": "CSV (Comma-Separated Values) flattens hierarchical data into tables, making it easy to import into spreadsheet applications.",
-        "csvStructure": "CSV Structure:",
-        "csvFiles": {
-          "profile": "User profile information",
-          "expenses": "All expense records",
-          "groups": "Group memberships",
-          "settlements": "Settlement history",
-          "activities": "Activity logs"
-        },
-        "example": "Example",
-        "applicationData": "Application Data",
-        "justSplitData": {
-          "expenses": "Expenses (created and participated)",
-          "groups": "Group memberships",
-          "events": "Events and activities",
-          "settlements": "Settlement history",
-          "friends": "Friend connections"
-        },
-        "hubData": {
-          "apps": "Connected applications",
-          "permissions": "Permissions granted",
-          "activities": "Activity logs",
-          "security": "Security events",
-          "access": "Data access logs"
         }
       },
       "features": {
@@ -814,29 +786,7 @@
         }
       },
       "api": {
-        "title": "API Integration",
-        "implementation": "Export Service Implementation",
-        "largeExports": "Handling Large Exports",
-        "largeExportsDesc": "For users with extensive data, exports are processed efficiently:",
-        "endpoints": "API Endpoints",
-        "endpointColumns": {
-          "endpoint": "Endpoint",
-          "method": "Method",
-          "description": "Description"
-        },
-        "endpointDescriptions": {
-          "request": "Request data export",
-          "status": "Check export status",
-          "download": "Download export file"
-        },
-        "rateLimits": "Rate Limits",
-        "defaultLimits": "Default Limits:",
-        "limits": {
-          "exports": "5 exports per 24-hour period",
-          "concurrent": "1 concurrent export per user",
-          "size": "100MB maximum export size",
-          "expiration": "30-minute export link expiration"
-        }
+        "title": "API Integration"
       },
       "rateLimits": {
         "title": "Rate Limits & Security"
@@ -851,40 +801,7 @@
         "directTransfer": "Direct Transfer",
         "directTransferDesc": "API support for direct transfer to other services",
         "completeDataSet": "Complete Data Set",
-        "completeDataSetDesc": "All personal data provided by the user included",
-        "article20": "The data export feature fully implements GDPR Article 20 requirements:",
-        "complianceFeatures": "Compliance Features",
-        "complianceList": {
-          "provided": "Export includes all data \"provided by\" the data subject",
-          "excludes": "Excludes inferred or derived data",
-          "privacy": "Respects other users' privacy rights",
-          "audit": "Audit trail maintained for all exports"
-        },
-        "dataRetention": "Data Retention",
-        "retentionPolicy": "Export Retention Policy:",
-        "retentionList": {
-          "linkExpiry": "Export links expire after 30 minutes",
-          "fileDelete": "Temporary export files deleted after download",
-          "logRetention": "Export logs retained for 90 days",
-          "noStorage": "No permanent storage of export files"
-        },
-        "securityMeasures": "Security Measures",
-        "securityItems": {
-          "authRequired": "Authentication Required:",
-          "authRequiredDesc": "Valid session token must be present",
-          "sanitization": "Data Sanitization:",
-          "sanitizationDesc": "Sensitive fields automatically removed",
-          "auditLogging": "Audit Logging:",
-          "auditLoggingDesc": "All exports tracked for security",
-          "encrypted": "Encrypted Transport:",
-          "encryptedDesc": "HTTPS required for all exports"
-        }
-      },
-      "nextSteps": {
-        "title": "Next Steps",
-        "privacyControls": "Privacy Controls",
-        "twoFactorAuth": "Two-Factor Auth",
-        "authentication": "Authentication"
+        "completeDataSetDesc": "All personal data provided by the user included"
       }
     },
     "twoFactor": {

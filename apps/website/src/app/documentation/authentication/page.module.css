@@ -5,81 +5,8 @@
   animation: fadeIn 0.3s ease-in;
 }
 
-.pageHeader {
-  text-align: center;
-  margin-bottom: 3rem;
-  padding: 3rem 2rem;
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.02) 100%);
-  border-radius: var(--border-radius-xl);
-}
-
-.headerIcon {
-  font-size: 3rem;
-  color: var(--primary);
-  margin-bottom: 1rem;
-}
-
-.title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 0.5rem;
-}
-
-.subtitle {
-  font-size: 1.1rem;
-  color: var(--text-secondary);
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-/* Tabs */
-.tabsContainer {
-  margin-bottom: 3rem;
-}
-
-.tabsHeader {
-  display: flex;
-  gap: 0.5rem;
-  border-bottom: 2px solid var(--border-color);
-  margin-bottom: 2rem;
-  overflow-x: auto;
-  padding-bottom: 0;
-}
-
-.tabButton {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  background: none;
-  border: none;
-  border-bottom: 3px solid transparent;
-  color: var(--text-secondary);
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  white-space: nowrap;
-}
-
-.tabButton:hover {
-  color: var(--primary);
-  background: rgba(99, 102, 241, 0.05);
-}
-
-.tabButton.active {
-  color: var(--primary);
-  border-bottom-color: var(--primary);
-}
-
-.tabIcon {
-  font-size: 1.1rem;
-}
-
-.tabContentWrapper {
-  animation: fadeIn 0.3s ease-in;
-}
+/* Header styles now handled by DocumentationHero component */
+/* Tab styles now handled by DocumentationTabs component */
 
 .tabContent {
   animation: slideIn 0.3s ease-out;

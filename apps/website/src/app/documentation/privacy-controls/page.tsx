@@ -1,39 +1,47 @@
 'use client';
 
+import React from 'react';
 import Link from 'next/link';
 import { FaShieldAlt, FaLock, FaEye, FaUserShield, FaDatabase, FaCheckCircle } from 'react-icons/fa';
 import { useI18n } from '@cybereco/i18n';
+import { DocumentationHero, DocumentationTabs } from '../components';
+import type { Tab } from '../components';
 import styles from '../page.module.css';
 
 export default function PrivacyControlsDocumentation() {
   const { t } = useI18n();
   
-  return (
-    <div className={styles.pageContainer}>
-      <div className={styles.pageHeader}>
-        <h1 className={styles.title}>
-          {t('documentation:documentationPage.privacy.title') || 'Privacy Controls & GDPR Compliance'}
-        </h1>
-        <p className={styles.subtitle}>
-          {t('documentation:documentationPage.privacy.subtitle') || 'Comprehensive privacy features that put you in control of your data'}
-        </p>
-      </div>
+  const tabs: Tab[] = [
+    {
+      id: 'overview',
+      label: t('documentation:documentationPage.privacy.overview.title') || 'Overview',
+      content: renderOverviewTab()
+    },
+    {
+      id: 'consent',
+      label: t('documentation:documentationPage.privacy.consent.title') || 'Consent Management',
+      content: renderConsentTab()
+    },
+    {
+      id: 'settings',
+      label: t('documentation:documentationPage.privacy.settings.title') || 'Privacy Settings',
+      content: renderSettingsTab()
+    },
+    {
+      id: 'gdpr',
+      label: t('documentation:documentationPage.privacy.gdpr.title') || 'GDPR Rights',
+      content: renderGdprTab()
+    },
+    {
+      id: 'api',
+      label: t('documentation:documentationPage.privacy.api.title') || 'API Reference',
+      content: renderApiTab()
+    }
+  ];
 
-      <nav className={styles.tableOfContents}>
-        <h2>{t('documentation:documentationPage.tableOfContents') || 'Table of Contents'}</h2>
-        <ul>
-          <li><a href="#overview">{t('documentation:documentationPage.privacy.overview.title') || 'Overview'}</a></li>
-          <li><a href="#consent-management">{t('documentation:documentationPage.privacy.consent.title') || 'Consent Management'}</a></li>
-          <li><a href="#privacy-settings">{t('documentation:documentationPage.privacy.settings.title') || 'Privacy Settings'}</a></li>
-          <li><a href="#data-visibility">{t('documentation:documentationPage.privacy.dataVisibility.title') || 'Data Visibility Controls'}</a></li>
-          <li><a href="#gdpr-rights">{t('documentation:documentationPage.privacy.gdpr.title') || 'GDPR Rights'}</a></li>
-          <li><a href="#implementation">{t('documentation:documentationPage.privacy.implementation.title') || 'Implementation Guide'}</a></li>
-          <li><a href="#api-reference">{t('documentation:documentationPage.privacy.api.title') || 'API Reference'}</a></li>
-        </ul>
-      </nav>
-
-      <div id="overview" className={styles.contentSection}>
-        <h3 className={styles.subTitle}>{t('documentation:documentationPage.privacy.overview.title') || 'Overview'}</h3>
+  function renderOverviewTab() {
+    return (
+      <>
         <p>
           {t('documentation:documentationPage.privacy.overview.description') || 'CyberEco implements a comprehensive privacy-first architecture that ensures users maintain complete control over their personal data. Our privacy controls are built into every layer of the platform, from data collection to processing and sharing.'}
         </p>
@@ -60,15 +68,41 @@ export default function PrivacyControlsDocumentation() {
             <p>{t('documentation:documentationPage.privacy.features.gdprCompliance.description') || 'Full compliance with data protection regulations including right to erasure'}</p>
           </div>
         </div>
-      </div>
 
-      <div id="consent-management" className={styles.contentSection}>
-        <h3 className={styles.subTitle}>{t('documentation:documentationPage.privacy.consent.title') || 'Consent Management'}</h3>
+        <h3 className={styles.subTitle}>{t('documentation:documentationPage.privacy.dataVisibility.title') || 'Data Visibility Controls'}</h3>
         
+        <h4>{t('documentation:documentationPage.privacy.dataVisibility.queries.title') || 'Privacy-Aware Queries'}</h4>
+        <p>
+          {t('documentation:documentationPage.privacy.dataVisibility.queries.description') || 'All data queries automatically respect privacy settings:'}
+        </p>
+        
+        <div className={styles.codeSection}>
+          <pre>{`// Automatic privacy filtering
+const expenses = await privacyAwareDataService.filterResults(
+  rawExpenses,
+  viewerId,
+  'expenses'
+);
+
+// Check if viewer can access specific data
+const canView = await privacyAwareDataService.canViewData({
+  viewerId: currentUser.id,
+  targetUserId: dataOwner.id,
+  dataType: 'expenses',
+  relationship: 'friend'
+});`}</pre>
+        </div>
+      </>
+    );
+  }
+
+  function renderConsentTab() {
+    return (
+      <>
         <h3>{t('documentation:documentationPage.privacy.consent.types.title') || 'Consent Types'}</h3>
         <p>{t('documentation:documentationPage.privacy.consent.types.description') || 'CyberEco uses a granular consent system with five distinct categories:'}</p>
         
-        <div className={styles.codeBlock}>
+        <div className={styles.codeSection}>
           <pre>{`enum ConsentType {
   NECESSARY = 'necessary',      // Required for basic functionality
   FUNCTIONAL = 'functional',    // Enhanced features and preferences
@@ -94,7 +128,7 @@ export default function PrivacyControlsDocumentation() {
         </div>
 
         <h3>{t('documentation:documentationPage.privacy.consent.managing.title') || 'Managing Consent'}</h3>
-        <div className={styles.codeBlock}>
+        <div className={styles.codeSection}>
           <pre>{`// Record user consent
 await gdprService.recordConsent(
   userId,
@@ -112,11 +146,13 @@ const hasConsent = await gdprService.canTrackUser(
   ConsentType.ANALYTICS
 );`}</pre>
         </div>
-      </div>
+      </>
+    );
+  }
 
-      <div id="privacy-settings" className={styles.contentSection}>
-        <h3 className={styles.subTitle}>{t('documentation:documentationPage.privacy.settings.title') || 'Privacy Settings'}</h3>
-        
+  function renderSettingsTab() {
+    return (
+      <>
         <h3>{t('documentation:documentationPage.privacy.settings.profileVisibility.title') || 'Profile Visibility'}</h3>
         <p>{t('documentation:documentationPage.privacy.settings.profileVisibility.description') || 'Control who can see your profile information:'}</p>
         <ul>
@@ -128,7 +164,7 @@ const hasConsent = await gdprService.canTrackUser(
         <h3>{t('documentation:documentationPage.privacy.settings.activityVisibility.title') || 'Activity Visibility'}</h3>
         <p>{t('documentation:documentationPage.privacy.settings.activityVisibility.description') || 'Fine-grained control over different types of activities:'}</p>
         
-        <div className={styles.codeBlock}>
+        <div className={styles.codeSection}>
           <pre>{`interface ActivityVisibility {
   expenses: 'everyone' | 'friends' | 'only-me';
   groups: 'everyone' | 'friends' | 'only-me';
@@ -158,32 +194,6 @@ const hasConsent = await gdprService.canTrackUser(
             </div>
           </div>
         </div>
-      </div>
-
-      <div id="data-visibility" className={styles.contentSection}>
-        <h3 className={styles.subTitle}>{t('documentation:documentationPage.privacy.dataVisibility.title') || 'Data Visibility Controls'}</h3>
-        
-        <h3>{t('documentation:documentationPage.privacy.dataVisibility.queries.title') || 'Privacy-Aware Queries'}</h3>
-        <p>
-          {t('documentation:documentationPage.privacy.dataVisibility.queries.description') || 'All data queries automatically respect privacy settings:'}
-        </p>
-        
-        <div className={styles.codeBlock}>
-          <pre>{`// Automatic privacy filtering
-const expenses = await privacyAwareDataService.filterResults(
-  rawExpenses,
-  viewerId,
-  'expenses'
-);
-
-// Check if viewer can access specific data
-const canView = await privacyAwareDataService.canViewData({
-  viewerId: currentUser.id,
-  targetUserId: dataOwner.id,
-  dataType: 'expenses',
-  relationship: 'friend'
-});`}</pre>
-        </div>
 
         <h3>{t('documentation:documentationPage.privacy.dataVisibility.anonymization.title') || 'Data Anonymization'}</h3>
         <p>
@@ -199,31 +209,17 @@ const canView = await privacyAwareDataService.canViewData({
             <li>{t('documentation:documentationPage.privacy.dataVisibility.anonymization.field4') || 'Phone numbers → Removed'}</li>
           </ul>
         </div>
+      </>
+    );
+  }
 
-        <h3>{t('documentation:documentationPage.privacy.dataVisibility.auditLogging.title') || 'Audit Logging'}</h3>
-        <p>
-          {t('documentation:documentationPage.privacy.dataVisibility.auditLogging.description') || 'All data access is logged for security and compliance:'}
-        </p>
-        
-        <div className={styles.codeBlock}>
-          <pre>{`interface DataAccessLog {
-  viewerId: string;
-  targetUserId: string;
-  dataType: string;
-  accessLevel: 'granted' | 'denied';
-  timestamp: Date;
-  metadata?: Record<string, any>;
-}`}</pre>
-        </div>
-      </div>
-
-      <div id="gdpr-rights" className={styles.contentSection}>
-        <h3 className={styles.subTitle}>{t('documentation:documentationPage.privacy.gdpr.title') || 'GDPR Rights Implementation'}</h3>
-        
+  function renderGdprTab() {
+    return (
+      <>
         <h3>{t('documentation:documentationPage.privacy.gdpr.rightToAccess.title') || 'Right to Access'}</h3>
         <p>{t('documentation:documentationPage.privacy.gdpr.rightToAccess.description') || 'Users can request and download all their personal data:'}</p>
         
-        <div className={styles.codeBlock}>
+        <div className={styles.codeSection}>
           <pre>{`// Generate comprehensive privacy report
 const report = await gdprService.generatePrivacyReport(userId);
 
@@ -253,7 +249,7 @@ const exportData = await dataExportService.exportUserData(
         </div>
 
         <h3>{t('documentation:documentationPage.privacy.gdpr.rightToPortability.title') || 'Right to Data Portability'}</h3>
-        <div className={styles.codeBlock}>
+        <div className={styles.codeSection}>
           <pre>{`// Request data in portable format
 const requestId = await gdprService.requestDataPortability(
   userId,
@@ -264,13 +260,11 @@ const requestId = await gdprService.requestDataPortability(
 
         <h3>{t('documentation:documentationPage.privacy.gdpr.rightToRectification.title') || 'Right to Rectification'}</h3>
         <p>{t('documentation:documentationPage.privacy.gdpr.rightToRectification.description') || 'Users can update their personal information at any time through the profile settings.'}</p>
-      </div>
 
-      <div id="implementation" className={styles.contentSection}>
-        <h3 className={styles.subTitle}>{t('documentation:documentationPage.privacy.implementation.title') || 'Implementation Guide'}</h3>
+        <h3>{t('documentation:documentationPage.privacy.implementation.title') || 'Implementation Guide'}</h3>
         
-        <h3>{t('documentation:documentationPage.privacy.implementation.step1.title') || '1. Initialize Privacy Services'}</h3>
-        <div className={styles.codeBlock}>
+        <h4>{t('documentation:documentationPage.privacy.implementation.step1.title') || '1. Initialize Privacy Services'}</h4>
+        <div className={styles.codeSection}>
           <pre>{`import { 
   privacyAwareDataService, 
   gdprService 
@@ -293,8 +287,8 @@ await privacyAwareDataService.updatePrivacySettings(
 );`}</pre>
         </div>
 
-        <h3>{t('documentation:documentationPage.privacy.implementation.step2.title') || '2. Implement Consent Checks'}</h3>
-        <div className={styles.codeBlock}>
+        <h4>{t('documentation:documentationPage.privacy.implementation.step2.title') || '2. Implement Consent Checks'}</h4>
+        <div className={styles.codeSection}>
           <pre>{`// Before processing analytics
 if (await gdprService.canTrackUser(userId, ConsentType.ANALYTICS)) {
   // Track user analytics
@@ -306,46 +300,13 @@ if (await gdprService.canTrackUser(userId, ConsentType.MARKETING)) {
   await emailService.sendPromotional(userId, campaign);
 }`}</pre>
         </div>
-
-        <h3>{t('documentation:documentationPage.privacy.implementation.step3.title') || '3. Apply Privacy Filters'}</h3>
-        <div className={styles.codeBlock}>
-          <pre>{`// In your data fetching service
-async function getExpenses(viewerId: string) {
-  // Get raw data
-  const expenses = await db.collection('expenses')
-    .where('participants', 'array-contains', viewerId)
-    .get();
-  
-  // Apply privacy filters
-  return await privacyAwareDataService.filterResults(
-    expenses.docs.map(doc => doc.data()),
-    viewerId,
-    'expenses'
-  );
-}`}</pre>
-        </div>
-
-        <h3>{t('documentation:documentationPage.privacy.implementation.step4.title') || '4. Set Up Middleware'}</h3>
-        <div className={styles.codeBlock}>
-          <pre>{`// In your API middleware
-import { applyPrivacyHeaders } from './middleware/dataVisibility';
-
-export function middleware(request: NextRequest) {
-  let response = NextResponse.next();
-  
-  // Apply privacy headers for API routes
-  if (request.nextUrl.pathname.startsWith('/api/')) {
-    response = applyPrivacyHeaders(response);
+      </>
+    );
   }
-  
-  return response;
-}`}</pre>
-        </div>
-      </div>
 
-      <div id="api-reference" className={styles.contentSection}>
-        <h3 className={styles.subTitle}>{t('documentation:documentationPage.privacy.api.title') || 'API Reference'}</h3>
-        
+  function renderApiTab() {
+    return (
+      <>
         <h3>{t('documentation:documentationPage.privacy.api.privacyService.title') || 'Privacy Service Methods'}</h3>
         <table className={styles.apiTable}>
           <thead>
@@ -412,7 +373,7 @@ export function middleware(request: NextRequest) {
             <tr>
               <td><code>requestDataPortability</code></td>
               <td>{t('documentation:documentationPage.privacy.api.gdprService.requestDataPortability') || 'Export user data'}</td>
-              <td><code>userId: string, format: 'json' | 'csv'</code></td>
+              <td><code>userId: string, format: \'json\' | \'csv\'</code></td>
             </tr>
             <tr>
               <td><code>generatePrivacyReport</code></td>
@@ -421,7 +382,71 @@ export function middleware(request: NextRequest) {
             </tr>
           </tbody>
         </table>
-      </div>
+
+        <h4>{t('documentation:documentationPage.privacy.implementation.step3.title') || '3. Apply Privacy Filters'}</h4>
+        <div className={styles.codeSection}>
+          <pre>{`// In your data fetching service
+async function getExpenses(viewerId: string) {
+  // Get raw data
+  const expenses = await db.collection('expenses')
+    .where('participants', 'array-contains', viewerId)
+    .get();
+  
+  // Apply privacy filters
+  return await privacyAwareDataService.filterResults(
+    expenses.docs.map(doc => doc.data()),
+    viewerId,
+    'expenses'
+  );
+}`}</pre>
+        </div>
+
+        <h4>{t('documentation:documentationPage.privacy.implementation.step4.title') || '4. Set Up Middleware'}</h4>
+        <div className={styles.codeSection}>
+          <pre>{`// In your API middleware
+import { applyPrivacyHeaders } from './middleware/dataVisibility';
+
+export function middleware(request: NextRequest) {
+  let response = NextResponse.next();
+  
+  // Apply privacy headers for API routes
+  if (request.nextUrl.pathname.startsWith('/api/')) {
+    response = applyPrivacyHeaders(response);
+  }
+  
+  return response;
+}`}</pre>
+        </div>
+
+        <h4>{t('documentation:documentationPage.privacy.dataVisibility.auditLogging.title') || 'Audit Logging'}</h4>
+        <p>
+          {t('documentation:documentationPage.privacy.dataVisibility.auditLogging.description') || 'All data access is logged for security and compliance:'}
+        </p>
+        
+        <div className={styles.codeSection}>
+          <pre>{`interface DataAccessLog {
+  viewerId: string;
+  targetUserId: string;
+  dataType: string;
+  accessLevel: 'granted' | 'denied';
+  timestamp: Date;
+  metadata?: Record<string, any>;
+}`}</pre>
+        </div>
+      </>
+    );
+  }
+  
+  return (
+    <div className={styles.pageContainer}>
+      <DocumentationHero
+        icon={<FaShieldAlt />}
+        title={t('documentation:documentationPage.privacy.title') || 'Privacy Controls & GDPR Compliance'}
+        subtitle={t('documentation:documentationPage.privacy.subtitle') || 'Comprehensive privacy features that put you in control of your data'}
+        gradient="linear-gradient(135deg, #ec4899 0%, #8b5cf6 50%, #3b82f6 100%)"
+      />
+
+      <DocumentationTabs tabs={tabs} defaultTab="overview" />
 
       <div className={styles.nextSteps}>
         <h2>{t('documentation:documentationPage.nextSteps') || 'Next Steps'}</h2>

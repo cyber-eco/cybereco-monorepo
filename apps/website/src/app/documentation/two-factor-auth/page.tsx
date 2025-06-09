@@ -1,54 +1,19 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { FaLock, FaMobileAlt, FaQrcode, FaShieldAlt, FaKey, FaCheckCircle } from 'react-icons/fa';
 import { useI18n } from '@cybereco/i18n';
+import { DocumentationHero, DocumentationTabs } from '../components';
+import type { Tab } from '../components';
 import styles from '../page.module.css';
 
 export default function TwoFactorAuthDocumentation() {
   const { t } = useI18n();
-  const [mounted, setMounted] = useState(false);
-  
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
-  if (!mounted) {
-    return (
-      <div className={styles.pageContainer}>
-        <div className={styles.pageHeader}>
-          <h1 className={styles.title}>Loading...</h1>
-        </div>
-      </div>
-    );
-  }
-  
-  return (
-    <div className={styles.pageContainer}>
-      <div className={styles.pageHeader}>
-        <h1 className={styles.title}>
-          {t('documentation:documentationPage.twoFactor.title') || 'Two-Factor Authentication (2FA)'}
-        </h1>
-        <p className={styles.subtitle}>
-          {t('documentation:documentationPage.twoFactor.description') || 'Add an extra layer of security to your CyberEco account with TOTP-based authentication'}
-        </p>
-      </div>
-
-      <nav className={styles.tableOfContents}>
-        <h2>{t('documentation:documentationPage.tableOfContents') || 'Table of Contents'}</h2>
-        <ul>
-          <li><a href="#overview">{t('documentation:documentationPage.twoFactor.overview.title') || 'Overview'}</a></li>
-          <li><a href="#setup-guide">{t('documentation:documentationPage.twoFactor.setup.title') || 'Setup Guide'}</a></li>
-          <li><a href="#how-it-works">{t('documentation:documentationPage.twoFactor.howItWorks.title') || 'How It Works'}</a></li>
-          <li><a href="#backup-codes">{t('documentation:documentationPage.twoFactor.backupCodes.title') || 'Backup Codes'}</a></li>
-          <li><a href="#integration">{t('documentation:documentationPage.twoFactor.integration.title') || 'Integration Guide'}</a></li>
-          <li><a href="#troubleshooting">{t('documentation:documentationPage.twoFactor.troubleshooting.title') || 'Troubleshooting'}</a></li>
-          <li><a href="#api-reference">{t('documentation:documentationPage.twoFactor.api.title') || 'API Reference'}</a></li>
-        </ul>
-      </nav>
-
-      <section id="overview" className={styles.contentSection}>
+  const renderOverviewTab = () => (
+    <>
+      <section className={styles.contentSection}>
         <h3 className={styles.subTitle}>{t('documentation:documentationPage.twoFactor.overview.title') || 'Overview'}</h3>
         <p>
           {t('documentation:documentationPage.twoFactor.overview.description') || 
@@ -68,63 +33,69 @@ export default function TwoFactorAuthDocumentation() {
           </div>
           <div className={styles.featureCard}>
             <FaKey className={styles.featureIcon} />
-            <h3>Backup Codes</h3>
-            <p>Recovery codes ensure you're never locked out of your account</p>
+            <h3>{t('documentation:documentationPage.twoFactor.features.backupCodes.title') || 'Backup Codes'}</h3>
+            <p>{t('documentation:documentationPage.twoFactor.features.backupCodes.description') || 'Recovery codes ensure you\'re never locked out of your account'}</p>
           </div>
           <div className={styles.featureCard}>
             <FaShieldAlt className={styles.featureIcon} />
-            <h3>Enhanced Security</h3>
-            <p>Protect against password theft and unauthorized access attempts</p>
+            <h3>{t('documentation:documentationPage.twoFactor.features.enhanced.title') || 'Enhanced Security'}</h3>
+            <p>{t('documentation:documentationPage.twoFactor.features.enhanced.description') || 'Protect against password theft and unauthorized access attempts'}</p>
           </div>
         </div>
       </section>
+    </>
+  );
 
-      <section id="setup-guide" className={styles.contentSection}>
-        <h3 className={styles.subTitle}>Setup Guide</h3>
+  const renderSetupTab = () => (
+    <>
+      <section className={styles.contentSection}>
+        <h3 className={styles.subTitle}>{t('documentation:documentationPage.twoFactor.setup.title') || 'Setup Guide'}</h3>
         
-        <h3>Step 1: Enable 2FA</h3>
+        <h3>{t('documentation:documentationPage.twoFactor.setup.step1.title') || 'Step 1: Enable 2FA'}</h3>
         <ol className={styles.numberedList}>
-          <li>Navigate to <strong>Hub → Security → Two-Factor Authentication</strong></li>
-          <li>Click "Enable Two-Factor Authentication"</li>
-          <li>Verify your password to continue</li>
+          <li>{t('documentation:documentationPage.twoFactor.setup.step1.item1') || 'Navigate to Hub → Security → Two-Factor Authentication'}</li>
+          <li>{t('documentation:documentationPage.twoFactor.setup.step1.item2') || 'Click "Enable Two-Factor Authentication"'}</li>
+          <li>{t('documentation:documentationPage.twoFactor.setup.step1.item3') || 'Verify your password to continue'}</li>
         </ol>
 
-        <h3>Step 2: Configure Authenticator App</h3>
+        <h3>{t('documentation:documentationPage.twoFactor.setup.step2.title') || 'Step 2: Configure Authenticator App'}</h3>
         <div className={styles.infoBox}>
-          <h4>Supported Apps:</h4>
+          <h4>{t('documentation:documentationPage.twoFactor.setup.step2.supportedApps') || 'Supported Apps:'}</h4>
           <ul>
             <li>Google Authenticator</li>
             <li>Microsoft Authenticator</li>
             <li>Authy</li>
             <li>1Password</li>
-            <li>Any TOTP-compatible app</li>
+            <li>{t('documentation:documentationPage.twoFactor.setup.step2.anyTOTP') || 'Any TOTP-compatible app'}</li>
           </ul>
         </div>
 
-        <p>Scan the QR code with your authenticator app or manually enter the secret key:</p>
+        <p>{t('documentation:documentationPage.twoFactor.setup.step2.scanQR') || 'Scan the QR code with your authenticator app or manually enter the secret key:'}</p>
         
         <div className={styles.codeBlock}>
           <pre>{`// Example QR code data format
 otpauth://totp/CyberEco%20Hub:user@example.com?secret=JBSWY3DPEHPK3PXP&issuer=CyberEco%20Hub`}</pre>
         </div>
 
-        <h3>Step 3: Verify Setup</h3>
-        <p>Enter the 6-digit code from your authenticator app to complete setup.</p>
+        <h3>{t('documentation:documentationPage.twoFactor.setup.step3.title') || 'Step 3: Verify Setup'}</h3>
+        <p>{t('documentation:documentationPage.twoFactor.setup.step3.description') || 'Enter the 6-digit code from your authenticator app to complete setup.'}</p>
 
-        <h3>Step 4: Save Backup Codes</h3>
+        <h3>{t('documentation:documentationPage.twoFactor.setup.step4.title') || 'Step 4: Save Backup Codes'}</h3>
         <div className={styles.warningBox}>
-          <h4>Important:</h4>
-          <p>Save your backup codes in a secure location. Each code can only be used once.</p>
+          <h4>{t('documentation:documentationPage.twoFactor.setup.step4.important') || 'Important:'}</h4>
+          <p>{t('documentation:documentationPage.twoFactor.setup.step4.description') || 'Save your backup codes in a secure location. Each code can only be used once.'}</p>
         </div>
       </section>
+    </>
+  );
 
-      <section id="how-it-works" className={styles.contentSection}>
-        <h3 className={styles.subTitle}>How It Works</h3>
+  const renderHowItWorksTab = () => (
+    <>
+      <section className={styles.contentSection}>
+        <h3 className={styles.subTitle}>{t('documentation:documentationPage.twoFactor.howItWorks.title') || 'How It Works'}</h3>
         
-        <h3>TOTP Algorithm</h3>
-        <p>
-          CyberEco uses the Time-based One-Time Password algorithm (RFC 6238) with these parameters:
-        </p>
+        <h3>{t('documentation:documentationPage.twoFactor.howItWorks.algorithm.title') || 'TOTP Algorithm'}</h3>
+        <p>{t('documentation:documentationPage.twoFactor.howItWorks.algorithm.description') || 'CyberEco uses the Time-based One-Time Password algorithm (RFC 6238) with these parameters:'}</p>
         
         <div className={styles.codeBlock}>
           <pre>{`Configuration:
@@ -134,46 +105,46 @@ otpauth://totp/CyberEco%20Hub:user@example.com?secret=JBSWY3DPEHPK3PXP&issuer=Cy
 - Secret Length: 32 bytes`}</pre>
         </div>
 
-        <h3>Authentication Flow</h3>
+        <h3>{t('documentation:documentationPage.twoFactor.howItWorks.flow.title') || 'Authentication Flow'}</h3>
         <div className={styles.stepByStepGuide}>
           <div className={styles.step}>
             <div className={styles.stepNumber}>1</div>
             <div className={styles.stepContent}>
-              <h4>Enter Credentials</h4>
-              <p>User provides email and password</p>
+              <h4>{t('documentation:documentationPage.twoFactor.howItWorks.flow.step1.title') || 'Enter Credentials'}</h4>
+              <p>{t('documentation:documentationPage.twoFactor.howItWorks.flow.step1.description') || 'User provides email and password'}</p>
             </div>
           </div>
           <div className={styles.step}>
             <div className={styles.stepNumber}>2</div>
             <div className={styles.stepContent}>
-              <h4>Verify Password</h4>
-              <p>System validates credentials</p>
+              <h4>{t('documentation:documentationPage.twoFactor.howItWorks.flow.step2.title') || 'Verify Password'}</h4>
+              <p>{t('documentation:documentationPage.twoFactor.howItWorks.flow.step2.description') || 'System validates credentials'}</p>
             </div>
           </div>
           <div className={styles.step}>
             <div className={styles.stepNumber}>3</div>
             <div className={styles.stepContent}>
-              <h4>Request 2FA Code</h4>
-              <p>If 2FA enabled, prompt for code</p>
+              <h4>{t('documentation:documentationPage.twoFactor.howItWorks.flow.step3.title') || 'Request 2FA Code'}</h4>
+              <p>{t('documentation:documentationPage.twoFactor.howItWorks.flow.step3.description') || 'If 2FA enabled, prompt for code'}</p>
             </div>
           </div>
           <div className={styles.step}>
             <div className={styles.stepNumber}>4</div>
             <div className={styles.stepContent}>
-              <h4>Verify TOTP</h4>
-              <p>Validate 6-digit code</p>
+              <h4>{t('documentation:documentationPage.twoFactor.howItWorks.flow.step4.title') || 'Verify TOTP'}</h4>
+              <p>{t('documentation:documentationPage.twoFactor.howItWorks.flow.step4.description') || 'Validate 6-digit code'}</p>
             </div>
           </div>
           <div className={styles.step}>
             <div className={styles.stepNumber}>5</div>
             <div className={styles.stepContent}>
-              <h4>Grant Access</h4>
-              <p>Create authenticated session</p>
+              <h4>{t('documentation:documentationPage.twoFactor.howItWorks.flow.step5.title') || 'Grant Access'}</h4>
+              <p>{t('documentation:documentationPage.twoFactor.howItWorks.flow.step5.description') || 'Create authenticated session'}</p>
             </div>
           </div>
         </div>
 
-        <h3>Code Generation</h3>
+        <h3>{t('documentation:documentationPage.twoFactor.howItWorks.codeGeneration') || 'Code Generation'}</h3>
         <div className={styles.codeBlock}>
           <pre>{`// Generate 2FA secret
 const secret = twoFactorService.generateSecret(
@@ -189,37 +160,34 @@ const isValid = await twoFactorService.verifyToken(
         </div>
       </section>
 
-      <section id="backup-codes" className={styles.contentSection}>
-        <h3 className={styles.subTitle}>Backup Codes</h3>
+      <section className={styles.contentSection}>
+        <h3 className={styles.subTitle}>{t('documentation:documentationPage.twoFactor.backupCodes.title') || 'Backup Codes'}</h3>
         
-        <h3>What Are Backup Codes?</h3>
-        <p>
-          Backup codes are single-use codes that can be used to access your account if you lose
-          access to your authenticator device. Each code can only be used once.
-        </p>
+        <h3>{t('documentation:documentationPage.twoFactor.backupCodes.what.title') || 'What Are Backup Codes?'}</h3>
+        <p>{t('documentation:documentationPage.twoFactor.backupCodes.what.description') || 'Backup codes are single-use codes that can be used to access your account if you lose access to your authenticator device. Each code can only be used once.'}</p>
 
         <div className={styles.featureList}>
           <div className={styles.featureItem}>
             <FaCheckCircle className={styles.checkIcon} />
             <div>
-              <strong>10 unique codes</strong> generated during 2FA setup
+              <strong>{t('documentation:documentationPage.twoFactor.backupCodes.features.unique') || '10 unique codes'}</strong> {t('documentation:documentationPage.twoFactor.backupCodes.features.uniqueDesc') || 'generated during 2FA setup'}
             </div>
           </div>
           <div className={styles.featureItem}>
             <FaCheckCircle className={styles.checkIcon} />
             <div>
-              <strong>Single use only</strong> - each code becomes invalid after use
+              <strong>{t('documentation:documentationPage.twoFactor.backupCodes.features.singleUse') || 'Single use only'}</strong> - {t('documentation:documentationPage.twoFactor.backupCodes.features.singleUseDesc') || 'each code becomes invalid after use'}
             </div>
           </div>
           <div className={styles.featureItem}>
             <FaCheckCircle className={styles.checkIcon} />
             <div>
-              <strong>Regeneratable</strong> - create new codes anytime
+              <strong>{t('documentation:documentationPage.twoFactor.backupCodes.features.regenerate') || 'Regeneratable'}</strong> - {t('documentation:documentationPage.twoFactor.backupCodes.features.regenerateDesc') || 'create new codes anytime'}
             </div>
           </div>
         </div>
 
-        <h3>Using Backup Codes</h3>
+        <h3>{t('documentation:documentationPage.twoFactor.backupCodes.usage.title') || 'Using Backup Codes'}</h3>
         <div className={styles.codeBlock}>
           <pre>{`// Verify backup code
 const isValid = await twoFactorService.verifyBackupCode(
@@ -233,19 +201,23 @@ const newCodes = await twoFactorService.regenerateBackupCodes(
 );`}</pre>
         </div>
 
-        <h3>Best Practices</h3>
+        <h3>{t('documentation:documentationPage.twoFactor.backupCodes.bestPractices.title') || 'Best Practices'}</h3>
         <ul>
-          <li>Store codes in a secure password manager</li>
-          <li>Print codes and store in a safe location</li>
-          <li>Never share backup codes with anyone</li>
-          <li>Regenerate codes if any are compromised</li>
+          <li>{t('documentation:documentationPage.twoFactor.backupCodes.bestPractices.item1') || 'Store codes in a secure password manager'}</li>
+          <li>{t('documentation:documentationPage.twoFactor.backupCodes.bestPractices.item2') || 'Print codes and store in a safe location'}</li>
+          <li>{t('documentation:documentationPage.twoFactor.backupCodes.bestPractices.item3') || 'Never share backup codes with anyone'}</li>
+          <li>{t('documentation:documentationPage.twoFactor.backupCodes.bestPractices.item4') || 'Regenerate codes if any are compromised'}</li>
         </ul>
       </section>
+    </>
+  );
 
-      <section id="integration" className={styles.contentSection}>
-        <h3 className={styles.subTitle}>Integration Guide</h3>
+  const renderIntegrationTab = () => (
+    <>
+      <section className={styles.contentSection}>
+        <h3 className={styles.subTitle}>{t('documentation:documentationPage.twoFactor.integration.title') || 'Integration Guide'}</h3>
         
-        <h3>1. Setup 2FA Service</h3>
+        <h3>{t('documentation:documentationPage.twoFactor.integration.setup.title') || '1. Setup 2FA Service'}</h3>
         <div className={styles.codeBlock}>
           <pre>{`import { twoFactorService } from '@cybereco/auth';
 
@@ -264,7 +236,7 @@ async function setupTwoFactor(userId: string, email: string) {
 }`}</pre>
         </div>
 
-        <h3>2. Enable 2FA</h3>
+        <h3>{t('documentation:documentationPage.twoFactor.integration.enable.title') || '2. Enable 2FA'}</h3>
         <div className={styles.codeBlock}>
           <pre>{`// Verify and enable 2FA
 async function enableTwoFactor(
@@ -286,7 +258,7 @@ async function enableTwoFactor(
 }`}</pre>
         </div>
 
-        <h3>3. Implement in Sign In Flow</h3>
+        <h3>{t('documentation:documentationPage.twoFactor.integration.signin.title') || '3. Implement in Sign In Flow'}</h3>
         <div className={styles.codeBlock}>
           <pre>{`// Modified sign in with 2FA check
 async function signIn(email: string, password: string) {
@@ -322,7 +294,7 @@ async function verifyTwoFactor(userId: string, code: string) {
 }`}</pre>
         </div>
 
-        <h3>4. UI Implementation</h3>
+        <h3>{t('documentation:documentationPage.twoFactor.integration.ui.title') || '4. UI Implementation'}</h3>
         <div className={styles.codeBlock}>
           <pre>{`// React component example
 function TwoFactorVerification({ userId, onSuccess }) {
@@ -365,104 +337,108 @@ function TwoFactorVerification({ userId, onSuccess }) {
 }`}</pre>
         </div>
       </section>
+    </>
+  );
 
-      <section id="troubleshooting" className={styles.contentSection}>
-        <h3 className={styles.subTitle}>Troubleshooting</h3>
+  const renderTroubleshootingTab = () => (
+    <>
+      <section className={styles.contentSection}>
+        <h3 className={styles.subTitle}>{t('documentation:documentationPage.twoFactor.troubleshooting.title') || 'Troubleshooting'}</h3>
         
-        <h3>Common Issues</h3>
+        <h3>{t('documentation:documentationPage.twoFactor.troubleshooting.common.title') || 'Common Issues'}</h3>
         
         <div className={styles.troubleshootItem}>
-          <h4>Invalid Code Error</h4>
-          <p>If codes are consistently invalid:</p>
+          <h4>{t('documentation:documentationPage.twoFactor.troubleshooting.invalidCode.title') || 'Invalid Code Error'}</h4>
+          <p>{t('documentation:documentationPage.twoFactor.troubleshooting.invalidCode.description') || 'If codes are consistently invalid:'}</p>
           <ul>
-            <li>Verify your device time is synchronized</li>
-            <li>Check timezone settings on both device and server</li>
-            <li>Ensure code is entered within 30-second window</li>
+            <li>{t('documentation:documentationPage.twoFactor.troubleshooting.invalidCode.item1') || 'Verify your device time is synchronized'}</li>
+            <li>{t('documentation:documentationPage.twoFactor.troubleshooting.invalidCode.item2') || 'Check timezone settings on both device and server'}</li>
+            <li>{t('documentation:documentationPage.twoFactor.troubleshooting.invalidCode.item3') || 'Ensure code is entered within 30-second window'}</li>
           </ul>
         </div>
 
         <div className={styles.troubleshootItem}>
-          <h4>Lost Authenticator Device</h4>
+          <h4>{t('documentation:documentationPage.twoFactor.troubleshooting.lostDevice.title') || 'Lost Authenticator Device'}</h4>
           <ol>
-            <li>Use a backup code to sign in</li>
-            <li>Disable 2FA from security settings</li>
-            <li>Re-enable with new device</li>
+            <li>{t('documentation:documentationPage.twoFactor.troubleshooting.lostDevice.step1') || 'Use a backup code to sign in'}</li>
+            <li>{t('documentation:documentationPage.twoFactor.troubleshooting.lostDevice.step2') || 'Disable 2FA from security settings'}</li>
+            <li>{t('documentation:documentationPage.twoFactor.troubleshooting.lostDevice.step3') || 'Re-enable with new device'}</li>
           </ol>
         </div>
 
         <div className={styles.troubleshootItem}>
-          <h4>QR Code Not Scanning</h4>
+          <h4>{t('documentation:documentationPage.twoFactor.troubleshooting.qrCode.title') || 'QR Code Not Scanning'}</h4>
           <ul>
-            <li>Ensure adequate lighting</li>
-            <li>Try manual entry with the secret key</li>
-            <li>Update authenticator app to latest version</li>
+            <li>{t('documentation:documentationPage.twoFactor.troubleshooting.qrCode.item1') || 'Ensure adequate lighting'}</li>
+            <li>{t('documentation:documentationPage.twoFactor.troubleshooting.qrCode.item2') || 'Try manual entry with the secret key'}</li>
+            <li>{t('documentation:documentationPage.twoFactor.troubleshooting.qrCode.item3') || 'Update authenticator app to latest version'}</li>
           </ul>
         </div>
 
-        <h3>Security Considerations</h3>
+        <h3>{t('documentation:documentationPage.twoFactor.troubleshooting.security.title') || 'Security Considerations'}</h3>
         <div className={styles.warningBox}>
-          <h4>Important Security Notes:</h4>
+          <h4>{t('documentation:documentationPage.twoFactor.troubleshooting.security.important') || 'Important Security Notes:'}</h4>
           <ul>
-            <li>Never share your 2FA secret or backup codes</li>
-            <li>Use different 2FA secrets for different services</li>
-            <li>Regularly review active sessions</li>
-            <li>Enable 2FA on your email account as well</li>
+            <li>{t('documentation:documentationPage.twoFactor.troubleshooting.security.item1') || 'Never share your 2FA secret or backup codes'}</li>
+            <li>{t('documentation:documentationPage.twoFactor.troubleshooting.security.item2') || 'Use different 2FA secrets for different services'}</li>
+            <li>{t('documentation:documentationPage.twoFactor.troubleshooting.security.item3') || 'Regularly review active sessions'}</li>
+            <li>{t('documentation:documentationPage.twoFactor.troubleshooting.security.item4') || 'Enable 2FA on your email account as well'}</li>
           </ul>
         </div>
       </section>
 
-      <section id="api-reference" className={styles.contentSection}>
-        <h3 className={styles.subTitle}>API Reference</h3>
+      <section className={styles.contentSection}>
+        <h3 className={styles.subTitle}>{t('documentation:documentationPage.twoFactor.api.title') || 'API Reference'}</h3>
         
-        <h3>TwoFactorService Methods</h3>
+        <h3>{t('documentation:documentationPage.twoFactor.api.methods.title') || 'TwoFactorService Methods'}</h3>
         <table className={styles.dataTable}>
           <thead>
             <tr>
-              <th>Method</th>
-              <th>Description</th>
-              <th>Returns</th>
+              <th>{t('documentation:documentationPage.twoFactor.api.methods.method') || 'Method'}</th>
+              <th>{t('documentation:documentationPage.twoFactor.api.methods.description') || 'Description'}</th>
+              <th>{t('documentation:documentationPage.twoFactor.api.methods.returns') || 'Returns'}</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td><code>generateSecret</code></td>
-              <td>Generate new 2FA secret</td>
+              <td>{t('documentation:documentationPage.twoFactor.api.methods.generateSecret') || 'Generate new 2FA secret'}</td>
               <td><code>TwoFactorSecret</code></td>
             </tr>
             <tr>
               <td><code>verifyToken</code></td>
-              <td>Verify TOTP code</td>
+              <td>{t('documentation:documentationPage.twoFactor.api.methods.verifyToken') || 'Verify TOTP code'}</td>
               <td><code>boolean</code></td>
             </tr>
             <tr>
               <td><code>verifyAndEnable</code></td>
-              <td>Verify code and enable 2FA</td>
+              <td>{t('documentation:documentationPage.twoFactor.api.methods.verifyAndEnable') || 'Verify code and enable 2FA'}</td>
               <td><code>boolean</code></td>
             </tr>
             <tr>
               <td><code>disable</code></td>
-              <td>Disable 2FA for user</td>
+              <td>{t('documentation:documentationPage.twoFactor.api.methods.disable') || 'Disable 2FA for user'}</td>
               <td><code>void</code></td>
             </tr>
             <tr>
               <td><code>isEnabled</code></td>
-              <td>Check if 2FA is enabled</td>
+              <td>{t('documentation:documentationPage.twoFactor.api.methods.isEnabled') || 'Check if 2FA is enabled'}</td>
               <td><code>boolean</code></td>
             </tr>
             <tr>
               <td><code>verifyBackupCode</code></td>
-              <td>Verify backup code</td>
+              <td>{t('documentation:documentationPage.twoFactor.api.methods.verifyBackupCode') || 'Verify backup code'}</td>
               <td><code>boolean</code></td>
             </tr>
             <tr>
               <td><code>regenerateBackupCodes</code></td>
-              <td>Generate new backup codes</td>
+              <td>{t('documentation:documentationPage.twoFactor.api.methods.regenerateBackupCodes') || 'Generate new backup codes'}</td>
               <td><code>string[]</code></td>
             </tr>
           </tbody>
         </table>
 
-        <h3>Type Definitions</h3>
+        <h3>{t('documentation:documentationPage.twoFactor.api.types.title') || 'Type Definitions'}</h3>
         <div className={styles.codeBlock}>
           <pre>{`interface TwoFactorSecret {
   ascii: string;
@@ -493,21 +469,62 @@ interface DeviceInfo {
 }`}</pre>
         </div>
       </section>
+    </>
+  );
+
+  const tabs: Tab[] = [
+    {
+      id: 'overview',
+      label: t('documentation:documentationPage.twoFactor.tabs.overview') || 'Overview',
+      content: renderOverviewTab()
+    },
+    {
+      id: 'setup',
+      label: t('documentation:documentationPage.twoFactor.tabs.setup') || 'Setup Guide',
+      content: renderSetupTab()
+    },
+    {
+      id: 'howItWorks',
+      label: t('documentation:documentationPage.twoFactor.tabs.howItWorks') || 'How It Works',
+      content: renderHowItWorksTab()
+    },
+    {
+      id: 'integration',
+      label: t('documentation:documentationPage.twoFactor.tabs.integration') || 'Integration',
+      content: renderIntegrationTab()
+    },
+    {
+      id: 'troubleshooting',
+      label: t('documentation:documentationPage.twoFactor.tabs.troubleshooting') || 'Troubleshooting',
+      content: renderTroubleshootingTab()
+    }
+  ];
+  
+  return (
+    <div className={styles.pageContainer}>
+      <DocumentationHero
+        icon={<FaLock />}
+        title={t('documentation:documentationPage.twoFactor.title') || 'Two-Factor Authentication (2FA)'}
+        subtitle={t('documentation:documentationPage.twoFactor.description') || 'Add an extra layer of security to your CyberEco account with TOTP-based authentication'}
+        gradient="linear-gradient(135deg, #ef4444 0%, #dc2626 50%, #b91c1c 100%)"
+      />
+
+      <DocumentationTabs tabs={tabs} defaultTab="overview" />
 
       <section className={styles.contentSection}>
-        <h3 className={styles.subTitle}>Next Steps</h3>
+        <h3 className={styles.subTitle}>{t('documentation:documentationPage.nextSteps') || 'Next Steps'}</h3>
         <div className={styles.cardGrid}>
           <Link href="/documentation/privacy-controls" className={styles.docCard}>
             <FaShieldAlt />
-            <span>Privacy Controls</span>
+            <span>{t('documentation:documentationPage.privacy.title') || 'Privacy Controls'}</span>
           </Link>
           <Link href="/documentation/data-export" className={styles.docCard}>
             <FaKey />
-            <span>Data Export Guide</span>
+            <span>{t('documentation:documentationPage.dataExport.title') || 'Data Export Guide'}</span>
           </Link>
           <Link href="/documentation/authentication" className={styles.docCard}>
             <FaLock />
-            <span>Authentication Overview</span>
+            <span>{t('documentation:documentationPage.authenticationNavItem') || 'Authentication Overview'}</span>
           </Link>
         </div>
       </section>

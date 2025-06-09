@@ -373,6 +373,491 @@
   --warning-color: #f57c00;
 }
 
+/* Configuration Section Styles */
+.configSection {
+  margin-bottom: 2.5rem;
+}
+
+.configSection h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+
+.configSection p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.configSection ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.configSection li {
+  padding: 1rem 1.25rem;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  position: relative;
+  padding-left: 3rem;
+  transition: all 0.2s ease;
+}
+
+.configSection li:hover {
+  transform: translateX(4px);
+  border-color: var(--primary-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.configSection li::before {
+  content: '✓';
+  position: absolute;
+  left: 1rem;
+  color: #10b981;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Best Practices Section */
+.bestPractice {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.bestPractice::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+.bestPractice h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1.25rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.bestPractice ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.bestPractice li {
+  padding: 0.75rem 0;
+  padding-left: 2rem;
+  position: relative;
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  transition: color 0.2s ease;
+}
+
+.bestPractice li:hover {
+  color: var(--text-primary);
+}
+
+.bestPractice li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Enhanced Security Grid */
+.securityGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.75rem;
+  margin-top: 2rem;
+}
+
+.securityItem {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.securityItem:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border-color: var(--primary-color);
+}
+
+.securityItem h3 {
+  color: var(--primary-color);
+  font-size: 1.3rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Performance Section */
+.performanceGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.performanceCard {
+  background: linear-gradient(135deg, var(--card-bg) 0%, var(--card-bg-hover) 100%);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.75rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.performanceCard::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(var(--primary-rgb), 0.1) 0%, transparent 70%);
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.performanceCard:hover::after {
+  opacity: 1;
+}
+
+.performanceCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* UX Section */
+.uxGrid {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.uxItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+.uxItem:hover {
+  background-color: var(--card-bg-hover);
+  border-color: var(--primary-color);
+}
+
+.uxIcon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(var(--primary-rgb), 0.1);
+  color: var(--primary-color);
+  border-radius: 8px;
+  font-size: 1.25rem;
+}
+
+.uxContent {
+  flex: 1;
+}
+
+.uxContent strong {
+  display: block;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+  font-size: 1.1rem;
+}
+
+.uxContent span {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Warning Box for Important Notes */
+.warningBox {
+  background-color: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-left: 4px solid #f59e0b;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+}
+
+[data-theme="dark"] .warningBox {
+  background-color: rgba(251, 191, 36, 0.1);
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  border-left: 4px solid #fbbf24;
+}
+
+.warningBox h4 {
+  color: #f59e0b;
+  margin: 0 0 0.75rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+}
+
+[data-theme="dark"] .warningBox h4 {
+  color: #fbbf24;
+}
+
+/* Additional theme variables */
+[data-theme='dark'] .container {
+  --primary-rgb: 139, 92, 246;
+  --secondary-color: #a78bfa;
+  --primary-hover: #7c3aed;
+  --card-bg-hover: #242424;
+  --code-bg: #1e1e1e;
+  --code-text: #d4d4d4;
+}
+
+[data-theme='light'] .container {
+  --primary-rgb: 99, 102, 241;
+  --secondary-color: #6366f1;
+  --primary-hover: #4f46e5;
+  --card-bg-hover: #fafafa;
+  --code-bg: #f8f9fa;
+  --code-text: #2d3748;
+}
+
+/* Benefits Grid */
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.benefitCard {
+  background: linear-gradient(135deg, var(--card-bg) 0%, var(--card-bg-hover) 100%);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.benefitCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.benefitCard:hover::before {
+  transform: scaleX(1);
+}
+
+.benefitCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border-color: var(--primary-color);
+}
+
+.benefitIcon {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.benefitCard h3 {
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.benefitCard p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Info Box */
+.infoBox {
+  background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.1) 0%, rgba(var(--secondary-rgb), 0.05) 100%);
+  border: 1px solid rgba(var(--primary-rgb), 0.2);
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+  position: relative;
+}
+
+.infoBox h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.infoBox p {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.quickLinks {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.quickLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background-color: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+}
+
+.quickLink:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.3);
+}
+
+/* Enhanced Code Block */
+.codeHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px 8px 0 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.fileName {
+  opacity: 0.8;
+  font-family: monospace;
+  font-size: 0.85rem;
+}
+
+.codeBlock {
+  background-color: var(--code-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.codeBlock:has(.codeHeader) {
+  border-radius: 0 0 8px 8px;
+}
+
+.codeBlock pre {
+  margin: 0;
+  padding: 1.5rem;
+  font-family: 'Fira Code', 'Consolas', 'Monaco', 'Andale Mono', 'Ubuntu Mono', monospace;
+  overflow-x: auto;
+  line-height: 1.6;
+}
+
+.codeBlock code {
+  font-size: 0.9rem;
+  color: var(--code-text);
+}
+
+/* Enhanced Implementation Steps */
+.implementationStep {
+  margin-bottom: 3rem;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: var(--card-bg);
+  transition: all 0.3s ease;
+}
+
+.implementationStep:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.implementationStep h3 {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  color: white;
+  padding: 1.25rem 1.75rem;
+  margin: 0;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.implementationStep p {
+  padding: 1rem 1.75rem 0;
+  color: var(--text-secondary);
+  margin-bottom: 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.implementationStep .codeBlock {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
   .container {
@@ -388,7 +873,8 @@
   }
 
   .architectureGrid,
-  .securityGrid {
+  .securityGrid,
+  .benefitsGrid {
     grid-template-columns: 1fr;
   }
 
@@ -404,4 +890,144 @@
   .flowStep {
     width: 100%;
   }
+
+  .quickLinks {
+    flex-direction: column;
+  }
+
+  .quickLink {
+    justify-content: center;
+  }
+
+  .codeHeader {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+
+  .implementationStep h3 {
+    font-size: 1.1rem;
+    padding: 1rem 1.25rem;
+  }
+
+  .implementationStep p {
+    padding: 1rem 1.25rem 0;
+  }
+}
+  .configGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .securityTips {
+    gap: 1rem;
+  }
+
+/* Configuration Grid */
+.configGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.configCard {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.configCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--primary-color);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.configCard:hover::before {
+  transform: scaleX(1);
+}
+
+.configCard:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary-color);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.configIcon {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.configCard h4 {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.configCard p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Security Tips */
+.securityTips {
+  display: grid;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.securityTip {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem;
+  background-color: rgba(var(--primary-rgb), 0.05);
+  border: 1px solid rgba(var(--primary-rgb), 0.1);
+  border-left: 3px solid var(--primary-color);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.securityTip:hover {
+  background-color: rgba(var(--primary-rgb), 0.08);
+  border-left-color: var(--secondary-color);
+  transform: translateX(4px);
+}
+
+.tipIcon {
+  flex-shrink: 0;
+  font-size: 1.25rem;
+  color: var(--primary-color);
+  margin-top: 0.1rem;
+}
+
+.securityTip div {
+  flex: 1;
+}
+
+.securityTip strong {
+  display: block;
+  color: var(--text-primary);
+  font-size: 1.05rem;
+  margin-bottom: 0.25rem;
+}
+
+.securityTip span {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
 }

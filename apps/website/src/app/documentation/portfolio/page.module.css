@@ -1,0 +1,11 @@
+/* Portfolio Page Styles */
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hero section is now handled by DocumentationHero component */
+
+/* The rest of the portfolio page uses styles from ../page.module.css */

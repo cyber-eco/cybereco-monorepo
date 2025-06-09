@@ -2726,21 +2726,36 @@
   margin: var(--spacing-lg) 0;
 }
 
-.troubleItem {
+.troubleItem,
+.troubleshootItem {
   background: var(--surface);
   border-left: 3px solid var(--primary);
   padding: var(--spacing-md);
   border-radius: var(--border-radius);
+  margin-bottom: var(--spacing-md);
 }
 
-.troubleItem h4 {
+.troubleItem h4,
+.troubleshootItem h4 {
   color: var(--text-primary);
   margin-bottom: var(--spacing-sm);
 }
 
-.troubleItem p {
+.troubleItem p,
+.troubleshootItem p {
   color: var(--text-secondary);
   margin: 0;
+}
+
+.troubleshootItem ul,
+.troubleshootItem ol {
+  margin: var(--spacing-sm) 0;
+  padding-left: var(--spacing-lg);
+}
+
+.troubleshootItem li {
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-xs);
 }
 
 .resourcesList {

@@ -12,15 +12,18 @@ export { Community } from './Community';
 export { DevelopmentSetup } from './DevelopmentSetup';
 export { SystemArchitecture } from './SystemArchitecture';
 export { HubGateway } from './HubGateway';
+export { default as DocumentationHero } from './DocumentationHero';
+export { default as DocumentationTabs } from './DocumentationTabs';
+export type { Tab } from './DocumentationTabs';
 
-// Export all DocLayout components
-export {
-  DocLayout,
-  DocSection,
-  DocCard,
-  DocGrid,
-  DocTabs,
-  DocCodeBlock,
-  DocList,
-  DocAlert
-} from './DocLayout';
+// DocLayout components (commented out until implemented)
+// export {
+//   DocLayout,
+//   DocSection,
+//   DocCard,
+//   DocGrid,
+//   DocTabs,
+//   DocCodeBlock,
+//   DocList,
+//   DocAlert
+// } from './DocLayout';

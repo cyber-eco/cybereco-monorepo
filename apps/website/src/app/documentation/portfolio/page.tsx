@@ -1,8 +1,11 @@
 'use client';
 
 import styles from '../page.module.css';
+import portfolioStyles from './page.module.css';
 import { useI18n } from '@cybereco/i18n';
 import Link from 'next/link';
+import { FaCubes } from 'react-icons/fa';
+import DocumentationHero from '../components/DocumentationHero';
 
 export default function PortfolioDocPage() {
   const { t } = useI18n();
@@ -125,15 +128,13 @@ export default function PortfolioDocPage() {
   ];
 
   return (
-    <div className={styles.pageContainer}>
-      <div className={styles.pageHeader}>
-        <h1 className={styles.title}>
-          {t('documentation:documentationPage.portfolioDocTitle') || 'Solutions Portfolio'}
-        </h1>
-        <p className={styles.subtitle}>
-          {t('documentation:documentationPage.portfolioDocSummary') || 'Our comprehensive suite of applications covering all aspects of digital life'}
-        </p>
-      </div>
+    <div className={portfolioStyles.container || styles.pageContainer}>
+      <DocumentationHero
+        icon={<FaCubes />}
+        title={t('documentation:documentationPage.portfolioDocTitle') || 'Solutions Portfolio'}
+        subtitle={t('documentation:documentationPage.portfolioDocSummary') || 'Our comprehensive suite of applications covering all aspects of digital life'}
+        gradient="linear-gradient(135deg, #10b981 0%, #3b82f6 50%, #6366f1 100%)"
+      />
 
       {/* Overview Section */}
       <div className={styles.contentSection}>

@@ -2,14 +2,16 @@
 
 import styles from './page.module.css';
 import { useI18n } from '@cybereco/i18n';
+import { FaKey } from 'react-icons/fa';
+import { DocumentationHero, DocumentationTabs } from '../components';
+import type { Tab } from '../components';
 
 export default function JWTAuthenticationDocs() {
   const { t } = useI18n();
 
-  return (
-    <div className={styles.container}>
-      <h1>{t('documentation:documentationPage.jwt.title') || 'JWT Authentication'}</h1>
-      
+  // Define tab content functions
+  const renderOverviewTab = () => (
+    <>
       <section className={styles.section}>
         <h2>{t('documentation:documentationPage.jwt.overview.title') || 'Overview'}</h2>
         <p>{t('documentation:documentationPage.jwt.overview.description') || 'CyberEco uses JSON Web Tokens (JWT) for secure authentication across all applications. This modern approach provides better security, scalability, and features compared to traditional session-based authentication.'}</p>
@@ -26,7 +28,11 @@ export default function JWTAuthenticationDocs() {
           </ul>
         </div>
       </section>
+    </>
+  );
 
+  const renderStructureTab = () => (
+    <>
       <section className={styles.section}>
         <h2>{t('documentation:documentationPage.jwt.structure.title') || 'Token Structure'}</h2>
         <p>{t('documentation:documentationPage.jwt.structure.description') || 'JWT tokens consist of three parts: header, payload, and signature. Here\'s what our tokens contain:'}</p>
@@ -52,7 +58,11 @@ export default function JWTAuthenticationDocs() {
           </pre>
         </div>
       </section>
+    </>
+  );
 
+  const renderFlowTab = () => (
+    <>
       <section className={styles.section}>
         <h2>{t('documentation:documentationPage.jwt.flow.title') || 'Authentication Flow'}</h2>
         <ol className={styles.flowList}>
@@ -78,7 +88,11 @@ export default function JWTAuthenticationDocs() {
           </li>
         </ol>
       </section>
+    </>
+  );
 
+  const renderSecurityTab = () => (
+    <>
       <section className={styles.section}>
         <h2>{t('documentation:documentationPage.jwt.security.title') || 'Security Best Practices'}</h2>
         <div className={styles.securityGrid}>
@@ -108,7 +122,11 @@ export default function JWTAuthenticationDocs() {
           </div>
         </div>
       </section>
+    </>
+  );
 
+  const renderImplementationTab = () => (
+    <>
       <section className={styles.section}>
         <h2>{t('documentation:documentationPage.jwt.implementation.title') || 'Implementation Example'}</h2>
         <div className={styles.codeBlock}>
@@ -199,6 +217,48 @@ if (isTokenExpiringSoon(accessToken)) {
           </li>
         </ul>
       </section>
+    </>
+  );
+
+  // Define tabs
+  const tabs: Tab[] = [
+    {
+      id: 'overview',
+      label: t('documentation:documentationPage.jwt.tabs.overview') || 'Overview',
+      content: renderOverviewTab()
+    },
+    {
+      id: 'structure',
+      label: t('documentation:documentationPage.jwt.tabs.structure') || 'Token Structure',
+      content: renderStructureTab()
+    },
+    {
+      id: 'flow',
+      label: t('documentation:documentationPage.jwt.tabs.flow') || 'Auth Flow',
+      content: renderFlowTab()
+    },
+    {
+      id: 'security',
+      label: t('documentation:documentationPage.jwt.tabs.security') || 'Security',
+      content: renderSecurityTab()
+    },
+    {
+      id: 'implementation',
+      label: t('documentation:documentationPage.jwt.tabs.implementation') || 'Implementation',
+      content: renderImplementationTab()
+    }
+  ];
+
+  return (
+    <div className={styles.container}>
+      <DocumentationHero
+        icon={<FaKey />}
+        title={t('documentation:documentationPage.jwt.title') || 'JWT Authentication'}
+        subtitle={t('documentation:documentationPage.jwt.subtitle') || 'Secure token-based authentication with JSON Web Tokens'}
+        gradient="linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%)"
+      />
+
+      <DocumentationTabs tabs={tabs} defaultTab="overview" />
     </div>
   );
 }

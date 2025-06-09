@@ -1,0 +1,481 @@
+/* Data Export Page Styles */
+
+.pageContainer {
+  min-height: 100vh;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.contentSection {
+  padding: var(--spacing-xl) var(--spacing-lg);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.overviewSection {
+  margin-bottom: var(--spacing-xl);
+}
+
+.description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--foreground-secondary);
+  margin-bottom: var(--spacing-xl);
+}
+
+/* Feature Cards Grid */
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+  margin: var(--spacing-xl) 0;
+}
+
+.featureCard {
+  background: var(--card-background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.featureCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.featureCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  border-color: var(--primary);
+}
+
+.featureCard:hover::before {
+  transform: scaleX(1);
+}
+
+.featureIcon {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.featureCard h3 {
+  font-size: 1.25rem;
+  margin-bottom: var(--spacing-sm);
+  color: var(--foreground);
+}
+
+.featureCard h4 {
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-sm);
+  color: var(--foreground);
+}
+
+.featureCard p {
+  color: var(--foreground-secondary);
+  line-height: 1.6;
+}
+
+.featureCard ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.featureCard li {
+  padding: var(--spacing-xs) 0;
+  color: var(--foreground-secondary);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+}
+
+.featureCard li::before {
+  content: '•';
+  color: var(--primary);
+  font-weight: bold;
+  margin-top: 2px;
+}
+
+/* What's Included Section */
+.includedGrid {
+  display: grid;
+  gap: var(--spacing-lg);
+  margin: var(--spacing-xl) 0;
+}
+
+.includedCategory {
+  background: var(--card-background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+}
+
+.includedCategory h4 {
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-md);
+  color: var(--primary);
+}
+
+.checkList {
+  display: grid;
+  gap: var(--spacing-md);
+}
+
+.checkItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+}
+
+.checkIcon {
+  color: #10b981;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.checkContent strong {
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+.checkContent {
+  color: var(--foreground-secondary);
+  line-height: 1.6;
+}
+
+/* Export Steps */
+.exportSteps {
+  background: var(--card-background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  margin: var(--spacing-xl) 0;
+}
+
+.exportSteps h4 {
+  font-size: 1.25rem;
+  margin-bottom: var(--spacing-lg);
+  color: var(--foreground);
+}
+
+.stepsList {
+  counter-reset: step-counter;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.stepItem {
+  position: relative;
+  padding-left: var(--spacing-xl);
+  margin-bottom: var(--spacing-md);
+  counter-increment: step-counter;
+}
+
+.stepItem::before {
+  content: counter(step-counter);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 28px;
+  height: 28px;
+  background: var(--primary);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.stepItem:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 14px;
+  top: 32px;
+  bottom: -16px;
+  width: 2px;
+  background: var(--border);
+}
+
+/* Code Sections */
+.codeSection {
+  background: #1e293b;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  margin: var(--spacing-lg) 0;
+  overflow: hidden;
+}
+
+[data-theme="dark"] .codeSection {
+  background: #0f172a;
+}
+
+.codeSection pre {
+  margin: 0;
+  padding: var(--spacing-lg);
+  overflow-x: auto;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.codeSection code {
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+  color: #e2e8f0;
+}
+
+/* Data Format Examples */
+.formatExample {
+  background: var(--card-background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+.formatExample h4 {
+  color: var(--primary);
+  margin-bottom: var(--spacing-md);
+}
+
+/* API Table */
+.apiTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--spacing-lg) 0;
+  background: var(--card-background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.apiTable th {
+  background: var(--primary);
+  color: white;
+  padding: var(--spacing-md);
+  text-align: left;
+  font-weight: 600;
+}
+
+.apiTable td {
+  padding: var(--spacing-md);
+  border-bottom: 1px solid var(--border);
+}
+
+.apiTable tr:last-child td {
+  border-bottom: none;
+}
+
+.apiTable code {
+  background: #1e293b;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  color: var(--primary);
+}
+
+[data-theme="dark"] .apiTable code {
+  background: #0f172a;
+}
+
+/* GDPR Section */
+.gdprGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--spacing-md);
+  margin: var(--spacing-xl) 0;
+}
+
+.gdprCard {
+  background: var(--card-background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.gdprCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: var(--primary);
+}
+
+.gdprCard h4 {
+  color: var(--primary);
+  margin-bottom: var(--spacing-sm);
+  font-size: 1.1rem;
+}
+
+.gdprCard p {
+  color: var(--foreground-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Warning/Info Boxes */
+.warningBox {
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-left: 4px solid #f59e0b;
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+[data-theme="dark"] .warningBox {
+  background: rgba(251, 191, 36, 0.1);
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  border-left: 4px solid #fbbf24;
+}
+
+.warningBox h4 {
+  color: #f59e0b;
+  margin-bottom: var(--spacing-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+[data-theme="dark"] .warningBox h4 {
+  color: #fbbf24;
+}
+
+.infoBox {
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-left: 4px solid #3b82f6;
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+[data-theme="dark"] .infoBox {
+  background: rgba(96, 165, 250, 0.1);
+  border: 1px solid rgba(96, 165, 250, 0.3);
+  border-left: 4px solid #60a5fa;
+}
+
+.infoBox h4 {
+  color: #3b82f6;
+  margin-bottom: var(--spacing-sm);
+}
+
+[data-theme="dark"] .infoBox h4 {
+  color: #60a5fa;
+}
+
+/* Security Features */
+.securityGrid {
+  display: grid;
+  gap: var(--spacing-md);
+  margin: var(--spacing-lg) 0;
+}
+
+.securityItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  background: var(--card-background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  transition: all 0.2s ease;
+}
+
+.securityItem:hover {
+  border-color: var(--primary);
+  background: rgba(139, 92, 246, 0.05);
+}
+
+[data-theme="dark"] .securityItem:hover {
+  background: rgba(139, 92, 246, 0.1);
+}
+
+.securityIcon {
+  color: #10b981;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+[data-theme="dark"] .securityIcon {
+  color: #34d399;
+}
+
+/* Next Steps */
+.nextSteps {
+  margin-top: var(--spacing-xxl);
+  padding-top: var(--spacing-xl);
+  border-top: 1px solid var(--border);
+}
+
+.nextStepsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+}
+
+.nextStepCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-lg);
+  background: var(--card-background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  color: var(--foreground);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.nextStepCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: var(--primary);
+}
+
+.nextStepCard svg {
+  font-size: 2rem;
+  color: var(--primary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .featureGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .gdprGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .nextStepsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .apiTable {
+    font-size: 0.9rem;
+  }
+  
+  .apiTable th,
+  .apiTable td {
+    padding: var(--spacing-sm);
+  }
+}

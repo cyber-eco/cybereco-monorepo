@@ -64,6 +64,7 @@
     "privacyPrinciplesTitle": "Principios de Privacidad",
     "privacyFeaturesTitle": "Características de Privacidad",
     "privacyControlsTitle": "Controles de Privacidad y GDPR",
+    "dataExportTitle": "Exportación de Datos",
     "dataArchitectureTitle": "Arquitectura de la Capa de Datos",
     "technicalTitle": "Técnico",
     "apiReferenceNavItem": "Referencia de API",
@@ -271,6 +272,7 @@
     "accountSetupDesc": "Comienza con tu cuenta CyberEco y configura tu perfil.",
     "groupManagementTitle": "Gestión de Grupos",
     "groupManagementDesc": "Crea y gestiona grupos para compartir gastos.",
+    "dataExportDesc": "Exporta tus datos para respaldo o análisis.",
     "privacySettingsTitle": "Configuración de Privacidad",
     "privacySettingsDesc": "Configura tus preferencias de privacidad y seguridad.",
     "mobileAppTitle": "Aplicación Móvil",
@@ -693,34 +695,6 @@
         "csv": {
           "title": "Exportación CSV",
           "description": "Formato compatible con hojas de cálculo para visualización y análisis fácil"
-        },
-        "jsonFormat": "Formato JSON",
-        "jsonFormatDesc": "JSON (JavaScript Object Notation) proporciona una estructura jerárquica que preserva las relaciones y tipos de datos.",
-        "csvFormat": "Formato CSV",
-        "csvFormatDesc": "CSV (Valores Separados por Comas) aplana los datos jerárquicos en tablas, facilitando su importación en aplicaciones de hojas de cálculo.",
-        "csvStructure": "Estructura CSV:",
-        "csvFiles": {
-          "profile": "Información del perfil de usuario",
-          "expenses": "Todos los registros de gastos",
-          "groups": "Membresías de grupos",
-          "settlements": "Historial de liquidaciones",
-          "activities": "Registros de actividad"
-        },
-        "example": "Ejemplo",
-        "applicationData": "Datos de Aplicación",
-        "justSplitData": {
-          "expenses": "Gastos (creados y participados)",
-          "groups": "Membresías de grupos",
-          "events": "Eventos y actividades",
-          "settlements": "Historial de liquidaciones",
-          "friends": "Conexiones de amigos"
-        },
-        "hubData": {
-          "apps": "Aplicaciones conectadas",
-          "permissions": "Permisos otorgados",
-          "activities": "Registros de actividad",
-          "security": "Eventos de seguridad",
-          "access": "Registros de acceso a datos"
         }
       },
       "features": {
@@ -755,29 +729,7 @@
         }
       },
       "api": {
-        "title": "Integración API",
-        "implementation": "Implementación del Servicio de Exportación",
-        "largeExports": "Manejo de Exportaciones Grandes",
-        "largeExportsDesc": "Para usuarios con datos extensos, las exportaciones se procesan eficientemente:",
-        "endpoints": "Endpoints de API",
-        "endpointColumns": {
-          "endpoint": "Endpoint",
-          "method": "Método",
-          "description": "Descripción"
-        },
-        "endpointDescriptions": {
-          "request": "Solicitar exportación de datos",
-          "status": "Verificar estado de exportación",
-          "download": "Descargar archivo de exportación"
-        },
-        "rateLimits": "Límites de Tasa",
-        "defaultLimits": "Límites Predeterminados:",
-        "limits": {
-          "exports": "5 exportaciones por período de 24 horas",
-          "concurrent": "1 exportación concurrente por usuario",
-          "size": "100MB tamaño máximo de exportación",
-          "expiration": "30 minutos de expiración del enlace de exportación"
-        }
+        "title": "Integración API"
       },
       "rateLimits": {
         "title": "Límites de Velocidad y Seguridad"
@@ -792,40 +744,7 @@
         "directTransfer": "Transferencia Directa",
         "directTransferDesc": "Soporte API para transferencia directa a otros servicios",
         "completeDataSet": "Conjunto de Datos Completo",
-        "completeDataSetDesc": "Todos los datos personales proporcionados por el usuario incluidos",
-        "article20": "La función de exportación de datos implementa completamente los requisitos del Artículo 20 del RGPD:",
-        "complianceFeatures": "Características de Cumplimiento",
-        "complianceList": {
-          "provided": "La exportación incluye todos los datos \"proporcionados por\" el sujeto de datos",
-          "excludes": "Excluye datos inferidos o derivados",
-          "privacy": "Respeta los derechos de privacidad de otros usuarios",
-          "audit": "Se mantiene un registro de auditoría para todas las exportaciones"
-        },
-        "dataRetention": "Retención de Datos",
-        "retentionPolicy": "Política de Retención de Exportación:",
-        "retentionList": {
-          "linkExpiry": "Los enlaces de exportación expiran después de 30 minutos",
-          "fileDelete": "Los archivos de exportación temporales se eliminan después de la descarga",
-          "logRetention": "Los registros de exportación se retienen durante 90 días",
-          "noStorage": "Sin almacenamiento permanente de archivos de exportación"
-        },
-        "securityMeasures": "Medidas de Seguridad",
-        "securityItems": {
-          "authRequired": "Autenticación Requerida:",
-          "authRequiredDesc": "Debe estar presente un token de sesión válido",
-          "sanitization": "Sanitización de Datos:",
-          "sanitizationDesc": "Los campos sensibles se eliminan automáticamente",
-          "auditLogging": "Registro de Auditoría:",
-          "auditLoggingDesc": "Todas las exportaciones se rastrean por seguridad",
-          "encrypted": "Transporte Cifrado:",
-          "encryptedDesc": "Se requiere HTTPS para todas las exportaciones"
-        }
-      },
-      "nextSteps": {
-        "title": "Próximos Pasos",
-        "privacyControls": "Controles de Privacidad",
-        "twoFactorAuth": "Autenticación de Dos Factores",
-        "authentication": "Autenticación"
+        "completeDataSetDesc": "Todos los datos personales proporcionados por el usuario incluidos"
       }
     },
     "twoFactor": {
@@ -1389,6 +1308,7 @@
     "viewFullPortfolio": "Ver Portafolio Completo",
     "privacyControlsNavItem": "Controles de Privacidad y GDPR",
     "twoFactorAuthNavItem": "Autenticación de Dos Factores",
+    "dataExportNavItem": "Exportación y Portabilidad de Datos",
     "guidesTitle": "Guías de Usuario",
     "guidesSubtitle": "Guías paso a paso para tareas y flujos de trabajo comunes",
     "userGuidesSubtitle": "Guías paso a paso para usar las aplicaciones de CyberEco",
@@ -1901,6 +1821,8 @@
     "twoFactorDesc": "Configuración de seguridad mejorada",
     "privacyTitle": "Controles de Privacidad",
     "privacyDesc": "Gestiona tu privacidad",
+    "exportTitle": "Exportación de Datos",
+    "exportDesc": "Exporta tus datos",
     "loggingTitle": "Registro de Autenticación",
     "loggingDesc": "Registros de auditoría de seguridad",
     "popularTitle": "Temas Populares",
@@ -1959,6 +1881,7 @@
     "advancedTutorialsTitle": "Tutoriales Avanzados",
     "privacySettingsGuide": "Guía de Configuración de Privacidad",
     "groupManagementGuide": "Guía de Gestión de Grupos",
+    "dataExportGuide": "Guía de Exportación de Datos",
     "quickAnswersLabel": "Respuestas Rápidas",
     "quickAnswersTime": "❓ Preguntas comunes",
     "generalQuestionsTitle": "Preguntas Generales",

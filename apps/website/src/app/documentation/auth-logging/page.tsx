@@ -1,18 +1,19 @@
 'use client';
 
-import styles from '../page.module.css';
+import React from 'react';
+import Link from 'next/link';
+import { FaHistory, FaChartLine, FaDatabase, FaShieldAlt, FaCode } from 'react-icons/fa';
 import { useI18n } from '@cybereco/i18n';
+import { DocumentationHero, DocumentationTabs } from '../components';
+import type { Tab } from '../components';
+import styles from '../page.module.css';
 
 export default function AuthLoggingDocs() {
   const { t } = useI18n();
 
-  return (
-    <div className={styles.pageContainer}>
-      <div className={styles.pageHeader}>
-        <h1 className={styles.title}>{t('documentation:documentationPage.authLogging.title') || 'Authentication Logging & Monitoring'}</h1>
-      </div>
-      
-      <div className={styles.contentSection}>
+  const renderOverviewTab = () => (
+    <>
+      <section className={styles.contentSection}>
         <h3 className={styles.subTitle}>{t('documentation:documentationPage.authLogging.overview.title') || 'Overview'}</h3>
         <p>{t('documentation:documentationPage.authLogging.overview.description') || 'CyberEco\'s authentication system includes comprehensive logging and monitoring capabilities to track authentication events, detect security issues, and analyze user behavior across the ecosystem.'}</p>
         
@@ -27,9 +28,47 @@ export default function AuthLoggingDocs() {
             <li>{t('documentation:documentationPage.authLogging.features.export') || 'Export capabilities for audit'}</li>
           </ul>
         </div>
-      </div>
+      </section>
 
-      <div className={styles.contentSection}>
+      <section className={styles.contentSection}>
+        <h3 className={styles.subTitle}>{t('documentation:documentationPage.authLogging.metrics.title') || 'Metrics & Analytics'}</h3>
+        
+        <div className={styles.metricsGrid}>
+          <div className={styles.metricCard}>
+            <h4>{t('documentation:documentationPage.authLogging.metrics.login.title') || 'Login Metrics'}</h4>
+            <ul>
+              <li>{t('documentation:documentationPage.authLogging.metrics.login.attempts') || 'Total login attempts'}</li>
+              <li>{t('documentation:documentationPage.authLogging.metrics.login.success') || 'Success rate'}</li>
+              <li>{t('documentation:documentationPage.authLogging.metrics.login.average') || 'Average login time'}</li>
+              <li>{t('documentation:documentationPage.authLogging.metrics.login.failures') || 'Failure reasons'}</li>
+            </ul>
+          </div>
+          <div className={styles.metricCard}>
+            <h4>{t('documentation:documentationPage.authLogging.metrics.token.title') || 'Token Metrics'}</h4>
+            <ul>
+              <li>{t('documentation:documentationPage.authLogging.metrics.token.active') || 'Active tokens'}</li>
+              <li>{t('documentation:documentationPage.authLogging.metrics.token.refresh') || 'Refresh count'}</li>
+              <li>{t('documentation:documentationPage.authLogging.metrics.token.expired') || 'Expired tokens'}</li>
+              <li>{t('documentation:documentationPage.authLogging.metrics.token.invalid') || 'Invalid attempts'}</li>
+            </ul>
+          </div>
+          <div className={styles.metricCard}>
+            <h4>{t('documentation:documentationPage.authLogging.metrics.sso.title') || 'SSO Metrics'}</h4>
+            <ul>
+              <li>{t('documentation:documentationPage.authLogging.metrics.sso.navigation') || 'Cross-app navigations'}</li>
+              <li>{t('documentation:documentationPage.authLogging.metrics.sso.apps') || 'Most used apps'}</li>
+              <li>{t('documentation:documentationPage.authLogging.metrics.sso.flow') || 'Flow completion rate'}</li>
+              <li>{t('documentation:documentationPage.authLogging.metrics.sso.errors') || 'SSO errors'}</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+
+  const renderEventTypesTab = () => (
+    <>
+      <section className={styles.contentSection}>
         <h3 className={styles.subTitle}>{t('documentation:documentationPage.authLogging.events.title') || 'Event Types'}</h3>
         
         <div className={styles.eventCategory}>
@@ -101,9 +140,13 @@ export default function AuthLoggingDocs() {
             </tbody>
           </table>
         </div>
-      </div>
+      </section>
+    </>
+  );
 
-      <div className={styles.contentSection}>
+  const renderImplementationTab = () => (
+    <>
+      <section className={styles.contentSection}>
         <h3 className={styles.subTitle}>{t('documentation:documentationPage.authLogging.usage.title') || 'Usage Examples'}</h3>
         
         <div className={styles.example}>
@@ -180,89 +223,9 @@ authLogger.logCrossAppNavigation(
             </pre>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className={styles.contentSection}>
-        <h3 className={styles.subTitle}>{t('documentation:documentationPage.authLogging.metrics.title') || 'Metrics & Analytics'}</h3>
-        
-        <div className={styles.metricsGrid}>
-          <div className={styles.metricCard}>
-            <h4>{t('documentation:documentationPage.authLogging.metrics.login.title') || 'Login Metrics'}</h4>
-            <ul>
-              <li>{t('documentation:documentationPage.authLogging.metrics.login.attempts') || 'Total login attempts'}</li>
-              <li>{t('documentation:documentationPage.authLogging.metrics.login.success') || 'Success rate'}</li>
-              <li>{t('documentation:documentationPage.authLogging.metrics.login.average') || 'Average login time'}</li>
-              <li>{t('documentation:documentationPage.authLogging.metrics.login.failures') || 'Failure reasons'}</li>
-            </ul>
-          </div>
-          <div className={styles.metricCard}>
-            <h4>{t('documentation:documentationPage.authLogging.metrics.token.title') || 'Token Metrics'}</h4>
-            <ul>
-              <li>{t('documentation:documentationPage.authLogging.metrics.token.active') || 'Active tokens'}</li>
-              <li>{t('documentation:documentationPage.authLogging.metrics.token.refresh') || 'Refresh count'}</li>
-              <li>{t('documentation:documentationPage.authLogging.metrics.token.expired') || 'Expired tokens'}</li>
-              <li>{t('documentation:documentationPage.authLogging.metrics.token.invalid') || 'Invalid attempts'}</li>
-            </ul>
-          </div>
-          <div className={styles.metricCard}>
-            <h4>{t('documentation:documentationPage.authLogging.metrics.sso.title') || 'SSO Metrics'}</h4>
-            <ul>
-              <li>{t('documentation:documentationPage.authLogging.metrics.sso.navigation') || 'Cross-app navigations'}</li>
-              <li>{t('documentation:documentationPage.authLogging.metrics.sso.apps') || 'Most used apps'}</li>
-              <li>{t('documentation:documentationPage.authLogging.metrics.sso.flow') || 'Flow completion rate'}</li>
-              <li>{t('documentation:documentationPage.authLogging.metrics.sso.errors') || 'SSO errors'}</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className={styles.codeBlock}>
-          <h4>{t('documentation:documentationPage.authLogging.metrics.example') || 'Getting Metrics'}</h4>
-          <pre>
-            <code>{`// Get current metrics
-const metrics = authLogger.getMetrics();
-
-// Login success rate
-const successRate = (
-  metrics.loginSuccesses / metrics.loginAttempts * 100
-).toFixed(1);
-
-// Display metrics
-displayMetric('Success Rate', \`\${successRate}%\`);
-displayMetric('Average Login Time', \`\${metrics.averageLoginTime}ms\`);
-displayMetric('Active Tokens', metrics.activeTokens);
-displayMetric('Cross-app Navigations', metrics.crossAppNavigations);`}</code>
-          </pre>
-        </div>
-      </div>
-
-      <div className={styles.contentSection}>
-        <h3 className={styles.subTitle}>{t('documentation:documentationPage.authLogging.dashboard.title') || 'Monitoring Dashboard'}</h3>
-        <p>{t('documentation:documentationPage.authLogging.dashboard.description') || 'The Hub provides an authentication monitoring dashboard for administrators at /auth-logs.'}</p>
-        
-        <div className={styles.dashboardFeatures}>
-          <h4>{t('documentation:documentationPage.authLogging.dashboard.features.title') || 'Dashboard Features'}</h4>
-          <div className={styles.featureGrid}>
-            <div className={styles.feature}>
-              <h4>{t('documentation:documentationPage.authLogging.dashboard.features.realtime.title') || 'Real-time Updates'}</h4>
-              <p>{t('documentation:documentationPage.authLogging.dashboard.features.realtime.description') || 'Live metrics refresh every 10 seconds'}</p>
-            </div>
-            <div className={styles.feature}>
-              <h4>{t('documentation:documentationPage.authLogging.dashboard.features.filtering.title') || 'Log Filtering'}</h4>
-              <p>{t('documentation:documentationPage.authLogging.dashboard.features.filtering.description') || 'Filter by level, user, or event type'}</p>
-            </div>
-            <div className={styles.feature}>
-              <h4>{t('documentation:documentationPage.authLogging.dashboard.features.export.title') || 'Export Logs'}</h4>
-              <p>{t('documentation:documentationPage.authLogging.dashboard.features.export.description') || 'Download logs as JSON for analysis'}</p>
-            </div>
-            <div className={styles.feature}>
-              <h4>{t('documentation:documentationPage.authLogging.dashboard.features.reports.title') || 'Generate Reports'}</h4>
-              <p>{t('documentation:documentationPage.authLogging.dashboard.features.reports.description') || 'Create detailed authentication reports'}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className={styles.contentSection}>
+      <section className={styles.contentSection}>
         <h3 className={styles.subTitle}>{t('documentation:documentationPage.authLogging.querying.title') || 'Querying Logs'}</h3>
         
         <div className={styles.queryExample}>
@@ -301,40 +264,65 @@ fs.writeFileSync('auth-logs.json', logsJson);`}</code>
             </pre>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className={styles.contentSection}>
-        <h3 className={styles.subTitle}>{t('documentation:documentationPage.authLogging.security.title') || 'Security Considerations'}</h3>
+      <section className={styles.contentSection}>
+        <h3 className={styles.subTitle}>{t('documentation:documentationPage.authLogging.metrics.example') || 'Getting Metrics'}</h3>
+        <div className={styles.codeBlock}>
+          <pre>
+            <code>{`// Get current metrics
+const metrics = authLogger.getMetrics();
+
+// Login success rate
+const successRate = (
+  metrics.loginSuccesses / metrics.loginAttempts * 100
+).toFixed(1);
+
+// Display metrics
+displayMetric('Success Rate', \`\${successRate}%\`);
+displayMetric('Average Login Time', \`\${metrics.averageLoginTime}ms\`);
+displayMetric('Active Tokens', metrics.activeTokens);
+displayMetric('Cross-app Navigations', metrics.crossAppNavigations);`}</code>
+          </pre>
+        </div>
+      </section>
+    </>
+  );
+
+  const renderDashboardTab = () => (
+    <>
+      <section className={styles.contentSection}>
+        <h3 className={styles.subTitle}>{t('documentation:documentationPage.authLogging.dashboard.title') || 'Monitoring Dashboard'}</h3>
+        <p>{t('documentation:documentationPage.authLogging.dashboard.description') || 'The Hub provides an authentication monitoring dashboard for administrators at /auth-logs.'}</p>
         
-        <div className={styles.securityGrid}>
-          <div className={styles.securityItem}>
-            <h4>{t('documentation:documentationPage.authLogging.security.privacy.title') || 'Data Privacy'}</h4>
-            <ul>
-              <li>{t('documentation:documentationPage.authLogging.security.privacy.passwords') || 'Never log passwords or tokens'}</li>
-              <li>{t('documentation:documentationPage.authLogging.security.privacy.sanitize') || 'Sanitize user input'}</li>
-              <li>{t('documentation:documentationPage.authLogging.security.privacy.hash') || 'Hash sensitive identifiers'}</li>
-            </ul>
-          </div>
-          <div className={styles.securityItem}>
-            <h4>{t('documentation:documentationPage.authLogging.security.retention.title') || 'Log Retention'}</h4>
-            <ul>
-              <li>{t('documentation:documentationPage.authLogging.security.retention.memory') || '1000 entries in memory'}</li>
-              <li>{t('documentation:documentationPage.authLogging.security.retention.storage') || '100 entries in localStorage'}</li>
-              <li>{t('documentation:documentationPage.authLogging.security.retention.archive') || 'Archive for compliance'}</li>
-            </ul>
-          </div>
-          <div className={styles.securityItem}>
-            <h4>{t('documentation:documentationPage.authLogging.security.access.title') || 'Access Control'}</h4>
-            <ul>
-              <li>{t('documentation:documentationPage.authLogging.security.access.admin') || 'Admin-only dashboard'}</li>
-              <li>{t('documentation:documentationPage.authLogging.security.access.export') || 'Restricted exports'}</li>
-              <li>{t('documentation:documentationPage.authLogging.security.access.monitor') || 'Monitor log access'}</li>
-            </ul>
+        <div className={styles.dashboardFeatures}>
+          <h4>{t('documentation:documentationPage.authLogging.dashboard.features.title') || 'Dashboard Features'}</h4>
+          <div className={styles.featureGrid}>
+            <div className={styles.featureCard}>
+              <FaChartLine className={styles.featureIcon} />
+              <h3>{t('documentation:documentationPage.authLogging.dashboard.features.realtime.title') || 'Real-time Updates'}</h3>
+              <p>{t('documentation:documentationPage.authLogging.dashboard.features.realtime.description') || 'Live metrics refresh every 10 seconds'}</p>
+            </div>
+            <div className={styles.featureCard}>
+              <FaDatabase className={styles.featureIcon} />
+              <h3>{t('documentation:documentationPage.authLogging.dashboard.features.filtering.title') || 'Log Filtering'}</h3>
+              <p>{t('documentation:documentationPage.authLogging.dashboard.features.filtering.description') || 'Filter by level, user, or event type'}</p>
+            </div>
+            <div className={styles.featureCard}>
+              <FaCode className={styles.featureIcon} />
+              <h3>{t('documentation:documentationPage.authLogging.dashboard.features.export.title') || 'Export Logs'}</h3>
+              <p>{t('documentation:documentationPage.authLogging.dashboard.features.export.description') || 'Download logs as JSON for analysis'}</p>
+            </div>
+            <div className={styles.featureCard}>
+              <FaHistory className={styles.featureIcon} />
+              <h3>{t('documentation:documentationPage.authLogging.dashboard.features.reports.title') || 'Generate Reports'}</h3>
+              <p>{t('documentation:documentationPage.authLogging.dashboard.features.reports.description') || 'Create detailed authentication reports'}</p>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className={styles.contentSection}>
+      <section className={styles.contentSection}>
         <h3 className={styles.subTitle}>{t('documentation:documentationPage.authLogging.integration.title') || 'External Integrations'}</h3>
         
         <div className={styles.integrationExample}>
@@ -374,9 +362,44 @@ setInterval(() => {
             </pre>
           </div>
         </div>
-      </div>
+      </section>
+    </>
+  );
 
-      <div className={styles.contentSection}>
+  const renderSecurityTab = () => (
+    <>
+      <section className={styles.contentSection}>
+        <h3 className={styles.subTitle}>{t('documentation:documentationPage.authLogging.security.title') || 'Security Considerations'}</h3>
+        
+        <div className={styles.securityGrid}>
+          <div className={styles.securityItem}>
+            <h4>{t('documentation:documentationPage.authLogging.security.privacy.title') || 'Data Privacy'}</h4>
+            <ul>
+              <li>{t('documentation:documentationPage.authLogging.security.privacy.passwords') || 'Never log passwords or tokens'}</li>
+              <li>{t('documentation:documentationPage.authLogging.security.privacy.sanitize') || 'Sanitize user input'}</li>
+              <li>{t('documentation:documentationPage.authLogging.security.privacy.hash') || 'Hash sensitive identifiers'}</li>
+            </ul>
+          </div>
+          <div className={styles.securityItem}>
+            <h4>{t('documentation:documentationPage.authLogging.security.retention.title') || 'Log Retention'}</h4>
+            <ul>
+              <li>{t('documentation:documentationPage.authLogging.security.retention.memory') || '1000 entries in memory'}</li>
+              <li>{t('documentation:documentationPage.authLogging.security.retention.storage') || '100 entries in localStorage'}</li>
+              <li>{t('documentation:documentationPage.authLogging.security.retention.archive') || 'Archive for compliance'}</li>
+            </ul>
+          </div>
+          <div className={styles.securityItem}>
+            <h4>{t('documentation:documentationPage.authLogging.security.access.title') || 'Access Control'}</h4>
+            <ul>
+              <li>{t('documentation:documentationPage.authLogging.security.access.admin') || 'Admin-only dashboard'}</li>
+              <li>{t('documentation:documentationPage.authLogging.security.access.export') || 'Restricted exports'}</li>
+              <li>{t('documentation:documentationPage.authLogging.security.access.monitor') || 'Monitor log access'}</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.contentSection}>
         <h3 className={styles.subTitle}>{t('documentation:documentationPage.authLogging.troubleshooting.title') || 'Troubleshooting'}</h3>
         
         <div className={styles.troubleshootingGrid}>
@@ -397,25 +420,66 @@ setInterval(() => {
             <p>{t('documentation:documentationPage.authLogging.troubleshooting.memory.solution') || 'Implement log rotation for long-running sessions'}</p>
           </div>
         </div>
-      </div>
+      </section>
+    </>
+  );
 
-      <div className={styles.contentSection}>
-        <h3 className={styles.subTitle}>{t('documentation:documentationPage.authLogging.resources.title') || 'Related Resources'}</h3>
-        <ul className={styles.resourcesList}>
-          <li>
-            <a href="/documentation/jwt-authentication">{t('documentation:documentationPage.authLogging.resources.jwt') || 'JWT Authentication'}</a>
-          </li>
-          <li>
-            <a href="/documentation/sso-integration">{t('documentation:documentationPage.authLogging.resources.sso') || 'SSO Integration Guide'}</a>
-          </li>
-          <li>
-            <a href="/documentation/api">{t('documentation:documentationPage.authLogging.resources.api') || 'API Reference'}</a>
-          </li>
-          <li>
-            <a href="/documentation/security">{t('documentation:documentationPage.authLogging.resources.security') || 'Security Best Practices'}</a>
-          </li>
-        </ul>
-      </div>
+  const tabs: Tab[] = [
+    {
+      id: 'overview',
+      label: t('documentation:documentationPage.authLogging.tabs.overview') || 'Overview',
+      content: renderOverviewTab()
+    },
+    {
+      id: 'events',
+      label: t('documentation:documentationPage.authLogging.tabs.events') || 'Event Types',
+      content: renderEventTypesTab()
+    },
+    {
+      id: 'implementation',
+      label: t('documentation:documentationPage.authLogging.tabs.implementation') || 'Implementation',
+      content: renderImplementationTab()
+    },
+    {
+      id: 'dashboard',
+      label: t('documentation:documentationPage.authLogging.tabs.dashboard') || 'Dashboard',
+      content: renderDashboardTab()
+    },
+    {
+      id: 'security',
+      label: t('documentation:documentationPage.authLogging.tabs.security') || 'Security',
+      content: renderSecurityTab()
+    }
+  ];
+
+  return (
+    <div className={styles.pageContainer}>
+      <DocumentationHero
+        icon={<FaHistory />}
+        title={t('documentation:documentationPage.authLogging.title') || 'Authentication Logging & Monitoring'}
+        subtitle={t('documentation:documentationPage.authLogging.subtitle') || 'Track and monitor authentication events across the CyberEco ecosystem'}
+        gradient="linear-gradient(135deg, #a855f7 0%, #7c3aed 50%, #6d28d9 100%)"
+      />
+
+      <DocumentationTabs tabs={tabs} defaultTab="overview" />
+
+      <section className={styles.contentSection}>
+        <h3 className={styles.subTitle}>{t('documentation:documentationPage.nextSteps') || 'Next Steps'}</h3>
+        <div className={styles.cardGrid}>
+          <Link href="/documentation/jwt-authentication" className={styles.docCard}>
+            <FaCode />
+            <span>{t('documentation:documentationPage.authLogging.resources.jwt') || 'JWT Authentication'}</span>
+          </Link>
+          <Link href="/documentation/sso-integration" className={styles.docCard}>
+            <FaShieldAlt />
+            <span>{t('documentation:documentationPage.authLogging.resources.sso') || 'SSO Integration Guide'}</span>
+          </Link>
+          <Link href="/documentation/api" className={styles.docCard}>
+            <FaDatabase />
+            <span>{t('documentation:documentationPage.authLogging.resources.api') || 'API Reference'}</span>
+          </Link>
+        </div>
+      </section>
     </div>
   );
 }

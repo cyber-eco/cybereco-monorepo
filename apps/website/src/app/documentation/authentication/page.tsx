@@ -2,14 +2,15 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { FaLock, FaKey, FaUsers, FaShieldAlt, FaCode, FaBook, FaArrowRight, FaCheck, FaCopy, FaRocket, FaDatabase, FaCogs } from 'react-icons/fa';
+import { FaLock, FaKey, FaUsers, FaShieldAlt, FaCode, FaArrowRight, FaCheck, FaRocket, FaDatabase } from 'react-icons/fa';
 import { useI18n } from '@cybereco/i18n';
+import { DocumentationHero, DocumentationTabs } from '../components';
+import type { Tab } from '../components';
 import styles from './page.module.css';
 
 export default function AuthenticationDocumentation() {
   const { t } = useI18n();
   const [mounted, setMounted] = useState(false);
-  const [activeTab, setActiveTab] = useState('overview');
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
   
   useEffect(() => {
@@ -423,65 +424,45 @@ export default function AuthenticationDocumentation() {
     </div>
   );
 
+  // Define tabs for the authentication page
+  const tabs: Tab[] = [
+    {
+      id: 'overview',
+      label: t('documentation:documentationPage.authentication.tabs.overview') || 'Overview',
+      content: renderOverviewTab()
+    },
+    {
+      id: 'quickstart',
+      label: t('documentation:documentationPage.authentication.tabs.quickstart') || 'Quick Start',
+      content: renderQuickstartTab()
+    },
+    {
+      id: 'architecture',
+      label: t('documentation:documentationPage.authentication.tabs.architecture') || 'Architecture',
+      content: renderArchitectureTab()
+    },
+    {
+      id: 'api',
+      label: t('documentation:documentationPage.authentication.tabs.api') || 'API Reference',
+      content: renderApiTab()
+    },
+    {
+      id: 'examples',
+      label: t('documentation:documentationPage.authentication.tabs.examples') || 'Examples',
+      content: renderExamplesTab()
+    }
+  ];
+
   return (
     <div className={styles.pageContainer}>
-      <div className={styles.pageHeader}>
-        <FaLock className={styles.headerIcon} />
-        <h1 className={styles.title}>
-          {t('documentation:documentationPage.authenticationNavItem') || 'Authentication Integration'}
-        </h1>
-        <p className={styles.subtitle}>
-          {t('documentation:documentationPage.authentication.subtitle') || 'Secure, centralized authentication for the entire CyberEco ecosystem'}
-        </p>
-      </div>
+      <DocumentationHero
+        icon={<FaLock />}
+        title={t('documentation:documentationPage.authenticationNavItem') || 'Authentication Integration'}
+        subtitle={t('documentation:documentationPage.authentication.subtitle') || 'Secure, centralized authentication for the entire CyberEco ecosystem'}
+        gradient="linear-gradient(135deg, #f59e0b 0%, #ef4444 50%, #ec4899 100%)"
+      />
 
-      <div className={styles.tabsContainer}>
-        <div className={styles.tabsHeader}>
-          <button
-            className={`${styles.tabButton} ${activeTab === 'overview' ? styles.active : ''}`}
-            onClick={() => setActiveTab('overview')}
-          >
-            <FaBook className={styles.tabIcon} />
-            {t('documentation:documentationPage.authentication.tabs.overview') || 'Overview'}
-          </button>
-          <button
-            className={`${styles.tabButton} ${activeTab === 'quickstart' ? styles.active : ''}`}
-            onClick={() => setActiveTab('quickstart')}
-          >
-            <FaRocket className={styles.tabIcon} />
-            {t('documentation:documentationPage.authentication.tabs.quickstart') || 'Quick Start'}
-          </button>
-          <button
-            className={`${styles.tabButton} ${activeTab === 'architecture' ? styles.active : ''}`}
-            onClick={() => setActiveTab('architecture')}
-          >
-            <FaCogs className={styles.tabIcon} />
-            {t('documentation:documentationPage.authentication.tabs.architecture') || 'Architecture'}
-          </button>
-          <button
-            className={`${styles.tabButton} ${activeTab === 'api' ? styles.active : ''}`}
-            onClick={() => setActiveTab('api')}
-          >
-            <FaCode className={styles.tabIcon} />
-            {t('documentation:documentationPage.authentication.tabs.api') || 'API Reference'}
-          </button>
-          <button
-            className={`${styles.tabButton} ${activeTab === 'examples' ? styles.active : ''}`}
-            onClick={() => setActiveTab('examples')}
-          >
-            <FaDatabase className={styles.tabIcon} />
-            {t('documentation:documentationPage.authentication.tabs.examples') || 'Examples'}
-          </button>
-        </div>
-
-        <div className={styles.tabContentWrapper}>
-          {activeTab === 'overview' && renderOverviewTab()}
-          {activeTab === 'quickstart' && renderQuickstartTab()}
-          {activeTab === 'architecture' && renderArchitectureTab()}
-          {activeTab === 'api' && renderApiTab()}
-          {activeTab === 'examples' && renderExamplesTab()}
-        </div>
-      </div>
+      <DocumentationTabs tabs={tabs} defaultTab="overview" />
 
       <div className={styles.nextStepsSection}>
         <h2>{t('documentation:documentationPage.nextSteps') || 'Next Steps'}</h2>

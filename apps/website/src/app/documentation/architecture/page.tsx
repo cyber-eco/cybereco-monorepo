@@ -2,35 +2,17 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 import { FaCubes, FaLayerGroup, FaProjectDiagram, FaServer } from 'react-icons/fa';
 import { useI18n } from '@cybereco/i18n';
+import { DocumentationHero, DocumentationTabs } from '../components';
+import type { Tab } from '../components';
 import styles from './page.module.css';
 
 export default function ArchitecturePage() {
   const { t } = useI18n();
 
-  return (
-    <div className={styles.pageContainer}>
-      <header className={styles.pageHeader}>
-        <motion.h1
-          className={styles.title}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <FaCubes /> {t('documentation:architecture.title') || 'Architecture Overview'}
-        </motion.h1>
-        <motion.p
-          className={styles.subtitle}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-        >
-          {t('documentation:architecture.subtitle') || 'Understanding the CyberEco platform architecture'}
-        </motion.p>
-      </header>
-
+  const renderOverviewTab = () => (
+    <>
       <div className={styles.architectureContent}>
         <section className={styles.section}>
           <h2><FaLayerGroup /> {t('documentation:architecture.monorepo.title') || 'Monorepo Structure'}</h2>
@@ -69,6 +51,13 @@ export default function ArchitecturePage() {
             </div>
           </div>
         </section>
+      </div>
+    </>
+  );
+
+  const renderPrinciplesTab = () => (
+    <>
+      <div className={styles.architectureContent}>
 
         <section className={styles.section}>
           <h2><FaProjectDiagram /> {t('documentation:architecture.principles.title') || 'Key Design Principles'}</h2>
@@ -91,6 +80,13 @@ export default function ArchitecturePage() {
             </div>
           </div>
         </section>
+      </div>
+    </>
+  );
+
+  const renderTechnicalStackTab = () => (
+    <>
+      <div className={styles.architectureContent}>
 
         <section className={styles.section}>
           <h2><FaServer /> {t('documentation:architecture.technicalStack.title') || 'Technical Stack'}</h2>
@@ -124,22 +120,142 @@ export default function ArchitecturePage() {
             </div>
           </div>
         </section>
+      </div>
+    </>
+  );
 
-        <div className={styles.relatedLinks}>
-          <h3>{t('documentation:architecture.relatedDocumentation.title') || 'Related Documentation'}</h3>
+  const renderIntegrationTab = () => (
+    <>
+      <div className={styles.architectureContent}>
+        <section className={styles.section}>
+          <h2>{t('documentation:architecture.integration.title') || 'Integration Patterns'}</h2>
+          <p>{t('documentation:architecture.integration.description') || 'Learn how CyberEco applications integrate and communicate with each other.'}</p>
+          
+          <h3>{t('documentation:architecture.integration.sso.title') || 'Single Sign-On (SSO)'}</h3>
+          <p>{t('documentation:architecture.integration.sso.description') || 'Centralized authentication through the Hub ensures users sign in once and access all applications seamlessly.'}</p>
+          
+          <h3>{t('documentation:architecture.integration.sharedData.title') || 'Shared Data Models'}</h3>
+          <p>{t('documentation:architecture.integration.sharedData.description') || 'Common TypeScript interfaces and data structures enable consistent data handling across applications.'}</p>
+          
+          <h3>{t('documentation:architecture.integration.eventBus.title') || 'Event Bus Architecture'}</h3>
+          <p>{t('documentation:architecture.integration.eventBus.description') || 'Applications communicate through a centralized event system for real-time updates and notifications.'}</p>
+          
+          <h3>{t('documentation:architecture.integration.apis.title') || 'REST APIs'}</h3>
+          <p>{t('documentation:architecture.integration.apis.description') || 'Well-documented REST APIs allow external integrations and cross-application data access.'}</p>
+        </section>
+      </div>
+    </>
+  );
+
+  const renderResourcesTab = () => (
+    <>
+      <div className={styles.architectureContent}>
+
+        <section className={styles.section}>
+          <h2>{t('documentation:architecture.relatedDocumentation.title') || 'Related Documentation'}</h2>
           <div className={styles.linkGrid}>
             <Link href="/documentation/data-architecture" className={styles.docLink}>
-              {t('documentation:architecture.relatedDocumentation.dataArchitecture') || 'Data Architecture'}
+              <FaLayerGroup className={styles.linkIcon} />
+              <div>
+                <h4>{t('documentation:architecture.relatedDocumentation.dataArchitecture') || 'Data Architecture'}</h4>
+                <p>{t('documentation:architecture.relatedDocumentation.dataArchitectureDesc') || 'Deep dive into data models and database design'}</p>
+              </div>
             </Link>
             <Link href="/documentation/authentication" className={styles.docLink}>
-              {t('documentation:architecture.relatedDocumentation.authenticationSystem') || 'Authentication System'}
+              <FaCubes className={styles.linkIcon} />
+              <div>
+                <h4>{t('documentation:architecture.relatedDocumentation.authenticationSystem') || 'Authentication System'}</h4>
+                <p>{t('documentation:architecture.relatedDocumentation.authenticationSystemDesc') || 'Learn about our secure authentication implementation'}</p>
+              </div>
             </Link>
             <Link href="/documentation/development" className={styles.docLink}>
-              {t('documentation:architecture.relatedDocumentation.developmentSetup') || 'Development Setup'}
+              <FaProjectDiagram className={styles.linkIcon} />
+              <div>
+                <h4>{t('documentation:architecture.relatedDocumentation.developmentSetup') || 'Development Setup'}</h4>
+                <p>{t('documentation:architecture.relatedDocumentation.developmentSetupDesc') || 'Get started with local development environment'}</p>
+              </div>
+            </Link>
+            <Link href="/documentation/api" className={styles.docLink}>
+              <FaServer className={styles.linkIcon} />
+              <div>
+                <h4>{t('documentation:architecture.relatedDocumentation.apiReference') || 'API Reference'}</h4>
+                <p>{t('documentation:architecture.relatedDocumentation.apiReferenceDesc') || 'Explore our comprehensive API documentation'}</p>
+              </div>
             </Link>
           </div>
-        </div>
+        </section>
+
+        <section className={styles.section}>
+          <h2>{t('documentation:architecture.resources.title') || 'Additional Resources'}</h2>
+          <ul className={styles.resourcesList}>
+            <li>
+              <a href="https://nx.dev" target="_blank" rel="noopener noreferrer">
+                {t('documentation:architecture.resources.nxDocs') || 'NX Documentation'}
+              </a>
+              <span className={styles.resourceDesc}> - {t('documentation:architecture.resources.nxDocsDesc') || 'Learn more about NX monorepo tools'}</span>
+            </li>
+            <li>
+              <a href="https://nextjs.org/docs" target="_blank" rel="noopener noreferrer">
+                {t('documentation:architecture.resources.nextjsDocs') || 'Next.js Documentation'}
+              </a>
+              <span className={styles.resourceDesc}> - {t('documentation:architecture.resources.nextjsDocsDesc') || 'Official Next.js framework documentation'}</span>
+            </li>
+            <li>
+              <a href="https://firebase.google.com/docs" target="_blank" rel="noopener noreferrer">
+                {t('documentation:architecture.resources.firebaseDocs') || 'Firebase Documentation'}
+              </a>
+              <span className={styles.resourceDesc}> - {t('documentation:architecture.resources.firebaseDocsDesc') || 'Firebase platform and services documentation'}</span>
+            </li>
+            <li>
+              <a href="/documentation/contributing">
+                {t('documentation:architecture.resources.contributing') || 'Contributing Guide'}
+              </a>
+              <span className={styles.resourceDesc}> - {t('documentation:architecture.resources.contributingDesc') || 'Learn how to contribute to CyberEco'}</span>
+            </li>
+          </ul>
+        </section>
       </div>
+    </>
+  );
+
+  const tabs: Tab[] = [
+    {
+      id: 'overview',
+      label: t('documentation:architecture.tabs.overview') || 'Overview',
+      content: renderOverviewTab()
+    },
+    {
+      id: 'principles',
+      label: t('documentation:architecture.tabs.principles') || 'Design Principles',
+      content: renderPrinciplesTab()
+    },
+    {
+      id: 'stack',
+      label: t('documentation:architecture.tabs.stack') || 'Technical Stack',
+      content: renderTechnicalStackTab()
+    },
+    {
+      id: 'integration',
+      label: t('documentation:architecture.tabs.integration') || 'Integration',
+      content: renderIntegrationTab()
+    },
+    {
+      id: 'resources',
+      label: t('documentation:architecture.tabs.resources') || 'Resources',
+      content: renderResourcesTab()
+    }
+  ];
+
+  return (
+    <div className={styles.pageContainer}>
+      <DocumentationHero
+        icon={<FaCubes />}
+        title={t('documentation:architecture.title') || 'Architecture Overview'}
+        subtitle={t('documentation:architecture.subtitle') || 'Understanding the CyberEco platform architecture'}
+        gradient="linear-gradient(135deg, #f59e0b 0%, #ef4444 50%, #dc2626 100%)"
+      />
+
+      <DocumentationTabs tabs={tabs} defaultTab="overview" />
     </div>
   );
 }
