@@ -19,35 +19,35 @@ export default function SSOIntegrationDocs() {
         <div className={styles.benefitsGrid}>
           <div className={styles.benefitCard}>
             <FaRocket className={styles.benefitIcon} />
-            <h3>Seamless Experience</h3>
+            <h3>{t('documentation:documentationPage.sso.benefits.seamlessTitle') || 'Seamless Experience'}</h3>
             <p>{t('documentation:documentationPage.sso.benefits.seamless') || 'One login for all CyberEco applications - users authenticate once and access everything.'}</p>
           </div>
           <div className={styles.benefitCard}>
             <FaShieldAlt className={styles.benefitIcon} />
-            <h3>Enhanced Security</h3>
+            <h3>{t('documentation:documentationPage.sso.benefits.securityTitle') || 'Enhanced Security'}</h3>
             <p>{t('documentation:documentationPage.sso.benefits.security') || 'Centralized authentication with JWT tokens and secure session management.'}</p>
           </div>
           <div className={styles.benefitCard}>
             <FaCog className={styles.benefitIcon} />
-            <h3>Easy Management</h3>
+            <h3>{t('documentation:documentationPage.sso.benefits.managementTitle') || 'Easy Management'}</h3>
             <p>{t('documentation:documentationPage.sso.benefits.management') || 'Centralized user management and permission control across the ecosystem.'}</p>
           </div>
           <div className={styles.benefitCard}>
             <FaUsers className={styles.benefitIcon} />
-            <h3>Better UX</h3>
+            <h3>{t('documentation:documentationPage.sso.benefits.uxTitle') || 'Better UX'}</h3>
             <p>{t('documentation:documentationPage.sso.benefits.consistent') || 'Consistent interface and reduced authentication friction.'}</p>
           </div>
         </div>
 
         <div className={styles.infoBox}>
-          <h3><FaLightbulb /> Quick Start</h3>
-          <p>Get started with SSO integration in under 10 minutes using our pre-built authentication components and shared libraries.</p>
+          <h3><FaLightbulb /> {t('documentation:documentationPage.sso.quickStart.title') || 'Quick Start'}</h3>
+          <p>{t('documentation:documentationPage.sso.quickStart.description') || 'Get started with SSO integration in under 10 minutes using our pre-built authentication components and shared libraries.'}</p>
           <div className={styles.quickLinks}>
             <a href="#implementation" className={styles.quickLink}>
-              <FaCode /> View Implementation Guide
+              <FaCode /> {t('documentation:documentationPage.sso.quickStart.implementationLink') || 'View Implementation Guide'}
             </a>
             <a href="#configuration" className={styles.quickLink}>
-              <FaCog /> Setup Configuration
+              <FaCog /> {t('documentation:documentationPage.sso.quickStart.configurationLink') || 'Setup Configuration'}
             </a>
           </div>
         </div>
@@ -119,7 +119,7 @@ export default function SSOIntegrationDocs() {
         
         <div className={styles.implementationStep}>
           <h3><FaServer /> {t('documentation:documentationPage.sso.implementation.hub.title') || '1. Hub Setup (Authentication Provider)'}</h3>
-          <p>The Hub acts as the central authentication authority, managing user sessions and issuing JWT tokens.</p>
+          <p>{t('documentation:documentationPage.sso.implementation.hub.description') || 'The Hub acts as the central authentication authority, managing user sessions and issuing JWT tokens.'}</p>
           <div className={styles.codeBlock}>
             <div className={styles.codeHeader}>
               <span>Hub Auth Service</span>
@@ -178,7 +178,7 @@ export class AuthTokenService {
 
         <div className={styles.implementationStep}>
           <h3><FaCode /> {t('documentation:documentationPage.sso.implementation.app.title') || '2. App Integration (Consumer)'}</h3>
-          <p>Integrate SSO into your app using the shared authentication library.</p>
+          <p>{t('documentation:documentationPage.sso.implementation.app.description') || 'Integrate SSO into your app using the shared authentication library.'}</p>
           <div className={styles.codeBlock}>
             <div className={styles.codeHeader}>
               <span>App Authentication Setup</span>
@@ -239,7 +239,7 @@ export function UserProfile() {
 
         <div className={styles.implementationStep}>
           <h3><FaLock /> {t('documentation:documentationPage.sso.implementation.middleware.title') || '3. Middleware Protection'}</h3>
-          <p>Protect routes and API endpoints using Next.js middleware with token verification.</p>
+          <p>{t('documentation:documentationPage.sso.implementation.middleware.description') || 'Protect routes and API endpoints using Next.js middleware with token verification.'}</p>
           <div className={styles.codeBlock}>
             <div className={styles.codeHeader}>
               <span>Route Protection Middleware</span>
@@ -350,8 +350,8 @@ export const config = {
         </div>
 
         <div className={styles.implementationStep}>
-          <h3><FaKey /> 4. API Route Protection</h3>
-          <p>Secure your API endpoints with SSO token verification.</p>
+          <h3><FaKey /> {t('documentation:documentationPage.sso.implementation.apiProtection.title') || '4. API Route Protection'}</h3>
+          <p>{t('documentation:documentationPage.sso.implementation.apiProtection.description') || 'Secure your API endpoints with SSO token verification.'}</p>
           <div className={styles.codeBlock}>
             <div className={styles.codeHeader}>
               <span>Protected API Route</span>
@@ -429,22 +429,22 @@ export async function GET(request: NextRequest) {
             <div className={styles.configCard}>
               <FaServer className={styles.configIcon} />
               <h4>Firebase Emulator</h4>
-              <p>Centralized auth at localhost:9099</p>
+              <p>{t('documentation:documentationPage.sso.configuration.development.authEmulator') || 'Centralized auth at localhost:9099'}</p>
             </div>
             <div className={styles.configCard}>
               <FaLink className={styles.configIcon} />
               <h4>Shared State</h4>
-              <p>localStorage for cross-app sessions</p>
+              <p>{t('documentation:documentationPage.sso.configuration.development.sharedState') || 'localStorage for cross-app sessions'}</p>
             </div>
             <div className={styles.configCard}>
               <FaRocket className={styles.configIcon} />
               <h4>Port Mapping</h4>
-              <p>Hub:40000, Website:40001, JustSplit:40002</p>
+              <p>{t('documentation:documentationPage.sso.configuration.development.ports') || 'Hub:40000, Website:40001, JustSplit:40002'}</p>
             </div>
             <div className={styles.configCard}>
               <FaCloud className={styles.configIcon} />
               <h4>Gateway Proxy</h4>
-              <p>Unified access on port 3000</p>
+              <p>{t('documentation:documentationPage.sso.configuration.development.gateway') || 'Unified access on port 3000'}</p>
             </div>
           </div>
 
@@ -482,7 +482,7 @@ JWT_REFRESH_EXPIRES_IN=7d`}</code></pre>
           
           <div className={styles.warningBox}>
             <h4><FaExclamationTriangle /> Production Security</h4>
-            <p>Ensure all domains use HTTPS and proper cookie security settings for production deployment.</p>
+            <p>{t('documentation:documentationPage.sso.configuration.production.note') || 'Ensure all domains use HTTPS and proper cookie security settings for production deployment.'}</p>
           </div>
           
           <div className={styles.codeBlock}>

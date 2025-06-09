@@ -199,9 +199,9 @@ export default function PortfolioDocPage() {
 
       {/* Solution Categories */}
       <div className={styles.contentSection}>
-        <h2 className={styles.sectionTitle}>📊 Solution Categories</h2>
+        <h2 className={styles.sectionTitle}>📊 {t('documentation:documentationPage.portfolio.solutionCategories.title') || 'Solution Categories'}</h2>
         <p className={styles.contentText}>
-          Our applications are organized into focused categories, each addressing specific aspects of modern digital life.
+          {t('documentation:documentationPage.portfolio.solutionCategories.description') || 'Our applications are organized into focused categories, each addressing specific aspects of modern digital life.'}
         </p>
         <div className={styles.solutionCategories}>
           {solutionCategories.map((category) => (
@@ -224,38 +224,38 @@ export default function PortfolioDocPage() {
 
       {/* Future Ecosystem */}
       <div className={styles.contentSection}>
-        <h2 className={styles.sectionTitle}>🌟 Future Ecosystem (2026+)</h2>
+        <h2 className={styles.sectionTitle}>🌟 {t('documentation:documentationPage.portfolio.futureEcosystem.title') || 'Future Ecosystem (2026+)'}</h2>
         <p className={styles.contentText}>
-          Our vision extends to over 30+ specialized applications, each designed to work seamlessly within the CyberEco ecosystem while respecting user privacy and data sovereignty.
+          {t('documentation:documentationPage.portfolio.futureEcosystem.description') || 'Our vision extends to over 30+ specialized applications, each designed to work seamlessly within the CyberEco ecosystem while respecting user privacy and data sovereignty.'}
         </p>
         
         <div className={styles.featureGrid}>
           <div className={styles.featureCard}>
             <div className={styles.featureIcon}>💡</div>
-            <h4 className={styles.featureTitle}>Modular Architecture</h4>
+            <h4 className={styles.featureTitle}>{t('documentation:documentationPage.portfolio.futureEcosystem.modularArchitecture.title') || 'Modular Architecture'}</h4>
             <p className={styles.featureDescription}>
-              Each app can function independently while benefiting from ecosystem integration
+              {t('documentation:documentationPage.portfolio.futureEcosystem.modularArchitecture.description') || 'Each app can function independently while benefiting from ecosystem integration'}
             </p>
           </div>
           <div className={styles.featureCard}>
             <div className={styles.featureIcon}>🔗</div>
-            <h4 className={styles.featureTitle}>Seamless Integration</h4>
+            <h4 className={styles.featureTitle}>{t('documentation:documentationPage.portfolio.futureEcosystem.seamlessIntegration.title') || 'Seamless Integration'}</h4>
             <p className={styles.featureDescription}>
-              Data flows securely between apps with user consent and control
+              {t('documentation:documentationPage.portfolio.futureEcosystem.seamlessIntegration.description') || 'Data flows securely between apps with user consent and control'}
             </p>
           </div>
           <div className={styles.featureCard}>
             <div className={styles.featureIcon}>🛡️</div>
-            <h4 className={styles.featureTitle}>Privacy by Design</h4>
+            <h4 className={styles.featureTitle}>{t('documentation:documentationPage.portfolio.futureEcosystem.privacyByDesign.title') || 'Privacy by Design'}</h4>
             <p className={styles.featureDescription}>
-              Every application follows strict privacy principles and GDPR compliance
+              {t('documentation:documentationPage.portfolio.futureEcosystem.privacyByDesign.description') || 'Every application follows strict privacy principles and GDPR compliance'}
             </p>
           </div>
           <div className={styles.featureCard}>
             <div className={styles.featureIcon}>🌐</div>
-            <h4 className={styles.featureTitle}>Decentralized Future</h4>
+            <h4 className={styles.featureTitle}>{t('documentation:documentationPage.portfolio.futureEcosystem.decentralizedFuture.title') || 'Decentralized Future'}</h4>
             <p className={styles.featureDescription}>
-              Preparing for transition to fully decentralized infrastructure
+              {t('documentation:documentationPage.portfolio.futureEcosystem.decentralizedFuture.description') || 'Preparing for transition to fully decentralized infrastructure'}
             </p>
           </div>
         </div>
@@ -263,54 +263,54 @@ export default function PortfolioDocPage() {
 
       {/* Development Philosophy */}
       <div className={styles.contentSection}>
-        <h2 className={styles.sectionTitle}>💭 Development Philosophy</h2>
+        <h2 className={styles.sectionTitle}>💭 {t('documentation:documentationPage.portfolio.developmentPhilosophy.title') || 'Development Philosophy'}</h2>
         <div className={styles.principlesGrid}>
           <div className={styles.principleCard}>
-            <h4>User-Centric Design</h4>
-            <p>Every feature is designed with real user needs in mind, avoiding dark patterns and addictive mechanisms</p>
+            <h4>{t('documentation:documentationPage.portfolio.developmentPhilosophy.userCentric.title') || 'User-Centric Design'}</h4>
+            <p>{t('documentation:documentationPage.portfolio.developmentPhilosophy.userCentric.description') || 'Every feature is designed with real user needs in mind, avoiding dark patterns and addictive mechanisms'}</p>
           </div>
           <div className={styles.principleCard}>
-            <h4>Progressive Enhancement</h4>
-            <p>Start with core functionality and progressively add features based on community feedback</p>
+            <h4>{t('documentation:documentationPage.portfolio.developmentPhilosophy.progressiveEnhancement.title') || 'Progressive Enhancement'}</h4>
+            <p>{t('documentation:documentationPage.portfolio.developmentPhilosophy.progressiveEnhancement.description') || 'Start with core functionality and progressively add features based on community feedback'}</p>
           </div>
           <div className={styles.principleCard}>
-            <h4>Open Development</h4>
-            <p>Transparent roadmaps, open-source components, and community involvement in decision-making</p>
+            <h4>{t('documentation:documentationPage.portfolio.developmentPhilosophy.openDevelopment.title') || 'Open Development'}</h4>
+            <p>{t('documentation:documentationPage.portfolio.developmentPhilosophy.openDevelopment.description') || 'Transparent roadmaps, open-source components, and community involvement in decision-making'}</p>
           </div>
           <div className={styles.principleCard}>
-            <h4>Sustainable Growth</h4>
-            <p>Building for long-term sustainability rather than rapid growth at any cost</p>
+            <h4>{t('documentation:documentationPage.portfolio.developmentPhilosophy.sustainableGrowth.title') || 'Sustainable Growth'}</h4>
+            <p>{t('documentation:documentationPage.portfolio.developmentPhilosophy.sustainableGrowth.description') || 'Building for long-term sustainability rather than rapid growth at any cost'}</p>
           </div>
         </div>
       </div>
 
       {/* Application Status Overview */}
       <div className={styles.contentSection}>
-        <h2 className={styles.sectionTitle}>📈 Application Status Overview</h2>
+        <h2 className={styles.sectionTitle}>📈 {t('documentation:documentationPage.portfolio.applicationStatus.title') || 'Application Status Overview'}</h2>
         <div className={styles.comparisonTable}>
           <table>
             <thead>
               <tr>
-                <th>Status</th>
-                <th>Applications</th>
-                <th>Timeline</th>
+                <th>{t('documentation:documentationPage.portfolio.applicationStatus.statusColumn') || 'Status'}</th>
+                <th>{t('documentation:documentationPage.portfolio.applicationStatus.applicationsColumn') || 'Applications'}</th>
+                <th>{t('documentation:documentationPage.portfolio.applicationStatus.timelineColumn') || 'Timeline'}</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><span style={{ color: 'var(--success)' }}>🟢 Live</span></td>
+                <td><span style={{ color: 'var(--success)' }}>🟢 {t('documentation:documentationPage.portfolio.applicationStatus.liveStatus') || 'Live'}</span></td>
                 <td>Hub, JustSplit, Website</td>
-                <td>Available Now</td>
+                <td>{t('documentation:documentationPage.portfolio.applicationStatus.availableNow') || 'Available Now'}</td>
               </tr>
               <tr>
-                <td><span style={{ color: 'var(--warning)' }}>🟡 In Development</span></td>
+                <td><span style={{ color: 'var(--warning)' }}>🟡 {t('documentation:documentationPage.portfolio.applicationStatus.inDevelopmentStatus') || 'In Development'}</span></td>
                 <td>Somos, Demos, Plantopia</td>
-                <td>2025-2026</td>
+                <td>{t('documentation:documentationPage.portfolio.applicationStatus.timeline2025') || '2025-2026'}</td>
               </tr>
               <tr>
-                <td><span style={{ color: 'var(--info)' }}>🔵 Planned</span></td>
+                <td><span style={{ color: 'var(--info)' }}>🔵 {t('documentation:documentationPage.portfolio.applicationStatus.plannedStatus') || 'Planned'}</span></td>
                 <td>CyberBank, MyWealth, MyBusiness, and 25+ more</td>
-                <td>2026 and beyond</td>
+                <td>{t('documentation:documentationPage.portfolio.applicationStatus.timeline2026') || '2026 and beyond'}</td>
               </tr>
             </tbody>
           </table>
@@ -319,17 +319,17 @@ export default function PortfolioDocPage() {
 
       {/* Technical Integration */}
       <div className={styles.contentSection}>
-        <h2 className={styles.sectionTitle}>🔧 Technical Integration</h2>
+        <h2 className={styles.sectionTitle}>🔧 {t('documentation:documentationPage.portfolio.technicalIntegration.title') || 'Technical Integration'}</h2>
         <p className={styles.contentText}>
-          All CyberEco applications share common technical foundations that enable seamless integration:
+          {t('documentation:documentationPage.portfolio.technicalIntegration.description') || 'All CyberEco applications share common technical foundations that enable seamless integration:'}
         </p>
         <ul className={styles.featureList}>
-          <li><strong>Single Sign-On (SSO):</strong> One account for all applications through the Hub</li>
-          <li><strong>Shared Data Models:</strong> Common data structures enable cross-app functionality</li>
-          <li><strong>Unified UI Components:</strong> Consistent user experience across all applications</li>
-          <li><strong>Permission System:</strong> Granular control over what each app can access</li>
-          <li><strong>API Standards:</strong> RESTful APIs with JWT authentication for all services</li>
-          <li><strong>Privacy Controls:</strong> User-managed data visibility and sharing preferences</li>
+          <li><strong>{t('documentation:documentationPage.portfolio.technicalIntegration.sso') || 'Single Sign-On (SSO):'}</strong> {t('documentation:documentationPage.portfolio.technicalIntegration.ssoDesc') || 'One account for all applications through the Hub'}</li>
+          <li><strong>{t('documentation:documentationPage.portfolio.technicalIntegration.sharedData') || 'Shared Data Models:'}</strong> {t('documentation:documentationPage.portfolio.technicalIntegration.sharedDataDesc') || 'Common data structures enable cross-app functionality'}</li>
+          <li><strong>{t('documentation:documentationPage.portfolio.technicalIntegration.unifiedUI') || 'Unified UI Components:'}</strong> {t('documentation:documentationPage.portfolio.technicalIntegration.unifiedUIDesc') || 'Consistent user experience across all applications'}</li>
+          <li><strong>{t('documentation:documentationPage.portfolio.technicalIntegration.permissions') || 'Permission System:'}</strong> {t('documentation:documentationPage.portfolio.technicalIntegration.permissionsDesc') || 'Granular control over what each app can access'}</li>
+          <li><strong>{t('documentation:documentationPage.portfolio.technicalIntegration.apiStandards') || 'API Standards:'}</strong> {t('documentation:documentationPage.portfolio.technicalIntegration.apiStandardsDesc') || 'RESTful APIs with JWT authentication for all services'}</li>
+          <li><strong>{t('documentation:documentationPage.portfolio.technicalIntegration.privacyControls') || 'Privacy Controls:'}</strong> {t('documentation:documentationPage.portfolio.technicalIntegration.privacyControlsDesc') || 'User-managed data visibility and sharing preferences'}</li>
         </ul>
       </div>
 
@@ -338,7 +338,7 @@ export default function PortfolioDocPage() {
         <div className={styles.redirectCard}>
           <h4>{t('documentation:documentationPage.completeSolutionsPortfolio') || 'Explore the Full Portfolio'}</h4>
           <p>
-            Visit our main portfolio page for detailed information about each application, including features, screenshots, and development updates.
+            {t('documentation:documentationPage.portfolio.description') || 'Visit our main portfolio page for detailed information about each application, including features, screenshots, and development updates.'}
           </p>
           <Link href="/portfolio" className={styles.redirectButton}>
             {t('documentation:documentationPage.viewFullPortfolio') || 'View Full Portfolio'}
@@ -349,27 +349,27 @@ export default function PortfolioDocPage() {
 
       {/* Related Documentation */}
       <div className={styles.contentSection}>
-        <h3 className={styles.subTitle}>📚 Related Documentation</h3>
+        <h3 className={styles.subTitle}>📚 {t('documentation:documentationPage.portfolio.relatedDocs.title') || 'Related Documentation'}</h3>
         <div className={styles.docGrid}>
           <Link href="/documentation/philosophy" className={styles.docLink}>
             <div className={styles.docLinkIcon}>🎯</div>
             <div>
-              <h4>Platform Philosophy</h4>
-              <p>Understand the principles guiding our development</p>
+              <h4>{t('documentation:documentationPage.portfolio.relatedDocs.philosophy.title') || 'Platform Philosophy'}</h4>
+              <p>{t('documentation:documentationPage.portfolio.relatedDocs.philosophy.description') || 'Understand the principles guiding our development'}</p>
             </div>
           </Link>
           <Link href="/documentation/roadmap" className={styles.docLink}>
             <div className={styles.docLinkIcon}>🗺️</div>
             <div>
-              <h4>Development Roadmap</h4>
-              <p>See our timeline and upcoming features</p>
+              <h4>{t('documentation:documentationPage.portfolio.relatedDocs.roadmap.title') || 'Development Roadmap'}</h4>
+              <p>{t('documentation:documentationPage.portfolio.relatedDocs.roadmap.description') || 'See our timeline and upcoming features'}</p>
             </div>
           </Link>
           <Link href="/documentation/vision" className={styles.docLink}>
             <div className={styles.docLinkIcon}>🔮</div>
             <div>
-              <h4>Decentralized Vision</h4>
-              <p>Learn about our long-term vision</p>
+              <h4>{t('documentation:documentationPage.portfolio.relatedDocs.vision.title') || 'Decentralized Vision'}</h4>
+              <p>{t('documentation:documentationPage.portfolio.relatedDocs.vision.description') || 'Learn about our long-term vision'}</p>
             </div>
           </Link>
         </div>
