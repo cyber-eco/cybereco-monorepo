@@ -101,16 +101,16 @@ nx serve justsplit    # JustSplit at localhost:40002`}
         </section>
 
         <section className={styles.nextSteps}>
-          <h2>Next Steps</h2>
+          <h2>{t('documentation:documentationPage.nextSteps') || 'Next Steps'}</h2>
           <div className={styles.linkGrid}>
             <Link href="/documentation/architecture" className={styles.nextLink}>
-              Architecture Overview
+              {t('documentation:architecture.title') || 'Architecture Overview'}
             </Link>
             <Link href="/documentation/api" className={styles.nextLink}>
-              API Documentation
+              {t('documentation:api.title') || 'API Documentation'}
             </Link>
             <Link href="/learning-paths/developer" className={styles.nextLink}>
-              Developer Learning Path
+              {t('documentation:learningPaths.developer.title') || 'Developer Learning Path'}
             </Link>
           </div>
         </section>

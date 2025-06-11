@@ -104,7 +104,9 @@ export default function PhilosophyDocs() {
         {/* Digital Sovereignty */}
         <div className={styles.principleCard}>
           <div className={styles.cardHeader}>
-            <FaLock className={styles.cardIcon} />
+            <div className={styles.cardIcon}>
+              <FaLock />
+            </div>
             <h3>{t('common:philosophyPage.digitalSovereigntyTitle') || 'Digital Sovereignty'}</h3>
           </div>
           
@@ -136,7 +138,9 @@ export default function PhilosophyDocs() {
         {/* Wellbeing by Design */}
         <div className={styles.principleCard}>
           <div className={styles.cardHeader}>
-            <FaBrain className={styles.cardIcon} />
+            <div className={styles.cardIcon}>
+              <FaBrain />
+            </div>
             <h3>{t('common:philosophyPage.wellbeingTitle') || 'Human Wellbeing First'}</h3>
           </div>
           
@@ -168,7 +172,9 @@ export default function PhilosophyDocs() {
         {/* Interconnection with Purpose */}
         <div className={styles.principleCard}>
           <div className={styles.cardHeader}>
-            <FaGlobe className={styles.cardIcon} />
+            <div className={styles.cardIcon}>
+              <FaGlobe />
+            </div>
             <h3>{t('common:philosophyPage.interconnectionTitle') || 'Interconnected Solutions'}</h3>
           </div>
           
@@ -200,7 +206,9 @@ export default function PhilosophyDocs() {
         {/* Community is Core */}
         <div className={styles.principleCard}>
           <div className={styles.cardHeader}>
-            <FaUsers className={styles.cardIcon} />
+            <div className={styles.cardIcon}>
+              <FaUsers />
+            </div>
             <h3>{t('common:philosophyPage.communityTitle') || 'Community-Driven'}</h3>
           </div>
           
@@ -242,25 +250,33 @@ export default function PhilosophyDocs() {
         
         <div className={styles.visionGrid}>
           <div className={styles.visionCard}>
-            <FaLeaf className={styles.visionIcon} />
+            <div className={styles.visionIcon}>
+              <FaLeaf />
+            </div>
             <h4>{t('common:philosophyPage.visionSustainable') || 'Sustainable Technology'}</h4>
             <p>{t('common:philosophyPage.visionSustainableDesc') || 'Minimal resource usage, maximum human benefit'}</p>
           </div>
           
           <div className={styles.visionCard}>
-            <FaGlobe className={styles.visionIcon} />
+            <div className={styles.visionIcon}>
+              <FaGlobe />
+            </div>
             <h4>{t('common:philosophyPage.visionDecentralized') || 'Decentralized Future'}</h4>
             <p>{t('common:philosophyPage.visionDecentralizedDesc') || 'No single point of failure or control'}</p>
           </div>
           
           <div className={styles.visionCard}>
-            <FaCode className={styles.visionIcon} />
+            <div className={styles.visionIcon}>
+              <FaCode />
+            </div>
             <h4>{t('common:philosophyPage.visionOpenSource') || 'Open Source Everything'}</h4>
             <p>{t('common:philosophyPage.visionOpenSourceDesc') || 'Transparency and collaboration at every level'}</p>
           </div>
           
           <div className={styles.visionCard}>
-            <FaChartLine className={styles.visionIcon} />
+            <div className={styles.visionIcon}>
+              <FaChartLine />
+            </div>
             <h4>{t('common:philosophyPage.visionEthical') || 'Ethical Business'}</h4>
             <p>{t('common:philosophyPage.visionEthicalDesc') || 'Success measured in human wellbeing, not just profit'}</p>
           </div>
