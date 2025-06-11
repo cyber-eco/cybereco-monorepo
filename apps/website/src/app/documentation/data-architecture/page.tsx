@@ -4,10 +4,11 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { FaDatabase, FaLayerGroup, FaArrowRight, FaLock, FaSync, FaCode, FaChartLine, FaCube, FaCheck, FaKey, FaShieldAlt } from 'react-icons/fa';
 import { useI18n } from '@cybereco/i18n';
+import { DocumentationHero, DocumentationTabs } from '../components';
+import type { Tab } from '../components';
 import styles from './page.module.css';
 
 export default function DataArchitectureDocumentation() {
-  const [activeTab, setActiveTab] = useState('overview');
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
   const [mounted, setMounted] = useState(false);
   const { t } = useI18n();
@@ -102,7 +103,7 @@ interface Expense {
   };
 
   const renderOverviewTab = () => (
-    <div>
+    <>
       <h2>{t('common:dataArchitecture.overview.title') || 'Unified Data Layer'}</h2>
       <p className={styles.lead}>
         {t('common:dataArchitecture.overview.description') || 
@@ -195,11 +196,11 @@ interface Expense {
           </li>
         </ul>
       </div>
-    </div>
+    </>
   );
 
   const renderArchitectureTab = () => (
-    <div>
+    <>
       <h2>{t('common:dataArchitecture.architecture.title') || 'System Architecture'}</h2>
       
       <div className={styles.architectureDiagram}>
@@ -265,11 +266,11 @@ interface Expense {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 
   const renderDataFlowTab = () => (
-    <div>
+    <>
       <h2>{t('common:dataArchitecture.dataflow.title') || 'Data Flow Patterns'}</h2>
       
       <div className={styles.flowPatterns}>
@@ -368,11 +369,11 @@ interface Expense {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 
   const renderImplementationTab = () => (
-    <div>
+    <>
       <h2>{t('common:dataArchitecture.implementation.title') || 'Implementation Guide'}</h2>
       
       <div className={styles.implementationSection}>
@@ -436,11 +437,11 @@ interface Expense {
           </pre>
         </div>
       </div>
-    </div>
+    </>
   );
 
   const renderBenefitsTab = () => (
-    <div>
+    <>
       <h2>{t('common:dataArchitecture.benefits.title') || 'Benefits & Impact'}</h2>
       
       <div className={styles.benefitGrid}>
@@ -519,65 +520,48 @@ interface Expense {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
+
+  // Define tabs
+  const tabs: Tab[] = [
+    {
+      id: 'overview',
+      label: t('common:dataArchitecture.tabs.overview') || 'Overview',
+      content: renderOverviewTab()
+    },
+    {
+      id: 'architecture',
+      label: t('common:dataArchitecture.tabs.architecture') || 'Architecture',
+      content: renderArchitectureTab()
+    },
+    {
+      id: 'dataflow',
+      label: t('common:dataArchitecture.tabs.dataflow') || 'Data Flow',
+      content: renderDataFlowTab()
+    },
+    {
+      id: 'implementation',
+      label: t('common:dataArchitecture.tabs.implementation') || 'Implementation',
+      content: renderImplementationTab()
+    },
+    {
+      id: 'benefits',
+      label: t('common:dataArchitecture.tabs.benefits') || 'Benefits',
+      content: renderBenefitsTab()
+    }
+  ];
 
   return (
     <div className={styles.container}>
-      <div className={styles.hero}>
-        <div className={styles.heroContent}>
-          <h1 className={styles.title}>
-            <FaDatabase className={styles.titleIcon} />
-            {t('common:dataArchitecture.title') || 'Data Layer Architecture'}
-          </h1>
-          <p className={styles.subtitle}>
-            {t('common:dataArchitecture.subtitle') || 'Centralized data management for the CyberEco ecosystem'}
-          </p>
-        </div>
-      </div>
+      <DocumentationHero
+        title={t('common:dataArchitecture.title') || 'Data Layer Architecture'}
+        subtitle={t('common:dataArchitecture.subtitle') || 'Centralized data management for the CyberEco ecosystem'}
+        icon={<FaDatabase />}
+        gradient="linear-gradient(135deg, #8b5cf6 0%, #7c3aed 50%, #2563eb 100%)"
+      />
 
-      <div className={styles.tabs}>
-        <button
-          className={`${styles.tab} ${activeTab === 'overview' ? styles.activeTab : ''}`}
-          onClick={() => setActiveTab('overview')}
-        >
-          {t('common:dataArchitecture.tabs.overview') || 'Overview'}
-        </button>
-        <button
-          className={`${styles.tab} ${activeTab === 'architecture' ? styles.activeTab : ''}`}
-          onClick={() => setActiveTab('architecture')}
-        >
-          {t('common:dataArchitecture.tabs.architecture') || 'Architecture'}
-        </button>
-        <button
-          className={`${styles.tab} ${activeTab === 'dataflow' ? styles.activeTab : ''}`}
-          onClick={() => setActiveTab('dataflow')}
-        >
-          {t('common:dataArchitecture.tabs.dataflow') || 'Data Flow'}
-        </button>
-        <button
-          className={`${styles.tab} ${activeTab === 'implementation' ? styles.activeTab : ''}`}
-          onClick={() => setActiveTab('implementation')}
-        >
-          {t('common:dataArchitecture.tabs.implementation') || 'Implementation'}
-        </button>
-        <button
-          className={`${styles.tab} ${activeTab === 'benefits' ? styles.activeTab : ''}`}
-          onClick={() => setActiveTab('benefits')}
-        >
-          {t('common:dataArchitecture.tabs.benefits') || 'Benefits'}
-        </button>
-      </div>
-
-      <div className={styles.content}>
-        <div className={styles.section}>
-          {activeTab === 'overview' && renderOverviewTab()}
-          {activeTab === 'architecture' && renderArchitectureTab()}
-          {activeTab === 'dataflow' && renderDataFlowTab()}
-          {activeTab === 'implementation' && renderImplementationTab()}
-          {activeTab === 'benefits' && renderBenefitsTab()}
-        </div>
-      </div>
+      <DocumentationTabs tabs={tabs} defaultTab="overview" />
 
       <div className={styles.footer}>
         <div className={styles.footerContent}>

@@ -19,12 +19,27 @@ export default function DocumentationTabs({
   className 
 }: DocumentationTabsProps) {
   const [activeTab, setActiveTab] = useState(defaultTab || tabs[0]?.id || '');
+  const [showScrollHint, setShowScrollHint] = useState(false);
 
   const activeTabContent = tabs.find(tab => tab.id === activeTab)?.content;
 
+  // Check if tabs are scrollable
+  React.useEffect(() => {
+    const checkScroll = () => {
+      const tabsElement = document.querySelector(`.${styles.tabs}`);
+      if (tabsElement) {
+        setShowScrollHint(tabsElement.scrollWidth > tabsElement.clientWidth);
+      }
+    };
+
+    checkScroll();
+    window.addEventListener('resize', checkScroll);
+    return () => window.removeEventListener('resize', checkScroll);
+  }, [tabs]);
+
   return (
     <div className={`${styles.tabsContainer} ${className || ''}`}>
-      <div className={styles.tabs}>
+      <div className={`${styles.tabs} ${showScrollHint ? styles.scrollable : ''}`}>
         {tabs.map((tab) => (
           <button
             key={tab.id}

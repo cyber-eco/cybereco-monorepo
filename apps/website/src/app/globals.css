@@ -2,6 +2,17 @@
 @import '../styles/documentation-static.css';
 @import '../styles/documentation-shared.css';
 
+/* Import component-specific mobile styles */
+@import '../styles/components/architecture-diagram-mobile.css';
+@import '../styles/components/code-block-mobile.css';
+@import '../styles/components/feature-cards-mobile.css';
+@import '../styles/components/tables-mobile.css';
+@import '../styles/components/navigation-mobile.css';
+@import '../styles/components/alerts-mobile.css';
+
+/* Import the clean mobile fix - MUST be last for specificity */
+@import '../styles/documentation-mobile-fix.css';
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -10,10 +21,38 @@
 
 html,
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
+  width: 100%;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Ensure scrolling is never disabled */
+html {
+  overflow-y: auto !important;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-y: auto !important;
+  overflow-x: hidden;
+}
+
+/* Prevent horizontal scroll on mobile while allowing content to be visible */
+@media (max-width: 768px) {
+  html {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  body {
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto !important;
+    min-height: 100vh;
+  }
 }
 
 body {
@@ -57,4 +96,103 @@ html {
 ::selection {
   background-color: var(--color-primary);
   color: white;
+}
+
+/* Documentation mobile fixes */
+@media (max-width: 768px) {
+  /* Fix for all text content to wrap properly */
+  * {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  
+  /* Ensure hero sections never have overflow hidden on mobile */
+  div[class*="hero"] {
+    overflow: visible !important;
+  }
+  
+  /* Fix for hero titles specifically */
+  h1[class*="title"] {
+    word-break: break-word !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    max-width: 100% !important;
+  }
+  
+  /* Tabs specific fix */
+  .documentation-tabs-wrapper {
+    margin-left: -1rem !important;
+    margin-right: -1rem !important;
+    width: calc(100% + 2rem) !important;
+    max-width: 100vw !important;
+  }
+  
+  /* Ensure all content fits on mobile */
+  main {
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: visible !important;
+    padding: 0;
+    min-height: 100vh;
+  }
+  
+  /* Fix for all documentation pages */
+  div[class*="pageContainer"],
+  div[class*="container"] {
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden;
+    overflow-y: visible !important;
+  }
+  
+  /* Exception for hero content */
+  div[class*="heroContent"] {
+    overflow: visible !important;
+  }
+  
+  /* Fix for all content sections */
+  div[class*="content"],
+  div[class*="section"],
+  div[class*="Section"] {
+    padding-left: 1rem !important;
+    padding-right: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  
+  /* Fix for hero sections */
+  div[class*="hero"] {
+    padding-left: 1rem !important;
+    padding-right: 0 !important;
+  }
+  
+  /* Force all documentation pages to extend to edge */
+  body[class*="documentation"] main,
+  main div[class*="documentation"],
+  div[class*="guide"] > div,
+  div[class*="Guide"] > div {
+    padding-right: 0 !important;
+  }
+  
+  /* Fix for text content */
+  p, h1, h2, h3, h4, h5, h6, li, td, th {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+  
+  /* Allow tables and code blocks to scroll */
+  pre, code, table {
+    overflow-x: auto;
+    max-width: 100%;
+  }
+  
+  /* Ensure images don't overflow */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 }

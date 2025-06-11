@@ -458,6 +458,11 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .contentSection {
+    max-width: 100%;
+    padding: var(--spacing-md);
+  }
+  
   .featureGrid {
     grid-template-columns: 1fr;
   }

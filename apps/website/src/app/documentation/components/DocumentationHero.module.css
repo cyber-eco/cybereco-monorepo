@@ -5,7 +5,8 @@
   padding: 5rem 2rem;
   text-align: center;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
+  margin-top: 0;
 }
 
 .hero::before {
@@ -41,6 +42,10 @@
   gap: 1rem;
   animation: titleEntrance 0.8s ease-out;
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  word-break: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  max-width: 100%;
 }
 
 @keyframes titleEntrance {
@@ -87,21 +92,96 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .hero {
-    padding: 3rem 1.5rem;
+    /* Full-bleed design pattern with high specificity */
+    width: 100vw !important;
+    position: relative !important;
+    left: 50% !important;
+    right: 50% !important;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+    padding: 3rem 0 !important;
+    overflow: visible !important;
+    box-sizing: border-box !important;
+  }
+  
+  .heroContent {
+    padding: 0 1rem !important;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0 auto;
   }
   
   .title {
-    font-size: 2.5rem;
+    font-size: 2rem;
     flex-direction: column;
     gap: 0.5rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+    width: 100%;
+    max-width: 100%;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    line-height: 1.2;
+    padding: 0;
   }
   
   .titleIcon {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
   
   .subtitle {
     font-size: 1.1rem;
+    padding: 0 1rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: none;
+    width: 100%;
+    white-space: normal;
+  }
+}
+
+/* Ultra narrow screens */
+@media (max-width: 480px) {
+  .hero {
+    /* Maintain full-bleed on narrow screens */
+    width: 100vw !important;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+    padding: 2rem 0 !important;
+    overflow: visible !important;
+  }
+  
+  .heroContent {
+    padding: 0 0.75rem;
+    max-width: none;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+    word-break: break-word !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    max-width: 100%;
+    line-height: 1.15;
+  }
+  
+  .titleIcon {
+    font-size: 1.8rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+    padding: 0 0.75rem;
+    max-width: none;
+    white-space: normal;
   }
 }
 

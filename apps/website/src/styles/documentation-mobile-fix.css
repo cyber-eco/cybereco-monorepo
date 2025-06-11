@@ -12,6 +12,7 @@
     --spacing-2xl: 2rem;
   }
   
+  
   /* Fix the overly broad section rule - contentSection should NOT be full-bleed */
   div[class*="contentSection"] {
     width: 100% !important;
@@ -34,6 +35,8 @@
     margin: 0 !important;
     width: 100% !important;
     max-width: 100% !important;
+    overflow-y: visible !important;
+    overflow-x: hidden !important;
   }
   
   /* Page headers - centered content without full-bleed */
@@ -101,6 +104,7 @@
     margin-left: -50vw !important;
     margin-right: -50vw !important;
     padding: 3rem 0 !important;
+    margin-top: 0 !important;
   }
   
   /* Only tabs container should be full-bleed */

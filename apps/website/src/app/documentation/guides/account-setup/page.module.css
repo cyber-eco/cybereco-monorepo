@@ -501,7 +501,36 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  /* Remove right padding from containers */
   .container {
+    padding: var(--spacing-lg) 0;
+    padding-left: var(--spacing-md);
+    max-width: 100%;
+    width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .content {
+    padding-right: 0;
+  }
+  
+  .section,
+  .welcomeSection,
+  .troubleshooting,
+  .nextSteps {
+    padding-right: 0;
+  }
+  
+  /* Keep padding on text elements */
+  .content p,
+  .content ul,
+  .content ol,
+  .content .subtitle,
+  .content h1, .content h2, .content h3, .content h4, .content h5, .content h6 {
+    padding-right: var(--spacing-md);
+  }
+  .container {
+    max-width: 100%;
     padding: var(--spacing-lg) var(--spacing-md);
   }
   

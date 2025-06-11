@@ -4,13 +4,16 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 }
 
 /* Hero section is now handled by DocumentationHero component */
 /* Tabs are now handled by DocumentationTabs component */
 
 .tabSection {
-  padding: 1rem 0;
+  padding: 1rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .tabSection h2 {
@@ -803,6 +806,25 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+  .container {
+    overflow: visible !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  .tabSection {
+    padding: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .tabSection h2 {
+    font-size: 1.5rem;
+    word-wrap: break-word;
+  }
+  
   .title {
     font-size: 2rem;
   }

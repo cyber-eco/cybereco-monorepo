@@ -9,6 +9,17 @@
   overflow: hidden;
 }
 
+/* Mobile overflow fix */
+@media (max-width: 768px) {
+  .pageContainer {
+    overflow: visible !important;
+    padding: 1rem 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+}
+
 /* Decorative background gradient */
 .pageContainer::before {
   content: '';
@@ -469,7 +480,7 @@
   gap: var(--spacing-lg);
   max-width: 1400px;
   margin: 0 auto;
-  padding: var(--spacing-lg) var(--spacing-md);
+  padding: calc(var(--header-height, 70px) + var(--spacing-lg)) var(--spacing-md) var(--spacing-lg);
   min-height: calc(100vh - var(--header-height) - var(--footer-height));
   position: relative;
 }
@@ -525,11 +536,11 @@
   border: 1px solid var(--border);
   height: fit-content;
   position: sticky;
-  top: var(--spacing-md);
+  top: calc(var(--header-height, 70px) + var(--spacing-md));
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
   transition: all 0.3s ease;
   overflow: visible;
-  max-height: calc(100vh - var(--spacing-xl));
+  max-height: calc(100vh - var(--header-height, 70px) - var(--spacing-xl));
   overflow-y: auto;
 }
 
@@ -1035,11 +1046,18 @@
 
 @media (max-width: 768px) {
   .pageHeader {
-    padding: var(--spacing-lg) var(--spacing-md);
+    padding: var(--spacing-lg) 0 !important;
+    margin: 0 !important;
+    background: none !important;
+    border-radius: 0 !important;
   }
 
   .title {
-    font-size: 2rem;
+    font-size: 2rem !important;
+    padding: 0 1rem !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    white-space: normal !important;
   }
 
   .title::before {
@@ -1047,7 +1065,32 @@
   }
 
   .subtitle {
-    font-size: 1.1rem;
+    font-size: 1.1rem !important;
+    padding: 0 1rem !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+  
+  .contentSection {
+    margin: 0 0 1rem 0 !important;
+    padding: 1rem !important;
+    border-radius: 0 !important;
+    background: var(--surface) !important;
+  }
+  
+  .contentText {
+    padding: 0 !important;
+    margin: 0 0 1rem 0 !important;
+  }
+  
+  .conceptList {
+    padding-left: 1.5rem !important;
+    margin: 0 !important;
+  }
+  
+  .conceptList li {
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
   }
 
   .docGrid {
@@ -1064,7 +1107,15 @@
 
   .documentationLayout {
     grid-template-columns: 1fr;
-    padding: var(--spacing-md);
+    padding: calc(var(--header-height, 70px) + 1rem) 0 1rem;
+    overflow-x: hidden;
+  }
+  
+  .mainContent {
+    overflow-x: hidden;
+    padding: 0;
+    width: 100%;
+    margin: 0;
   }
 
   .sidebar {
@@ -3395,10 +3446,285 @@
     display: none;
   }
   
-  /* Adjust comparison row for very small screens */
-  @media (max-width: 480px) {
-    .comparisonRow {
-      grid-template-columns: 1fr;
-    }
+  /* Additional mobile adjustments */
+  .cardGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .featureGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .gridThreeColumns {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .apiGrid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  /* Typography adjustments */
+  .title {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .subTitle {
+    font-size: 1.5rem;
+    word-break: break-word;
+  }
+
+  .sectionTitle {
+    font-size: 1.25rem;
+  }
+
+  /* Card adjustments */
+  .docCard {
+    padding: 1.25rem;
+  }
+
+  .docCard h3 {
+    font-size: 1.1rem;
+  }
+
+  .featureCard {
+    padding: 1.5rem;
+  }
+
+  /* Code blocks */
+  .codeBlock {
+    margin: 1rem -1rem;
+    border-radius: 0;
+  }
+
+  .codeBlock pre {
+    font-size: 0.8rem;
+    padding: 1rem;
+    overflow-x: auto;
+  }
+
+  .apiEndpoint {
+    font-size: 0.875rem;
+    word-break: break-all;
+  }
+
+  /* Content sections */
+  .contentSection {
+    padding: 2rem 1rem;
+  }
+
+  .pageContainer {
+    padding: 1rem;
+  }
+
+  .pageHeader {
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+
+  /* Tables */
+  .dataTable {
+    font-size: 0.875rem;
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .dataTable th,
+  .dataTable td {
+    padding: 0.5rem;
+    white-space: nowrap;
+  }
+
+  /* Info boxes */
+  .infoBox,
+  .warningBox,
+  .successBox {
+    padding: 1rem;
+    margin: 1rem 0;
+  }
+
+  /* Hero sections */
+  .hero {
+    padding: 3rem 1rem;
+  }
+
+  .heroTitle {
+    font-size: 2rem;
+  }
+
+  /* Lists within content */
+  .content ul,
+  .content ol,
+  .section ul,
+  .section ol,
+  .contentSection ul,
+  .contentSection ol {
+    padding-left: 1.5rem;
+  }
+
+  /* Spacing adjustments */
+  .section {
+    margin-bottom: 2rem;
+  }
+
+  /* Overflow handling for all content */
+  .pageContainer,
+  .pageContainer *,
+  .content,
+  .content *,
+  .section,
+  .section * {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+}
+
+/* Adjust comparison row for very small screens */
+@media (max-width: 480px) {
+  .comparisonRow {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Ultra narrow screen adjustments */
+  .pageContainer {
+    padding: 0.75rem;
+  }
+  
+  .pageHeader {
+    padding: 1.5rem 0.75rem;
+  }
+  
+  .title {
+    font-size: 1.75rem;
+  }
+  
+  .subtitle {
+    font-size: 0.95rem;
+  }
+  
+  .subTitle {
+    font-size: 1.25rem;
+  }
+  
+  .docCard {
+    padding: 1rem;
+  }
+  
+  .docCard h3 {
+    font-size: 1rem;
+  }
+  
+  .cardIcon {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  /* Code blocks on mobile */
+  .codeBlock {
+    margin: 0.75rem -0.75rem;
+  }
+  
+  .codeBlock pre {
+    font-size: 0.75rem;
+    padding: 0.75rem;
+  }
+  
+  /* Buttons and links */
+  .docCard,
+  .featureCard {
+    min-height: auto;
+  }
+  
+  /* Tables */
+  .dataTable {
+    font-size: 0.8rem;
+  }
+  
+  .dataTable th,
+  .dataTable td {
+    padding: 0.375rem;
+  }
+  
+  /* Info boxes */
+  .infoBox,
+  .warningBox,
+  .successBox {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+  
+  /* Spacing */
+  .contentSection {
+    padding: 1.5rem 0.75rem;
+  }
+  
+  .section {
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Lists within content */
+  .content ul,
+  .content ol,
+  .section ul,
+  .section ol,
+  .contentSection ul,
+  .contentSection ol {
+    padding-left: 1.25rem;
+    font-size: 0.95rem;
+  }
+  
+  /* Hide decorative elements */
+  .decorativeBlur,
+  .backgroundPattern {
+    display: none;
+  }
+}
+
+/* Additional mobile optimizations */
+@media (max-width: 768px) {
+  /* Fix for documentation pages */
+  .container {
+    width: 100%;
+    overflow-x: hidden;
+  }
+  
+  /* Tab navigation fixes */
+  .tabs {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Content width restrictions */
+  .content,
+  .section,
+  .tabSection {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+  
+  /* Code blocks on mobile */
+  .codeBlock pre,
+  .codeContent pre {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+  
+  /* Images responsive */
+  .content img,
+  .section img {
+    max-width: 100%;
+    height: auto;
   }
 }

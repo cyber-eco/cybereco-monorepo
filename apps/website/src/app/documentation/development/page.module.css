@@ -145,6 +145,36 @@
 }
 
 @media (max-width: 768px) {
+  /* Remove right padding from containers */
+  .pageContainer {
+    padding: var(--spacing-lg) 0;
+    padding-left: var(--spacing-md);
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .developmentContent {
+    padding-right: 0;
+  }
+  
+  .section {
+    width: 100vw !important;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+    padding: var(--spacing-lg) 0 !important;
+  }
+  
+  /* Keep padding on text elements */
+  .section p,
+  .subtitle,
+  .stepDescription,
+  .prerequisitesList {
+    padding-right: var(--spacing-md);
+  }
+  
   .title {
     font-size: 2rem;
   }
@@ -159,5 +189,20 @@
 
   .linkGrid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .pageContainer {
+    padding: var(--spacing-md) 0;
+    padding-left: var(--spacing-sm);
+  }
+  
+  .title {
+    font-size: 1.75rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
   }
 }

@@ -665,6 +665,7 @@
 @media (max-width: 768px) {
   .container {
     padding: var(--spacing-lg) var(--spacing-md);
+    max-width: 100%;
   }
   
   .content {

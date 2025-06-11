@@ -2019,6 +2019,8 @@
     "privacyDesc": "Manage your privacy",
     "loggingTitle": "Auth Logging",
     "loggingDesc": "Security audit logs",
+    "exportTitle": "Data Export",
+    "exportDesc": "Export your personal data",
     "popularTitle": "Popular Topics",
     "popular1": "Create Your First Account",
     "popular1Desc": "Get started with CyberEco",

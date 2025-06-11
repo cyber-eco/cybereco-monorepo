@@ -650,11 +650,34 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .container {
-    padding: var(--spacing-lg) var(--spacing-md);
+    padding: var(--spacing-lg) 0;
+    padding-left: var(--spacing-md);
+    max-width: 100%;
+    width: 100%;
+    overflow-x: hidden;
   }
   
   .content {
-    padding: var(--spacing-lg);
+    padding: var(--spacing-lg) 0;
+    padding-left: var(--spacing-lg);
+  }
+  
+  /* Remove right padding from sections */
+  .section,
+  .overview,
+  .features,
+  .offlineCapabilities,
+  .nextSteps {
+    padding-right: 0;
+  }
+  
+  /* Keep padding on text elements */
+  .content p,
+  .content ul,
+  .content ol,
+  .subtitle,
+  .description {
+    padding-right: var(--spacing-md);
   }
   
   .guideMeta {
@@ -664,6 +687,13 @@
   
   .platformSupport {
     grid-template-columns: 1fr;
+    width: 100vw !important;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+    padding: 0 var(--spacing-md) !important;
   }
   
   .featureItem {
@@ -690,6 +720,15 @@
 }
 
 @media (max-width: 480px) {
+  .container {
+    padding: var(--spacing-md) 0;
+    padding-left: var(--spacing-sm);
+  }
+  
+  .content {
+    padding: var(--spacing-md) 0;
+    padding-left: var(--spacing-md);
+  }
   .featureContent h3 {
     font-size: var(--font-size-base);
   }

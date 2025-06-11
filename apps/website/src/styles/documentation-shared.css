@@ -249,11 +249,20 @@
 /* Responsive */
 @media (max-width: 768px) {
   .doc-page-header {
-    padding: 3rem 1.5rem;
+    padding: 3rem 1rem;
+    word-wrap: break-word;
   }
 
   .doc-page-header h1 {
     font-size: 2rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  .doc-page-header p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    padding: 0 0.5rem;
   }
 
   .doc-grid-2,
@@ -263,7 +272,23 @@
   }
 
   .doc-content-section {
-    padding: 0 1.5rem;
+    padding: 0 1rem;
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .doc-section-title {
+    font-size: 1.5rem;
+    word-wrap: break-word;
+  }
+  
+  /* Ensure all text content wraps */
+  .doc-card h3,
+  .doc-card p,
+  .doc-quick-start-card h3,
+  .doc-quick-start-card p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 }
 

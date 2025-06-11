@@ -4,6 +4,19 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Ensure content doesn't overflow on mobile */
+@media (max-width: 768px) {
+  .pageContainer {
+    overflow: visible !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
 }
 
 /* Hero section is now handled by DocumentationHero component */
@@ -312,7 +325,8 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .pageHeader {
-    padding: var(--spacing-lg) var(--spacing-md);
+    padding: var(--spacing-lg) var(--spacing-sm);
+    margin: 0 var(--spacing-sm);
   }
 
   .title {
@@ -324,11 +338,22 @@
   }
 
   .contentSection {
-    padding: var(--spacing-lg);
+    padding: 1rem;
+    margin: 0 0 1rem 0;
+    box-sizing: border-box;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
   }
 
   .sectionTitle {
     font-size: 1.5rem;
+    word-wrap: break-word;
+  }
+
+  .contentText {
+    font-size: 1rem;
+    word-wrap: break-word;
   }
 
   .principleList li {
@@ -349,5 +374,35 @@
   .ctaButtonSecondary {
     width: 100%;
     max-width: 300px;
+  }
+
+  .alertBox {
+    padding: var(--spacing-md);
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .quote {
+    font-size: 1.1rem;
+  }
+}
+
+/* Ultra narrow screens */
+@media (max-width: 480px) {
+  .contentSection {
+    padding: var(--spacing-sm);
+  }
+  
+  .sectionTitle {
+    font-size: 1.25rem;
+  }
+  
+  .contentText {
+    font-size: 0.95rem;
+  }
+  
+  .principleCard,
+  .visionCard {
+    padding: var(--spacing-sm);
   }
 }

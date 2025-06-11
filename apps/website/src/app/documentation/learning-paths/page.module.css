@@ -155,6 +155,11 @@
 }
 
 @media (max-width: 768px) {
+  .pageContainer {
+    max-width: 100%;
+    padding: 1rem;
+  }
+  
   .title {
     font-size: 2rem;
   }

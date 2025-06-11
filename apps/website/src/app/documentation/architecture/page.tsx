@@ -12,9 +12,8 @@ export default function ArchitecturePage() {
   const { t } = useI18n();
 
   const renderOverviewTab = () => (
-    <>
-      <div className={styles.architectureContent}>
-        <section className={styles.section}>
+    <div className={styles.architectureContent}>
+        <div className={styles.section}>
           <h2><FaLayerGroup /> {t('documentation:architecture.monorepo.title') || 'Monorepo Structure'}</h2>
           <p>
             {t('documentation:architecture.monorepo.description') || 'CyberEco uses an NX-powered monorepo architecture that enables code sharing, consistent tooling, and efficient builds across all applications.'}
@@ -50,16 +49,14 @@ export default function ArchitecturePage() {
               </div>
             </div>
           </div>
-        </section>
-      </div>
-    </>
+        </div>
+    </div>
   );
 
   const renderPrinciplesTab = () => (
-    <>
-      <div className={styles.architectureContent}>
+    <div className={styles.architectureContent}>
 
-        <section className={styles.section}>
+        <div className={styles.section}>
           <h2><FaProjectDiagram /> {t('documentation:architecture.principles.title') || 'Key Design Principles'}</h2>
           <div className={styles.principlesGrid}>
             <div className={styles.principle}>
@@ -79,16 +76,14 @@ export default function ArchitecturePage() {
               <p>{t('documentation:architecture.principles.openStandards.description') || 'Using open protocols and standards for interoperability'}</p>
             </div>
           </div>
-        </section>
-      </div>
-    </>
+        </div>
+    </div>
   );
 
   const renderTechnicalStackTab = () => (
-    <>
-      <div className={styles.architectureContent}>
+    <div className={styles.architectureContent}>
 
-        <section className={styles.section}>
+        <div className={styles.section}>
           <h2><FaServer /> {t('documentation:architecture.technicalStack.title') || 'Technical Stack'}</h2>
           <div className={styles.stackGrid}>
             <div className={styles.stackItem}>
@@ -119,15 +114,13 @@ export default function ArchitecturePage() {
               </ul>
             </div>
           </div>
-        </section>
-      </div>
-    </>
+        </div>
+    </div>
   );
 
   const renderIntegrationTab = () => (
-    <>
-      <div className={styles.architectureContent}>
-        <section className={styles.section}>
+    <div className={styles.architectureContent}>
+        <div className={styles.section}>
           <h2>{t('documentation:architecture.integration.title') || 'Integration Patterns'}</h2>
           <p>{t('documentation:architecture.integration.description') || 'Learn how CyberEco applications integrate and communicate with each other.'}</p>
           
@@ -142,16 +135,14 @@ export default function ArchitecturePage() {
           
           <h3>{t('documentation:architecture.integration.apis.title') || 'REST APIs'}</h3>
           <p>{t('documentation:architecture.integration.apis.description') || 'Well-documented REST APIs allow external integrations and cross-application data access.'}</p>
-        </section>
-      </div>
-    </>
+        </div>
+    </div>
   );
 
   const renderResourcesTab = () => (
-    <>
-      <div className={styles.architectureContent}>
+    <div className={styles.architectureContent}>
 
-        <section className={styles.section}>
+        <div className={styles.section}>
           <h2>{t('documentation:architecture.relatedDocumentation.title') || 'Related Documentation'}</h2>
           <div className={styles.linkGrid}>
             <Link href="/documentation/data-architecture" className={styles.docLink}>
@@ -183,9 +174,9 @@ export default function ArchitecturePage() {
               </div>
             </Link>
           </div>
-        </section>
+        </div>
 
-        <section className={styles.section}>
+        <div className={styles.section}>
           <h2>{t('documentation:architecture.resources.title') || 'Additional Resources'}</h2>
           <ul className={styles.resourcesList}>
             <li>
@@ -213,9 +204,8 @@ export default function ArchitecturePage() {
               <span className={styles.resourceDesc}> - {t('documentation:architecture.resources.contributingDesc') || 'Learn how to contribute to CyberEco'}</span>
             </li>
           </ul>
-        </section>
-      </div>
-    </>
+        </div>
+    </div>
   );
 
   const tabs: Tab[] = [

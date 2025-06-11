@@ -547,7 +547,11 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .pageContainer {
-    padding: var(--spacing-md);
+    max-width: 100%;
+    padding: 1rem 0;
+    overflow: visible; /* Allow all content to extend beyond container */
+    position: relative;
+    width: 100%;
   }
 
   .title {
@@ -556,6 +560,15 @@
 
   .title::before {
     display: none;
+  }
+
+  .architectureContent {
+    width: 100%;
+    overflow-x: visible; /* Changed from hidden to visible */
+    padding: 0; /* No padding - handled by parent */
+    gap: 0; /* Remove gap to use margin from sections */
+    box-sizing: border-box;
+    margin: 0 -1rem; /* Negative margins to extend sections */
   }
 
   .components {
@@ -573,7 +586,88 @@
   }
 
   .section {
-    padding: var(--spacing-md);
+    background: rgba(255, 255, 255, 0.05); /* Lighter background for dark mode */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    overflow-x: hidden;
+    margin: 0 0 1rem 0;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .diagramContainer {
+    width: 100%;
+    overflow-x: auto;
+  }
+  
+  /* Ensure code blocks don't overflow */
+  .codeBlock pre,
+  .section pre {
+    overflow-x: auto;
+    max-width: 100%;
+  }
+}
+
+/* Ultra narrow screens */
+@media (max-width: 480px) {
+  .pageContainer {
+    padding: 0;
+    /* Allow content to extend beyond container */
+    overflow: visible;
+    width: 100%;
+    max-width: 100vw;
+  }
+  
+  .pageHeader {
+    padding: 1.5rem 0.75rem;
+  }
+  
+  .title {
+    font-size: 1.75rem;
+    word-break: break-word;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+  
+  .architectureContent {
+    padding: 0; /* No padding on ultra narrow screens */
+    overflow-x: visible;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 -0.75rem; /* Match container negative margins */
+  }
+  
+  .section {
+    padding: 1rem;
+    margin: 0 0 0.75rem 0;
+    width: 100%;
+    border-radius: 0;
+    background: rgba(255, 255, 255, 0.05);
+    box-sizing: border-box;
+  }
+  
+  .layer {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .component {
+    padding: 0.75rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Ensure DocumentationTabs can extend beyond container */
+@media (max-width: 768px) {
+  /* Target the documentation tabs wrapper directly */
+  .pageContainer :global(.documentation-tabs-wrapper) {
+    margin: 0;
+    width: 100%;
   }
 }
 

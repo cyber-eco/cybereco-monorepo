@@ -1030,13 +1030,38 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+  .container {
+    overflow: visible !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  .hero {
+    padding: 3rem 1rem;
+  }
+  
   .title {
     font-size: 2.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .executiveSummary {
+    max-width: 100%;
+    padding: 2rem 1rem;
+    margin: 2rem 1rem;
   }
   
   .tabs {
     gap: 1rem;
     padding: 1rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .content {
+    padding: 2rem 1rem;
   }
   
   .comparisonGrid {
@@ -1066,5 +1091,64 @@
   
   .impactGrid {
     grid-template-columns: 1fr;
+  }
+  
+  /* Code blocks */
+  .codeBlock {
+    margin: 1rem -1rem;
+  }
+  
+  .codeContent {
+    padding: 1rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Ultra narrow screens */
+@media (max-width: 480px) {
+  .hero {
+    padding: 2rem 0.75rem;
+  }
+  
+  .title {
+    font-size: 1.75rem;
+  }
+  
+  .titleIcon {
+    font-size: 2rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+  
+  .executiveSummary {
+    padding: 1.5rem 0.75rem;
+    margin: 1rem 0.5rem;
+  }
+  
+  .summaryText {
+    font-size: 1rem;
+  }
+  
+  .content {
+    padding: 1rem 0.75rem;
+  }
+  
+  .tabSection h2 {
+    font-size: 1.75rem;
+  }
+  
+  .featureGrid {
+    gap: 1rem;
+  }
+  
+  .featureCard {
+    padding: 1.5rem;
+  }
+  
+  .tokenGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 }

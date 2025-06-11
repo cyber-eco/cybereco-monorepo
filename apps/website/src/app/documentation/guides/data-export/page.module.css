@@ -988,6 +988,7 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .container {
+    max-width: 100%;
     padding: var(--spacing-lg) var(--spacing-md);
   }
   

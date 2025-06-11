@@ -1,70 +1,128 @@
-/* Unified Documentation Tabs */
+/* Unified Documentation Tabs - Enhanced with Data Architecture Style */
 .tabsContainer {
   width: 100%;
+  position: relative;
 }
 
-/* Tabs Navigation */
+/* Tabs Navigation - Enhanced Style */
 .tabs {
   display: flex;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 1rem;
   padding: 2rem 1rem;
-  background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--glass-border);
+  background: transparent;
+  border-bottom: none;
   flex-wrap: wrap;
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+/* Add bottom border line */
+.tabs::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 1rem;
+  right: 1rem;
+  height: 1px;
+  background: var(--border-color, rgba(139, 92, 246, 0.2));
+  z-index: 0;
 }
 
 .tab {
-  padding: 0.75rem 1.5rem;
+  padding: 1rem 2rem;
   border: none;
   background: transparent;
-  color: var(--text-secondary);
-  font-size: 1rem;
-  font-weight: 500;
+  color: var(--text-secondary, #6b7280);
+  font-size: 1.1rem;
+  font-weight: 600;
   cursor: pointer;
-  border-radius: 8px;
-  transition: all 0.3s ease;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   white-space: nowrap;
+  z-index: 1;
+}
+
+/* Add hover background effect */
+.tab::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--primary-color, #8b5cf6) 0%, var(--secondary-color, #7c3aed) 100%);
+  border-radius: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
 }
 
 .tab:hover {
-  color: var(--primary-color);
-  background: rgba(139, 92, 246, 0.1);
+  color: var(--primary-color, #8b5cf6);
+  transform: translateY(-2px);
+}
+
+.tab:hover::before {
+  opacity: 0.1;
+}
+
+/* Light mode specific hover */
+:global([data-theme="light"]) .tab {
+  color: #374151;
+}
+
+:global([data-theme="light"]) .tab:hover {
+  color: #7c3aed;
+}
+
+:global([data-theme="light"]) .tab:hover::before {
+  opacity: 0.08;
 }
 
 .activeTab {
-  color: var(--primary-color);
+  color: var(--primary-color, #8b5cf6);
   background: rgba(139, 92, 246, 0.1);
+}
+
+/* Light mode active tab */
+:global([data-theme="light"]) .activeTab {
+  color: #7c3aed;
+  background: rgba(124, 58, 237, 0.12);
+}
+
+/* Dark mode improvements */
+:global([data-theme="dark"]) .tabs {
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+:global([data-theme="dark"]) .tab {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+:global([data-theme="dark"]) .tab:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+:global([data-theme="dark"]) .activeTab {
+  background: rgba(139, 92, 246, 0.2);
+  color: #a78bfa;
 }
 
 .activeTab::after {
   content: '';
   position: absolute;
-  bottom: -2px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 40px;
-  height: 3px;
-  background: var(--primary-color);
+  bottom: -2rem;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color, #8b5cf6) 0%, var(--secondary-color, #7c3aed) 100%);
   border-radius: 2px;
-  animation: slideIn 0.3s ease;
+  animation: expandWidth 0.4s ease-out;
 }
 
-@keyframes slideIn {
-  from {
-    width: 0;
-    opacity: 0;
-  }
-  to {
-    width: 40px;
-    opacity: 1;
-  }
+@keyframes expandWidth {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
 }
 
 /* Content Area */
@@ -77,13 +135,13 @@
 }
 
 .section {
-  animation: fadeIn 0.5s ease-in;
+  animation: fadeInUp 0.6s ease;
 }
 
-@keyframes fadeIn {
+@keyframes fadeInUp {
   from { 
     opacity: 0; 
-    transform: translateY(20px); 
+    transform: translateY(30px); 
   }
   to { 
     opacity: 1; 
@@ -118,55 +176,225 @@
   margin-bottom: 1.5rem;
 }
 
-/* Responsive Design */
+/* Enhanced Mobile Responsiveness */
 @media (max-width: 768px) {
-  .tabs {
-    padding: 1rem 0.5rem;
-    gap: 0.25rem;
-    justify-content: flex-start;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+  .tabsContainer {
+    /* Full-bleed design pattern */
+    width: 100vw !important;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+    padding: 0 !important;
+    overflow: visible;
   }
   
+  /* Override the bottom border line for mobile */
+  .tabs::after {
+    display: none; /* Hide the decorative line on mobile */
+  }
+  
+  .tabs {
+    margin: 0 !important;
+    padding: 1rem !important;
+    gap: 0.5rem;
+    justify-content: flex-start;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    margin-bottom: 1rem !important;
+    flex-wrap: nowrap;
+    scroll-behavior: smooth;
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Visual hint for scrollable tabs */
+  .tabs {
+    position: relative;
+  }
+  
+  /* Add scroll indicator gradient */
+  .tabs::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 30px;
+    background: linear-gradient(to right, transparent, var(--background));
+    pointer-events: none;
+    display: block;
+    z-index: 1;
+  }
+  
+  /* Note: .tabs::after is now used for scroll indicator */
+  
   .tabs::-webkit-scrollbar {
-    height: 4px;
+    height: 6px;
   }
   
   .tabs::-webkit-scrollbar-track {
-    background: var(--glass-bg);
+    background: rgba(0, 0, 0, 0.1);
   }
   
   .tabs::-webkit-scrollbar-thumb {
-    background: var(--primary-color);
-    border-radius: 2px;
+    background: var(--primary-color, #8b5cf6);
+    border-radius: 3px;
   }
   
   .tab {
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+    flex: 0 0 auto; /* Prevent shrinking */
+    white-space: nowrap;
+    /* Ensure tabs maintain minimum width */
+    min-width: 120px;
+    display: inline-block;
+  }
+  
+  .activeTab::after {
+    bottom: -0.5rem;
+    height: 3px;
+    left: 10%;
+    right: 10%;
   }
   
   .content {
-    padding: 1rem;
+    padding: 0 !important;
+    overflow-x: visible;
+    width: 100%;
+    max-width: 100% !important;
+    box-sizing: border-box;
+  }
+  
+  .section {
+    padding: 0; /* Let architecture sections handle padding */
   }
   
   .tabSection h2 {
     font-size: 1.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .tabSection h3 {
+    font-size: 1.25rem;
+  }
+}
+
+/* Ultra narrow screens (phones in portrait) */
+@media (max-width: 480px) {
+  .tabsContainer {
+    /* Maintain full-bleed on narrow screens */
+    width: 100vw !important;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+  }
+  
+  .tabs {
+    margin: 0;
+    padding: 0.75rem; /* Consistent padding */
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .tab {
+    padding: 0.6rem 1rem;
+    font-size: 0.875rem;
+    border-radius: 8px;
+    min-width: 100px;
+    flex: 0 0 auto;
+  }
+  
+  .activeTab::after {
+    bottom: -0.25rem;
+  }
+  
+  .content {
+    padding: 0;
+    max-width: none !important;
+  }
+  
+  .content {
+    padding: 0 !important;
+    min-height: calc(100vh - 200px);
+    box-sizing: border-box;
+    width: 100%;
+  }
+  
+  .tabSection h2 {
+    font-size: 1.25rem;
+    gap: 0.5rem;
+  }
+  
+  .tabSection h3 {
+    font-size: 1.1rem;
+  }
+  
+  .tabSection p {
+    font-size: 0.95rem;
+    line-height: 1.6;
   }
 }
 
 /* Dark mode adjustments */
 @media (prefers-color-scheme: dark) {
-  .tabs {
-    background: rgba(30, 30, 30, 0.8);
-    border-bottom-color: rgba(255, 255, 255, 0.1);
+  .tabs::after {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .tab {
+    color: rgba(255, 255, 255, 0.7);
   }
   
   .tab:hover {
-    background: rgba(139, 92, 246, 0.15);
+    color: rgba(255, 255, 255, 0.95);
   }
   
   .activeTab {
-    background: rgba(139, 92, 246, 0.2);
+    color: #fff;
+    background: rgba(139, 92, 246, 0.15);
   }
+}
+
+/* Light mode adjustments */
+@media (prefers-color-scheme: light) {
+  .tabs::after {
+    background: rgba(0, 0, 0, 0.1);
+  }
+  
+  .tab {
+    color: #4b5563; /* Darker gray for better contrast */
+  }
+  
+  .tab:hover {
+    color: #1f2937; /* Even darker on hover */
+  }
+  
+  .activeTab {
+    color: #7c3aed;
+    background: rgba(124, 58, 237, 0.1); /* Ensure background is visible */
+  }
+}
+
+/* Explicit light mode class */
+:global(.light) .tab {
+  color: #4b5563;
+}
+
+:global(.light) .tab:hover {
+  color: #1f2937;
+}
+
+:global(.light) .activeTab {
+  color: #7c3aed;
+  background: rgba(124, 58, 237, 0.1);
 }

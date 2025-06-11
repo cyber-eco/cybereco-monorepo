@@ -8,4 +8,15 @@
 
 /* Hero section is now handled by DocumentationHero component */
 
+/* Mobile styles */
+@media (max-width: 768px) {
+  .container {
+    overflow: visible !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
 /* The rest of the portfolio page uses styles from ../page.module.css */
