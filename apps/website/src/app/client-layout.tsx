@@ -40,17 +40,18 @@ export default function ClientLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // Get saved language preference from localStorage
-  const [defaultLanguage, setDefaultLanguage] = React.useState<'en' | 'es'>('en');
-  
-  React.useEffect(() => {
+  // Get saved language preference from localStorage - use a function to get initial value
+  const getInitialLanguage = (): 'en' | 'es' => {
     if (typeof window !== 'undefined') {
       const savedLanguage = localStorage.getItem('cybereco-language');
       if (savedLanguage === 'es' || savedLanguage === 'en') {
-        setDefaultLanguage(savedLanguage);
+        return savedLanguage;
       }
     }
-  }, []);
+    return 'en';
+  };
+  
+  const [defaultLanguage] = React.useState<'en' | 'es'>(getInitialLanguage);
   
   return (
     <ThemeProvider>
@@ -58,7 +59,7 @@ export default function ClientLayout({
         defaultLanguage={defaultLanguage}
         fallbackLanguage="en"
         supportedLanguages={['en', 'es']}
-        namespaces={['common', 'documentation', 'home', 'portfolio', 'about', 'help']}
+        namespaces={['common', 'documentation', 'home', 'portfolio', 'about', 'help', 'philosophy', 'vision', 'roadmap', 'faq', 'contact', 'privacy', 'terms', 'support', 'status', 'guides', 'learning-paths']}
       >
         <ClientLayoutContent>{children}</ClientLayoutContent>
       </I18nProvider>
