@@ -1,0 +1,152 @@
+/* Documentation Mobile Fix - Clean and Targeted */
+/* This file provides clean mobile styles for documentation pages */
+
+@media (max-width: 768px) {
+  /* Override CSS variables for better mobile spacing */
+  :root {
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 0.75rem;
+    --spacing-lg: 1rem;
+    --spacing-xl: 1.5rem;
+    --spacing-2xl: 2rem;
+  }
+  
+  /* Fix the overly broad section rule - contentSection should NOT be full-bleed */
+  div[class*="contentSection"] {
+    width: 100% !important;
+    position: static !important;
+    left: auto !important;
+    right: auto !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 1rem !important;
+    margin-top: 0 !important;
+    margin-bottom: 1rem !important;
+    border-radius: 0 !important;
+    border-left: none !important;
+    border-right: none !important;
+  }
+  
+  /* Page containers should have no padding */
+  div[class*="pageContainer"] {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  /* Page headers - centered content without full-bleed */
+  div[class*="pageHeader"] {
+    padding: 1.5rem 0 !important;
+    margin: 0 !important;
+    background: none !important;
+    border-radius: 0 !important;
+    text-align: center !important;
+  }
+  
+  /* Titles and subtitles with proper padding */
+  h1[class*="title"] {
+    font-size: 1.75rem !important;
+    padding: 0 1rem !important;
+    margin: 0 0 1rem 0 !important;
+    word-break: break-word !important;
+    line-height: 1.2 !important;
+  }
+  
+  p[class*="subtitle"] {
+    font-size: 1rem !important;
+    padding: 0 1rem !important;
+    margin: 0 !important;
+  }
+  
+  /* Content text */
+  div[class*="contentSection"] p,
+  p[class*="contentText"] {
+    padding: 0 !important;
+    margin: 0 0 0.75rem 0 !important;
+    font-size: 0.95rem !important;
+  }
+  
+  /* Lists */
+  ul[class*="conceptList"],
+  div[class*="contentSection"] ul {
+    padding-left: 1.25rem !important;
+    margin: 0 !important;
+  }
+  
+  ul[class*="conceptList"] li,
+  div[class*="contentSection"] li {
+    padding-left: 0 !important;
+    padding-right: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+    font-size: 0.9rem !important;
+  }
+  
+  /* Subtitles within sections */
+  h3[class*="subTitle"],
+  div[class*="contentSection"] h3 {
+    font-size: 1.15rem !important;
+    margin: 0 0 0.75rem 0 !important;
+    padding: 0 !important;
+  }
+  
+  /* Only hero sections should be full-bleed */
+  div[data-documentation-hero],
+  div[class*="hero"]:not([class*="heroContent"]) {
+    width: 100vw !important;
+    position: relative !important;
+    left: 50% !important;
+    right: 50% !important;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+    padding: 3rem 0 !important;
+  }
+  
+  /* Only tabs container should be full-bleed */
+  div[data-documentation-tabs],
+  div[class*="tabsContainer"]:not([class*="content"]) {
+    width: 100vw !important;
+    position: relative !important;
+    left: 50% !important;
+    right: 50% !important;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+    padding: 0 !important;
+  }
+  
+  /* Tab content should NOT be full-bleed */
+  div[class*="tabContent"],
+  div[data-tab-panel] {
+    width: 100% !important;
+    position: static !important;
+    left: auto !important;
+    right: auto !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 1.5rem 1rem !important;
+  }
+}
+
+/* Ultra narrow screens */
+@media (max-width: 480px) {
+  :root {
+    --spacing-lg: 0.75rem;
+    --spacing-xl: 1rem;
+    --spacing-2xl: 1.5rem;
+  }
+  
+  div[class*="contentSection"] {
+    padding: 0.75rem !important;
+  }
+  
+  h1[class*="title"] {
+    font-size: 1.5rem !important;
+    padding: 0 0.75rem !important;
+  }
+  
+  p[class*="subtitle"] {
+    padding: 0 0.75rem !important;
+    font-size: 0.9rem !important;
+  }
+}

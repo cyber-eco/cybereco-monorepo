@@ -1,0 +1,166 @@
+/* Code Block Mobile Styles */
+
+@media (max-width: 768px) {
+  /* Code Blocks */
+  pre,
+  code[class*="block"],
+  div[class*="codeBlock"],
+  div[class*="CodeBlock"] {
+    font-size: 0.875rem !important;
+    line-height: 1.5 !important;
+    padding: 1rem !important;
+    margin: 1rem 0 !important;
+    border-radius: 8px !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    max-width: 100vw !important;
+    position: relative !important;
+  }
+
+  /* Code container */
+  div[class*="codeContainer"],
+  div[class*="codeSection"] {
+    margin: 1rem -1rem !important;
+    border-radius: 0 !important;
+  }
+
+  /* Inline code */
+  code:not([class*="block"]) {
+    font-size: 0.85em !important;
+    padding: 0.2em 0.4em !important;
+    border-radius: 3px !important;
+    word-break: break-word !important;
+  }
+
+  /* Code title/header */
+  div[class*="codeTitle"],
+  div[class*="codeHeader"] {
+    font-size: 0.9rem !important;
+    padding: 0.75rem 1rem !important;
+    margin: 0 !important;
+    border-radius: 8px 8px 0 0 !important;
+  }
+
+  /* Line numbers */
+  .line-numbers,
+  div[class*="lineNumbers"] {
+    display: none !important; /* Hide on mobile to save space */
+  }
+
+  /* Copy button */
+  button[class*="copy"],
+  .copy-button {
+    position: absolute !important;
+    top: 0.5rem !important;
+    right: 0.5rem !important;
+    padding: 0.5rem !important;
+    font-size: 0.75rem !important;
+    min-height: 32px !important;
+    min-width: 32px !important;
+  }
+
+  /* Syntax highlighting adjustments */
+  pre code {
+    display: block !important;
+    overflow-x: auto !important;
+    white-space: pre !important;
+    word-wrap: normal !important;
+    padding: 0 !important;
+  }
+
+  /* Terminal/console blocks */
+  div[class*="terminal"],
+  div[class*="console"] {
+    font-size: 0.8rem !important;
+    padding: 0.75rem !important;
+  }
+
+  /* Diff blocks */
+  .diff-addition,
+  div[class*="diffAddition"] {
+    background-color: rgba(46, 160, 67, 0.15) !important;
+  }
+
+  .diff-deletion,
+  div[class*="diffDeletion"] {
+    background-color: rgba(248, 81, 73, 0.15) !important;
+  }
+
+  /* Code tabs */
+  div[class*="codeTabs"] {
+    margin: 1rem 0 !important;
+  }
+
+  div[class*="codeTab"] {
+    font-size: 0.85rem !important;
+    padding: 0.5rem 0.75rem !important;
+  }
+
+  /* Horizontal scroll indicator */
+  pre::after {
+    content: '→';
+    position: absolute;
+    right: 0.5rem;
+    bottom: 0.5rem;
+    opacity: 0.3;
+    font-size: 1.2rem;
+    display: none;
+  }
+
+  pre:hover::after {
+    display: block;
+  }
+}
+
+/* Ultra narrow screens */
+@media (max-width: 480px) {
+  /* Even smaller code font */
+  pre,
+  code[class*="block"] {
+    font-size: 0.8rem !important;
+    padding: 0.75rem !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Inline code */
+  code:not([class*="block"]) {
+    font-size: 0.8em !important;
+    padding: 0.1em 0.3em !important;
+  }
+
+  /* Full width code blocks */
+  div[class*="codeContainer"],
+  div[class*="codeSection"] {
+    margin: 1rem -0.75rem !important;
+  }
+}
+
+/* Dark mode adjustments */
+@media (max-width: 768px) and (prefers-color-scheme: dark) {
+  pre,
+  code[class*="block"] {
+    background-color: #1a1a1a !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+
+  code:not([class*="block"]) {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+  }
+}
+
+/* Language-specific adjustments */
+@media (max-width: 768px) {
+  /* JSON blocks often have long lines */
+  pre[class*="json"],
+  code[class*="json"] {
+    tab-size: 2 !important;
+  }
+
+  /* Shell/bash blocks */
+  pre[class*="bash"],
+  pre[class*="shell"],
+  code[class*="bash"],
+  code[class*="shell"] {
+    font-size: 0.8rem !important;
+  }
+}

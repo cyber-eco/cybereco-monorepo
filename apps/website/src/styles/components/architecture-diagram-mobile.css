@@ -1,0 +1,208 @@
+/* Architecture Diagram Mobile Styles */
+
+@media (max-width: 768px) {
+  /* Diagram Container */
+  .diagramContainer,
+  div[class*="diagramContainer"] {
+    padding: 1rem !important;
+    margin: 1rem 0 !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  /* Architecture Diagram */
+  .architectureDiagram,
+  div[class*="architectureDiagram"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+    min-width: 100% !important;
+  }
+
+  /* Layer Sections */
+  .layer,
+  div[class*="layer"] {
+    padding: 1rem !important;
+    margin: 0 !important;
+    border-radius: 8px !important;
+  }
+
+  /* Layer Titles */
+  .layer h3,
+  div[class*="layer"] h3 {
+    font-size: 1.1rem !important;
+    margin-bottom: 0.75rem !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+  }
+
+  /* Components Grid - Convert to vertical stack */
+  .components,
+  div[class*="components"] {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 0.5rem !important;
+    width: 100% !important;
+  }
+
+  /* Individual Components */
+  .component,
+  div[class*="component"] {
+    width: 100% !important;
+    padding: 0.75rem 1rem !important;
+    font-size: 0.9rem !important;
+    text-align: left !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    min-height: 44px !important; /* Touch target */
+    box-sizing: border-box !important;
+  }
+
+  /* Add status indicator for components */
+  .component::after,
+  div[class*="component"]::after {
+    content: '→';
+    opacity: 0.5;
+    font-size: 1.2rem;
+  }
+
+  /* Principles Grid */
+  .principlesGrid,
+  div[class*="principlesGrid"] {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  /* Principle Cards */
+  .principle,
+  div[class*="principle"] {
+    padding: 1rem !important;
+    margin: 0 !important;
+  }
+
+  .principle h3,
+  div[class*="principle"] h3 {
+    font-size: 1.1rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .principle p,
+  div[class*="principle"] p {
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+  }
+
+  /* Technical Stack Grid */
+  .stackGrid,
+  div[class*="stackGrid"] {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  /* Stack Items */
+  .stackItem,
+  div[class*="stackItem"] {
+    padding: 1rem !important;
+    margin: 0 !important;
+  }
+
+  .stackItem h4,
+  div[class*="stackItem"] h4 {
+    font-size: 1rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  .stackItem ul,
+  div[class*="stackItem"] ul {
+    padding-left: 1.25rem !important;
+    margin: 0 !important;
+  }
+
+  .stackItem li,
+  div[class*="stackItem"] li {
+    font-size: 0.875rem !important;
+    padding: 0.25rem 0 !important;
+  }
+
+  /* Related Links Grid */
+  .linkGrid,
+  div[class*="linkGrid"] {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+  }
+
+  /* Doc Links */
+  .docLink,
+  div[class*="docLink"] {
+    padding: 1rem !important;
+    min-height: 60px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 1rem !important;
+  }
+
+  .linkIcon,
+  div[class*="linkIcon"] {
+    font-size: 1.25rem !important;
+    flex-shrink: 0 !important;
+  }
+
+  .docLink h4,
+  div[class*="docLink"] h4 {
+    font-size: 1rem !important;
+    margin: 0 !important;
+  }
+
+  .docLink p,
+  div[class*="docLink"] p {
+    font-size: 0.875rem !important;
+    margin: 0 !important;
+    line-height: 1.4 !important;
+  }
+}
+
+/* Ultra narrow screens */
+@media (max-width: 480px) {
+  /* Even more compact components */
+  .component,
+  div[class*="component"] {
+    padding: 0.6rem 0.75rem !important;
+    font-size: 0.85rem !important;
+    min-height: 40px !important;
+  }
+
+  /* Smaller layer padding */
+  .layer,
+  div[class*="layer"] {
+    padding: 0.75rem !important;
+  }
+
+  /* Compact titles */
+  .layer h3,
+  div[class*="layer"] h3 {
+    font-size: 1rem !important;
+  }
+
+  /* Hide decorative elements */
+  .layer h3::before,
+  div[class*="layer"] h3::before {
+    display: none !important;
+  }
+}
+
+/* Landscape orientation fixes */
+@media (max-width: 768px) and (orientation: landscape) {
+  /* Allow horizontal layout in landscape */
+  .components,
+  div[class*="components"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Reduce vertical spacing */
+  .architectureDiagram,
+  div[class*="architectureDiagram"] {
+    gap: 0.75rem !important;
+  }
+}
