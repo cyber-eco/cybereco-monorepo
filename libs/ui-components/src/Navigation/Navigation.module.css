@@ -9,7 +9,6 @@
   background-color: var(--background);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
 }
 
@@ -135,6 +134,10 @@
     0 4px 15px rgba(0, 0, 0, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
   border-color: rgba(255, 255, 255, 0.3);
+  /* Ensure transform doesn't affect nearby elements */
+  transform-origin: center;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .actionButton:hover::before {
@@ -144,6 +147,14 @@
 .actionButton:active {
   transform: translateY(-1px) scale(1.02);
   transition: all 0.1s ease;
+}
+
+/* Mobile Actions - Always visible on mobile */
+.mobileActions {
+  display: none;
+  align-items: center;
+  margin-left: auto;
+  margin-right: var(--spacing-sm);
 }
 
 /* Mobile Menu Button */
@@ -156,7 +167,9 @@
   cursor: pointer;
   padding: var(--spacing-xs);
   margin-left: var(--spacing-sm);
-  transition: all 0.3s ease;
+  transition: color 0.3s ease;
+  position: relative;
+  z-index: 1;
 }
 
 .mobileMenuButton:hover {
@@ -175,8 +188,7 @@
   background-color: var(--surface);
   transition: right 0.3s ease-in-out;
   box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-  overflow-y: auto;
+  overflow: visible; /* Allow dropdown to extend beyond container */
   z-index: 999;
 }
 
@@ -189,6 +201,10 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-lg);
+  height: 100%;
+  overflow-y: auto; /* Allow vertical scrolling for content */
+  overflow-x: visible; /* Allow horizontal overflow for dropdown */
+  position: relative; /* Establish positioning context */
 }
 
 .mobileNavLinks {
@@ -207,7 +223,7 @@
 
 .mobileNavLink:hover {
   background-color: var(--surface-hover, rgba(0, 98, 65, 0.05));
-  transform: translateX(4px);
+  padding-left: calc(var(--spacing-md) + 4px);
 }
 
 .mobileNavLink.active {
@@ -220,23 +236,27 @@
   gap: var(--spacing-md);
   padding-top: var(--spacing-md);
   border-top: 1px solid var(--border);
+  position: relative; /* Establish positioning context */
+  overflow: visible; /* Allow dropdown to extend */
 }
 
 .mobileConfigWrapper {
   display: flex;
   justify-content: center;
+  position: relative;
+  z-index: 1010; /* Higher than mobile nav to ensure dropdown appears above */
+  overflow: visible; /* Ensure dropdown can extend beyond wrapper */
 }
 
 .mobileMenuOverlay {
   display: block;
   position: fixed;
-  top: 0;
+  top: var(--header-height, 70px);
   left: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 998;
-  backdrop-filter: blur(5px);
 }
 
 /* Responsive styles */
@@ -296,8 +316,16 @@
     display: none;
   }
   
+  .mobileActions {
+    display: flex;
+  }
+  
   .mobileMenuButton {
     display: block;
+    /* Additional mobile-specific rendering fixes */
+    position: relative;
+    z-index: 1;
+    -webkit-tap-highlight-color: transparent;
   }
   
   .mobileNav {

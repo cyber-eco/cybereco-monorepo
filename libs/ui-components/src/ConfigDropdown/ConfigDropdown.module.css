@@ -326,6 +326,41 @@
   }
 }
 
+/* Mobile navigation context - when ConfigDropdown is inside mobile nav */
+@media (max-width: 820px) {
+  /* When dropdown is inside mobile navigation, adjust positioning */
+  .configDropdown {
+    position: static; /* Remove relative positioning in mobile nav context */
+  }
+  
+  .dropdownMenu {
+    position: fixed; /* Use fixed positioning to escape mobile nav container */
+    top: auto;
+    bottom: 20px; /* Position from bottom to ensure visibility */
+    right: 20px;
+    left: 20px;
+    width: auto;
+    max-width: 320px;
+    margin: 0 auto;
+    z-index: 1020; /* Higher than mobile nav wrapper */
+    max-height: calc(100vh - 140px); /* Ensure it doesn't exceed viewport */
+    overflow-y: auto;
+    /* Ensure dropdown is not affected by parent transforms or overflow */
+    transform: translateZ(0);
+    will-change: transform;
+  }
+}
+
+/* Small mobile adjustments */
+@media (max-width: 480px) {
+  .dropdownMenu {
+    bottom: 10px;
+    right: 10px;
+    left: 10px;
+    max-height: calc(100vh - 120px);
+  }
+}
+
 /* Dark theme specific adjustments */
 [data-theme="dark"] .dropdownMenu {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);

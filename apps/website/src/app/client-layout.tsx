@@ -40,23 +40,23 @@ export default function ClientLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // Get saved language preference from localStorage - use a function to get initial value
-  const getInitialLanguage = (): 'en' | 'es' => {
-    if (typeof window !== 'undefined') {
-      const savedLanguage = localStorage.getItem('cybereco-language');
-      if (savedLanguage === 'es' || savedLanguage === 'en') {
-        return savedLanguage;
-      }
-    }
-    return 'en';
-  };
+  // Always start with 'en' to ensure consistent SSR/hydration
+  const [language, setLanguage] = React.useState<'en' | 'es'>('en');
+  const [isHydrated, setIsHydrated] = React.useState(false);
   
-  const [defaultLanguage] = React.useState<'en' | 'es'>(getInitialLanguage);
+  // After hydration, check localStorage and update language if needed
+  React.useEffect(() => {
+    setIsHydrated(true);
+    const savedLanguage = localStorage.getItem('cybereco-language');
+    if (savedLanguage === 'es' || savedLanguage === 'en') {
+      setLanguage(savedLanguage);
+    }
+  }, []);
   
   return (
     <ThemeProvider>
       <I18nProvider
-        defaultLanguage={defaultLanguage}
+        defaultLanguage={language}
         fallbackLanguage="en"
         supportedLanguages={['en', 'es']}
         namespaces={['common', 'documentation', 'home', 'portfolio', 'about', 'help', 'philosophy', 'vision', 'roadmap', 'faq', 'contact', 'privacy', 'terms', 'support', 'status', 'guides', 'learning-paths']}

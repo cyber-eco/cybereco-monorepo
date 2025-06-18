@@ -968,7 +968,7 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
-  z-index: 1001;
+  z-index: 997; /* Below navbar (999) and mobile nav (998) */
   background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
   color: white;
   border: none;

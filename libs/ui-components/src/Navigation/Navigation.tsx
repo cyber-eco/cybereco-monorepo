@@ -93,6 +93,12 @@ export default function Navigation({
     const isActive = isActiveLink(link.href);
     const linkClass = `${styles.navLink} ${isActive ? styles.active : ''} ${isMobile ? styles.mobileNavLink : ''}`;
 
+    const handleClick = () => {
+      if (isMobile) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
     if (link.external) {
       return (
         <a
@@ -101,6 +107,7 @@ export default function Navigation({
           className={linkClass}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={handleClick}
         >
           {link.label}
         </a>
@@ -112,6 +119,7 @@ export default function Navigation({
         key={link.href}
         href={link.href}
         className={linkClass}
+        onClick={handleClick}
       >
         {link.label}
       </LinkComponent>
@@ -192,6 +200,11 @@ export default function Navigation({
           </div>
         </div>
 
+        {/* Mobile Actions - Always visible */}
+        <div className={styles.mobileActions}>
+          {renderActionButton()}
+        </div>
+
         {/* Mobile Menu Button */}
         <button
           className={styles.mobileMenuButton}
@@ -214,7 +227,6 @@ export default function Navigation({
           </div>
           
           <div className={styles.mobileNavActions}>
-            {renderActionButton()}
             {showConfig && (
               <div className={styles.mobileConfigWrapper}>
                 {configElement || <ConfigDropdown />}
