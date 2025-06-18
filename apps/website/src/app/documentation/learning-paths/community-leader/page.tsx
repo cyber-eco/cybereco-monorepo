@@ -19,7 +19,7 @@ export default function CommunityLeaderLearningPathPage() {
           </span>
         </div>
         <h1 className={styles.title}>
-          🏛️ {t('communityLeaderPath.title') || 'Community Leader Learning Path'}
+          🏛️ {t('documentation:communityLeaderPath.title') || 'Community Leader Learning Path'}
         </h1>
         <div className={styles.pathMeta}>
           <div className={styles.metaItem}>
@@ -268,7 +268,7 @@ export default function CommunityLeaderLearningPathPage() {
             </div>
             <div className={styles.moduleActions}>
               <span className={styles.comingSoonButton}>
-                {t('communityLeaderPath.comingSoon') || 'Coming with Education Hub'} 🚧
+                {t('documentation:communityLeaderPath.comingSoon') || 'Coming with Education Hub'} 🚧
               </span>
             </div>
           </div>

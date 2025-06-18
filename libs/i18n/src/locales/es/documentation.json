@@ -508,6 +508,25 @@
           "securityTitle": "Seguridad en Producción"
         }
       },
+      "flow": {
+        "title": "Flujo SSO",
+        "step1": {
+          "title": "Inicio de Sesión del Usuario",
+          "description": "El usuario se autentica en el Hub usando correo/contraseña o proveedores sociales"
+        },
+        "step2": {
+          "title": "Generación de Token",
+          "description": "El Hub genera tokens JWT de acceso y actualización con permisos de usuario"
+        },
+        "step3": {
+          "title": "Navegación Entre Apps",
+          "description": "El usuario navega a otra aplicación (ej. JustSplit) con el token de autenticación"
+        },
+        "step4": {
+          "title": "Verificación de Token",
+          "description": "La aplicación destino verifica el token y crea una sesión local"
+        }
+      },
       "bestPractices": {
         "title": "Mejores Prácticas",
         "security": {
@@ -532,6 +551,23 @@
           "preload": "Precargar estado de autenticación",
           "compression": "Usar compresión de tokens para cargas grandes",
           "cdn": "Aprovechar CDN para activos de autenticación estáticos"
+        }
+      },
+      "troubleshooting": {
+        "title": "Problemas Comunes",
+        "note": "Consejos de Solución de Problemas",
+        "description": "La mayoría de los problemas de SSO están relacionados con discrepancias de configuración entre entornos.",
+        "crossOrigin": {
+          "title": "Fallo de Autenticación Entre Orígenes",
+          "solution": "Asegúrate de que CORS esté configurado correctamente y las cookies tengan la configuración de dominio correcta."
+        },
+        "tokenExpired": {
+          "title": "Token Expirado Durante la Navegación",
+          "solution": "Implementa actualización automática de tokens antes de navegar a otras aplicaciones."
+        },
+        "sessionSync": {
+          "title": "Las Sesiones No Se Sincronizan",
+          "solution": "Verifica que todas las aplicaciones usen el mismo dominio de autenticación y configuración de cookies."
         }
       },
       "quickStart": {
