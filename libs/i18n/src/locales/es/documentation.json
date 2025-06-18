@@ -3402,6 +3402,476 @@
     "learnItem1": "Configuración y gobernanza comunitaria",
     "learnItem2": "Estrategias de participación de miembros",
     "learnItem3": "Moderación y resolución de conflictos",
-    "learnItem4": "Tácticas de crecimiento y sostenibilidad"
+    "learnItem4": "Tácticas de crecimiento y sostenibilidad",
+    "comingSoon": "Próximamente con Education Hub"
+  },
+  "dataPhilosophy": {
+    "title": "Filosofía de Datos",
+    "subtitle": "Tus datos, tu control. Un nuevo paradigma para la propiedad digital.",
+    "intro": {
+      "title": "Una Revolución en la Propiedad de Datos",
+      "description": "En el mundo digital tradicional, tus datos están dispersos en innumerables servidores, son propiedad de corporaciones y se utilizan de formas que no puedes controlar. CyberEco reimagina fundamentalmente esta relación, poniéndote en el centro de tu universo digital."
+    },
+    "principles": {
+      "sovereignty": {
+        "title": "Soberanía de Datos",
+        "description": "Eres el propietario soberano de tus datos. Ninguna empresa, gobierno o tercero puede acceder, modificar o eliminar tu información sin tu consentimiento explícito.",
+        "example": "Tu bóveda personal, tus claves de cifrado, tus reglas."
+      },
+      "shared": {
+        "title": "Propiedad Compartida",
+        "description": "Cuando los datos involucran a múltiples partes, la propiedad se comparte. Los cambios requieren consenso, garantizando equidad y evitando modificaciones unilaterales.",
+        "example": "Los gastos grupales necesitan aprobación de todos los participantes."
+      },
+      "privacy": {
+        "title": "Privacidad por Diseño",
+        "description": "La privacidad no es una ocurrencia tardía, es la base. El cifrado de extremo a extremo, la arquitectura de conocimiento cero y la computación local protegen tu vida digital.",
+        "example": "Ni siquiera nosotros podemos ver tus datos."
+      },
+      "consent": {
+        "title": "Consentimiento Explícito",
+        "description": "Cada interacción de datos requiere un consentimiento claro e informado. Sin términos ocultos, sin permisos asumidos, sin explotación de datos.",
+        "example": "Tú decides quién ve qué, cuándo y por qué."
+      },
+      "community": {
+        "title": "Gobernanza Comunitaria",
+        "description": "Los datos públicos pertenecen a la comunidad. Los procesos democráticos gobiernan los recursos compartidos, con transparencia y responsabilidad incorporadas.",
+        "example": "Datos políticos verificados por ciudadanos, no corporaciones."
+      },
+      "portability": {
+        "title": "Portabilidad Verdadera",
+        "description": "Tus datos se mueven contigo. Exporta, importa o migra toda tu vida digital sin bloqueos ni pérdida de datos.",
+        "example": "Cambia de proveedores sin perder tu historial."
+      }
+    },
+    "paradigm": {
+      "title": "El Cambio de Paradigma",
+      "traditional": {
+        "title": "Modelo Tradicional",
+        "item1": "Datos almacenados en servidores corporativos",
+        "item2": "Los términos de servicio otorgan amplios derechos de uso",
+        "item3": "Las solicitudes de eliminación pueden ser ignoradas",
+        "item4": "Datos monetizados sin compensación",
+        "item5": "Portabilidad limitada o nula"
+      },
+      "cybereco": {
+        "title": "Modelo CyberEco",
+        "item1": "Datos en tu bóveda personal cifrada",
+        "item2": "Otorgas permisos específicos y revocables",
+        "item3": "Eliminación de datos instantánea y verificable",
+        "item4": "Controlas y te beneficias de tus datos",
+        "item5": "Exporta todo, en cualquier momento y lugar"
+      }
+    },
+    "implementation": {
+      "title": "Filosofía en Práctica",
+      "ownership": {
+        "title": "Tipos de Propiedad",
+        "description": "Diferentes datos requieren diferentes modelos de propiedad. Los datos personales permanecen privados, los datos compartidos requieren consenso y los datos públicos sirven a la comunidad.",
+        "link": "Explorar Modelos de Datos →"
+      },
+      "sync": {
+        "title": "Sincronización",
+        "description": "Los protocolos avanzados garantizan la consistencia de los datos entre múltiples propietarios respetando la soberanía. Los tipos de datos replicados sin conflictos permiten una colaboración perfecta.",
+        "link": "Aprender sobre Sincronización →"
+      },
+      "governance": {
+        "title": "Gobernanza",
+        "description": "Los contratos inteligentes y los mecanismos de consenso comunitario garantizan una gobernanza justa de los recursos compartidos. La democracia se encuentra con la tecnología para una toma de decisiones transparente.",
+        "link": "Ver App Demos →"
+      }
+    },
+    "cta": {
+      "title": "Únete a la Revolución de Datos",
+      "description": "CyberEco es más que tecnología: es un movimiento hacia la libertad digital. Juntos, estamos construyendo un futuro donde la privacidad es predeterminada, la propiedad es real y las comunidades prosperan.",
+      "startButton": "Comenzar",
+      "learnButton": "Detalles Técnicos"
+    }
+  },
+  "dataModel": {
+    "title": "Modelo de Propiedad de Datos",
+    "subtitle": "Propiedad revolucionaria de datos multipartita para el futuro descentralizado",
+    "tabs": {
+      "overview": "Descripción General",
+      "personal": "Datos Personales",
+      "shared": "Datos Compartidos",
+      "public": "Datos Públicos",
+      "implementation": "Implementación"
+    },
+    "overview": {
+      "title": "Arquitectura de Propiedad de Datos",
+      "description": "CyberEco implementa un modelo revolucionario de propiedad de datos multipartita que maneja todo, desde datos personales hasta recursos comunitarios. Cada tipo de propiedad tiene reglas, permisos y mecanismos de consenso específicos.",
+      "personal": {
+        "title": "Datos Personales",
+        "description": "Propietario único con control total. Cifrado en bóveda personal.",
+        "feature1": "• Soberanía total",
+        "feature2": "• Eliminación instantánea",
+        "feature3": "• Privado por defecto"
+      },
+      "shared": {
+        "title": "Datos Compartidos",
+        "description": "Múltiples propietarios iguales. Requiere consenso para modificaciones.",
+        "feature1": "• Multi-firma",
+        "feature2": "• Reglas de consenso",
+        "feature3": "• Resolución de conflictos"
+      },
+      "public": {
+        "title": "Datos Públicos",
+        "description": "Recursos propiedad de la comunidad. Gobernanza democrática y transparencia.",
+        "feature1": "• Acceso abierto",
+        "feature2": "• Verificado por la comunidad",
+        "feature3": "• Historial inmutable"
+      },
+      "hierarchical": {
+        "title": "Datos Jerárquicos",
+        "description": "Relaciones padre-hijo con permisos heredados.",
+        "feature1": "• Propiedad anidada",
+        "feature2": "• Herencia de permisos",
+        "feature3": "• Acceso delegado"
+      },
+      "example": {
+        "title": "Tipos de Datos Principales"
+      }
+    },
+    "personal": {
+      "title": "Modelo de Datos Personales",
+      "concept": {
+        "title": "Tu Bóveda Digital",
+        "description": "Los datos personales representan información propiedad exclusiva de un solo usuario. Esto incluye notas privadas, preferencias personales, registros financieros individuales y cualquier dato que no requiera compartirse o colaboración."
+      },
+      "encryption": {
+        "title": "Cifrado de Extremo a Extremo",
+        "description": "Todos los datos personales están cifrados con claves que solo tú controlas. Ni siquiera CyberEco puede acceder a tu información privada."
+      },
+      "control": {
+        "title": "Control Completo",
+        "description": "Modifica, elimina o exporta tus datos al instante. Sin necesidad de aprobación, sin demoras, sin preguntas."
+      },
+      "implementation": {
+        "title": "Ejemplo de Implementación"
+      },
+      "useCases": {
+        "title": "Casos de Uso Comunes",
+        "notes": {
+          "title": "Notas Personales",
+          "description": "Pensamientos privados, diarios y recordatorios"
+        },
+        "preferences": {
+          "title": "Preferencias de App",
+          "description": "Configuraciones, temas y personalización"
+        },
+        "health": {
+          "title": "Registros de Salud",
+          "description": "Datos médicos y seguimiento de fitness"
+        },
+        "financial": {
+          "title": "Datos Financieros",
+          "description": "Presupuestos personales y transacciones"
+        }
+      }
+    },
+    "shared": {
+      "title": "Modelo de Datos Compartidos",
+      "concept": {
+        "title": "Propiedad Colaborativa",
+        "description": "Los datos compartidos representan información propiedad de múltiples partes por igual. Los cambios requieren consenso basado en reglas predefinidas. Este modelo garantiza equidad y evita que cualquier parte modifique unilateralmente los recursos compartidos."
+      },
+      "consensus": {
+        "title": "Mecanismos de Consenso",
+        "unanimous": {
+          "title": "Unánime",
+          "description": "Todas las partes deben estar de acuerdo"
+        },
+        "majority": {
+          "title": "Mayoría",
+          "description": "Más del 50% debe estar de acuerdo"
+        },
+        "threshold": {
+          "title": "Umbral",
+          "description": "Porcentaje personalizado requerido"
+        }
+      },
+      "implementation": {
+        "title": "Ejemplo de Gasto Compartido"
+      },
+      "justSplit": {
+        "title": "Ejemplo del Mundo Real: JustSplit",
+        "step1": "Crear Gasto",
+        "step1Desc": "El usuario crea un gasto compartido con participantes",
+        "step2": "Notificar a las Partes",
+        "step2Desc": "Todos los participantes reciben notificación para revisar",
+        "step3": "Recopilar Firmas",
+        "step3Desc": "Cada parte firma para aprobar el gasto",
+        "step4": "Ejecutar Cambio",
+        "step4Desc": "Una vez alcanzado el consenso, el gasto se finaliza"
+      }
+    },
+    "public": {
+      "title": "Datos Públicos y Comunitarios",
+      "concept": {
+        "title": "Recursos Propiedad de la Comunidad",
+        "description": "Los datos públicos pertenecen a la comunidad. Incluye información sobre figuras públicas, recursos comunitarios y conocimiento compartido. Estos datos son transparentes, verificables y gobernados por procesos democráticos."
+      },
+      "structure": {
+        "title": "Arquitectura de Datos Públicos",
+        "public": {
+          "title": "Capa Pública",
+          "description": "Información de acceso abierto",
+          "item1": "Registros de votación política",
+          "item2": "Promesas públicas",
+          "item3": "Recursos comunitarios"
+        },
+        "verified": {
+          "title": "Capa Verificada",
+          "description": "Afirmaciones con prueba criptográfica",
+          "item1": "Credenciales educativas",
+          "item2": "Licencias profesionales",
+          "item3": "Documentos oficiales"
+        },
+        "community": {
+          "title": "Capa Comunitaria",
+          "description": "Contenido generado por usuarios",
+          "item1": "Calificaciones y reseñas",
+          "item2": "Verificación de hechos",
+          "item3": "Comentarios y retroalimentación"
+        }
+      },
+      "implementation": {
+        "title": "Ejemplo de Representante Político"
+      },
+      "governance": {
+        "title": "Gobernanza Comunitaria",
+        "proposals": {
+          "title": "Propuestas",
+          "description": "Los miembros de la comunidad envían cambios"
+        },
+        "voting": {
+          "title": "Votación",
+          "description": "Toma de decisiones democrática"
+        },
+        "execution": {
+          "title": "Ejecución",
+          "description": "Implementación automática de decisiones"
+        }
+      }
+    },
+    "implementation": {
+      "title": "Patrones de Implementación",
+      "crdt": {
+        "title": "Tipos de Datos Replicados sin Conflictos",
+        "description": "Los CRDTs permiten la resolución automática de conflictos cuando múltiples partes modifican datos compartidos simultáneamente."
+      },
+      "sync": {
+        "title": "Protocolo de Sincronización de Datos",
+        "description": "La sincronización eficiente garantiza que todas las partes tengan vistas consistentes de los datos compartidos."
+      },
+      "smart": {
+        "title": "Integración de Contratos Inteligentes",
+        "description": "Para datos compartidos de alto riesgo, los contratos inteligentes proporcionan reglas de consenso inmutables.",
+        "deploy": "Desplegar Contrato",
+        "deployDesc": "Definir reglas de consenso en código",
+        "interact": "Interactuar",
+        "interactDesc": "Las partes envían propuestas y votos",
+        "execute": "Ejecutar",
+        "executeDesc": "Ejecución automática cuando se alcanza el consenso"
+      },
+      "best": {
+        "title": "Mejores Prácticas",
+        "encryption": {
+          "title": "Siempre Cifrar",
+          "description": "Cifrar datos en reposo y en tránsito"
+        },
+        "validation": {
+          "title": "Validar Propiedad",
+          "description": "Verificar permisos antes de cualquier operación"
+        },
+        "audit": {
+          "title": "Registro de Auditoría",
+          "description": "Registrar todas las operaciones para transparencia"
+        },
+        "backup": {
+          "title": "Estrategia de Respaldo",
+          "description": "Los respaldos distribuidos previenen la pérdida de datos"
+        }
+      }
+    }
+  },
+  "dataSync": {
+    "title": "Sincronización de Datos",
+    "subtitle": "Sincronización en tiempo real y sin conflictos para colaboración descentralizada",
+    "tabs": {
+      "overview": "Descripción General",
+      "crdt": "CRDTs",
+      "consensus": "Consenso",
+      "protocol": "Protocolo",
+      "examples": "Ejemplos"
+    },
+    "overview": {
+      "title": "Sincronización Descentralizada",
+      "description": "El protocolo de sincronización de CyberEco garantiza la consistencia de datos entre múltiples propietarios respetando la soberanía. Usando técnicas avanzadas como CRDTs y relojes vectoriales, habilitamos la colaboración en tiempo real sin servidores centrales.",
+      "principles": {
+        "realtime": {
+          "title": "Actualizaciones en Tiempo Real",
+          "description": "Los cambios se propagan instantáneamente entre todos los participantes sin demoras ni sondeos."
+        },
+        "secure": {
+          "title": "Seguridad de Extremo a Extremo",
+          "description": "Toda la sincronización ocurre a través de canales cifrados con verificación criptográfica."
+        },
+        "conflict": {
+          "title": "Resolución Automática de Conflictos",
+          "description": "Los algoritmos inteligentes resuelven conflictos sin intervención humana cuando es posible."
+        },
+        "offline": {
+          "title": "Primero Sin Conexión",
+          "description": "Trabaja sin conexión y sincroniza cuando te reconectes. Sin pérdida de datos, sin conflictos."
+        }
+      },
+      "architecture": {
+        "title": "Arquitectura de Sincronización",
+        "user1": "Usuario A",
+        "user2": "Usuario B",
+        "user3": "Usuario C",
+        "sync": "Protocolo de Sincronización"
+      }
+    },
+    "crdt": {
+      "title": "Tipos de Datos Replicados sin Conflictos",
+      "concept": {
+        "title": "¿Qué son los CRDTs?",
+        "description": "Los CRDTs son estructuras de datos que resuelven automáticamente conflictos cuando múltiples usuarios editan los mismos datos simultáneamente. Garantizan consistencia eventual sin requerir coordinación entre nodos."
+      },
+      "types": {
+        "title": "Tipos de CRDT Usados en CyberEco",
+        "lww": {
+          "title": "Registro Última-Escritura-Gana",
+          "description": "Para valores simples donde la última actualización debe ganar"
+        },
+        "counter": {
+          "title": "Contador PN",
+          "description": "Para valores numéricos que pueden aumentar o disminuir"
+        },
+        "set": {
+          "title": "Conjunto OR",
+          "description": "Para colecciones donde los elementos pueden agregarse/eliminarse"
+        },
+        "map": {
+          "title": "Mapa OR",
+          "description": "Para objetos complejos con propiedades anidadas"
+        }
+      },
+      "implementation": {
+        "title": "Ejemplo de Implementación CRDT"
+      },
+      "benefits": {
+        "title": "Beneficios de los CRDTs",
+        "consistency": {
+          "title": "Consistencia Fuerte",
+          "description": "Garantiza que todos los nodos converjan al mismo estado"
+        },
+        "availability": {
+          "title": "Alta Disponibilidad",
+          "description": "Funciona incluso durante particiones de red"
+        },
+        "automatic": {
+          "title": "Resolución Automática",
+          "description": "No se necesita resolución manual de conflictos"
+        }
+      }
+    },
+    "consensus": {
+      "title": "Consenso Multi-Firma",
+      "concept": {
+        "title": "Cuándo se Requiere Consenso",
+        "description": "Algunas operaciones requieren acuerdo explícito de múltiples partes. CyberEco implementa un mecanismo de consenso flexible que soporta varios patrones de acuerdo manteniendo la seguridad y transparencia."
+      },
+      "flow": {
+        "title": "Flujo de Consenso",
+        "propose": "Proponer",
+        "proposeDesc": "El usuario propone un cambio",
+        "notify": "Notificar",
+        "notifyDesc": "Todas las partes son notificadas",
+        "sign": "Firmar",
+        "signDesc": "Las partes revisan y firman",
+        "execute": "Ejecutar",
+        "executeDesc": "Se aplica el cambio"
+      },
+      "implementation": {
+        "title": "Implementación de Consenso"
+      },
+      "patterns": {
+        "title": "Patrones Comunes de Consenso",
+        "financial": {
+          "title": "Transacciones Financieras",
+          "description": "Requieren consentimiento unánime de todas las partes"
+        },
+        "governance": {
+          "title": "Decisiones de Gobernanza",
+          "description": "Mayoría simple para la mayoría de decisiones"
+        },
+        "emergency": {
+          "title": "Acciones de Emergencia",
+          "description": "Umbral más bajo para asuntos urgentes"
+        }
+      }
+    },
+    "protocol": {
+      "title": "Protocolo de Sincronización",
+      "overview": {
+        "title": "Diseño del Protocolo",
+        "description": "El protocolo de sincronización de CyberEco combina comunicación peer-to-peer, verificación criptográfica y enrutamiento inteligente para garantizar una sincronización de datos eficiente y segura entre todos los participantes."
+      },
+      "layers": {
+        "title": "Capas del Protocolo",
+        "application": "Capa de Aplicación",
+        "applicationDesc": "APIs de sincronización de alto nivel y modelos de datos",
+        "consensus": "Capa de Consenso",
+        "consensusDesc": "Protocolos de multi-firma y acuerdo",
+        "sync": "Capa de Sincronización",
+        "syncDesc": "Operaciones CRDT y resolución de conflictos",
+        "transport": "Capa de Transporte",
+        "transportDesc": "Comunicación peer-to-peer cifrada"
+      },
+      "sync": {
+        "title": "Implementación del Protocolo de Sincronización"
+      },
+      "performance": {
+        "title": "Optimizaciones de Rendimiento",
+        "delta": {
+          "title": "Sincronización Delta",
+          "description": "Solo sincronizar cambios, no documentos completos"
+        },
+        "compression": {
+          "title": "Compresión",
+          "description": "Comprimir datos antes de la transmisión"
+        },
+        "batching": {
+          "title": "Agrupación",
+          "description": "Agrupar múltiples operaciones juntas"
+        }
+      }
+    },
+    "examples": {
+      "title": "Ejemplos del Mundo Real",
+      "justsplit": {
+        "title": "JustSplit: Gestión de Gastos Compartidos",
+        "description": "Ve cómo JustSplit usa sincronización multipartita para gestionar gastos compartidos con actualizaciones en tiempo real y liquidación basada en consenso."
+      },
+      "demos": {
+        "title": "Demos: Gobernanza Comunitaria",
+        "description": "Aprende cómo Demos implementa la toma de decisiones democrática con votación transparente y registros inmutables."
+      },
+      "integration": {
+        "title": "Guía de Integración",
+        "step1": "Definir Modelo de Datos",
+        "step1Desc": "Elegir tipo de propiedad y requisitos de sincronización",
+        "step2": "Seleccionar Tipo de CRDT",
+        "step2Desc": "Elegir CRDT apropiado para tu caso de uso",
+        "step3": "Implementar Sincronización",
+        "step3Desc": "Usar clase SyncProtocol para sincronización automática",
+        "step4": "Manejar Conflictos",
+        "step4Desc": "Definir estrategias de resolución para casos límite"
+      }
+    }
   }
 }

@@ -8,7 +8,7 @@ import {
   FaBook, FaSearch, FaChevronRight, FaChevronDown, FaShieldAlt, FaKey, 
   FaUserShield, FaDatabase, FaFileExport, FaServer, FaCode,
   FaLock, FaUsers, FaMobileAlt, FaBars, FaTimes, FaRocket,
-  FaChartBar, FaGraduationCap, FaQuestionCircle, FaTools
+  FaChartBar, FaGraduationCap, FaQuestionCircle, FaTools, FaSync
 } from 'react-icons/fa';
 import { useI18n } from '@cybereco/i18n';
 import styles from './page.module.css';
@@ -253,6 +253,24 @@ export default function DocumentationLayout({
           title: t('documentation:documentationPage.dataArchitectureNavItem') || 'Data Layer Architecture',
           path: '/documentation/data-architecture',
           icon: <FaServer />
+        },
+        {
+          id: 'data-philosophy',
+          title: t('documentation:dataPhilosophy.title') || 'Data Philosophy',
+          path: '/documentation/data-philosophy',
+          icon: <FaShieldAlt />
+        },
+        {
+          id: 'data-model',
+          title: t('documentation:dataModel.title') || 'Data Ownership Model',
+          path: '/documentation/data-model',
+          icon: <FaDatabase />
+        },
+        {
+          id: 'data-sync',
+          title: t('documentation:dataSync.title') || 'Data Synchronization',
+          path: '/documentation/data-sync',
+          icon: <FaSync />
         },
         {
           id: 'hub-gateway',

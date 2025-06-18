@@ -3417,6 +3417,476 @@
     "learnItem1": "Community setup and governance",
     "learnItem2": "Member engagement strategies",
     "learnItem3": "Moderation and conflict resolution",
-    "learnItem4": "Growth and sustainability tactics"
+    "learnItem4": "Growth and sustainability tactics",
+    "comingSoon": "Coming with Education Hub"
+  },
+  "dataPhilosophy": {
+    "title": "Data Philosophy",
+    "subtitle": "Your data, your control. A new paradigm for digital ownership.",
+    "intro": {
+      "title": "A Revolution in Data Ownership",
+      "description": "In the traditional digital world, your data is scattered across countless servers, owned by corporations, and used in ways you can't control. CyberEco fundamentally reimagines this relationship, putting you at the center of your digital universe."
+    },
+    "principles": {
+      "sovereignty": {
+        "title": "Data Sovereignty",
+        "description": "You are the sovereign owner of your data. No company, government, or third party can access, modify, or delete your information without your explicit consent.",
+        "example": "Your personal vault, your encryption keys, your rules."
+      },
+      "shared": {
+        "title": "Shared Ownership",
+        "description": "When data involves multiple parties, ownership is shared. Changes require consensus, ensuring fairness and preventing unilateral modifications.",
+        "example": "Group expenses need approval from all participants."
+      },
+      "privacy": {
+        "title": "Privacy by Design",
+        "description": "Privacy isn't an afterthought—it's the foundation. End-to-end encryption, zero-knowledge architecture, and local-first computing protect your digital life.",
+        "example": "Even we can't see your data."
+      },
+      "consent": {
+        "title": "Explicit Consent",
+        "description": "Every data interaction requires clear, informed consent. No hidden terms, no assumed permissions, no data exploitation.",
+        "example": "You decide who sees what, when, and why."
+      },
+      "community": {
+        "title": "Community Governance",
+        "description": "Public data belongs to the community. Democratic processes govern shared resources, with transparency and accountability built in.",
+        "example": "Political data verified by citizens, not corporations."
+      },
+      "portability": {
+        "title": "True Portability",
+        "description": "Your data moves with you. Export, import, or migrate your entire digital life without lock-in or data loss.",
+        "example": "Change providers without losing your history."
+      }
+    },
+    "paradigm": {
+      "title": "The Paradigm Shift",
+      "traditional": {
+        "title": "Traditional Model",
+        "item1": "Data stored on corporate servers",
+        "item2": "Terms of service grant broad usage rights",
+        "item3": "Deletion requests may be ignored",
+        "item4": "Data monetized without compensation",
+        "item5": "Limited or no portability"
+      },
+      "cybereco": {
+        "title": "CyberEco Model",
+        "item1": "Data in your personal encrypted vault",
+        "item2": "You grant specific, revocable permissions",
+        "item3": "Instant, verifiable data deletion",
+        "item4": "You control and benefit from your data",
+        "item5": "Export everything, anytime, anywhere"
+      }
+    },
+    "implementation": {
+      "title": "Philosophy in Practice",
+      "ownership": {
+        "title": "Ownership Types",
+        "description": "Different data requires different ownership models. Personal data stays private, shared data requires consensus, and public data serves the community.",
+        "link": "Explore Data Models →"
+      },
+      "sync": {
+        "title": "Synchronization",
+        "description": "Advanced protocols ensure data consistency across multiple owners while respecting sovereignty. Conflict-free replicated data types enable seamless collaboration.",
+        "link": "Learn About Sync →"
+      },
+      "governance": {
+        "title": "Governance",
+        "description": "Smart contracts and community consensus mechanisms ensure fair governance of shared resources. Democracy meets technology for transparent decision-making.",
+        "link": "See Demos App →"
+      }
+    },
+    "cta": {
+      "title": "Join the Data Revolution",
+      "description": "CyberEco is more than technology—it's a movement towards digital freedom. Together, we're building a future where privacy is default, ownership is real, and communities thrive.",
+      "startButton": "Get Started",
+      "learnButton": "Technical Details"
+    }
+  },
+  "dataModel": {
+    "title": "Data Ownership Model",
+    "subtitle": "Revolutionary multi-party data ownership for the decentralized future",
+    "tabs": {
+      "overview": "Overview",
+      "personal": "Personal Data",
+      "shared": "Shared Data",
+      "public": "Public Data",
+      "implementation": "Implementation"
+    },
+    "overview": {
+      "title": "Data Ownership Architecture",
+      "description": "CyberEco implements a revolutionary multi-party data ownership model that handles everything from personal data to community resources. Each ownership type has specific rules, permissions, and consensus mechanisms.",
+      "personal": {
+        "title": "Personal Data",
+        "description": "Single owner with full control. Encrypted in personal vault.",
+        "feature1": "• Full sovereignty",
+        "feature2": "• Instant deletion",
+        "feature3": "• Private by default"
+      },
+      "shared": {
+        "title": "Shared Data",
+        "description": "Multiple equal owners. Requires consensus for modifications.",
+        "feature1": "• Multi-signature",
+        "feature2": "• Consensus rules",
+        "feature3": "• Conflict resolution"
+      },
+      "public": {
+        "title": "Public Data",
+        "description": "Community-owned resources. Democratic governance and transparency.",
+        "feature1": "• Open access",
+        "feature2": "• Community verified",
+        "feature3": "• Immutable history"
+      },
+      "hierarchical": {
+        "title": "Hierarchical Data",
+        "description": "Parent-child relationships with inherited permissions.",
+        "feature1": "• Nested ownership",
+        "feature2": "• Permission inheritance",
+        "feature3": "• Delegated access"
+      },
+      "example": {
+        "title": "Core Data Types"
+      }
+    },
+    "personal": {
+      "title": "Personal Data Model",
+      "concept": {
+        "title": "Your Digital Vault",
+        "description": "Personal data represents information owned exclusively by a single user. This includes private notes, personal preferences, individual financial records, and any data that doesn't require sharing or collaboration."
+      },
+      "encryption": {
+        "title": "End-to-End Encryption",
+        "description": "All personal data is encrypted with keys only you control. Not even CyberEco can access your private information."
+      },
+      "control": {
+        "title": "Complete Control",
+        "description": "Modify, delete, or export your data instantly. No approval needed, no delays, no questions asked."
+      },
+      "implementation": {
+        "title": "Implementation Example"
+      },
+      "useCases": {
+        "title": "Common Use Cases",
+        "notes": {
+          "title": "Personal Notes",
+          "description": "Private thoughts, journals, and reminders"
+        },
+        "preferences": {
+          "title": "App Preferences",
+          "description": "Settings, themes, and personalization"
+        },
+        "health": {
+          "title": "Health Records",
+          "description": "Medical data and fitness tracking"
+        },
+        "financial": {
+          "title": "Financial Data",
+          "description": "Personal budgets and transactions"
+        }
+      }
+    },
+    "shared": {
+      "title": "Shared Data Model",
+      "concept": {
+        "title": "Collaborative Ownership",
+        "description": "Shared data represents information owned by multiple parties equally. Changes require consensus based on predefined rules. This model ensures fairness and prevents any single party from unilaterally modifying shared resources."
+      },
+      "consensus": {
+        "title": "Consensus Mechanisms",
+        "unanimous": {
+          "title": "Unanimous",
+          "description": "All parties must agree"
+        },
+        "majority": {
+          "title": "Majority",
+          "description": "More than 50% must agree"
+        },
+        "threshold": {
+          "title": "Threshold",
+          "description": "Custom percentage required"
+        }
+      },
+      "implementation": {
+        "title": "Shared Expense Example"
+      },
+      "justSplit": {
+        "title": "Real-World Example: JustSplit",
+        "step1": "Create Expense",
+        "step1Desc": "User creates shared expense with participants",
+        "step2": "Notify Parties",
+        "step2Desc": "All participants receive notification to review",
+        "step3": "Collect Signatures",
+        "step3Desc": "Each party signs to approve the expense",
+        "step4": "Execute Change",
+        "step4Desc": "Once consensus reached, expense is finalized"
+      }
+    },
+    "public": {
+      "title": "Public & Community Data",
+      "concept": {
+        "title": "Community-Owned Resources",
+        "description": "Public data belongs to the community. It includes information about public figures, community resources, and shared knowledge. This data is transparent, verifiable, and governed by democratic processes."
+      },
+      "structure": {
+        "title": "Public Data Architecture",
+        "public": {
+          "title": "Public Layer",
+          "description": "Open access information",
+          "item1": "Political voting records",
+          "item2": "Public promises",
+          "item3": "Community resources"
+        },
+        "verified": {
+          "title": "Verified Layer",
+          "description": "Claims with cryptographic proof",
+          "item1": "Educational credentials",
+          "item2": "Professional licenses",
+          "item3": "Official documents"
+        },
+        "community": {
+          "title": "Community Layer",
+          "description": "User-generated content",
+          "item1": "Ratings & reviews",
+          "item2": "Fact checks",
+          "item3": "Comments & feedback"
+        }
+      },
+      "implementation": {
+        "title": "Political Representative Example"
+      },
+      "governance": {
+        "title": "Community Governance",
+        "proposals": {
+          "title": "Proposals",
+          "description": "Community members submit changes"
+        },
+        "voting": {
+          "title": "Voting",
+          "description": "Democratic decision making"
+        },
+        "execution": {
+          "title": "Execution",
+          "description": "Automatic implementation of decisions"
+        }
+      }
+    },
+    "implementation": {
+      "title": "Implementation Patterns",
+      "crdt": {
+        "title": "Conflict-Free Replicated Data Types",
+        "description": "CRDTs enable automatic conflict resolution when multiple parties modify shared data simultaneously."
+      },
+      "sync": {
+        "title": "Data Synchronization Protocol",
+        "description": "Efficient synchronization ensures all parties have consistent views of shared data."
+      },
+      "smart": {
+        "title": "Smart Contract Integration",
+        "description": "For high-stakes shared data, smart contracts provide immutable consensus rules.",
+        "deploy": "Deploy Contract",
+        "deployDesc": "Define consensus rules in code",
+        "interact": "Interact",
+        "interactDesc": "Parties submit proposals and votes",
+        "execute": "Execute",
+        "executeDesc": "Automatic execution when consensus reached"
+      },
+      "best": {
+        "title": "Best Practices",
+        "encryption": {
+          "title": "Always Encrypt",
+          "description": "Encrypt data at rest and in transit"
+        },
+        "validation": {
+          "title": "Validate Ownership",
+          "description": "Check permissions before any operation"
+        },
+        "audit": {
+          "title": "Audit Trail",
+          "description": "Log all operations for transparency"
+        },
+        "backup": {
+          "title": "Backup Strategy",
+          "description": "Distributed backups prevent data loss"
+        }
+      }
+    }
+  },
+  "dataSync": {
+    "title": "Data Synchronization",
+    "subtitle": "Real-time, conflict-free synchronization for decentralized collaboration",
+    "tabs": {
+      "overview": "Overview",
+      "crdt": "CRDTs",
+      "consensus": "Consensus",
+      "protocol": "Protocol",
+      "examples": "Examples"
+    },
+    "overview": {
+      "title": "Decentralized Synchronization",
+      "description": "CyberEco's synchronization protocol ensures data consistency across multiple owners while respecting sovereignty. Using advanced techniques like CRDTs and vector clocks, we enable real-time collaboration without central servers.",
+      "principles": {
+        "realtime": {
+          "title": "Real-time Updates",
+          "description": "Changes propagate instantly across all participants without delays or polling."
+        },
+        "secure": {
+          "title": "End-to-End Security",
+          "description": "All synchronization happens over encrypted channels with cryptographic verification."
+        },
+        "conflict": {
+          "title": "Automatic Conflict Resolution",
+          "description": "Smart algorithms resolve conflicts without human intervention when possible."
+        },
+        "offline": {
+          "title": "Offline-First",
+          "description": "Work offline and sync when reconnected. No data loss, no conflicts."
+        }
+      },
+      "architecture": {
+        "title": "Sync Architecture",
+        "user1": "User A",
+        "user2": "User B",
+        "user3": "User C",
+        "sync": "Sync Protocol"
+      }
+    },
+    "crdt": {
+      "title": "Conflict-Free Replicated Data Types",
+      "concept": {
+        "title": "What are CRDTs?",
+        "description": "CRDTs are data structures that automatically resolve conflicts when multiple users edit the same data simultaneously. They guarantee eventual consistency without requiring coordination between nodes."
+      },
+      "types": {
+        "title": "CRDT Types Used in CyberEco",
+        "lww": {
+          "title": "Last-Write-Wins Register",
+          "description": "For simple values where the latest update should win"
+        },
+        "counter": {
+          "title": "PN-Counter",
+          "description": "For numerical values that can increase or decrease"
+        },
+        "set": {
+          "title": "OR-Set",
+          "description": "For collections where items can be added/removed"
+        },
+        "map": {
+          "title": "OR-Map",
+          "description": "For complex objects with nested properties"
+        }
+      },
+      "implementation": {
+        "title": "CRDT Implementation Example"
+      },
+      "benefits": {
+        "title": "Benefits of CRDTs",
+        "consistency": {
+          "title": "Strong Consistency",
+          "description": "Guarantees all nodes converge to the same state"
+        },
+        "availability": {
+          "title": "High Availability",
+          "description": "Works even during network partitions"
+        },
+        "automatic": {
+          "title": "Automatic Resolution",
+          "description": "No manual conflict resolution needed"
+        }
+      }
+    },
+    "consensus": {
+      "title": "Multi-Signature Consensus",
+      "concept": {
+        "title": "When Consensus is Required",
+        "description": "Some operations require explicit agreement from multiple parties. CyberEco implements a flexible consensus mechanism that supports various agreement patterns while maintaining security and transparency."
+      },
+      "flow": {
+        "title": "Consensus Flow",
+        "propose": "Propose",
+        "proposeDesc": "User proposes a change",
+        "notify": "Notify",
+        "notifyDesc": "All parties are notified",
+        "sign": "Sign",
+        "signDesc": "Parties review and sign",
+        "execute": "Execute",
+        "executeDesc": "Change is applied"
+      },
+      "implementation": {
+        "title": "Consensus Implementation"
+      },
+      "patterns": {
+        "title": "Common Consensus Patterns",
+        "financial": {
+          "title": "Financial Transactions",
+          "description": "Require unanimous consent from all parties"
+        },
+        "governance": {
+          "title": "Governance Decisions",
+          "description": "Simple majority for most decisions"
+        },
+        "emergency": {
+          "title": "Emergency Actions",
+          "description": "Lower threshold for urgent matters"
+        }
+      }
+    },
+    "protocol": {
+      "title": "Synchronization Protocol",
+      "overview": {
+        "title": "Protocol Design",
+        "description": "CyberEco's sync protocol combines peer-to-peer communication, cryptographic verification, and intelligent routing to ensure efficient and secure data synchronization across all participants."
+      },
+      "layers": {
+        "title": "Protocol Layers",
+        "application": "Application Layer",
+        "applicationDesc": "High-level sync APIs and data models",
+        "consensus": "Consensus Layer",
+        "consensusDesc": "Multi-signature and agreement protocols",
+        "sync": "Sync Layer",
+        "syncDesc": "CRDT operations and conflict resolution",
+        "transport": "Transport Layer",
+        "transportDesc": "Encrypted peer-to-peer communication"
+      },
+      "sync": {
+        "title": "Sync Protocol Implementation"
+      },
+      "performance": {
+        "title": "Performance Optimizations",
+        "delta": {
+          "title": "Delta Sync",
+          "description": "Only sync changes, not entire documents"
+        },
+        "compression": {
+          "title": "Compression",
+          "description": "Compress data before transmission"
+        },
+        "batching": {
+          "title": "Batching",
+          "description": "Group multiple operations together"
+        }
+      }
+    },
+    "examples": {
+      "title": "Real-World Examples",
+      "justsplit": {
+        "title": "JustSplit: Shared Expense Management",
+        "description": "See how JustSplit uses multi-party synchronization to manage shared expenses with real-time updates and consensus-based settlement."
+      },
+      "demos": {
+        "title": "Demos: Community Governance",
+        "description": "Learn how Demos implements democratic decision-making with transparent voting and immutable records."
+      },
+      "integration": {
+        "title": "Integration Guide",
+        "step1": "Define Data Model",
+        "step1Desc": "Choose ownership type and sync requirements",
+        "step2": "Select CRDT Type",
+        "step2Desc": "Pick appropriate CRDT for your use case",
+        "step3": "Implement Sync",
+        "step3Desc": "Use SyncProtocol class for automatic sync",
+        "step4": "Handle Conflicts",
+        "step4Desc": "Define resolution strategies for edge cases"
+      }
+    }
   }
 }
