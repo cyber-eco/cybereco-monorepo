@@ -200,7 +200,7 @@ export default function DataPhilosophyPage() {
           <p>{t('documentation:dataPhilosophy.cta.description') || 
             'CyberEco is more than technology—it\'s a movement towards digital freedom. Together, we\'re building a future where privacy is default, ownership is real, and communities thrive.'}</p>
           <div className={styles.ctaButtons}>
-            <a href="/documentation/getting-started" className={styles.primaryButton}>
+            <a href="/documentation" className={styles.primaryButton}>
               {t('documentation:dataPhilosophy.cta.startButton') || 'Get Started'}
             </a>
             <a href="/documentation/data-model" className={styles.secondaryButton}>
