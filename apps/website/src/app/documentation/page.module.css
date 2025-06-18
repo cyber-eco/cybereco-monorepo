@@ -966,8 +966,8 @@
 .mobileMenuToggle {
   display: none;
   position: fixed;
-  top: calc(var(--header-height) + var(--spacing-md));
-  right: var(--spacing-md);
+  bottom: 20px;
+  right: 20px;
   z-index: 1001;
   background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
   color: white;
