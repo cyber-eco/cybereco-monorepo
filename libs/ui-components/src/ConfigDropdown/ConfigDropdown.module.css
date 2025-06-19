@@ -335,29 +335,36 @@
   
   .dropdownMenu {
     position: fixed; /* Use fixed positioning to escape mobile nav container */
-    top: auto;
-    bottom: 20px; /* Position from bottom to ensure visibility */
-    right: 20px;
-    left: 20px;
-    width: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) translateZ(0); /* Center in viewport */
+    width: calc(100vw - 40px);
     max-width: 320px;
-    margin: 0 auto;
     z-index: 1020; /* Higher than mobile nav wrapper */
-    max-height: calc(100vh - 140px); /* Ensure it doesn't exceed viewport */
+    max-height: calc(100vh - 200px); /* Ensure it doesn't exceed viewport */
     overflow-y: auto;
     /* Ensure dropdown is not affected by parent transforms or overflow */
-    transform: translateZ(0);
     will-change: transform;
+    /* Override animation for mobile to prevent position jumping */
+    animation: mobileDropdownFadeIn 0.2s ease-out;
+  }
+}
+
+/* Mobile-specific animation that doesn't conflict with centering transform */
+@keyframes mobileDropdownFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 
 /* Small mobile adjustments */
 @media (max-width: 480px) {
   .dropdownMenu {
-    bottom: 10px;
-    right: 10px;
-    left: 10px;
-    max-height: calc(100vh - 120px);
+    width: calc(100vw - 30px);
+    max-height: calc(100vh - 160px);
   }
 }
 
