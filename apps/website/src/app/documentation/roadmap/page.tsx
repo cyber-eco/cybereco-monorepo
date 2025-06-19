@@ -6,7 +6,8 @@ import {
   FaRocket, FaCheckCircle, FaCode, FaUsers, FaCubes, FaShieldAlt, 
   FaChartLine, FaGlobe, FaMobileAlt, FaLeaf, FaDatabase, FaLock,
   FaNetworkWired, FaCoins, FaArrowRight, FaClock, FaLightbulb,
-  FaHandshake, FaGraduationCap, FaBrain, FaCloud, FaExchangeAlt
+  FaHandshake, FaGraduationCap, FaBrain, FaCloud, FaExchangeAlt,
+  FaShoppingCart
 } from 'react-icons/fa';
 import { useI18n } from '@cybereco/i18n';
 import DocumentationHero from '../components/DocumentationHero';
@@ -259,8 +260,43 @@ export default function RoadmapDocs() {
                 <h4>{t('documentation:documentationPage.roadmap.shortTerm.priorityApps') || 'Priority Applications'}</h4>
                 <ul>
                   <li>{t('documentation:documentationPage.roadmap.shortTerm.demosMvp') || 'Demos MVP - Community governance'}</li>
+                  <li>{t('documentation:documentationPage.roadmap.shortTerm.marketplace') || 'Marketplace MVP - Decentralized commerce'}</li>
                   <li>{t('documentation:documentationPage.roadmap.shortTerm.ethicalAds') || 'EthicalAds integration'}</li>
                   <li>{t('documentation:documentationPage.roadmap.shortTerm.conciliation') || 'Conciliation MVP - Legal workflows'}</li>
+                </ul>
+              </div>
+            )}
+          </div>
+        </div>
+
+        <div className={styles.timelineItem} onClick={() => togglePhase('marketplace')}>
+          <div className={styles.timelineMarker}>
+            <FaShoppingCart />
+          </div>
+          <div className={styles.timelineContent}>
+            <h3>
+              {t('documentation:documentationPage.roadmap.shortTerm.phase4Title') || 'Phase 4: Marketplace Launch'}
+              <span className={styles.timelineDate}>
+                {t('documentation:documentationPage.roadmap.shortTerm.phase4Date') || 'Months 5-6'}
+              </span>
+            </h3>
+            <p>{t('documentation:documentationPage.roadmap.shortTerm.phase4Desc') || 'Launch decentralized marketplace with vendor onboarding'}</p>
+            
+            {expandedPhase === 'marketplace' && (
+              <div className={styles.phaseDetails}>
+                <h4>{t('documentation:documentationPage.roadmap.shortTerm.marketplaceCore') || 'Core Features'}</h4>
+                <ul>
+                  <li>{t('documentation:documentationPage.roadmap.shortTerm.vendorOnboarding') || 'Vendor onboarding and verification'}</li>
+                  <li>{t('documentation:documentationPage.roadmap.shortTerm.productCatalog') || 'Decentralized product catalog with CRDT sync'}</li>
+                  <li>{t('documentation:documentationPage.roadmap.shortTerm.orderManagement') || 'Multi-signature order management'}</li>
+                  <li>{t('documentation:documentationPage.roadmap.shortTerm.justSplitPayments') || 'JustSplit integration for payments'}</li>
+                </ul>
+                
+                <h4>{t('documentation:documentationPage.roadmap.shortTerm.trustLayer') || 'Trust & Safety'}</h4>
+                <ul>
+                  <li>{t('documentation:documentationPage.roadmap.shortTerm.reviewSystem') || 'Cryptographically signed review system'}</li>
+                  <li>{t('documentation:documentationPage.roadmap.shortTerm.conciliationIntegration') || 'Conciliation system for dispute resolution'}</li>
+                  <li>{t('documentation:documentationPage.roadmap.shortTerm.vendorBadges') || 'Community-verified vendor badges'}</li>
                 </ul>
               </div>
             )}
@@ -273,12 +309,12 @@ export default function RoadmapDocs() {
           </div>
           <div className={styles.timelineContent}>
             <h3>
-              {t('documentation:documentationPage.roadmap.shortTerm.phase4Title') || 'Phase 4: Green Impact'}
+              {t('documentation:documentationPage.roadmap.shortTerm.phase5Title') || 'Phase 5: Green Impact'}
               <span className={styles.timelineDate}>
-                {t('documentation:documentationPage.roadmap.shortTerm.phase4Date') || 'Months 5-6'}
+                {t('documentation:documentationPage.roadmap.shortTerm.phase5Date') || 'Months 7-8'}
               </span>
             </h3>
-            <p>{t('documentation:documentationPage.roadmap.shortTerm.phase4Desc') || 'Launch sustainability and wellness applications'}</p>
+            <p>{t('documentation:documentationPage.roadmap.shortTerm.phase5Desc') || 'Launch sustainability and wellness applications'}</p>
             
             {expandedPhase === 'green' && (
               <div className={styles.phaseDetails}>
@@ -337,11 +373,11 @@ export default function RoadmapDocs() {
               </span>
             </div>
           </div>
-          <p>{t('documentation:documentationPage.roadmap.longTerm.platformDesc') || 'Unified ecosystem with B2B capabilities and ethical marketplace'}</p>
+          <p>{t('documentation:documentationPage.roadmap.longTerm.platformDesc') || 'Unified ecosystem with B2B capabilities and decentralized marketplace'}</p>
           <div className={styles.visionFeatures}>
             <span className={styles.featureChip}>B2B Integration</span>
             <span className={styles.featureChip}>One-Subscription</span>
-            <span className={styles.featureChip}>Marketplace</span>
+            <span className={styles.featureChip}>P2P Marketplace</span>
             <span className={styles.featureChip}>API Gateway</span>
           </div>
         </div>

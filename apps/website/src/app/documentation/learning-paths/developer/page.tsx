@@ -28,7 +28,7 @@ export default function DeveloperLearningPathPage() {
           </div>
           <div className={styles.metaItem}>
             <span className={styles.metaLabel}>📚 {t('documentation:developerPath.topics') || 'Topics'}:</span>
-            <span className={styles.metaValue}>12 {t('documentation:developerPath.modules') || 'modules'}</span>
+            <span className={styles.metaValue}>13 {t('documentation:developerPath.modules') || 'modules'}</span>
           </div>
           <div className={styles.metaItem}>
             <span className={styles.metaLabel}>📈 {t('documentation:developerPath.level') || 'Level'}:</span>
@@ -234,7 +234,29 @@ export default function DeveloperLearningPathPage() {
               <div className={styles.moduleHeader}>
                 <div className={styles.moduleNumber}>8</div>
                 <div className={styles.moduleInfo}>
-                  <h4>{t('documentation:developerPath.module8Title') || 'Custom Application Development'}</h4>
+                  <h4>{t('documentation:developerPath.module8Title') || 'Decentralized Commerce with Marketplace'}</h4>
+                  <div className={styles.moduleStats}>
+                    <span>⏱️ 8 min</span>
+                    <span>🎯 Advanced</span>
+                  </div>
+                </div>
+              </div>
+              <p className={styles.moduleDescription}>
+                {t('documentation:developerPath.module8Desc') || 'Build decentralized commerce applications using CRDTs, multi-party ownership, and peer-to-peer synchronization.'}
+              </p>
+              <div className={styles.moduleTopics}>
+                <span className={styles.topic}>CRDT Implementation</span>
+                <span className={styles.topic}>P2P Sync</span>
+                <span className={styles.topic}>Multi-sig Orders</span>
+                <span className={styles.topic}>Conciliation API</span>
+              </div>
+            </div>
+
+            <div className={styles.moduleCard}>
+              <div className={styles.moduleHeader}>
+                <div className={styles.moduleNumber}>9</div>
+                <div className={styles.moduleInfo}>
+                  <h4>{t('documentation:developerPath.module9Title') || 'Custom Application Development'}</h4>
                   <div className={styles.moduleStats}>
                     <span>⏱️ 10 min</span>
                     <span>🎯 Advanced</span>
@@ -242,7 +264,7 @@ export default function DeveloperLearningPathPage() {
                 </div>
               </div>
               <p className={styles.moduleDescription}>
-                {t('documentation:developerPath.module8Desc') || 'Build custom applications using the CyberEco framework with NX generators and shared infrastructure.'}
+                {t('documentation:developerPath.module9Desc') || 'Build custom applications using the CyberEco framework with NX generators and shared infrastructure.'}
               </p>
               <div className={styles.moduleTopics}>
                 <span className={styles.topic}>NX Generators</span>
@@ -254,9 +276,9 @@ export default function DeveloperLearningPathPage() {
 
             <div className={styles.moduleCard}>
               <div className={styles.moduleHeader}>
-                <div className={styles.moduleNumber}>9</div>
+                <div className={styles.moduleNumber}>10</div>
                 <div className={styles.moduleInfo}>
-                  <h4>{t('documentation:developerPath.module9Title') || 'Testing & Quality Assurance'}</h4>
+                  <h4>{t('documentation:developerPath.module10Title') || 'Testing & Quality Assurance'}</h4>
                   <div className={styles.moduleStats}>
                     <span>⏱️ 4 min</span>
                     <span>🎯 Essential</span>
@@ -264,7 +286,7 @@ export default function DeveloperLearningPathPage() {
                 </div>
               </div>
               <p className={styles.moduleDescription}>
-                {t('documentation:developerPath.module9Desc') || 'Implement comprehensive testing strategies including unit tests, integration tests, and end-to-end testing.'}
+                {t('documentation:developerPath.module10Desc') || 'Implement comprehensive testing strategies including unit tests, integration tests, and end-to-end testing.'}
               </p>
               <div className={styles.moduleTopics}>
                 <span className={styles.topic}>Jest Testing</span>
@@ -280,9 +302,9 @@ export default function DeveloperLearningPathPage() {
             
             <div className={styles.moduleCard}>
               <div className={styles.moduleHeader}>
-                <div className={styles.moduleNumber}>10</div>
+                <div className={styles.moduleNumber}>11</div>
                 <div className={styles.moduleInfo}>
-                  <h4>{t('documentation:developerPath.module10Title') || 'Performance Optimization'}</h4>
+                  <h4>{t('documentation:developerPath.module11Title') || 'Performance Optimization'}</h4>
                   <div className={styles.moduleStats}>
                     <span>⏱️ 5 min</span>
                     <span>🎯 Performance</span>
@@ -290,7 +312,7 @@ export default function DeveloperLearningPathPage() {
                 </div>
               </div>
               <p className={styles.moduleDescription}>
-                {t('documentation:developerPath.module10Desc') || 'Optimize application performance with code splitting, caching strategies, and monitoring.'}
+                {t('documentation:developerPath.module11Desc') || 'Optimize application performance with code splitting, caching strategies, and monitoring.'}
               </p>
               <div className={styles.moduleTopics}>
                 <span className={styles.topic}>Code Splitting</span>
@@ -302,9 +324,9 @@ export default function DeveloperLearningPathPage() {
 
             <div className={styles.moduleCard}>
               <div className={styles.moduleHeader}>
-                <div className={styles.moduleNumber}>11</div>
+                <div className={styles.moduleNumber}>12</div>
                 <div className={styles.moduleInfo}>
-                  <h4>{t('documentation:developerPath.module11Title') || 'Security Best Practices'}</h4>
+                  <h4>{t('documentation:developerPath.module12Title') || 'Security Best Practices'}</h4>
                   <div className={styles.moduleStats}>
                     <span>⏱️ 4 min</span>
                     <span>🎯 Critical</span>
@@ -312,7 +334,7 @@ export default function DeveloperLearningPathPage() {
                 </div>
               </div>
               <p className={styles.moduleDescription}>
-                {t('documentation:developerPath.module11Desc') || 'Implement security best practices including input validation, XSS protection, and secure data handling.'}
+                {t('documentation:developerPath.module12Desc') || 'Implement security best practices including input validation, XSS protection, and secure data handling.'}
               </p>
               <div className={styles.moduleTopics}>
                 <span className={styles.topic}>Input Validation</span>
@@ -324,9 +346,9 @@ export default function DeveloperLearningPathPage() {
 
             <div className={styles.moduleCard}>
               <div className={styles.moduleHeader}>
-                <div className={styles.moduleNumber}>12</div>
+                <div className={styles.moduleNumber}>13</div>
                 <div className={styles.moduleInfo}>
-                  <h4>{t('documentation:developerPath.module12Title') || 'Deployment & Monitoring'}</h4>
+                  <h4>{t('documentation:developerPath.module13Title') || 'Deployment & Monitoring'}</h4>
                   <div className={styles.moduleStats}>
                     <span>⏱️ 6 min</span>
                     <span>🎯 Production</span>
@@ -334,7 +356,7 @@ export default function DeveloperLearningPathPage() {
                 </div>
               </div>
               <p className={styles.moduleDescription}>
-                {t('documentation:developerPath.module12Desc') || 'Deploy applications to Firebase hosting with monitoring, analytics, and error tracking.'}
+                {t('documentation:developerPath.module13Desc') || 'Deploy applications to Firebase hosting with monitoring, analytics, and error tracking.'}
               </p>
               <div className={styles.moduleTopics}>
                 <span className={styles.topic}>Firebase Hosting</span>

@@ -246,6 +246,12 @@
         "tagline": "Construye Mejores Rutinas",
         "description": "Rastrea hábitos y alcanza metas personales con micro-acciones",
         "status": "Planificado"
+      },
+      "marketplace": {
+        "name": "Marketplace",
+        "tagline": "Plataforma de Comercio Descentralizado",
+        "description": "Compra y venta entre pares con soberanía de datos y resolución justa de disputas",
+        "status": "En Desarrollo"
       }
     },
     "hubTitle": "Hub",

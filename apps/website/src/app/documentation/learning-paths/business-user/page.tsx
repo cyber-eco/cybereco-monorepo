@@ -28,7 +28,7 @@ export default function BusinessUserLearningPathPage() {
           </div>
           <div className={styles.metaItem}>
             <span className={styles.metaLabel}>📚 {t('documentation:businessUserPath.topics') || 'Topics'}:</span>
-            <span className={styles.metaValue}>5 {t('documentation:businessUserPath.modules') || 'modules'}</span>
+            <span className={styles.metaValue}>6 {t('documentation:businessUserPath.modules') || 'modules'}</span>
           </div>
           <div className={styles.metaItem}>
             <span className={styles.metaLabel}>📈 {t('documentation:businessUserPath.level') || 'Level'}:</span>
@@ -149,7 +149,37 @@ export default function BusinessUserLearningPathPage() {
             <div className={styles.moduleHeader}>
               <div className={styles.moduleNumber}>4</div>
               <div className={styles.moduleInfo}>
-                <h3>{t('documentation:businessUserPath.module4Title') || 'Data Export & Analysis'}</h3>
+                <h3>{t('documentation:businessUserPath.module4Title') || 'Selling on CyberEco Marketplace'}</h3>
+                <div className={styles.moduleStats}>
+                  <span>⏱️ 4 min</span>
+                  <span>🎯 New</span>
+                </div>
+              </div>
+            </div>
+            <p className={styles.moduleDescription}>
+              {t('documentation:businessUserPath.module4Desc') || 'Set up your vendor profile, list products, manage inventory, and handle orders in the decentralized marketplace.'}
+            </p>
+            <div className={styles.moduleContent}>
+              <h4>{t('documentation:businessUserPath.youWillLearn') || 'You will learn'}:</h4>
+              <ul>
+                <li>{t('documentation:businessUserPath.module4Learn1') || 'Creating a professional vendor profile'}</li>
+                <li>{t('documentation:businessUserPath.module4Learn2') || 'Listing products with zero fees'}</li>
+                <li>{t('documentation:businessUserPath.module4Learn3') || 'Managing orders and inventory'}</li>
+                <li>{t('documentation:businessUserPath.module4Learn4') || 'Fair dispute resolution through conciliation'}</li>
+              </ul>
+            </div>
+            <div className={styles.moduleActions}>
+              <a href="/documentation/apps/marketplace" className={styles.startButton}>
+                {t('documentation:businessUserPath.startModule') || 'Start Module'} →
+              </a>
+            </div>
+          </div>
+
+          <div className={styles.moduleCard}>
+            <div className={styles.moduleHeader}>
+              <div className={styles.moduleNumber}>5</div>
+              <div className={styles.moduleInfo}>
+                <h3>{t('documentation:businessUserPath.module5Title') || 'Data Export & Analysis'}</h3>
                 <div className={styles.moduleStats}>
                   <span>⏱️ 2 min</span>
                   <span>🎯 Essential</span>
@@ -157,15 +187,15 @@ export default function BusinessUserLearningPathPage() {
               </div>
             </div>
             <p className={styles.moduleDescription}>
-              {t('documentation:businessUserPath.module4Desc') || 'Export business data for analysis, integrate with BI tools, and generate reports for stakeholders.'}
+              {t('documentation:businessUserPath.module5Desc') || 'Export business data for analysis, integrate with BI tools, and generate reports for stakeholders.'}
             </p>
             <div className={styles.moduleContent}>
               <h4>{t('documentation:businessUserPath.youWillLearn') || 'You will learn'}:</h4>
               <ul>
-                <li>{t('documentation:businessUserPath.module4Learn1') || 'Business data export formats'}</li>
-                <li>{t('documentation:businessUserPath.module4Learn2') || 'Integration with accounting software'}</li>
-                <li>{t('documentation:businessUserPath.module4Learn3') || 'Custom reporting and analytics'}</li>
-                <li>{t('documentation:businessUserPath.module4Learn4') || 'Compliance and audit trails'}</li>
+                <li>{t('documentation:businessUserPath.module5Learn1') || 'Business data export formats'}</li>
+                <li>{t('documentation:businessUserPath.module5Learn2') || 'Integration with accounting software'}</li>
+                <li>{t('documentation:businessUserPath.module5Learn3') || 'Custom reporting and analytics'}</li>
+                <li>{t('documentation:businessUserPath.module5Learn4') || 'Compliance and audit trails'}</li>
               </ul>
             </div>
             <div className={styles.moduleActions}>
@@ -177,9 +207,9 @@ export default function BusinessUserLearningPathPage() {
 
           <div className={styles.moduleCard}>
             <div className={styles.moduleHeader}>
-              <div className={styles.moduleNumber}>5</div>
+              <div className={styles.moduleNumber}>6</div>
               <div className={styles.moduleInfo}>
-                <h3>{t('documentation:businessUserPath.module5Title') || 'Business Privacy & Security'}</h3>
+                <h3>{t('documentation:businessUserPath.module6Title') || 'Business Privacy & Security'}</h3>
                 <div className={styles.moduleStats}>
                   <span>⏱️ 1 min</span>
                   <span>🎯 Critical</span>
@@ -187,15 +217,15 @@ export default function BusinessUserLearningPathPage() {
               </div>
             </div>
             <p className={styles.moduleDescription}>
-              {t('documentation:businessUserPath.module5Desc') || 'Configure enterprise-grade privacy settings, understand compliance requirements, and protect sensitive business data.'}
+              {t('documentation:businessUserPath.module6Desc') || 'Configure enterprise-grade privacy settings, understand compliance requirements, and protect sensitive business data.'}
             </p>
             <div className={styles.moduleContent}>
               <h4>{t('documentation:businessUserPath.youWillLearn') || 'You will learn'}:</h4>
               <ul>
-                <li>{t('documentation:businessUserPath.module5Learn1') || 'Enterprise privacy controls'}</li>
-                <li>{t('documentation:businessUserPath.module5Learn2') || 'GDPR and compliance settings'}</li>
-                <li>{t('documentation:businessUserPath.module5Learn3') || 'Data retention policies'}</li>
-                <li>{t('documentation:businessUserPath.module5Learn4') || 'Team security best practices'}</li>
+                <li>{t('documentation:businessUserPath.module6Learn1') || 'Enterprise privacy controls'}</li>
+                <li>{t('documentation:businessUserPath.module6Learn2') || 'GDPR and compliance settings'}</li>
+                <li>{t('documentation:businessUserPath.module6Learn3') || 'Data retention policies'}</li>
+                <li>{t('documentation:businessUserPath.module6Learn4') || 'Team security best practices'}</li>
               </ul>
             </div>
             <div className={styles.moduleActions}>

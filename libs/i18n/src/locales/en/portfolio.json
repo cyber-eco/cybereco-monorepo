@@ -247,6 +247,12 @@
         "tagline": "Build Better Routines",
         "description": "Track habits and achieve personal goals with micro-actions",
         "status": "Planned"
+      },
+      "marketplace": {
+        "name": "Marketplace",
+        "tagline": "Decentralized Commerce Platform",
+        "description": "Peer-to-peer buying and selling with data sovereignty and fair dispute resolution",
+        "status": "In Development"
       }
     },
     "hubTitle": "Hub",

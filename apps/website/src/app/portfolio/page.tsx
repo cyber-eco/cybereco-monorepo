@@ -25,6 +25,7 @@ const getSolutions = (t: (key: string) => string): Solution[] => [
   { id: 'somos', title: t('portfolio:portfolioPage.applications.somos.name'), description: t('portfolio:portfolioPage.applications.somos.description'), color: '#8B4513', category: 'identity', phase: 'priority' },
   { id: 'demos', title: t('portfolio:portfolioPage.applications.demos.name'), description: t('portfolio:portfolioPage.applications.demos.description'), color: '#4A5568', category: 'community', phase: 'priority' },
   { id: 'plantopia', title: t('portfolio:portfolioPage.applications.plantopia.name'), description: t('portfolio:portfolioPage.applications.plantopia.description'), color: '#48BB78', category: 'sustainability', phase: 'priority' },
+  { id: 'marketplace', title: t('portfolio:portfolioPage.applications.marketplace.name'), description: t('portfolio:portfolioPage.applications.marketplace.description'), color: '#E91E63', category: 'finance', phase: 'priority' },
   
   // FUTURE ECOSYSTEM - Finance & Economy
   { id: 'mywealth', title: t('portfolio:portfolioPage.applications.mywealth.name'), description: t('portfolio:portfolioPage.applications.mywealth.description'), color: '#F57C00', category: 'finance', phase: 'future' },
@@ -214,6 +215,7 @@ export default function PortfolioPage() {
                 <span>Somos</span>
                 <span>Demos</span>
                 <span>Plantopia</span>
+                <span>Marketplace</span>
               </div>
             </div>
             <div className={styles.statusCard}>

@@ -3728,3 +3728,119 @@
     height: auto;
   }
 }
+
+/* Solutions Overview Styles */
+.solutionGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-xl);
+}
+
+.solutionCard {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border-top: 4px solid;
+  display: block;
+}
+
+.solutionCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-color: var(--primary);
+}
+
+.solutionHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.solutionIcon {
+  font-size: 2.5rem;
+  opacity: 0.9;
+}
+
+.solutionTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.solutionDescription {
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-md);
+  line-height: 1.6;
+}
+
+.solutionExamples {
+  margin-bottom: var(--spacing-md);
+}
+
+.solutionExamples h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-secondary);
+}
+
+.solutionExamples ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.solutionExamples li {
+  padding-left: 1.5rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.solutionExamples li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--success);
+  font-weight: bold;
+}
+
+.solutionLink {
+  font-weight: 600;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: auto;
+  font-size: 0.95rem;
+}
+
+/* Mobile optimization for solutions */
+@media (max-width: 768px) {
+  .solutionGrid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  
+  .solutionCard {
+    padding: var(--spacing-md);
+  }
+  
+  .solutionIcon {
+    font-size: 2rem;
+  }
+  
+  .solutionTitle {
+    font-size: 1.25rem;
+  }
+}

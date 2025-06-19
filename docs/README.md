@@ -27,6 +27,7 @@ We believe your digital presence should empower you, not exploit you. Your ident
 - **Somos** - Family roots exploration and cultural heritage platform
 - **Demos** - Transparent voting and community decision-making platform
 - **Plantopia** - Smart gardening platform with plant care knowledge
+- **Marketplace** - Decentralized peer-to-peer commerce platform
 
 ### Secondary Applications (Future)
 - **Nexus** - Digital wellbeing social media hub
@@ -63,6 +64,7 @@ We believe your digital presence should empower you, not exploit you. Your ident
 - **[Hub Documentation](./applications/hub/README.md)** - Hub gateway, proxy features, and authentication center
 - **[Priority Applications](./applications/priority-apps.md)** - Detailed specifications for Somos, Demos, and Plantopia
 - **[JustSplit App Docs](../apps/justsplit/docs/README.md)** - JustSplit-specific implementation details
+- **[Marketplace Documentation](./apps/marketplace.md)** - Decentralized commerce platform documentation
 
 ### 🛠️ Development Guides
 - **[Getting Started](./development/getting-started.md)** - Comprehensive developer setup
@@ -309,6 +311,7 @@ The comprehensive set of applications for the CyberEco ecosystem is prioritized 
 - **Somos** - Family roots exploration and cultural heritage platform
 - **Demos** - Transparent voting and community governance
 - **Plantopia** - Smart gardening and plant care platform
+- **Marketplace** - Decentralized peer-to-peer commerce platform
 
 **Secondary Applications (Future)**
 - **Nexus** - Digital wellbeing social media hub

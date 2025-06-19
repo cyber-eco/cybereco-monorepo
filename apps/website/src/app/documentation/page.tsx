@@ -130,8 +130,15 @@ export default function DocumentationIndexPage() {
             <Link href="/documentation/portfolio" className={styles.docLink}>
               <FaChartBar className={styles.docLinkIcon} />
               <div>
-                <h4>{t('documentation:documentationPage.portfolioTitle') || 'Solutions'}</h4>
-                <p>{t('documentation:documentationPage.portfolioDesc') || 'Explore our applications'}</p>
+                <h4>{t('documentation:documentationPage.portfolioTitle') || 'Portfolio'}</h4>
+                <p>{t('documentation:documentationPage.portfolioDesc') || 'Complete application portfolio'}</p>
+              </div>
+            </Link>
+            <Link href="/documentation/solutions" className={styles.docLink}>
+              <FaTools className={styles.docLinkIcon} />
+              <div>
+                <h4>{t('documentation:documentationPage.solutionsTitle') || 'Solutions'}</h4>
+                <p>{t('documentation:documentationPage.solutionsDesc') || 'Browse solution categories'}</p>
               </div>
             </Link>
           </div>

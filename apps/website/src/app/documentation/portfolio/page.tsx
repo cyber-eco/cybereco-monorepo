@@ -65,6 +65,14 @@ export default function PortfolioDocPage() {
       tagline: t('portfolio:portfolioPage.applications.plantopia.tagline'),
       status: 'development',
       category: 'sustainability'
+    },
+    {
+      id: 'marketplace',
+      name: 'Marketplace',
+      description: t('portfolio:portfolioPage.applications.marketplace.description'),
+      tagline: t('portfolio:portfolioPage.applications.marketplace.tagline'),
+      status: 'development',
+      category: 'finance'
     }
   ];
 
@@ -81,7 +89,7 @@ export default function PortfolioDocPage() {
       title: t('portfolio:portfolioPage.categories.finance.title'),
       description: t('portfolio:portfolioPage.categories.finance.description'),
       icon: '💰',
-      apps: ['JustSplit', 'MyWealth', 'MyBusiness', 'CrowdFund', 'OfferMe', 'CyberBank']
+      apps: ['JustSplit', 'Marketplace', 'MyWealth', 'MyBusiness', 'CrowdFund', 'OfferMe']
     },
     {
       id: 'sustainability',
@@ -182,7 +190,7 @@ export default function PortfolioDocPage() {
           {priorityApplications.map((app) => (
             <div key={app.id} className={styles.docCard}>
               <div className={styles.cardIcon}>
-                {app.category === 'identity' ? '🔐' : app.category === 'community' ? '🏛️' : '🌱'}
+                {app.category === 'identity' ? '🔐' : app.category === 'community' ? '🏛️' : app.category === 'finance' ? '💰' : '🌱'}
               </div>
               <h3 className={styles.cardTitle}>{app.name}</h3>
               <p className={styles.cardDescription}>
@@ -304,7 +312,7 @@ export default function PortfolioDocPage() {
               </tr>
               <tr>
                 <td><span style={{ color: 'var(--warning)' }}>🟡 {t('documentation:documentationPage.portfolio.applicationStatus.inDevelopmentStatus') || 'In Development'}</span></td>
-                <td>Somos, Demos, Plantopia</td>
+                <td>Somos, Demos, Plantopia, Marketplace</td>
                 <td>{t('documentation:documentationPage.portfolio.applicationStatus.timeline2025') || '2025-2026'}</td>
               </tr>
               <tr>

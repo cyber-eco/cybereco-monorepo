@@ -8,7 +8,8 @@ import {
   FaBook, FaSearch, FaChevronRight, FaChevronDown, FaShieldAlt, FaKey, 
   FaUserShield, FaDatabase, FaFileExport, FaServer, FaCode,
   FaLock, FaUsers, FaMobileAlt, FaBars, FaTimes, FaRocket,
-  FaChartBar, FaGraduationCap, FaQuestionCircle, FaTools, FaSync
+  FaChartBar, FaGraduationCap, FaQuestionCircle, FaTools, FaSync,
+  FaShoppingCart, FaExchangeAlt
 } from 'react-icons/fa';
 import { useI18n } from '@cybereco/i18n';
 import styles from './page.module.css';
@@ -129,6 +130,12 @@ export default function DocumentationLayout({
       title: t('documentation:documentationPage.solutionCategoriesTitle') || 'SOLUTION CATEGORIES',
       sections: [
         {
+          id: 'solutions-overview',
+          title: t('documentation:documentationPage.solutionsOverviewItem') || 'Solutions Overview',
+          path: '/documentation/solutions',
+          icon: <FaExchangeAlt />
+        },
+        {
           id: 'community-governance',
           title: t('documentation:documentationPage.communityGovernanceItem') || 'Community & Governance',
           path: '/documentation/solutions/community-governance',
@@ -151,6 +158,12 @@ export default function DocumentationLayout({
           title: t('documentation:documentationPage.educationGrowthItem') || 'Education & Growth',
           path: '/documentation/solutions/education-growth',
           icon: <FaGraduationCap />
+        },
+        {
+          id: 'marketplace-commerce',
+          title: t('documentation:documentationPage.marketplaceCommerceItem') || 'Marketplace & Commerce',
+          path: '/documentation/solutions/marketplace-commerce',
+          icon: <FaShoppingCart />
         }
       ]
     },

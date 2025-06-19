@@ -243,7 +243,9 @@
     "roadmapTitle": "Hoja de Ruta",
     "roadmapDesc": "Próximas características y cronograma",
     "portfolioTitle": "Portafolio",
-    "portfolioDesc": "Nuestras aplicaciones y soluciones",
+    "portfolioDesc": "Portafolio completo de aplicaciones",
+    "solutionsTitle": "Soluciones",
+    "solutionsDesc": "Explorar categorías de soluciones",
     "learnMore": "Aprender más",
     "discover": "Descubrir",
     "viewRoadmap": "Ver hoja de ruta",
@@ -286,10 +288,12 @@
     "roadmapNavItem": "Hoja de Ruta de Desarrollo",
     "portfolioNavItem": "Portafolio de Soluciones",
     "solutionCategoriesTitle": "CATEGORÍAS DE SOLUCIONES",
+    "solutionsOverviewItem": "Resumen de Soluciones",
     "communityGovernanceItem": "Comunidad y Gobernanza",
     "financeEconomyItem": "Finanzas y Economía",
     "sustainabilityHomeItem": "Sostenibilidad y Hogar",
     "educationGrowthItem": "Educación y Crecimiento",
+    "marketplaceCommerceItem": "Marketplace y Comercio",
     "userResourcesTitle": "RECURSOS DEL USUARIO",
     "userGuidesNavItem": "Guías de Usuario",
     "faqNavItem": "Preguntas Frecuentes",
@@ -2451,6 +2455,7 @@
         "sharedState": "Sincronización de estado compartido",
         "priorityApps": "Aplicaciones Prioritarias",
         "demosMvp": "Lanzamiento MVP de Demos",
+        "marketplace": "MVP de Marketplace - Comercio descentralizado",
         "ethicalAds": "Sistema de anuncios éticos",
         "conciliation": "Herramientas de conciliación",
         "greenApps": "Aplicaciones Verdes",
@@ -2460,7 +2465,19 @@
         "infrastructure": "Infraestructura",
         "privacyLayer": "Capa de privacidad",
         "dataControls": "Controles de datos",
-        "community": "Herramientas comunitarias"
+        "community": "Herramientas comunitarias",
+        "marketplaceCore": "Características Principales",
+        "vendorOnboarding": "Incorporación y verificación de vendedores",
+        "productCatalog": "Catálogo de productos descentralizado con sincronización CRDT",
+        "orderManagement": "Gestión de pedidos multi-firma",
+        "justSplitPayments": "Integración con JustSplit para pagos",
+        "trustLayer": "Confianza y Seguridad",
+        "reviewSystem": "Sistema de reseñas firmadas criptográficamente",
+        "conciliationIntegration": "Sistema de conciliación para resolución de disputas",
+        "vendorBadges": "Insignias de vendedor verificadas por la comunidad",
+        "phase5Title": "Fase 5: Impacto Verde",
+        "phase5Date": "Meses 7-8",
+        "phase5Desc": "Lanzar aplicaciones de sostenibilidad y bienestar"
       },
       "longTerm": {
         "title": "Visión a Largo Plazo",
@@ -3331,6 +3348,38 @@
     "module3Desc": "Conecta tus aplicaciones con las APIs de CyberEco",
     "module4Title": "Construyendo Extensiones",
     "module4Desc": "Crea extensiones y plugins personalizados para la plataforma",
+    "module5Title": "Integración API de JustSplit",
+    "module5Desc": "Trabaja con gastos, grupos, liquidaciones y datos financieros a través de la API REST de JustSplit",
+    "module6Title": "Componentes y Bibliotecas Compartidas",
+    "module6Desc": "Aprovecha los componentes UI compartidos, tipos y utilidades para un desarrollo consistente en todas las aplicaciones",
+    "module7Title": "Datos en Tiempo Real y Webhooks",
+    "module7Desc": "Implementa sincronización de datos en tiempo real y notificaciones webhook para actualizaciones en vivo",
+    "module8Title": "Comercio Descentralizado con Marketplace",
+    "module8Desc": "Construye aplicaciones de comercio descentralizado usando CRDTs, propiedad multipartita y sincronización peer-to-peer",
+    "module9Title": "Desarrollo de Aplicaciones Personalizadas",
+    "module9Desc": "Construye aplicaciones personalizadas usando el framework CyberEco con generadores NX e infraestructura compartida",
+    "module10Title": "Pruebas y Aseguramiento de Calidad",
+    "module10Desc": "Implementa estrategias de prueba integrales incluyendo pruebas unitarias, de integración y end-to-end",
+    "module11Title": "Optimización de Rendimiento",
+    "module11Desc": "Optimiza el rendimiento de la aplicación con división de código, estrategias de caché y monitoreo",
+    "module12Title": "Mejores Prácticas de Seguridad",
+    "module12Desc": "Implementa mejores prácticas de seguridad incluyendo validación de entrada, protección XSS y manejo seguro de datos",
+    "module13Title": "Despliegue y Monitoreo",
+    "module13Desc": "Despliega aplicaciones en Firebase hosting con monitoreo, análisis y seguimiento de errores",
+    "complete": "Completado",
+    "gettingStarted": "Comenzando",
+    "coreIntegration": "Integración Central",
+    "advancedTopics": "Temas Avanzados",
+    "production": "Producción y Despliegue",
+    "contribute": "Contribuir a la Plataforma",
+    "contributeDesc": "Únete a nuestra comunidad de desarrollo de código abierto y contribuye a la evolución de la plataforma",
+    "joinCommunity": "Unirse a la Comunidad",
+    "communityPath": "Ruta de Líder Comunitario",
+    "communityPathDesc": "Aprende sobre la gobernanza de la plataforma y los principios de soberanía digital",
+    "explore": "Explorar",
+    "apiReference": "Referencia API",
+    "apiReferenceDesc": "Accede a documentación API completa y playground interactivo",
+    "viewDocs": "Ver Documentación",
     "nextStepsTitle": "Próximos Pasos",
     "nextStepsDesc": "Continúa tu viaje con temas avanzados y proyectos del mundo real",
     "prerequisite1": "Conocimiento básico de JavaScript/TypeScript",
@@ -3351,18 +3400,57 @@
     "modules": "módulos",
     "level": "Nivel",
     "beginner": "Principiante",
-    "introTitle": "Domina CyberEco para Negocios",
-    "introText": "Aprende cómo aprovechar las plataformas CyberEco para optimizar tus operaciones comerciales, gestionar equipos de manera efectiva y obtener información de tus datos. Esta ruta está diseñada para usuarios de negocios, gerentes y emprendedores.",
+    "introTitle": "Colaboración Empresarial Simplificada",
+    "introText": "Esta ruta de aprendizaje está diseñada para profesionales de negocios que quieren aprovechar las aplicaciones CyberEco para la colaboración en equipo, gestión de gastos y eficiencia operativa. Aprende a usar JustSplit para gastos de equipo, comprende las herramientas de gobernanza e integra con tus flujos de trabajo existentes.",
     "prerequisitesTitle": "Prerrequisitos",
     "whatYouLearn": "Lo que Aprenderás",
-    "module1Title": "Descripción General de la Plataforma",
-    "module1Desc": "Comprende el ecosistema CyberEco y las herramientas disponibles",
-    "module2Title": "Configuración de Cuenta",
-    "module2Desc": "Crea y configura tu cuenta empresarial",
-    "module3Title": "Gestión de Equipos",
-    "module3Desc": "Invita a miembros del equipo y gestiona permisos",
-    "module4Title": "Análisis Empresarial",
-    "module4Desc": "Genera informes y obtén información empresarial",
+    "module1Title": "Configuración de Cuenta para Equipos",
+    "module1Desc": "Configura tu cuenta de CyberEco Hub con ajustes de privacidad enfocados en empresas y funciones de gestión de equipos",
+    "module2Title": "Gestión de Gastos de Equipo",
+    "module2Desc": "Domina JustSplit para uso empresarial: gastos de equipo, flujos de trabajo de aprobación e integración con sistemas de contabilidad",
+    "module3Title": "Gestión Avanzada de Grupos",
+    "module3Desc": "Aprende escenarios complejos de grupos, roles y permisos, reglas de automatización y resolución de conflictos para equipos empresariales",
+    "module4Title": "Vendiendo en CyberEco Marketplace",
+    "module4Desc": "Configura tu perfil de vendedor, lista productos, gestiona inventario y maneja pedidos en el marketplace descentralizado",
+    "module1Learn1": "Crear cuentas empresariales seguras",
+    "module1Learn2": "Configurar ajustes de privacidad del equipo",
+    "module1Learn3": "Configurar autenticación de múltiples factores",
+    "module1Learn4": "Comprender las políticas de propiedad de datos",
+    "module2Learn1": "Crear grupos de gastos empresariales",
+    "module2Learn2": "Configurar flujos de trabajo de aprobación",
+    "module2Learn3": "Configurar límites y políticas de gasto",
+    "module2Learn4": "Exportar datos para software de contabilidad",
+    "module3Learn1": "Estructuras jerárquicas de equipos",
+    "module3Learn2": "Roles y permisos personalizados",
+    "module3Learn3": "Reglas automatizadas de gastos",
+    "module3Learn4": "Resolución de conflictos empresariales",
+    "module4Learn1": "Crear un perfil profesional de vendedor",
+    "module4Learn2": "Listar productos sin comisiones",
+    "module4Learn3": "Gestionar pedidos e inventario",
+    "module4Learn4": "Resolución justa de disputas a través de conciliación",
+    "module5Title": "Exportación y Análisis de Datos",
+    "module5Desc": "Exporta datos empresariales para análisis, integra con herramientas BI y genera informes para las partes interesadas",
+    "module5Learn1": "Formatos de exportación de datos empresariales",
+    "module5Learn2": "Integración con software de contabilidad",
+    "module5Learn3": "Informes y análisis personalizados",
+    "module5Learn4": "Cumplimiento y pistas de auditoría",
+    "module6Title": "Privacidad y Seguridad Empresarial",
+    "module6Desc": "Configura ajustes de privacidad de nivel empresarial, comprende los requisitos de cumplimiento y protege datos empresariales sensibles",
+    "module6Learn1": "Controles de privacidad empresarial",
+    "module6Learn2": "Configuración de GDPR y cumplimiento",
+    "module6Learn3": "Políticas de retención de datos",
+    "module6Learn4": "Mejores prácticas de seguridad del equipo",
+    "complete": "Completado",
+    "youWillLearn": "Aprenderás",
+    "startModule": "Comenzar Módulo",
+    "exploreNext": "Explorar Siguiente",
+    "developerPath": "Ruta de Aprendizaje para Desarrolladores",
+    "developerPathDesc": "Lleva tu integración más allá con acceso API y desarrollo personalizado",
+    "communityPath": "Ruta de Líder Comunitario",
+    "communityPathDesc": "Aprende sobre gobernanza y principios de soberanía digital",
+    "support": "Soporte Empresarial",
+    "supportDesc": "Obtén soporte especializado para implementaciones empresariales y necesidades personalizadas",
+    "contactSupport": "Contactar Soporte",
     "nextStepsTitle": "Próximos Pasos",
     "nextStepsDesc": "Explora funciones avanzadas y soluciones específicas de la industria",
     "prerequisite1": "Habilidades básicas de computación",
@@ -3872,6 +3960,667 @@
         "step4": "Manejar Conflictos",
         "step4Desc": "Definir estrategias de resolución para casos límite"
       }
+    }
+  },
+  "solutionsOverview": {
+    "title": "Resumen de Soluciones",
+    "subtitle": "Soluciones digitales integrales para cada aspecto de la vida moderna, construidas con privacidad y dignidad humana en el núcleo",
+    "intro": "CyberEco ofrece un conjunto integral de aplicaciones organizadas en categorías de soluciones. Cada categoría aborda dominios específicos de la vida manteniendo una integración perfecta en todo el ecosistema.",
+    "categoriesTitle": "Categorías de Soluciones",
+    "keyApplications": "Aplicaciones Clave:",
+    "explore": "Explorar",
+    "integrationTitle": "Integración Perfecta",
+    "integrationText": "Todas las soluciones funcionan juntas a través de autenticación compartida, modelos de datos e interfaces de usuario. Tus datos fluyen de forma segura entre aplicaciones mientras permanecen bajo tu control.",
+    "singleSignOn": "Inicio de Sesión Único",
+    "singleSignOnDesc": "Una cuenta para todas las aplicaciones a través de CyberEco Hub",
+    "dataPortability": "Portabilidad de Datos",
+    "dataPortabilityDesc": "Tus datos se mueven sin problemas entre aplicaciones",
+    "consistentUX": "Experiencia Consistente",
+    "consistentUXDesc": "Interfaz familiar en todas las aplicaciones",
+    "portfolioTitle": "Ver Portafolio Completo",
+    "portfolioDesc": "Explora nuestro portafolio completo de aplicaciones incluyendo apps actuales, desarrollos prioritarios y visión futura.",
+    "viewPortfolio": "Ver Portafolio",
+    "community": {
+      "title": "Comunidad y Gobernanza",
+      "description": "Herramientas digitales para construcción de comunidad, gobernanza democrática y toma de decisiones colectiva",
+      "example1": "Demos - Votación transparente",
+      "example2": "Conciliación - Resolución justa de disputas",
+      "example3": "Foros comunitarios"
+    },
+    "finance": {
+      "title": "Finanzas y Economía",
+      "description": "Gestión financiera, división de gastos y herramientas económicas para individuos y empresas",
+      "example1": "JustSplit - División de gastos",
+      "example2": "CyberBank - Banca digital",
+      "example3": "MyWealth - Gestión de activos"
+    },
+    "marketplace": {
+      "title": "Marketplace y Comercio",
+      "description": "Comercio descentralizado peer-to-peer con soberanía de datos y prácticas de comercio justo",
+      "example1": "Catálogos controlados por vendedores",
+      "example2": "Cero comisiones de plataforma",
+      "example3": "Sistema de conciliación justo"
+    },
+    "sustainability": {
+      "title": "Sostenibilidad y Hogar",
+      "description": "Herramientas para vida sostenible, gestión del hogar inteligente y consciencia ambiental",
+      "example1": "Plantopia - Jardinería inteligente",
+      "example2": "MyHome - Automatización del hogar",
+      "example3": "EcoTul - Mercado verde"
+    },
+    "education": {
+      "title": "Educación y Crecimiento",
+      "description": "Plataformas de aprendizaje, desarrollo de habilidades y herramientas de crecimiento personal",
+      "example1": "Education Hub - Plataforma de aprendizaje",
+      "example2": "Skill Share - Intercambio de conocimientos",
+      "example3": "Habits - Desarrollo personal"
+    }
+  },
+  "solutions": {
+    "marketplace": {
+      "title": "Marketplace",
+      "subtitle": "Comercio descentralizado peer-to-peer con soberanía de datos",
+      "problem": {
+        "title": "El Problema",
+        "monopoly": {
+          "title": "Monopolios de Plataforma",
+          "description": "Los marketplaces tradicionales controlan todo: tus datos, relaciones con clientes y reglas de negocio. Pueden cambiar tarifas, suspender cuentas o alterar algoritmos a voluntad."
+        },
+        "data": {
+          "title": "Explotación de Datos",
+          "description": "Tus datos de ventas, información de clientes e insights de negocio se convierten en propiedad de la plataforma, usados para competir contra ti o vendidos al mejor postor."
+        },
+        "disputes": {
+          "title": "Resolución Injusta de Disputas",
+          "description": "La resolución de disputas favorece a los compradores sobre los vendedores, carece de transparencia y no ofrece recurso real para decisiones injustas."
+        },
+        "fees": {
+          "title": "Tarifas Excesivas",
+          "description": "Las comisiones del 15-30% consumen las ganancias, mientras que cargos adicionales por pagos, publicidad y características hacen difícil un negocio sostenible."
+        }
+      },
+      "solution": {
+        "title": "La Solución CyberEco",
+        "description": "CyberEco Marketplace reimagina el comercio como un ecosistema descentralizado donde los vendedores mantienen el control, los compradores disfrutan privacidad, y las comunidades facilitan comercio justo a través de gobernanza transparente."
+      },
+      "features": {
+        "title": "Características Clave",
+        "decentralized": {
+          "title": "Arquitectura Descentralizada",
+          "description": "Ningún servidor central controla tu tienda. Los catálogos de productos viven en bóvedas de datos controladas por vendedores, sincronizadas peer-to-peer con compradores interesados."
+        },
+        "sovereignty": {
+          "title": "Soberanía de Datos",
+          "description": "Eres dueño de tus datos de productos, relaciones con clientes e historial de ventas. Exporta cuando quieras, integra donde sea, sin bloqueo de plataforma."
+        },
+        "realtime": {
+          "title": "Sincronización en Tiempo Real",
+          "description": "La tecnología CRDT asegura que las actualizaciones de inventario sean instantáneas en todos los nodos. Sin sobreventa, sin conflictos, sin cuello de botella central."
+        },
+        "conciliation": {
+          "title": "Conciliación Justa",
+          "description": "Mediadores certificados por la comunidad resuelven disputas a través de conciliación transparente, no decisiones arbitrarias de la plataforma."
+        },
+        "zeroFees": {
+          "title": "Cero Tarifas de Plataforma",
+          "description": "Sin comisiones, sin tarifas de listado, sin cargos ocultos. Los vendedores solo pagan por servicios opcionales que elijan usar."
+        },
+        "privacy": {
+          "title": "Compras con Privacidad Primero",
+          "description": "Navega anónimamente, comparte solo datos necesarios, paga de forma segura. Tus hábitos de compra siguen siendo tu asunto."
+        }
+      },
+      "implementation": {
+        "title": "Implementación Técnica",
+        "vendorCatalog": {
+          "title": "Catálogos de Vendedores",
+          "description": "Cada vendedor mantiene su catálogo de productos en una bóveda de datos personal, con gestión de inventario basada en CRDT para precisión en tiempo real."
+        },
+        "buyerDiscovery": {
+          "title": "Descubrimiento del Comprador",
+          "description": "Los índices de búsqueda descentralizados ayudan a los compradores a encontrar productos mientras preservan el control del vendedor y la privacidad del comprador."
+        },
+        "orderProcessing": {
+          "title": "Procesamiento de Órdenes",
+          "description": "Las órdenes multi-firma aseguran que ambas partes acuerden los términos. El fideicomiso inteligente protege los pagos hasta la confirmación de entrega."
+        },
+        "disputeResolution": {
+          "title": "Resolución de Disputas",
+          "description": "Conciliadores certificados de la comunidad median disputas, con procesos transparentes y resultados justos."
+        }
+      },
+      "benefits": {
+        "title": "Beneficios",
+        "stakeholder": "Parte Interesada",
+        "advantages": "Ventajas Clave",
+        "forVendors": {
+          "title": "Para Vendedores",
+          "control": "Control completo sobre tu tienda y datos",
+          "noFees": "Sin tarifas de plataforma consumiendo ganancias",
+          "relationships": "Relaciones directas con clientes",
+          "flexibility": "Reglas y políticas de negocio flexibles"
+        },
+        "forBuyers": {
+          "title": "Para Compradores",
+          "privacy": "Compra con privacidad sin rastreo",
+          "directPrices": "Mejores precios sin sobrecargos de plataforma",
+          "transparency": "Información transparente del vendedor",
+          "fairDisputes": "Proceso justo de resolución de disputas"
+        },
+        "forCommunities": {
+          "title": "Para Comunidades",
+          "localFirst": "Apoya directamente negocios locales",
+          "governance": "Participa en la gobernanza del marketplace",
+          "mediation": "Conviértete en mediador certificado",
+          "standards": "Establece estándares de comercio comunitario"
+        }
+      },
+      "useCases": {
+        "title": "Casos de Uso",
+        "artisans": {
+          "title": "Artesanías",
+          "description": "Los artesanos venden directamente a clientes sin tarifas de plataforma"
+        },
+        "farmers": {
+          "title": "Mercados de Agricultores",
+          "description": "Los agricultores locales coordinan con miembros de la comunidad para productos frescos"
+        },
+        "services": {
+          "title": "Servicios Profesionales",
+          "description": "Los proveedores de servicios gestionan reservas y pagos sin problemas"
+        },
+        "cooperatives": {
+          "title": "Cooperativas",
+          "description": "Las cooperativas de trabajadores organizan comercio colectivo"
+        }
+      },
+      "technicalDocs": "Documentación Técnica",
+      "technicalDocsDesc": "Aprende más sobre la implementación de características del marketplace en tus aplicaciones.",
+      "viewDocs": "Ver Documentación Técnica"
+    },
+    "community": {
+      "title": "Comunidad y Gobernanza",
+      "subtitle": "Herramientas digitales para construcción comunitaria, gobernanza democrática y toma de decisiones colectiva",
+      "problem": {
+        "title": "El Problema",
+        "centralization": {
+          "title": "Control Centralizado",
+          "description": "Las plataformas tradicionales controlan los datos comunitarios, reglas y toma de decisiones, dejando a los miembros sin poder para moldear sus espacios digitales."
+        },
+        "transparency": {
+          "title": "Falta de Transparencia",
+          "description": "Las decisiones se toman a puerta cerrada, los sistemas de votación son opacos, y los fondos comunitarios se gestionan sin rendición de cuentas."
+        },
+        "engagement": {
+          "title": "Bajo Compromiso",
+          "description": "Los miembros se sienten desconectados de la toma de decisiones, llevando a la apatía y reducida participación en la vida comunitaria."
+        },
+        "representation": {
+          "title": "Pobre Representación",
+          "description": "Las estructuras de gobernanza tradicionales fallan en representar voces y perspectivas diversas dentro de las comunidades."
+        }
+      },
+      "solution": {
+        "title": "La Solución CyberEco",
+        "description": "CyberEco empodera a las comunidades con herramientas de gobernanza democrática, procesos transparentes de toma de decisiones, y propiedad colectiva de espacios digitales. Nuestra plataforma asegura que cada voz sea escuchada y cada voto cuente."
+      },
+      "features": {
+        "title": "Características Clave",
+        "voting": {
+          "title": "Votación Transparente",
+          "description": "Los sistemas de votación criptográficamente seguros aseguran transparencia mientras mantienen la privacidad del votante. Cada voto es verificable y a prueba de manipulación."
+        },
+        "deliberation": {
+          "title": "Herramientas de Deliberación",
+          "description": "Foros de discusión estructurados y herramientas de construcción de consenso ayudan a las comunidades a explorar problemas a fondo antes de tomar decisiones."
+        },
+        "proposals": {
+          "title": "Sistema de Propuestas",
+          "description": "Cualquier miembro puede enviar propuestas para consideración comunitaria, con umbrales y procesos de revisión integrados."
+        },
+        "treasury": {
+          "title": "Tesorería Comunitaria",
+          "description": "Gestión transparente de fondos comunitarios con controles multi-firma y rastros de auditoría públicos."
+        },
+        "conciliation": {
+          "title": "Conciliación Justa",
+          "description": "Mediadores certificados por la comunidad resuelven disputas a través de procesos de conciliación transparentes, no decisiones arbitrarias."
+        },
+        "ownership": {
+          "title": "Propiedad Colectiva",
+          "description": "Las comunidades verdaderamente poseen sus plataformas, datos y reglas de gobernanza. Ninguna entidad externa puede anular las decisiones comunitarias."
+        }
+      },
+      "implementation": {
+        "title": "Implementación Técnica",
+        "demos": {
+          "title": "Plataforma Demos",
+          "description": "Sistema de votación seguro con pruebas criptográficas, soportando varios métodos de votación desde mayoría simple hasta elección clasificada."
+        },
+        "forum": {
+          "title": "Foro Comunitario",
+          "description": "Espacios de discusión estructurados con sistemas de reputación, herramientas de moderación y características de seguimiento de consenso."
+        },
+        "governance": {
+          "title": "Motor de Gobernanza",
+          "description": "Marco flexible que soporta varios modelos de gobernanza desde democracia directa hasta representación delegada."
+        },
+        "integration": {
+          "title": "Integración Entre Apps",
+          "description": "Integración fluida con otras apps de CyberEco para identidad, pagos y gestión de recursos."
+        }
+      },
+      "benefits": {
+        "title": "Beneficios",
+        "stakeholder": "Parte Interesada",
+        "advantages": "Ventajas Clave",
+        "forMembers": {
+          "title": "Para Miembros",
+          "voice": "Voz igualitaria en decisiones comunitarias",
+          "transparency": "Transparencia total en gobernanza",
+          "ownership": "Verdadera propiedad de activos comunitarios",
+          "participation": "Oportunidades significativas de participación"
+        },
+        "forLeaders": {
+          "title": "Para Líderes",
+          "legitimacy": "Legitimidad democrática para decisiones",
+          "tools": "Herramientas poderosas de gobernanza",
+          "engagement": "Mayor compromiso de los miembros",
+          "accountability": "Estructuras claras de rendición de cuentas"
+        },
+        "forSociety": {
+          "title": "Para la Sociedad",
+          "democracy": "Prácticas democráticas fortalecidas",
+          "social": "Cohesión social mejorada",
+          "innovation": "Innovación desde las bases",
+          "resilience": "Comunidades locales resilientes"
+        }
+      },
+      "useCases": {
+        "title": "Casos de Uso",
+        "neighborhood": {
+          "title": "Asociaciones de Vecinos",
+          "description": "Comunidades locales gestionando recursos compartidos, organizando eventos y tomando decisiones colectivas"
+        },
+        "organizations": {
+          "title": "Organizaciones Sin Fines de Lucro",
+          "description": "Gobernanza transparente para ONGs con votación de miembros y rendición de cuentas pública"
+        },
+        "cooperatives": {
+          "title": "Cooperativas de Trabajadores",
+          "description": "Gobernanza democrática del lugar de trabajo con participación igualitaria en la toma de decisiones"
+        },
+        "online": {
+          "title": "Comunidades En Línea",
+          "description": "Comunidades digitales con moderación democrática y propiedad colectiva"
+        }
+      },
+      "technicalDocs": "Documentación Técnica",
+      "technicalDocsDesc": "Aprende más sobre la implementación de características de gobernanza comunitaria en tus aplicaciones.",
+      "viewDocs": "Ver Documentación Técnica"
+    },
+    "finance": {
+      "title": "Finanzas y Economía",
+      "subtitle": "Gestión financiera, compartir gastos y herramientas económicas para individuos y empresas",
+      "problem": {
+        "title": "El Problema",
+        "exclusion": {
+          "title": "Exclusión Financiera",
+          "description": "Los sistemas bancarios tradicionales excluyen a miles de millones, con altas tarifas, saldos mínimos y prácticas discriminatorias que limitan el acceso a servicios financieros."
+        },
+        "complexity": {
+          "title": "Complejidad del Seguimiento de Gastos",
+          "description": "Gestionar gastos compartidos en grupos es engorroso, llevando a conflictos, deudas olvidadas y relaciones dañadas."
+        },
+        "opacity": {
+          "title": "Falta de Transparencia",
+          "description": "Las instituciones financieras operan de forma opaca, con tarifas ocultas, términos poco claros y algoritmos que trabajan contra los intereses del usuario."
+        },
+        "control": {
+          "title": "Sin Control del Usuario",
+          "description": "Tus datos financieros son propiedad de bancos y empresas fintech, usados para obtener ganancias sin tu consentimiento o beneficio."
+        }
+      },
+      "solution": {
+        "title": "La Solución CyberEco",
+        "description": "CyberEco democratiza las herramientas financieras con sistemas transparentes, propiedad del usuario para compartir gastos, presupuestar y colaboración económica. Nuestra plataforma devuelve la soberanía financiera a tus manos."
+      },
+      "features": {
+        "title": "Características Clave",
+        "splitting": {
+          "title": "División Inteligente de Gastos",
+          "description": "JustSplit rastrea, calcula y liquida automáticamente gastos grupales con múltiples métodos de división y algoritmos justos."
+        },
+        "banking": {
+          "title": "Banca Comunitaria",
+          "description": "Préstamos peer-to-peer, círculos de ahorro y sistemas de ayuda mutua que evitan los monopolios bancarios tradicionales."
+        },
+        "budgeting": {
+          "title": "Presupuesto Colaborativo",
+          "description": "Herramientas de presupuesto grupal para familias, organizaciones y comunidades con seguimiento transparente y rendición de cuentas."
+        },
+        "ownership": {
+          "title": "Propiedad de Datos",
+          "description": "Tus datos financieros siguen siendo tuyos. Exporta cuando quieras, integra donde sea, con control total sobre quién ve qué."
+        },
+        "realtime": {
+          "title": "Liquidación en Tiempo Real",
+          "description": "Cálculos instantáneos de liquidación e integraciones de pago reducen conflictos y simplifican las finanzas grupales."
+        },
+        "inclusive": {
+          "title": "Inclusión Financiera",
+          "description": "Sin saldos mínimos, sin discriminación, sin exclusión. Herramientas financieras accesibles para todos, en todas partes."
+        }
+      },
+      "implementation": {
+        "title": "Implementación Técnica",
+        "justsplit": {
+          "title": "Motor JustSplit",
+          "description": "Algoritmos avanzados para seguimiento de gastos, métodos justos de división y cálculos automatizados de liquidación con soporte multi-moneda."
+        },
+        "cyberbank": {
+          "title": "Plataforma CyberBank",
+          "description": "Infraestructura bancaria descentralizada que soporta transacciones peer-to-peer, fondos de ahorro y préstamos comunitarios."
+        },
+        "analytics": {
+          "title": "Análisis Financiero",
+          "description": "Análisis que preservan la privacidad dando a los usuarios información sobre patrones de gasto, presupuestos y salud financiera."
+        },
+        "integration": {
+          "title": "Integración de Pagos",
+          "description": "Integración fluida con varios sistemas de pago mientras se mantiene la privacidad del usuario y la soberanía de datos."
+        }
+      },
+      "benefits": {
+        "title": "Beneficios",
+        "stakeholder": "Parte Interesada",
+        "advantages": "Ventajas Clave",
+        "forIndividuals": {
+          "title": "Para Individuos",
+          "control": "Control completo sobre datos financieros",
+          "transparency": "Seguimiento transparente de gastos",
+          "inclusion": "Acceso a servicios financieros",
+          "privacy": "Transacciones que preservan la privacidad"
+        },
+        "forGroups": {
+          "title": "Para Grupos",
+          "harmony": "Reducción de conflictos financieros",
+          "efficiency": "Gestión automatizada de gastos",
+          "fairness": "División justa y transparente",
+          "accountability": "Clara rendición de cuentas financiera"
+        },
+        "forCommunities": {
+          "title": "Para Comunidades",
+          "resilience": "Resiliencia económica a través de ayuda mutua",
+          "circulation": "Mantener el dinero circulando localmente",
+          "empowerment": "Empoderamiento financiero para todos",
+          "solidarity": "Fortalecer lazos comunitarios"
+        }
+      },
+      "useCases": {
+        "title": "Casos de Uso",
+        "household": {
+          "title": "Hogares Compartidos",
+          "description": "Compañeros de cuarto y familias gestionando alquiler, servicios, compras y gastos del hogar de manera justa"
+        },
+        "travel": {
+          "title": "Viajes en Grupo",
+          "description": "Amigos dividiendo costos de vacaciones, rastreando gastos compartidos y liquidando deudas fácilmente"
+        },
+        "organizations": {
+          "title": "Organizaciones",
+          "description": "Clubes, equipos y organizaciones gestionando contribuciones de miembros y gastos compartidos"
+        },
+        "mutual": {
+          "title": "Ayuda Mutua",
+          "description": "Redes de apoyo comunitario agrupando recursos para asistencia de emergencia y solidaridad"
+        }
+      },
+      "technicalDocs": "Documentación Técnica",
+      "technicalDocsDesc": "Aprende más sobre la implementación de características de gestión financiera en tus aplicaciones.",
+      "viewDocs": "Ver Documentación Técnica"
+    },
+    "sustainability": {
+      "title": "Sostenibilidad y Hogar",
+      "subtitle": "Soluciones inteligentes para vida sostenible, gestión del hogar y cuidado ambiental",
+      "problem": {
+        "title": "El Problema",
+        "climate": {
+          "title": "Crisis Climática",
+          "description": "Las acciones individuales se sienten sin sentido contra los desafíos globales, con herramientas limitadas para rastrear y reducir el impacto ambiental personal."
+        },
+        "waste": {
+          "title": "Desperdicio de Recursos",
+          "description": "Los hogares desperdician energía, agua y comida debido a la falta de herramientas de monitoreo y optimización para gestión sostenible de recursos."
+        },
+        "food": {
+          "title": "Desconexión del Sistema Alimentario",
+          "description": "Dependencia de sistemas alimentarios industriales con altas huellas de carbono, mientras se carece de conocimiento para producción local de alimentos."
+        },
+        "visibility": {
+          "title": "Sin Visibilidad del Impacto",
+          "description": "Sin métricas claras y retroalimentación, las personas no pueden ver cómo sus elecciones afectan el medio ambiente o dónde mejorar."
+        }
+      },
+      "solution": {
+        "title": "La Solución CyberEco",
+        "description": "CyberEco empodera la vida sostenible a través de gestión inteligente del hogar, asistencia para jardinería urbana y compartir recursos comunitarios. Nuestra plataforma hace que el cuidado ambiental sea accesible y gratificante."
+      },
+      "features": {
+        "title": "Características Clave",
+        "gardening": {
+          "title": "Jardinería Inteligente",
+          "description": "Recomendaciones de cuidado de plantas con IA, guías de siembra estacional e intercambios comunitarios de semillas para producción exitosa de alimentos en casa."
+        },
+        "energy": {
+          "title": "Optimización Energética",
+          "description": "Monitoreo en tiempo real y automatización inteligente para reducir el consumo de energía e integrar fuentes renovables."
+        },
+        "water": {
+          "title": "Conservación del Agua",
+          "description": "Sistemas de riego inteligente, guías de cosecha de agua de lluvia y seguimiento de uso para minimizar el desperdicio de agua."
+        },
+        "circular": {
+          "title": "Economía Circular",
+          "description": "Compartir recursos comunitarios, redes de reparación y programas de residuos a recursos para vida sin desperdicios."
+        },
+        "tracking": {
+          "title": "Seguimiento del Impacto",
+          "description": "Monitoreo personal de huella de carbono con información accionable y desafíos comunitarios para impacto colectivo."
+        },
+        "community": {
+          "title": "Eco-Comunidades",
+          "description": "Conéctate con grupos locales de sostenibilidad, comparte recursos y participa en iniciativas ambientales."
+        }
+      },
+      "implementation": {
+        "title": "Implementación Técnica",
+        "plantopia": {
+          "title": "Plataforma Plantopia",
+          "description": "Asistente de jardinería impulsado por IA con reconocimiento de plantas, programación de cuidados y compartir conocimiento comunitario para agricultura urbana."
+        },
+        "homehub": {
+          "title": "Sistema HomeHub",
+          "description": "Automatización integrada del hogar enfocada en eficiencia de recursos, gestión de energía renovable y patrones de vida sostenible."
+        },
+        "ecotrack": {
+          "title": "Análisis EcoTrack",
+          "description": "Seguimiento integral del impacto ambiental con recomendaciones personalizadas y gamificación del progreso."
+        },
+        "resources": {
+          "title": "Red de Recursos",
+          "description": "Plataforma de economía compartida local para herramientas, materiales y habilidades para reducir el consumo y construir resiliencia comunitaria."
+        }
+      },
+      "benefits": {
+        "title": "Beneficios",
+        "stakeholder": "Parte Interesada",
+        "advantages": "Ventajas Clave",
+        "forIndividuals": {
+          "title": "Para Individuos",
+          "costs": "Costos de servicios reducidos mediante optimización",
+          "food": "Alimentos frescos y saludables de huertos caseros",
+          "impact": "Visibilidad clara del impacto ambiental",
+          "health": "Ambientes de vida más saludables"
+        },
+        "forCommunities": {
+          "title": "Para Comunidades",
+          "resilience": "Seguridad alimentaria local mejorada",
+          "sharing": "Compartir recursos reduce desperdicios",
+          "knowledge": "Construcción de conocimiento colectivo",
+          "green": "Vecindarios más verdes"
+        },
+        "forPlanet": {
+          "title": "Para el Planeta",
+          "emissions": "Reducción de emisiones de carbono",
+          "biodiversity": "Mayor biodiversidad urbana",
+          "resources": "Conservación de recursos naturales",
+          "awareness": "Creciente conciencia ambiental"
+        }
+      },
+      "useCases": {
+        "title": "Casos de Uso",
+        "urban": {
+          "title": "Jardinería Urbana",
+          "description": "Habitantes de apartamentos cultivando productos frescos en balcones y alféizares con orientación experta"
+        },
+        "carbon": {
+          "title": "Reducción de Carbono",
+          "description": "Familias rastreando y reduciendo su huella de carbono a través de cambios de estilo de vida y tecnología"
+        },
+        "sharing": {
+          "title": "Bibliotecas de Herramientas",
+          "description": "Vecindarios compartiendo herramientas y equipos para reducir el consumo y construir conexiones"
+        },
+        "energy": {
+          "title": "Comunidades Energéticas",
+          "description": "Cooperativas locales de energía renovable compartiendo recursos y logrando independencia energética"
+        }
+      },
+      "technicalDocs": "Documentación Técnica",
+      "technicalDocsDesc": "Aprende más sobre la implementación de características de sostenibilidad en tus aplicaciones.",
+      "viewDocs": "Ver Documentación Técnica"
+    },
+    "education": {
+      "title": "Educación y Crecimiento",
+      "subtitle": "Herramientas de aprendizaje permanente, desarrollo personal y preservación del patrimonio cultural",
+      "problem": {
+        "title": "El Problema",
+        "access": {
+          "title": "Desigualdad Educativa",
+          "description": "La educación de calidad sigue siendo cara e inaccesible para muchos, creando divisiones sociales y económicas que perpetúan la desigualdad."
+        },
+        "relevance": {
+          "title": "Métodos Obsoletos",
+          "description": "Los sistemas educativos tradicionales fallan en adaptarse a las necesidades modernas, enseñando habilidades obsoletas mientras ignoran competencias vitales críticas."
+        },
+        "heritage": {
+          "title": "Erosión Cultural",
+          "description": "Las historias familiares y el conocimiento cultural desaparecen a medida que pasan las generaciones sin sistemas para preservar y compartir esta sabiduría."
+        },
+        "personalization": {
+          "title": "Talla Única",
+          "description": "El aprendizaje estandarizado ignora las diferencias individuales, estilos de aprendizaje y metas personales, limitando el potencial humano."
+        }
+      },
+      "solution": {
+        "title": "La Solución CyberEco",
+        "description": "CyberEco democratiza la educación a través del aprendizaje peer-to-peer, rutas de desarrollo personalizadas y herramientas de preservación cultural. Nuestra plataforma hace accesible el intercambio de conocimientos mientras honra diversos estilos de aprendizaje y patrimonio cultural."
+      },
+      "features": {
+        "title": "Características Clave",
+        "p2p": {
+          "title": "Aprendizaje Entre Pares",
+          "description": "Conéctate con mentores y aprendices en tu comunidad para intercambios de habilidades, reduciendo costos mientras construyes relaciones."
+        },
+        "personalized": {
+          "title": "Rutas Adaptativas",
+          "description": "Rutas de aprendizaje impulsadas por IA que se adaptan a tus metas, ritmo y estilos de aprendizaje preferidos para un crecimiento óptimo."
+        },
+        "heritage": {
+          "title": "Bóveda del Patrimonio",
+          "description": "Preserva historias familiares, tradiciones culturales y sabiduría ancestral para futuras generaciones a través de archivos multimedia."
+        },
+        "wellness": {
+          "title": "Crecimiento Holístico",
+          "description": "Rastrea no solo el progreso académico sino también el desarrollo emocional, físico y espiritual para un crecimiento equilibrado."
+        },
+        "practical": {
+          "title": "Habilidades para la Vida",
+          "description": "Enfoque en habilidades prácticas como alfabetización financiera, inteligencia emocional y vida sostenible junto con lo académico."
+        },
+        "global": {
+          "title": "Aula Global",
+          "description": "Aprende de perspectivas diversas en todo el mundo mientras mantienes conexiones comunitarias locales y contexto cultural."
+        }
+      },
+      "implementation": {
+        "title": "Implementación Técnica",
+        "academy": {
+          "title": "Plataforma Academy",
+          "description": "Sistema de gestión de aprendizaje descentralizado con verificación de habilidades, revisiones entre pares y certificaciones validadas por la comunidad."
+        },
+        "somos": {
+          "title": "Patrimonio Somos",
+          "description": "Constructor de árboles genealógicos con narración multimedia, mapeo cultural y herramientas de transferencia de conocimiento intergeneracional."
+        },
+        "mindgrow": {
+          "title": "Rastreador MindGrow",
+          "description": "Panel de desarrollo personal que rastrea el progreso del aprendizaje, métricas de bienestar y objetivos de vida con información de IA."
+        },
+        "knowledge": {
+          "title": "Grafo de Conocimiento",
+          "description": "Recursos de aprendizaje interconectados mapeados para mostrar relaciones entre conceptos y rutas de aprendizaje personalizadas."
+        }
+      },
+      "benefits": {
+        "title": "Beneficios",
+        "stakeholder": "Parte Interesada",
+        "advantages": "Ventajas Clave",
+        "forLearners": {
+          "title": "Para Aprendices",
+          "access": "Acceso asequible a educación de calidad",
+          "personalized": "Experiencias de aprendizaje personalizadas",
+          "practical": "Habilidades prácticas para la vida real",
+          "heritage": "Conexión con raíces culturales"
+        },
+        "forEducators": {
+          "title": "Para Educadores",
+          "reach": "Alcance ampliado a aprendices entusiastas",
+          "tools": "Herramientas avanzadas de enseñanza y análisis",
+          "community": "Comunidad de apoyo de educadores",
+          "impact": "Medición directa del impacto"
+        },
+        "forFamilies": {
+          "title": "Para Familias",
+          "preservation": "Preservar la historia y sabiduría familiar",
+          "connection": "Fortalecer lazos intergeneracionales",
+          "learning": "Aprender juntos como familia",
+          "legacy": "Crear legado digital duradero"
+        }
+      },
+      "useCases": {
+        "title": "Casos de Uso",
+        "skills": {
+          "title": "Intercambios de Habilidades",
+          "description": "Comunidades intercambiando habilidades como lecciones de idiomas por tutoriales de programación, creando economías locales de aprendizaje"
+        },
+        "family": {
+          "title": "Archivos Familiares",
+          "description": "Abuelos grabando historias y tradiciones para que los nietos las descubran y aprendan"
+        },
+        "youth": {
+          "title": "Desarrollo Juvenil",
+          "description": "Jóvenes explorando carreras a través de mentoría y proyectos prácticos con profesionales locales"
+        },
+        "cultural": {
+          "title": "Aprendizaje Cultural",
+          "description": "Comunidades preservando y enseñando artes tradicionales, artesanías y costumbres a nuevas generaciones"
+        }
+      },
+      "technicalDocs": "Documentación Técnica",
+      "technicalDocsDesc": "Aprende más sobre la implementación de características de educación y crecimiento en tus aplicaciones.",
+      "viewDocs": "Ver Documentación Técnica"
     }
   }
 }
