@@ -335,13 +335,13 @@
   
   .dropdownMenu {
     position: fixed; /* Use fixed positioning to escape mobile nav container */
-    top: 50%;
+    top: 40%; /* Move higher to avoid gear button */
     left: 50%;
-    transform: translate(-50%, -50%) translateZ(0); /* Center in viewport */
+    transform: translate(-50%, -50%) translateZ(0); /* Center horizontally, adjust vertically */
     width: calc(100vw - 40px);
     max-width: 320px;
     z-index: 1020; /* Higher than mobile nav wrapper */
-    max-height: calc(100vh - 200px); /* Ensure it doesn't exceed viewport */
+    max-height: calc(100vh - 250px); /* Ensure it doesn't exceed viewport */
     overflow-y: auto;
     /* Ensure dropdown is not affected by parent transforms or overflow */
     will-change: transform;
