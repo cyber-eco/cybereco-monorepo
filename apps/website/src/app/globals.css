@@ -37,12 +37,19 @@ body {
   overflow-x: hidden;
 }
 
+/* Force body to be scrollable even if JS tries to lock it */
+body:not(.mobile-menu-open) {
+  overflow-y: auto !important;
+}
+
 /* Prevent horizontal scroll on mobile while allowing content to be visible */
 @media (max-width: 768px) {
   html {
     overflow-x: hidden;
     width: 100%;
     max-width: 100%;
+    height: 100%;
+    position: relative;
   }
   
   body {
@@ -52,6 +59,7 @@ body {
     overflow-x: hidden;
     overflow-y: auto !important;
     min-height: 100vh;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
   }
 }
 
@@ -158,14 +166,14 @@ html {
   div[class*="section"],
   div[class*="Section"] {
     padding-left: 1rem !important;
-    padding-right: 0 !important;
+    padding-right: 1rem !important;
     max-width: 100% !important;
     width: 100% !important;
   }
   
   /* Fix for hero sections */
   div[class*="hero"] {
-    padding-left: 1rem !important;
+    padding-left: 0rem !important;
     padding-right: 0 !important;
   }
   

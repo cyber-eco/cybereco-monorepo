@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaHandshake } from 'react-icons/fa';
 import { useI18n } from '@cybereco/i18n';
@@ -7,6 +8,27 @@ import styles from './page.module.css';
 
 export default function AboutPage() {
   const { t } = useI18n();
+  
+  // Fix any scroll issues on mount
+  useEffect(() => {
+    // Clear any stuck navigation state
+    localStorage.removeItem('navigation-menu-open');
+    localStorage.removeItem('website-menu-state');
+    
+    // Force body to be scrollable
+    document.body.style.overflow = '';
+    document.body.style.position = '';
+    document.body.style.height = '';
+    
+    // Remove any classes that might prevent scrolling
+    document.body.classList.remove('mobile-menu-open');
+    document.documentElement.style.overflow = '';
+    
+    return () => {
+      // Cleanup on unmount
+      document.body.style.overflow = '';
+    };
+  }, []);
 
   return (
     <div className={styles.pageContainer}>
@@ -80,51 +102,56 @@ export default function AboutPage() {
       </section>
 
       <section className={styles.section}>
+        <h2 className={styles.sectionTitle}>{t('about:aboutPage.sections.values.title') || 'Core Values'}</h2>
+        <div className={styles.valuesGrid}>
+          <motion.div 
+            className={styles.valueCard}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <h3 className={styles.valueTitle}>{t('about:aboutPage.sections.mission.values.sovereignty.title') || 'Digital Sovereignty'}</h3>
+            <p>{t('about:aboutPage.sections.mission.values.sovereignty.description') || 'Users own their data, identity, and digital presence'}</p>
+          </motion.div>
+          
+          <motion.div 
+            className={styles.valueCard}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            viewport={{ once: true }}
+          >
+            <h3 className={styles.valueTitle}>{t('about:aboutPage.sections.mission.values.humanCentered.title') || 'Human-Centered Design'}</h3>
+            <p>{t('about:aboutPage.sections.mission.values.humanCentered.description') || 'Technology serves people, not profit metrics'}</p>
+          </motion.div>
+          
+          <motion.div 
+            className={styles.valueCard}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <h3 className={styles.valueTitle}>{t('about:aboutPage.sections.mission.values.transparency.title') || 'Radical Transparency'}</h3>
+            <p>{t('about:aboutPage.sections.mission.values.transparency.description') || 'Open development, clear business models, honest communication'}</p>
+          </motion.div>
+          
+          <motion.div 
+            className={styles.valueCard}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            <h3 className={styles.valueTitle}>{t('about:aboutPage.sections.mission.values.sustainability.title') || 'Long-term Thinking'}</h3>
+            <p>{t('about:aboutPage.sections.mission.values.sustainability.description') || 'Building for decades, not quarterly reports'}</p>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className={styles.section}>
         <h2 className={styles.sectionTitle}>{t('about:aboutPage.sections.team.title') || 'The Team'}</h2>
-        <motion.div 
-          className={styles.valueCard}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-        >
-          <h3 className={styles.valueTitle}>{t('about:aboutPage.sections.mission.values.sovereignty.title') || 'Digital Sovereignty'}</h3>
-          <p>{t('about:aboutPage.sections.mission.values.sovereignty.description') || 'Users own their data, identity, and digital presence'}</p>
-        </motion.div>
-        
-        <motion.div 
-          className={styles.valueCard}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          viewport={{ once: true }}
-        >
-          <h3 className={styles.valueTitle}>{t('about:aboutPage.sections.mission.values.humanCentered.title') || 'Human-Centered Design'}</h3>
-          <p>{t('about:aboutPage.sections.mission.values.humanCentered.description') || 'Technology serves people, not profit metrics'}</p>
-        </motion.div>
-        
-        <motion.div 
-          className={styles.valueCard}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          viewport={{ once: true }}
-        >
-          <h3 className={styles.valueTitle}>{t('about:aboutPage.sections.mission.values.transparency.title') || 'Radical Transparency'}</h3>
-          <p>{t('about:aboutPage.sections.mission.values.transparency.description') || 'Open development, clear business models, honest communication'}</p>
-        </motion.div>
-        
-        <motion.div 
-          className={styles.valueCard}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          viewport={{ once: true }}
-        >
-          <h3 className={styles.valueTitle}>{t('about:aboutPage.sections.mission.values.sustainability.title') || 'Long-term Thinking'}</h3>
-          <p>{t('about:aboutPage.sections.mission.values.sustainability.description') || 'Building for decades, not quarterly reports'}</p>
-        </motion.div>
-        
         <p className={styles.teamDescription}>
           {t('about:aboutPage.sections.team.description') || 'CyberEco is built by a distributed team of developers, designers, and dreamers who believe in a better digital future.'}
         </p>

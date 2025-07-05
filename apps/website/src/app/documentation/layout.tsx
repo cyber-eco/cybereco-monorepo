@@ -9,7 +9,7 @@ import {
   FaUserShield, FaDatabase, FaFileExport, FaServer, FaCode,
   FaLock, FaUsers, FaMobileAlt, FaBars, FaTimes, FaRocket,
   FaChartBar, FaGraduationCap, FaQuestionCircle, FaTools, FaSync,
-  FaShoppingCart, FaExchangeAlt
+  FaShoppingCart, FaExchangeAlt, FaArrowUp
 } from 'react-icons/fa';
 import { useI18n } from '@cybereco/i18n';
 import styles from './page.module.css';
@@ -43,12 +43,15 @@ export default function DocumentationLayout({
   const [searchQuery, setSearchQuery] = useState('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [expandedSections, setExpandedSections] = useState<string[]>(['nav-getting-started']);
+  const [activeSection, setActiveSection] = useState<string>('');
+  const [showBackToTop, setShowBackToTop] = useState(false);
   const pathname = usePathname();
   const { t } = useI18n();
 
-  // Add keyboard shortcut for search (Ctrl/Cmd + K)
+  // Add keyboard shortcuts
   React.useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      // Ctrl/Cmd + K for search
       if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
         e.preventDefault();
         const searchInput = document.getElementById('documentation-search-input') as HTMLInputElement;
@@ -57,11 +60,58 @@ export default function DocumentationLayout({
           searchInput.select();
         }
       }
+      
+      // Arrow keys for navigation when sidebar is focused
+      const sidebar = document.querySelector(`.${styles.sidebar}`);
+      if (sidebar && sidebar.contains(document.activeElement)) {
+        const currentLink = document.activeElement as HTMLElement;
+        const allLinks = Array.from(sidebar.querySelectorAll(`.${styles.navItem}`));
+        const currentIndex = allLinks.indexOf(currentLink);
+        
+        if (e.key === 'ArrowDown' && currentIndex < allLinks.length - 1) {
+          e.preventDefault();
+          (allLinks[currentIndex + 1] as HTMLElement).focus();
+        } else if (e.key === 'ArrowUp' && currentIndex > 0) {
+          e.preventDefault();
+          (allLinks[currentIndex - 1] as HTMLElement).focus();
+        }
+      }
     };
 
     document.addEventListener('keydown', handleKeyDown);
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, []);
+
+  // Track scroll position for back to top button
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const sidebar = document.querySelector(`.${styles.sidebar}`);
+      if (sidebar) {
+        setShowBackToTop(sidebar.scrollTop > 300);
+      }
+    };
+
+    const sidebar = document.querySelector(`.${styles.sidebar}`);
+    sidebar?.addEventListener('scroll', handleScroll);
+    
+    return () => sidebar?.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Load and save expanded sections to localStorage
+  React.useEffect(() => {
+    const saved = localStorage.getItem('doc-expanded-sections');
+    if (saved) {
+      try {
+        setExpandedSections(JSON.parse(saved));
+      } catch (e) {
+        // Invalid JSON, use defaults
+      }
+    }
+  }, []);
+
+  React.useEffect(() => {
+    localStorage.setItem('doc-expanded-sections', JSON.stringify(expandedSections));
+  }, [expandedSections]);
 
   // Navigation structure with all sections and subpages
   const navStructure: NavSection[] = [
@@ -320,6 +370,14 @@ export default function DocumentationLayout({
     );
   };
 
+  // Scroll to top of sidebar
+  const scrollToTop = () => {
+    const sidebar = document.querySelector(`.${styles.sidebar}`);
+    if (sidebar) {
+      sidebar.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   // Get current page title for breadcrumb
   const currentPage = allNavItems.find(item => item.path === pathname);
   const isMainPage = pathname === '/documentation';
@@ -445,6 +503,22 @@ export default function DocumentationLayout({
               </div>
             ))}
           </nav>
+
+          {/* Back to Top Button */}
+          {showBackToTop && (
+            <motion.button
+              className={styles.backToTop}
+              onClick={scrollToTop}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              aria-label="Back to top"
+            >
+              <FaArrowUp />
+            </motion.button>
+          )}
         </aside>
 
         {/* Main Content */}

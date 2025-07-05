@@ -402,6 +402,16 @@
   box-shadow: 0 2px 8px rgba(var(--primary-rgb), 0.15);
 }
 
+.navItem:focus {
+  outline: none;
+}
+
+.navItem:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(var(--primary-rgb), 0.1);
+}
+
 .navItem:hover::before {
   width: 4px;
 }
@@ -473,6 +483,16 @@
   transform: translateX(4px);
 }
 
+/* Active Section (Currently Visible in Viewport) */
+.navItem.activeSection {
+  background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.05) 0%, rgba(var(--primary-rgb), 0.08) 100%);
+}
+
+.navItem.activeSection::before {
+  width: 2px;
+  background: rgba(var(--primary-rgb), 0.5);
+}
+
 /* Enhanced Documentation Layout */
 .documentationLayout {
   display: grid;
@@ -491,6 +511,7 @@
   min-height: 100%;
   position: relative;
   padding: 0;
+  scroll-behavior: smooth;
 }
 
 /* Breadcrumb */
@@ -542,12 +563,66 @@
   overflow: visible;
   max-height: calc(100vh - var(--header-height, 70px) - var(--spacing-xl));
   overflow-y: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--text-tertiary) transparent;
+}
+
+/* Custom Scrollbar */
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: var(--text-tertiary);
+  border-radius: 3px;
+  transition: background 0.2s ease;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
 }
 
 .sidebar:hover {
   box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
   transform: translateY(-2px);
   border-color: rgba(var(--primary-rgb), 0.2);
+}
+
+/* Back to Top Button */
+.backToTop {
+  position: absolute;
+  bottom: var(--spacing-md);
+  right: var(--spacing-md);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  z-index: 10;
+  font-size: 1rem;
+}
+
+.backToTop:hover {
+  background: var(--primary-hover);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.backToTop:active {
+  transform: translateY(0);
 }
 
 .sidebarHeader {
@@ -1026,6 +1101,8 @@
     max-height: 100vh;
     overflow-y: auto;
     border-radius: 0 var(--border-radius-lg) var(--border-radius-lg) 0;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
   }
 
   .sidebar.sidebarOpen {
