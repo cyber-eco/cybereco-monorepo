@@ -1,0 +1,24 @@
+/* Auto-generated breakpoint CSS variables from shared-types */
+/* Update this file by running: npm run generate:breakpoints */
+
+:root {
+  /* Mobile breakpoints */
+  --breakpoint-mobile-small: 360px;
+  --breakpoint-mobile: 480px;
+  --breakpoint-mobile-large: 640px;
+  
+  /* Tablet breakpoints */
+  --breakpoint-tablet: 768px;
+  --breakpoint-tablet-large: 900px;
+  
+  /* Desktop breakpoints */
+  --breakpoint-desktop: 1024px;
+  --breakpoint-desktop-medium: 1200px;
+  --breakpoint-desktop-large: 1360px;
+  --breakpoint-desktop-xl: 1440px;
+  --breakpoint-ultra-wide: 1920px;
+  
+  /* Navigation specific breakpoints */
+  --breakpoint-navigation-mobile: 820px;
+  --breakpoint-container-max: 1200px;
+}

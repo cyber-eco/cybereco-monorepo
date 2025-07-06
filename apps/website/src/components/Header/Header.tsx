@@ -47,6 +47,8 @@ export default function Header() {
       className={styles.header}
       LinkComponent={Link}
       usePathname={usePathname}
+      disableBodyLock={true}
+      persistMenuState={false}
     />
   );
 }

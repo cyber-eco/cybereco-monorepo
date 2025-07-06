@@ -592,18 +592,3 @@
   }
 }
 
-/* Force scrolling to work on portfolio page - MUST BE LAST */
-body:has(.main) {
-  overflow: visible !important;
-  overflow-y: auto !important;
-  overflow-x: hidden !important;
-  position: static !important;
-  height: auto !important;
-  -webkit-overflow-scrolling: touch !important;
-}
-
-html:has(.main) {
-  overflow: visible !important;
-  overflow-y: auto !important;
-  height: auto !important;
-}

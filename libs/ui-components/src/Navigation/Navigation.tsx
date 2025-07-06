@@ -32,6 +32,8 @@ export interface NavigationProps {
   LinkComponent?: React.ComponentType<{ href: string; className?: string; children: React.ReactNode }>;
   usePathname?: () => string;
   configElement?: ReactNode;
+  disableBodyLock?: boolean;
+  persistMenuState?: boolean;
 }
 
 export default function Navigation({
@@ -43,40 +45,48 @@ export default function Navigation({
   mobileMenuStorageKey = 'navigation-menu-open',
   LinkComponent = ({ href, className, children }) => <a href={href} className={className}>{children}</a>,
   usePathname = () => '/',
-  configElement
+  configElement,
+  disableBodyLock = false,
+  persistMenuState = true
 }: NavigationProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
   // Load mobile menu state from localStorage
   useEffect(() => {
-    const savedState = localStorage.getItem(mobileMenuStorageKey);
-    if (savedState === 'true') {
-      setIsMobileMenuOpen(true);
+    if (persistMenuState) {
+      const savedState = localStorage.getItem(mobileMenuStorageKey);
+      if (savedState === 'true') {
+        setIsMobileMenuOpen(true);
+      }
     }
-  }, [mobileMenuStorageKey]);
+  }, [mobileMenuStorageKey, persistMenuState]);
 
   // Save mobile menu state to localStorage
   useEffect(() => {
-    localStorage.setItem(mobileMenuStorageKey, isMobileMenuOpen.toString());
-  }, [isMobileMenuOpen, mobileMenuStorageKey]);
+    if (persistMenuState) {
+      localStorage.setItem(mobileMenuStorageKey, isMobileMenuOpen.toString());
+    }
+  }, [isMobileMenuOpen, mobileMenuStorageKey, persistMenuState]);
 
   // Close mobile menu on route change
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [pathname]);
 
-  // Prevent body scroll when mobile menu is open
+  // Prevent body scroll when mobile menu is open (unless disabled)
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
+    if (!disableBodyLock) {
+      if (isMobileMenuOpen) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+      return () => {
+        document.body.style.overflow = '';
+      };
     }
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [isMobileMenuOpen]);
+  }, [isMobileMenuOpen, disableBodyLock]);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);

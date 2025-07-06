@@ -3,6 +3,7 @@ export * from './user';
 export * from './app';
 export * from './navigation';
 export * from './justsplit';
+export * from './constants/breakpoints';
 // Export everything except the conflicting re-exports from shared-data
 export type {
   SharedUserProfile,
