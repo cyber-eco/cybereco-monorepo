@@ -10,7 +10,7 @@
   padding: 8px 16px;
   background: linear-gradient(135deg, #006241, #004D32, #006241);
   background-size: 200% 200%;
-  color: white;
+  color: white !important;
   text-decoration: none;
   border-radius: 25px;
   font-weight: 600;
@@ -23,6 +23,11 @@
   overflow: hidden;
   border: 2px solid transparent;
   backdrop-filter: blur(10px);
+}
+
+/* Ensure all hub button child elements are white */
+.hubButton * {
+  color: white !important;
 }
 
 .hubButton::before {
@@ -72,6 +77,7 @@
   letter-spacing: 0.5px;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
+  color: white !important;
 }
 
 .hubButton:hover .hubButtonText {
@@ -99,6 +105,7 @@
   
   .hubButtonText {
     font-size: 0.75rem;
+    color: white !important;
   }
 }
 
@@ -110,6 +117,7 @@
   
   .hubButtonText {
     font-size: 0.7rem;
+    color: white !important;
   }
   
   .hubButtonIcon {
@@ -130,6 +138,7 @@
 
   .hubButtonText {
     font-size: 0.8rem;
+    color: white !important;
   }
 
   .hubButtonIcon {
@@ -150,6 +159,7 @@
 
   .hubButtonText {
     font-size: 0.75rem;
+    color: white !important;
   }
 
   .hubButtonIcon {
@@ -178,6 +188,47 @@
 
   .hubButtonIcon {
     font-size: 1rem;
+  }
+}
+
+/* Specific fix for 481-820px range to ensure white text */
+/* Navigation switches to mobile at 820px, so we need to cover up to that point */
+@media (min-width: 481px) and (max-width: 820px) {
+  /* Force all hub button elements to be white */
+  .hubButton,
+  .hubButton * {
+    color: white !important;
+  }
+  
+  .hubButtonText {
+    color: white !important;
+    display: inline !important;
+  }
+  
+  .hubButtonIcon {
+    color: white !important;
+  }
+  
+  .hubButtonExternal {
+    color: white !important;
+  }
+  
+  /* Override any theme-specific colors */
+  [data-theme="light"] .hubButton,
+  [data-theme="light"] .hubButton *,
+  [data-theme="light"] .hubButtonText,
+  [data-theme="light"] .hubButtonIcon,
+  [data-theme="light"] .hubButtonExternal {
+    color: white !important;
+  }
+  
+  /* Ensure link inherits correct color */
+  a.hubButton,
+  a.hubButton:link,
+  a.hubButton:visited,
+  a.hubButton:hover,
+  a.hubButton:active {
+    color: white !important;
   }
 }
 

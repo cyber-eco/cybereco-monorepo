@@ -1,6 +1,23 @@
 .main {
-  min-height: 100vh;
   background-color: var(--color-background);
+  overflow-x: hidden;
+  overflow-y: auto;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Ensure page is scrollable on mobile */
+@media (max-width: 768px) {
+  .main {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch;
+    height: auto;
+    min-height: 100vh;
+    /* Fix for iOS scroll issues */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+  }
 }
 
 .heroSection {
@@ -41,6 +58,18 @@
   background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-background) 100%);
   border-top: 1px solid var(--color-border);
   position: relative;
+  overflow: visible;
+}
+
+/* Ensure sections are scrollable on mobile */
+@media (max-width: 768px) {
+  .statusSection,
+  .heroSection,
+  .portfolioSection {
+    overflow: visible !important;
+    position: relative !important;
+    transform: translateZ(0); /* Hardware acceleration */
+  }
 }
 
 .statusTitle {
@@ -71,24 +100,27 @@
 }
 
 .statusCard:hover {
-  transform: translateY(-8px) scale(1.02);
+  transform: translateY(-8px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
   border-color: var(--color-primary);
 }
 
-.statusCard::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s;
+/* Desktop hover effect - ensure this works */
+@media (hover: hover) and (pointer: fine) {
+  .statusCard {
+    cursor: pointer;
+  }
 }
 
-.statusCard:hover::before {
-  left: 100%;
+/* Mobile tap feedback */
+.statusCard:active {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Removed the shimmer effect on status cards to prevent flashing */
+.statusCard::before {
+  display: none;
 }
 
 .statusCard h3 {
@@ -177,25 +209,21 @@
 .categoryTab:hover,
 .statusTab:hover {
   border-color: var(--color-primary);
-  transform: translateY(-2px) scale(1.05);
+  transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 98, 65, 0.2);
 }
 
-.categoryTab::before,
-.statusTab::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(0, 98, 65, 0.1), transparent);
-  transition: left 0.3s;
+/* Mobile tap feedback */
+.categoryTab:active,
+.statusTab:active {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 98, 65, 0.15);
 }
 
-.categoryTab:hover::before,
-.statusTab:hover::before {
-  left: 100%;
+/* Removed the shimmer effect on tabs to prevent flashing */
+.categoryTab::before,
+.statusTab::before {
+  display: none;
 }
 
 .categoryTab.active,
@@ -335,9 +363,15 @@
 }
 
 .projectCard:hover {
-  transform: translateY(-8px) scale(1.02);
+  transform: translateY(-8px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 0 8px 16px rgba(0, 98, 65, 0.1);
   border-color: var(--color-primary);
+}
+
+/* Mobile tap feedback */
+.projectCard:active {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .projectImageWrapper {
@@ -387,13 +421,13 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-  animation: shimmer-sweep 2s ease-in-out infinite;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  animation: shimmer-sweep 4s ease-in-out infinite;
+  animation-delay: 1s;
 }
 
 @keyframes shimmer-sweep {
   0% { left: -100%; }
-  50% { left: 100%; }
   100% { left: 100%; }
 }
 
@@ -475,6 +509,22 @@
   box-shadow: 0 2px 8px rgba(0, 98, 65, 0.2);
 }
 
+/* Mobile tap feedback */
+.projectLink:active {
+  transform: translateX(2px);
+  background: rgba(0, 98, 65, 0.08);
+}
+
+/* Disable hover effects only on devices with no hover capability AND coarse pointer */
+@media (hover: none) and (pointer: coarse) {
+  .statusCard:hover,
+  .categoryTab:hover,
+  .statusTab:hover,
+  .projectCard:hover {
+    transform: none;
+  }
+}
+
 /* Enhanced focus states for accessibility */
 .categoryTab:focus,
 .statusTab:focus,
@@ -504,9 +554,7 @@
   border-color: var(--color-border);
 }
 
-[data-theme="dark"] .statusCard::before {
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-}
+/* Removed dark mode shimmer to prevent flashing */
 
 [data-theme="dark"] .categoryTab,
 [data-theme="dark"] .statusTab {
@@ -514,15 +562,14 @@
   border-color: var(--color-border);
 }
 
-[data-theme="dark"] .categoryTab::before,
-[data-theme="dark"] .statusTab::before {
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-}
+/* Removed dark mode tab shimmer to prevent flashing */
 
-[data-theme="dark"] .categoryTab:hover,
-[data-theme="dark"] .statusTab:hover {
-  border-color: var(--color-primary);
-  box-shadow: 0 4px 12px rgba(0, 163, 108, 0.2);
+@media (hover: hover) and (pointer: fine) {
+  [data-theme="dark"] .categoryTab:hover,
+  [data-theme="dark"] .statusTab:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 4px 12px rgba(0, 163, 108, 0.2);
+  }
 }
 
 [data-theme="dark"] .categoryTab.active,
@@ -537,8 +584,26 @@
   border-color: rgba(0, 163, 108, 0.3);
 }
 
-[data-theme="dark"] .projectLink:hover {
-  background: rgba(0, 163, 108, 0.2);
-  border-color: var(--color-primary);
-  box-shadow: 0 2px 8px rgba(0, 163, 108, 0.3);
+@media (hover: hover) and (pointer: fine) {
+  [data-theme="dark"] .projectLink:hover {
+    background: rgba(0, 163, 108, 0.2);
+    border-color: var(--color-primary);
+    box-shadow: 0 2px 8px rgba(0, 163, 108, 0.3);
+  }
+}
+
+/* Force scrolling to work on portfolio page - MUST BE LAST */
+body:has(.main) {
+  overflow: visible !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  position: static !important;
+  height: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+html:has(.main) {
+  overflow: visible !important;
+  overflow-y: auto !important;
+  height: auto !important;
 }

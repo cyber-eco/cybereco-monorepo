@@ -11,22 +11,39 @@ export default function AboutPage() {
   
   // Fix any scroll issues on mount
   useEffect(() => {
-    // Clear any stuck navigation state
-    localStorage.removeItem('navigation-menu-open');
-    localStorage.removeItem('website-menu-state');
+    // Clear all navigation menu states from localStorage
+    const menuKeys = Object.keys(localStorage).filter(key => 
+      key.includes('menu') || key.includes('navigation')
+    );
+    menuKeys.forEach(key => localStorage.removeItem(key));
     
-    // Force body to be scrollable
-    document.body.style.overflow = '';
-    document.body.style.position = '';
-    document.body.style.height = '';
+    // Force body and html to be scrollable
+    document.body.style.overflow = 'visible';
+    document.body.style.position = 'relative';
+    document.body.style.height = 'auto';
+    document.body.style.minHeight = '100vh';
+    document.body.style.touchAction = 'auto';
+    
+    document.documentElement.style.overflow = 'visible';
+    document.documentElement.style.height = 'auto';
     
     // Remove any classes that might prevent scrolling
     document.body.classList.remove('mobile-menu-open');
-    document.documentElement.style.overflow = '';
+    document.body.classList.remove('no-scroll');
+    document.documentElement.classList.remove('no-scroll');
+    
+    // Enable smooth scrolling on iOS
+    if ('webkitOverflowScrolling' in document.body.style) {
+      document.body.style.webkitOverflowScrolling = 'touch';
+    }
+    
+    // Force a reflow to ensure styles are applied
+    document.body.offsetHeight;
     
     return () => {
-      // Cleanup on unmount
+      // Cleanup on unmount - restore normal scrolling
       document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
     };
   }, []);
 

@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useI18n } from '@cybereco/i18n';
 import styles from './page.module.css';
+import './fix-scroll.js';
 
 interface Solution {
   id: string;
@@ -99,6 +100,34 @@ export default function PortfolioPage() {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedStatus, setSelectedStatus] = useState('all');
 
+  // Fix mobile scrolling issues
+  useEffect(() => {
+    // Clear any navigation state that might block scrolling
+    localStorage.removeItem('navigation-menu-open');
+    localStorage.removeItem('website-menu-state');
+    
+    // Force body to be scrollable with important
+    document.body.style.setProperty('overflow', 'visible', 'important');
+    document.body.style.setProperty('position', 'static', 'important');
+    document.body.style.setProperty('height', 'auto', 'important');
+    document.documentElement.style.setProperty('overflow', 'visible', 'important');
+    
+    // Remove any classes that might prevent scrolling
+    document.body.classList.remove('mobile-menu-open');
+    
+    // Force a reflow to ensure styles are applied
+    document.body.offsetHeight;
+    
+    // Also fix on window focus (in case user switches tabs)
+    const handleFocus = () => {
+      document.body.style.setProperty('overflow', 'visible', 'important');
+      document.body.classList.remove('mobile-menu-open');
+    };
+    
+    window.addEventListener('focus', handleFocus);
+    return () => window.removeEventListener('focus', handleFocus);
+  }, []);
+
   // Handle URL hash navigation
   useEffect(() => {
     const handleHashChange = () => {
@@ -183,7 +212,7 @@ export default function PortfolioPage() {
     : null;
 
   return (
-    <>
+    <div className={styles.main}>
       <section className={styles.heroSection}>
         <div className={styles.container}>
           <h1>{t('portfolio:portfolioPage.title')}</h1>
@@ -298,7 +327,7 @@ export default function PortfolioPage() {
             )}
           </div>
         </section>
-    </>
+    </div>
   );
 }
 

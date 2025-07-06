@@ -3,11 +3,37 @@
   margin: 0 auto;
   padding: var(--spacing-md) var(--spacing-sm);
   overflow-x: hidden;
+  overflow-y: visible;
+  min-height: 100vh;
+  position: relative;
 }
 
 @media (min-width: 768px) {
   .pageContainer {
     padding: var(--spacing-lg) var(--spacing-md);
+  }
+}
+
+/* Mobile-specific scroll fixes */
+@media (max-width: 768px) {
+  .pageContainer {
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    /* Ensure the container can grow with content */
+    height: auto;
+    min-height: 100vh;
+    /* Fix for iOS scroll issues */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+  }
+  
+  /* Ensure all sections are scrollable on mobile */
+  .section,
+  .joinSection,
+  .valuesGrid,
+  .aboutContent {
+    overflow: visible !important;
+    height: auto !important;
   }
 }
 
