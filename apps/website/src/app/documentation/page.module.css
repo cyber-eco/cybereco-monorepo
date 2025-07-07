@@ -6,13 +6,17 @@
   margin: 0 auto;
   padding: var(--spacing-xl) var(--spacing-md) 0; /* Removed bottom padding */
   position: relative;
-  overflow: visible; /* Changed from hidden to allow sticky positioning */
+  overflow: visible !important; /* Changed from hidden to allow sticky positioning */
+  overflow-y: visible !important; /* Explicitly set to prevent auto */
+  overflow-x: visible !important; /* Explicitly set to prevent auto */
 }
 
 /* Mobile overflow fix */
 @media (max-width: 768px) {
   .pageContainer {
     overflow: visible !important;
+    overflow-y: visible !important;
+    overflow-x: visible !important;
     padding: 1rem 0 !important;
     max-width: 100% !important;
     width: 100% !important;
@@ -20,31 +24,16 @@
   }
 }
 
-/* Decorative background gradient */
-.pageContainer::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  right: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle at 70% 20%, rgba(99, 102, 241, 0.03) 0%, transparent 50%),
-              radial-gradient(circle at 30% 80%, rgba(59, 130, 246, 0.02) 0%, transparent 50%);
-  animation: floatGradient 30s ease-in-out infinite;
-  z-index: -1;
-  pointer-events: none;
-}
-
-@keyframes floatGradient {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  50% { transform: translate(-30px, 30px) rotate(180deg); }
-}
+/* Removed decorative background gradient for cleaner appearance */
 
 .container {
   width: 100%;
   position: relative;
   /* Remove height constraints and overflow to allow sticky */
   display: block;
+  overflow: visible !important;
+  overflow-y: visible !important;
+  overflow-x: visible !important;
 }
 
 /* Enhanced Page Header with Gradient */
@@ -1133,7 +1122,7 @@
     transition: transform 0.3s ease;
     box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
     max-height: 100vh;
-    overflow-y: auto;
+    overflow-y: auto; /* Keep auto for when sidebar is open as modal */
     border-radius: 0 var(--border-radius-lg) var(--border-radius-lg) 0;
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
@@ -1162,6 +1151,8 @@
     background: none !important;
     border-radius: 0 !important;
   }
+  
+  /* Header area overflow is handled by the navigation component itself */
 
   .title {
     font-size: 2rem !important;
@@ -1240,6 +1231,47 @@
 
   .featureGrid {
     grid-template-columns: 1fr;
+  }
+  
+  /* Fix double scrollbar on mobile documentation */
+  .documentationLayout {
+    min-height: auto !important;
+    overflow: visible !important;
+  }
+  
+  .sidebar {
+    position: static !important;
+    transform: none !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow-y: visible !important;
+    margin-bottom: var(--spacing-lg) !important;
+  }
+  
+  .sidebar.sidebarOpen {
+    position: fixed !important;
+    transform: translateX(0) !important;
+    height: 100vh !important;
+    max-height: 100vh !important;
+    overflow-y: auto !important; /* Keep auto only when sidebar is open as modal */
+  }
+  
+  /* When sidebar is not open, it should flow naturally */
+  .sidebar:not(.sidebarOpen) {
+    width: 100% !important;
+    max-width: none !important;
+    border-radius: var(--border-radius-lg) !important;
+  }
+  
+  /* Allow natural content flow */
+  .container {
+    overflow: visible;
+  }
+  
+  /* Allow only specific elements to scroll */
+  .sidebar.sidebarOpen,
+  .sidebarNav {
+    overflow-y: auto !important;
   }
 }
 

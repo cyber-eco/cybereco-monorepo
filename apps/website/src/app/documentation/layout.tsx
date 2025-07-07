@@ -91,6 +91,26 @@ export default function DocumentationLayout({
 
     window.addEventListener('scroll', handleScroll);
     
+    // Fix overflow issues on mobile
+    const fixOverflow = () => {
+      if (window.innerWidth <= 768) {
+        // Find all containers that might have overflow
+        const containers = document.querySelectorAll('div[class*="container"], div[class*="pageContainer"]');
+        containers.forEach(container => {
+          const computed = window.getComputedStyle(container);
+          if (computed.overflowY === 'auto' || computed.overflowY === 'scroll') {
+            (container as HTMLElement).style.overflow = 'visible';
+            (container as HTMLElement).style.overflowY = 'visible';
+            (container as HTMLElement).style.overflowX = 'visible';
+          }
+        });
+      }
+    };
+    
+    // Run on mount and resize
+    fixOverflow();
+    window.addEventListener('resize', fixOverflow);
+    
     // Fallback: Check if sticky is supported and working
     const checkStickySupport = () => {
       const testEl = document.createElement('div');
@@ -105,7 +125,10 @@ export default function DocumentationLayout({
       sidebar.style.top = 'calc(var(--header-height, 70px) + var(--spacing-md))';
     }
     
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', fixOverflow);
+    };
   }, []);
 
   // Load and save expanded sections to localStorage

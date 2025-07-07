@@ -1,0 +1,41 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "playwright-mcp-server",
+  "sourceRoot": "tools/playwright-mcp-server/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/tools/playwright-mcp-server",
+        "main": "tools/playwright-mcp-server/src/server.ts",
+        "tsConfig": "tools/playwright-mcp-server/tsconfig.json",
+        "assets": []
+      }
+    },
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "tsx tools/playwright-mcp-server/src/server.ts",
+        "cwd": "."
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["tools/playwright-mcp-server/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "tools/playwright-mcp-server/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["tool"]
+}

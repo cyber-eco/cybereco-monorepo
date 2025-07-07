@@ -130,6 +130,59 @@
     margin-right: 0 !important;
     padding: 1.5rem 1rem !important;
   }
+  
+  /* Fix documentation layout double scrollbar */
+  div[class*="documentationLayout"] {
+    overflow: visible !important;
+    min-height: auto !important;
+    height: auto !important;
+  }
+  
+  /* Ensure sidebar doesn't create scroll context on mobile */
+  aside[class*="sidebar"]:not([class*="sidebarOpen"]) {
+    position: static !important;
+    height: auto !important;
+    overflow: visible !important;
+    max-height: none !important;
+  }
+  
+  /* Prevent body scroll lock except when mobile menu is open */
+  body:not(.mobile-menu-open) {
+    overflow: visible !important;
+    height: auto !important;
+  }
+  
+  /* Ensure main content doesn't restrict height */
+  main[class*="mainContent"] {
+    min-height: auto !important;
+    overflow: visible !important;
+  }
+  
+  /* Aggressive fix for ALL containers on documentation pages */
+  body:has([class*="documentationLayout"]) div[class*="container"] {
+    overflow: visible !important;
+    overflow-y: visible !important;
+    overflow-x: visible !important;
+  }
+  
+  /* Removed aggressive overflow fix that was causing issues */
+  
+  /* Specific fix for the problematic containers found in debug */
+  div[class*="page_container"],
+  div[class*="pageContainer"] {
+    overflow: visible !important;
+    overflow-y: visible !important;
+    overflow-x: visible !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+  
+  /* Let body scroll naturally without forcing overflow */
+  
+  /* But allow fixed sidebars to scroll when open */
+  aside[class*="sidebar"][class*="sidebarOpen"] {
+    overflow-y: auto !important;
+  }
 }
 
 /* Ultra narrow screens */

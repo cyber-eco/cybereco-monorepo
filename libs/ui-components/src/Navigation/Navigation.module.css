@@ -23,7 +23,7 @@
   justify-content: space-between;
   height: 100%;
   position: relative;
-  overflow-x: hidden; /* Move overflow control here instead of parent */
+  /* Removed overflow-x: hidden to prevent clipping of buttons */
 }
 
 .logoLink {
@@ -436,4 +436,27 @@
 
 [data-theme="dark"] .mobileNavLink.active {
   background-color: rgba(0, 98, 65, 0.2);
+}
+
+/* Fix for clipped buttons on desktop */
+@media (min-width: 769px) {
+  .navigation {
+    overflow: visible !important;
+  }
+  
+  .navContainer {
+    overflow: visible !important;
+  }
+  
+  .navActions {
+    overflow: visible !important;
+    position: relative;
+    z-index: 10;
+  }
+  
+  /* Ensure dropdowns and tooltips are not clipped */
+  .configWrapper,
+  .actionButton {
+    overflow: visible !important;
+  }
 }

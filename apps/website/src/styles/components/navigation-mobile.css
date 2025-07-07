@@ -1,10 +1,10 @@
 /* Navigation Component Mobile Styles */
 
 @media (max-width: 768px) {
-  /* Side navigation */
+  /* Side navigation - exclude documentation sidebar */
   .sideNav,
   nav[class*="sideNav"],
-  aside[class*="navigation"] {
+  aside[class*="navigation"]:not([class*="sidebar"]) {
     position: fixed !important;
     top: 0 !important;
     left: -100% !important;
@@ -21,7 +21,7 @@
   /* Active state */
   .sideNav.active,
   nav[class*="sideNav"].active,
-  aside[class*="navigation"].active {
+  aside[class*="navigation"]:not([class*="sidebar"]).active {
     left: 0 !important;
   }
 
