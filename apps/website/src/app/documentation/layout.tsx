@@ -82,6 +82,48 @@ export default function DocumentationLayout({
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, []);
 
+  // Helper function to check if a nav item is active
+  const isNavItemActive = (itemPath: string, currentPath: string) => {
+    // Normalize paths by removing trailing slashes
+    const normalizedItemPath = itemPath.replace(/\/$/, '');
+    const normalizedCurrentPath = currentPath.replace(/\/$/, '');
+    
+    // Exact match always wins
+    if (normalizedItemPath === normalizedCurrentPath) {
+      return true;
+    }
+    
+    // Special case for root documentation page
+    if (normalizedItemPath === '/documentation' && normalizedCurrentPath === '/documentation') {
+      return true;
+    }
+    
+    // For non-exact matches, check if current path starts with item path
+    // but also ensure there's no more specific match
+    if (normalizedCurrentPath.startsWith(normalizedItemPath + '/')) {
+      // Check if this is a parent path that shouldn't be highlighted
+      // when a child is active (e.g., /documentation/solutions when on /documentation/solutions/education-growth)
+      const pathSegments = normalizedItemPath.split('/').filter(Boolean);
+      const currentSegments = normalizedCurrentPath.split('/').filter(Boolean);
+      
+      // If current path has more segments and the next segment exists,
+      // this means we're on a child page
+      if (currentSegments.length > pathSegments.length) {
+        // Check if any nav item has an exact match with the current path
+        const hasExactMatch = allNavItems.some(item => {
+          const normalizedPath = item.path.replace(/\/$/, '');
+          return normalizedPath === normalizedCurrentPath;
+        });
+        // Only highlight parent if there's no exact match for the current path
+        return !hasExactMatch;
+      }
+      
+      return true;
+    }
+    
+    return false;
+  };
+
   // Track scroll position for back to top button
   React.useEffect(() => {
     const handleScroll = () => {
@@ -150,7 +192,7 @@ export default function DocumentationLayout({
   // Ensure the section containing the active page is always expanded
   React.useEffect(() => {
     const activeSection = navStructure.find(section => 
-      section.sections?.some(item => item.path === pathname)
+      section.sections?.some(item => isNavItemActive(item.path, pathname))
     );
     
     if (activeSection && !expandedSections.includes(activeSection.id)) {
@@ -465,7 +507,7 @@ export default function DocumentationLayout({
                   <Link
                     key={item.id}
                     href={item.path}
-                    className={`${styles.navItem} ${styles.searchResult} ${pathname === item.path ? styles.active : ''}`}
+                    className={`${styles.navItem} ${styles.searchResult} ${isNavItemActive(item.path, pathname) ? styles.active : ''}`}
                     onClick={() => setMobileMenuOpen(false)}
                     title={item.title}
                   >
@@ -517,7 +559,7 @@ export default function DocumentationLayout({
                         <li key={item.id}>
                           <Link
                             href={item.path}
-                            className={`${styles.navItem} ${pathname === item.path ? styles.active : ''}`}
+                            className={`${styles.navItem} ${isNavItemActive(item.path, pathname) ? styles.active : ''}`}
                             onClick={() => setMobileMenuOpen(false)}
                             title={item.title}
                           >

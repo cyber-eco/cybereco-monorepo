@@ -90,7 +90,7 @@
 }
 
 /* Icon before title */
-.title::before {
+.pageHeader .title::before {
   content: '📚';
   position: absolute;
   left: -3rem;
@@ -480,7 +480,8 @@
   height: 1rem;
 }
 
-/* Tooltip for truncated text */
+/* Tooltip for truncated text - Disabled since navigation is wider and text wraps */
+/* 
 .navItem[title]:hover::before {
   content: attr(title);
   position: absolute;
@@ -499,7 +500,13 @@
   opacity: 0;
   animation: tooltipFadeIn 0.2s ease-in-out 0.5s forwards;
   pointer-events: none;
+  color: var(--text-primary);
+  -webkit-text-fill-color: currentColor;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  text-fill-color: currentColor;
 }
+*/
 
 @keyframes tooltipFadeIn {
   to {
@@ -1207,7 +1214,7 @@
   
   /* Header area overflow is handled by the navigation component itself */
 
-  .title {
+  .pageHeader .title {
     font-size: 2rem !important;
     padding: 0 1rem !important;
     word-break: break-word !important;
@@ -1215,7 +1222,7 @@
     white-space: normal !important;
   }
 
-  .title::before {
+  .pageHeader .title::before {
     display: none;
   }
 
