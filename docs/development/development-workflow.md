@@ -531,6 +531,125 @@ lsof -ti:40000 | xargs kill -9
 lsof -ti:40002 | xargs kill -9
 ```
 
+## 🔍 Visual Debugging Tools (MCP Playwright Server)
+
+The CyberEco monorepo includes a powerful MCP (Model Context Protocol) server that provides visual debugging capabilities using Playwright. This tool helps debug CSS issues, analyze scrolling problems, and monitor DOM changes in real-time.
+
+### Features
+
+- **CSS Scrolling Debugger**: Detect and analyze double scrollbar issues
+- **CSS Cascade Inspector**: Trace CSS rules and computed styles for any element
+- **DOM Change Monitor**: Watch for real-time DOM and style changes
+- **Visual Diff Tool**: Compare screenshots and annotate CSS issues
+
+### Installation and Setup
+
+```bash
+# Navigate to the MCP server directory
+cd tools/playwright-mcp-server
+
+# Install dependencies
+npm install
+
+# Build the server
+npm run build
+
+# Start in development mode
+npm run dev
+```
+
+### Integration with Claude Code
+
+To use the MCP server with Claude Code CLI:
+
+1. **Configure Claude Code** (run from monorepo root):
+```bash
+claude mcp add playwright-debugger node /path/to/cybereco-monorepo/tools/playwright-mcp-server/dist/server.js
+```
+
+2. **Verify the server is available**:
+```bash
+claude mcp list
+```
+
+### Available Debugging Tools
+
+#### 1. Debug CSS Scrolling
+
+Analyzes scrolling behavior and detects double scrollbars:
+
+```bash
+# Example: Debug documentation page scrolling
+claude mcp call playwright-debugger debug-css-scrolling --url "http://localhost:40001/documentation"
+```
+
+Returns:
+- List of all scrollable elements
+- Nested scroll container issues
+- Sticky positioning problems
+- Specific recommendations to fix issues
+
+#### 2. Inspect CSS Cascade
+
+Traces CSS rules and computed styles for any element:
+
+```bash
+# Example: Inspect sidebar styles
+claude mcp call playwright-debugger inspect-css-cascade --url "http://localhost:40001/documentation" --selector ".sidebar"
+```
+
+Returns:
+- Computed styles for the element
+- All CSS rules that match (with specificity)
+- Overridden rules and why
+- CSS variables in use
+
+#### 3. Monitor DOM Changes
+
+Watches for DOM and style changes in real-time:
+
+```bash
+# Example: Monitor navigation changes
+claude mcp call playwright-debugger monitor-dom-changes --url "http://localhost:40001/documentation" --selectors ".sidebar,.mainContent" --duration 30
+```
+
+#### 4. Visual Diff
+
+Captures screenshots and annotates CSS issues:
+
+```bash
+# Example: Capture visual issues
+claude mcp call playwright-debugger visual-diff --url "http://localhost:40001/documentation" --fullPage true --annotateIssues true
+```
+
+### Usage in Development
+
+When debugging CSS issues:
+
+1. **Start the apps and MCP server**:
+```bash
+# Terminal 1: Start apps
+npm run dev
+
+# Terminal 2: Start MCP server
+cd tools/playwright-mcp-server && npm run dev
+```
+
+2. **Use Claude Code to debug**:
+```bash
+# Debug specific CSS issues
+claude mcp call playwright-debugger debug-css-scrolling --url "http://localhost:40001/documentation"
+```
+
+3. **Analyze results** and implement fixes based on recommendations
+
+### Resource Management
+
+- Memory usage target: 50-150MB
+- Maximum 5 concurrent browser contexts
+- Automatic cleanup of unused resources
+- Pages timeout after 5 minutes of inactivity
+
 ---
 
 This workflow ensures consistent, high-quality development across the CyberEco platform while maintaining flexibility for different development styles and requirements.

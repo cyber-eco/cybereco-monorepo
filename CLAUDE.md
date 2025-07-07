@@ -24,10 +24,47 @@ This is an NX 19.8.14 monorepo with the following **cleaned and optimized** stru
 - `firebase/hub/` - Hub Firebase deployment configuration
 - `firebase/justsplit/` - JustSplit Firebase deployment configuration
 - `firebase/website/` - Website Firebase deployment configuration
+- `tools/playwright-mcp-server/` - MCP server for visual debugging and CSS inspection
 - `archived/` - Legacy code archives (old website moved here)
 - `nx.json` - NX workspace configuration with caching and task runners
 
 **⚠️ IMPORTANT:** Root-level `src/`, `public/`, and legacy config files have been removed. Each app manages its own configuration.
+
+## Debugging Tools
+
+### MCP Playwright Server
+
+The monorepo includes a Model Context Protocol (MCP) server that provides powerful visual debugging capabilities:
+
+**Location**: `tools/playwright-mcp-server/`
+
+**Key Features**:
+- **CSS Scrolling Debugger**: Detects double scrollbars and overflow issues
+- **CSS Cascade Inspector**: Traces CSS rules and specificity
+- **DOM Monitor**: Tracks real-time DOM changes
+- **Visual Diff**: Screenshots with issue annotations
+
+**Quick Start**:
+```bash
+# Build and start the MCP server
+cd tools/playwright-mcp-server
+npm install && npm run build
+npm run dev
+
+# Configure with Claude Code CLI
+claude mcp add playwright-debugger node $(pwd)/dist/server.js
+
+# Use for debugging
+claude mcp call playwright-debugger debug-css-scrolling --url "http://localhost:40001/documentation"
+```
+
+**Common Use Cases**:
+- Debug double scrollbar issues in documentation pages
+- Analyze CSS cascade and specificity conflicts
+- Monitor DOM mutations during user interactions
+- Capture visual regressions with annotated screenshots
+
+See `docs/development/development-workflow.md` for detailed usage instructions.
 
 ## Development Commands
 
