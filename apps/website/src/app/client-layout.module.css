@@ -1,6 +1,12 @@
 .main {
   min-height: calc(100vh - var(--header-height) - var(--footer-height));
   padding-top: var(--header-height, 70px);
+  /* Handle overflow at wrapper level to prevent horizontal scroll */
+  overflow-x: hidden;
+  overflow-y: visible; /* Allow natural vertical scrolling */
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
 }
 
 /* Remove padding on mobile for documentation pages */

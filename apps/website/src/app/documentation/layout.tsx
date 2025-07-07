@@ -85,16 +85,27 @@ export default function DocumentationLayout({
   // Track scroll position for back to top button
   React.useEffect(() => {
     const handleScroll = () => {
-      const sidebar = document.querySelector(`.${styles.sidebar}`);
-      if (sidebar) {
-        setShowBackToTop(sidebar.scrollTop > 300);
-      }
+      // Use window scroll instead of sidebar scroll
+      setShowBackToTop(window.scrollY > 300);
     };
 
-    const sidebar = document.querySelector(`.${styles.sidebar}`);
-    sidebar?.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll);
     
-    return () => sidebar?.removeEventListener('scroll', handleScroll);
+    // Fallback: Check if sticky is supported and working
+    const checkStickySupport = () => {
+      const testEl = document.createElement('div');
+      testEl.style.position = 'sticky';
+      return testEl.style.position === 'sticky';
+    };
+    
+    const sidebar = document.querySelector(`.${styles.sidebar}`);
+    // If sticky is not supported or not working properly, use fixed positioning
+    if (!checkStickySupport() && sidebar) {
+      sidebar.style.position = 'fixed';
+      sidebar.style.top = 'calc(var(--header-height, 70px) + var(--spacing-md))';
+    }
+    
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   // Load and save expanded sections to localStorage
@@ -112,6 +123,17 @@ export default function DocumentationLayout({
   React.useEffect(() => {
     localStorage.setItem('doc-expanded-sections', JSON.stringify(expandedSections));
   }, [expandedSections]);
+
+  // Ensure the section containing the active page is always expanded
+  React.useEffect(() => {
+    const activeSection = navStructure.find(section => 
+      section.sections?.some(item => item.path === pathname)
+    );
+    
+    if (activeSection && !expandedSections.includes(activeSection.id)) {
+      setExpandedSections(prev => [...prev, activeSection.id]);
+    }
+  }, [pathname]);
 
   // Navigation structure with all sections and subpages
   const navStructure: NavSection[] = [
@@ -370,12 +392,9 @@ export default function DocumentationLayout({
     );
   };
 
-  // Scroll to top of sidebar
+  // Scroll to top of page
   const scrollToTop = () => {
-    const sidebar = document.querySelector(`.${styles.sidebar}`);
-    if (sidebar) {
-      sidebar.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   // Get current page title for breadcrumb
@@ -425,6 +444,7 @@ export default function DocumentationLayout({
                     href={item.path}
                     className={`${styles.navItem} ${styles.searchResult} ${pathname === item.path ? styles.active : ''}`}
                     onClick={() => setMobileMenuOpen(false)}
+                    title={item.title}
                   >
                     {item.icon}
                     <span>{item.title}</span>
@@ -476,6 +496,7 @@ export default function DocumentationLayout({
                             href={item.path}
                             className={`${styles.navItem} ${pathname === item.path ? styles.active : ''}`}
                             onClick={() => setMobileMenuOpen(false)}
+                            title={item.title}
                           >
                             {item.icon}
                             <span>{item.title}</span>
@@ -503,22 +524,6 @@ export default function DocumentationLayout({
               </div>
             ))}
           </nav>
-
-          {/* Back to Top Button */}
-          {showBackToTop && (
-            <motion.button
-              className={styles.backToTop}
-              onClick={scrollToTop}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 20 }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              aria-label="Back to top"
-            >
-              <FaArrowUp />
-            </motion.button>
-          )}
         </aside>
 
         {/* Main Content */}
@@ -552,6 +557,24 @@ export default function DocumentationLayout({
             onClick={() => setMobileMenuOpen(false)}
           />
         )}
+
+        {/* Back to Top Button */}
+        <AnimatePresence>
+          {showBackToTop && (
+            <motion.button
+              className={styles.backToTop}
+              onClick={scrollToTop}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              aria-label="Back to top"
+            >
+              <FaArrowUp />
+            </motion.button>
+          )}
+        </AnimatePresence>
       </div>
     </div>
   );

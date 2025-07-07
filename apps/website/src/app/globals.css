@@ -26,26 +26,28 @@ body {
     Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
 
-/* Ensure scrolling is never disabled */
+/* Ensure proper document flow */
 html {
-  overflow-y: auto !important;
-  overflow-x: hidden;
+  /* No overflow properties - required for sticky positioning */
+  width: 100%;
 }
 
 body {
-  overflow-y: auto !important;
-  overflow-x: hidden;
+  /* No overflow properties - required for sticky positioning */
+  width: 100%;
+  position: relative;
+  margin: 0;
+  padding: 0;
 }
 
-/* Force body to be scrollable even if JS tries to lock it */
-body:not(.mobile-menu-open) {
-  overflow-y: auto !important;
+/* Only lock scrolling when mobile menu is explicitly open */
+body.mobile-menu-open {
+  overflow: hidden;
 }
 
-/* Prevent horizontal scroll on mobile while allowing content to be visible */
+/* Mobile specific styles */
 @media (max-width: 768px) {
   html {
-    overflow-x: hidden;
     width: 100%;
     max-width: 100%;
     height: 100%;
@@ -56,8 +58,6 @@ body:not(.mobile-menu-open) {
     width: 100%;
     max-width: 100%;
     position: relative;
-    overflow-x: hidden;
-    overflow-y: auto !important;
     min-height: 100vh;
     -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
   }

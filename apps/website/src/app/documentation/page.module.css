@@ -4,9 +4,9 @@
 .pageContainer {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: var(--spacing-xl) var(--spacing-md);
+  padding: var(--spacing-xl) var(--spacing-md) 0; /* Removed bottom padding */
   position: relative;
-  overflow: hidden;
+  overflow: visible; /* Changed from hidden to allow sticky positioning */
 }
 
 /* Mobile overflow fix */
@@ -42,8 +42,9 @@
 
 .container {
   width: 100%;
-  min-height: 60vh;
   position: relative;
+  /* Remove height constraints and overflow to allow sticky */
+  display: block;
 }
 
 /* Enhanced Page Header with Gradient */
@@ -248,7 +249,7 @@
   position: relative;
   border-bottom: 1px solid var(--border);
   transition: all 0.3s ease;
-  overflow: visible; /* Changed from hidden to show full titles */
+  overflow: hidden; /* Prevent content overflow */
   margin-top: 0;
 }
 
@@ -270,7 +271,7 @@
   transition: all 0.3s ease;
   background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.03) 0%, transparent 100%);
   position: relative;
-  overflow: visible;
+  overflow: hidden;
   border-radius: var(--border-radius);
   margin: 2px;
 }
@@ -309,6 +310,8 @@
   white-space: nowrap;
   padding: var(--spacing-xs) var(--spacing-md);
   margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .navSectionHeader:hover .navSectionTitle {
@@ -353,15 +356,15 @@
   text-decoration: none;
   transition: all 0.3s ease;
   position: relative;
-  overflow: visible;
+  overflow: hidden; /* Changed to hidden to prevent text overflow */
   border-radius: var(--border-radius);
   margin: 2px var(--spacing-xs);
   font-size: 0.9rem;
-  white-space: normal;
-  word-break: break-word;
+  white-space: nowrap; /* Prevent wrapping */
+  text-overflow: ellipsis; /* Add ellipsis for long text */
   border: none;
   background: none;
-  width: 100%;
+  width: calc(100% - var(--spacing-xs) * 2); /* Account for margins */
   text-align: left;
   cursor: pointer;
 }
@@ -394,7 +397,7 @@
   z-index: 2;
 }
 
-.navItem:hover {
+.navItem:hover:not(.active) {
   background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.1) 0%, rgba(var(--secondary-rgb), 0.05) 100%);
   color: var(--primary);
   padding-left: calc(var(--spacing-lg) + var(--spacing-sm) + 6px);
@@ -435,6 +438,8 @@
   box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.25);
   border: 1px solid rgba(var(--primary-rgb), 0.3);
   transform: translateX(2px);
+  position: relative;
+  z-index: 1;
 }
 
 .navItem.active::before {
@@ -448,6 +453,17 @@
   animation: pulse 1s ease-in-out infinite;
 }
 
+/* Ensure active item is always visible by keeping its section expanded */
+.navSection:has(.navItem.active) {
+  overflow: visible;
+}
+
+.navSection:has(.navItem.active) .navList {
+  display: block !important;
+  height: auto !important;
+  opacity: 1 !important;
+}
+
 /* Icon styling within navItem */
 .navItem > svg:first-child {
   flex-shrink: 0;
@@ -455,10 +471,40 @@
   height: 1rem;
 }
 
+/* Tooltip for truncated text */
+.navItem[title]:hover::before {
+  content: attr(title);
+  position: absolute;
+  top: 100%;
+  left: var(--spacing-md);
+  right: var(--spacing-md);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: 0.85rem;
+  white-space: normal;
+  word-break: break-word;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  opacity: 0;
+  animation: tooltipFadeIn 0.2s ease-in-out 0.5s forwards;
+  pointer-events: none;
+}
+
+@keyframes tooltipFadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
 /* Text styling within navItem */
 .navItem > span {
   flex: 1;
   line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* Emoji icons in navItem */
@@ -471,7 +517,7 @@
   opacity: 0.5;
   transition: all 0.3s ease;
   transform: translateX(0);
-  margin-left: var(--spacing-xs);
+  margin-left: auto; /* Push to the right */
   flex-shrink: 0;
   width: 0.75rem;
   height: 0.75rem;
@@ -500,18 +546,25 @@
   gap: var(--spacing-lg);
   max-width: 1400px;
   margin: 0 auto;
-  padding: calc(var(--header-height, 70px) + var(--spacing-lg)) var(--spacing-md) var(--spacing-lg);
-  min-height: calc(100vh - var(--header-height) - var(--footer-height));
+  padding: var(--spacing-lg) var(--spacing-md);
+  min-height: auto; /* Let content determine height */
   position: relative;
+  align-items: start; /* Important for sticky positioning */
+  /* Ensure grid doesn't restrict sticky */
+  overflow: visible;
 }
 
 /* Main Content Area */
 .mainContent {
   background: var(--background);
-  min-height: 100%;
+  min-height: auto; /* Let content determine height */
   position: relative;
   padding: 0;
   scroll-behavior: smooth;
+  /* Ensure main content doesn't interfere with sticky sidebar */
+  overflow: visible;
+  /* Remove bottom padding that was causing extra scroll */
+  padding-bottom: 0;
 }
 
 /* Breadcrumb */
@@ -556,36 +609,16 @@
   padding: 0;
   border: 1px solid var(--border);
   height: fit-content;
+  position: -webkit-sticky; /* Safari support */
   position: sticky;
-  top: calc(var(--header-height, 70px) + var(--spacing-md));
+  top: calc(var(--header-height, 70px) + var(--spacing-md)); /* Restore proper top calculation */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
   transition: all 0.3s ease;
-  overflow: visible;
-  max-height: calc(100vh - var(--header-height, 70px) - var(--spacing-xl));
-  overflow-y: auto;
-  scroll-behavior: smooth;
-  scrollbar-width: thin;
-  scrollbar-color: var(--text-tertiary) transparent;
-}
-
-/* Custom Scrollbar */
-.sidebar::-webkit-scrollbar {
-  width: 6px;
-}
-
-.sidebar::-webkit-scrollbar-track {
-  background: transparent;
-  border-radius: 3px;
-}
-
-.sidebar::-webkit-scrollbar-thumb {
-  background: var(--text-tertiary);
-  border-radius: 3px;
-  transition: background 0.2s ease;
-}
-
-.sidebar::-webkit-scrollbar-thumb:hover {
-  background: var(--text-secondary);
+  /* Remove max-height and overflow to prevent internal scrolling */
+  /* Let sidebar be its natural height and scroll with the page */
+  z-index: 10; /* Ensure sidebar stays above other content */
+  align-self: start; /* Ensure proper sticky behavior in grid */
+  will-change: transform; /* Optimize sticky performance */
 }
 
 .sidebar:hover {
@@ -596,9 +629,9 @@
 
 /* Back to Top Button */
 .backToTop {
-  position: absolute;
-  bottom: var(--spacing-md);
-  right: var(--spacing-md);
+  position: fixed;
+  bottom: calc(var(--spacing-xl) + 80px); /* Position above mobile menu toggle */
+  right: var(--spacing-lg);
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -611,7 +644,7 @@
   justify-content: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease;
-  z-index: 10;
+  z-index: 100;
   font-size: 1rem;
 }
 
@@ -1043,7 +1076,7 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
-  z-index: 997; /* Below navbar (999) and mobile nav (998) */
+  z-index: 1001; /* Above sidebar (999) to ensure it's always clickable */
   background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
   color: white;
   border: none;
@@ -1086,6 +1119,7 @@
   .documentationLayout {
     grid-template-columns: 1fr;
     gap: var(--spacing-md);
+    align-items: stretch; /* Reset alignment for mobile */
   }
 
   .sidebar {
@@ -3919,5 +3953,149 @@
   
   .solutionTitle {
     font-size: 1.25rem;
+  }
+}
+
+/* Documentation Layout Styles - Removed duplicate, see main layout styles above */
+
+/* Sidebar Styles - Removed duplicate, see main sidebar styles above */
+
+/* Main Content Area - Removed duplicate, see main content styles above */
+
+/* Mobile Menu Toggle Button */
+.mobileMenuToggle {
+  display: none;
+  position: fixed;
+  bottom: var(--spacing-lg);
+  right: var(--spacing-lg);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 1002;
+  transition: all 0.3s ease;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.mobileMenuToggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
+}
+
+.mobileMenuToggle:active {
+  transform: scale(0.95);
+}
+
+/* Mobile Overlay */
+.mobileOverlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 999;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .documentationLayout {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding-top: var(--spacing-md);
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 85%;
+    max-width: 320px;
+    height: 100vh;
+    z-index: 1000;
+    transform: translateX(-100%);
+    border-radius: 0;
+    padding-top: calc(var(--header-height, 70px) + var(--spacing-md));
+    box-shadow: 2px 0 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .sidebar.sidebarOpen {
+    transform: translateX(0);
+  }
+
+  .mobileMenuToggle {
+    display: flex;
+  }
+
+  .mobileOverlay {
+    display: block;
+  }
+
+  .mainContent {
+    padding: 0 var(--spacing-md);
+  }
+
+  /* Sidebar Header Mobile Adjustments */
+  .sidebarHeader {
+    padding: 0 var(--spacing-md) var(--spacing-md);
+  }
+
+  .sidebarHeader h2 {
+    font-size: 1.5rem;
+  }
+
+  /* Navigation adjustments */
+  .navSection {
+    margin: 0;
+  }
+
+  .navSectionHeader {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+
+  .navItem {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 0.95rem;
+  }
+
+  /* Search container mobile */
+  .searchContainer {
+    margin-top: var(--spacing-sm);
+  }
+
+  .searchInput {
+    font-size: 0.875rem;
+    padding: var(--spacing-sm) var(--spacing-md);
+    padding-left: 2.5rem;
+  }
+
+  /* Ensure content is not covered by FAB */
+  .mainContent {
+    padding-bottom: calc(56px + var(--spacing-xl));
+  }
+
+  /* Adjust back to top button position on mobile */
+  .backToTop {
+    bottom: calc(var(--spacing-lg) + 80px); /* Position above mobile menu toggle */
+    right: var(--spacing-md);
   }
 }
