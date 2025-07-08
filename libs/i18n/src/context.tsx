@@ -32,6 +32,8 @@ import enTerms from './locales/en/terms.json';
 import esTerms from './locales/es/terms.json';
 import enPrivacy from './locales/en/privacy.json';
 import esPrivacy from './locales/es/privacy.json';
+import enLicense from './locales/en/license.json';
+import esLicense from './locales/es/license.json';
 
 const staticTranslations = {
   en: {
@@ -48,6 +50,7 @@ const staticTranslations = {
     contact: enContact,
     terms: enTerms,
     privacy: enPrivacy,
+    license: enLicense,
   },
   es: {
     common: esCommon,
@@ -63,6 +66,7 @@ const staticTranslations = {
     contact: esContact,
     terms: esTerms,
     privacy: esPrivacy,
+    license: esLicense,
   },
 };
 

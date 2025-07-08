@@ -1,6 +1,4 @@
-Elastic License 2.0
-
-URL: https://www.elastic.co/licensing/elastic-license
+CyberEco Software License 1.0.0
 
 ## Acceptance
 
@@ -26,6 +24,21 @@ software that is protected by the license key.
 You may not alter, remove, or obscure any licensing, copyright, or other notices
 of the licensor in the software. Any use of the licensor’s trademarks is subject
 to applicable law.
+
+## Additional Limitations for Data Analytics
+
+Only CyberEco and its authorized operators may use the software's aggregated data 
+collection and differential privacy features for platform analytics purposes. Third 
+parties using this software under this license may not:
+
+- Collect or aggregate user data across multiple instances or deployments
+- Use differential privacy techniques on collected platform data
+- Generate platform-wide analytics or insights from user data
+- Claim ownership or rights to aggregated platform data
+
+Individual deployments may collect analytics for their own instance only, but may 
+not aggregate data across multiple deployments or users without explicit written 
+permission from CyberEco.
 
 ## Patents
 

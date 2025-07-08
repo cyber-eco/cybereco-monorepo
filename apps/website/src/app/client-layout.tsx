@@ -62,7 +62,7 @@ export default function ClientLayout({
         defaultLanguage={language}
         fallbackLanguage="en"
         supportedLanguages={['en', 'es']}
-        namespaces={['common', 'documentation', 'home', 'portfolio', 'about', 'help', 'community', 'philosophy', 'vision', 'roadmap', 'faq', 'contact', 'privacy', 'terms', 'support', 'status', 'guides', 'learning-paths']}
+        namespaces={['common', 'documentation', 'home', 'portfolio', 'about', 'help', 'community', 'philosophy', 'vision', 'roadmap', 'faq', 'contact', 'privacy', 'terms', 'support', 'status', 'guides', 'learning-paths', 'license']}
       >
         <ClientLayoutContent>{children}</ClientLayoutContent>
       </I18nProvider>

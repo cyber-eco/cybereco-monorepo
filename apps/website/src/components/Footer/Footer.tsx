@@ -52,7 +52,8 @@ export default function Footer() {
         { label: t('common:footer.support') || 'Support', href: '/support' },
         { label: t('common:footer.contact') || 'Contact Us', href: '/contact' },
         { label: t('common:footer.privacy') || 'Privacy Policy', href: '/privacy' },
-        { label: t('common:footer.terms') || 'Terms of Service', href: '/terms' }
+        { label: t('common:footer.terms') || 'Terms of Service', href: '/terms' },
+        { label: t('common:footer.license') || 'License', href: '/license' }
       ]
     },
     {

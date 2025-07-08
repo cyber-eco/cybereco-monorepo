@@ -1,0 +1,78 @@
+{
+  "licensePage": {
+    "title": "Licencia de Software",
+    "subtitle": "Términos y condiciones para usar el software CyberEco",
+    "lastUpdated": "Última actualización: Enero 2025",
+    "sections": {
+      "cyberEcoLicense": {
+        "title": "Licencia de Software CyberEco",
+        "version": "Versión 1.0.0"
+      },
+      "acceptance": {
+        "title": "Aceptación",
+        "content": "Al usar el software, aceptas todos los términos y condiciones a continuación."
+      },
+      "copyright": {
+        "title": "Licencia de Derechos de Autor",
+        "content": "El licenciante te otorga una licencia no exclusiva, libre de regalías, mundial, no sublicenciable, no transferible para usar, copiar, distribuir, poner a disposición y preparar trabajos derivados del software, en cada caso sujeto a las limitaciones y condiciones a continuación."
+      },
+      "limitations": {
+        "title": "Limitaciones",
+        "intro": "No puedes:",
+        "item1": "Proporcionar el software a terceros como un servicio alojado o administrado, donde el servicio proporciona a los usuarios acceso a cualquier conjunto sustancial de las características o funcionalidad del software.",
+        "item2": "Mover, cambiar, deshabilitar o eludir la funcionalidad de la clave de licencia en el software, y no puedes eliminar u ocultar ninguna funcionalidad en el software que esté protegida por la clave de licencia.",
+        "item3": "Alterar, eliminar u ocultar cualquier aviso de licencia, derechos de autor u otros avisos del licenciante en el software. Cualquier uso de las marcas comerciales del licenciante está sujeto a la ley aplicable."
+      },
+      "dataAnalytics": {
+        "title": "Limitaciones Adicionales para Análisis de Datos",
+        "content": "Solo CyberEco y sus operadores autorizados pueden usar las funciones de recopilación de datos agregados y privacidad diferencial del software para propósitos de análisis de plataforma. Los terceros que usen este software bajo esta licencia no pueden:",
+        "restriction1": "Recopilar o agregar datos de usuarios a través de múltiples instancias o implementaciones",
+        "restriction2": "Usar técnicas de privacidad diferencial en datos recopilados de la plataforma",
+        "restriction3": "Generar análisis o insights de toda la plataforma a partir de datos de usuarios",
+        "restriction4": "Reclamar propiedad o derechos sobre datos agregados de la plataforma",
+        "note": "Las implementaciones individuales pueden recopilar análisis solo para su propia instancia, pero no pueden agregar datos a través de múltiples implementaciones o usuarios sin permiso escrito explícito de CyberEco."
+      },
+      "patents": {
+        "title": "Patentes",
+        "content": "El licenciante te otorga una licencia, bajo cualquier reclamo de patente que el licenciante pueda licenciar, o llegue a poder licenciar, para hacer, haber hecho, usar, vender, ofrecer para la venta, importar y haber importado el software, en cada caso sujeto a las limitaciones y condiciones en esta licencia. Esta licencia no cubre ningún reclamo de patente que causes que sea infringido por modificaciones o adiciones al software. Si tú o tu empresa hacen cualquier reclamo escrito de que el software infringe o contribuye a la infracción de cualquier patente, tu licencia de patente para el software otorgada bajo estos términos termina inmediatamente. Si tu empresa hace tal reclamo, tu licencia de patente termina inmediatamente para el trabajo en nombre de tu empresa."
+      },
+      "notices": {
+        "title": "Avisos",
+        "content1": "Debes asegurarte de que cualquier persona que obtenga una copia de cualquier parte del software de ti también obtenga una copia de estos términos.",
+        "content2": "Si modificas el software, debes incluir en cualquier copia modificada del software avisos prominentes que indiquen que has modificado el software."
+      },
+      "noOtherRights": {
+        "title": "Sin Otros Derechos",
+        "content": "Estos términos no implican ninguna licencia aparte de las expresamente otorgadas en estos términos."
+      },
+      "termination": {
+        "title": "Terminación",
+        "content": "Si usas el software en violación de estos términos, tal uso no está licenciado, y tus licencias terminarán automáticamente. Si el licenciante te proporciona un aviso de tu violación, y cesas toda violación de esta licencia no más de 30 días después de recibir ese aviso, tus licencias serán reinstaladas retroactivamente. Sin embargo, si violas estos términos después de tal reinstalación, cualquier violación adicional de estos términos causará que tus licencias terminen automática y permanentemente."
+      },
+      "noLiability": {
+        "title": "Sin Responsabilidad",
+        "content": "En la medida que la ley lo permita, el software viene tal cual, sin ninguna garantía o condición, y el licenciante no será responsable ante ti por ningún daño que surja de estos términos o del uso o naturaleza del software, bajo ningún tipo de reclamo legal."
+      },
+      "definitions": {
+        "title": "Definiciones",
+        "intro": "Las siguientes definiciones aplican a estos términos:",
+        "licensor": "licenciante",
+        "licensorDef": "la entidad que ofrece estos términos (CyberEco)",
+        "software": "software",
+        "softwareDef": "el software que el licenciante pone a disposición bajo estos términos, incluyendo cualquier parte del mismo",
+        "you": "tú",
+        "youDef": "el individuo o entidad que acepta estos términos",
+        "yourCompany": "tu empresa",
+        "yourCompanyDef": "cualquier entidad legal, propiedad única u otro tipo de organización para la que trabajas, más todas las organizaciones que tienen control sobre, están bajo el control de, o están bajo control común con esa organización",
+        "control": "control",
+        "controlDef": "propiedad de sustancialmente todos los activos de una entidad, o el poder de dirigir su gestión y políticas por voto, contrato o de otra manera. El control puede ser directo o indirecto",
+        "yourLicenses": "tus licencias",
+        "yourLicensesDef": "todas las licencias otorgadas a ti para el software bajo estos términos",
+        "use": "uso",
+        "useDef": "cualquier cosa que hagas con el software que requiera una de tus licencias",
+        "trademark": "marca comercial",
+        "trademarkDef": "marcas comerciales, marcas de servicio y derechos similares"
+      }
+    }
+  }
+}
