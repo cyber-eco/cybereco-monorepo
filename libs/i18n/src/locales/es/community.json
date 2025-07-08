@@ -1,0 +1,20 @@
+{
+  "title": "Centro de Comunidad",
+  "subtitle": "Únete a la comunidad CyberEco y ayuda a dar forma al futuro de la soberanía digital",
+  "comingSoon": {
+    "title": "¡Funciones de Comunidad Próximamente!",
+    "description": "Estamos construyendo una vibrante plataforma comunitaria donde podrás:",
+    "features": {
+      "connect": "Conectar con otros usuarios de CyberEco",
+      "share": "Compartir ideas y mejores prácticas",
+      "contribute": "Contribuir a proyectos de código abierto",
+      "participate": "Participar en la gobernanza comunitaria",
+      "access": "Acceder a recursos y eventos exclusivos"
+    },
+    "cta": "Mientras tanto, puedes:",
+    "buttons": {
+      "contact": "Contáctanos",
+      "documentation": "Leer Documentación"
+    }
+  }
+}

@@ -17,6 +17,8 @@ export { Modal } from './Modal';
 export type { ModalProps } from './Modal';
 export { ToastProvider, useToast, toast, setToastInstance } from './Toast';
 export type { Toast, ToastType, ToastPosition } from './Toast';
+export { ContactForm } from './ContactForm';
+export type { ContactFormData } from './ContactForm';
 
 // Theme exports
 export { ThemeProvider, useTheme, getThemeTokens, themeTokens, createThemeScript, themeTransitionCSS, type ThemeType } from './theme';

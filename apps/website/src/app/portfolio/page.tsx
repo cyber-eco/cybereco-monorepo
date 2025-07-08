@@ -30,62 +30,62 @@ const getSolutions = (t: (key: string) => string): Solution[] => [
   // FUTURE ECOSYSTEM - Finance & Economy
   { id: 'mywealth', title: t('portfolio:portfolioPage.applications.mywealth.name'), description: t('portfolio:portfolioPage.applications.mywealth.description'), color: '#F57C00', category: 'finance', phase: 'future' },
   { id: 'mybusiness', title: t('portfolio:portfolioPage.applications.mybusiness.name'), description: t('portfolio:portfolioPage.applications.mybusiness.description'), color: '#303F9F', category: 'finance', phase: 'future' },
-  { id: 'crowdfund', title: 'CrowdFund', description: 'Community-driven funding platform', color: '#00796B', category: 'finance', phase: 'future' },
-  { id: 'offerme', title: 'OfferMe', description: 'Local services marketplace', color: '#C2185B', category: 'finance', phase: 'future' },
+  { id: 'crowdfund', title: t('portfolio:portfolioPage.applications.crowdfund.name'), description: t('portfolio:portfolioPage.applications.crowdfund.description'), color: '#00796B', category: 'finance', phase: 'future' },
+  { id: 'offerme', title: t('portfolio:portfolioPage.applications.offerme.name'), description: t('portfolio:portfolioPage.applications.offerme.description'), color: '#C2185B', category: 'finance', phase: 'future' },
   
   // FUTURE ECOSYSTEM - Community & Governance
-  { id: 'community-manager', title: 'Community Manager', description: 'Community organization tools', color: '#8E24AA', category: 'community', phase: 'future' },
-  { id: 'mycommunity', title: 'MyCommunity', description: 'Local community networking', color: '#757575', category: 'community', phase: 'future' },
-  { id: 'conciliation', title: 'Conciliation', description: 'Dispute resolution platform', color: '#388E3C', category: 'community', phase: 'future' },
-  { id: 'crowdpool', title: 'CrowdPool', description: 'Resource sharing network', color: '#0288D1', category: 'community', phase: 'future' },
+  { id: 'community-manager', title: t('portfolio:portfolioPage.applications.communitymanager.name'), description: t('portfolio:portfolioPage.applications.communitymanager.description'), color: '#8E24AA', category: 'community', phase: 'future' },
+  { id: 'mycommunity', title: t('portfolio:portfolioPage.applications.mycommunity.name'), description: t('portfolio:portfolioPage.applications.mycommunity.description'), color: '#757575', category: 'community', phase: 'future' },
+  { id: 'conciliation', title: t('portfolio:portfolioPage.applications.conciliation.name'), description: t('portfolio:portfolioPage.applications.conciliation.description'), color: '#388E3C', category: 'community', phase: 'future' },
+  { id: 'crowdpool', title: t('portfolio:portfolioPage.applications.crowdpool.name'), description: t('portfolio:portfolioPage.applications.crowdpool.description'), color: '#0288D1', category: 'community', phase: 'future' },
   
   // FUTURE ECOSYSTEM - Sustainability & Home
-  { id: 'ecotul', title: 'EcoTul', description: 'Eco-friendly lifestyle tracker', color: '#689F38', category: 'sustainability', phase: 'future' },
+  { id: 'ecotul', title: t('portfolio:portfolioPage.applications.ecotul.name'), description: t('portfolio:portfolioPage.applications.ecotul.description'), color: '#689F38', category: 'sustainability', phase: 'future' },
   { id: 'myhome', title: t('portfolio:portfolioPage.applications.myhome.name'), description: t('portfolio:portfolioPage.applications.myhome.description'), color: '#795548', category: 'sustainability', phase: 'future' },
   
   // FUTURE ECOSYSTEM - Education & Growth
   { id: 'education-hub', title: t('portfolio:portfolioPage.applications.educationhub.name'), description: t('portfolio:portfolioPage.applications.educationhub.description'), color: '#FFA000', category: 'education', phase: 'future' },
   { id: 'skill-share', title: t('portfolio:portfolioPage.applications.skillshare.name'), description: t('portfolio:portfolioPage.applications.skillshare.description'), color: '#5E35B1', category: 'education', phase: 'future' },
   { id: 'habits', title: t('portfolio:portfolioPage.applications.habits.name'), description: t('portfolio:portfolioPage.applications.habits.description'), color: '#43A047', category: 'education', phase: 'future' },
-  { id: 'one-step', title: 'OneStep', description: 'Daily micro-learning platform', color: '#00ACC1', category: 'education', phase: 'future' },
+  { id: 'one-step', title: t('portfolio:portfolioPage.applications.onestep.name'), description: t('portfolio:portfolioPage.applications.onestep.description'), color: '#00ACC1', category: 'education', phase: 'future' },
   
   // FUTURE ECOSYSTEM - Health & Wellness
-  { id: 'healthy', title: 'Healthy', description: 'Personal wellness tracker', color: '#D32F2F', category: 'health', phase: 'future' },
-  { id: 'petpal', title: 'PetPal', description: 'Pet care management', color: '#F4511E', category: 'health', phase: 'future' },
+  { id: 'healthy', title: t('portfolio:portfolioPage.applications.healthy.name'), description: t('portfolio:portfolioPage.applications.healthy.description'), color: '#D32F2F', category: 'health', phase: 'future' },
+  { id: 'petpal', title: t('portfolio:portfolioPage.applications.petpal.name'), description: t('portfolio:portfolioPage.applications.petpal.description'), color: '#F4511E', category: 'health', phase: 'future' },
   
   // FUTURE ECOSYSTEM - Identity & Legal
-  { id: 'lawpal', title: 'LawPal', description: 'Legal assistance platform', color: '#616161', category: 'identity', phase: 'future' },
-  { id: 'mydata', title: 'MyData', description: 'Personal data vault', color: '#455A64', category: 'identity', phase: 'future' },
-  { id: 'digitalme', title: 'DigitalMe', description: 'Digital identity management', color: '#0097A7', category: 'identity', phase: 'future' },
-  { id: 'mydocs', title: 'MyDocs', description: 'Document management system', color: '#7B1FA2', category: 'identity', phase: 'future' },
+  { id: 'lawpal', title: t('portfolio:portfolioPage.applications.lawpal.name'), description: t('portfolio:portfolioPage.applications.lawpal.description'), color: '#616161', category: 'identity', phase: 'future' },
+  { id: 'mydata', title: t('portfolio:portfolioPage.applications.mydata.name'), description: t('portfolio:portfolioPage.applications.mydata.description'), color: '#455A64', category: 'identity', phase: 'future' },
+  { id: 'digitalme', title: t('portfolio:portfolioPage.applications.digitalme.name'), description: t('portfolio:portfolioPage.applications.digitalme.description'), color: '#0097A7', category: 'identity', phase: 'future' },
+  { id: 'mydocs', title: t('portfolio:portfolioPage.applications.mydocs.name'), description: t('portfolio:portfolioPage.applications.mydocs.description'), color: '#7B1FA2', category: 'identity', phase: 'future' },
   
   // FUTURE ECOSYSTEM - Travel & Discovery
-  { id: 'travelmate', title: 'TravelMate', description: 'Travel planning companion', color: '#039BE5', category: 'travel', phase: 'future' },
-  { id: 'eventconnect', title: 'EventConnect', description: 'Local event discovery', color: '#FB8C00', category: 'travel', phase: 'future' },
-  { id: 'localwonders', title: 'LocalWonders', description: 'Hidden gems explorer', color: '#795548', category: 'travel', phase: 'future' },
+  { id: 'travelmate', title: t('portfolio:portfolioPage.applications.travelmate.name'), description: t('portfolio:portfolioPage.applications.travelmate.description'), color: '#039BE5', category: 'travel', phase: 'future' },
+  { id: 'eventconnect', title: t('portfolio:portfolioPage.applications.eventconnect.name'), description: t('portfolio:portfolioPage.applications.eventconnect.description'), color: '#FB8C00', category: 'travel', phase: 'future' },
+  { id: 'localwonders', title: t('portfolio:portfolioPage.applications.localwonders.name'), description: t('portfolio:portfolioPage.applications.localwonders.description'), color: '#795548', category: 'travel', phase: 'future' },
   
   // FUTURE ECOSYSTEM - Tech & Social
-  { id: 'nexus', title: 'Nexus', description: 'Social networking hub', color: '#E91E63', category: 'tech', phase: 'future' },
-  { id: 'timesync', title: 'TimeSync', description: 'Time management tool', color: '#607D8B', category: 'tech', phase: 'future' },
+  { id: 'nexus', title: t('portfolio:portfolioPage.applications.nexus.name'), description: t('portfolio:portfolioPage.applications.nexus.description'), color: '#E91E63', category: 'tech', phase: 'future' },
+  { id: 'timesync', title: t('portfolio:portfolioPage.applications.timesync.name'), description: t('portfolio:portfolioPage.applications.timesync.description'), color: '#607D8B', category: 'tech', phase: 'future' },
 ];
 
 const getCategories = (t: (key: string) => string) => [
-  { id: 'all', name: 'All Solutions', icon: '🎯' },
+  { id: 'all', name: t('portfolio:portfolioPage.categories.all.title'), icon: '🎯' },
   { id: 'finance', name: t('portfolio:portfolioPage.categories.finance.title'), icon: '💰' },
   { id: 'community', name: t('portfolio:portfolioPage.categories.community.title'), icon: '🏛️' },
   { id: 'sustainability', name: t('portfolio:portfolioPage.categories.sustainability.title'), icon: '🌱' },
   { id: 'education', name: t('portfolio:portfolioPage.categories.education.title'), icon: '📚' },
   { id: 'health', name: t('portfolio:portfolioPage.categories.health.title'), icon: '❤️' },
-  { id: 'identity', name: 'Identity & Legal', icon: '🔐' },
-  { id: 'travel', name: 'Travel & Discovery', icon: '✈️' },
-  { id: 'tech', name: 'Tech & Social', icon: '💻' },
+  { id: 'identity', name: t('portfolio:portfolioPage.categories.identity.title'), icon: '🔐' },
+  { id: 'travel', name: t('portfolio:portfolioPage.categories.travel.title'), icon: '✈️' },
+  { id: 'tech', name: t('portfolio:portfolioPage.categories.tech.title'), icon: '💻' },
 ];
 
 const getStatusFilters = (t: (key: string) => string) => [
-  { id: 'all', name: 'All Statuses', icon: '📊' },
-  { id: 'live', name: 'Live', icon: '✅' },
-  { id: 'development', name: 'In Development', icon: '🔄' },
-  { id: 'planned', name: 'Planned', icon: '🌟' },
+  { id: 'all', name: t('portfolio:portfolioPage.statusFilters.all'), icon: '📊' },
+  { id: 'live', name: t('portfolio:portfolioPage.statusFilters.live'), icon: '✅' },
+  { id: 'development', name: t('portfolio:portfolioPage.statusFilters.development'), icon: '🔄' },
+  { id: 'planned', name: t('portfolio:portfolioPage.statusFilters.planned'), icon: '🌟' },
 ];
 
 const getPhaseInfo = (t: (key: string) => string) => ({
@@ -174,12 +174,12 @@ export default function PortfolioPage() {
         // Category-based grouping for all applications
         { category: { id: 'finance', name: t('portfolio:portfolioPage.categories.finance.title'), icon: '💰' }, solutions: filteredSolutions.filter(s => s.category === 'finance') },
         { category: { id: 'community', name: t('portfolio:portfolioPage.categories.community.title'), icon: '🏛️' }, solutions: filteredSolutions.filter(s => s.category === 'community') },
-        { category: { id: 'tech', name: 'Tech & Social', icon: '💻' }, solutions: filteredSolutions.filter(s => s.category === 'tech') },
+        { category: { id: 'tech', name: t('portfolio:portfolioPage.categories.tech.title'), icon: '💻' }, solutions: filteredSolutions.filter(s => s.category === 'tech') },
         { category: { id: 'sustainability', name: t('portfolio:portfolioPage.categories.sustainability.title'), icon: '🌱' }, solutions: filteredSolutions.filter(s => s.category === 'sustainability') },
-        { category: { id: 'identity', name: 'Identity & Legal', icon: '🔐' }, solutions: filteredSolutions.filter(s => s.category === 'identity') },
+        { category: { id: 'identity', name: t('portfolio:portfolioPage.categories.identity.title'), icon: '🔐' }, solutions: filteredSolutions.filter(s => s.category === 'identity') },
         { category: { id: 'education', name: t('portfolio:portfolioPage.categories.education.title'), icon: '📚' }, solutions: filteredSolutions.filter(s => s.category === 'education') },
         { category: { id: 'health', name: t('portfolio:portfolioPage.categories.health.title'), icon: '❤️' }, solutions: filteredSolutions.filter(s => s.category === 'health') },
-        { category: { id: 'travel', name: 'Travel & Discovery', icon: '✈️' }, solutions: filteredSolutions.filter(s => s.category === 'travel') },
+        { category: { id: 'travel', name: t('portfolio:portfolioPage.categories.travel.title'), icon: '✈️' }, solutions: filteredSolutions.filter(s => s.category === 'travel') },
       ].filter(group => group.solutions.length > 0)
     : null;
 
@@ -196,42 +196,42 @@ export default function PortfolioPage() {
       
       <section className={styles.statusSection}>
         <div className={styles.container}>
-          <h2 className={styles.statusTitle}>🚀 Development Roadmap</h2>
+          <h2 className={styles.statusTitle}>{t('portfolio:portfolioPage.developmentRoadmap.title')}</h2>
           <div className={styles.statusGrid}>
             <div className={styles.statusCard}>
               <div className={styles.statusIcon}>✅</div>
-              <h3>Current Applications</h3>
-              <p>Ready to use today</p>
+              <h3>{t('portfolio:portfolioPage.developmentRoadmap.current.title')}</h3>
+              <p>{t('portfolio:portfolioPage.developmentRoadmap.current.description')}</p>
               <div className={styles.statusApps}>
-                <span>Hub</span>
-                <span>JustSplit</span>
-                <span>Website</span>
+                <span>{t('portfolio:portfolioPage.applications.hub.name')}</span>
+                <span>{t('portfolio:portfolioPage.applications.justsplit.name')}</span>
+                <span>{t('portfolio:portfolioPage.applications.website.name')}</span>
               </div>
             </div>
             <div className={styles.statusCard}>
               <div className={styles.statusIcon}>🔄</div>
-              <h3>Priority Development</h3>
-              <p>Coming 2025-2026</p>
+              <h3>{t('portfolio:portfolioPage.developmentRoadmap.priority.title')}</h3>
+              <p>{t('portfolio:portfolioPage.developmentRoadmap.priority.description')}</p>
               <div className={styles.statusApps}>
-                <span>Somos</span>
-                <span>Demos</span>
-                <span>Plantopia</span>
-                <span>Marketplace</span>
+                <span>{t('portfolio:portfolioPage.applications.somos.name')}</span>
+                <span>{t('portfolio:portfolioPage.applications.demos.name')}</span>
+                <span>{t('portfolio:portfolioPage.applications.plantopia.name')}</span>
+                <span>{t('portfolio:portfolioPage.applications.marketplace.name')}</span>
               </div>
             </div>
             <div className={styles.statusCard}>
               <div className={styles.statusIcon}>🌟</div>
-              <h3>Future Ecosystem</h3>
-              <p>Planned applications</p>
+              <h3>{t('portfolio:portfolioPage.developmentRoadmap.future.title')}</h3>
+              <p>{t('portfolio:portfolioPage.developmentRoadmap.future.description')}</p>
               <div className={styles.statusApps}>
-                <span>Finance</span>
-                <span>Community</span>
-                <span>Sustainability</span>
-                <span>Education</span>
-                <span>Health</span>
-                <span>Identity</span>
-                <span>Travel</span>
-                <span>Tech</span>
+                <span>{t('portfolio:portfolioPage.categories.finance.title')}</span>
+                <span>{t('portfolio:portfolioPage.categories.community.title')}</span>
+                <span>{t('portfolio:portfolioPage.categories.sustainability.title')}</span>
+                <span>{t('portfolio:portfolioPage.categories.education.title')}</span>
+                <span>{t('portfolio:portfolioPage.categories.health.title')}</span>
+                <span>{t('portfolio:portfolioPage.categories.identity.title')}</span>
+                <span>{t('portfolio:portfolioPage.categories.travel.title')}</span>
+                <span>{t('portfolio:portfolioPage.categories.tech.title')}</span>
               </div>
             </div>
           </div>
@@ -242,7 +242,7 @@ export default function PortfolioPage() {
         <div className={styles.container}>
             <div className={styles.filterSection}>
               <div className={styles.filterGroup}>
-                <h3 className={styles.filterTitle}>Category</h3>
+                <h3 className={styles.filterTitle}>{t('portfolio:portfolioPage.filterSection.categoryTitle')}</h3>
                 <div className={styles.categoryTabs}>
                   {categories.map(category => (
                     <button
@@ -258,7 +258,7 @@ export default function PortfolioPage() {
               </div>
               
               <div className={styles.filterGroup}>
-                <h3 className={styles.filterTitle}>Development Status</h3>
+                <h3 className={styles.filterTitle}>{t('portfolio:portfolioPage.filterSection.statusTitle')}</h3>
                 <div className={styles.statusTabs}>
                   {statusFilters.map(status => (
                     <button

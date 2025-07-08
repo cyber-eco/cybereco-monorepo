@@ -25,9 +25,21 @@ export const createThemeScript = () => {
         if (savedLang === 'en' || savedLang === 'es') {
           language = savedLang;
         } else {
-          var browserLang = navigator.language.split('-')[0];
-          if (browserLang === 'es') {
-            language = 'es';
+          // Check cookie as fallback
+          var langCookie = document.cookie.split('; ').find(function(row) {
+            return row.startsWith('cybereco-language=');
+          });
+          if (langCookie) {
+            var cookieLang = langCookie.split('=')[1];
+            if (cookieLang === 'en' || cookieLang === 'es') {
+              language = cookieLang;
+            }
+          } else {
+            // Finally check browser preference
+            var browserLang = navigator.language.split('-')[0];
+            if (browserLang === 'es') {
+              language = 'es';
+            }
           }
         }
         

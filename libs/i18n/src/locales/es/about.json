@@ -135,6 +135,23 @@
             "description": "Los usuarios tienen voz real en el desarrollo de la plataforma"
           }
         }
+      },
+      "progress": {
+        "title": "Nuestro Progreso",
+        "apps": {
+          "live": {
+            "title": "3 Aplicaciones en Vivo",
+            "description": "Hub, JustSplit y nuestro Sitio Web sirviendo a miles de usuarios"
+          },
+          "development": {
+            "title": "4 Aplicaciones Prioritarias en Desarrollo",
+            "description": "Somos, Demos, Plantopia y Marketplace lanzándose pronto"
+          },
+          "planned": {
+            "title": "30+ Soluciones Planeadas",
+            "description": "Cubriendo finanzas, comunidad, sostenibilidad, educación y más"
+          }
+        }
       }
     },
     "hero": {

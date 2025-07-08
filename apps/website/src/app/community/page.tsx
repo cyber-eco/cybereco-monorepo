@@ -19,7 +19,7 @@ export default function CommunityPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <FaUsers /> Community Hub
+          <FaUsers /> {t('community:title')}
         </motion.h1>
         <motion.p
           className={styles.subtitle}
@@ -27,7 +27,7 @@ export default function CommunityPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          Join the CyberEco community and help shape the future of digital sovereignty
+          {t('community:subtitle')}
         </motion.p>
       </header>
 
@@ -43,29 +43,29 @@ export default function CommunityPage() {
           <FaComments className={styles.socialIcon} />
         </div>
         
-        <h2 className={styles.comingSoonTitle}>Community Features Coming Soon!</h2>
+        <h2 className={styles.comingSoonTitle}>{t('community:comingSoon.title')}</h2>
         <p className={styles.comingSoonText}>
-          We're building a vibrant community platform where you can:
+          {t('community:comingSoon.description')}
         </p>
         
         <ul className={styles.featureList}>
-          <li>Connect with other CyberEco users</li>
-          <li>Share ideas and best practices</li>
-          <li>Contribute to open-source projects</li>
-          <li>Participate in community governance</li>
-          <li>Access exclusive resources and events</li>
+          <li>{t('community:comingSoon.features.connect')}</li>
+          <li>{t('community:comingSoon.features.share')}</li>
+          <li>{t('community:comingSoon.features.contribute')}</li>
+          <li>{t('community:comingSoon.features.participate')}</li>
+          <li>{t('community:comingSoon.features.access')}</li>
         </ul>
 
         <p className={styles.ctaText}>
-          In the meantime, you can:
+          {t('community:comingSoon.cta')}
         </p>
 
         <div className={styles.actionButtons}>
           <Link href="/contact" className={styles.primaryButton}>
-            Contact Us
+            {t('community:comingSoon.buttons.contact')}
           </Link>
           <Link href="/documentation" className={styles.secondaryButton}>
-            Read Documentation
+            {t('community:comingSoon.buttons.documentation')}
           </Link>
         </div>
       </motion.div>

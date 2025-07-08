@@ -45,6 +45,26 @@
         "purpose5": "Debug and fix technical issues",
         "purpose6": "Develop new features based on usage patterns"
       },
+      "aggregatedData": {
+        "title": "Aggregated Data and Platform Analytics",
+        "description": "We use aggregated and anonymized data to operate and improve our platform:",
+        "item1": "All user data contributes to aggregated analytics and/or differential privacy techniques",
+        "item2": "Individual users cannot be identified from aggregated data",
+        "item3": "Aggregated insights are essential for platform operations and improvements",
+        "item4": "We may publish aggregated statistics and trends that benefit the community",
+        "item5": "Platform-wide metrics help us maintain service quality and develop features",
+        "purpose": "This aggregated data allows us to:",
+        "purpose1": "Monitor platform health and performance",
+        "purpose2": "Understand feature usage and user needs",
+        "purpose3": "Identify and fix issues proactively",
+        "purpose4": "Make data-driven decisions for platform development",
+        "purpose5": "Share valuable insights with the CyberEco community",
+        "protection": "Your privacy is protected through:",
+        "protection1": "Differential privacy algorithms that add statistical noise when appropriate",
+        "protection2": "Aggregation thresholds that prevent small group identification",
+        "protection3": "Regular audits of our anonymization processes",
+        "commitment": "We are committed to using aggregated data responsibly to benefit all users while ensuring individual privacy."
+      },
       "dataSharing": {
         "title": "Data Sharing",
         "never": "We never:",

@@ -1,0 +1,20 @@
+{
+  "title": "Community Hub",
+  "subtitle": "Join the CyberEco community and help shape the future of digital sovereignty",
+  "comingSoon": {
+    "title": "Community Features Coming Soon!",
+    "description": "We're building a vibrant community platform where you can:",
+    "features": {
+      "connect": "Connect with other CyberEco users",
+      "share": "Share ideas and best practices",
+      "contribute": "Contribute to open-source projects",
+      "participate": "Participate in community governance",
+      "access": "Access exclusive resources and events"
+    },
+    "cta": "In the meantime, you can:",
+    "buttons": {
+      "contact": "Contact Us",
+      "documentation": "Read Documentation"
+    }
+  }
+}

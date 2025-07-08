@@ -46,7 +46,8 @@
       },
       "privacy": {
         "title": "Privacy and Data Protection",
-        "summary": "Your privacy is important to us. Our Privacy Policy explains how we collect, use, and protect your data. By using our services, you agree to our data practices as described in the Privacy Policy."
+        "summary": "Your privacy is important to us. Our Privacy Policy explains how we collect, use, and protect your data. By using our services, you agree to our data practices as described in the Privacy Policy.",
+        "dataAggregation": "By using our services, you acknowledge and agree that your usage data will be included in aggregated analytics processed with aggregation and/or differential privacy techniques. This aggregated data is essential for platform operations, improvements, and providing value to the entire CyberEco community. Individual users cannot be identified from this aggregated data."
       },
       "payments": {
         "title": "Payments and Billing",

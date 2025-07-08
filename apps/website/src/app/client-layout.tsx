@@ -42,24 +42,27 @@ export default function ClientLayout({
 }) {
   // Always start with 'en' to ensure consistent SSR/hydration
   const [language, setLanguage] = React.useState<'en' | 'es'>('en');
-  const [isHydrated, setIsHydrated] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(true);
   
-  // After hydration, check localStorage and update language if needed
+  // After hydration, check saved language preference and update if needed
   React.useEffect(() => {
-    setIsHydrated(true);
+    // Check what language was saved by the user
     const savedLanguage = localStorage.getItem('cybereco-language');
     if (savedLanguage === 'es' || savedLanguage === 'en') {
       setLanguage(savedLanguage);
     }
+    // Clear loading state after language is set
+    setIsLoading(false);
   }, []);
   
   return (
     <ThemeProvider>
       <I18nProvider
+        key={language} // Force clean initialization when language changes
         defaultLanguage={language}
         fallbackLanguage="en"
         supportedLanguages={['en', 'es']}
-        namespaces={['common', 'documentation', 'home', 'portfolio', 'about', 'help', 'philosophy', 'vision', 'roadmap', 'faq', 'contact', 'privacy', 'terms', 'support', 'status', 'guides', 'learning-paths']}
+        namespaces={['common', 'documentation', 'home', 'portfolio', 'about', 'help', 'community', 'philosophy', 'vision', 'roadmap', 'faq', 'contact', 'privacy', 'terms', 'support', 'status', 'guides', 'learning-paths']}
       >
         <ClientLayoutContent>{children}</ClientLayoutContent>
       </I18nProvider>

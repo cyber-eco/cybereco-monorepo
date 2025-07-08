@@ -59,7 +59,20 @@
         "title": "Travel"
       },
       "tech": {
-        "title": "Tech"
+        "title": "Tech & Social",
+        "description": "Technology and social networking tools"
+      },
+      "identity": {
+        "title": "Identity & Legal",
+        "description": "Digital identity and legal document management"
+      },
+      "travel": {
+        "title": "Travel & Discovery",
+        "description": "Travel planning and local discovery"
+      },
+      "all": {
+        "title": "All Solutions",
+        "description": "View all CyberEco solutions"
       }
     },
     "stats": {
@@ -253,6 +266,120 @@
         "tagline": "Decentralized Commerce Platform",
         "description": "Peer-to-peer buying and selling with data sovereignty and fair dispute resolution",
         "status": "In Development"
+      },
+      "crowdfund": {
+        "name": "CrowdFund",
+        "tagline": "Community Funding Platform",
+        "description": "Community-driven funding platform",
+        "status": "Planned"
+      },
+      "offerme": {
+        "name": "OfferMe",
+        "tagline": "Local Services Marketplace",
+        "description": "Local services marketplace",
+        "status": "Planned"
+      },
+      "communitymanager": {
+        "name": "Community Manager",
+        "tagline": "Community Organization Tools",
+        "description": "Community organization tools",
+        "status": "Planned"
+      },
+      "mycommunity": {
+        "name": "MyCommunity",
+        "tagline": "Local Community Network",
+        "description": "Local community networking",
+        "status": "Planned"
+      },
+      "conciliation": {
+        "name": "Conciliation",
+        "tagline": "Dispute Resolution Platform",
+        "description": "Dispute resolution platform",
+        "status": "Planned"
+      },
+      "crowdpool": {
+        "name": "CrowdPool",
+        "tagline": "Resource Sharing Network",
+        "description": "Resource sharing network",
+        "status": "Planned"
+      },
+      "ecotul": {
+        "name": "EcoTul",
+        "tagline": "Eco-Friendly Lifestyle Tracker",
+        "description": "Eco-friendly lifestyle tracker",
+        "status": "Planned"
+      },
+      "onestep": {
+        "name": "OneStep",
+        "tagline": "Daily Micro-Learning Platform",
+        "description": "Daily micro-learning platform",
+        "status": "Planned"
+      },
+      "healthy": {
+        "name": "Healthy",
+        "tagline": "Personal Wellness Tracker",
+        "description": "Personal wellness tracker",
+        "status": "Planned"
+      },
+      "petpal": {
+        "name": "PetPal",
+        "tagline": "Pet Care Management",
+        "description": "Pet care management",
+        "status": "Planned"
+      },
+      "lawpal": {
+        "name": "LawPal",
+        "tagline": "Legal Assistance Platform",
+        "description": "Legal assistance platform",
+        "status": "Planned"
+      },
+      "mydata": {
+        "name": "MyData",
+        "tagline": "Personal Data Vault",
+        "description": "Personal data vault",
+        "status": "Planned"
+      },
+      "digitalme": {
+        "name": "DigitalMe",
+        "tagline": "Digital Identity Management",
+        "description": "Digital identity management",
+        "status": "Planned"
+      },
+      "mydocs": {
+        "name": "MyDocs",
+        "tagline": "Document Management System",
+        "description": "Document management system",
+        "status": "Planned"
+      },
+      "travelmate": {
+        "name": "TravelMate",
+        "tagline": "Travel Planning Companion",
+        "description": "Travel planning companion",
+        "status": "Planned"
+      },
+      "eventconnect": {
+        "name": "EventConnect",
+        "tagline": "Local Event Discovery",
+        "description": "Local event discovery",
+        "status": "Planned"
+      },
+      "localwonders": {
+        "name": "LocalWonders",
+        "tagline": "Hidden Gems Explorer",
+        "description": "Hidden gems explorer",
+        "status": "Planned"
+      },
+      "nexus": {
+        "name": "Nexus",
+        "tagline": "Social Networking Hub",
+        "description": "Social networking hub",
+        "status": "Planned"
+      },
+      "timesync": {
+        "name": "TimeSync",
+        "tagline": "Time Management Tool",
+        "description": "Time management tool",
+        "status": "Planned"
       }
     },
     "hubTitle": "Hub",
@@ -391,6 +518,34 @@
       "comingSoon": "Coming Soon",
       "joinWaitlist": "Join Waitlist",
       "learnMore": "Learn More"
+    },
+    "statusFilters": {
+      "all": "All Statuses",
+      "live": "Live",
+      "development": "In Development",
+      "planned": "Planned"
+    },
+    "developmentRoadmap": {
+      "title": "🚀 Development Roadmap",
+      "current": {
+        "title": "Current Applications",
+        "description": "Ready to use today",
+        "apps": ["Hub", "JustSplit", "Website"]
+      },
+      "priority": {
+        "title": "Priority Development",
+        "description": "Coming 2025-2026",
+        "apps": ["Somos", "Demos", "Plantopia", "Marketplace"]
+      },
+      "future": {
+        "title": "Future Ecosystem",
+        "description": "Planned applications",
+        "categories": ["Finance", "Community", "Sustainability", "Education", "Health", "Identity", "Travel", "Tech"]
+      }
+    },
+    "filterSection": {
+      "categoryTitle": "Category",
+      "statusTitle": "Development Status"
     },
     "footer": {
       "allSolutions": "All Solutions",

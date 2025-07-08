@@ -20,8 +20,11 @@
     "subjectLabel": "Asunto",
     "productLabel": "Producto",
     "selectProduct": "Selecciona un producto",
+    "otherProduct": "Otro",
     "messageLabel": "Mensaje",
     "submitRequest": "Enviar Solicitud",
+    "sendingRequest": "Enviando...",
+    "successMessage": "Gracias por tu mensaje. ¡Nuestro equipo de soporte se pondrá en contacto contigo pronto!",
     "searchPlaceholder": "Buscar ayuda...",
     "categories": {
       "gettingStarted": {

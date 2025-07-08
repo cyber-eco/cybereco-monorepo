@@ -46,7 +46,8 @@
       },
       "privacy": {
         "title": "Privacidad y Protección de Datos",
-        "summary": "Tu privacidad es importante para nosotros. Nuestra Política de Privacidad explica cómo recopilamos, usamos y protegemos tus datos. Al usar nuestros servicios, aceptas nuestras prácticas de datos como se describe en la Política de Privacidad."
+        "summary": "Tu privacidad es importante para nosotros. Nuestra Política de Privacidad explica cómo recopilamos, usamos y protegemos tus datos. Al usar nuestros servicios, aceptas nuestras prácticas de datos como se describe en la Política de Privacidad.",
+        "dataAggregation": "Al usar nuestros servicios, reconoces y aceptas que tus datos de uso serán incluidos en análisis agregados procesados con agregación y/o técnicas de privacidad diferencial. Estos datos agregados son esenciales para las operaciones de la plataforma, mejoras y proporcionar valor a toda la comunidad CyberEco. Los usuarios individuales no pueden ser identificados a partir de estos datos agregados."
       },
       "payments": {
         "title": "Pagos y Facturación",

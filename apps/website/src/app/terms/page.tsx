@@ -1,74 +1,94 @@
 'use client';
 
-import { useLanguage } from '@cybereco/ui-components';
+import { useI18n } from '@cybereco/i18n';
 import styles from './page.module.css';
 
 export default function TermsPage() {
-  const { t } = useLanguage();
+  const { t } = useI18n();
   
   return (
         <div className={styles.container}>
           <header className={styles.pageHeader}>
             <h1 className={styles.title}>
-              {t('common:termsPage.title') || "Terms of Service"}
+              {t('terms:termsPage.title')}
             </h1>
             <p className={styles.subtitle}>
-              {t('common:termsPage.subtitle') || "Please read these terms of service carefully before using our platform"}
+              {t('terms:termsPage.subtitle')}
             </p>
           </header>
           
           <section className={styles.contentSection}>
             <div className={styles.content}>
-              <h2>{t('common:termsPage.agreementTitle') || "1. Agreement to Terms"}</h2>
+              <h2>{t('terms:termsPage.sections.acceptance.title')}</h2>
               <p>
-                {t('common:termsPage.agreementText') || "By accessing or using CyberEco's website or applications, you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using or accessing our services."}
+                {t('terms:termsPage.sections.acceptance.content')}
               </p>
               
-              <h2>{t('common:termsPage.licenseTitle') || "2. Use License"}</h2>
+              <h2>{t('terms:termsPage.sections.acceptableUse.title')}</h2>
               <p>
-                {t('common:termsPage.licenseText') || "Permission is granted to temporarily access the materials on CyberEco's website or applications for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:"}
+                {t('terms:termsPage.sections.acceptableUse.intro')}
               </p>
               <ul>
-                <li>Modify or copy the materials</li>
-                <li>Use the materials for any commercial purpose or for any public display</li>
-                <li>Attempt to decompile or reverse engineer any software contained on CyberEco's servers</li>
-                <li>Remove any copyright or other proprietary notations from the materials</li>
-                <li>Transfer the materials to another person or "mirror" the materials on any other server</li>
+                <li>{t('terms:termsPage.sections.acceptableUse.item1')}</li>
+                <li>{t('terms:termsPage.sections.acceptableUse.item2')}</li>
+                <li>{t('terms:termsPage.sections.acceptableUse.item3')}</li>
+                <li>{t('terms:termsPage.sections.acceptableUse.item4')}</li>
+                <li>{t('terms:termsPage.sections.acceptableUse.item5')}</li>
+                <li>{t('terms:termsPage.sections.acceptableUse.item6')}</li>
+                <li>{t('terms:termsPage.sections.acceptableUse.item7')}</li>
+                <li>{t('terms:termsPage.sections.acceptableUse.item8')}</li>
               </ul>
               
-              <h2>{t('common:termsPage.accountTitle') || "3. Account Responsibilities"}</h2>
+              <h2>{t('terms:termsPage.sections.accountTerms.title')}</h2>
+              <ul>
+                <li>{t('terms:termsPage.sections.accountTerms.item1')}</li>
+                <li>{t('terms:termsPage.sections.accountTerms.item2')}</li>
+                <li>{t('terms:termsPage.sections.accountTerms.item3')}</li>
+                <li>{t('terms:termsPage.sections.accountTerms.item4')}</li>
+                <li>{t('terms:termsPage.sections.accountTerms.item5')}</li>
+                <li>{t('terms:termsPage.sections.accountTerms.item6')}</li>
+              </ul>
+              
+              <h2>{t('terms:termsPage.sections.liability.title')}</h2>
               <p>
-                {t('common:termsPage.accountText') || "If you create an account with us, you are responsible for maintaining the confidentiality of your account and password, and for restricting access to your computer. You agree to accept responsibility for all activities that occur under your account or password."}
+                {t('terms:termsPage.sections.liability.limit')}
+              </p>
+              <p>
+                {t('terms:termsPage.sections.liability.cap')}
               </p>
               
-              <h2>{t('common:termsPage.liabilityTitle') || "4. Limitation of Liability"}</h2>
+              <h2>{t('terms:termsPage.sections.disclaimers.title')}</h2>
               <p>
-                {t('common:termsPage.liabilityText') || "In no event shall CyberEco or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on CyberEco's website, even if CyberEco or a CyberEco authorized representative has been notified orally or in writing of the possibility of such damage."}
+                {t('terms:termsPage.sections.disclaimers.asIs')}
+              </p>
+              <p>
+                {t('terms:termsPage.sections.disclaimers.availability')}
               </p>
               
-              <h2>{t('common:termsPage.accuracyTitle') || "5. Accuracy of Materials"}</h2>
+              <h2>{t('terms:termsPage.sections.privacy.title')}</h2>
               <p>
-                {t('common:termsPage.accuracyText') || "The materials appearing on CyberEco's website or applications could include technical, typographical, or photographic errors. CyberEco does not warrant that any of the materials on its website are accurate, complete, or current."}
+                {t('terms:termsPage.sections.privacy.summary')}
               </p>
               
-              <h2>{t('common:termsPage.linksTitle') || "6. Links"}</h2>
+              <h2>{t('terms:termsPage.sections.changes.title')}</h2>
               <p>
-                {t('common:termsPage.linksText') || "CyberEco has not reviewed all of the sites linked to its website and is not responsible for the contents of any such linked site. The inclusion of any link does not imply endorsement by CyberEco of the site. Use of any such linked website is at the user's own risk."}
+                {t('terms:termsPage.sections.changes.notice')}
+              </p>
+              <p>
+                {t('terms:termsPage.sections.changes.continued')}
               </p>
               
-              <h2>{t('common:termsPage.modificationsTitle') || "7. Modifications"}</h2>
+              <h2>{t('terms:termsPage.sections.contact.title')}</h2>
               <p>
-                {t('common:termsPage.modificationsText') || "CyberEco may revise these terms of service at any time without notice. By using this website or our applications, you are agreeing to be bound by the current version of these Terms of Service."}
+                {t('terms:termsPage.sections.contact.general')}
               </p>
-              
-              <h2>{t('common:termsPage.contactTitle') || "8. Contact Us"}</h2>
               <p>
-                {t('common:termsPage.contactText') || "If you have any questions about these Terms, please contact us at terms@cybere.co."}
+                {t('terms:termsPage.sections.contact.legal')}
               </p>
             </div>
             
             <p className={styles.lastUpdated}>
-              {t('common:termsPage.lastUpdated') || "Last updated: January 2023"}
+              {t('terms:termsPage.lastUpdated')}
             </p>
           </section>
         </div>

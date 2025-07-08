@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback, useMemo } from 'react';
 import { Language, I18nContext as I18nContextType, TranslationOptions } from './types';
 import { Translator } from './translator';
 import { loadTranslations } from './loader';
@@ -22,6 +22,16 @@ import enAbout from './locales/en/about.json';
 import esAbout from './locales/es/about.json';
 import enHelp from './locales/en/help.json';
 import esHelp from './locales/es/help.json';
+import enCommunity from './locales/en/community.json';
+import esCommunity from './locales/es/community.json';
+import enSupport from './locales/en/support.json';
+import esSupport from './locales/es/support.json';
+import enContact from './locales/en/contact.json';
+import esContact from './locales/es/contact.json';
+import enTerms from './locales/en/terms.json';
+import esTerms from './locales/es/terms.json';
+import enPrivacy from './locales/en/privacy.json';
+import esPrivacy from './locales/es/privacy.json';
 
 const staticTranslations = {
   en: {
@@ -33,6 +43,11 @@ const staticTranslations = {
     portfolio: enPortfolio,
     about: enAbout,
     help: enHelp,
+    community: enCommunity,
+    support: enSupport,
+    contact: enContact,
+    terms: enTerms,
+    privacy: enPrivacy,
   },
   es: {
     common: esCommon,
@@ -43,6 +58,11 @@ const staticTranslations = {
     portfolio: esPortfolio,
     about: esAbout,
     help: esHelp,
+    community: esCommunity,
+    support: esSupport,
+    contact: esContact,
+    terms: esTerms,
+    privacy: esPrivacy,
   },
 };
 
@@ -70,35 +90,35 @@ export function I18nProvider({
   const [error, setError] = useState<Error>();
   const [isChangingLanguage, setIsChangingLanguage] = useState(false);
   const [, forceUpdate] = useState(0); // Force re-render counter
-  const [translator] = useState(
-    () => {
-      const t = new Translator({
-        defaultLanguage,
-        fallbackLanguage,
-        supportedLanguages,
-        namespaces,
-        loadPath,
-      });
-      
-      // Pre-load static translations for SSG and initial render
-      supportedLanguages.forEach(lang => {
-        const langTranslations = staticTranslations[lang as keyof typeof staticTranslations];
-        if (langTranslations) {
-          namespaces.forEach(ns => {
-            const nsTranslations = langTranslations[ns as keyof typeof langTranslations];
-            if (nsTranslations) {
-              t.loadTranslations(lang, ns, nsTranslations);
-            }
-          });
-        }
-      });
-      
-      // Set initial language
-      t.setLanguage(defaultLanguage);
-      
-      return t;
-    }
-  );
+  
+  // Create translator with useMemo to ensure it updates when defaultLanguage changes
+  const translator = useMemo(() => {
+    const t = new Translator({
+      defaultLanguage,
+      fallbackLanguage,
+      supportedLanguages,
+      namespaces,
+      loadPath,
+    });
+    
+    // Pre-load static translations for SSG and initial render
+    supportedLanguages.forEach(lang => {
+      const langTranslations = staticTranslations[lang as keyof typeof staticTranslations];
+      if (langTranslations) {
+        namespaces.forEach(ns => {
+          const nsTranslations = langTranslations[ns as keyof typeof langTranslations];
+          if (nsTranslations) {
+            t.loadTranslations(lang, ns, nsTranslations);
+          }
+        });
+      }
+    });
+    
+    // Set initial language
+    t.setLanguage(defaultLanguage);
+    
+    return t;
+  }, [defaultLanguage, fallbackLanguage, supportedLanguages, namespaces, loadPath]);
   
   // Debounced language setter to prevent rapid switches
   const setLanguage = useCallback((newLang: Language) => {
@@ -154,6 +174,10 @@ export function I18nProvider({
     if (typeof window !== 'undefined') {
       localStorage.setItem('cybereco-language', language);
       document.documentElement.lang = language;
+      
+      // Also update cookie for server-side persistence
+      // Using a simple cookie setter that works in the browser
+      document.cookie = `cybereco-language=${language}; path=/; max-age=31536000; SameSite=Lax`;
     }
   }, [language]);
 
