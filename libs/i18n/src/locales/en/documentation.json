@@ -1,7 +1,7 @@
 {
   "documentationPage": {
     "title": "Documentation",
-    "subtitle": "Comprehensive guides and technical documentation for the CyberEco digital ecosystem",
+    "subtitle": "Learn how to use our integrated digital lifestyle platform - from unified authentication to specialized apps for finance, community, identity, and sustainable living",
     "searchPlaceholder": "Search documentation...",
     "search": "Search docs...",
     "tableOfContents": "Table of Contents",
@@ -2035,6 +2035,42 @@
     "popular4": "Common Issues",
     "popular4Desc": "Quick fixes and solutions",
     "searchHint": "Tip: Use Ctrl/Cmd + K to search documentation quickly",
+    "whatsNew": {
+      "title": "What's New",
+      "updates": {
+        "firebase": {
+          "date": "January 2025",
+          "title": "Firebase Security Documentation",
+          "description": "Learn about API key security and best practices"
+        },
+        "roadmap": {
+          "date": "December 2024",
+          "title": "Priority Applications Roadmap",
+          "description": "Somos, Demos, Plantopia, and Marketplace development plans"
+        }
+      }
+    },
+    "applicationGuides": {
+      "title": "Application Guides",
+      "hub": {
+        "title": "Hub Documentation",
+        "description": "Central authentication and app launcher"
+      },
+      "justsplit": {
+        "title": "JustSplit Guide",
+        "description": "Complete expense sharing documentation"
+      },
+      "upcoming": {
+        "title": "Upcoming Apps",
+        "description": "Somos, Demos, Plantopia & more"
+      }
+    },
+    "popular": {
+      "hubAuth": {
+        "title": "Understanding the Hub",
+        "description": "Central authentication for all apps"
+      }
+    },
     "communityGovernanceTitle": "Community & Governance",
     "demosTitle": "Demos",
     "demosDesc": "A participatory digital democracy platform that enables transparent voting and decision-making for organizations and neighborhoods.",
@@ -2490,7 +2526,7 @@
         "reviewSystem": "Cryptographically signed review system",
         "conciliationIntegration": "Conciliation system for dispute resolution",
         "vendorBadges": "Community-verified vendor badges",
-        "phase5Title": "Phase 5: Green Impact",
+        "phase5Title": "Phase 5: Sustainability & Wellness",
         "phase5Date": "Months 7-8",
         "phase5Desc": "Launch sustainability and wellness applications"
       },

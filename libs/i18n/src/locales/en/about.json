@@ -69,7 +69,7 @@
         "title": "Our Story",
         "content": "CyberEco was born from the frustration of seeing technology increasingly designed to extract value from users rather than provide it. We witnessed social media platforms optimizing for addiction, financial apps charging hidden fees, and data being harvested without consent. We knew there had to be a better way.",
         "quote": "\"Technology is best when it brings people together.\" - Matt Mullenweg",
-        "continuation": "Starting with JustSplit, a simple expense-sharing app, we proved that useful software doesn't need to exploit users. Now we're building an entire ecosystem of applications based on principles of digital sovereignty, privacy, and human-centered design."
+        "continuation": "Starting with JustSplit, we've expanded to create a comprehensive digital lifestyle platform. Our Hub provides unified authentication, while specialized apps address specific needs - from expense sharing to community governance, family heritage preservation to sustainable living."
       },
       "values": {
         "title": "Our Values",
@@ -133,6 +133,23 @@
           "community": {
             "title": "Community Governance",
             "description": "Users have a real voice in platform development"
+          }
+        }
+      },
+      "progress": {
+        "title": "Our Progress",
+        "apps": {
+          "live": {
+            "title": "3 Live Applications",
+            "description": "Hub, JustSplit, and our Website serving thousands of users"
+          },
+          "development": {
+            "title": "4 Priority Apps in Development",
+            "description": "Somos, Demos, Plantopia, and Marketplace launching soon"
+          },
+          "planned": {
+            "title": "30+ Planned Solutions",
+            "description": "Covering finance, community, sustainability, education, and more"
           }
         }
       }

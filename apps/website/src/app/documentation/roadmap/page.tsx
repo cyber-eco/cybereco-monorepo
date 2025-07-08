@@ -309,7 +309,7 @@ export default function RoadmapDocs() {
           </div>
           <div className={styles.timelineContent}>
             <h3>
-              {t('documentation:documentationPage.roadmap.shortTerm.phase5Title') || 'Phase 5: Green Impact'}
+              {t('documentation:documentationPage.roadmap.shortTerm.phase5Title') || 'Phase 5: Sustainability & Wellness'}
               <span className={styles.timelineDate}>
                 {t('documentation:documentationPage.roadmap.shortTerm.phase5Date') || 'Months 7-8'}
               </span>

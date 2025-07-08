@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { 
   FaBook, FaRocket, FaCode, FaUsers, FaQuestionCircle, 
   FaTools, FaGraduationCap, FaKey, FaDatabase, FaShieldAlt,
-  FaChartBar, FaMobileAlt, FaLightbulb, FaMap, FaEye
+  FaChartBar, FaMobileAlt, FaLightbulb, FaMap, FaEye, FaCubes
 } from 'react-icons/fa';
 import { useI18n } from '@cybereco/i18n';
 import styles from './page.module.css';
@@ -36,7 +36,7 @@ export default function DocumentationIndexPage() {
           <FaBook /> {t('documentation:documentationPage.title') || 'Documentation Center'}
         </h1>
         <p className={styles.subtitle}>
-          {t('documentation:documentationPage.subtitle') || 'Everything you need to understand, use, and build with CyberEco'}
+          {t('documentation:documentationPage.subtitle') || 'Comprehensive guides for our digital lifestyle platform - from expense sharing to community governance'}
         </p>
       </div>
 
@@ -61,6 +61,29 @@ export default function DocumentationIndexPage() {
             <h3>{t('documentation:documentationPage.buildTitle') || 'Start Building'}</h3>
             <p>{t('documentation:documentationPage.buildDesc') || 'Jump into our API docs and start developing'}</p>
           </Link>
+        </div>
+      </div>
+
+      {/* What's New Section */}
+      <div className={styles.contentSection}>
+        <h2 className={styles.sectionTitle}>
+          🆕 {t('documentation:documentationPage.whatsNew.title') || "What's New"}
+        </h2>
+        <div className={styles.updatesList}>
+          <div className={styles.updateItem}>
+            <span className={styles.updateDate}>
+              {t('documentation:documentationPage.whatsNew.updates.firebase.date') || 'January 2025'}
+            </span>
+            <h4>{t('documentation:documentationPage.whatsNew.updates.firebase.title') || 'Firebase Security Documentation'}</h4>
+            <p>{t('documentation:documentationPage.whatsNew.updates.firebase.description') || 'Learn about API key security and best practices'}</p>
+          </div>
+          <div className={styles.updateItem}>
+            <span className={styles.updateDate}>
+              {t('documentation:documentationPage.whatsNew.updates.roadmap.date') || 'December 2024'}
+            </span>
+            <h4>{t('documentation:documentationPage.whatsNew.updates.roadmap.title') || 'Priority Applications Roadmap'}</h4>
+            <p>{t('documentation:documentationPage.whatsNew.updates.roadmap.description') || 'Somos, Demos, Plantopia, and Marketplace development plans'}</p>
+          </div>
         </div>
       </div>
 
@@ -139,6 +162,36 @@ export default function DocumentationIndexPage() {
               <div>
                 <h4>{t('documentation:documentationPage.solutionsTitle') || 'Solutions'}</h4>
                 <p>{t('documentation:documentationPage.solutionsDesc') || 'Browse solution categories'}</p>
+              </div>
+            </Link>
+          </div>
+        </div>
+
+        {/* Application Guides */}
+        <div className={styles.docSection}>
+          <h3 className={styles.docSectionTitle}>
+            <FaCubes /> {t('documentation:documentationPage.applicationGuides.title') || 'Application Guides'}
+          </h3>
+          <div className={styles.docGrid}>
+            <Link href="/documentation/apps/hub" className={styles.docLink}>
+              <FaShieldAlt className={styles.docLinkIcon} />
+              <div>
+                <h4>{t('documentation:documentationPage.applicationGuides.hub.title') || 'Hub Documentation'}</h4>
+                <p>{t('documentation:documentationPage.applicationGuides.hub.description') || 'Central authentication and app launcher'}</p>
+              </div>
+            </Link>
+            <Link href="/documentation/guides/justsplit" className={styles.docLink}>
+              <FaChartBar className={styles.docLinkIcon} />
+              <div>
+                <h4>{t('documentation:documentationPage.applicationGuides.justsplit.title') || 'JustSplit Guide'}</h4>
+                <p>{t('documentation:documentationPage.applicationGuides.justsplit.description') || 'Complete expense sharing documentation'}</p>
+              </div>
+            </Link>
+            <Link href="/documentation/apps/upcoming" className={styles.docLink}>
+              <FaRocket className={styles.docLinkIcon} />
+              <div>
+                <h4>{t('documentation:documentationPage.applicationGuides.upcoming.title') || 'Upcoming Apps'}</h4>
+                <p>{t('documentation:documentationPage.applicationGuides.upcoming.description') || 'Somos, Demos, Plantopia & more'}</p>
               </div>
             </Link>
           </div>
@@ -259,6 +312,13 @@ export default function DocumentationIndexPage() {
                 <p>{t('documentation:documentationPage.loggingDesc') || 'Security audit logs'}</p>
               </div>
             </Link>
+            <Link href="/documentation/firebase-security" className={styles.docLink}>
+              <FaShieldAlt className={styles.docLinkIcon} />
+              <div>
+                <h4>{t('documentation:documentationPage.firebaseSecurityTitle') || 'Firebase Security'}</h4>
+                <p>{t('documentation:documentationPage.firebaseSecurityDesc') || 'Understanding API keys and security'}</p>
+              </div>
+            </Link>
           </div>
         </div>
       </div>
@@ -269,11 +329,11 @@ export default function DocumentationIndexPage() {
           🔥 {t('documentation:documentationPage.popularTitle') || 'Popular Topics'}
         </h2>
         <div className={styles.popularGrid}>
-          <Link href="/documentation/guides/account-setup" className={styles.popularCard}>
+          <Link href="/documentation/apps/hub" className={styles.popularCard}>
             <span className={styles.popularNumber}>1</span>
             <div>
-              <h4>{t('documentation:documentationPage.popular1') || 'Create Your First Account'}</h4>
-              <p>{t('documentation:documentationPage.popular1Desc') || 'Get started with CyberEco'}</p>
+              <h4>{t('documentation:documentationPage.popular.hubAuth.title') || 'Understanding the Hub'}</h4>
+              <p>{t('documentation:documentationPage.popular.hubAuth.description') || 'Central authentication for all apps'}</p>
             </div>
           </Link>
           <Link href="/documentation/guides/justsplit" className={styles.popularCard}>

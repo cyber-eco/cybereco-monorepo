@@ -172,6 +172,36 @@ nx affected:test
 - Root-level `src/` and `public/` directories removed (were outdated duplicates)
 - All build artifacts and backup files cleaned (see TO_CLEANSE.md for details)
 
+## Environment Variables
+
+### Setup
+The platform requires Firebase configuration through environment variables:
+
+1. **Quick Setup**: 
+   ```bash
+   cp .env.production.example .env.local
+   # Edit .env.local with your Firebase configuration
+   ```
+
+2. **Interactive Setup**:
+   ```bash
+   node scripts/setup-env.js
+   ```
+
+### Required Variables
+- `NEXT_PUBLIC_FIREBASE_API_KEY` - Firebase API key (public, safe to expose)
+- `NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN` - Auth domain
+- `NEXT_PUBLIC_FIREBASE_PROJECT_ID` - Project ID
+- `NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET` - Storage bucket
+- `NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID` - Messaging sender ID
+- `NEXT_PUBLIC_FIREBASE_APP_ID` - App ID
+
+### Important Notes
+- Firebase Web API keys are **designed to be public** - security comes from Auth + Firestore Rules
+- Use `.env.local` for local development (git ignored)
+- See `docs/development/environment-setup.md` for detailed setup instructions
+- See `docs/security/firebase-api-keys.md` for security explanation
+
 ## Architecture Overview
 
 ### Monorepo Architecture

@@ -30,35 +30,27 @@ npm install
 
 ### 4. Set Up Environment Variables
 
-#### Hub Application (.env.local)
-Create `apps/hub/.env.local`:
-```env
-# Hub Firebase Configuration
-NEXT_PUBLIC_HUB_API_KEY=your-hub-api-key
-NEXT_PUBLIC_HUB_AUTH_DOMAIN=your-hub-auth-domain
-NEXT_PUBLIC_HUB_PROJECT_ID=your-hub-project-id
-NEXT_PUBLIC_HUB_STORAGE_BUCKET=your-hub-storage-bucket
-NEXT_PUBLIC_HUB_MESSAGING_SENDER_ID=your-hub-sender-id
-NEXT_PUBLIC_HUB_APP_ID=your-hub-app-id
+The easiest way to get started is to use a single `.env.local` file in the root directory:
 
-# App URLs
-NEXT_PUBLIC_JUSTSPLIT_URL=http://localhost:40002
+```bash
+# Copy the example file
+cp .env.production.example .env.local
+
+# Edit with your Firebase configuration
+nano .env.local  # or use your preferred editor
 ```
 
-#### JustSplit Application (.env.local)
-Create `apps/justsplit/.env.local`:
-```env
-# Hub Configuration (for authentication)
-NEXT_PUBLIC_HUB_API_KEY=your-hub-api-key
-NEXT_PUBLIC_HUB_AUTH_DOMAIN=your-hub-auth-domain
-NEXT_PUBLIC_HUB_PROJECT_ID=your-hub-project-id
-NEXT_PUBLIC_HUB_STORAGE_BUCKET=your-hub-storage-bucket
-NEXT_PUBLIC_HUB_MESSAGING_SENDER_ID=your-hub-sender-id
-NEXT_PUBLIC_HUB_APP_ID=your-hub-app-id
+You'll need to add your Firebase configuration values. See our [Environment Setup Guide](./environment-setup.md) for detailed instructions on:
+- Getting your Firebase configuration values
+- Understanding the security model
+- Setting up multi-project configurations
+- Troubleshooting common issues
 
-# App-specific Configuration (optional)
-NEXT_PUBLIC_JUSTSPLIT_PROJECT_ID=your-app-project-id
-```
+**Quick Firebase Setup:**
+1. Go to [Firebase Console](https://console.firebase.google.com/)
+2. Create a new project or select existing
+3. Go to Project Settings → General → Your apps
+4. Copy the configuration values to `.env.local`
 
 ## Running the Applications
 

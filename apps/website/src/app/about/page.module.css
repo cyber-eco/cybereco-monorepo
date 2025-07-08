@@ -312,7 +312,7 @@
   width: 200%;
   height: 200%;
   background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
-  animation: float 20s ease-in-out infinite reverse;
+  /* Removed rotation animation for consistency with documentation page */
 }
 
 @media (min-width: 768px) {
@@ -481,5 +481,56 @@
 @media (min-width: 1024px) {
   .valuesGrid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Progress Section */
+.progressGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.progressCard {
+  background: var(--card-background);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.progressCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  border-color: var(--primary);
+}
+
+.progressCard h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.progressCard p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .progressGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .progressCard {
+    padding: 1.5rem;
+  }
+  
+  .progressCard h3 {
+    font-size: 1.25rem;
   }
 }

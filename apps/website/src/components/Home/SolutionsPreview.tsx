@@ -15,7 +15,7 @@ const solutions = [
     link: 'https://justsplit.cybere.co',
     color: 'rgba(0, 98, 65, 0.2)',
     category: 'Finance & Economy',
-    phase: 'Priority MVP (Phase 1)',
+    phase: 'Phase 1: Foundation',
     image: '/portfolio/justsplit.png'
   },
   {
@@ -26,7 +26,7 @@ const solutions = [
     link: '/portfolio#demos',
     color: 'rgba(0, 123, 255, 0.2)',
     category: 'Community & Governance',
-    phase: 'Priority MVP (Phase 1)'
+    phase: 'Phase 1: Foundation'
   },
   {
     id: 'plantopia',
@@ -36,7 +36,7 @@ const solutions = [
     link: 'https://plantopia.cybere.co',
     color: 'rgba(40, 167, 69, 0.2)',
     category: 'Sustainability & Home',
-    phase: 'Green Impact (Phase 2)'
+    phase: 'Phase 2: Growth'
   },
   {
     id: 'educationhub',
@@ -46,7 +46,7 @@ const solutions = [
     link: '/portfolio#educationhub',
     color: 'rgba(255, 193, 7, 0.2)',
     category: 'Education & Growth',
-    phase: 'Green Impact (Phase 2)'
+    phase: 'Phase 2: Growth'
   }
 ];
 

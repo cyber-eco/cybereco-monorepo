@@ -68,6 +68,44 @@ export default function AboutPage() {
       </section>
 
       <section className={styles.section}>
+        <h2 className={styles.sectionTitle}>{t('about:aboutPage.sections.progress.title') || 'Our Progress'}</h2>
+        <div className={styles.progressGrid}>
+          <motion.div 
+            className={styles.progressCard}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <h3>{t('about:aboutPage.sections.progress.apps.live.title') || '3 Live Applications'}</h3>
+            <p>{t('about:aboutPage.sections.progress.apps.live.description') || 'Hub, JustSplit, and our Website serving thousands of users'}</p>
+          </motion.div>
+          
+          <motion.div 
+            className={styles.progressCard}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            viewport={{ once: true }}
+          >
+            <h3>{t('about:aboutPage.sections.progress.apps.development.title') || '4 Priority Apps in Development'}</h3>
+            <p>{t('about:aboutPage.sections.progress.apps.development.description') || 'Somos, Demos, Plantopia, and Marketplace launching soon'}</p>
+          </motion.div>
+          
+          <motion.div 
+            className={styles.progressCard}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <h3>{t('about:aboutPage.sections.progress.apps.planned.title') || '30+ Planned Solutions'}</h3>
+            <p>{t('about:aboutPage.sections.progress.apps.planned.description') || 'Covering finance, community, sustainability, education, and more'}</p>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className={styles.section}>
         <h2 className={styles.sectionTitle}>{t('about:aboutPage.sections.future.title') || 'The Future We\'re Building'}</h2>
         <div className={styles.aboutContent}>
           <div className={styles.textContent}>

@@ -1,8 +1,20 @@
 #!/usr/bin/env node
 /**
  * Script to seed Hub dashboard with test data
+ * 
+ * Prerequisites:
+ * - Set up environment variables (see .env.local.example)
+ * - Or load them using: require('dotenv').config({ path: '.env.local' })
+ * 
  * Run with: node scripts/seed-hub-dashboard.js
+ * 
+ * Note: Firebase Web API keys are public and safe to expose in client-side code.
+ * Security is enforced through Firebase Auth and Firestore Security Rules.
  */
+
+// Optional: Load environment variables from .env.local
+// Uncomment the following lines if you want to use dotenv:
+// require('dotenv').config({ path: '.env.local' });
 
 const { initializeApp } = require('firebase/app');
 const { 
@@ -22,15 +34,45 @@ const {
   createUserWithEmailAndPassword
 } = require('firebase/auth');
 
-// Hub Firebase configuration (using main project for now)
+// Firebase Web API keys are meant to be public - they're not secret credentials
+// Security is enforced through:
+// - Firebase Authentication (user authentication)
+// - Firestore Security Rules (data access control)
+// - Authorized domains configuration in Firebase Console
+// See: https://firebase.google.com/docs/projects/api-keys
+
+// Hub Firebase configuration - requires environment variables
 const firebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY || "AIzaSyBgDLy0JvPnqlRINKO34mhzVKH_SuZFjbI",
-  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN || "cybereco-1.firebaseapp.com",
-  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID || "cybereco-1",
-  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET || "cybereco-1.firebasestorage.app",
-  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID || "117723516865",
-  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID || "1:117723516865:web:b65b1cbc0a09c646ba0b8f"
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID
 };
+
+// Validate required environment variables
+const requiredEnvVars = [
+  'NEXT_PUBLIC_FIREBASE_API_KEY',
+  'NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN',
+  'NEXT_PUBLIC_FIREBASE_PROJECT_ID',
+  'NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET',
+  'NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID',
+  'NEXT_PUBLIC_FIREBASE_APP_ID'
+];
+
+const missingEnvVars = requiredEnvVars.filter(varName => !process.env[varName]);
+
+if (missingEnvVars.length > 0) {
+  console.error('❌ Missing required environment variables:');
+  missingEnvVars.forEach(varName => console.error(`   - ${varName}`));
+  console.error('\nPlease set these environment variables before running this script.');
+  console.error('You can either:');
+  console.error('1. Set them in your shell: export NEXT_PUBLIC_FIREBASE_API_KEY=your-api-key');
+  console.error('2. Create a .env.local file in the root directory');
+  console.error('3. Use dotenv: npm install dotenv and add require("dotenv").config() at the top');
+  process.exit(1);
+}
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
