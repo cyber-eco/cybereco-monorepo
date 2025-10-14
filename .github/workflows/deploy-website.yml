@@ -26,10 +26,10 @@ jobs:
           cache: 'npm'
 
       - name: Install Dependencies
-        run: npm ci
+        run: npm ci --legacy-peer-deps
 
       - name: Build Website App
-        run: cd apps/website && npm install && npm run build && cd ../..
+        run: nx build website --configuration=production
 
       - name: Debug - List website build directory contents
         run: ls -la apps/website/out
