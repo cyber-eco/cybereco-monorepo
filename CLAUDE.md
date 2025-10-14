@@ -494,3 +494,18 @@ All shared components have comprehensive test coverage:
 3. **Efficiency**: Faster development of new apps
 4. **Type Safety**: Full TypeScript support
 5. **Testability**: Shared test utilities and patterns
+
+## Claude Code Work Organization
+
+### .claude_notes Directory
+Claude Code uses the `.claude_notes/` directory to organize its work and maintain context across sessions:
+- **Purpose**: Store development plans, architectural documentation, and implementation guides
+- **Structure**: Markdown files with clear naming conventions
+- **Benefits**: Persistent knowledge base that survives across conversations
+- **Usage**: Created automatically when Claude needs to document complex plans or multi-phase implementations
+
+**Current .claude_notes files**:
+- `hub-data-layer-plan.md` - Comprehensive plan for Hub as unified data layer
+- `implementation-roadmap.md` - Detailed roadmap with sprints and milestones
+- `api-design-specs.md` - API v2 specifications (REST, GraphQL, WebSocket)
+- `migration-guide.md` - Step-by-step guide for migrating apps to Hub
