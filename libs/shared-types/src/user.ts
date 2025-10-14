@@ -1,17 +1,24 @@
 import { AppPermission } from './auth';
 
-export interface HubUser {
-  uid: string;
-  email: string;
-  displayName: string;
-  photoURL?: string;
-  createdAt: string;
-  updatedAt: string;
+// Base user interface that apps can extend
+export interface BaseUser {
+  id: string;
+  name: string;
+  email?: string;
+  avatarUrl?: string;
+  createdAt?: string;
+  updatedAt?: string;
+}
+
+export interface HubUser extends BaseUser {
+  // Hub-specific fields
+  apps: string[]; // List of app IDs the user has access to
+  permissions: AppPermission[]; // App-specific permissions
   preferences: {
-    theme: 'light' | 'dark' | 'system';
-    language: string;
+    theme: 'light' | 'dark' | 'auto';
+    language: 'en' | 'es';
+    notifications: boolean;
   };
-  permissions: {
-    [appId: string]: AppPermission;
-  };
+  lastLoginAt?: string;
+  isAdmin?: boolean;
 }

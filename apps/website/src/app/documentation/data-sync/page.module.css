@@ -1,0 +1,788 @@
+.pageContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.tabsContainer {
+  margin-top: 2rem;
+}
+
+.tabContent {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.syncSection {
+  padding: 2rem 0;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.sectionTitle svg {
+  font-size: 1.75rem;
+  color: #ef4444;
+}
+
+.sectionDescription {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 3rem;
+  max-width: 800px;
+}
+
+/* Sync Principles */
+.syncPrinciples {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.principleCard {
+  background: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.principleCard::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(239, 68, 68, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.principleCard:hover::before {
+  opacity: 1;
+}
+
+.principleCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.principleIcon {
+  font-size: 3rem;
+  color: #ef4444;
+  margin-bottom: 1rem;
+  display: block;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.principleCard:nth-child(2) .principleIcon {
+  color: #f59e0b;
+  animation-delay: 0.5s;
+}
+
+.principleCard:nth-child(3) .principleIcon {
+  color: #8b5cf6;
+  animation-delay: 1s;
+}
+
+.principleCard:nth-child(4) .principleIcon {
+  color: #3b82f6;
+  animation-delay: 1.5s;
+}
+
+.principleCard h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+}
+
+.principleCard p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Architecture Diagram */
+.architectureDiagram {
+  background: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 3rem;
+  margin: 3rem 0;
+}
+
+.architectureDiagram h3 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: var(--text-primary);
+}
+
+.diagramContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.syncNode {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(139, 92, 246, 0.1));
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 120px;
+  animation: fadeInScale 0.6s ease-out both;
+}
+
+.syncNode:nth-child(1) { animation-delay: 0.1s; }
+.syncNode:nth-child(3) { animation-delay: 0.3s; }
+.syncNode:nth-child(5) { animation-delay: 0.5s; }
+
+.nodeIcon {
+  font-size: 2rem;
+  color: #8b5cf6;
+}
+
+.syncFlow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.flowLine {
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, #ef4444, #8b5cf6);
+  position: relative;
+}
+
+.flowLine::after {
+  content: '';
+  position: absolute;
+  right: -4px;
+  top: -3px;
+  width: 8px;
+  height: 8px;
+  background: #8b5cf6;
+  border-radius: 50%;
+}
+
+.flowLabel {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+/* Concept Explanation */
+.conceptExplanation {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(139, 92, 246, 0.05));
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 3rem;
+}
+
+.conceptExplanation h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.conceptExplanation p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+/* CRDT Types */
+.crdtTypes {
+  margin: 3rem 0;
+}
+
+.crdtTypes h3 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}
+
+.crdtGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.crdtCard {
+  background: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.crdtCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.crdtCard h4 {
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.crdtCard p {
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+
+.codeSnippet {
+  background: var(--code-background);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.codeSnippet code {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-primary);
+  display: block;
+}
+
+/* Code Examples */
+.codeExample {
+  background: var(--code-background);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  overflow: hidden;
+}
+
+.codeExample h3 {
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.codeExample pre {
+  margin: 0;
+  overflow-x: auto;
+}
+
+.codeExample code {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+
+/* Benefits Section */
+.benefitsSection {
+  margin: 3rem 0;
+}
+
+.benefitsSection h3 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}
+
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.benefitCard {
+  background: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: start;
+  gap: 1rem;
+  transition: all 0.2s ease;
+}
+
+.benefitCard:hover {
+  transform: translateY(-2px);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.benefitIcon {
+  font-size: 1.5rem;
+  color: #10b981;
+  flex-shrink: 0;
+}
+
+.benefitCard h4 {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+  color: var(--text-primary);
+}
+
+.benefitCard p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+/* Consensus Flow */
+.consensusFlow {
+  margin: 3rem 0;
+}
+
+.consensusFlow h3 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}
+
+.flowDiagram {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  background: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.flowStep {
+  flex: 1;
+  min-width: 150px;
+  text-align: center;
+  animation: fadeInScale 0.6s ease-out both;
+}
+
+.flowStep:nth-child(1) { animation-delay: 0.1s; }
+.flowStep:nth-child(3) { animation-delay: 0.3s; }
+.flowStep:nth-child(5) { animation-delay: 0.5s; }
+.flowStep:nth-child(7) { animation-delay: 0.7s; }
+
+.stepIcon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #ef4444, #f59e0b);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.flowStep:nth-child(3) .stepIcon {
+  background: linear-gradient(135deg, #f59e0b, #8b5cf6);
+}
+
+.flowStep:nth-child(5) .stepIcon {
+  background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+}
+
+.flowStep:nth-child(7) .stepIcon {
+  background: linear-gradient(135deg, #3b82f6, #10b981);
+}
+
+.flowStep h4 {
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.flowStep p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.flowArrow {
+  font-size: 2rem;
+  color: #8b5cf6;
+  animation: slideRight 1s ease-in-out infinite;
+}
+
+/* Consensus Patterns */
+.consensusPatterns {
+  margin: 3rem 0;
+}
+
+.consensusPatterns h3 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}
+
+.patternGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.patternCard {
+  background: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.patternCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.patternCard h4 {
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.patternCard p {
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+
+.patternCard code {
+  background: var(--code-background);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: #ef4444;
+}
+
+/* Protocol Overview */
+.protocolOverview {
+  margin-bottom: 3rem;
+}
+
+.protocolOverview h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.protocolOverview p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+/* Protocol Layers */
+.protocolLayers {
+  margin: 3rem 0;
+}
+
+.protocolLayers h3 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}
+
+.layerStack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.protocolLayer {
+  background: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  position: relative;
+  transition: all 0.3s ease;
+  animation: slideInLeft 0.6s ease-out both;
+}
+
+.protocolLayer:nth-child(1) { 
+  animation-delay: 0.1s;
+  border-left: 4px solid #3b82f6;
+}
+.protocolLayer:nth-child(2) { 
+  animation-delay: 0.2s;
+  border-left: 4px solid #8b5cf6;
+  margin-left: 2rem;
+}
+.protocolLayer:nth-child(3) { 
+  animation-delay: 0.3s;
+  border-left: 4px solid #ef4444;
+  margin-left: 4rem;
+}
+.protocolLayer:nth-child(4) { 
+  animation-delay: 0.4s;
+  border-left: 4px solid #f59e0b;
+  margin-left: 6rem;
+}
+
+.protocolLayer:hover {
+  transform: translateX(8px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.protocolLayer h4 {
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.protocolLayer p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+/* Performance Section */
+.performanceSection {
+  margin: 3rem 0;
+}
+
+.performanceSection h3 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}
+
+.optimizationGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.optimizationCard {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.05), rgba(239, 68, 68, 0.05));
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.optimizationCard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+.optimizationIcon {
+  font-size: 2.5rem;
+  color: #f59e0b;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.optimizationCard h4 {
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.optimizationCard p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+/* Example Section */
+.exampleSection {
+  margin: 3rem 0;
+  padding: 2rem;
+  background: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+}
+
+.exampleSection h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.exampleSection > p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+/* Integration Guide */
+.integrationGuide {
+  margin: 3rem 0;
+}
+
+.integrationGuide h3 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}
+
+.integrationSteps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.integrationStep {
+  background: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.integrationStep:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.stepNumber {
+  position: absolute;
+  top: -15px;
+  left: 20px;
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(135deg, #ef4444, #8b5cf6);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.integrationStep h4 {
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  padding-top: 0.5rem;
+}
+
+.integrationStep p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes slideRight {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(8px);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .syncPrinciples {
+    grid-template-columns: 1fr;
+  }
+
+  .diagramContainer {
+    flex-direction: column;
+  }
+
+  .syncFlow {
+    transform: rotate(90deg);
+    margin: 2rem 0;
+  }
+
+  .crdtGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .flowDiagram {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .flowArrow {
+    transform: rotate(90deg);
+  }
+
+  .protocolLayer {
+    margin-left: 0 !important;
+  }
+
+  .optimizationGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .integrationSteps {
+    grid-template-columns: 1fr;
+  }
+
+  .codeExample {
+    padding: 1rem;
+  }
+
+  .codeExample code {
+    font-size: 0.75rem;
+  }
+}

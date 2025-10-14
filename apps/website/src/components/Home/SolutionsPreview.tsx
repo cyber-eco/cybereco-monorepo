@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { useLanguage } from '@cybereco/ui-components';
+import { useI18n } from '@cybereco/i18n';
 import styles from './SolutionsPreview.module.css';
 
 const solutions = [
@@ -15,7 +15,7 @@ const solutions = [
     link: 'https://justsplit.cybere.co',
     color: 'rgba(0, 98, 65, 0.2)',
     category: 'Finance & Economy',
-    phase: 'Priority MVP (Phase 1)',
+    phase: 'Phase 1: Foundation',
     image: '/portfolio/justsplit.png'
   },
   {
@@ -26,7 +26,7 @@ const solutions = [
     link: '/portfolio#demos',
     color: 'rgba(0, 123, 255, 0.2)',
     category: 'Community & Governance',
-    phase: 'Priority MVP (Phase 1)'
+    phase: 'Phase 1: Foundation'
   },
   {
     id: 'plantopia',
@@ -36,7 +36,7 @@ const solutions = [
     link: 'https://plantopia.cybere.co',
     color: 'rgba(40, 167, 69, 0.2)',
     category: 'Sustainability & Home',
-    phase: 'Green Impact (Phase 2)'
+    phase: 'Phase 2: Growth'
   },
   {
     id: 'educationhub',
@@ -46,12 +46,12 @@ const solutions = [
     link: '/portfolio#educationhub',
     color: 'rgba(255, 193, 7, 0.2)',
     category: 'Education & Growth',
-    phase: 'Green Impact (Phase 2)'
+    phase: 'Phase 2: Growth'
   }
 ];
 
 export default function SolutionsPreview() {
-  const { t } = useLanguage();
+  const { t } = useI18n();
 
   return (
     <section className={styles.solutionsSection}>
@@ -63,7 +63,7 @@ export default function SolutionsPreview() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          {t('homePage.solutions.sectionTitle') || 'Our Solutions'}
+          {t('home:homePage.solutions.title') || 'Solutions For Every Aspect of Life'}
         </motion.h2>
         <motion.p 
           className={styles.sectionDescription}
@@ -72,7 +72,7 @@ export default function SolutionsPreview() {
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          {t('homePage.solutions.sectionSubtitle') || 'Explore our diverse portfolio of digital applications designed to enhance productivity, connectivity, and community engagement'}
+          {t('home:homePage.solutions.subtitle') || 'Explore our growing ecosystem of applications'}
         </motion.p>
         
         <div className={styles.solutionsGrid}>
@@ -102,7 +102,7 @@ export default function SolutionsPreview() {
                   <h3 className={styles.solutionName}>{solution.name}</h3>
                   <p className={styles.solutionDescription}>{solution.description}</p>
                   <span className={styles.learnMore}>
-                    {t('homePage.solutions.learnMore') || 'Learn more'} →
+                    {t('common:actions.learnMore') || 'Learn More'} →
                   </span>
                 </div>
               </Link>
@@ -112,7 +112,7 @@ export default function SolutionsPreview() {
         
         <div className={styles.allSolutionsWrapper}>
           <Link href="/portfolio" className={styles.allSolutionsLink}>
-            {t('homePage.solutions.viewAll') || 'View All Solutions'} →
+            {t('home:homePage.hero.exploreSolutions') || 'Explore Solutions'} →
           </Link>
         </div>
       </div>

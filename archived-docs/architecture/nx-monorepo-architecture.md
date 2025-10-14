@@ -232,7 +232,7 @@ import { Button, Card, Modal } from '@cybereco/ui-components';
     "serve": {
       "executor": "@nx/next:dev",
       "options": {
-        "port": 3000
+        "port": 40000
       }
     },
     "lint": {

@@ -1,0 +1,34 @@
+.appLayout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background);
+  color: var(--text-primary);
+}
+
+.main {
+  flex: 1;
+  padding-top: var(--header-height, 70px);
+  width: 100%;
+  max-width: var(--max-width, 1200px);
+  margin: 0 auto;
+  padding-left: var(--spacing-md);
+  padding-right: var(--spacing-md);
+  padding-bottom: var(--spacing-xl);
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding-left: var(--spacing-sm);
+    padding-right: var(--spacing-sm);
+    padding-bottom: var(--spacing-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .main {
+    padding-left: var(--spacing-xs);
+    padding-right: var(--spacing-xs);
+    padding-bottom: var(--spacing-md);
+  }
+}

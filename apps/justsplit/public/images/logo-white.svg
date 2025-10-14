@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 614 163">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        font-family: Poppins-SemiBold, Poppins;
+        font-size: 91.14px;
+        font-weight: 600;
+      }
+
+      .cls-2 {
+        fill: #48c27b;
+      }
+
+      .cls-3 {
+        fill: #409cff;
+      }
+
+      .cls-4 {
+        fill: #0f3769;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1" data-name="Layer 1">
+    <text class="cls-1" transform="translate(193 112.71)"><tspan x="0" y="0">JustSplit</tspan></text>
+  </g>
+  <g id="Layer_2" data-name="Layer 2">
+    <rect class="cls-4" x="0" width="164" height="163" rx="14.16" ry="14.16"/>
+  </g>
+  <g id="Layer_3" data-name="Layer 3">
+    <rect class="cls-3" x="15.01" y="14.92" width="133.97" height="133.15" rx="26.84" ry="26.84"/>
+  </g>
+  <g id="Layer_4_copy" data-name="Layer 4 copy">
+    <path class="cls-4" d="M93.55,22.23v15.98c0,47.36-31.29,87.84-75.46,104.13-1.98-4.22-3.07-8.87-3.07-13.78V49.13c0-18.89,16.28-34.21,36.34-34.21h41.94c.18,2.41.26,4.84.26,7.3Z"/>
+    <path class="cls-2" d="M82,21.5v14.39c0,42.66-26.69,79.11-64.36,93.78-1.69-3.8-2.62-7.99-2.62-12.41V45.73c0-17.01,13.88-30.81,31-30.81h35.77c.15,2.17.22,4.36.22,6.58Z"/>
+  </g>
+</svg>

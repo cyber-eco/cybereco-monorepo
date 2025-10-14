@@ -1,0 +1,57 @@
+/* Import shared documentation styles */
+@import '../../../styles/documentation-shared.css';
+
+/* Page-specific styles for Auth Logging & Monitoring */
+.pageContainer {
+  composes: pageContainer from global;
+}
+
+.pageHeader {
+  composes: pageHeader from global;
+}
+
+.headerIcon {
+  composes: headerIcon from global;
+}
+
+.title {
+  composes: title from global;
+}
+
+.subtitle {
+  composes: subtitle from global;
+}
+
+.contentSection {
+  composes: contentSection from global;
+}
+
+.sectionTitle {
+  composes: sectionTitle from global;
+}
+
+.codeBlock {
+  composes: codeBlock from global;
+}
+
+/* Page-specific customizations */
+.alertBox {
+  composes: alert info from global;
+  margin-bottom: var(--spacing-xl);
+}
+
+.queryExample {
+  margin-top: var(--spacing-lg);
+}
+
+.logTypeGrid {
+  composes: cardGrid from global;
+}
+
+.logTypeCard {
+  composes: card from global;
+}
+
+.featureList {
+  composes: featureList from global;
+}

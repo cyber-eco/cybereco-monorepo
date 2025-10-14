@@ -1,4 +1,24 @@
 .main {
-  min-height: calc(100vh - var(--header-height) - var(--footer-height));
+  min-height: calc(100vh - var(--header-height, 70px) - var(--footer-height, 200px));
   padding-top: var(--header-height, 70px);
+  /* Handle overflow at wrapper level to prevent horizontal scroll */
+  overflow-x: hidden;
+  overflow-y: visible; /* Allow natural vertical scrolling */
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
+}
+
+/* Remove padding on mobile for documentation pages */
+@media (max-width: 768px) {
+  .main {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  /* Ensure documentation pages don't have double scrollbar */
+  .main:has([class*="documentationLayout"]) {
+    overflow: visible !important;
+    min-height: auto !important;
+  }
 }

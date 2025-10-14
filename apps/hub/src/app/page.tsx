@@ -1,54 +1,44 @@
 'use client';
 
-import { useAuth } from '../components/AuthContext';
-import { AppGrid } from '../components/AppGrid';
-import { LoginForm } from '../components/LoginForm';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { useHubAuth } from '../hooks/useHubAuth';
+import LandingPage from './landing/page';
 import styles from './page.module.css';
 
 export default function Home() {
-  const { user, loading } = useAuth();
+  const { userProfile: user, isLoading: loading } = useHubAuth();
+  const router = useRouter();
+  const [showLanding, setShowLanding] = useState(true);
 
-  if (loading) {
+  // Redirect authenticated users to dashboard
+  useEffect(() => {
+    // If we have a user (cached or fresh), redirect immediately
+    if (user) {
+      // Give a tiny delay to prevent flash
+      const timer = setTimeout(() => {
+        router.push('/dashboard');
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+    
+    // If loading finished and no user, definitely show landing
+    if (!loading && !user) {
+      setShowLanding(true);
+    }
+  }, [user, loading, router]);
+
+  // Show redirect screen only if we have a confirmed user
+  if (user) {
     return (
       <div className={styles.loadingContainer}>
         <div className={styles.spinner} />
-        <p>Loading...</p>
+        <p>Redirecting to dashboard...</p>
       </div>
     );
   }
 
-  if (!user) {
-    return (
-      <div className={styles.authContainer}>
-        <div className={styles.authCard}>
-          <h1 className={styles.title}>Welcome to JustSplit Hub</h1>
-          <p className={styles.subtitle}>Sign in to access your applications</p>
-          <LoginForm />
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <main className={styles.main}>
-      <header className={styles.header}>
-        <div className="container">
-          <h1>JustSplit Hub</h1>
-          <div className={styles.userInfo}>
-            <span>Welcome, {user.displayName || user.email}</span>
-            <button onClick={() => window.location.href = '/profile'} className={styles.profileButton}>
-              Profile
-            </button>
-          </div>
-        </div>
-      </header>
-      
-      <section className={styles.appSection}>
-        <div className="container">
-          <h2>Your Applications</h2>
-          <AppGrid />
-        </div>
-      </section>
-    </main>
-  );
+  // Show landing page by default (even while checking auth)
+  // This ensures instant display for logged-out users
+  return <LandingPage />;
 }

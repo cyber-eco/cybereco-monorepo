@@ -23,16 +23,63 @@
 # 1. Install dependencies
 npm install
 
-# 2. Start development
+# 2. Set up environment variables (see Environment Setup below)
+cp .env.production.example .env.local
+
+# 3. Start development
 npm run dev
 
-# 3. Open in browser
-# Hub: http://localhost:3000
-# JustSplit: http://localhost:4000
-# Website: http://localhost:5000
+# 4. Open in browser
+# Hub: http://localhost:40000
+# JustSplit: http://localhost:40002
+# Website: http://localhost:40001
 ```
 
 That's it! 🎉 You're now running the CyberEco platform locally.
+
+## 🔧 Environment Setup
+
+### Firebase Configuration
+
+CyberEco uses Firebase for authentication and data storage. You'll need to set up environment variables before running the applications.
+
+#### 1. Copy the Example File
+
+```bash
+cp .env.production.example .env.local
+```
+
+#### 2. Get Your Firebase Configuration
+
+1. Go to the [Firebase Console](https://console.firebase.google.com/)
+2. Select your project (or create a new one)
+3. Go to Project Settings → General
+4. Scroll to "Your apps" and select your web app
+5. Copy the configuration values
+
+#### 3. Update .env.local
+
+```bash
+# Firebase Configuration
+NEXT_PUBLIC_FIREBASE_API_KEY=your-api-key-here
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your-project.firebaseapp.com
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your-project-id
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your-project.appspot.com
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your-sender-id
+NEXT_PUBLIC_FIREBASE_APP_ID=your-app-id
+```
+
+> **Note**: Firebase Web API keys are designed to be public and safe to expose in client-side code. Security is enforced through Firebase Authentication and Firestore Security Rules. [Learn more](docs/security/firebase-api-keys.md)
+
+#### 4. Verify Setup
+
+Run the development server and check for any environment variable errors:
+
+```bash
+npm run dev
+```
+
+For more detailed setup instructions, see our [Environment Setup Guide](docs/development/environment-setup.md).
 
 ## 🏗️ What is CyberEco?
 
@@ -52,9 +99,9 @@ We believe your digital presence should empower you, not exploit you. Your ident
 
 ### Current Applications
 
-- **🏠 Hub** - Central authentication and app launcher (port 3000)
-- **💰 JustSplit** - Expense splitting and financial management (port 4000)  
-- **🌐 Website** - Marketing site and documentation (port 5000)
+- **🏠 Hub** - Central authentication and app launcher (port 40000)
+- **💰 JustSplit** - Expense splitting and financial management (port 40002)  
+- **🌐 Website** - Marketing site and documentation (port 40001)
 - **🚀 Future Apps** - Somos, Demos, Plantopia, and more
 
 At the center is the **CyberEco Hub** — your identity, your dashboard, your digital home.
@@ -64,9 +111,9 @@ At the center is the **CyberEco Hub** — your identity, your dashboard, your di
 ```
 cybereco-monorepo/
 ├── apps/
-│   ├── hub/                 # 🏠 Authentication hub (port 3000)
-│   ├── justsplit/           # 💰 Expense splitting app (port 4000)
-│   └── website/             # 🌐 Marketing website (port 5000)
+│   ├── hub/                 # 🏠 Authentication hub (port 40000)
+│   ├── justsplit/           # 💰 Expense splitting app (port 40002)
+│   └── website/             # 🌐 Marketing website (port 40001)
 ├── libs/
 │   ├── shared-types/        # 📝 Common TypeScript interfaces
 │   ├── firebase-config/     # 🔥 Firebase utilities & multi-project config
@@ -92,9 +139,9 @@ npm run lint             # Check code quality
 
 ### App-Specific Commands
 ```bash
-nx serve hub             # Start Hub only (port 3000)
-nx serve justsplit-app   # Start JustSplit only (port 4000)
-nx serve website         # Start Website only (port 5000)
+nx serve hub             # Start Hub only (port 40000)
+nx serve justsplit-app   # Start JustSplit only (port 40002)
+nx serve website         # Start Website only (port 40001)
 nx test hub              # Test Hub only
 nx test justsplit-app    # Test JustSplit only
 nx test website          # Test Website only

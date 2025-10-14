@@ -22,7 +22,7 @@
       "options": {
         "buildTarget": "hub:build",
         "dev": true,
-        "port": 3000
+        "port": 40000
       },
       "configurations": {
         "production": {
@@ -36,7 +36,7 @@
       "options": {
         "buildTarget": "hub:build",
         "dev": true,
-        "port": 3000
+        "port": 40000
       }
     },
     "export": {

@@ -11,9 +11,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## NX Monorepo Structure
 
 This is an NX 19.8.14 monorepo with the following **cleaned and optimized** structure:
-- `apps/hub` - Central authentication hub application (Next.js, port 3000)
-- `apps/justsplit` - Expense splitting application (Next.js, port 4000)
-- `apps/website` - Main CyberEco marketing website (Next.js, port 5000)
+- `apps/hub` - Central authentication hub application with proxy features (Next.js, port 40000)
+- `apps/website` - Main CyberEco marketing website (Next.js, port 40001)
+- `apps/justsplit` - Expense splitting application (Next.js, port 40002)
 - `apps/somos` - Family roots explorer application (planned, Next.js)
 - `apps/demos` - Community governance application (planned, Next.js)
 - `apps/plantopia` - Smart gardening application (planned, Next.js)
@@ -24,10 +24,47 @@ This is an NX 19.8.14 monorepo with the following **cleaned and optimized** stru
 - `firebase/hub/` - Hub Firebase deployment configuration
 - `firebase/justsplit/` - JustSplit Firebase deployment configuration
 - `firebase/website/` - Website Firebase deployment configuration
+- `tools/playwright-mcp-server/` - MCP server for visual debugging and CSS inspection
 - `archived/` - Legacy code archives (old website moved here)
 - `nx.json` - NX workspace configuration with caching and task runners
 
 **⚠️ IMPORTANT:** Root-level `src/`, `public/`, and legacy config files have been removed. Each app manages its own configuration.
+
+## Debugging Tools
+
+### MCP Playwright Server
+
+The monorepo includes a Model Context Protocol (MCP) server that provides powerful visual debugging capabilities:
+
+**Location**: `tools/playwright-mcp-server/`
+
+**Key Features**:
+- **CSS Scrolling Debugger**: Detects double scrollbars and overflow issues
+- **CSS Cascade Inspector**: Traces CSS rules and specificity
+- **DOM Monitor**: Tracks real-time DOM changes
+- **Visual Diff**: Screenshots with issue annotations
+
+**Quick Start**:
+```bash
+# Build and start the MCP server
+cd tools/playwright-mcp-server
+npm install && npm run build
+npm run dev
+
+# Configure with Claude Code CLI
+claude mcp add playwright-debugger node $(pwd)/dist/server.js
+
+# Use for debugging
+claude mcp call playwright-debugger debug-css-scrolling --url "http://localhost:40001/documentation"
+```
+
+**Common Use Cases**:
+- Debug double scrollbar issues in documentation pages
+- Analyze CSS cascade and specificity conflicts
+- Monitor DOM mutations during user interactions
+- Capture visual regressions with annotated screenshots
+
+See `docs/development/development-workflow.md` for detailed usage instructions.
 
 ## Development Commands
 
@@ -43,10 +80,21 @@ This is an NX 19.8.14 monorepo with the following **cleaned and optimized** stru
 - `nx run-many --target=<target> --all` - Run target on all projects in parallel
 
 ### Root-Level npm Scripts
-- `npm run dev` - Start Hub (port 3000), JustSplit (port 4000), and Website (port 5000) in parallel
+
+**🚀 Primary Development Commands:**
+- `npm run dev` - **Default development**: Firebase emulators + All 3 apps + **data persistence** (RECOMMENDED)
+- `npm run dev:lan` - **LAN development**: All apps available on local network (use 0.0.0.0)
+- `npm run dev:clean` - **Clean slate development**: Firebase emulators + All 3 apps with fresh data each time
+- `npm run dev:nosim` - **Frontend only**: Just the 3 apps without Firebase emulators
+
+**Individual App Commands:**
 - `npm run dev:website` - Start only the website app in development mode
+
+**Build Commands:**
 - `npm run build` - Build all applications (Hub, JustSplit, Website)
 - `npm run build:website` - Build only the website app for production (uses working npm build)
+
+**Testing & Linting:**
 - `npm run test` - Run all tests across all projects
 - `npm run lint` - Run ESLint across all projects using NX workspace config
 - `npm run clean` - Reset NX cache (equivalent to `nx reset`)
@@ -105,9 +153,9 @@ nx affected:test
 - Test reports are generated in `./reports/test-report.html`
 
 ### Project-Specific Commands
-- `nx serve hub` - Start Hub app (port 3000)
-- `nx serve justsplit-app` - Start JustSplit app (port 4000)
-- `nx serve website` - Start Website app (port 5000)
+- `nx serve hub` - Start Hub app (port 40000)
+- `nx serve website` - Start Website app (port 40001)
+- `nx serve justsplit-app` - Start JustSplit app (port 40002)
 - `nx build hub --configuration=production` - Production build for Hub
 - `nx build justsplit-app --configuration=production` - Production build for JustSplit
 - **KNOWN ISSUE**: `nx build website` - NX build fails with React rendering error during static export
@@ -123,6 +171,36 @@ nx affected:test
 - Root-level `jest.config.js`, `next.config.js` have been removed (app-specific configs remain)
 - Root-level `src/` and `public/` directories removed (were outdated duplicates)
 - All build artifacts and backup files cleaned (see TO_CLEANSE.md for details)
+
+## Environment Variables
+
+### Setup
+The platform requires Firebase configuration through environment variables:
+
+1. **Quick Setup**: 
+   ```bash
+   cp .env.production.example .env.local
+   # Edit .env.local with your Firebase configuration
+   ```
+
+2. **Interactive Setup**:
+   ```bash
+   node scripts/setup-env.js
+   ```
+
+### Required Variables
+- `NEXT_PUBLIC_FIREBASE_API_KEY` - Firebase API key (public, safe to expose)
+- `NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN` - Auth domain
+- `NEXT_PUBLIC_FIREBASE_PROJECT_ID` - Project ID
+- `NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET` - Storage bucket
+- `NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID` - Messaging sender ID
+- `NEXT_PUBLIC_FIREBASE_APP_ID` - App ID
+
+### Important Notes
+- Firebase Web API keys are **designed to be public** - security comes from Auth + Firestore Rules
+- Use `.env.local` for local development (git ignored)
+- See `docs/development/environment-setup.md` for detailed setup instructions
+- See `docs/security/firebase-api-keys.md` for security explanation
 
 ## Architecture Overview
 
@@ -149,6 +227,13 @@ nx affected:test
 - Website project (`firebase/website/`) serves the static marketing site
 - Shared configuration in `libs/firebase-config`
 - Cross-project token verification and user management
+
+**Single Sign-On (SSO) Implementation**:
+- Development: Uses shared auth state via localStorage (`libs/auth/src/shared-auth-state.ts`)
+- Production: Uses Firebase Auth with custom domains and subdomain cookies
+- Hub saves auth state when users sign in, apps check this state on load
+- Handles Firebase Auth emulator limitations in development
+- See `docs/deployment/production-auth-setup.md` for production configuration
 
 **Shared Libraries Structure**:
 - `libs/shared-types` (`@cybereco/shared-types`) - Common TypeScript interfaces and types
@@ -192,11 +277,35 @@ Development uses Firebase emulators running on:
 - Firestore: localhost:8080
 - Auth: localhost:9099
 - UI: localhost:5002
-- Website hosting: localhost:5000
-- Hub hosting: localhost:3000
-- JustSplit hosting: localhost:4000
+- Hub hosting: localhost:40000
+- Website hosting: localhost:40001
+- JustSplit hosting: localhost:40002
 
 The emulator data persists in `./emulator-data/` and is automatically imported/exported on start/stop.
+
+### Gateway Application (Cross-Port Authentication Solution)
+
+The Gateway app (port 3000) acts as a unified entry point that proxies requests to all other apps, solving Firebase Auth's cross-port authentication issues:
+
+**Why Gateway?**
+- Firebase Auth tokens are tied to the origin (protocol + domain + port)
+- Apps on different ports (40000, 40001, 40002) can't share auth state
+- The gateway proxies all apps through port 3000, maintaining a single auth origin
+
+**How it works:**
+1. All apps are accessed through gateway paths:
+   - `http://localhost:3000/hub` → Hub app (40000)
+   - `http://localhost:3000/website` → Website (40001)
+   - `http://localhost:3000/justsplit` → JustSplit (40002)
+2. Auth routes are centralized through Hub:
+   - `/auth/*` → Hub's auth pages
+   - `/api/auth/*` → Hub's auth API
+3. Firebase Auth sees all requests from the same origin (localhost:3000)
+
+**Gateway Routes Configuration:**
+- `beforeFiles`: Auth and API routes (highest priority)
+- `afterFiles`: App-specific routes
+- `fallback`: Default redirect to website
 
 ### Module Aliases
 
@@ -249,3 +358,154 @@ nx affected:libs --base=main
 - **Task Runner**: Uses default NX task runner with caching enabled
 - **Target Dependencies**: Build targets depend on upstream library builds
 - **Named Inputs**: Production builds exclude test files and configs
+
+## Shared Component Architecture
+
+### Overview
+All CyberEco applications use a shared component library (`@cybereco/ui-components`) to ensure consistency and reduce code duplication. The shared components are highly configurable and support theming, internationalization, and responsive design.
+
+### Key Shared Components
+
+#### Navigation Component
+- **Location**: `libs/ui-components/src/Navigation/`
+- **Features**:
+  - Configurable navigation links
+  - Optional action button (e.g., Hub button, User menu)
+  - Mobile-responsive hamburger menu
+  - Active link detection
+  - LocalStorage persistence for mobile menu state
+  - Integration with ConfigDropdown for settings
+- **Usage Example**:
+  ```typescript
+  <Navigation
+    links={[
+      { href: '/', label: 'Home' },
+      { href: '/about', label: 'About' }
+    ]}
+    actionButton={{
+      href: '/hub',
+      label: 'Hub',
+      icon: <FaRocket />
+    }}
+    showConfig={true}
+    mobileMenuStorageKey="app-menu-state"
+  />
+  ```
+
+#### Footer Component
+- **Location**: `libs/ui-components/src/Footer/`
+- **Features**:
+  - Configurable sections with links
+  - Social media links with icons
+  - Company information display
+  - Copyright with current year
+  - Responsive grid layout
+- **Usage Example**:
+  ```typescript
+  <Footer
+    companyInfo={{
+      name: 'CyberEco',
+      tagline: 'Digital solutions',
+      email: 'info@cybere.co'
+    }}
+    sections={[
+      {
+        title: 'Products',
+        links: [
+          { label: 'Product 1', href: '/p1' }
+        ]
+      }
+    ]}
+    socialLinks={[
+      {
+        name: 'LinkedIn',
+        href: 'https://linkedin.com',
+        icon: <LinkedInIcon />
+      }
+    ]}
+  />
+  ```
+
+#### ConfigDropdown Component
+- **Location**: `libs/ui-components/src/ConfigDropdown/`
+- **Features**:
+  - Theme toggle (light/dark)
+  - Language selector (English/Spanish)
+  - Animated dropdown with outside click detection
+  - Keyboard navigation support
+  - Controlled/uncontrolled modes
+
+#### AppLayout Component
+- **Location**: `libs/ui-components/src/Layout/`
+- **Features**:
+  - Consistent layout structure
+  - Header/Footer composition
+  - Provider wrapping
+  - Main content area with proper spacing
+
+### Implementation Pattern
+
+Each app follows this pattern for using shared components:
+
+1. **Create app-specific wrapper components**:
+   ```
+   apps/{app-name}/src/components/Header/Header.tsx
+   apps/{app-name}/src/components/Footer/Footer.tsx
+   ```
+
+2. **Configure shared components with app-specific data**:
+   - Navigation links
+   - Action buttons
+   - Footer sections
+   - Theme/language settings
+
+3. **Use client layout wrapper**:
+   ```typescript
+   // apps/{app-name}/src/app/client-layout.tsx
+   <ThemeProvider>
+     <LanguageProvider>
+       <Header />
+       <main>{children}</main>
+       <Footer />
+     </LanguageProvider>
+   </ThemeProvider>
+   ```
+
+### Navigation Configurations
+
+Centralized navigation configurations are stored in `libs/shared-types/src/navigation.ts`:
+- `websiteNavConfig` - Website navigation links
+- `hubNavConfig` - Hub app navigation
+- `justSplitNavConfig` - JustSplit navigation
+
+### Testing Strategy
+
+All shared components have comprehensive test coverage:
+- Unit tests for component behavior
+- Integration tests for provider interactions
+- Accessibility tests
+- Responsive design tests
+- Mock utilities in `libs/ui-components/src/test-utils/`
+
+### Benefits
+
+1. **Consistency**: All apps have the same look and feel
+2. **Maintainability**: Single source of truth for UI components
+3. **Efficiency**: Faster development of new apps
+4. **Type Safety**: Full TypeScript support
+5. **Testability**: Shared test utilities and patterns
+
+## Claude Code Work Organization
+
+### .claude_notes Directory
+Claude Code uses the `.claude_notes/` directory to organize its work and maintain context across sessions:
+- **Purpose**: Store development plans, architectural documentation, and implementation guides
+- **Structure**: Markdown files with clear naming conventions
+- **Benefits**: Persistent knowledge base that survives across conversations
+- **Usage**: Created automatically when Claude needs to document complex plans or multi-phase implementations
+
+**Current .claude_notes files**:
+- `hub-data-layer-plan.md` - Comprehensive plan for Hub as unified data layer
+- `implementation-roadmap.md` - Detailed roadmap with sprints and milestones
+- `api-design-specs.md` - API v2 specifications (REST, GraphQL, WebSocket)
+- `migration-guide.md` - Step-by-step guide for migrating apps to Hub

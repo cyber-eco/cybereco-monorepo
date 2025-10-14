@@ -1,0 +1,60 @@
+{
+  "homePage": {
+    "hero": {
+      "title": "Digital Solutions for a Connected World",
+      "subtitle": "CyberEco creates innovative applications that improve how people manage finances, participate in communities, and connect with each other in the digital age.",
+      "ctaMain": "Get Started",
+      "ctaSecondary": "Learn More",
+      "exploreSolutions": "Explore Solutions",
+      "learnMore": "Learn More"
+    },
+    "features": {
+      "sectionTitle": "Why CyberEco?",
+      "sectionSubtitle": "Comprehensive tools for modern digital life",
+      "communityTitle": "Community First",
+      "communityDesc": "Build meaningful connections and collaborate with like-minded individuals in a privacy-respecting environment",
+      "sustainabilityTitle": "Sustainable Living",
+      "sustainabilityDesc": "Make eco-conscious choices with tools that help track and reduce your environmental impact",
+      "securityTitle": "Privacy & Security",
+      "securityDesc": "Your data belongs to you. Full control, transparent practices, and end-to-end encryption",
+      "innovationTitle": "Open Innovation",
+      "innovationDesc": "Built on open standards with community-driven development and transparent governance"
+    },
+    "mission": {
+      "title": "Human-Centered Technology",
+      "content": "CyberEco exists to empower individuals with technology that respects privacy, promotes collaboration, and enhances quality of life. We believe in creating digital tools that serve humanity, not the other way around.",
+      "approach": "Our Approach",
+      "subtitle": "Building digital tools that empower people and communities",
+      "text": "We believe technology should serve humanity, not exploit it. Our mission is to create digital solutions that enhance human well-being, foster authentic connections, and support sustainable living.",
+      "transparencyTitle": "Transparency",
+      "transparencyDesc": "Open development and clear data practices",
+      "privacyTitle": "Privacy First",
+      "privacyDesc": "Your data belongs to you, always",
+      "communityTitle": "Community Driven",
+      "communityDesc": "Built by and for the people who use it",
+      "sustainableTitle": "Sustainable Tech",
+      "sustainableDesc": "Long-term thinking over short-term profits",
+      "transparency": "Transparency",
+      "privacy": "Privacy First",
+      "community": "Community Driven",
+      "sustainable": "Sustainable"
+    },
+    "solutions": {
+      "title": "Solutions For Every Aspect of Life",
+      "subtitle": "Explore our growing ecosystem of applications",
+      "current": "Current Solutions",
+      "priority": "Priority Development",
+      "future": "Future Ecosystem",
+      "tryNow": "Try Now",
+      "comingSoon": "Coming Soon",
+      "planned": "Planned"
+    },
+    "cta": {
+      "title": "Ready to Join the Future of Digital Living?",
+      "subtitle": "Start with our flagship applications or explore our vision for tomorrow",
+      "button": "Create Your Account",
+      "primaryButton": "Get Started with Hub",
+      "secondaryButton": "Explore Our Vision"
+    }
+  }
+}

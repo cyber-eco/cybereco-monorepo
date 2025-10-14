@@ -1,0 +1,38 @@
+{
+  "name": "dashboard-components",
+  "sourceRoot": "libs/dashboard-components/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/dashboard-components",
+        "main": "libs/dashboard-components/src/index.ts",
+        "tsConfig": "libs/dashboard-components/tsconfig.lib.json",
+        "assets": [
+          "libs/dashboard-components/*.md",
+          "libs/dashboard-components/src/**/*.css"
+        ],
+        "updateBuildableProjectDepsInPackageJson": false,
+        "buildableProjectDepsInPackageJsonType": "dependencies"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/dashboard-components/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/dashboard-components/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["scope:shared", "type:ui"]
+}

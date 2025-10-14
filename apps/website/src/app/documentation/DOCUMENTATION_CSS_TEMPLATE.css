@@ -1,0 +1,89 @@
+/* 
+ * Template CSS Module for Documentation Pages
+ * 
+ * Copy this file and rename it to page.module.css in your documentation page directory.
+ * The shared styles are imported from documentation-shared.css
+ * 
+ * Usage:
+ * 1. Copy this file to your page directory as page.module.css
+ * 2. Import in your page component: import styles from './page.module.css'
+ * 3. Use the classes: <div className={styles.pageContainer}>
+ */
+
+/* Import shared documentation styles */
+@import '../../../styles/documentation-shared.css';
+
+/* Compose from shared styles */
+.pageContainer {
+  composes: pageContainer from global;
+}
+
+.pageHeader {
+  composes: pageHeader from global;
+}
+
+.headerIcon {
+  composes: headerIcon from global;
+}
+
+.title {
+  composes: title from global;
+}
+
+.subtitle {
+  composes: subtitle from global;
+}
+
+.contentSection {
+  composes: contentSection from global;
+}
+
+.sectionTitle {
+  composes: sectionTitle from global;
+}
+
+.sectionDescription {
+  composes: sectionDescription from global;
+}
+
+.codeBlock {
+  composes: codeBlock from global;
+}
+
+.codeHeader {
+  composes: codeHeader from global;
+}
+
+.codeTitle {
+  composes: codeTitle from global;
+}
+
+.copyButton {
+  composes: copyButton from global;
+}
+
+.codeContent {
+  composes: codeContent from global;
+}
+
+.featureList {
+  composes: featureList from global;
+}
+
+.cardGrid {
+  composes: cardGrid from global;
+}
+
+.card {
+  composes: card from global;
+}
+
+.alert {
+  composes: alert from global;
+}
+
+.badge {
+  composes: badge from global;
+}
+
+/* Add page-specific styles below this line */

@@ -6,7 +6,20 @@
         "name": "next"
       }
     ],
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "paths": {
+      "@/components/*": ["./src/components/*"],
+      "@/pages/*": ["./src/pages/*"],
+      "@/context/*": ["./src/context/*"],
+      "@/utils/*": ["./src/utils/*"],
+      "@/services/*": ["./src/services/*"],
+      "@/types/*": ["./src/types/*"],
+      "@cybereco/auth": ["../../libs/auth/src/index.ts"],
+      "@cybereco/shared-types": ["../../libs/shared-types/src/index.ts"],
+      "@cybereco/firebase-config": ["../../libs/firebase-config/src/index.ts"],
+      "@cybereco/ui-components": ["../../libs/ui-components/src/index.ts"],
+      "@cybereco/shared-assets": ["../../libs/shared-assets/src/index.ts"]
+    }
   },
   "include": [
     "next-env.d.ts",

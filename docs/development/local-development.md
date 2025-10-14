@@ -48,9 +48,9 @@ yarn dev
 ```
 
 This will start the following applications:
-- Website: [http://localhost:5000](http://localhost:5000)
-- Hub: [http://localhost:3000](http://localhost:3000)
-- JustSplit: [http://localhost:4000](http://localhost:4000)
+- Website: [http://localhost:40001](http://localhost:40001)
+- Hub: [http://localhost:40000](http://localhost:40000)
+- JustSplit: [http://localhost:40002](http://localhost:40002)
 
 ### Running Individual Applications
 
@@ -104,9 +104,9 @@ To run Firebase emulators:
 npm run emulators
 
 # Start hosting emulators for testing
-npm run hosting:website    # localhost:5000
-npm run hosting:justsplit  # localhost:4000
-npm run hosting:hub        # localhost:3000
+npm run hosting:website    # localhost:40001
+npm run hosting:justsplit  # localhost:40002
+npm run hosting:hub        # localhost:40000
 ```
 
 To run development with Firebase hosting emulation:

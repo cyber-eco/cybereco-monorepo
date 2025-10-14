@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState, FormEvent } from 'react';
-import { useRouter } from 'next/navigation';
+import React, { useState, FormEvent, useEffect } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useAppContext } from '../../../context/AppContext';
 import { SUPPORTED_CURRENCIES } from '../../../utils/currencyExchange';
 import ImageUploader from '../../../components/ImageUploader';
@@ -11,6 +11,7 @@ import ExpenseSplitter from '../../../components/ExpenseSplitter';
 
 export default function NewExpense() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const { state, dispatch, addExpense } = useAppContext();
   
   const [description, setDescription] = useState('');
@@ -24,6 +25,14 @@ export default function NewExpense() {
   const [images, setImages] = useState<string[]>([]);
   const [splitMethod, setSplitMethod] = useState('equal');
   const [participantShares, setParticipantShares] = useState<{ id: string; name: string; share: number; }[]>([]);
+  
+  // Initialize eventId from URL params
+  useEffect(() => {
+    const eventIdParam = searchParams.get('eventId');
+    if (eventIdParam) {
+      setEventId(eventIdParam);
+    }
+  }, [searchParams]);
   
   // Add a participant input field
   const [newParticipantName, setNewParticipantName] = useState('');
@@ -63,14 +72,13 @@ export default function NewExpense() {
     
     try {
       // Create the expense data
-      const expenseData = {
+      const expenseData: any = {
         description,
         amount: parseFloat(amount),
         currency,
         date,
         paidBy,
         participants,
-        eventId,
         settled: false,
         notes,
         images,
@@ -79,11 +87,20 @@ export default function NewExpense() {
         createdAt: new Date().toISOString()
       };
       
+      // Only include eventId if it's defined
+      if (eventId) {
+        expenseData.eventId = eventId;
+      }
+      
       // Add to Firestore
       await addExpense(expenseData);
       
-      // Navigate to expenses list
-      router.push('/expenses/list');
+      // Navigate to expenses list or back to event if created from event
+      if (eventId) {
+        router.push(`/events/${eventId}`);
+      } else {
+        router.push('/expenses/list');
+      }
     } catch (error) {
       console.error('Error creating expense:', error);
       alert('Failed to create expense. Please try again.');

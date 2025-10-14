@@ -19,14 +19,15 @@ We believe your digital presence should empower you, not exploit you. Your ident
 - **📖 Open by Nature** - Modular, transparent, and interoperable wherever possible
 
 ### Current Applications
-- **Website** - Main CyberEco marketing website and application hub
-- **Hub** - Central authentication and app launcher
+- **Hub** - Central authentication gateway with intelligent proxy routing
+- **Website** - Main CyberEco marketing website and documentation
 - **JustSplit** - Comprehensive expense splitting application
 
 ### Priority Applications (Next Wave)
 - **Somos** - Family roots exploration and cultural heritage platform
 - **Demos** - Transparent voting and community decision-making platform
 - **Plantopia** - Smart gardening platform with plant care knowledge
+- **Marketplace** - Decentralized peer-to-peer commerce platform
 
 ### Secondary Applications (Future)
 - **Nexus** - Digital wellbeing social media hub
@@ -60,8 +61,10 @@ We believe your digital presence should empower you, not exploit you. Your ident
 
 ### 💻 Applications Documentation
 - **[Applications Overview](./applications/README.md)** - Complete application ecosystem documentation
+- **[Hub Documentation](./applications/hub/README.md)** - Hub gateway, proxy features, and authentication center
 - **[Priority Applications](./applications/priority-apps.md)** - Detailed specifications for Somos, Demos, and Plantopia
 - **[JustSplit App Docs](../apps/justsplit/docs/README.md)** - JustSplit-specific implementation details
+- **[Marketplace Documentation](./apps/marketplace.md)** - Decentralized commerce platform documentation
 
 ### 🛠️ Development Guides
 - **[Getting Started](./development/getting-started.md)** - Comprehensive developer setup
@@ -129,9 +132,9 @@ npm install
 
 # Start all applications
 npm run dev
-# Website: http://localhost:5000
-# Hub: http://localhost:3000
-# JustSplit: http://localhost:4000
+# Website: http://localhost:40001
+# Hub: http://localhost:40000
+# JustSplit: http://localhost:40002
 ```
 
 ### Testing
@@ -196,7 +199,7 @@ cybereco-monorepo/
 ## 📱 Applications
 
 ### Website Application
-**Port: 5000** | **Purpose**: Marketing website and application hub
+**Port: 40001** | **Purpose**: Marketing website and application hub
 
 Features:
 - Application showcase
@@ -204,16 +207,19 @@ Features:
 - Shared branding and assets
 
 ### Hub Application
-**Port: 3000** | **Purpose**: Central authentication and app launcher
+**Port: 40000** | **Purpose**: Central authentication gateway and application proxy
 
 Features:
-- User authentication and management
-- Application discovery and access
-- Cross-app permission management
-- Shared authentication context
+- Unified authentication for all ecosystem apps
+- Intelligent proxy routing to applications
+- Enhanced landing page for new users
+- Application discovery and access control
+- Cross-app session management
+- Security gateway with header injection
+- Coming soon pages for future apps
 
 ### JustSplit Application
-**Port: 4000** | **Purpose**: Expense splitting and financial management
+**Port: 40002** | **Purpose**: Expense splitting and financial management
 
 Features:
 - Group expense management
@@ -231,9 +237,9 @@ Features:
 npm run emulators
 
 # Start hosting emulators for testing
-npm run hosting:website    # localhost:5000
-npm run hosting:justsplit  # localhost:4000
-npm run hosting:hub       # localhost:3000
+npm run hosting:website    # localhost:40001
+npm run hosting:justsplit  # localhost:40002
+npm run hosting:hub       # localhost:40000
 ```
 
 ### NX Commands
@@ -297,14 +303,15 @@ nx g @nx/react:component Button --project=ui-components
 The comprehensive set of applications for the CyberEco ecosystem is prioritized as follows:
 
 **Current (Active Development)**
-- **Website** - Marketing website and application hub
-- **Hub** - Central authentication and application management
+- **Hub** - Central authentication gateway and application proxy
+- **Website** - Marketing website and documentation portal
 - **JustSplit** - Expense splitting and financial management
 
 **Priority Applications (Next Wave)**
 - **Somos** - Family roots exploration and cultural heritage platform
 - **Demos** - Transparent voting and community governance
 - **Plantopia** - Smart gardening and plant care platform
+- **Marketplace** - Decentralized peer-to-peer commerce platform
 
 **Secondary Applications (Future)**
 - **Nexus** - Digital wellbeing social media hub

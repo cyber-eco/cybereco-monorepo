@@ -4,33 +4,33 @@
  */
 
 :root {
-  /* Color Palette */
-  --color-primary: #102a49;  /* Dark blue from logo */
-  --color-primary-light: #1e3c61;
-  --color-primary-dark: #0a1c30;
+  /* Color Palette - Enhanced for beauty */
+  --color-primary: #1a365d;  /* Rich navy blue */
+  --color-primary-light: #2d5a87;
+  --color-primary-dark: #0f2838;
   
-  --color-secondary: #4CAF50;  /* Green accent */
-  --color-secondary-light: #6abe6e;
-  --color-secondary-dark: #3d8b40;
+  --color-secondary: #38b2ac;  /* Elegant teal */
+  --color-secondary-light: #4fd1c7;
+  --color-secondary-dark: #2c7a7b;
   
-  --color-accent: #2196F3;  /* Light blue accent from logo */
-  --color-accent-light: #4dabf5;
-  --color-accent-dark: #0c7cd5;
+  --color-accent: #4299e1;  /* Beautiful sky blue */
+  --color-accent-light: #63b3ed;
+  --color-accent-dark: #3182ce;
   
-  /* Neutral Colors */
-  --color-background: #FFFFFF;
-  --color-surface: #F5F7FA;
-  --color-text: #333333;
-  --color-text-secondary: #757575;
-  --color-text-disabled: #BDBDBD;
-  --color-border: #E0E0E0;
-  --color-divider: #EEEEEE;
+  /* Neutral Colors - Enhanced for elegance */
+  --color-background: #fafafa;
+  --color-surface: #ffffff;
+  --color-text: #2d3748;
+  --color-text-secondary: #718096;
+  --color-text-disabled: #a0aec0;
+  --color-border: #e2e8f0;
+  --color-divider: #f7fafc;
   
-  /* Feedback Colors */
-  --color-success: #4CAF50;
-  --color-error: #F44336;
-  --color-warning: #FF9800;
-  --color-info: #2196F3;
+  /* Feedback Colors - Modern palette */
+  --color-success: #48bb78;
+  --color-error: #f56565;
+  --color-warning: #ed8936;
+  --color-info: #4299e1;
   
   /* Typography */
   --font-family-base: 'Arial', sans-serif;
@@ -97,15 +97,34 @@
   --z-index-tooltip: 1600;
 }
 
-/* Dark mode colors - to be implemented later */
-.dark-theme {
-  --color-background: #121212;
-  --color-surface: #1E1E1E;
-  --color-text: #E0E0E0;
-  --color-text-secondary: #ABABAB;
-  --color-text-disabled: #666666;
-  --color-border: #333333;
-  --color-divider: #2A2A2A;
+/* Dark theme colors - Enhanced for beauty */
+[data-theme="dark"] {
+  --color-background: #1a202c;
+  --color-surface: #2d3748;
+  --color-text: #f7fafc;
+  --color-text-secondary: #a0aec0;
+  --color-text-disabled: #718096;
+  --color-border: #4a5568;
+  --color-divider: #2d3748;
   
-  /* Other dark theme variables would go here */
+  /* Adjust primary colors for dark theme */
+  --color-primary: #63b3ed;
+  --color-primary-light: #90cdf4;
+  --color-primary-dark: #4299e1;
+  
+  /* Elegant teal for dark mode */
+  --color-secondary: #4fd1c7;
+  --color-secondary-light: #81e6d9;
+  --color-secondary-dark: #38b2ac;
+  
+  /* Adjust accent colors for better contrast */
+  --color-accent: #90cdf4;
+  --color-accent-light: #bee3f8;
+  --color-accent-dark: #63b3ed;
+  
+  /* Dark theme feedback colors */
+  --color-success: #68d391;
+  --color-error: #fc8181;
+  --color-warning: #f6ad55;
+  --color-info: #90cdf4;
 }

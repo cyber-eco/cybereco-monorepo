@@ -125,6 +125,10 @@ ui-debug.log
 # Firebase emulator data (keep for development consistency)
 # emulator-data/ - uncomment to ignore emulator data
 
+# Firebase export directories (temporary exports)
+firebase-export-*/
+**/firebase-export-*/
+
 # ============================================================================
 # DEPLOYMENT & HOSTING
 # ============================================================================

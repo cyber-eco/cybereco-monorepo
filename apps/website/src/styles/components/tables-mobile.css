@@ -1,0 +1,260 @@
+/* Tables Mobile Styles */
+
+@media (max-width: 768px) {
+  /* Table wrapper for horizontal scroll */
+  .tableWrapper,
+  div[class*="tableWrapper"],
+  div[class*="tableContainer"] {
+    width: 100vw !important;
+    position: relative !important;
+    left: 50% !important;
+    right: 50% !important;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+    padding: 0 1rem !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  /* Tables */
+  table {
+    width: 100% !important;
+    min-width: 500px !important; /* Maintain readability */
+    border-collapse: collapse !important;
+    font-size: 0.875rem !important;
+  }
+
+  /* Table headers */
+  thead {
+    position: sticky !important;
+    top: 0 !important;
+    background: var(--color-background) !important;
+    z-index: 10 !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  th {
+    padding: 0.75rem 0.5rem !important;
+    text-align: left !important;
+    font-weight: 600 !important;
+    font-size: 0.85rem !important;
+    white-space: nowrap !important;
+    border-bottom: 2px solid var(--color-border) !important;
+  }
+
+  /* Table cells */
+  td {
+    padding: 0.75rem 0.5rem !important;
+    vertical-align: top !important;
+    border-bottom: 1px solid var(--color-border) !important;
+  }
+
+  /* First column sticky for reference */
+  td:first-child,
+  th:first-child {
+    position: sticky !important;
+    left: 0 !important;
+    background: var(--color-background) !important;
+    z-index: 5 !important;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.05) !important;
+    min-width: 120px !important;
+  }
+
+  /* Responsive table styles */
+  @supports (display: contents) {
+    /* Convert to card layout on very narrow screens */
+    @media (max-width: 480px) {
+      .responsiveTable table,
+      table[data-responsive="true"] {
+        display: block !important;
+      }
+
+      .responsiveTable thead,
+      table[data-responsive="true"] thead {
+        display: none !important;
+      }
+
+      .responsiveTable tbody,
+      table[data-responsive="true"] tbody {
+        display: block !important;
+      }
+
+      .responsiveTable tr,
+      table[data-responsive="true"] tr {
+        display: block !important;
+        margin-bottom: 1rem !important;
+        border: 1px solid var(--color-border) !important;
+        border-radius: 8px !important;
+        padding: 1rem !important;
+      }
+
+      .responsiveTable td,
+      table[data-responsive="true"] td {
+        display: block !important;
+        padding: 0.5rem 0 !important;
+        border: none !important;
+        position: relative !important;
+        padding-left: 40% !important;
+      }
+
+      .responsiveTable td::before,
+      table[data-responsive="true"] td::before {
+        content: attr(data-label) !important;
+        position: absolute !important;
+        left: 0 !important;
+        width: 35% !important;
+        font-weight: 600 !important;
+        text-align: left !important;
+      }
+
+      /* Reset sticky columns */
+      .responsiveTable td:first-child,
+      .responsiveTable th:first-child,
+      table[data-responsive="true"] td:first-child,
+      table[data-responsive="true"] th:first-child {
+        position: relative !important;
+        box-shadow: none !important;
+      }
+    }
+  }
+
+  /* API reference tables */
+  .apiTable,
+  table[class*="apiTable"],
+  table[class*="api"] {
+    font-size: 0.8rem !important;
+  }
+
+  .apiTable code,
+  table[class*="apiTable"] code {
+    font-size: 0.75rem !important;
+    padding: 0.1rem 0.3rem !important;
+  }
+
+  /* Property tables */
+  .propertyTable,
+  table[class*="propertyTable"],
+  table[class*="properties"] {
+    min-width: 400px !important;
+  }
+
+  /* Comparison tables */
+  .comparisonTable,
+  table[class*="comparison"] {
+    text-align: center !important;
+  }
+
+  .comparisonTable td:first-child,
+  table[class*="comparison"] td:first-child {
+    text-align: left !important;
+    font-weight: 600 !important;
+  }
+
+  /* Pricing tables */
+  .pricingTable,
+  table[class*="pricing"] {
+    text-align: center !important;
+  }
+
+  .pricingTable th,
+  table[class*="pricing"] th {
+    background: var(--color-primary) !important;
+    color: white !important;
+  }
+
+  /* Status indicators in tables */
+  .statusIndicator,
+  td[class*="status"] {
+    font-size: 0.75rem !important;
+    padding: 0.25rem 0.5rem !important;
+    border-radius: 4px !important;
+    display: inline-block !important;
+  }
+
+  /* Scroll indicator */
+  .tableWrapper::after,
+  div[class*="tableWrapper"]::after {
+    content: '→ Scroll';
+    position: absolute;
+    right: 1rem;
+    top: 0.5rem;
+    font-size: 0.75rem;
+    opacity: 0.6;
+    background: var(--color-background);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    pointer-events: none;
+  }
+
+  /* Hide scroll indicator when not needed */
+  .tableWrapper.scrolled::after,
+  div[class*="tableWrapper"].scrolled::after {
+    display: none;
+  }
+}
+
+/* Ultra narrow screens */
+@media (max-width: 480px) {
+  /* Even smaller font sizes */
+  table {
+    font-size: 0.8rem !important;
+  }
+
+  th,
+  td {
+    padding: 0.5rem 0.375rem !important;
+  }
+
+  /* Reduce minimum width */
+  table {
+    min-width: 400px !important;
+  }
+
+  .propertyTable,
+  table[class*="propertyTable"] {
+    min-width: 350px !important;
+  }
+}
+
+/* Dark mode adjustments */
+@media (max-width: 768px) and (prefers-color-scheme: dark) {
+  thead {
+    background: #1a1a1a !important;
+  }
+
+  td:first-child,
+  th:first-child {
+    background: #1a1a1a !important;
+  }
+
+  .tableWrapper::after,
+  div[class*="tableWrapper"]::after {
+    background: #1a1a1a;
+  }
+}
+
+/* Accessibility improvements */
+@media (max-width: 768px) {
+  /* Focus indicators */
+  table:focus-within {
+    outline: 2px solid var(--color-primary) !important;
+    outline-offset: 2px !important;
+  }
+
+  /* Skip link for table navigation */
+  .tableSkipLink {
+    position: absolute !important;
+    top: -40px !important;
+    left: 0 !important;
+    background: var(--color-primary) !important;
+    color: white !important;
+    padding: 0.5rem 1rem !important;
+    text-decoration: none !important;
+    border-radius: 4px !important;
+    z-index: 100 !important;
+  }
+
+  .tableSkipLink:focus {
+    top: 0.5rem !important;
+  }
+}

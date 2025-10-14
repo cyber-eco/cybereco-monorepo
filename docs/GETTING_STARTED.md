@@ -28,16 +28,16 @@ npm run dev
 ```
 
 🎉 **Done!** Open your browser:
-- **Hub**: http://localhost:3000
-- **JustSplit**: http://localhost:4000
+- **Hub**: http://localhost:40000
+- **JustSplit**: http://localhost:40002
 
 ---
 
 ## 🛠️ Development Environment
 
 ### **What You'll See**
-- **Hub (Port 3000)**: Authentication and app launcher
-- **JustSplit (Port 4000)**: Expense splitting application
+- **Hub (Port 40000)**: Authentication and app launcher
+- **JustSplit (Port 40002)**: Expense splitting application
 - **Hot Reload**: Changes appear instantly
 - **TypeScript**: Full type checking and IntelliSense
 
@@ -208,9 +208,9 @@ git push origin feature/your-feature-name
 
 ### **Port Already in Use**
 ```bash
-# Kill processes on ports 3000/4000
-lsof -ti:3000 | xargs kill -9
-lsof -ti:4000 | xargs kill -9
+# Kill processes on ports 40000/40002
+lsof -ti:40000 | xargs kill -9
+lsof -ti:40002 | xargs kill -9
 ```
 
 ### **Build Errors**

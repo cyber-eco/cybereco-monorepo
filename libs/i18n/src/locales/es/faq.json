@@ -1,0 +1,50 @@
+{
+  "faqPage": {
+    "title": "Preguntas Frecuentes",
+    "subtitle": "Encuentra respuestas a preguntas comunes sobre la plataforma CyberEco",
+    "general": {
+      "title": "Preguntas Generales",
+      "q1": "¿Qué es CyberEco?",
+      "a1": "CyberEco es un ecosistema digital centrado en el ser humano para una vida consciente, conectada y sostenible. Proporcionamos un conjunto de aplicaciones que te ayudan a gestionar finanzas, participar con comunidades y conectarte con otros de manera significativa.",
+      "q2": "¿Es CyberEco gratis?",
+      "a2": "¡Sí! Las características principales de todas las aplicaciones CyberEco son gratuitas. Creemos en proporcionar herramientas accesibles para todos. Características premium pueden estar disponibles en el futuro para apoyar el desarrollo de la plataforma.",
+      "q3": "¿Cómo protege CyberEco mi privacidad?",
+      "a3": "La privacidad es fundamental para CyberEco. Usamos cifrado de extremo a extremo, te damos control completo sobre tus datos, y nunca vendemos tu información a terceros. Puedes exportar o eliminar tus datos en cualquier momento.",
+      "q4": "¿Qué aplicaciones están disponibles actualmente?",
+      "a4": "Actualmente disponibles: CyberEco Hub (autenticación e identidad), JustSplit (compartir gastos), y el Sitio Web CyberEco. Próximamente: Somos (raíces familiares), Demos (gobernanza comunitaria), y Plantopia (jardinería inteligente)."
+    },
+    "technical": {
+      "title": "Preguntas Técnicas",
+      "q1": "¿Qué navegadores son compatibles?",
+      "a1": "CyberEco funciona en todos los navegadores modernos incluyendo Chrome, Firefox, Safari y Edge. Para la mejor experiencia, recomendamos usar la última versión de tu navegador preferido.",
+      "q2": "¿Hay aplicaciones móviles disponibles?",
+      "a2": "Nuestras aplicaciones están construidas como Progressive Web Apps (PWAs) que funcionan muy bien en dispositivos móviles. Apps nativas para iOS y Android están planeadas para futuros lanzamientos.",
+      "q3": "¿Puedo usar CyberEco sin conexión?",
+      "a3": "¡Sí! Muchas características funcionan sin conexión. Tus datos se almacenan localmente y se sincronizan cuando te reconectas a internet. Algunas características como colaboración en tiempo real requieren conexión a internet.",
+      "q4": "¿Cómo exporto mis datos?",
+      "a4": "Ve a Configuración > Privacidad > Exportar Datos en cualquier aplicación CyberEco. Puedes descargar todos tus datos en formatos estándar (JSON, CSV) para usar en otras aplicaciones o para respaldo."
+    },
+    "security": {
+      "title": "Preguntas de Seguridad",
+      "q1": "¿Qué tan seguros están mis datos?",
+      "a1": "Muy seguros. Usamos cifrado estándar de la industria, autenticación segura y auditorías de seguridad regulares. Tus datos sensibles se cifran antes de salir de tu dispositivo.",
+      "q2": "¿Qué pasa si olvido mi contraseña?",
+      "a2": "Puedes restablecer tu contraseña usando el enlace 'Olvidé mi contraseña' en la página de inicio de sesión. Enviaremos un enlace seguro de restablecimiento a tu dirección de correo registrada.",
+      "q3": "¿CyberEco admite autenticación de dos factores?",
+      "a3": "¡Sí! Recomendamos encarecidamente habilitar 2FA para mayor seguridad. Admitimos aplicaciones de autenticación, códigos SMS y llaves de seguridad hardware.",
+      "q4": "¿Qué pasa con mis datos si elimino mi cuenta?",
+      "a4": "Cuando eliminas tu cuenta, todos tus datos personales se eliminan permanentemente de nuestros servidores dentro de 30 días. Algunos datos de uso anonimizados pueden ser retenidos para mejorar nuestros servicios."
+    },
+    "justsplit": {
+      "title": "Preguntas de JustSplit",
+      "q1": "¿Cómo funciona la división de gastos?",
+      "a1": "Crea un grupo, agrega gastos, y JustSplit calcula automáticamente quién debe qué. Puedes dividir igualmente, por porcentaje, por acciones, o cantidades personalizadas.",
+      "q2": "¿Qué monedas son compatibles?",
+      "a2": "JustSplit admite más de 150 monedas con tipos de cambio en tiempo real. Puedes agregar gastos en cualquier moneda y ver balances en tu moneda preferida.",
+      "q3": "¿Puedo escanear recibos?",
+      "a3": "¡Sí! Usa tu cámara para escanear recibos y JustSplit extraerá automáticamente el monto, fecha e información del comerciante.",
+      "q4": "¿Cómo liquido con amigos?",
+      "a4": "JustSplit rastrea balances pero no maneja transferencias de dinero. Marca pagos como liquidados después de transferir dinero a través de tu método de pago preferido (Venmo, PayPal, transferencia bancaria, efectivo, etc.)."
+    }
+  }
+}

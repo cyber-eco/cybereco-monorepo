@@ -336,7 +336,7 @@ import { Button, Card, Modal } from '@cybereco/ui-components';
     "serve": {
       "executor": "@nx/next:dev-server",
       "options": {
-        "port": 3000,
+        "port": 40000,
         "buildTarget": "hub:build"
       }
     },

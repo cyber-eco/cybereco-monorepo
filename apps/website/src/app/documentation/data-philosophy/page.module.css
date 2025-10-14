@@ -1,0 +1,396 @@
+.pageContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.contentSection {
+  padding: 3rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 2rem;
+}
+
+/* Philosophy Introduction */
+.philosophyIntro {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 4rem;
+}
+
+.introText {
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+/* Principles Grid */
+.principlesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.principleCard {
+  background: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+.principleCard:nth-child(1) { animation-delay: 0.1s; }
+.principleCard:nth-child(2) { animation-delay: 0.2s; }
+.principleCard:nth-child(3) { animation-delay: 0.3s; }
+.principleCard:nth-child(4) { animation-delay: 0.4s; }
+.principleCard:nth-child(5) { animation-delay: 0.5s; }
+.principleCard:nth-child(6) { animation-delay: 0.6s; }
+
+.principleCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.principleCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  border-color: rgba(139, 92, 246, 0.3);
+}
+
+.principleCard:hover::before {
+  transform: translateX(0);
+}
+
+.principleIcon {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: white;
+  animation: float 3s ease-in-out infinite;
+}
+
+.principleCard:nth-child(2n) .principleIcon {
+  background: linear-gradient(135deg, #8b5cf6, #ec4899);
+  animation-delay: 0.5s;
+}
+
+.principleCard:nth-child(3n) .principleIcon {
+  background: linear-gradient(135deg, #ec4899, #f59e0b);
+  animation-delay: 1s;
+}
+
+.principleCard h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+}
+
+.principleCard p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.principleExample {
+  background: var(--code-background);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--primary-color);
+  border: 1px solid var(--border-color);
+}
+
+/* Comparison Grid */
+.comparisonGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  margin: 3rem 0;
+}
+
+.comparisonCard {
+  background: var(--card-background);
+  border-radius: 16px;
+  padding: 2rem;
+  border: 1px solid var(--border-color);
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+.comparisonCard:first-child {
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.comparisonCard:last-child {
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.oldWay {
+  color: #ef4444;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.newWay {
+  color: #10b981;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.comparisonList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.comparisonList li {
+  padding: 0.75rem 0;
+  padding-left: 2rem;
+  position: relative;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.comparisonList li::before {
+  content: '×';
+  position: absolute;
+  left: 0;
+  top: 0.75rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ef4444;
+}
+
+.comparisonCard:last-child .comparisonList li::before {
+  content: '✓';
+  color: #10b981;
+}
+
+/* Implementation Grid */
+.implementationGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.implementationCard {
+  background: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+.implementationCard:nth-child(1) { animation-delay: 0.1s; }
+.implementationCard:nth-child(2) { animation-delay: 0.2s; }
+.implementationCard:nth-child(3) { animation-delay: 0.3s; }
+
+.implementationCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.implementationHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.implementationHeader svg {
+  font-size: 1.5rem;
+  color: #8b5cf6;
+}
+
+.implementationHeader h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: var(--text-primary);
+}
+
+.implementationCard p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.learnMore a {
+  color: #8b5cf6;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.learnMore a:hover {
+  color: #7c3aed;
+  transform: translateX(4px);
+}
+
+/* Call to Action */
+.callToAction {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.1));
+  border-radius: 24px;
+  padding: 4rem;
+  text-align: center;
+  border: 1px solid var(--border-color);
+  animation: fadeInUp 0.6s ease-out 0.8s both;
+}
+
+.callToAction h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.callToAction p {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  line-height: 1.8;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.primaryButton,
+.secondaryButton {
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.primaryButton {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  color: white;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+}
+
+.primaryButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+}
+
+.secondaryButton {
+  background: var(--card-background);
+  color: #8b5cf6;
+  border: 2px solid #8b5cf6;
+}
+
+.secondaryButton:hover {
+  background: rgba(139, 92, 246, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .principlesGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .comparisonGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .implementationGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .callToAction {
+    padding: 2rem;
+  }
+
+  .callToAction h2 {
+    font-size: 2rem;
+  }
+
+  .callToAction p {
+    font-size: 1.125rem;
+  }
+
+  .ctaButtons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+    justify-content: center;
+  }
+}

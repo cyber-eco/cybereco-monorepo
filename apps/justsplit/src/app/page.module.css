@@ -1,4 +1,4 @@
-/* Main layout styles */
+/* Main layout styles - Beautiful hero section */
 .main {
   display: flex;
   flex-direction: column;
@@ -7,24 +7,125 @@
   min-height: 100vh;
   padding: var(--space-xl);
   text-align: center;
+  color: #ffffff !important;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Force all text in hero to be white */
+.main * {
+  color: #ffffff !important;
+}
+
+.main::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.main > * {
+  position: relative;
+  z-index: 1;
+}
+
+.main h1 {
+  color: #ffffff !important;
+  margin-bottom: var(--space-lg);
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  animation: fadeInUp 0.8s ease-out;
+  filter: brightness(1) contrast(1);
+}
+
+.main p {
+  color: #ffffff !important;
+  margin-bottom: var(--space-md);
+  max-width: 600px;
+  line-height: var(--line-height-relaxed);
+  font-size: var(--font-size-lg);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+  opacity: 0.95;
+  filter: brightness(1) contrast(1);
+}
+
+/* Ensure hero text is always white regardless of theme */
+[data-theme="light"] .main h1,
+[data-theme="dark"] .main h1 {
+  color: #ffffff !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="light"] .main p,
+[data-theme="dark"] .main p {
+  color: #ffffff !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Dark theme adjustments for hero */
+[data-theme="dark"] .main {
+  background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .buttons {
   display: flex;
   gap: var(--space-md);
   margin-top: var(--space-xl);
+  animation: fadeInUp 0.8s ease-out 0.4s both;
 }
 
 .button {
-  background-color: var(--primary-color);
-  color: white;
-  padding: 10px 20px;
-  border-radius: 4px;
-  transition: background-color 0.3s;
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff !important;
+  padding: var(--space-md) var(--space-xl);
+  border-radius: var(--border-radius-lg);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-md);
+  text-decoration: none;
+  display: inline-block;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .button:hover {
-  background-color: #45A049;
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  color: #ffffff !important;
+}
+
+.button:active {
+  transform: translateY(0);
+  color: #ffffff !important;
+}
+
+/* Ensure button link text is always white */
+.button a, .buttons a {
+  color: #ffffff !important;
+  text-decoration: none;
 }
 
 /* Dashboard layout */

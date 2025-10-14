@@ -2,9 +2,12 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import { useLanguage } from '@/context/LanguageContext';
 import styles from './landing.module.css';
 
 const LandingPage = () => {
+  const { t } = useLanguage();
+  
   // Tracks which FAQ is open
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   
@@ -76,10 +79,10 @@ const LandingPage = () => {
         <div className={styles.heroContent}>
           <div className={styles.heroText}>
             <h1 className={styles.heroTitle}>JustSplit</h1>
-            <h2 className={styles.heroSubtitle}>Split expenses with friends and family. Track who owes who and settle up easily.</h2>
+            <h2 className={styles.heroSubtitle}>{t('welcome')} {t('subtitle')}</h2>
             <div className={styles.heroCta}>
               <Link href="/auth/register" className={styles.buttonPrimary}>
-                Get Started
+                {t('addExpense')}
               </Link>
               <Link href="/about" className={styles.buttonSecondary}>
                 Learn More
@@ -124,9 +127,9 @@ const LandingPage = () => {
         </div>
         
         <div className={styles.heroWave}>
-          <svg className={styles.waveSvg} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 140">
+          <svg className={styles.waveSvg} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 140" preserveAspectRatio="none">
             <path 
-              fill="#ffffff" 
+              fill="var(--color-background)" 
               fillOpacity="1" 
               d="M0,64L80,85.3C160,107,320,149,480,138.7C640,128,800,64,960,48C1120,32,1280,64,1360,80L1440,96L1440,140L1360,140C1280,140,1120,140,960,140C800,140,640,140,480,140C320,140,160,140,80,140L0,140Z"
             ></path>

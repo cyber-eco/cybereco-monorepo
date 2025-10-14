@@ -1,0 +1,2821 @@
+{
+  "documentationPage": {
+    "title": "Documentación",
+    "subtitle": "Guías completas y documentación técnica para el ecosistema digital CyberEco",
+    "searchPlaceholder": "Buscar documentación...",
+    "search": "Buscar documentación...",
+    "tableOfContents": "Tabla de Contenidos",
+    "nextSteps": "Siguientes Pasos",
+    "gettingStartedTitle": "PRIMEROS PASOS",
+    "gettingStartedWithCyberEco": "Comenzando con CyberEco",
+    "introductionTitle": "Introducción",
+    "introductionText": "¡Bienvenido a la documentación de CyberEco! Esta guía te ayudará a comenzar con nuestro ecosistema digital. CyberEco ofrece un conjunto de soluciones digitales diseñadas para mejorar la colaboración financiera, el compromiso comunitario y la conectividad social, todo dentro de un marco centrado en el ser humano para una vida consciente, conectada y sostenible.",
+    "quickStartTitle": "Inicio Rápido",
+    "quickStartLabel": "📍 Guía de Inicio Rápido",
+    "quickStartTime": "⏱️ 5 minutos",
+    "step1Title": "Crea Tu Cuenta",
+    "step1Desc": "Regístrate para una cuenta de CyberEco Hub para acceder a todas las aplicaciones con una sola identidad.",
+    "step2Title": "Explora Aplicaciones",
+    "step2Desc": "Comienza con JustSplit para compartir gastos, luego descubre nuestro creciente ecosistema.",
+    "step3Title": "Únete a la Comunidad",
+    "step3Desc": "Conéctate con otros usuarios y contribuye a nuestra visión de tecnología centrada en el ser humano.",
+    "signUpNow": "Registrarse Ahora",
+    "exploreApps": "Explorar Apps",
+    "joinCommunity": "Unirse a la Comunidad",
+    "keyConceptsTitle": "Conceptos Clave y Arquitectura",
+    "keyConceptsSubtitle": "Comprendiendo los principios fundamentales y la arquitectura de CyberEco",
+    "digitalSovereigntyConceptTitle": "Soberanía Digital",
+    "digitalSovereigntyConceptText": "En el centro de CyberEco está el principio de soberanía digital: la idea de que las personas deben poseer y controlar su identidad y datos digitales. Nuestra arquitectura garantiza que:",
+    "digitalSovereigntyPoint1": "Los usuarios mantienen la propiedad de sus datos personales",
+    "digitalSovereigntyPoint2": "Las aplicaciones están diseñadas para ser interoperables y controladas por el usuario",
+    "digitalSovereigntyPoint3": "Ninguna entidad tiene control monopolístico sobre la información del usuario",
+    "digitalSovereigntyPoint4": "La privacidad está integrada en el diseño central, no añadida como una ocurrencia tardía",
+    "ecosystemArchitectureTitle": "Arquitectura del Ecosistema",
+    "ecosystemArchitectureText": "CyberEco está construido como un ecosistema modular donde cada aplicación sirve un propósito específico mientras contribuye al todo mayor:",
+    "architecturePoint1": "Hub: Gestión central de autenticación e identidad",
+    "architecturePoint2": "Capa de Aplicaciones: Apps especializadas para diferentes dominios de vida",
+    "architecturePoint3": "Capa de Datos: Almacenamiento y compartición de datos controlados por el usuario",
+    "architecturePoint4": "Capa de Integración: APIs y protocolos para interacción fluida",
+    "humanCenteredDesignTitle": "Diseño Centrado en el Humano",
+    "humanCenteredDesignText": "Cada aplicación en el ecosistema CyberEco está diseñada con el bienestar humano y la conexión auténtica en su centro. Esto significa:",
+    "humanCenteredPoint1": "Minimizar patrones de diseño adictivos",
+    "humanCenteredPoint2": "Promover relaciones y actividades del mundo real",
+    "humanCenteredPoint3": "Apoyar el crecimiento individual y la construcción de comunidad",
+    "humanCenteredPoint4": "Respetar la atención humana y la salud mental",
+    "communityDrivenTitle": "Desarrollo Impulsado por la Comunidad",
+    "communityDrivenText": "Nuestro proceso de desarrollo está guiado por las necesidades reales de la comunidad en lugar de la maximización de ganancias. Priorizamos:",
+    "communityDrivenPoint1": "Desarrollo de código abierto cuando sea posible",
+    "communityDrivenPoint2": "Retroalimentación e involucramiento de la comunidad en el desarrollo de características",
+    "communityDrivenPoint3": "Hojas de ruta transparentes y procesos de toma de decisiones",
+    "communityDrivenPoint4": "Modelos de negocio sostenibles que se alinean con los intereses del usuario",
+    "coreDocumentationTitle": "Documentación Principal",
+    "developerNavTitle": "Desarrollador",
+    "authenticationNavItem": "Integración de Autenticación",
+    "jwtAuthNavItem": "Autenticación JWT",
+    "ssoIntegrationNavItem": "Integración SSO",
+    "authLoggingNavItem": "Registro de Auth",
+    "dataArchitectureNavItem": "Arquitectura de Capa de Datos",
+    "hubGatewayNavItem": "Hub Gateway y Proxy",
+    "dataPrivacyTitle": "Datos y Privacidad",
+    "dataPrivacyNavItem": "Datos y Privacidad",
+    "dataPrivacySubtitle": "Protección integral de datos y controles de privacidad",
+    "privacyOverviewTitle": "Arquitectura Centrada en la Privacidad",
+    "privacyOverviewText": "CyberEco está construido con la privacidad en su núcleo. Cada característica está diseñada para proteger los datos del usuario y dar a los individuos control completo sobre su información.",
+    "privacyPrinciplesTitle": "Principios de Privacidad",
+    "privacyFeaturesTitle": "Características de Privacidad",
+    "privacyControlsTitle": "Controles de Privacidad y GDPR",
+    "dataExportTitle": "Exportación de Datos",
+    "dataArchitectureTitle": "Arquitectura de la Capa de Datos",
+    "technicalTitle": "Técnico",
+    "apiReferenceNavItem": "Referencia de API",
+    "developmentNavItem": "Configuración de Desarrollo",
+    "communityNavItem": "Comunidad y Soporte",
+    "philosophyTitle": "Filosofía",
+    "philosophyDesc": "Nuestro enfoque centrado en el humano",
+    "philosophyDocSubtitle": "Principios de tecnología centrada en el humano que guían el ecosistema CyberEco",
+    "corePhilosophyTitle": "Filosofía Central",
+    "corePhilosophyText": "CyberEco está construido sobre la creencia fundamental de que la tecnología debe servir a la humanidad, no al revés. Nuestra filosofía guía cada decisión que tomamos.",
+    "keyPrinciplesTitle": "Principios Clave",
+    "visionTitle": "Visión",
+    "visionDesc": "El futuro que estamos construyendo",
+    "visionDocSubtitle": "El futuro de la vida digital descentralizada",
+    "futureVisionTitle": "Visión del Futuro",
+    "futureVisionText": "Imaginamos un mundo donde la tecnología digital empodera a individuos y comunidades para prosperar de manera autónoma, libres de la vigilancia y control corporativo.",
+    "visionComponentsTitle": "Componentes de la Visión",
+    "vision": {
+      "title": "Visión del Futuro Descentralizado",
+      "subtitle": "Transición de la infraestructura en la nube centralizada a un ecosistema distribuido, basado en blockchain y centrado en la privacidad",
+      "executiveSummary": {
+        "title": "Resumen Ejecutivo",
+        "description": "CyberEco visualiza un futuro donde las infraestructuras digitales empoderan a individuos y comunidades en lugar de centralizar el control. Nuestra visión se extiende más allá de las limitaciones actuales para crear un ecosistema verdaderamente descentralizado donde los usuarios poseen sus datos, identidad y relaciones digitales."
+      },
+      "tabs": {
+        "overview": "Visión General",
+        "architecture": "Arquitectura",
+        "roadmap": "Hoja de Ruta",
+        "economics": "Economía",
+        "impact": "Impacto"
+      },
+      "visionOverview": {
+        "title": "Visión General",
+        "currentState": "Estado Actual",
+        "futureState": "Estado Futuro",
+        "infrastructure": "Infraestructura",
+        "currentCentralized": "Actual",
+        "futureDecentralized": "Futuro",
+        "firebaseCloud": "Servicios en la Nube de Firebase",
+        "mobileP2P": "Red P2P de Dispositivos Móviles",
+        "dataStorage": "Almacenamiento de Datos",
+        "cloudDatabases": "Bases de Datos en la Nube",
+        "onChainLocal": "En Cadena + Cifrado Local",
+        "privacyModel": "Modelo de Privacidad",
+        "trustBased": "Basado en Confianza (Proveedor de Servicios)",
+        "zeroKnowledge": "Pruebas de Conocimiento Cero",
+        "networkEffect": "Efecto de Red",
+        "serverDependent": "Dependiente del Servidor",
+        "communityPowered": "Impulsado por la Comunidad",
+        "costStructure": "Estructura de Costos",
+        "cloudFees": "Tarifas de Servicios en la Nube",
+        "networkRewards": "Recompensas por Participación en la Red",
+        "dataOwnership": "Propiedad de Datos",
+        "platformControlled": "Controlado por la Plataforma",
+        "userSovereign": "Soberanía del Usuario"
+      },
+      "architecture": {
+        "title": "Visión de Arquitectura Descentralizada",
+        "mobileP2P": {
+          "title": "Red P2P Móvil Primero",
+          "personalNodes": "Nodos Personales",
+          "contributionIncentives": "Incentivos de Contribución",
+          "dynamicLoadBalancing": "Equilibrio de Carga Dinámico",
+          "offlineFirst": "Diseño Offline Primero",
+          "networkTopology": "Topología de Red",
+          "personalNodesDesc": "El dispositivo móvil de cada usuario se convierte en un nodo de red",
+          "contributionIncentivesDesc": "Los usuarios ganan tokens por proporcionar recursos de cómputo/almacenamiento",
+          "dynamicLoadBalancingDesc": "La red distribuye automáticamente la carga de trabajo entre los dispositivos disponibles",
+          "offlineFirstDesc": "Las aplicaciones funcionan completamente sin conexión, se sincronizan cuando están conectadas"
+        },
+        "blockchain": {
+          "title": "Estrategia de Integración Blockchain"
+        },
+        "privacy": {
+          "title": "Criptografía que Preserva la Privacidad"
+        },
+        "mobileNode": "Nodo Móvil",
+        "localStorage": "Almacenamiento Local",
+        "appInstances": "Instancias de Aplicación",
+        "cryptoWallet": "Billetera Cripto",
+        "relayService": "Servicio de Retransmisión",
+        "dataRouting": "Enrutamiento de Datos",
+        "networkSync": "Sincronización de Red",
+        "computation": "Computación",
+        "verification": "Verificación",
+        "consensus": "Consenso",
+        "blockchainStateLayer": "Blockchain (Capa de Estado)",
+        "smartContracts": "Contratos Inteligentes • Hashes de Datos • Derechos de Acceso"
+      },
+      "roadmap": {
+        "title": "Hoja de Ruta de Implementación Técnica",
+        "phases": {
+          "hybrid": "Fase 1: Fundación Híbrida (2025-2026)",
+          "network": "Fase 2: Fundación de Red (2026-2027)",
+          "full": "Fase 3: Descentralización Completa (2027-2028)",
+          "hybridSubtitle": "Preparar para la Descentralización",
+          "networkSubtitle": "Construir Infraestructura Descentralizada",
+          "fullSubtitle": "Migración Completa a P2P"
+        },
+        "features": {
+          "multiBackend": "Soporte Multi-Backend",
+          "encryptionDefault": "Cifrado por Defecto",
+          "didIntegration": "Integración DID",
+          "p2pTesting": "Pruebas P2P",
+          "deviceRegistration": "Registro de Dispositivos",
+          "resourceSharing": "Compartir Recursos",
+          "incentiveSystem": "Sistema de Incentivos",
+          "consensusMechanism": "Mecanismo de Consenso",
+          "dataSovereignty": "Soberanía Completa de Datos",
+          "crossAppPrivacy": "Privacidad Entre Aplicaciones",
+          "networkGovernance": "Gobernanza de Red",
+          "globalAccessibility": "Accesibilidad Global",
+          "encryptionByDefault": "Cifrado por Defecto"
+        }
+      },
+      "economics": {
+        "title": "Modelo Económico e Incentivos",
+        "tokenEconomics": "Economía de Tokens (Futuro Token CyberEco - CYE)",
+        "networkRewards": "Participación en la Red",
+        "privacyIncentives": "Incentivos de Privacidad",
+        "applicationAccess": "Acceso a Aplicaciones",
+        "storageReward": "Almacenamiento: 10-50 CYE/GB-mes",
+        "computeReward": "Cómputo: 1-5 CYE/CPU-hora",
+        "relayReward": "Retransmisión: 0.1-1 CYE/MB",
+        "privacyBonus": "Bonificación de privacidad: +20% recompensas",
+        "zkProofs": "Pruebas ZK: 5-10 CYE/prueba",
+        "consensus": "Consenso: 1-3 CYE/ronda",
+        "freeTier": "Nivel gratuito con contribución",
+        "premiumFeatures": "Funciones premium vía CYE",
+        "crossAppIntegration": "Integración entre aplicaciones"
+      },
+      "impact": {
+        "title": "Impacto Global y Beneficios",
+        "forUsers": "Para Usuarios Individuales",
+        "forSociety": "Para la Sociedad",
+        "digitalRights": "Derechos Digitales",
+        "economicDemocratization": "Democratización Económica",
+        "enhancedPrivacy": "Privacidad Mejorada",
+        "zeroDataMining": "Cero Minería de Datos - Sin vigilancia corporativa",
+        "granularControl": "Control Granular - Elige qué compartir",
+        "temporalLimits": "Límites Temporales - Establece tiempos de expiración",
+        "auditTransparency": "Transparencia de Auditoría - Rastrea registros de acceso",
+        "financialBenefits": "Beneficios Financieros",
+        "earnFromNetwork": "Gana contribuyendo a la red",
+        "noSubscriptionFees": "Sin tarifas de suscripción",
+        "universalAccess": "Acceso universal globalmente",
+        "dataPortability": "Portabilidad completa de datos",
+        "dataSovereignty": "Soberanía de datos para todos los usuarios",
+        "privacyByDesign": "Privacidad por diseño técnico",
+        "openPlatform": "Innovación de plataforma abierta",
+        "censorshipResistance": "Resistencia a la censura",
+        "inclusiveParticipation": "Participación inclusiva",
+        "globalNetworkEffects": "Efectos de red global",
+        "communityGovernance": "Gobernanza comunitaria",
+        "innovationIncentives": "Incentivos de innovación",
+        "successMetrics": "Métricas de Éxito y Objetivos",
+        "metrics": {
+          "activeNodes": "Nodos Activos",
+          "monthlyUsers": "Usuarios Mensuales",
+          "privacyRate": "Tasa de Privacidad",
+          "dataControl": "Control de Datos"
+        }
+      },
+      "getInvolved": {
+        "title": "Participa",
+        "forDevelopers": "Para Desarrolladores",
+        "forUsers": "Para Usuarios",
+        "forOrganizations": "Para Organizaciones"
+      },
+      "resources": {
+        "title": "Recursos",
+        "github": "GitHub",
+        "roadmap": "Hoja de Ruta",
+        "allDocs": "Toda la Documentación"
+      }
+    },
+    "roadmapTitle": "Hoja de Ruta",
+    "roadmapDesc": "Próximas características y cronograma",
+    "portfolioTitle": "Portafolio",
+    "portfolioDesc": "Nuestras aplicaciones y soluciones",
+    "learnMore": "Aprender más",
+    "discover": "Descubrir",
+    "viewRoadmap": "Ver hoja de ruta",
+    "explore": "Explorar",
+    "technicalDocumentationTitle": "Documentación Técnica",
+    "learningPathTitle": "Elige Tu Ruta de Aprendizaje",
+    "businessUserPath": "Usuario de Negocios",
+    "businessUserDesc": "Aprende a usar aplicaciones para colaboración en equipo y gestión de gastos.",
+    "developerPath": "Desarrollador",
+    "developerDesc": "Integración técnica, uso de API y arquitectura de plataforma.",
+    "communityPath": "Líder Comunitario",
+    "communityDesc": "Obtén ayuda y conéctate",
+    "fiveTopics": "📚 5 temas",
+    "twelveTopics": "📚 12 temas",
+    "eightTopics": "📚 8 temas",
+    "gettingStartedDesc": "Guía de configuración rápida y conceptos básicos",
+    "readMore": "Leer más",
+    "apiReferenceTitle": "Referencia API",
+    "apiReferenceDesc": "Documentación completa de API y ejemplos",
+    "userGuidesTitle": "Guías de Usuario",
+    "userGuidesDesc": "Guías paso a paso para tareas comunes",
+    "viewGuides": "Ver guías",
+    "learningPathsNavItem": "Rutas de Aprendizaje",
+    "accountSetupTitle": "Configuración de Cuenta",
+    "accountSetupDesc": "Comienza con tu cuenta CyberEco y configura tu perfil.",
+    "groupManagementTitle": "Gestión de Grupos",
+    "groupManagementDesc": "Crea y gestiona grupos para compartir gastos.",
+    "dataExportDesc": "Exporta tus datos para respaldo o análisis.",
+    "privacySettingsTitle": "Configuración de Privacidad",
+    "privacySettingsDesc": "Configura tus preferencias de privacidad y seguridad.",
+    "mobileAppTitle": "Aplicación Móvil",
+    "mobileAppDesc": "Usa las aplicaciones de CyberEco en tu dispositivo móvil.",
+    "faqTitle": "Preguntas Frecuentes",
+    "faqDesc": "Preguntas comunes respondidas",
+    "readFAQ": "Leer preguntas frecuentes",
+    "introductionNavItem": "Introducción",
+    "keyConceptsNavItem": "Conceptos Clave y Arquitectura",
+    "centralDocumentationTitle": "DOCUMENTACIÓN CENTRAL",
+    "philosophyNavItem": "Filosofía de la Plataforma",
+    "visionNavItem": "Visión del Futuro Descentralizado",
+    "roadmapNavItem": "Hoja de Ruta de Desarrollo",
+    "portfolioNavItem": "Portafolio de Soluciones",
+    "solutionCategoriesTitle": "CATEGORÍAS DE SOLUCIONES",
+    "communityGovernanceItem": "Comunidad y Gobernanza",
+    "financeEconomyItem": "Finanzas y Economía",
+    "sustainabilityHomeItem": "Sostenibilidad y Hogar",
+    "educationGrowthItem": "Educación y Crecimiento",
+    "userResourcesTitle": "RECURSOS DEL USUARIO",
+    "userGuidesNavItem": "Guías de Usuario",
+    "faqNavItem": "Preguntas Frecuentes",
+    "troubleshootingNavItem": "Solución de Problemas",
+    "communitySupportNavItem": "Comunidad y Soporte",
+    "developerTitle": "DESARROLLADOR",
+    "gettingStartedNavTitle": "Primeros Pasos",
+    "architectureNavItem": "Arquitectura del Sistema",
+    "communityGovernanceSubtitle": "Herramientas digitales para la construcción de comunidades y gobernanza democrática",
+    "democraticPlatformsTitle": "Plataformas Democráticas",
+    "democraticPlatformsText": "Construyendo tecnología que empodera a las comunidades para tomar decisiones colectivas y gestionar recursos compartidos de manera efectiva.",
+    "demosDescription": "Plataforma transparente de votación y toma de decisiones para comunidades",
+    "communeDescription": "Herramientas para compartir recursos y gestión comunitaria",
+    "forumDescription": "Plataforma de discusión y construcción de consenso",
+    "keyFeaturesTitle": "Características Clave",
+    "governanceFeature1": "Mecanismos de votación transparentes",
+    "governanceFeature2": "Herramientas de construcción de consenso",
+    "governanceFeature3": "Gestión de asignación de recursos",
+    "governanceFeature4": "Sistemas de propuestas comunitarias",
+    "financeEconomySubtitle": "Herramientas financieras éticas para la economía colaborativa",
+    "financialToolsTitle": "Herramientas de Colaboración Financiera",
+    "financialToolsText": "Creando herramientas financieras justas y transparentes que promueven la colaboración sobre la competencia.",
+    "justSplitDescription": "División justa de gastos para grupos y comunidades",
+    "cyberBankDescription": "Plataforma de banca comunitaria y ayuda mutua",
+    "budgetDescription": "Presupuesto colaborativo y planificación financiera",
+    "principlesTitle": "Principios Fundamentales",
+    "financePrinciple1": "Transparencia en todas las transacciones",
+    "financePrinciple2": "Distribución justa de recursos",
+    "financePrinciple3": "Economía impulsada por la comunidad",
+    "financePrinciple4": "Prácticas financieras sostenibles",
+    "sustainabilityHomeSubtitle": "Soluciones inteligentes para la vida sostenible y gestión del hogar",
+    "sustainableLivingTitle": "Soluciones de Vida Sostenible",
+    "sustainableLivingText": "Tecnología que te ayuda a vivir de manera más sostenible y gestionar tu hogar inteligentemente.",
+    "plantopiaDescription": "Asistente inteligente de jardinería para producción sostenible de alimentos",
+    "homeHubDescription": "Gestión inteligente del hogar y automatización",
+    "ecoTrackDescription": "Herramientas de seguimiento y reducción de huella de carbono",
+    "sustainabilityGoalsTitle": "Objetivos de Sostenibilidad",
+    "sustainabilityGoal1": "Reducir el impacto ambiental",
+    "sustainabilityGoal2": "Promover la producción local de alimentos",
+    "sustainabilityGoal3": "Optimizar el consumo de recursos",
+    "sustainabilityGoal4": "Construir comunidades resilientes",
+    "educationGrowthSubtitle": "Herramientas de aprendizaje permanente y desarrollo personal",
+    "learningPlatformsTitle": "Plataformas de Aprendizaje y Desarrollo",
+    "learningPlatformsText": "Empoderando a individuos y comunidades a través de educación accesible y desarrollo de habilidades.",
+    "academyDescription": "Plataforma de aprendizaje entre pares y compartición de habilidades",
+    "mindGrowDescription": "Seguimiento de desarrollo personal y bienestar",
+    "somosDescription": "Preservación de historia familiar y patrimonio cultural",
+    "educationPrinciplesTitle": "Principios Educativos",
+    "educationPrinciple1": "Educación accesible para todos",
+    "educationPrinciple2": "Aprendizaje basado en la comunidad",
+    "educationPrinciple3": "Desarrollo de habilidades prácticas",
+    "educationPrinciple4": "Preservación del conocimiento cultural",
+    "privacyControlsDesc": "Herramientas de gestión de consentimiento del usuario y cumplimiento GDPR",
+    "dataArchitectureDesc": "Cómo estructuramos y protegemos tus datos",
+    "viewDetails": "Ver detalles",
+    "privacyPrinciple1": "Minimización de datos - solo recopilamos lo necesario",
+    "privacyPrinciple2": "Limitación de propósito - los datos se usan solo para propósitos declarados",
+    "privacyPrinciple3": "Control del usuario - tú decides cómo se usan tus datos",
+    "privacyPrinciple4": "Transparencia - información clara sobre prácticas de datos",
+    "jwt": {
+      "title": "Autenticación JWT",
+      "description": "Implementación de autenticación basada en tokens",
+      "tabs": {
+        "overview": "Descripción General",
+        "structure": "Estructura del Token",
+        "flow": "Flujo de Auth",
+        "security": "Seguridad",
+        "implementation": "Implementación"
+      },
+      "overview": {
+        "title": "Visión General",
+        "description": "CyberEco utiliza JSON Web Tokens (JWT) para autenticación segura en todas las aplicaciones. Este enfoque moderno proporciona mejor seguridad, escalabilidad y características comparado con la autenticación tradicional basada en sesiones."
+      },
+      "features": {
+        "title": "Características Clave",
+        "secure": "Generación segura de tokens con algoritmo HS256",
+        "shortLived": "Tokens de acceso de corta duración (1 hora) con tokens de actualización (7 días)",
+        "crossApp": "Autenticación entre aplicaciones con reclamaciones de audiencia compartidas",
+        "csrf": "Protección CSRF para envíos de formularios",
+        "autoRefresh": "Actualización automática de tokens antes del vencimiento",
+        "secureCookie": "Gestión segura de cookies con flags HttpOnly y SameSite"
+      },
+      "structure": {
+        "title": "Estructura del Token",
+        "description": "Los tokens JWT constan de tres partes: encabezado, carga útil y firma. Esto es lo que contienen nuestros tokens:",
+        "accessToken": "Carga Útil del Token de Acceso"
+      },
+      "flow": {
+        "title": "Flujo de Autenticación",
+        "step1": {
+          "title": "Inicio de Sesión Inicial",
+          "description": "El usuario inicia sesión con credenciales de Firebase Auth"
+        },
+        "step2": {
+          "title": "Generación de Token",
+          "description": "El servidor genera tokens JWT de acceso y actualización"
+        },
+        "step3": {
+          "title": "Almacenamiento de Token",
+          "description": "Los tokens se almacenan de forma segura en sessionStorage/cookies"
+        },
+        "step4": {
+          "title": "Navegación Entre Aplicaciones",
+          "description": "Los tokens se usan para SSO sin problemas entre aplicaciones"
+        },
+        "step5": {
+          "title": "Actualización de Token",
+          "description": "Actualización automática cuando expira el token de acceso"
+        }
+      },
+      "security": {
+        "title": "Mejores Prácticas de Seguridad",
+        "storage": {
+          "title": "Almacenamiento de Tokens",
+          "access": "Tokens de acceso: sessionStorage o memoria",
+          "refresh": "Tokens de actualización: cookies httpOnly",
+          "never": "Nunca almacenar en localStorage para producción"
+        },
+        "expiry": {
+          "title": "Vencimiento de Token",
+          "access": "Tokens de acceso: 1 hora",
+          "refresh": "Tokens de actualización: 7 días",
+          "check": "Siempre verificar antes de usar"
+        },
+        "csrf": {
+          "title": "Protección CSRF",
+          "generate": "Generar tokens para formularios",
+          "verify": "Verificar al enviar",
+          "samesite": "Usar cookies SameSite"
+        }
+      },
+      "implementation": {
+        "title": "Ejemplo de Implementación"
+      },
+      "migration": {
+        "title": "Guía de Migración",
+        "description": "Si estás migrando del sistema de tokens antiguo a JWT:",
+        "aspect": "Aspecto",
+        "old": "Sistema Antiguo",
+        "new": "Sistema JWT",
+        "format": "Formato de Token",
+        "expiry": "Vencimiento",
+        "validation": "Validación",
+        "storage": "Almacenamiento"
+      },
+      "resources": {
+        "title": "Recursos Adicionales",
+        "api": "Referencia de API",
+        "sso": "Guía de Integración SSO",
+        "logging": "Registro de Autenticación",
+        "troubleshooting": "Guía de Solución de Problemas"
+      }
+    },
+    "sso": {
+      "title": "Integración de Single Sign-On (SSO)",
+      "subtitle": "Autenticación perfecta en todas las aplicaciones de CyberEco",
+      "tabs": {
+        "overview": "Descripción General",
+        "architecture": "Arquitectura",
+        "implementation": "Implementación",
+        "configuration": "Configuración",
+        "bestPractices": "Mejores Prácticas"
+      },
+      "overview": {
+        "title": "Descripción General",
+        "description": "El sistema de Single Sign-On (SSO) de CyberEco permite a los usuarios autenticarse una vez a través del Hub y acceder sin problemas a todas las aplicaciones del ecosistema sin volver a ingresar credenciales."
+      },
+      "benefits": {
+        "title": "Beneficios",
+        "seamless": "Experiencia de usuario perfecta en todas las aplicaciones",
+        "security": "Seguridad mejorada con autenticación centralizada",
+        "management": "Gestión simplificada de cuentas de usuario",
+        "consistent": "Experiencia de inicio de sesión consistente",
+        "reduced": "Reducción de fatiga de contraseñas"
+      },
+      "architecture": {
+        "title": "Arquitectura",
+        "description": "El sistema SSO se basa en estos componentes clave:",
+        "hub": {
+          "title": "CyberEco Hub",
+          "description": "Proveedor de autenticación central que gestiona sesiones de usuario y emite tokens JWT para otras aplicaciones."
+        },
+        "jwt": {
+          "title": "Tokens JWT",
+          "description": "Tokens seguros que contienen identidad de usuario y permisos, válidos en todas las aplicaciones del ecosistema."
+        },
+        "shared": {
+          "title": "Estado de Autenticación Compartido",
+          "description": "Gestión de estado de autenticación entre aplicaciones para navegación perfecta entre aplicaciones."
+        }
+      },
+      "configuration": {
+        "title": "Configuración",
+        "development": {
+          "title": "Configuración de Desarrollo",
+          "description": "Para entornos de desarrollo, SSO usa estado de autenticación compartido a través de localStorage:",
+          "emulator": "Emulador de Firebase Auth habilitado en localhost:9099",
+          "localStorage": "Estado de autenticación compartido vía localStorage para comunicación entre apps",
+          "ports": "Hub (40000), Website (40001), JustSplit (40002)",
+          "gateway": "Gateway en puerto 3000 para acceso unificado"
+        },
+        "production": {
+          "title": "Configuración de Producción",
+          "description": "Producción usa Firebase Auth con dominios personalizados y compartición segura de cookies:"
+        }
+      },
+      "bestPractices": {
+        "title": "Mejores Prácticas",
+        "security": {
+          "title": "Mejores Prácticas de Seguridad",
+          "https": "Siempre usar HTTPS para transmisión de tokens",
+          "rotation": "Implementar rotación de tokens para sesiones de larga duración",
+          "validation": "Validar tokens en cada endpoint protegido",
+          "expiry": "Establecer tiempos de expiración apropiados para tokens",
+          "storage": "Almacenar tokens de forma segura (cookies httpOnly recomendadas)"
+        },
+        "ux": {
+          "title": "Experiencia de Usuario",
+          "seamless": "Minimizar interrupciones de autenticación",
+          "loading": "Mostrar estados de carga durante transiciones SSO",
+          "errors": "Proporcionar mensajes de error claros para fallas de autenticación",
+          "logout": "Implementar cierre de sesión global en todas las apps",
+          "remember": "Recordar preferencias de usuario entre sesiones"
+        },
+        "performance": {
+          "title": "Optimización de Rendimiento",
+          "caching": "Cachear datos de perfil de usuario apropiadamente",
+          "preload": "Precargar estado de autenticación",
+          "compression": "Usar compresión de tokens para cargas grandes",
+          "cdn": "Aprovechar CDN para activos de autenticación estáticos"
+        }
+      }
+    },
+    "privacy": {
+      "title": "Controles de Privacidad y Cumplimiento GDPR",
+      "description": "Cumplimiento GDPR y controles de privacidad",
+      "subtitle": "Características integrales de privacidad que te dan control sobre tus datos",
+      "overview": {
+        "title": "Visión General",
+        "description": "CyberEco implementa una arquitectura integral centrada en la privacidad que garantiza que los usuarios mantengan control completo sobre sus datos personales. Nuestros controles de privacidad están integrados en cada capa de la plataforma, desde la recolección de datos hasta el procesamiento y compartir."
+      },
+      "features": {
+        "granularConsent": {
+          "title": "Consentimiento Granular",
+          "description": "Controla exactamente cómo se usan tus datos con opciones de consentimiento específicas por propósito"
+        },
+        "visibilityControls": {
+          "title": "Controles de Visibilidad",
+          "description": "Decide quién puede ver tus datos con configuraciones de privacidad a nivel de perfil y actividad"
+        },
+        "dataAnonymization": {
+          "title": "Anonimización de Datos",
+          "description": "La anonimización automática protege tu identidad basada en preferencias de privacidad"
+        },
+        "gdprCompliance": {
+          "title": "Cumplimiento GDPR",
+          "description": "Cumplimiento total con regulaciones de protección de datos incluyendo derecho al olvido"
+        }
+      },
+      "consent": {
+        "title": "Gestión de Consentimiento",
+        "types": {
+          "title": "Tipos de Consentimiento",
+          "description": "CyberEco usa un sistema de consentimiento granular con cinco categorías distintas:"
+        },
+        "banner": {
+          "title": "Banner de Consentimiento",
+          "description": "Los nuevos usuarios ven un banner de consentimiento que explica claramente el uso de datos:",
+          "keyFeatures": "Características Clave:",
+          "feature1": "Explicación clara de cada tipo de consentimiento",
+          "feature2": "Controles granulares de aceptar/rechazar",
+          "feature3": "Acceso fácil a la política de privacidad",
+          "feature4": "Preferencias persistentes entre sesiones"
+        },
+        "managing": {
+          "title": "Gestionando el Consentimiento"
+        }
+      },
+      "settings": {
+        "title": "Configuración de Privacidad",
+        "profileVisibility": {
+          "title": "Visibilidad del Perfil",
+          "description": "Controla quién puede ver tu información de perfil:",
+          "public": "Público",
+          "publicDesc": "Cualquiera puede ver tu perfil",
+          "friends": "Solo Amigos",
+          "friendsDesc": "Solo conexiones aprobadas pueden ver tu perfil",
+          "private": "Privado",
+          "privateDesc": "El perfil está oculto para todos los usuarios"
+        },
+        "activityVisibility": {
+          "title": "Visibilidad de Actividad",
+          "description": "Control detallado sobre diferentes tipos de actividades:"
+        },
+        "dataSharing": {
+          "title": "Preferencias de Compartir Datos",
+          "analytics": "Datos de Análisis",
+          "analyticsDesc": "Ayuda a mejorar nuestros servicios",
+          "ads": "Anuncios Personalizados",
+          "adsDesc": "Publicidad relevante",
+          "thirdParty": "Aplicaciones de Terceros",
+          "thirdPartyDesc": "Compartir datos con aplicaciones conectadas"
+        }
+      },
+      "dataVisibility": {
+        "title": "Controles de Visibilidad de Datos",
+        "queries": {
+          "title": "Consultas Conscientes de Privacidad",
+          "description": "Todas las consultas de datos respetan automáticamente la configuración de privacidad:"
+        },
+        "anonymization": {
+          "title": "Anonimización de Datos",
+          "description": "La información personal se anonimiza automáticamente según la configuración de privacidad:",
+          "fields": "Campos Anonimizados:",
+          "field1": "Nombres de usuario → \"Usuario Anónimo\"",
+          "field2": "Direcciones de email → \"oculto@example.com\"",
+          "field3": "Fotos de perfil → Eliminadas",
+          "field4": "Números de teléfono → Eliminados"
+        },
+        "auditLogging": {
+          "title": "Registro de Auditoría",
+          "description": "Todo acceso a datos se registra para seguridad y cumplimiento:"
+        }
+      },
+      "gdpr": {
+        "title": "Implementación de Derechos GDPR",
+        "rightToAccess": {
+          "title": "Derecho de Acceso",
+          "description": "Los usuarios pueden solicitar y descargar todos sus datos personales:"
+        },
+        "rightToErasure": {
+          "title": "Derecho al Olvido",
+          "description": "Los usuarios pueden solicitar la eliminación completa de sus datos personales:",
+          "process": "Proceso de Eliminación:",
+          "step1": "El usuario envía solicitud de eliminación",
+          "step2": "La solicitud se registra con marca de tiempo y razón",
+          "step3": "Período de gracia para que el usuario reconsidere (configurable)",
+          "step4": "Anonimización automatizada de datos",
+          "step5": "Eliminación de índices de búsqueda",
+          "step6": "Confirmación enviada al usuario"
+        },
+        "rightToPortability": {
+          "title": "Derecho a la Portabilidad de Datos"
+        },
+        "rightToRectification": {
+          "title": "Derecho de Rectificación",
+          "description": "Los usuarios pueden actualizar su información personal en cualquier momento a través de la configuración del perfil."
+        }
+      },
+      "implementation": {
+        "title": "Guía de Implementación",
+        "step1": {
+          "title": "1. Inicializar Servicios de Privacidad"
+        },
+        "step2": {
+          "title": "2. Implementar Verificaciones de Consentimiento"
+        },
+        "step3": {
+          "title": "3. Aplicar Filtros de Privacidad"
+        },
+        "step4": {
+          "title": "4. Configurar Middleware"
+        }
+      },
+      "api": {
+        "title": "Referencia de API",
+        "method": "Método",
+        "description": "Descripción",
+        "parameters": "Parámetros",
+        "privacyService": {
+          "title": "Métodos del Servicio de Privacidad",
+          "getUserPrivacySettings": "Obtener configuración de privacidad del usuario",
+          "updatePrivacySettings": "Actualizar preferencias de privacidad",
+          "canViewData": "Verificar si el visor puede acceder a los datos",
+          "filterResults": "Filtrar resultados basados en privacidad",
+          "anonymizeData": "Anonimizar información personal"
+        },
+        "gdprService": {
+          "title": "Métodos del Servicio GDPR",
+          "recordConsent": "Registrar consentimiento del usuario",
+          "getUserConsent": "Obtener estado del consentimiento",
+          "requestDataDeletion": "Solicitar eliminación de datos",
+          "requestDataPortability": "Exportar datos del usuario",
+          "generatePrivacyReport": "Generar informe de privacidad"
+        }
+      }
+    },
+    "dataExport": {
+      "title": "Exportación y Portabilidad de Datos",
+      "description": "Exporta tus datos de CyberEco en múltiples formatos para respaldo, análisis o migración",
+      "overview": {
+        "title": "Vista General",
+        "description": "CyberEco proporciona funcionalidad integral de exportación de datos que permite a los usuarios descargar todos sus datos personales en formatos legibles por máquina. Esta característica respalda los derechos de portabilidad de datos bajo GDPR y brinda a los usuarios control total sobre su información."
+      },
+      "formats": {
+        "title": "Formatos de Exportación",
+        "json": {
+          "title": "Exportación JSON",
+          "description": "Formato de datos estructurado ideal para desarrolladores y análisis de datos"
+        },
+        "csv": {
+          "title": "Exportación CSV",
+          "description": "Formato compatible con hojas de cálculo para visualización y análisis fácil"
+        }
+      },
+      "features": {
+        "instantDownload": {
+          "title": "Descarga Instantánea",
+          "description": "Obtén tus datos inmediatamente con acceso seguro y autenticado"
+        },
+        "completeData": {
+          "title": "Datos Completos",
+          "description": "Exporta todos tus datos incluyendo metadatos y relaciones"
+        }
+      },
+      "included": {
+        "title": "Qué Está Incluido",
+        "coreUserData": "Datos Principales del Usuario",
+        "profileInfo": "Información del Perfil",
+        "profileInfoDesc": "Nombre, email, avatar, fecha de creación de cuenta",
+        "authData": "Datos de Autenticación",
+        "authDataDesc": "Historial de inicio de sesión, sesiones, configuración de seguridad",
+        "privacySettings": "Configuración de Privacidad",
+        "privacySettingsDesc": "Registros de consentimiento, preferencias de visibilidad"
+      },
+      "howTo": {
+        "title": "Cómo Exportar Tus Datos",
+        "steps": {
+          "step1": "Inicia sesión en CyberEco Hub",
+          "step2": "Navega a la página Mi Datos",
+          "step3": "Haz clic en el botón Exportar Datos",
+          "step4": "Elige tu formato preferido (JSON o CSV)",
+          "step5": "Selecciona las categorías de datos a incluir",
+          "step6": "Haz clic en Descargar"
+        }
+      },
+      "api": {
+        "title": "Integración API"
+      },
+      "rateLimits": {
+        "title": "Límites de Velocidad y Seguridad"
+      },
+      "gdpr": {
+        "title": "Cumplimiento GDPR",
+        "rightToPortability": "Derecho a la Portabilidad de Datos",
+        "machineReadable": "Formato Legible por Máquina",
+        "machineReadableDesc": "Los formatos JSON y CSV aseguran que los datos puedan ser procesados fácilmente",
+        "commonlyUsed": "Formato Comúnmente Utilizado",
+        "commonlyUsedDesc": "Formatos estándar compatibles con la mayoría de aplicaciones",
+        "directTransfer": "Transferencia Directa",
+        "directTransferDesc": "Soporte API para transferencia directa a otros servicios",
+        "completeDataSet": "Conjunto de Datos Completo",
+        "completeDataSetDesc": "Todos los datos personales proporcionados por el usuario incluidos"
+      }
+    },
+    "twoFactor": {
+      "title": "Autenticación de Dos Factores (2FA)",
+      "description": "Añade una capa extra de seguridad a tu cuenta CyberEco con autenticación basada en TOTP",
+      "tabs": {
+        "overview": "Descripción General",
+        "setup": "Guía de Configuración",
+        "howItWorks": "Cómo Funciona",
+        "integration": "Integración",
+        "troubleshooting": "Solución de Problemas"
+      },
+      "overview": {
+        "title": "Vista General",
+        "description": "La Autenticación de Dos Factores (2FA) proporciona una capa de seguridad adicional más allá de solo una contraseña. CyberEco implementa autenticación de Contraseña de Un Solo Uso Basada en Tiempo (TOTP), compatible con aplicaciones autenticadoras populares como Google Authenticator, Authy y Microsoft Authenticator."
+      },
+      "features": {
+        "mobile": {
+          "title": "Autenticación Móvil",
+          "description": "Usa tu smartphone como segundo factor con cualquier app compatible con TOTP"
+        },
+        "easySetup": {
+          "title": "Configuración Fácil",
+          "description": "Escaneo rápido de código QR para configuración sin problemas de la app autenticadora"
+        },
+        "backupCodes": {
+          "title": "Códigos de Respaldo",
+          "description": "Los códigos de recuperación aseguran que nunca quedes bloqueado de tu cuenta"
+        },
+        "enhanced": {
+          "title": "Seguridad Mejorada",
+          "description": "Protege contra robo de contraseñas e intentos de acceso no autorizado"
+        }
+      },
+      "setup": {
+        "title": "Guía de Configuración",
+        "step1": {
+          "title": "Paso 1: Habilitar 2FA",
+          "item1": "Navega a Hub → Seguridad → Autenticación de Dos Factores",
+          "item2": "Haz clic en \"Habilitar Autenticación de Dos Factores\"",
+          "item3": "Verifica tu contraseña para continuar"
+        },
+        "step2": {
+          "title": "Paso 2: Configurar App Autenticadora",
+          "supportedApps": "Apps Compatibles:",
+          "anyTOTP": "Cualquier app compatible con TOTP",
+          "scanQR": "Escanea el código QR con tu app autenticadora o ingresa manualmente la clave secreta:"
+        },
+        "step3": {
+          "title": "Paso 3: Verificar Configuración",
+          "description": "Ingresa el código de 6 dígitos de tu app autenticadora para completar la configuración."
+        },
+        "step4": {
+          "title": "Paso 4: Guardar Códigos de Respaldo",
+          "important": "Importante:",
+          "description": "Guarda tus códigos de respaldo en un lugar seguro. Cada código solo puede usarse una vez."
+        }
+      },
+      "howItWorks": {
+        "title": "Cómo Funciona",
+        "algorithm": {
+          "title": "Algoritmo TOTP",
+          "description": "CyberEco usa el algoritmo de Contraseña de Un Solo Uso Basada en Tiempo (RFC 6238) con estos parámetros:"
+        },
+        "flow": {
+          "title": "Flujo de Autenticación",
+          "step1": {
+            "title": "Ingresar Credenciales",
+            "description": "El usuario proporciona email y contraseña"
+          },
+          "step2": {
+            "title": "Verificar Contraseña",
+            "description": "El sistema valida las credenciales"
+          },
+          "step3": {
+            "title": "Solicitar Código 2FA",
+            "description": "Si 2FA está habilitado, solicitar código"
+          },
+          "step4": {
+            "title": "Verificar TOTP",
+            "description": "Validar código de 6 dígitos"
+          },
+          "step5": {
+            "title": "Conceder Acceso",
+            "description": "Crear sesión autenticada"
+          }
+        },
+        "codeGeneration": "Generación de Código"
+      },
+      "backupCodes": {
+        "title": "Códigos de Respaldo",
+        "what": {
+          "title": "¿Qué son los Códigos de Respaldo?",
+          "description": "Los códigos de respaldo son códigos de un solo uso que pueden usarse para acceder a tu cuenta si pierdes acceso a tu dispositivo autenticador. Cada código solo puede usarse una vez."
+        },
+        "features": {
+          "unique": "10 códigos únicos",
+          "uniqueDesc": "generados durante la configuración de 2FA",
+          "singleUse": "Solo un uso",
+          "singleUseDesc": "cada código se vuelve inválido después del uso",
+          "regenerate": "Regenerables",
+          "regenerateDesc": "crear nuevos códigos en cualquier momento"
+        },
+        "usage": {
+          "title": "Usando Códigos de Respaldo"
+        },
+        "bestPractices": {
+          "title": "Mejores Prácticas",
+          "item1": "Almacenar códigos en un gestor de contraseñas seguro",
+          "item2": "Imprimir códigos y guardarlos en un lugar seguro",
+          "item3": "Nunca compartir códigos de respaldo con nadie",
+          "item4": "Regenerar códigos si alguno está comprometido"
+        }
+      },
+      "integration": {
+        "title": "Guía de Integración",
+        "setup": {
+          "title": "1. Configurar Servicio 2FA"
+        },
+        "enable": {
+          "title": "2. Habilitar 2FA"
+        },
+        "signin": {
+          "title": "3. Implementar en Flujo de Inicio de Sesión"
+        },
+        "ui": {
+          "title": "4. Implementación de UI"
+        }
+      },
+      "troubleshooting": {
+        "title": "Solución de Problemas",
+        "common": {
+          "title": "Problemas Comunes"
+        },
+        "invalidCode": {
+          "title": "Error de Código Inválido",
+          "description": "Si los códigos son consistentemente inválidos:",
+          "item1": "Verifica que la hora de tu dispositivo esté sincronizada",
+          "item2": "Revisa la configuración de zona horaria en el dispositivo y servidor",
+          "item3": "Asegúrate de ingresar el código dentro de la ventana de 30 segundos"
+        },
+        "lostDevice": {
+          "title": "Dispositivo Autenticador Perdido",
+          "step1": "Usa un código de respaldo para iniciar sesión",
+          "step2": "Desactiva 2FA desde la configuración de seguridad",
+          "step3": "Reactiva con un nuevo dispositivo"
+        },
+        "qrCode": {
+          "title": "Código QR No Escanea",
+          "item1": "Asegurar iluminación adecuada",
+          "item2": "Intentar entrada manual con la clave secreta",
+          "item3": "Actualizar la app autenticadora a la última versión"
+        },
+        "security": {
+          "title": "Consideraciones de Seguridad",
+          "important": "Notas Importantes de Seguridad:",
+          "item1": "Nunca compartas tu secreto 2FA o códigos de respaldo",
+          "item2": "Usa secretos 2FA diferentes para diferentes servicios",
+          "item3": "Revisa regularmente las sesiones activas",
+          "item4": "Habilita 2FA en tu cuenta de email también"
+        }
+      },
+      "api": {
+        "title": "Referencia de API",
+        "methods": {
+          "title": "Métodos de TwoFactorService",
+          "method": "Método",
+          "description": "Descripción",
+          "returns": "Retorna",
+          "generateSecret": "Generar nuevo secreto 2FA",
+          "verifyToken": "Verificar código TOTP",
+          "verifyAndEnable": "Verificar código y habilitar 2FA",
+          "disable": "Deshabilitar 2FA para usuario",
+          "isEnabled": "Verificar si 2FA está habilitado",
+          "verifyBackupCode": "Verificar código de respaldo",
+          "regenerateBackupCodes": "Generar nuevos códigos de respaldo"
+        },
+        "types": {
+          "title": "Definiciones de Tipos"
+        }
+      }
+    },
+    "authLogging": {
+      "title": "Registro y Monitoreo de Autenticación",
+      "description": "Auditoría de seguridad y monitoreo",
+      "subtitle": "Registro y monitoreo integral para eventos de autenticación, auditoría de seguridad y análisis del comportamiento del usuario",
+      "tabs": {
+        "overview": "Visión General",
+        "events": "Tipos de Eventos",
+        "implementation": "Implementación",
+        "dashboard": "Panel de Control",
+        "security": "Seguridad"
+      },
+      "overview": {
+        "title": "Visión General",
+        "description": "El sistema de autenticación de CyberEco incluye capacidades integrales de registro y monitoreo para rastrear eventos de autenticación, detectar problemas de seguridad y analizar el comportamiento del usuario en todo el ecosistema."
+      },
+      "features": {
+        "title": "Características Clave",
+        "realtime": "Registro de eventos en tiempo real para todas las actividades de autenticación",
+        "structured": "Registro estructurado con tipos de eventos consistentes",
+        "performance": "Seguimiento de métricas de rendimiento",
+        "error": "Seguimiento integral de errores",
+        "session": "Gestión y seguimiento de sesiones",
+        "export": "Capacidades de exportación para auditoría"
+      },
+      "events": {
+        "title": "Tipos de Eventos",
+        "event": "Evento",
+        "description": "Descripción",
+        "level": "Nivel",
+        "auth": {
+          "title": "Eventos de Autenticación",
+          "attempt": "El usuario intenta iniciar sesión",
+          "success": "Inicio de sesión exitoso",
+          "failure": "Intento de inicio de sesión fallido",
+          "logout": "El usuario cierra sesión"
+        },
+        "token": {
+          "title": "Eventos de Token",
+          "generated": "Nuevo token creado",
+          "verified": "Token verificado",
+          "expired": "Token expirado",
+          "refresh": "Token actualizado"
+        }
+      },
+      "usage": {
+        "title": "Ejemplos de Uso",
+        "login": {
+          "title": "Registrando Flujo de Inicio de Sesión"
+        },
+        "sso": {
+          "title": "Registrando Navegación SSO"
+        }
+      },
+      "metrics": {
+        "title": "Métricas y Análisis",
+        "example": "Obteniendo Métricas",
+        "login": {
+          "title": "Métricas de Inicio de Sesión",
+          "attempts": "Total de intentos de inicio de sesión",
+          "success": "Tasa de éxito",
+          "average": "Tiempo promedio de inicio de sesión",
+          "failures": "Razones de fallo"
+        },
+        "token": {
+          "title": "Métricas de Token",
+          "active": "Tokens activos",
+          "refresh": "Conteo de actualizaciones",
+          "expired": "Tokens expirados",
+          "invalid": "Intentos inválidos"
+        },
+        "sso": {
+          "title": "Métricas SSO",
+          "navigation": "Navegaciones entre aplicaciones",
+          "apps": "Aplicaciones más usadas",
+          "flow": "Tasa de finalización de flujo",
+          "errors": "Errores SSO"
+        }
+      },
+      "dashboard": {
+        "title": "Panel de Monitoreo",
+        "description": "El Hub proporciona un panel de monitoreo de autenticación para administradores en /auth-logs.",
+        "features": {
+          "title": "Características del Panel",
+          "realtime": {
+            "title": "Actualizaciones en Tiempo Real",
+            "description": "Las métricas en vivo se actualizan cada 10 segundos"
+          },
+          "filtering": {
+            "title": "Filtrado de Registros",
+            "description": "Filtrar por nivel, usuario o tipo de evento"
+          },
+          "export": {
+            "title": "Exportar Registros",
+            "description": "Descargar registros como JSON para análisis"
+          },
+          "reports": {
+            "title": "Generar Informes",
+            "description": "Crear informes detallados de autenticación"
+          }
+        }
+      },
+      "querying": {
+        "title": "Consultando Registros",
+        "recent": {
+          "title": "Obtener Registros Recientes"
+        },
+        "reports": {
+          "title": "Generar Informes"
+        }
+      },
+      "security": {
+        "title": "Consideraciones de Seguridad",
+        "privacy": {
+          "title": "Privacidad de Datos",
+          "passwords": "Nunca registrar contraseñas o tokens",
+          "sanitize": "Sanitizar entrada de usuario",
+          "hash": "Hash de identificadores sensibles"
+        },
+        "retention": {
+          "title": "Retención de Registros",
+          "memory": "1000 entradas en memoria",
+          "storage": "100 entradas en localStorage",
+          "archive": "Archivar para cumplimiento"
+        },
+        "access": {
+          "title": "Control de Acceso",
+          "admin": "Panel solo para administradores",
+          "export": "Exportaciones restringidas",
+          "monitor": "Monitorear acceso a registros"
+        }
+      },
+      "integration": {
+        "title": "Integraciones Externas",
+        "sentry": {
+          "title": "Integración con Sentry"
+        },
+        "cloudwatch": {
+          "title": "Métricas de CloudWatch"
+        }
+      },
+      "troubleshooting": {
+        "title": "Solución de Problemas",
+        "persist": {
+          "title": "Registros No Persisten",
+          "solution": "Verificar cuota y permisos de localStorage"
+        },
+        "session": {
+          "title": "IDs de Sesión Faltantes",
+          "solution": "Asegurar que el registrador se inicialice temprano en el ciclo de vida de la aplicación"
+        },
+        "performance": {
+          "title": "Impacto en el Rendimiento",
+          "solution": "Reducir verbosidad de registros en producción"
+        },
+        "memory": {
+          "title": "Uso de Memoria",
+          "solution": "Implementar rotación de registros para sesiones de larga duración"
+        }
+      },
+      "resources": {
+        "title": "Recursos Relacionados",
+        "jwt": "Autenticación JWT",
+        "sso": "Guía de Integración SSO",
+        "api": "Referencia de API",
+        "security": "Mejores Prácticas de Seguridad"
+      }
+    },
+    "authentication": {
+      "subtitle": "Autenticación segura y centralizada para todo el ecosistema CyberEco",
+      "tabs": {
+        "overview": "Visión General",
+        "quickstart": "Inicio Rápido",
+        "architecture": "Arquitectura",
+        "api": "Referencia de API",
+        "examples": "Ejemplos"
+      },
+      "overview": {
+        "title": "Sistema de Autenticación Unificado",
+        "description": "El sistema de autenticación de CyberEco proporciona una experiencia de inicio de sesión único en todas las aplicaciones, con gestión centralizada de usuarios, control de permisos y manejo seguro de sesiones."
+      },
+      "features": {
+        "sso": {
+          "title": "Inicio de Sesión Único",
+          "description": "Una cuenta para todas las aplicaciones CyberEco. Inicia sesión una vez, accede a todo."
+        },
+        "profiles": {
+          "title": "Perfiles Centralizados",
+          "description": "Perfiles de usuario gestionados en Hub, accesibles en todas las aplicaciones conectadas."
+        },
+        "permissions": {
+          "title": "Control de Permisos",
+          "description": "Permisos detallados para acceso a aplicaciones, características y control a nivel de recursos."
+        }
+      },
+      "benefits": {
+        "title": "Beneficios Clave",
+        "benefit1": "Experiencia de usuario fluida entre aplicaciones",
+        "benefit2": "Complejidad de autenticación reducida para desarrolladores",
+        "benefit3": "Seguridad mejorada con control de acceso centralizado",
+        "benefit4": "Sincronización de sesión entre pestañas y aplicaciones",
+        "benefit5": "Soporte para proveedores de inicio de sesión social",
+        "benefit6": "Gestión integrada de permisos y roles"
+      },
+      "quickstart": {
+        "title": "Guía de Inicio Rápido",
+        "step1": {
+          "title": "Instalar Dependencias"
+        },
+        "step2": {
+          "title": "Definir Tu Tipo de Usuario"
+        },
+        "step3": {
+          "title": "Crear Contexto de Autenticación"
+        },
+        "step4": {
+          "title": "Envolver Tu Aplicación"
+        },
+        "step5": {
+          "title": "Usar en Componentes"
+        }
+      },
+      "architecture": {
+        "title": "Arquitectura del Sistema",
+        "hub": {
+          "title": "Hub (Autenticación Central)",
+          "item1": "Registro e inicio de sesión de usuarios",
+          "item2": "Gestión de perfiles",
+          "item3": "Control de permisos",
+          "item4": "Generación de tokens"
+        },
+        "libraries": {
+          "title": "Bibliotecas Compartidas"
+        },
+        "applications": {
+          "title": "Aplicaciones"
+        },
+        "flow": {
+          "title": "Flujo de Autenticación",
+          "step1": "Usuario accede a app sin autenticación",
+          "step2": "App redirige a inicio de sesión del Hub",
+          "step3": "Usuario se autentica en el Hub",
+          "step4": "Hub genera token de autenticación",
+          "step5": "Redirige de vuelta a la app con token",
+          "step6": "App valida token y crea sesión"
+        },
+        "models": {
+          "title": "Modelos de Datos",
+          "baseUser": "Campos de usuario principales compartidos en todas las apps",
+          "appPermission": "Configuración de permisos por app",
+          "sharedUserProfile": "Perfil extendido con datos entre aplicaciones"
+        }
+      },
+      "api": {
+        "title": "Referencia de API",
+        "coreFunctions": "Funciones Principales",
+        "createAuthContext": "Función factory para crear contextos de autenticación con tipos seguros",
+        "useAuth": "Hook para acceder al estado y métodos de autenticación",
+        "usePermissions": "Verificar permisos de usuario para características y roles",
+        "useSessionSync": "Sincronizar estado de autenticación entre pestañas y apps",
+        "utilityFunctions": "Funciones de Utilidad",
+        "validateEmail": "Validar formato de email",
+        "validatePassword": "Verificar fortaleza de contraseña",
+        "generateAuthRedirectUrl": "Crear URLs de redirección de autenticación",
+        "getAuthErrorMessage": "Mensajes de error amigables"
+      },
+      "examples": {
+        "title": "Ejemplos de Implementación",
+        "protectedRoute": {
+          "title": "Componente de Ruta Protegida"
+        },
+        "crossApp": {
+          "title": "Navegación Entre Aplicaciones"
+        },
+        "permissions": {
+          "title": "Características Basadas en Permisos"
+        },
+        "errorHandling": {
+          "title": "Manejo de Errores"
+        }
+      }
+    },
+    "apiReference": {
+      "description": "Documentación completa de API y endpoints"
+    },
+    "api": {
+      "title": "Referencia de API",
+      "subtitle": "Documentación completa de API para la plataforma CyberEco",
+      "tabs": {
+        "overview": "Descripción General",
+        "quickstart": "Inicio Rápido",
+        "endpoints": "Endpoints",
+        "authentication": "Autenticación",
+        "bestPractices": "Mejores Prácticas"
+      }
+    },
+    "development": {
+      "description": "Configura tu entorno local",
+      "title": "Configuración de Desarrollo",
+      "subtitle": "Configura tu entorno de desarrollo local de CyberEco",
+      "prerequisites": "Requisitos Previos",
+      "gitRequirement": "Git versión 2.0 o superior",
+      "nodeRequirement": "Node.js 18.x o superior",
+      "npmRequirement": "npm 9.x o superior",
+      "dockerRequirement": "Docker (opcional, para configuración con contenedores)",
+      "cloneRepository": "Clonar el Repositorio",
+      "installDependencies": "Instalar Dependencias",
+      "installAllDeps": "Instalar todas las dependencias",
+      "installFirebase": "Instalar herramientas de Firebase globalmente",
+      "startServers": "Iniciar Servidores de Desarrollo",
+      "startAllApps": "Iniciar todas las apps con emuladores de Firebase",
+      "startIndividual": "O iniciar aplicaciones individuales"
+    },
+    "community": {
+      "description": "Únete a nuestra comunidad de desarrolladores"
+    },
+    "applicationsNavTitle": "Categorías de Soluciones",
+    "userResourcesNavTitle": "Recursos del Usuario",
+    "communityGovernanceNavItem": "Comunidad y Gobernanza",
+    "financeEconomyNavItem": "Finanzas y Economía",
+    "sustainabilityHomeNavItem": "Sostenibilidad y Hogar",
+    "educationGrowthNavItem": "Educación y Crecimiento",
+    "philosophyDocTitle": "Filosofía de la Plataforma",
+    "visionDocTitle": "Visión del Futuro Descentralizado",
+    "roadmapDocTitle": "Hoja de Ruta de Desarrollo",
+    "portfolioDocTitle": "Portafolio de Soluciones",
+    "coreDocument": "Documento Principal",
+    "philosophyDocSummary": "Los principios y valores fundamentales que guían el ecosistema CyberEco",
+    "keyPrinciples": "Principios Clave",
+    "digitalSovereigntyPrinciple": "Soberanía Digital",
+    "digitalSovereigntyDesc": "Tú eres dueño de tus datos, identidad y relaciones digitales",
+    "humanCenteredPrinciple": "Centrado en el Humano",
+    "humanCenteredDesc": "Tecnología que sirve al florecimiento humano, no a la adicción",
+    "sustainablePrinciple": "Sostenible",
+    "sustainableDesc": "Construido para valor a largo plazo, no ganancias a corto plazo",
+    "philosophyDocPreview": "Nuestra filosofía de plataforma se basa en la creencia de que la tecnología debe empoderar a individuos y comunidades, no explotarlos. Rechazamos el capitalismo de vigilancia y adoptamos un modelo donde los usuarios mantienen soberanía sobre sus vidas digitales.",
+    "completePhilosophyDoc": "Documento Completo de Filosofía",
+    "completePhilosophyDesc": "Lee nuestro manifiesto filosófico completo y entiende por qué estamos construyendo de manera diferente",
+    "viewFullPhilosophy": "Ver Filosofía Completa",
+    "futureVision": "Visión del Futuro",
+    "visionDocSummary": "Nuestra visión a largo plazo para un ecosistema digital descentralizado y propiedad del usuario",
+    "visionComponents": "Componentes de la Visión",
+    "mobileP2PComponent": "Redes P2P Móviles",
+    "mobileP2PDesc": "Comunicación sin servidor directamente entre dispositivos",
+    "dataSovereigntyComponent": "Soberanía de Datos",
+    "dataSovereigntyDesc": "Control completo del usuario sobre información personal",
+    "tokenEconomicsComponent": "Economía de Tokens",
+    "tokenEconomicsDesc": "Distribución justa de valor a través de tecnología blockchain",
+    "globalAccessComponent": "Acceso Global",
+    "globalAccessDesc": "Diseño inclusivo para adopción mundial",
+    "visionDocPreview": "Imaginamos un futuro donde la infraestructura digital es tan descentralizada como el internet mismo estaba destinado a ser. A través de redes móviles peer-to-peer, tecnología blockchain y diseño centrado en el usuario, estamos construyendo la base para la verdadera soberanía digital.",
+    "completeVisionDoc": "Documento Completo de Visión",
+    "completeVisionDesc": "Explora nuestra visión detallada para el futuro de la tecnología descentralizada",
+    "viewFullVision": "Ver Visión Completa",
+    "developmentPlan": "Plan de Desarrollo",
+    "roadmapDocSummary": "Nuestro enfoque por fases para construir el ecosistema completo de CyberEco",
+    "developmentPhases": "Fases de Desarrollo",
+    "foundationPhase": "Fase de Fundación",
+    "foundationDesc": "Infraestructura central, autenticación y aplicaciones iniciales",
+    "growthPhase": "Fase de Crecimiento",
+    "growthDesc": "Expansión del conjunto de aplicaciones y adopción de usuarios",
+    "integrationPhase": "Fase de Integración",
+    "integrationDesc": "Sinergias entre aplicaciones y efectos del ecosistema",
+    "decentralizationPhase": "Fase de Descentralización",
+    "decentralizationDesc": "Transición a infraestructura completamente distribuida",
+    "completeRoadmapDoc": "Hoja de Ruta Completa",
+    "completeRoadmapDesc": "Ver nuestra línea de tiempo detallada de desarrollo y características próximas",
+    "viewFullRoadmap": "Ver Hoja de Ruta Completa",
+    "solutionsOverview": "Resumen de Soluciones",
+    "portfolioDocSummary": "Nuestro conjunto integral de aplicaciones que cubren todos los aspectos de la vida digital",
+    "solutionCategories": "Categorías de Soluciones",
+    "currentSolutions": "Soluciones Actuales",
+    "priorityApplications": "Aplicaciones Prioritarias",
+    "inDevelopment": "En Desarrollo",
+    "futureEcosystem": "Ecosistema Futuro",
+    "thirtyPlusApplications": "30+ aplicaciones planificadas",
+    "portfolioDocPreview": "El ecosistema CyberEco incluye aplicaciones para finanzas, comunidad, sostenibilidad, educación, salud y más. Cada aplicación está diseñada para funcionar sin problemas con otras mientras respeta la privacidad y autonomía del usuario.",
+    "completeSolutionsPortfolio": "Portafolio Completo de Soluciones",
+    "completeSolutionsDesc": "Explora todas las aplicaciones actuales y planificadas en el ecosistema CyberEco",
+    "viewFullPortfolio": "Ver Portafolio Completo",
+    "privacyControlsNavItem": "Controles de Privacidad y GDPR",
+    "twoFactorAuthNavItem": "Autenticación de Dos Factores",
+    "dataExportNavItem": "Exportación y Portabilidad de Datos",
+    "guidesTitle": "Guías de Usuario",
+    "guidesSubtitle": "Guías paso a paso para tareas y flujos de trabajo comunes",
+    "userGuidesSubtitle": "Guías paso a paso para usar las aplicaciones de CyberEco",
+    "communityTitle": "Comunidad y Soporte",
+    "communitySubtitle": "Conéctate con la comunidad CyberEco y obtén ayuda",
+    "troubleshootingTitle": "Solución de Problemas",
+    "troubleshootingSubtitle": "Soluciones a problemas y dificultades comunes",
+    "hubGatewayTitle": "Hub Gateway y Proxy",
+    "hubGatewaySubtitle": "Gateway de autenticación unificado para acceso fluido entre aplicaciones",
+    "portfolioDocSubtitle": "Explora nuestro creciente ecosistema de aplicaciones centradas en el humano",
+    "portfolio": {
+      "overview": {
+        "title": "Resumen",
+        "description1": "El ecosistema CyberEco está diseñado como una plataforma integral de estilo de vida digital que empodera a los usuarios con soberanía sobre sus vidas digitales. Nuestra suite de aplicaciones cubre dominios esenciales de la vida: desde la gestión financiera y la gobernanza comunitaria hasta la vida sostenible y el crecimiento personal.",
+        "description2": "Cada aplicación está construida con principios de privacidad primero, integración perfecta y diseño centrado en el ser humano en su núcleo. Juntas, forman un ecosistema interconectado donde los datos fluyen de forma segura entre aplicaciones mientras permanecen bajo el control del usuario."
+      },
+      "currentApps": {
+        "title": "Aplicaciones Actuales",
+        "description": "Estas aplicaciones están activas y listas para usar hoy, formando la base del ecosistema CyberEco."
+      },
+      "priorityApps": {
+        "title": "Aplicaciones Prioritarias (2025-2026)",
+        "description": "Nuestra próxima ola de aplicaciones se centra en la construcción de comunidad, el patrimonio cultural y la vida sostenible. Actualmente están en desarrollo activo."
+      },
+      "tryApp": "Probar",
+      "solutionCategories": {
+        "title": "Categorías de Soluciones",
+        "description": "Nuestras aplicaciones están organizadas en categorías enfocadas, cada una abordando aspectos específicos de la vida digital moderna."
+      },
+      "futureEcosystem": {
+        "title": "Ecosistema Futuro (2026+)",
+        "description": "Nuestra visión se extiende a más de 30 aplicaciones especializadas, cada una diseñada para funcionar perfectamente dentro del ecosistema CyberEco mientras respeta la privacidad del usuario y la soberanía de datos.",
+        "modularArchitecture": {
+          "title": "Arquitectura Modular",
+          "description": "Cada aplicación puede funcionar independientemente mientras se beneficia de la integración del ecosistema"
+        },
+        "seamlessIntegration": {
+          "title": "Integración Perfecta",
+          "description": "Los datos fluyen de forma segura entre aplicaciones con el consentimiento y control del usuario"
+        },
+        "privacyByDesign": {
+          "title": "Privacidad por Diseño",
+          "description": "Cada aplicación sigue principios estrictos de privacidad y cumplimiento del RGPD"
+        },
+        "decentralizedFuture": {
+          "title": "Futuro Descentralizado",
+          "description": "Preparándose para la transición a una infraestructura completamente descentralizada"
+        }
+      },
+      "developmentPhilosophy": {
+        "title": "Filosofía de Desarrollo",
+        "userCentricDesign": {
+          "title": "Diseño Centrado en el Usuario",
+          "description": "Cada característica está diseñada con las necesidades reales del usuario en mente, evitando patrones oscuros y mecanismos adictivos"
+        },
+        "progressiveEnhancement": {
+          "title": "Mejora Progresiva",
+          "description": "Comenzar con funcionalidad básica y agregar características progresivamente basándose en los comentarios de la comunidad"
+        },
+        "openDevelopment": {
+          "title": "Desarrollo Abierto",
+          "description": "Hojas de ruta transparentes, componentes de código abierto y participación de la comunidad en la toma de decisiones"
+        },
+        "sustainableGrowth": {
+          "title": "Crecimiento Sostenible",
+          "description": "Construyendo para la sostenibilidad a largo plazo en lugar del crecimiento rápido a cualquier costo"
+        }
+      },
+      "applicationStatus": {
+        "title": "Resumen del Estado de las Aplicaciones",
+        "status": "Estado",
+        "applications": "Aplicaciones",
+        "timeline": "Línea de Tiempo",
+        "live": "En Vivo",
+        "inDevelopment": "En Desarrollo",
+        "planned": "Planeado",
+        "availableNow": "Disponible Ahora",
+        "andMore": "y más de 25",
+        "andBeyond": "y más allá"
+      },
+      "technicalIntegration": {
+        "title": "Integración Técnica",
+        "description": "Todas las aplicaciones de CyberEco comparten fundamentos técnicos comunes que permiten una integración perfecta:",
+        "sso": "Inicio de Sesión Único (SSO):",
+        "ssoDesc": "Una cuenta para todas las aplicaciones a través del Hub",
+        "sharedDataModels": "Modelos de Datos Compartidos:",
+        "sharedDataModelsDesc": "Las estructuras de datos comunes permiten la funcionalidad entre aplicaciones",
+        "unifiedUI": "Componentes de UI Unificados:",
+        "unifiedUIDesc": "Experiencia de usuario consistente en todas las aplicaciones",
+        "permissionSystem": "Sistema de Permisos:",
+        "permissionSystemDesc": "Control granular sobre lo que cada aplicación puede acceder",
+        "apiStandards": "Estándares de API:",
+        "apiStandardsDesc": "APIs RESTful con autenticación JWT para todos los servicios",
+        "privacyControls": "Controles de Privacidad:",
+        "privacyControlsDesc": "Visibilidad de datos y preferencias de intercambio gestionadas por el usuario"
+      },
+      "relatedDocumentation": {
+        "title": "Documentación Relacionada",
+        "platformPhilosophy": {
+          "title": "Filosofía de la Plataforma",
+          "description": "Comprende los principios que guían nuestro desarrollo"
+        },
+        "developmentRoadmap": {
+          "title": "Hoja de Ruta de Desarrollo",
+          "description": "Ve nuestra línea de tiempo y las próximas características"
+        },
+        "decentralizedVision": {
+          "title": "Visión Descentralizada",
+          "description": "Aprende sobre nuestra visión a largo plazo"
+        }
+      },
+      "callToAction": {
+        "explorePortfolio": "Explorar el Portafolio Completo",
+        "description": "Visita nuestra página principal del portafolio para obtener información detallada sobre cada aplicación, incluidas características, capturas de pantalla y actualizaciones de desarrollo."
+      }
+    },
+    "roadmapDocSubtitle": "Sigue nuestro progreso y descubre lo que viene",
+    "architecture": {
+      "title": "Visión General de la Arquitectura",
+      "subtitle": "Comprendiendo la arquitectura de la plataforma CyberEco",
+      "monorepo": {
+        "title": "Estructura Monorepo",
+        "description": "CyberEco utiliza una arquitectura monorepo impulsada por NX que permite compartir código, herramientas consistentes y compilaciones eficientes en todas las aplicaciones."
+      },
+      "layers": {
+        "applications": "Capa de Aplicaciones",
+        "sharedLibraries": "Bibliotecas Compartidas",
+        "infrastructure": "Infraestructura"
+      },
+      "components": {
+        "hub": "Hub",
+        "justsplit": "JustSplit",
+        "website": "Sitio Web",
+        "futureApps": "Futuras Aplicaciones",
+        "uiComponents": "Componentes UI",
+        "authLibrary": "Biblioteca de Autenticación",
+        "i18n": "i18n",
+        "sharedTypes": "Tipos Compartidos",
+        "firebase": "Firebase",
+        "authentication": "Autenticación",
+        "hosting": "Alojamiento",
+        "database": "Base de Datos"
+      },
+      "principles": {
+        "title": "Principios de Diseño Clave",
+        "digitalSovereignty": {
+          "title": "Soberanía Digital",
+          "description": "Los usuarios poseen y controlan sus datos con funciones de exportación y portabilidad"
+        },
+        "modularArchitecture": {
+          "title": "Arquitectura Modular",
+          "description": "Aplicaciones independientes que comparten infraestructura y componentes comunes"
+        },
+        "privacyByDesign": {
+          "title": "Privacidad por Diseño",
+          "description": "Cumplimiento del RGPD y controles de privacidad integrados en el núcleo"
+        },
+        "openStandards": {
+          "title": "Estándares Abiertos",
+          "description": "Uso de protocolos y estándares abiertos para la interoperabilidad"
+        }
+      },
+      "technicalStack": {
+        "title": "Stack Técnico",
+        "frontend": {
+          "title": "Frontend",
+          "nextjs": "Next.js 15",
+          "react": "React 18",
+          "typescript": "TypeScript",
+          "cssModules": "CSS Modules"
+        },
+        "backend": {
+          "title": "Backend",
+          "firebaseAuth": "Firebase Auth",
+          "firestore": "Firestore",
+          "cloudFunctions": "Cloud Functions",
+          "firebaseHosting": "Firebase Hosting"
+        },
+        "development": {
+          "title": "Desarrollo",
+          "nxMonorepo": "NX Monorepo",
+          "jestTesting": "Jest Testing",
+          "eslint": "ESLint",
+          "githubActions": "GitHub Actions"
+        }
+      },
+      "relatedDocumentation": {
+        "title": "Documentación Relacionada",
+        "dataArchitecture": "Arquitectura de Datos",
+        "dataArchitectureDesc": "Profundiza en los modelos de datos y el diseño de la base de datos",
+        "authenticationSystem": "Sistema de Autenticación",
+        "authenticationSystemDesc": "Aprende sobre nuestra implementación de autenticación segura",
+        "developmentSetup": "Configuración de Desarrollo",
+        "developmentSetupDesc": "Comienza con el entorno de desarrollo local",
+        "apiReference": "Referencia de API",
+        "apiReferenceDesc": "Explora nuestra documentación completa de API"
+      },
+      "tabs": {
+        "overview": "Visión general",
+        "principles": "Principios de diseño",
+        "stack": "Stack técnico",
+        "integration": "Integración",
+        "resources": "Recursos"
+      },
+      "integration": {
+        "title": "Patrones de integración",
+        "description": "Aprende cómo las aplicaciones de CyberEco se integran y comunican entre sí.",
+        "sso": {
+          "title": "Inicio de sesión único (SSO)",
+          "description": "La autenticación centralizada a través del Hub garantiza que los usuarios inicien sesión una vez y accedan a todas las aplicaciones sin problemas."
+        },
+        "sharedData": {
+          "title": "Modelos de datos compartidos",
+          "description": "Las interfaces TypeScript comunes y las estructuras de datos permiten un manejo consistente de datos entre aplicaciones."
+        },
+        "eventBus": {
+          "title": "Arquitectura de bus de eventos",
+          "description": "Las aplicaciones se comunican a través de un sistema de eventos centralizado para actualizaciones y notificaciones en tiempo real."
+        },
+        "apis": {
+          "title": "APIs REST",
+          "description": "Las APIs REST bien documentadas permiten integraciones externas y acceso a datos entre aplicaciones."
+        }
+      },
+      "resources": {
+        "title": "Recursos adicionales",
+        "nxDocs": "Documentación de NX",
+        "nxDocsDesc": "Aprende más sobre las herramientas monorepo de NX",
+        "nextjsDocs": "Documentación de Next.js",
+        "nextjsDocsDesc": "Documentación oficial del framework Next.js",
+        "firebaseDocs": "Documentación de Firebase",
+        "firebaseDocsDesc": "Documentación de la plataforma y servicios de Firebase",
+        "contributing": "Guía de contribución",
+        "contributingDesc": "Aprende cómo contribuir a CyberEco"
+      }
+    },
+    "solutionsCatalogTitle": "Catálogo de Soluciones",
+    "developmentPhasesTitle": "Fases de Desarrollo",
+    "faqSubtitle": "Encuentra respuestas a preguntas comunes sobre CyberEco",
+    "faqIntro": "Navega por nuestras preguntas frecuentes para encontrar respuestas rápidas sobre CyberEco, nuestras aplicaciones y cómo empezar.",
+    "generalQuestionsCategory": "Preguntas Generales",
+    "whatIsCyberEco": "¿Qué es CyberEco?",
+    "whatIsCyberEcoAnswer": "CyberEco es un ecosistema digital centrado en el humano que proporciona un conjunto de aplicaciones para colaboración financiera, compromiso comunitario y vida sostenible. Nuestra plataforma prioriza la privacidad del usuario, la soberanía digital y las conexiones humanas auténticas.",
+    "howMuchCost": "¿Cuánto cuesta CyberEco?",
+    "howMuchCostAnswer": "CyberEco ofrece un modelo freemium. Las características básicas son gratuitas para todos los usuarios, mientras que las características avanzadas y el almacenamiento aumentado están disponibles a través de suscripciones asequibles. Creemos en precios sostenibles que brindan valor sin explotación.",
+    "dataPrivacy": {
+      "tabs": {
+        "overview": "Resumen",
+        "gdpr": "Cumplimiento GDPR",
+        "controls": "Controles de Privacidad",
+        "security": "Seguridad",
+        "implementation": "Implementación"
+      },
+      "overview": {
+        "title": "Arquitectura con Privacidad Primero",
+        "description": "CyberEco está construido con la privacidad en su núcleo. Cada característica está diseñada para proteger los datos del usuario y dar a las personas control completo sobre su información.",
+        "keyFeatures": "Características Clave de Privacidad",
+        "gdprCompliant": "Cumplimiento completo de GDPR con gestión de consentimiento del usuario",
+        "dataMinimization": "Minimización de datos - solo recopilar lo que es necesario",
+        "userControl": "Control completo del usuario sobre datos personales",
+        "encryption": "Cifrado de extremo a extremo para datos sensibles",
+        "portability": "Portabilidad de datos con formatos de exportación estándar",
+        "rightToDelete": "Derecho a eliminación - eliminación permanente de datos"
+      },
+      "principles": {
+        "sovereignty": {
+          "title": "Soberanía de Datos",
+          "description": "Tú posees tus datos. Solo somos custodios proporcionando un servicio."
+        },
+        "minimization": {
+          "title": "Minimización de Datos",
+          "description": "Solo recopilamos datos que son absolutamente necesarios para el servicio."
+        },
+        "transparency": {
+          "title": "Transparencia",
+          "description": "Información clara sobre qué datos recopilamos y cómo se usan."
+        },
+        "purpose": {
+          "title": "Limitación de Propósito",
+          "description": "Los datos solo se usan para su propósito declarado, nada más."
+        }
+      },
+      "gdpr": {
+        "title": "Cumplimiento GDPR",
+        "description": "CyberEco cumple completamente con el Reglamento General de Protección de Datos (GDPR), asegurando los más altos estándares de protección de datos para todos los usuarios.",
+        "rights": {
+          "title": "Tus Derechos Bajo GDPR",
+          "access": {
+            "title": "Derecho de Acceso",
+            "description": "Solicitar una copia de todos los datos personales que tenemos sobre ti."
+          },
+          "rectification": {
+            "title": "Derecho de Rectificación",
+            "description": "Corregir cualquier dato personal inexacto que tengamos sobre ti."
+          },
+          "erasure": {
+            "title": "Derecho de Eliminación",
+            "description": "Solicitar eliminación de tus datos personales (derecho al olvido)."
+          },
+          "portability": {
+            "title": "Derecho a la Portabilidad de Datos",
+            "description": "Recibir tus datos en un formato estructurado y legible por máquina."
+          },
+          "restrict": {
+            "title": "Derecho a Restringir el Procesamiento",
+            "description": "Limitar cómo procesamos tus datos personales."
+          },
+          "object": {
+            "title": "Derecho de Objeción",
+            "description": "Objetar al procesamiento de tus datos personales para ciertos propósitos."
+          }
+        },
+        "implementation": {
+          "title": "Implementación GDPR"
+        }
+      },
+      "controls": {
+        "title": "Controles de Privacidad",
+        "description": "Controles granulares que ponen a los usuarios a cargo de sus datos y configuraciones de privacidad.",
+        "consent": {
+          "title": "Gestión de Consentimiento"
+        },
+        "visibility": {
+          "title": "Controles de Visibilidad de Datos",
+          "private": "Privado",
+          "privateDesc": "Solo tú puedes ver estos datos",
+          "friends": "Solo Amigos",
+          "friendsDesc": "Visible para amigos conectados",
+          "public": "Público",
+          "publicDesc": "Visible para todos"
+        },
+        "sharing": {
+          "title": "Preferencias de Compartir Datos"
+        }
+      },
+      "security": {
+        "title": "Seguridad de Datos",
+        "description": "Múltiples capas de seguridad protegen tus datos en reposo y en tránsito.",
+        "encryption": {
+          "title": "Cifrado",
+          "transit": "TLS 1.3 para datos en tránsito",
+          "rest": "AES-256 para datos en reposo",
+          "e2e": "Cifrado de extremo a extremo para datos sensibles"
+        },
+        "access": {
+          "title": "Control de Acceso",
+          "rbac": "Control de acceso basado en roles (RBAC)",
+          "mfa": "Autenticación multifactor",
+          "audit": "Registro de auditoría integral"
+        },
+        "protection": {
+          "title": "Protección de Datos",
+          "backup": "Respaldos cifrados regulares",
+          "isolation": "Aislamiento de datos entre usuarios",
+          "monitoring": "Monitoreo de seguridad 24/7"
+        },
+        "bestPractices": {
+          "title": "Mejores Prácticas de Seguridad"
+        }
+      },
+      "implementation": {
+        "title": "Guía de Implementación",
+        "description": "Cómo implementar características de privacidad en tus aplicaciones CyberEco.",
+        "service": {
+          "title": "1. Configuración del Servicio de Privacidad"
+        },
+        "hooks": {
+          "title": "2. Hooks de Privacidad"
+        },
+        "export": {
+          "title": "3. Implementación de Exportación de Datos"
+        }
+      }
+    },
+    "dataPrivacyAnswer": "Implementamos principios de privacidad por diseño. Eres dueño de tus datos, controlas quién los ve y puedes exportarlos o eliminarlos en cualquier momento. Nunca vendemos datos de usuarios y cumplimos con GDPR y otras regulaciones de privacidad. Todas las consultas de datos respetan automáticamente tu configuración de privacidad.",
+    "accountSecurityCategory": "Cuenta y Seguridad",
+    "ssoQuestion": "¿Cómo funciona el Inicio de Sesión Único (SSO)?",
+    "ssoAnswer": "Con CyberEco Hub, creas una cuenta que funciona en todas nuestras aplicaciones. Inicia sesión una vez y navega sin problemas entre JustSplit, Somos y otras aplicaciones sin volver a ingresar credenciales. Tu estado de autenticación se sincroniza de forma segura en todas las aplicaciones del ecosistema.",
+    "twoFactorQuestion": "¿Cómo habilito la autenticación de dos factores?",
+    "twoFactorAnswer": "Habilita 2FA en la configuración de seguridad de tu Hub. Admitimos autenticación basada en TOTP compatible con aplicaciones como Google Authenticator y Authy. Una vez habilitado, necesitarás tanto tu contraseña como un código basado en tiempo para acceder a tu cuenta.",
+    "forgotPasswordQuestion": "¿Qué pasa si olvido mi contraseña?",
+    "forgotPasswordAnswer": "Haz clic en 'Olvidé mi contraseña' en la página de inicio de sesión para recibir un enlace de restablecimiento de contraseña por correo electrónico. Por seguridad, los enlaces de restablecimiento expiran después de 1 hora. Si tienes 2FA habilitado, es posible que necesites verificar tu identidad a través de pasos adicionales.",
+    "technicalCategory": "Preguntas Técnicas",
+    "apiAccessQuestion": "¿Puedo acceder a los datos de CyberEco a través de una API?",
+    "apiAccessAnswer": "¡Sí! Proporcionamos APIs REST integrales para todos nuestros servicios. Los desarrolladores pueden integrarse con nuestro sistema de autenticación, acceder a datos permitidos por el usuario y construir sobre nuestra plataforma. Consulta nuestra documentación de API para endpoints detallados y ejemplos.",
+    "supportedBrowsersQuestion": "¿Qué navegadores son compatibles?",
+    "supportedBrowsersAnswer": "CyberEco funciona en todos los navegadores modernos incluyendo Chrome, Firefox, Safari y Edge. Recomendamos mantener tu navegador actualizado para la mejor experiencia y seguridad. Los navegadores móviles son totalmente compatibles para acceso sobre la marcha.",
+    "offlineQuestion": "¿Puedo usar CyberEco sin conexión?",
+    "offlineAnswer": "Algunas características funcionan sin conexión con sincronización automática cuando te reconectas. Sin embargo, las características de colaboración en tiempo real y la navegación entre aplicaciones requieren una conexión a Internet. Estamos trabajando en expandir las capacidades sin conexión en futuras actualizaciones.",
+    "billingCategory": "Facturación y Suscripciones",
+    "paymentMethodsQuestion": "¿Qué métodos de pago aceptan?",
+    "paymentMethodsAnswer": "Aceptamos las principales tarjetas de crédito, tarjetas de débito y PayPal. Para suscripciones anuales, también admitimos transferencias bancarias en regiones seleccionadas. Todo el procesamiento de pagos se maneja de forma segura a través de proveedores de pago confiables.",
+    "cancelSubscriptionQuestion": "¿Puedo cancelar mi suscripción en cualquier momento?",
+    "cancelSubscriptionAnswer": "Sí, puedes cancelar tu suscripción en cualquier momento desde tu configuración de facturación. Continuarás teniendo acceso a las funciones de pago hasta el final de tu período de facturación actual. Sin tarifas ocultas ni penalizaciones por cancelación.",
+    "refundQuestion": "¿Cuál es su política de reembolso?",
+    "refundAnswer": "Ofrecemos una garantía de devolución de dinero de 30 días para nuevas suscripciones. Si no estás satisfecho, contacta a nuestro equipo de soporte para un reembolso completo. Para suscripciones mensuales, los reembolsos se prorratean según el uso.",
+    "stillNeedHelp": "¿Aún necesitas ayuda?",
+    "stillNeedHelpDesc": "¿No encuentras lo que buscas? Nuestro equipo de soporte está aquí para ayudarte.",
+    "contactSupport": "Contactar Soporte",
+    "communitySupportTitle": "Soporte de la Comunidad",
+    "communitySupportSubtitle": "Obtén ayuda de nuestra vibrante comunidad",
+    "joinCommunityTitle": "Únete a Nuestra Comunidad",
+    "joinCommunityText": "Conéctate con otros usuarios de CyberEco, comparte experiencias y obtén ayuda de nuestra creciente comunidad de pioneros digitales.",
+    "githubTitle": "GitHub",
+    "githubDesc": "Contribuye a proyectos de código abierto y sigue el desarrollo",
+    "discordTitle": "Discord",
+    "discordDesc": "Chat en tiempo real con miembros de la comunidad y desarrolladores",
+    "linkedinTitle": "LinkedIn",
+    "linkedinDesc": "Red profesional y actualizaciones de la empresa",
+    "getSupportTitle": "Obtener Soporte",
+    "documentationSupportTitle": "Documentación",
+    "documentationSupportDesc": "Guías completas y documentación técnica",
+    "emailSupportTitle": "Soporte por Email",
+    "emailSupportDesc": "Soporte directo para problemas técnicos y de cuenta",
+    "contributeTitle": "Formas de Contribuir",
+    "contribute1": "Reporta errores y sugiere características en GitHub",
+    "contribute2": "Ayuda a mejorar la documentación y las traducciones",
+    "contribute3": "Comparte tu experiencia y casos de uso de CyberEco",
+    "contribute4": "Participa en discusiones comunitarias y gobernanza",
+    "guideCategoriesTitle": "Categorías de Guías",
+    "gettingStartedGuideTitle": "Primeros Pasos",
+    "gettingStartedGuideDesc": "Primeros pasos con el ecosistema CyberEco",
+    "justSplitGuideTitle": "Guía de JustSplit",
+    "justSplitGuideDesc": "Domina el compartir gastos y las finanzas grupales",
+    "securityGuideTitle": "Mejores Prácticas de Seguridad",
+    "securityGuideDesc": "Mantén tu cuenta y datos seguros",
+    "mobileGuideTitle": "Uso Móvil",
+    "mobileGuideDesc": "Accede a CyberEco sobre la marcha",
+    "popularGuidesTitle": "Guías Populares",
+    "guide1Title": "Cómo Crear un Grupo en JustSplit",
+    "guide2Title": "Configurar Autenticación de Dos Factores",
+    "guide3Title": "Exportar Tus Datos",
+    "guide4Title": "Gestionar Configuración de Privacidad",
+    "commonIssuesTitle": "Problemas Comunes",
+    "troubleshootingIntro": "Encuentra soluciones a problemas encontrados frecuentemente. Si no encuentras tu problema aquí, contacta a nuestro equipo de soporte.",
+    "authenticationIssuesTitle": "Problemas de Autenticación",
+    "cantSignInIssue": "No puedo iniciar sesión en mi cuenta",
+    "checkCredentials": "Verifica que tu email y contraseña sean correctos",
+    "clearCache": "Limpia el caché y las cookies del navegador",
+    "disableExtensions": "Desactiva temporalmente las extensiones del navegador",
+    "resetPassword": "Usa 'Olvidé mi contraseña' para restablecer credenciales",
+    "sessionExpiredIssue": "La sesión sigue expirando",
+    "enableCookies": "Asegúrate de que las cookies estén habilitadas en tu navegador",
+    "checkDateTime": "Verifica la configuración de fecha y hora de tu dispositivo",
+    "stableConnection": "Usa una conexión a internet estable",
+    "appSpecificIssuesTitle": "Problemas Específicos de Apps",
+    "justSplitIssues": "Problemas de JustSplit",
+    "expensesNotSyncing": "Los gastos no se sincronizan",
+    "expensesNotSyncingSolution": "Verifica la conexión a internet y actualiza la página. Si persiste, cierra sesión y vuelve a iniciar.",
+    "wrongCalculations": "Cálculos de división incorrectos",
+    "wrongCalculationsSolution": "Verifica que todos los participantes estén incluidos y que los montos se ingresen correctamente. Revisa la configuración de moneda.",
+    "cantInviteFriends": "No puedo invitar amigos al grupo",
+    "cantInviteFriendsSolution": "Asegúrate de tener la dirección de email correcta. Verifica si ya tienen una cuenta CyberEco.",
+    "hubIssues": "Problemas del Hub",
+    "ssoNotWorking": "SSO no funciona entre aplicaciones",
+    "ssoNotWorkingSolution": "Limpia las cookies de todos los dominios de CyberEco. Asegúrate de usar la misma cuenta en todas las aplicaciones.",
+    "twoFactorLocked": "Bloqueado debido a 2FA",
+    "twoFactorLockedSolution": "Usa códigos de respaldo si están disponibles. Contacta soporte con verificación de cuenta para restablecer 2FA.",
+    "performanceIssuesTitle": "Problemas de Rendimiento",
+    "slowLoadingIssue": "Las páginas cargan lentamente",
+    "checkInternetSpeed": "Prueba la velocidad de tu conexión a internet",
+    "updateBrowser": "Actualiza a la última versión del navegador",
+    "disableVPN": "Desactiva VPN si estás usando uno",
+    "reduceDataUsage": "Habilita el modo de ahorro de datos en configuración",
+    "appCrashingIssue": "La aplicación se bloquea o congela",
+    "clearAppData": "Limpia el caché del navegador y el almacenamiento local",
+    "checkDeviceStorage": "Asegúrate de tener espacio de almacenamiento adecuado",
+    "closeOtherApps": "Cierra pestañas del navegador y aplicaciones innecesarias",
+    "reportBug": "Reporta problemas persistentes a nuestro equipo",
+    "proTipsTitle": "Consejos Profesionales",
+    "bookmarkHub": "Marca el Hub como favorito para acceso rápido a todas las apps",
+    "usePasswordManager": "Usa un gestor de contraseñas para credenciales seguras",
+    "enableNotifications": "Habilita notificaciones para actualizaciones importantes",
+    "joinBeta": "Únete a nuestro programa beta para probar nuevas características primero",
+    "emergencySupportTitle": "Soporte de Emergencia",
+    "emergencySupportDesc": "Para problemas urgentes de cuenta o preocupaciones de seguridad:",
+    "emailSupport": "Email: support@cybere.co",
+    "responseTime": "Tiempo de respuesta:",
+    "within24Hours": "Dentro de 24 horas para problemas estándar",
+    "browseDocsTitle": "Explorar Documentación",
+    "gettingStartedSection": "Primeros Pasos",
+    "platformSection": "Visión General de la Plataforma",
+    "userSection": "Recursos del Usuario",
+    "developerSection": "Recursos para Desarrolladores",
+    "securitySection": "Seguridad y Privacidad",
+    "firstTimeTitle": "¿Primera Vez Aquí?",
+    "firstTimeDesc": "Comienza con conceptos clave y visión general de la arquitectura",
+    "getStartedTitle": "Comenzar",
+    "getStartedDesc": "Crea tu cuenta y explora el ecosistema",
+    "buildTitle": "Comenzar a Construir",
+    "buildDesc": "Sumérgete en nuestra documentación de API y comienza a desarrollar",
+    "keyConceptsDesc": "Conceptos centrales y terminología",
+    "architectureTitle": "Arquitectura",
+    "architectureDesc": "Diseño del sistema y flujo de datos",
+    "developmentTitle": "Configuración de Desarrollo",
+    "developmentDesc": "Configura tu entorno local",
+    "guidesDesc": "Tutoriales paso a paso",
+    "learningTitle": "Rutas de Aprendizaje",
+    "learningDesc": "Viajes de aprendizaje estructurados",
+    "troubleshootingDesc": "Resolver problemas comunes",
+    "apiTitle": "Referencia API",
+    "apiDesc": "Documentación completa de API",
+    "authTitle": "Autenticación",
+    "authDesc": "Guía de integración de autenticación",
+    "hubTitle": "Hub Gateway",
+    "hubDesc": "Arquitectura del hub central",
+    "dataTitle": "Arquitectura de Datos",
+    "dataDesc": "Modelos de datos y flujo",
+    "twoFactorTitle": "Autenticación de Dos Factores",
+    "twoFactorDesc": "Configuración de seguridad mejorada",
+    "privacyTitle": "Controles de Privacidad",
+    "privacyDesc": "Gestiona tu privacidad",
+    "exportTitle": "Exportación de Datos",
+    "exportDesc": "Exporta tus datos",
+    "loggingTitle": "Registro de Autenticación",
+    "loggingDesc": "Registros de auditoría de seguridad",
+    "popularTitle": "Temas Populares",
+    "popular1": "Crea Tu Primera Cuenta",
+    "popular1Desc": "Comienza con CyberEco",
+    "popular2": "Inicio Rápido de JustSplit",
+    "popular2Desc": "Comparte gastos con amigos",
+    "popular3": "Autenticación API",
+    "popular3Desc": "Intégrate con nuestras APIs",
+    "popular4": "Problemas Comunes",
+    "popular4Desc": "Soluciones y arreglos rápidos",
+    "searchHint": "Consejo: Usa Ctrl/Cmd + K para buscar documentación rápidamente",
+    "communityGovernanceTitle": "Comunidad y Gobernanza",
+    "demosTitle": "Demos",
+    "demosDesc": "Una plataforma de democracia digital participativa que permite votación y toma de decisiones transparentes para organizaciones y vecindarios.",
+    "communityManagerTitle": "Gestor de Comunidad",
+    "communityManagerDesc": "Herramientas avanzadas para crear, organizar y gobernar comunidades digitales o físicas con facilidad y transparencia.",
+    "myCommunityTitle": "MiComunidad",
+    "myCommunityDesc": "Una plataforma para descubrir recursos locales relevantes, eventos e iniciativas en tu entorno y fortalecer los lazos comunitarios.",
+    "conciliationTitle": "Conciliación",
+    "conciliationDesc": "Resuelve conflictos y alcanza acuerdos a través de mediación y diálogo estructurado.",
+    "financeEconomyTitle": "Finanzas y Economía",
+    "justSplitTitle": "JustSplit",
+    "justSplitAboutText": "La aplicación inteligente para compartir gastos que hace que dividir costos sea simple, justo y transparente.",
+    "myWealthTitle": "MiRiqueza",
+    "myWealthDesc": "Gestión integral de finanzas personales con seguimiento de inversiones y herramientas para construir riqueza.",
+    "myBusinessTitle": "MiNegocio",
+    "myBusinessDesc": "Suite completa de gestión empresarial para emprendedores y pequeñas empresas.",
+    "sustainabilityHomeTitle": "Sostenibilidad y Hogar",
+    "plantopiaTitle": "Plantopia",
+    "plantopiaAboutText": "Asistente inteligente de jardinería que te ayuda a cultivar plantas saludables con recomendaciones de cuidado personalizadas.",
+    "ecoTulTitle": "EcoTul",
+    "ecoTulDesc": "Rastrea y reduce tu huella ambiental con información práctica sobre sostenibilidad.",
+    "myHomeTitle": "MiHogar",
+    "myHomeDesc": "Plataforma inteligente de gestión del hogar para mantenimiento, servicios públicos y organización doméstica.",
+    "educationTitle": "Educación y Crecimiento",
+    "educationHubTitle": "Centro de Educación",
+    "educationHubDesc": "Plataforma de aprendizaje personalizado con cursos, certificaciones y rutas de desarrollo de habilidades.",
+    "skillShareTitle": "CompartirHabilidades",
+    "skillShareDesc": "Plataforma impulsada por la comunidad para compartir conocimientos y aprender nuevas habilidades de tus pares.",
+    "habitsTitle": "Hábitos",
+    "habitsDesc": "Construye hábitos positivos y rompe los negativos con seguimiento y apoyo basado en ciencia.",
+    "oneStepTitle": "UnPaso",
+    "oneStepDesc": "Compañero de desarrollo personal para establecer y alcanzar metas de vida.",
+    "apiOverviewTitle": "Descripción General de la API",
+    "apiOverviewText": "La API de CyberEco proporciona acceso programático a todas las características y datos de la plataforma.",
+    "apiAuthTitle": "Autenticación",
+    "apiAuthText": "Todas las solicitudes de API requieren autenticación usando tokens JWT obtenidos del Hub.",
+    "apiRequestsTitle": "Realizando Solicitudes",
+    "apiRequestsText": "Envía solicitudes HTTP a los endpoints de la API con los encabezados y autenticación adecuados.",
+    "completeUserDocsLabel": "Documentación Completa del Usuario",
+    "userDocsTime": "📚 Guías completas",
+    "gettingStartedGuidesTitle": "Guías de Inicio",
+    "gettingStartedGuidesText": "Tutoriales paso a paso para que los nuevos usuarios se pongan en marcha rápidamente.",
+    "mobileAppGuide": "Guía de Aplicación Móvil",
+    "advancedTutorialsTitle": "Tutoriales Avanzados",
+    "privacySettingsGuide": "Guía de Configuración de Privacidad",
+    "groupManagementGuide": "Guía de Gestión de Grupos",
+    "dataExportGuide": "Guía de Exportación de Datos",
+    "quickAnswersLabel": "Respuestas Rápidas",
+    "quickAnswersTime": "❓ Preguntas comunes",
+    "generalQuestionsTitle": "Preguntas Generales",
+    "faq1Question": "¿Qué es CyberEco?",
+    "faq1Answer": "CyberEco es un ecosistema digital integral diseñado para mejorar varios aspectos de la vida moderna a través de aplicaciones interconectadas.",
+    "faq2Question": "¿Es gratuito usar CyberEco?",
+    "faq2Answer": "Sí, CyberEco ofrece un generoso nivel gratuito con características principales. Las características premium están disponibles a través de suscripciones asequibles.",
+    "faq3Question": "¿Cómo se protegen mis datos?",
+    "faq3Answer": "Utilizamos encriptación y prácticas de seguridad estándar de la industria. Eres dueño de tus datos y puedes exportarlos o eliminarlos en cualquier momento.",
+    "justSplitQuestionsTitle": "Preguntas sobre JustSplit",
+    "faq4Question": "¿Cómo funciona la división de gastos?",
+    "faq4Answer": "Crea grupos, agrega gastos, y JustSplit calcula automáticamente quién debe qué con algoritmos inteligentes de división.",
+    "faq5Question": "¿Puedo usar múltiples monedas?",
+    "faq5Answer": "Sí, JustSplit admite múltiples monedas con conversión automática para grupos internacionales.",
+    "faq6Question": "¿Cómo liquido deudas?",
+    "faq6Answer": "Marca las liquidaciones cuando se realizan los pagos. JustSplit rastrea el historial y actualiza los saldos automáticamente.",
+    "needMoreHelpTitle": "¿Necesitas Más Ayuda?",
+    "fullFaqTitle": "FAQ Completo",
+    "fullFaqDesc": "Explora todas las preguntas frecuentes",
+    "communityForumsTitle": "Foros de la Comunidad",
+    "communityForumsDesc": "Obtén ayuda de la comunidad",
+    "criticalIssuesTitle": "Problemas Críticos (Resolución Inmediata)",
+    "cannotAccessAccountTitle": "No Puedo Acceder a mi Cuenta",
+    "symptomsLabel": "Síntomas",
+    "loginIssuesSymptoms": "Falla el inicio de sesión, el restablecimiento de contraseña no funciona, problemas con 2FA",
+    "quickSolutionsTitle": "Soluciones Rápidas",
+    "passwordResetStep": "Intenta restablecer la contraseña desde la página de inicio de sesión",
+    "use2faBackupStep": "Usa códigos de respaldo 2FA si están disponibles",
+    "contactRecoveryStep": "Envía un correo a recovery@cybere.co con los detalles de tu cuenta",
+    "responseTimeLabel": "Tiempo de respuesta",
+    "hoursLabel": "horas",
+    "missingDataTitle": "Datos Faltantes o Incorrectos",
+    "dataIssuesSymptoms": "Los gastos desaparecieron, montos incorrectos, participantes faltantes",
+    "forceSyncStep": "Fuerza la sincronización deslizando hacia abajo en la lista de gastos",
+    "checkDraftsStep": "Revisa Perfil → Borradores para gastos no guardados",
+    "contactDataRecoveryStep": "Envía un correo a data-recovery@cybere.co si los datos realmente se perdieron",
+    "appPerformanceTitle": "Problemas de Rendimiento de la App",
+    "performanceSymptoms": "Carga lenta, bloqueos, congelamiento, alto uso de batería",
+    "quickFixesTitle": "Soluciones Rápidas",
+    "restartAppStep": "Cierra la aplicación completamente y vuelve a abrirla",
+    "restartDeviceStep": "Reinicia tu dispositivo",
+    "checkStorageStep": "Verifica el almacenamiento disponible (necesitas 500MB+)",
+    "updateAppStep": "Actualiza la aplicación a la última versión",
+    "notificationsTitle": "Las Notificaciones No Funcionan",
+    "notificationSymptoms": "No recibo notificaciones de gastos, recordatorios o actualizaciones",
+    "checkNotificationSettingsStep": "Verifica la configuración de notificaciones en la app y el dispositivo",
+    "checkSpamStep": "Revisa la carpeta de spam/correo no deseado",
+    "testNotificationsStep": "Usa \"Enviar Email de Prueba\" en configuración",
+    "addToContactsStep": "Agrega support@cybere.co a tus contactos",
+    "emergencyProceduresTitle": "Procedimientos de Emergencia",
+    "securityBreachTitle": "Sospecha de Violación de Seguridad",
+    "immediateActionsLabel": "Acciones Inmediatas (dentro de 5 minutos)",
+    "changePasswordStep": "Cambia la contraseña inmediatamente",
+    "enable2faStep": "Activa 2FA si no está activo",
+    "logoutAllStep": "Cierra sesión en todos los dispositivos en Configuración → Seguridad",
+    "emailSecurityStep": "Envía un correo a security@cybere.co con detalles",
+    "hourResponseLabel": "respuesta en 1 hora",
+    "getMoreHelpTitle": "Obtén Más Ayuda",
+    "directSupportTitle": "Soporte Directo",
+    "directSupportDesc": "Envía un correo a support@cybere.co para ayuda personalizada con tu problema específico.",
+    "forPaidUsersLabel": "para usuarios pagos",
+    "communityHelpTitle": "Ayuda de la Comunidad",
+    "communityHelpDesc": "Obtén ayuda de otros usuarios en nuestros foros y comunidad de Discord.",
+    "availabilityLabel": "Disponibilidad",
+    "communityLabel": "comunidad",
+    "fullGuideTitle": "Guía Completa de Solución de Problemas",
+    "fullGuideDesc": "Accede a nuestra documentación completa de solución de problemas con soluciones detalladas.",
+    "coverageLabel": "Cobertura",
+    "issuesLabel": "problemas",
+    "communityResourcesTitle": "Comunidad y Soporte",
+    "communityPoweredLabel": "Impulsado por la Comunidad",
+    "joinCommunityTime": "Únete a nuestra creciente comunidad",
+    "communityVisionTitle": "Nuestra Visión Comunitaria",
+    "communityVisionText": "CyberEco es más que una plataforma: es una comunidad de personas que creen que la tecnología debe servir al florecimiento humano. Nos organizamos en torno a principios de soberanía digital, diseño centrado en el humano y crecimiento sostenible.",
+    "communityChannelsTitle": "Canales de la Comunidad",
+    "communityForumsFullDesc": "Plataforma principal para discusión, solicitudes de características y votación comunitaria. Todas las decisiones importantes comienzan aquí.",
+    "membersLabel": "miembros",
+    "weeklyPostsLabel": "publicaciones semanales",
+    "discordServerTitle": "Servidor de Discord",
+    "discordServerDesc": "Chat en tiempo real, ayuda técnica y eventos sociales. Conéctate con otros usuarios y el equipo de desarrollo.",
+    "activeUsersLabel": "activos diariamente",
+    "localGroupsTitle": "Grupos Locales",
+    "localGroupsDesc": "Reuniones presenciales en ciudades principales para entrenamiento de usuarios, sesiones de retroalimentación y eventos sociales.",
+    "citiesLabel": "ciudades",
+    "localMembersLabel": "miembros locales",
+    "governanceTitle": "Gobernanza Comunitaria",
+    "governanceText": "Nuestra comunidad está guiada por un Consejo Comunitario representativo y Grupos de Trabajo especializados que dan forma al desarrollo de la plataforma y las políticas.",
+    "communityCouncilTitle": "Consejo Comunitario",
+    "communityCouncilDesc": "9 miembros: 6 representantes de usuarios, 2 desarrolladores, 1 fundador. Guía las decisiones importantes y la política.",
+    "electedMembersLabel": "Miembros elegidos",
+    "yearTermsLabel": "Términos de 2 años",
+    "rotationLabel": "50% de rotación",
+    "workingGroupsTitle": "Grupos de Trabajo",
+    "workingGroupsDesc": "Equipos especializados enfocados en características, privacidad, alcance y diseño. Abierto a la participación comunitaria.",
+    "featureDevelopmentLabel": "Desarrollo de Características",
+    "privacySecurityLabel": "Privacidad y Seguridad",
+    "designAccessibilityLabel": "Diseño y Accesibilidad",
+    "communityEventsTitle": "Eventos Comunitarios",
+    "monthlyLabel": "Mensual",
+    "learningSessionsTitle": "Sesiones de Aprendizaje",
+    "learningSessionsDesc": "Talleres interactivos sobre privacidad digital, tecnología sostenible y organización comunitaria.",
+    "weeklyLabel": "Semanal",
+    "coffeeChatsTitle": "Charlas de Café",
+    "coffeeChatsDesc": "Construcción informal de comunidad en grupos pequeños a través de múltiples zonas horarias.",
+    "quarterlyLabel": "Trimestral",
+    "hackathonsTitle": "Hackathons Comunitarios",
+    "hackathonsDesc": "Desarrollo de características impulsado por la comunidad con mentoría y oportunidades de implementación.",
+    "gettingInvolvedTitle": "Cómo Participar",
+    "beginnerLevel": "Principiante",
+    "newMemberTitle": "Camino para Nuevos Miembros",
+    "joinForumsStep": "Únete a los foros comunitarios",
+    "introduceYourselfStep": "Preséntate",
+    "attendCoffeeStep": "Asiste a una charla de café",
+    "findWorkingGroupStep": "Encuentra tu grupo de trabajo",
+    "advancedLevel": "Avanzado",
+    "leadershipTitle": "Oportunidades de Liderazgo",
+    "workingGroupLeadershipItem": "Liderazgo de Grupo de Trabajo",
+    "communityCouncilItem": "Consejo Comunitario",
+    "localGroupOrganizerItem": "Organizador de Grupo Local",
+    "mentorshipItem": "Mentoría de Nuevos Miembros",
+    "contactCommunityTitle": "Contactar al Equipo Comunitario",
+    "dayToDaySupportLabel": "Soporte comunitario diario",
+    "governanceCoordinatorTitle": "Coordinador de Gobernanza",
+    "electionsProposalsLabel": "Elecciones, propuestas, política",
+    "communitySafetyTitle": "Seguridad Comunitaria",
+    "harassmentSafetyLabel": "Acoso y preocupaciones de seguridad",
+    "developmentSetupTitle": "Configuración de Desarrollo",
+    "setupOverviewTitle": "Entorno de Desarrollo",
+    "setupTimeEstimate": "⏱️ 10-15 minutos de configuración",
+    "prerequisitesTitle": "Prerrequisitos",
+    "prerequisitesText": "Herramientas y software requeridos para el desarrollo de CyberEco.",
+    "prerequisiteNode": "Node.js 18+ (se recomienda nvm)",
+    "prerequisiteFirebase": "Herramientas CLI de Firebase",
+    "prerequisiteNx": "CLI de NX para gestión de monorepo",
+    "quickSetupTitle": "Configuración Rápida (3 Pasos)",
+    "step1InstallTitle": "Instalar Prerrequisitos",
+    "step2CloneTitle": "Clonar e Instalar",
+    "step3StartTitle": "Iniciar Desarrollo",
+    "setupDoneTitle": "¡Desarrollo Listo!",
+    "setupDoneText": "Tu entorno de desarrollo ahora está ejecutándose en:",
+    "hubPortLabel": "Hub: http://localhost:40000",
+    "justSplitPortLabel": "JustSplit: http://localhost:40002",
+    "websitePortLabel": "Sitio web: http://localhost:40001",
+    "developmentWorkflowTitle": "Flujo de Trabajo de Desarrollo",
+    "workflowCreateBranch": "1. Crear rama de característica",
+    "workflowDevelop": "2. Desarrollar con pruebas",
+    "workflowQuality": "3. Verificaciones de calidad",
+    "workflowSubmit": "4. Enviar cambios",
+    "technicalOverviewTime": "⏱️ Descripción técnica",
+    "monorepoStructureTitle": "Estructura del Monorepo",
+    "monorepoStructureText": "CyberEco usa arquitectura de monorepo NX para código compartido y compilaciones optimizadas.",
+    "expenseAppComment": "Aplicación de gastos",
+    "marketingWebsiteComment": "Sitio web de marketing",
+    "sharedCodeComment": "Código compartido",
+    "typescriptTypesComment": "Tipos de TypeScript",
+    "firebaseUtilitiesComment": "Utilidades de Firebase",
+    "reactComponentsComment": "Componentes de React",
+    "commonAssetsComment": "Activos comunes",
+    "deploymentConfigsComment": "Configuraciones de despliegue",
+    "documentationComment": "Documentación",
+    "techStackTitle": "Stack Tecnológico",
+    "frameworkStack": "Framework: Next.js 15 con App Router",
+    "buildStack": "Sistema de Compilación: Monorepo NX con caché de computación",
+    "backendStack": "Backend: Firebase (Firestore, Auth, Hosting)",
+    "languageStack": "Lenguaje: TypeScript",
+    "stylingStack": "Estilos: CSS Modules",
+    "testingStack": "Pruebas: Jest con React Testing Library",
+    "appsStructureTitle": "Aplicaciones",
+    "websitePortTitle": "Sitio Web (Puerto 40001)",
+    "websitePortDesc": "Sitio web de marketing y centro de aplicaciones",
+    "hubPortTitle": "Hub (Puerto 40000)",
+    "hubPortDesc": "Autenticación central y lanzador de aplicaciones",
+    "justSplitPortTitle": "JustSplit (Puerto 40002)",
+    "justSplitPortDesc": "División de gastos y gestión financiera",
+    "libsStructureTitle": "Bibliotecas Compartidas",
+    "sharedTypesDesc": "Interfaces y tipos comunes de TypeScript",
+    "firebaseConfigDesc": "Utilidades de Firebase y configuración multi-proyecto",
+    "uiComponentsDesc": "Componentes React reutilizables con CSS Modules",
+    "sharedAssetsDesc": "Activos comunes incluyendo logos y materiales de marca",
+    "sharedComponentsTitle": "Arquitectura de Componentes Compartidos",
+    "sharedComponentsIntro": "CyberEco implementa una arquitectura robusta de componentes compartidos que garantiza consistencia en todas las aplicaciones mientras mantiene flexibilidad para necesidades específicas de cada app.",
+    "keyComponentsTitle": "Componentes Clave",
+    "navigationDesc": "Barra de navegación configurable con soporte móvil, cambio de tema/idioma, y enlaces y botones de acción personalizables.",
+    "userMenuDesc": "Menú desplegable de usuario con soporte de avatar, elementos de menú configurables y diseño responsivo para dispositivos móviles.",
+    "footerDesc": "Componente de pie de página flexible con secciones personalizables, enlaces sociales e información de la empresa.",
+    "configDropdownDesc": "Selector de tema e idioma con configuraciones persistentes y transiciones suaves.",
+    "modalDesc": "Componente modal accesible con renderizado de portal, gestión de enfoque, navegación por teclado y tamaños personalizables.",
+    "toastDesc": "Sistema de notificaciones completo con control de posición, cierre automático, botones de acción y API imperativa.",
+    "appLayoutDesc": "Envoltorio de diseño consistente que combina encabezado, pie de página y contenido principal con espaciado adecuado y diseño responsivo.",
+    "globalProviderDesc": "Proveedor de contexto unificado para configuraciones de tema e idioma en todas las aplicaciones.",
+    "designPrinciplesTitle": "Principios de Diseño",
+    "designPrinciple1": "Experiencia de usuario consistente en todas las aplicaciones",
+    "designPrinciple2": "Diseño responsivo móvil primero",
+    "designPrinciple3": "Soporte de tema oscuro/claro con transiciones suaves",
+    "designPrinciple4": "Soporte multi-idioma (Inglés/Español)",
+    "designPrinciple5": "Enfoque de accesibilidad primero",
+    "designPrinciple6": "Configuración flexible para necesidades específicas de cada app",
+    "testInfrastructureTitle": "Infraestructura de Pruebas",
+    "testInfrastructureDesc": "Cada componente compartido incluye cobertura de pruebas completa con Jest y React Testing Library. La infraestructura de pruebas incluye:",
+    "testFeature1": "Pruebas unitarias para comportamiento y renderizado de componentes",
+    "testFeature2": "Pruebas de integración para interacciones de proveedores",
+    "testFeature3": "Pruebas de accesibilidad con @testing-library/jest-dom",
+    "testFeature4": "Utilidades simuladas para patrones de prueba consistentes",
+    "testFeature5": "Pruebas de renderizado de portal para componentes Modal y Toast",
+    "testFeature6": "90%+ de cobertura de pruebas en todos los componentes compartidos",
+    "usageExampleTitle": "Ejemplo de Uso",
+    "hubGatewayLabel": "Punto de Entrada Unificado",
+    "hubGatewayTime": "⏱️ 3 minutos de lectura",
+    "hubGatewayOverviewTitle": "Hub como tu Puerta de Enlace Digital",
+    "hubGatewayOverviewText": "El Hub sirve como centro de autenticación y proxy inteligente para todo el ecosistema CyberEco. Proporciona acceso sin problemas a todas las aplicaciones a través de un único punto de entrada, eliminando la necesidad de múltiples inicios de sesión y URL de aplicaciones separadas.",
+    "hubGatewayFeaturesTitle": "Características Clave de la Puerta de Enlace",
+    "ssoFeatureTitle": "Inicio de Sesión Único (SSO)",
+    "ssoFeatureDesc": "Autentícate una vez y accede sin problemas a todas las aplicaciones CyberEco sin inicios de sesión adicionales.",
+    "proxyFeatureTitle": "Proxy Inteligente",
+    "proxyFeatureDesc": "Enrutamiento inteligente que dirige automáticamente las solicitudes a la aplicación apropiada mientras mantiene el estado de autenticación.",
+    "discoveryFeatureTitle": "Descubrimiento de Apps",
+    "discoveryFeatureDesc": "Hermosa página de inicio que muestra todas las aplicaciones disponibles con indicadores de estado en tiempo real.",
+    "securityFeatureTitle": "Puerta de Enlace de Seguridad",
+    "securityFeatureDesc": "Encabezados de seguridad centralizados, manejo de CORS y filtrado de solicitudes para todas las aplicaciones proxy.",
+    "appAccessTitle": "Acceso a Aplicaciones",
+    "appAccessText": "Accede a las aplicaciones CyberEco a través del lanzador Hub con autenticación sin problemas:",
+    "applicationColumn": "Aplicación",
+    "directAccessColumn": "Acceso Directo",
+    "authMethodColumn": "Método de Autenticación",
+    "middlewareArchitectureTitle": "Arquitectura de Middleware",
+    "middlewareArchitectureText": "El Hub usa middleware de Next.js para enrutar solicitudes de manera inteligente:",
+    "lanAccessTitle": "Configuración de Acceso LAN",
+    "lanAccessText": "Accede a tu Hub CyberEco desde cualquier dispositivo en tu red local:",
+    "lanStep1Title": "Iniciar Hub con Acceso LAN",
+    "lanStep2Title": "Acceso desde Otros Dispositivos",
+    "lanStep2Desc": "Usa el nombre de host o dirección IP de tu computadora:",
+    "lanStep3Title": "Acceder a Apps Proxy",
+    "productionDeploymentTitle": "Despliegue en Producción",
+    "productionDeploymentText": "El Hub está configurado para alojamiento Firebase con enrutamiento dinámico:",
+    "completeHubGatewayDoc": "Documentación Completa de Hub Gateway",
+    "completeHubGatewayDesc": "Explora características avanzadas de proxy, configuraciones de seguridad y estrategias de despliegue.",
+    "viewFullHubGateway": "Ver Documentación Completa de Hub Gateway",
+    "hubGateway": {
+      "title": "Hub como Gateway",
+      "subtitle": "Punto de entrada unificado y proxy inteligente para todas las aplicaciones de CyberEco",
+      "overview": {
+        "title": "Hub: Tu Gateway a CyberEco",
+        "description": "El Hub sirve como centro de autenticación y proxy inteligente para todo el ecosistema CyberEco, proporcionando acceso sin interrupciones a todas las aplicaciones a través de un solo punto de entrada.",
+        "ssoTitle": "Inicio de Sesión Único",
+        "ssoDesc": "Autentícate una vez y accede a todas las aplicaciones de CyberEco sin problemas",
+        "proxyTitle": "Proxy Inteligente",
+        "proxyDesc": "Enruta solicitudes a las aplicaciones apropiadas mientras mantiene la autenticación",
+        "discoveryTitle": "Descubrimiento de Apps",
+        "discoveryDesc": "Hermosa página de inicio que muestra todas las aplicaciones CyberEco disponibles",
+        "accessTitle": "Puntos de Acceso",
+        "appCol": "Aplicación",
+        "localCol": "Acceso Local",
+        "proxyCol": "Vía Hub Proxy"
+      },
+      "tabs": {
+        "overview": "Descripción General",
+        "architecture": "Arquitectura",
+        "proxy": "Funciones de Proxy",
+        "deployment": "Despliegue",
+        "implementation": "Implementación"
+      },
+      "architecture": {
+        "title": "Arquitectura del Gateway",
+        "userRequest": "Solicitud del Usuario",
+        "userRequestDesc": "Usuario accede a la URL del Hub o app proxy",
+        "middleware": "Middleware",
+        "middlewareDesc": "El middleware de Next.js analiza la ruta de solicitud",
+        "authCheck": "Verificación de Autenticación",
+        "authCheckDesc": "Verifica el estado de autenticación del usuario",
+        "routing": "Enrutamiento",
+        "routingDesc": "Enruta a la app o muestra la página de inicio",
+        "middlewareTitle": "Configuración de Middleware"
+      },
+      "proxy": {
+        "title": "Características del Proxy",
+        "routingTitle": "Enrutamiento Inteligente",
+        "routing1": "Enrutamiento basado en rutas a diferentes aplicaciones",
+        "routing2": "Inyección automática de token de autenticación",
+        "routing3": "Manipulación de headers de solicitud/respuesta",
+        "securityTitle": "Características de Seguridad",
+        "security1": "Manejo de CORS para solicitudes cross-origin",
+        "security2": "Headers de seguridad (CSP, X-Frame-Options)",
+        "security3": "Verificación de autenticación",
+        "performanceTitle": "Rendimiento",
+        "performance1": "Caché de solicitudes para activos estáticos",
+        "performance2": "Compresión automática",
+        "performance3": "Agrupación de conexiones",
+        "configTitle": "Configuración del Proxy"
+      },
+      "deployment": {
+        "title": "Configuración de Despliegue",
+        "firebaseTitle": "Despliegue en Firebase",
+        "step1": "Configurar Firebase",
+        "step2": "Desplegar Hub",
+        "step3": "Variables de Entorno",
+        "lanTitle": "Acceso LAN",
+        "lanDesc": "Para desarrollo y pruebas en tu red local:"
+      },
+      "implementation": {
+        "title": "Guía de Implementación",
+        "description": "Cómo integrar tu aplicación con el sistema de gateway del Hub.",
+        "appIntegration": "1. Integración de Aplicación",
+        "routeHandling": "2. Manejo de Rutas",
+        "authFlow": "3. Flujo de Autenticación"
+      },
+      "footer": {
+        "authentication": "Autenticación",
+        "dataArchitecture": "Arquitectura de Datos"
+      }
+    },
+    "roadmap": {
+      "title": "Hoja de Ruta de Desarrollo",
+      "subtitle": "Nuestro enfoque por fases para construir un ecosistema digital descentralizado y centrado en el ser humano",
+      "tabs": {
+        "overview": "Visión General",
+        "currentStatus": "Estado Actual",
+        "shortTerm": "Corto Plazo",
+        "longTerm": "Largo Plazo",
+        "metrics": "Métricas de Éxito",
+        "contribute": "Contribuir"
+      },
+      "overview": {
+        "title": "Construyendo CyberEco Paso a Paso",
+        "evolutionTitle": "Estrategia de Evolución",
+        "phase1Title": "Fase 1: Fundación",
+        "phase1Desc": "Establecer la infraestructura central con hub de autenticación y aplicaciones esenciales",
+        "phase2Title": "Fase 2: Expansión",
+        "phase2Desc": "Lanzar aplicaciones prioritarias y mejorar las capacidades de integración",
+        "phase3Title": "Fase 3: Descentralización",
+        "phase3Desc": "Transición a arquitectura completamente descentralizada con capacidades peer-to-peer",
+        "guidingPrinciples": "Principios Rectores",
+        "userFirst": "Usuario Primero",
+        "userFirstDesc": "Cada decisión prioriza las necesidades y experiencia del usuario",
+        "privacyCore": "Privacidad en el Núcleo",
+        "privacyCoreDesc": "La propiedad de datos y privacidad son derechos fundamentales",
+        "modularDesign": "Diseño Modular",
+        "modularDesignDesc": "Construir componentes reutilizables para desarrollo rápido",
+        "communityDriven": "Impulsado por la Comunidad",
+        "communityDrivenDesc": "Desarrollo de código abierto con aporte de la comunidad"
+      },
+      "currentStatus": {
+        "title": "Progreso Actual",
+        "progressText": "Estamos avanzando constantemente en nuestra hoja de ruta de desarrollo",
+        "completedTitle": "Completado",
+        "activeTitle": "Desarrollo Activo",
+        "nxSetup": "Configuración de NX Monorepo",
+        "nxSetupDesc": "Sistema de construcción avanzado con caché y ejecución paralela",
+        "sharedLibraries": "Bibliotecas de Componentes Compartidos",
+        "sharedLibrariesDesc": "Componentes UI y utilidades reutilizables en todas las aplicaciones",
+        "authSystem": "Sistema de Autenticación",
+        "authSystemDesc": "SSO centralizado con soporte multi-aplicación",
+        "documentation": "Documentación Central",
+        "documentationDesc": "Guías completas y documentación de API",
+        "critical": "Problemas Críticos",
+        "high": "Alta Prioridad",
+        "fixRuntime": "Corregir Errores de Ejecución",
+        "propTypes": "Migración de PropTypes",
+        "dataFlow": "Optimización del Flujo de Datos",
+        "errorBoundaries": "Límites de Error",
+        "hubFeatures": "Características del Hub",
+        "dashboard": "Implementación del Panel",
+        "userProfile": "Gestión de Perfil de Usuario",
+        "navigation": "Mejora de Navegación"
+      },
+      "shortTerm": {
+        "title": "Objetivos a Corto Plazo",
+        "phase2Title": "Fase 2: Mejora del Hub",
+        "phase2Date": "Semanas 1-2",
+        "phase2Desc": "Completar el panel del Hub y las funciones de gestión de usuarios",
+        "phase3Title": "Fase 3: Pulido de Autenticación",
+        "phase3Date": "Semanas 3-4",
+        "phase3Desc": "Mejorar SSO y autenticación entre aplicaciones",
+        "phase4Title": "Fase 4: Aplicaciones Prioritarias",
+        "phase4Date": "Semanas 5-8",
+        "phase4Desc": "Lanzar las aplicaciones Somos, Demos y Plantopia",
+        "week1": "Prioridades Semana 1",
+        "fixTypes": "Corregir errores TypeScript",
+        "fixUseEffect": "Resolver advertencias useEffect",
+        "addLoading": "Agregar estados de carga",
+        "week3": "Enfoque Semanas 3-4",
+        "authForms": "Pulir formularios de autenticación",
+        "appLauncher": "UI del lanzador de aplicaciones",
+        "integration": "Pruebas de integración",
+        "crossApp": "Características Entre Aplicaciones",
+        "tokenAuth": "Autenticación por token",
+        "sessionMgmt": "Gestión de sesiones",
+        "sharedState": "Sincronización de estado compartido",
+        "priorityApps": "Aplicaciones Prioritarias",
+        "demosMvp": "Lanzamiento MVP de Demos",
+        "ethicalAds": "Sistema de anuncios éticos",
+        "conciliation": "Herramientas de conciliación",
+        "greenApps": "Aplicaciones Verdes",
+        "plantopia": "Plantopia jardinería",
+        "ecotul": "Mercado Ecotul",
+        "healthy": "Estilo de vida saludable",
+        "infrastructure": "Infraestructura",
+        "privacyLayer": "Capa de privacidad",
+        "dataControls": "Controles de datos",
+        "community": "Herramientas comunitarias"
+      },
+      "longTerm": {
+        "title": "Visión a Largo Plazo",
+        "personalization": "IA y Personalización",
+        "personalizationTime": "Meses 3-6",
+        "personalizationDesc": "Integrar IA ética para experiencias personalizadas",
+        "platform": "Ecosistema de Plataforma",
+        "platformTime": "Meses 6-12",
+        "platformDesc": "Habilitar desarrollo de aplicaciones de terceros",
+        "transition": "Transición a Descentralización",
+        "transitionTime": "Año 2",
+        "transitionDesc": "Migración progresiva a arquitectura P2P",
+        "decentralized": "Completamente Descentralizado",
+        "decentralizedTime": "Año 3+",
+        "decentralizedDesc": "Propiedad y control completo del usuario",
+        "ultimateVision": "Visión Final",
+        "visionStatement": "Un ecosistema digital verdaderamente descentralizado donde los usuarios poseen sus datos",
+        "dataSovereignty": "Soberanía completa de datos",
+        "activeNodes": "10,000+ nodos activos",
+        "centralPoints": "Cero puntos centrales de falla"
+      },
+      "metrics": {
+        "title": "Métricas de Éxito",
+        "overview": "Siguiendo nuestro progreso hacia un ecosistema sostenible",
+        "nearTerm": "Corto Plazo (3 meses)",
+        "midTerm": "Medio Plazo (1 año)",
+        "longTerm": "Largo Plazo (3+ años)",
+        "technical": "Excelencia Técnica",
+        "zeroErrors": "Cero errores de ejecución",
+        "coverage": "80%+ cobertura de pruebas",
+        "lighthouse": "95+ puntuación Lighthouse",
+        "cicd": "Automatización CI/CD completa",
+        "userGrowth": "Crecimiento de Usuarios",
+        "activeUsers": "1,000 usuarios activos",
+        "retention": "70% tasa de retención",
+        "satisfaction": "4.5+ satisfacción",
+        "contributors": "50+ contribuidores",
+        "ecosystem": "Salud del Ecosistema",
+        "apps": "10+ aplicaciones activas",
+        "integrations": "25+ integraciones",
+        "documentation": "100% documentado",
+        "community": "Comunidad activa",
+        "globalUsers": "100K+ usuarios globales",
+        "applications": "50+ aplicaciones",
+        "sustainable": "Auto-sostenible",
+        "partnerships": "Alianzas estratégicas",
+        "p2pNetwork": "Red P2P",
+        "p2pDesc": "Red P2P completamente operacional",
+        "privacy": "Cumplimiento de Privacidad",
+        "privacyDesc": "100% cumplimiento de privacidad",
+        "tokenEconomy": "Economía de Tokens",
+        "tokenDesc": "Economía de tokens sostenible"
+      },
+      "contribute": {
+        "title": "Cómo Contribuir",
+        "intro": "Únete a nosotros en la construcción del futuro de los ecosistemas digitales",
+        "developers": "Para Desarrolladores",
+        "community": "Para la Comunidad",
+        "pickIssue": "Elige un Problema",
+        "pickIssueDesc": "Busca problemas abiertos en GitHub",
+        "forkClone": "Fork y Clonar",
+        "forkCloneDesc": "Haz fork del repositorio y clona localmente",
+        "createBranch": "Crear Rama",
+        "createBranchDesc": "Crea una rama de características para tu trabajo",
+        "submitPR": "Enviar PR",
+        "submitPRDesc": "Envía una solicitud de extracción con tus cambios",
+        "feedback": "Proporcionar Comentarios",
+        "feedbackDesc": "Comparte tus pensamientos y sugerencias",
+        "documentation": "Mejorar Documentación",
+        "documentationDesc": "Ayuda a mejorar nuestra documentación",
+        "spread": "Corre la Voz",
+        "spreadDesc": "Comparte CyberEco con tu red",
+        "ideas": "Compartir Ideas",
+        "ideasDesc": "Proponer nuevas características y mejoras",
+        "resources": "Recursos",
+        "github": "Repositorio GitHub",
+        "devGuide": "Guía de Desarrollo",
+        "discord": "Comunidad Discord"
+      },
+      "relatedDocs": "Documentación Relacionada",
+      "visionDoc": "Conoce nuestra visión",
+      "philosophyDoc": "Entiende nuestra filosofía",
+      "architectureDoc": "Explora la arquitectura",
+      "getStarted": "Comenzar",
+      "setupGuide": "Sigue la guía de configuración",
+      "viewGithub": "Ver en GitHub",
+      "joinCommunity": "Únete a nuestra comunidad"
+    }
+  },
+  "justSplitGuide": {
+    "title": "Guía de Usuario de JustSplit",
+    "documentation": "Documentación",
+    "duration": "Duración",
+    "durationTime": "30-45",
+    "minutes": "minutos",
+    "level": "Nivel",
+    "levelText": "Principiante a Intermedio",
+    "goal": "Objetivo",
+    "goalText": "Dominar el compartir gastos con JustSplit",
+    "introTitle": "Bienvenido a JustSplit",
+    "introText": "JustSplit es la aplicación insignia de CyberEco para compartir gastos que hace que dividir costos con amigos, familia y grupos sea simple y justo. Esta guía completa te llevará a través de todo, desde el seguimiento básico de gastos hasta estrategias avanzadas de liquidación.",
+    "whyJustSplitTitle": "¿Por qué JustSplit?",
+    "whyJustSplitText": "Ya sea que estés compartiendo cuentas de cena, planificando viajes grupales, gestionando gastos del hogar u organizando eventos, JustSplit elimina la incomodidad y complejidad de las conversaciones sobre dinero. Nuestros cálculos transparentes y seguimiento automático de balances aseguran que todos paguen su parte justa.",
+    "keyFeaturesTitle": "Resumen de Características Clave",
+    "feature1Title": "División Inteligente de Gastos",
+    "feature1Desc": "Calcula automáticamente quién debe qué con múltiples opciones de división",
+    "feature2Title": "Gestión de Grupos",
+    "feature2Desc": "Organiza gastos por grupos para compañeros de casa, viajes, eventos y más",
+    "feature3Title": "Soporte Multi-Moneda",
+    "feature3Desc": "Maneja gastos en diferentes monedas con conversión en tiempo real",
+    "feature4Title": "Seguimiento de Liquidaciones",
+    "feature4Desc": "Mantén registro de pagos y liquida con soluciones de un clic",
+    "feature5Title": "Escaneo de Recibos",
+    "feature5Desc": "Captura y adjunta recibos a gastos para registros completos",
+    "feature6Title": "Categorías de Gastos",
+    "feature6Desc": "Categoriza gastos para mejores perspectivas y organización",
+    "gettingStartedTitle": "Comenzando",
+    "step1Title": "Inicia Sesión con Tu Cuenta CyberEco",
+    "step1Text": "Accede a JustSplit usando tu cuenta CyberEco Hub. Si aún no tienes una, crea tu cuenta primero.",
+    "step1Action": "Ir a JustSplit",
+    "step2Title": "Completa Tu Perfil",
+    "step2Text": "Añade tus métodos de pago preferidos y moneda predeterminada. Esta información ayuda al liquidar con amigos.",
+    "profileTips": "Consejos para el Perfil:",
+    "profileTip1": "Sube una foto de perfil para ayudar a los amigos a identificarte",
+    "profileTip2": "Añade múltiples métodos de pago (Venmo, PayPal, transferencia bancaria)",
+    "profileTip3": "Establece tu moneda local para conversiones automáticas",
+    "step3Title": "Crea o Únete a Tu Primer Grupo",
+    "step3Text": "Los grupos son el corazón de JustSplit. Crea grupos para diferentes contextos como gastos del hogar, viajes o salidas regulares.",
+    "createGroupBtn": "Crear Nuevo Grupo",
+    "joinGroupBtn": "Unirse a Grupo Existente",
+    "groupsTitle": "Entendiendo los Grupos",
+    "groupsIntro": "Los grupos en JustSplit te ayudan a organizar gastos y rastrear balances con conjuntos específicos de personas. Cada grupo mantiene su propia hoja de balance e historial de gastos.",
+    "groupTypesTitle": "Tipos Comunes de Grupos",
+    "householdGroup": "Hogar/Compañeros de Casa",
+    "householdDesc": "Rastrea renta, servicios, comestibles y artículos compartidos del hogar",
+    "tripGroup": "Viajes y Vacaciones",
+    "tripDesc": "Gestiona gastos de viaje incluyendo hoteles, transporte y actividades",
+    "socialGroup": "Actividades Sociales",
+    "socialDesc": "Divide cuentas de restaurantes, boletos de cine y costos de entretenimiento",
+    "projectGroup": "Proyectos y Eventos",
+    "projectDesc": "Organiza gastos para eventos, fiestas o proyectos colaborativos",
+    "creatingGroupTitle": "Creando un Grupo",
+    "groupNameLabel": "Elige un Nombre Descriptivo",
+    "groupNameExample": "Ejemplos: 'Casa de Playa 2024', 'Noche de Juegos Mensual', 'Reunión Familiar Smith'",
+    "groupIconLabel": "Selecciona un Ícono de Grupo",
+    "groupIconDesc": "Elige un ícono que represente el propósito de tu grupo",
+    "groupCurrencyLabel": "Establece Moneda Predeterminada",
+    "groupCurrencyDesc": "Elige la moneda principal para los gastos de este grupo",
+    "groupMembersLabel": "Añadir Miembros",
+    "groupMembersDesc": "Invita amigos vía email o nombre de usuario de CyberEco",
+    "groupSettingsTitle": "Configuración del Grupo",
+    "simplifyDebts": "Simplificar Deudas",
+    "simplifyDebtsDesc": "Optimiza automáticamente quién paga a quién para minimizar transacciones",
+    "splitDefault": "Método de División Predeterminado",
+    "splitDefaultDesc": "Establece cómo se dividen los gastos por defecto (igual, por porcentaje, personalizado)",
+    "notifications": "Notificaciones",
+    "notificationsDesc": "Elige cuándo los miembros reciben actualizaciones sobre nuevos gastos",
+    "addingExpensesTitle": "Añadiendo Gastos",
+    "expenseBasicsTitle": "Conceptos Básicos de Gastos",
+    "quickAddTitle": "Añadir Rápido",
+    "quickAddDesc": "Para gastos simples, usa el botón de añadir rápido:",
+    "quickAddStep1": "Ingresa el monto total",
+    "quickAddStep2": "Añade una descripción (ej. 'Cena en Luigi's')",
+    "quickAddStep3": "Selecciona quién estuvo involucrado",
+    "quickAddStep4": "Elige cómo dividir (igual por defecto)",
+    "quickAddStep5": "Toca 'Añadir Gasto'",
+    "detailedExpenseTitle": "Entrada Detallada de Gastos",
+    "detailedExpenseDesc": "Para gastos más complejos, usa el formulario detallado:",
+    "expenseDate": "Fecha y Hora",
+    "expenseDateDesc": "Cuándo ocurrió el gasto",
+    "expenseCategory": "Categoría",
+    "expenseCategoryDesc": "Comida, Transporte, Entretenimiento, etc.",
+    "expensePayer": "Quién Pagó",
+    "expensePayerDesc": "La persona que cubrió el gasto",
+    "expenseParticipants": "Participantes",
+    "expenseParticipantsDesc": "Quién se benefició del gasto",
+    "expenseReceipt": "Recibo/Foto",
+    "expenseReceiptDesc": "Adjunta prueba de compra",
+    "expenseNotes": "Notas",
+    "expenseNotesDesc": "Detalles adicionales o contexto",
+    "splittingOptionsTitle": "Opciones de División",
+    "equalSplit": "División Igual",
+    "equalSplitDesc": "Divide el total igualmente entre todos los participantes",
+    "equalSplitExample": "Ejemplo: Cena de $100 dividida entre 4 = $25 cada uno",
+    "exactAmounts": "Montos Exactos",
+    "exactAmountsDesc": "Especifica exactamente lo que cada persona debe",
+    "exactAmountsExample": "Ejemplo: Anna $35, Bob $28, Carlos $37",
+    "percentage": "Por Porcentaje",
+    "percentageDesc": "Divide basado en porcentajes",
+    "percentageExample": "Ejemplo: Anfitrión paga 40%, invitados dividen el 60% restante",
+    "shares": "Por Partes",
+    "sharesDesc": "Asigna partes para división proporcional",
+    "sharesExample": "Ejemplo: Pareja obtiene 2 partes, persona sola obtiene 1 parte",
+    "adjustment": "Con Ajustes",
+    "adjustmentDesc": "Añade o resta montos para personas específicas",
+    "adjustmentExample": "Ejemplo: Todos dividen igual, pero Tim tomó bebidas extra (+$15)",
+    "advancedFeaturesTitle": "Características Avanzadas",
+    "recurringExpensesTitle": "Gastos Recurrentes",
+    "recurringExpensesDesc": "Configura entradas automáticas de gastos para pagos regulares como renta o suscripciones:",
+    "recurringStep1": "Crea el gasto normalmente",
+    "recurringStep2": "Activa 'Hacer Recurrente'",
+    "recurringStep3": "Establece frecuencia (semanal, mensual, etc.)",
+    "recurringStep4": "Elige fecha de fin o número de ocurrencias",
+    "expenseTemplatesTitle": "Plantillas de Gastos",
+    "expenseTemplatesDesc": "Guarda patrones comunes de gastos para reutilización rápida:",
+    "templateExample1": "Plantilla de compras semanales",
+    "templateExample2": "Plantilla de servicios mensuales",
+    "templateExample3": "Plantilla de café regular",
+    "itemizedBillsTitle": "División de Cuentas Detalladas",
+    "itemizedBillsDesc": "Perfecto para cuentas de restaurante donde las personas ordenaron diferentes artículos:",
+    "itemizedStep1": "Añade cada artículo por separado",
+    "itemizedStep2": "Asigna artículos a personas específicas",
+    "itemizedStep3": "Divide artículos compartidos (aperitivos, impuestos, propina)",
+    "itemizedStep4": "JustSplit calcula los totales individuales",
+    "currencyTitle": "Manejo Multi-Moneda",
+    "currencyDesc": "JustSplit maneja automáticamente la conversión de moneda para grupos internacionales:",
+    "currencyFeature1": "Tasas de cambio en tiempo real",
+    "currencyFeature2": "Tasas históricas para gastos pasados",
+    "currencyFeature3": "Establece moneda de visualización preferida por usuario",
+    "currencyFeature4": "Desgloses detallados de conversión",
+    "balancesTitle": "Entendiendo los Balances",
+    "howBalancesWork": "Cómo Funcionan los Balances",
+    "balanceExplanation": "JustSplit rastrea continuamente quién debe a quién dentro de cada grupo. Tu balance muestra tu posición neta:",
+    "positiveBalance": "Balance Positivo (Verde)",
+    "positiveBalanceDesc": "Otros te deben dinero",
+    "negativeBalance": "Balance Negativo (Rojo)",
+    "negativeBalanceDesc": "Debes dinero a otros",
+    "neutralBalance": "Balance Neutral (Gris)",
+    "neutralBalanceDesc": "¡Todo liquidado!",
+    "balanceDetailsTitle": "Detalles del Balance",
+    "totalBalance": "Balance Total del Grupo",
+    "totalBalanceDesc": "Tu posición general en el grupo",
+    "individualBalances": "Balances Individuales",
+    "individualBalanceDesc": "Desglose detallado de lo que debes o te deben por persona",
+    "balanceHistory": "Historial de Balance",
+    "balanceHistoryDesc": "Rastrea cómo cambiaron los balances con el tiempo",
+    "settlementTitle": "Liquidando",
+    "settlementOptions": "Opciones de Liquidación",
+    "cashSettlement": "Pago en Efectivo",
+    "cashSettlementDesc": "Registra pagos en efectivo entre miembros",
+    "bankTransfer": "Transferencia Bancaria",
+    "bankTransferDesc": "Transferencias directas banco a banco",
+    "paymentApps": "Aplicaciones de Pago",
+    "paymentAppsDesc": "Venmo, PayPal, Zelle y otros servicios",
+    "nonMonetary": "Liquidación No Monetaria",
+    "nonMonetaryDesc": "Liquida a través de bienes, servicios o gastos futuros",
+    "settlementProcess": "Proceso de Liquidación",
+    "settlementStep1": "Revisa Balances Actuales",
+    "settlementStep1Desc": "Verifica a quién debes y quién te debe",
+    "settlementStep2": "Elige Método de Liquidación",
+    "settlementStep2Desc": "Selecciona cómo quieres liquidar",
+    "settlementStep3": "Registra el Pago",
+    "settlementStep3Desc": "Ingresa el monto y confirma con la otra parte",
+    "settlementStep4": "Verifica la Liquidación",
+    "settlementStep4Desc": "Ambas partes confirman que el pago fue completado",
+    "smartSettlements": "Liquidaciones Inteligentes",
+    "debtSimplification": "Simplificación de Deudas",
+    "debtSimplificationDesc": "JustSplit optimiza pagos para minimizar el número de transacciones necesarias",
+    "groupSettlement": "Liquidación Grupal",
+    "groupSettlementDesc": "Liquida todos los balances en un grupo con sugerencias de pago optimizadas",
+    "partialSettlement": "Liquidación Parcial",
+    "partialSettlementDesc": "Paga parte de lo que debes cuando el pago completo no es posible",
+    "reportsTitle": "Informes y Perspectivas",
+    "expenseReports": "Informes de Gastos",
+    "monthlySpending": "Resumen de Gastos Mensuales",
+    "monthlySpendingDesc": "Rastrea patrones de gasto con el tiempo",
+    "categoryBreakdown": "Desglose por Categoría",
+    "categoryBreakdownDesc": "Ve dónde se está gastando el dinero",
+    "memberContributions": "Contribuciones de Miembros",
+    "memberContributionsDesc": "Analiza quién paga qué más frecuentemente",
+    "exportOptions": "Opciones de Exportación",
+    "csvExport": "Exportación CSV",
+    "csvExportDesc": "Descarga datos de gastos para análisis en hojas de cálculo",
+    "pdfReport": "Informe PDF",
+    "pdfReportDesc": "Genera informes formateados para mantener registros",
+    "taxReport": "Informe de Impuestos",
+    "taxReportDesc": "Exporta gastos relacionados con negocios para propósitos fiscales",
+    "tipsTitle": "Consejos y Mejores Prácticas",
+    "bestPractices": "Mejores Prácticas",
+    "tip1": "Añade gastos prontamente",
+    "tip1Desc": "Ingresa gastos pronto después de que ocurran para mantener precisión",
+    "tip2": "Usa nombres descriptivos",
+    "tip2Desc": "Descripciones claras ayudan a todos a recordar para qué fueron los gastos",
+    "tip3": "Adjunta recibos",
+    "tip3Desc": "La evidencia fotográfica previene disputas y ayuda a mantener registros",
+    "tip4": "Comunica abiertamente",
+    "tip4Desc": "Usa comentarios para aclarar gastos inusuales o decisiones de división",
+    "tip5": "Liquida regularmente",
+    "tip5Desc": "No dejes que los balances se acumulen demasiado - liquida mensualmente o después de viajes",
+    "tip6": "Revisa configuración del grupo",
+    "tip6Desc": "Asegúrate de que las preferencias de notificación y división coincidan con las necesidades del grupo",
+    "commonScenarios": "Escenarios Comunes",
+    "scenario1Title": "Gastos de Compañeros de Casa",
+    "scenario1Solution": "Crea un grupo del hogar, añade gastos recurrentes para renta/servicios, usa división igual para artículos compartidos",
+    "scenario2Title": "Vacaciones Grupales",
+    "scenario2Solution": "Configura un grupo de viaje, usa soporte multi-moneda, liquida al final del viaje",
+    "scenario3Title": "Cenas Regulares",
+    "scenario3Solution": "Crea plantillas para restaurantes favoritos, rota quién paga, deja que JustSplit rastree el balance",
+    "scenario4Title": "Planificación de Eventos",
+    "scenario4Solution": "Rastrea todos los gastos del evento, usa división por porcentaje para diferentes niveles de contribución",
+    "troubleshootingTitle": "Solución de Problemas",
+    "commonIssues": "Problemas Comunes",
+    "issue1": "No puedo ver un gasto",
+    "issue1Solution": "Verifica si estás viendo el grupo y rango de fechas correctos",
+    "issue2": "El balance parece incorrecto",
+    "issue2Solution": "Revisa gastos y liquidaciones recientes, verifica gastos pendientes",
+    "issue3": "El miembro no puede unirse al grupo",
+    "issue3Solution": "Asegúrate de que tengan una cuenta CyberEco y estés usando el email correcto",
+    "issue4": "Problemas de conversión de moneda",
+    "issue4Solution": "Verifica configuración de fecha y asegúrate de que los datos de tasas de cambio estén actualizados",
+    "nextStepsTitle": "Próximos Pasos",
+    "masteringJustSplit": "Dominando JustSplit",
+    "advancedGuide": "Guía de Características Avanzadas",
+    "advancedGuideDesc": "Profundiza en características de usuario avanzado y automatización",
+    "integrations": "Integraciones de Terceros",
+    "integrationsDesc": "Conecta JustSplit con tu banco y aplicaciones de pago",
+    "apiAccess": "Acceso API",
+    "apiAccessDesc": "Construye integraciones personalizadas y automatiza el seguimiento de gastos",
+    "communityTips": "Consejos de la Comunidad",
+    "communityTipsDesc": "Aprende de las estrategias y flujos de trabajo de otros usuarios",
+    "supportTitle": "¿Necesitas Más Ayuda?",
+    "supportText": "Si tienes preguntas no cubiertas en esta guía, nuestro equipo de soporte y comunidad están aquí para ayudar.",
+    "contactSupport": "Contactar Soporte",
+    "joinForum": "Unirse al Foro Comunitario",
+    "videoTutorials": "Ver Tutoriales en Video"
+  },
+  "accountSetupGuide": {
+    "title": "Creación y Configuración de Cuenta",
+    "documentation": "Documentación",
+    "duration": "Duración",
+    "minutes": "minutos",
+    "level": "Nivel",
+    "beginner": "Principiante",
+    "goal": "Objetivo",
+    "goalText": "Completar la configuración de cuenta con seguridad",
+    "introTitle": "Bienvenido a CyberEco",
+    "introText": "Esta guía te llevará a través de la creación de tu cuenta CyberEco Hub - tu identidad única para acceder a todas las aplicaciones en nuestro ecosistema. Cubriremos la creación de cuenta, configuración de seguridad, controles de privacidad y configuración inicial.",
+    "privacyFirstTitle": "Diseño Centrado en la Privacidad",
+    "privacyFirstText": "Tu cuenta CyberEco está diseñada con la privacidad en su núcleo. Eres dueño de tus datos, controlas lo que compartes y puedes exportar o eliminar tu información en cualquier momento.",
+    "stepsTitle": "Configuración Paso a Paso",
+    "step1Title": "Visita la Página de Registro",
+    "step1Desc": "Navega a la página de registro de CyberEco Hub. Puedes acceder a esta desde cualquier aplicación CyberEco o directamente en hub.cybere.co/signup.",
+    "signUpNow": "Registrarse Ahora",
+    "step2Title": "Elige Tu Identidad",
+    "step2Desc": "Selecciona un nombre de usuario único y proporciona tu dirección de correo electrónico. Tu nombre de usuario será tu identificador público en todas las aplicaciones CyberEco.",
+    "usernameTitle": "Consejos para el Nombre de Usuario",
+    "usernameTip1": "Elige algo memorable y profesional",
+    "usernameTip2": "Evita información personal como fecha de nacimiento",
+    "usernameTip3": "Puedes cambiarlo más tarde, pero las conexiones pueden verse afectadas",
+    "step3Title": "Crea una Contraseña Fuerte",
+    "step3Desc": "Tu contraseña protege el acceso a todas tus aplicaciones CyberEco. Elige una contraseña fuerte y única que no uses en otros lugares.",
+    "passwordRequirements": "Requisitos de Contraseña",
+    "passReq1": "Al menos 12 caracteres de largo",
+    "passReq2": "Mezcla de letras mayúsculas y minúsculas",
+    "passReq3": "Al menos un número y carácter especial",
+    "passReq4": "No usada en ninguna otra cuenta",
+    "step4Title": "Habilita la Autenticación de Dos Factores",
+    "step4Desc": "Añade una capa extra de seguridad a tu cuenta. Soportamos aplicaciones autenticadoras, SMS y llaves de hardware.",
+    "authenticatorApp": "Aplicación Autenticadora",
+    "authenticatorDesc": "Opción más segura usando aplicaciones como Google Authenticator o Authy",
+    "recommended": "Recomendado",
+    "smsOption": "Código SMS",
+    "smsDesc": "Recibe códigos vía mensaje de texto a tu teléfono",
+    "hardwareKey": "Llave de Hardware",
+    "hardwareDesc": "Llaves de seguridad físicas como YubiKey para máxima seguridad",
+    "step5Title": "Configura los Ajustes de Privacidad",
+    "step5Desc": "Establece tus preferencias de privacidad predeterminadas. Siempre puedes ajustar estas más tarde para aplicaciones específicas o escenarios de compartir.",
+    "profileVisibility": "Visibilidad del Perfil",
+    "friendsOnly": "Solo Amigos",
+    "profileVisibilityDesc": "Quién puede ver tu información básica de perfil y actividad en las aplicaciones.",
+    "activitySharing": "Compartir Actividad",
+    "manual": "Manual",
+    "activitySharingDesc": "Cómo se comparte tu actividad en las aplicaciones (como gastos o eventos) con otros.",
+    "dataCollection": "Recolección de Datos",
+    "minimal": "Mínima",
+    "dataCollectionDesc": "Qué datos de uso recolectamos para mejorar las aplicaciones (siempre anonimizados).",
+    "step6Title": "Verifica Tu Correo Electrónico",
+    "step6Desc": "Revisa tu correo electrónico para un mensaje de verificación. Haz clic en el enlace de verificación para activar tu cuenta y habilitar todas las características.",
+    "verificationImportant": "Verificación Requerida",
+    "verificationText": "Algunas características como el restablecimiento de contraseña y las notificaciones de seguridad requieren una dirección de correo electrónico verificada.",
+    "nextStepsTitle": "Próximos Pasos",
+    "exploreJustSplit": "Explora JustSplit",
+    "exploreJustSplitDesc": "Comienza a compartir gastos con amigos y familia usando nuestra aplicación más popular.",
+    "getStarted": "Comenzar",
+    "securityDeepDive": "Profundización en Seguridad",
+    "securityDeepDiveDesc": "Aprende características avanzadas de seguridad y controles de privacidad para tu cuenta.",
+    "learnMore": "Aprender Más",
+    "joinCommunity": "Únete a la Comunidad",
+    "joinCommunityDesc": "Conéctate con otros usuarios y participa en dar forma al futuro de la plataforma.",
+    "explore": "Explorar",
+    "needHelp": "¿Necesitas Ayuda?",
+    "supportText": "Si encuentras algún problema durante la configuración, nuestro equipo de soporte está aquí para ayudar.",
+    "contactSupport": "Contactar Soporte"
+  },
+  "learningPaths": {
+    "title": "Rutas de Aprendizaje",
+    "subtitle": "Viajes de aprendizaje estructurados para dominar el ecosistema CyberEco",
+    "chooseYourPath": "Elige Tu Ruta",
+    "chooseYourPathDesc": "Cada ruta de aprendizaje está diseñada para ayudarte a alcanzar objetivos específicos dentro del ecosistema CyberEco. Ya seas un desarrollador buscando contribuir, un usuario de negocios buscando eficiencia, o un líder comunitario construyendo conexiones, tenemos una ruta para ti.",
+    "startLearning": "Comenzar a Aprender",
+    "advanced": "Avanzado",
+    "intermediate": "Intermedio",
+    "developer": {
+      "title": "Ruta de Desarrollador",
+      "description": "Aprende a construir y contribuir al ecosistema CyberEco",
+      "duration": "8-12 semanas"
+    },
+    "businessUser": {
+      "title": "Ruta de Usuario de Negocios",
+      "description": "Domina las herramientas de CyberEco para tus necesidades empresariales",
+      "duration": "4-6 semanas"
+    },
+    "communityLeader": {
+      "title": "Ruta de Líder Comunitario",
+      "description": "Lidera y haz crecer comunidades usando las plataformas CyberEco",
+      "duration": "6-8 semanas"
+    }
+  },
+  "architecture": {
+    "title": "Visión General de la Arquitectura",
+    "subtitle": "Comprendiendo la arquitectura de la plataforma CyberEco",
+    "tabs": {
+      "overview": "Descripción General",
+      "principles": "Principios de Diseño",
+      "stack": "Stack Técnico",
+      "integration": "Integración",
+      "resources": "Recursos"
+    },
+    "monorepo": {
+      "title": "Estructura Monorepo",
+      "description": "CyberEco utiliza una arquitectura monorepo impulsada por NX que permite compartir código, herramientas consistentes y compilaciones eficientes en todas las aplicaciones."
+    },
+    "layers": {
+      "applications": "Capa de Aplicaciones",
+      "sharedLibraries": "Bibliotecas Compartidas",
+      "infrastructure": "Infraestructura"
+    },
+    "components": {
+      "hub": "Hub",
+      "justsplit": "JustSplit",
+      "website": "Sitio Web",
+      "futureApps": "Apps Futuras",
+      "uiComponents": "Componentes UI",
+      "authLibrary": "Biblioteca de Autenticación",
+      "i18n": "i18n",
+      "sharedTypes": "Tipos Compartidos",
+      "firebase": "Firebase",
+      "authentication": "Autenticación",
+      "hosting": "Hosting",
+      "database": "Base de Datos"
+    },
+    "principles": {
+      "title": "Principios de Diseño Clave",
+      "digitalSovereignty": {
+        "title": "Soberanía Digital",
+        "description": "Los usuarios poseen y controlan sus datos con características de exportación y portabilidad"
+      },
+      "modularArchitecture": {
+        "title": "Arquitectura Modular",
+        "description": "Apps independientes que comparten infraestructura y componentes comunes"
+      },
+      "privacyByDesign": {
+        "title": "Privacidad por Diseño",
+        "description": "Cumplimiento GDPR y controles de privacidad integrados en el núcleo"
+      },
+      "openStandards": {
+        "title": "Estándares Abiertos",
+        "description": "Uso de protocolos y estándares abiertos para interoperabilidad"
+      }
+    },
+    "technicalStack": {
+      "title": "Stack Técnico",
+      "frontend": {
+        "title": "Frontend",
+        "nextjs": "Next.js 15",
+        "react": "React 18",
+        "typescript": "TypeScript",
+        "cssModules": "CSS Modules"
+      },
+      "backend": {
+        "title": "Backend",
+        "firebaseAuth": "Firebase Auth",
+        "firestore": "Firestore",
+        "cloudFunctions": "Cloud Functions",
+        "firebaseHosting": "Firebase Hosting"
+      },
+      "development": {
+        "title": "Desarrollo",
+        "nxMonorepo": "NX Monorepo",
+        "jestTesting": "Jest Testing",
+        "eslint": "ESLint",
+        "githubActions": "GitHub Actions"
+      }
+    },
+    "integration": {
+      "title": "Patrones de Integración",
+      "description": "Aprende cómo las aplicaciones de CyberEco se integran y comunican entre sí.",
+      "sso": {
+        "title": "Inicio de Sesión Único (SSO)",
+        "description": "La autenticación centralizada a través del Hub asegura que los usuarios inicien sesión una vez y accedan a todas las aplicaciones sin problemas."
+      },
+      "sharedData": {
+        "title": "Modelos de Datos Compartidos",
+        "description": "Interfaces y estructuras de datos comunes de TypeScript permiten el manejo consistente de datos entre aplicaciones."
+      },
+      "eventBus": {
+        "title": "Arquitectura de Bus de Eventos",
+        "description": "Las aplicaciones se comunican a través de un sistema de eventos centralizado para actualizaciones y notificaciones en tiempo real."
+      },
+      "apis": {
+        "title": "APIs REST",
+        "description": "APIs REST bien documentadas permiten integraciones externas y acceso a datos entre aplicaciones."
+      }
+    },
+    "relatedDocumentation": {
+      "title": "Documentación Relacionada",
+      "dataArchitecture": "Arquitectura de Datos",
+      "dataArchitectureDesc": "Inmersión profunda en modelos de datos y diseño de base de datos",
+      "authenticationSystem": "Sistema de Autenticación",
+      "authenticationSystemDesc": "Aprende sobre nuestra implementación de autenticación segura",
+      "developmentSetup": "Configuración de Desarrollo",
+      "developmentSetupDesc": "Comienza con el entorno de desarrollo local",
+      "apiReference": "Referencia de API",
+      "apiReferenceDesc": "Explora nuestra documentación integral de API"
+    },
+    "resources": {
+      "title": "Recursos Adicionales",
+      "nxDocs": "Documentación de NX",
+      "nxDocsDesc": "Aprende más sobre las herramientas de monorepo NX",
+      "nextjsDocs": "Documentación de Next.js",
+      "nextjsDocsDesc": "Documentación oficial del framework Next.js",
+      "firebaseDocs": "Documentación de Firebase",
+      "firebaseDocsDesc": "Documentación de la plataforma y servicios Firebase",
+      "contributing": "Guía de Contribución",
+      "contributingDesc": "Aprende cómo contribuir a CyberEco"
+    }
+  }
+}

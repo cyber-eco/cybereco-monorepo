@@ -1,0 +1,62 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Development rules - more permissive for testing
+    // TODO: Use firebase/hub/firestore.rules for production
+    
+    // Users collection
+    match /users/{userId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null;
+    }
+    
+    // Apps collection
+    match /apps/{appId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null; // Allow writes in dev
+    }
+    
+    // Permissions collection
+    match /permissions/{document=**} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null; // Allow writes in dev
+    }
+    
+    // Groups collection (JustSplit data)
+    match /groups/{groupId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null;
+    }
+    
+    // Expenses collection (JustSplit data)
+    match /expenses/{expenseId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null;
+    }
+    
+    // Events collection (JustSplit data)
+    match /events/{eventId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null;
+    }
+    
+    // Settlements collection (JustSplit data)
+    match /settlements/{settlementId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null;
+    }
+    
+    // Shared data
+    match /shared/{document=**} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null;
+    }
+    
+    // Catch-all for development
+    match /{document=**} {
+      // In development, allow all authenticated access
+      // This should be removed in production
+      allow read, write: if request.auth != null;
+    }
+  }
+}

@@ -2,7 +2,7 @@
 import React, { createContext, useContext, useReducer, useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { DEFAULT_CURRENCY } from '../utils/currencyExchange';
-import { useAuth } from './AuthContext';
+import { useAuth } from './JustSplitAuthContext';
 import { db } from '../firebase/config';
 import friendsReducer from '../reducers/friendsReducer';
 import {
@@ -668,8 +668,17 @@ export const AppProvider: React.FC<{ children: React.ReactNode, initialState?: P
   
   const addExpense = async (expenseData: Omit<Expense, 'id'>) => {
     console.log('addExpense called with data:', expenseData);
+    
+    // Sanitize the data to remove undefined values
+    const sanitizedData = Object.entries(expenseData).reduce<Record<string, any>>((acc, [key, value]) => {
+      if (value !== undefined) {
+        acc[key] = value;
+      }
+      return acc;
+    }, {});
+    
     const dataToSave = {
-      ...expenseData,
+      ...sanitizedData,
       createdAt: serverTimestamp()
     };
     

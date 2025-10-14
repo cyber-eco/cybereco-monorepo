@@ -2,7 +2,7 @@ const nextJest = require('next/jest');
 
 const createJestConfig = nextJest({
   // Provide the path to your Next.js app to load next.config.js and .env files
-  dir: './',
+  dir: __dirname,
 });
 
 // Add any custom config to be passed to Jest
@@ -14,8 +14,17 @@ const customJestConfig = {
     '^@/pages/(.*)$': '<rootDir>/src/pages/$1',
     '^@/context/(.*)$': '<rootDir>/src/context/$1',
     '^@/utils/(.*)$': '<rootDir>/src/utils/$1',
+    // Mock CSS Modules
+    '\\.module\\.(css|scss)$': 'identity-obj-proxy',
+    // Mock other CSS files
+    '\\.(css|scss)$': '<rootDir>/__mocks__/styleMock.js',
+    // Mock static file imports
+    '\\.(jpg|jpeg|png|gif|webp|svg)$': '<rootDir>/__mocks__/fileMock.js',
   },
   testEnvironment: 'jest-environment-jsdom',
+  transformIgnorePatterns: [
+    'node_modules/(?!(@cybereco)/)',
+  ],
   // Add coverage reporting
   collectCoverage: true,
   collectCoverageFrom: [

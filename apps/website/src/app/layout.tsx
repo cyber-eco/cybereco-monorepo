@@ -5,7 +5,7 @@ import { createThemeScript, themeTransitionCSS } from '@cybereco/ui-components';
 import './globals.css';
 import '../styles/theme-variables.css';
 import ClientLayout from './client-layout';
-export { metadata } from './metadata';
+export { metadata, viewport } from './metadata';
 
 export default function RootLayout({
   children,
@@ -18,7 +18,7 @@ export default function RootLayout({
         <style dangerouslySetInnerHTML={{ __html: themeTransitionCSS }} />
         <script dangerouslySetInnerHTML={{ __html: createThemeScript() }} />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>

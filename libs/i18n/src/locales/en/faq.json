@@ -1,0 +1,50 @@
+{
+  "faqPage": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Find answers to common questions about the CyberEco platform",
+    "general": {
+      "title": "General Questions",
+      "q1": "What is CyberEco?",
+      "a1": "CyberEco is a human-centered digital ecosystem for conscious, connected, and sustainable living. We provide a suite of applications that help you manage finances, engage with communities, and connect with others in meaningful ways.",
+      "q2": "Is CyberEco free to use?",
+      "a2": "Yes! Core features of all CyberEco applications are free to use. We believe in providing accessible tools for everyone. Premium features may be available in the future to support platform development.",
+      "q3": "How does CyberEco protect my privacy?",
+      "a3": "Privacy is fundamental to CyberEco. We use end-to-end encryption, give you complete control over your data, and never sell your information to third parties. You can export or delete your data at any time.",
+      "q4": "What applications are currently available?",
+      "a4": "Currently available: CyberEco Hub (authentication & identity), JustSplit (expense sharing), and the CyberEco Website. Coming soon: Somos (family roots), Demos (community governance), and Plantopia (smart gardening)."
+    },
+    "technical": {
+      "title": "Technical Questions",
+      "q1": "What browsers are supported?",
+      "a1": "CyberEco works on all modern browsers including Chrome, Firefox, Safari, and Edge. For the best experience, we recommend using the latest version of your preferred browser.",
+      "q2": "Are mobile apps available?",
+      "a2": "Our applications are built as Progressive Web Apps (PWAs) that work great on mobile devices. Native iOS and Android apps are planned for future releases.",
+      "q3": "Can I use CyberEco offline?",
+      "a3": "Yes! Many features work offline. Your data is stored locally and syncs when you reconnect to the internet. Some features like real-time collaboration require an internet connection.",
+      "q4": "How do I export my data?",
+      "a4": "Go to Settings > Privacy > Data Export in any CyberEco application. You can download all your data in standard formats (JSON, CSV) for use in other applications or for backup purposes."
+    },
+    "security": {
+      "title": "Security Questions",
+      "q1": "How secure is my data?",
+      "a1": "Very secure. We use industry-standard encryption, secure authentication, and regular security audits. Your sensitive data is encrypted before it leaves your device.",
+      "q2": "What if I forget my password?",
+      "a2": "You can reset your password using the 'Forgot Password' link on the sign-in page. We'll send a secure reset link to your registered email address.",
+      "q3": "Does CyberEco support two-factor authentication?",
+      "a3": "Yes! We strongly recommend enabling 2FA for added security. We support authenticator apps, SMS codes, and hardware security keys.",
+      "q4": "What happens to my data if I delete my account?",
+      "a4": "When you delete your account, all your personal data is permanently removed from our servers within 30 days. Some anonymized usage data may be retained for improving our services."
+    },
+    "justsplit": {
+      "title": "JustSplit Questions",
+      "q1": "How does expense splitting work?",
+      "a1": "Create a group, add expenses, and JustSplit automatically calculates who owes what. You can split equally, by percentage, by shares, or custom amounts.",
+      "q2": "What currencies are supported?",
+      "a2": "JustSplit supports 150+ currencies with real-time exchange rates. You can add expenses in any currency and view balances in your preferred currency.",
+      "q3": "Can I scan receipts?",
+      "a3": "Yes! Use your camera to scan receipts and JustSplit will automatically extract the amount, date, and merchant information.",
+      "q4": "How do I settle up with friends?",
+      "a4": "JustSplit tracks balances but doesn't handle money transfers. Mark payments as settled after transferring money through your preferred payment method (Venmo, PayPal, bank transfer, cash, etc.)."
+    }
+  }
+}

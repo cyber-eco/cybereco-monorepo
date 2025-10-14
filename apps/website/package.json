@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 5001",
+    "dev": "next dev -p 40001",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@cybereco/i18n": "*",
     "framer-motion": "^12.15.0",
     "next": "^15.3.2",
     "react": "^18.3.1",
@@ -16,11 +17,17 @@
     "react-icons": "^5.5.0"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@types/jest": "^29.5.14",
     "@types/node": "^20",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
+    "babel-jest": "^30.0.0-beta.3",
     "eslint": "^8",
     "eslint-config-next": "^15.3.1",
+    "identity-obj-proxy": "^3.0.0",
+    "jest-environment-jsdom": "^30.0.0-beta.3",
     "typescript": "^5"
   }
 }

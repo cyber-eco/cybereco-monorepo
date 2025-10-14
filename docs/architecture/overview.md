@@ -45,8 +45,8 @@ graph TB
     end
     
     subgraph "CyberEco Platform"
-        Hub[Hub App<br/>Port 3000]
-        JustSplit[JustSplit App<br/>Port 4000]
+        Hub[Hub App<br/>Port 40000]
+        JustSplit[JustSplit App<br/>Port 40002]
         Future[Future Apps<br/>TaskFlow, HealthTrack, etc.]
     end
     

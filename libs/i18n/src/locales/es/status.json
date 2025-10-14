@@ -1,0 +1,76 @@
+{
+  "statusPage": {
+    "title": "Estado del Sistema",
+    "subtitle": "Estado operacional actual de los servicios de CyberEco",
+    "allOperational": "Todos los Sistemas Operativos",
+    "someIssues": "Algunos Sistemas con Problemas",
+    "majorOutage": "Interrupción Mayor del Servicio",
+    "lastUpdated": "Última actualización",
+    "refreshing": "Actualizando...",
+    "services": {
+      "hub": {
+        "name": "CyberEco Hub",
+        "description": "Autenticación y gestión de identidad"
+      },
+      "justsplit": {
+        "name": "JustSplit",
+        "description": "Aplicación para compartir gastos"
+      },
+      "website": {
+        "name": "Sitio Web",
+        "description": "Sitio web principal y documentación"
+      },
+      "api": {
+        "name": "Servicios API",
+        "description": "Endpoints de API backend"
+      },
+      "database": {
+        "name": "Base de Datos",
+        "description": "Almacenamiento y recuperación de datos"
+      },
+      "auth": {
+        "name": "Autenticación",
+        "description": "Servicios de inicio de sesión y seguridad"
+      }
+    },
+    "status": {
+      "operational": "Operacional",
+      "degraded": "Rendimiento Degradado",
+      "partial": "Interrupción Parcial",
+      "major": "Interrupción Mayor",
+      "maintenance": "En Mantenimiento",
+      "unknown": "Desconocido"
+    },
+    "incidents": {
+      "title": "Incidentes Recientes",
+      "noIncidents": "Sin incidentes recientes",
+      "resolved": "Resuelto",
+      "investigating": "Investigando",
+      "monitoring": "Monitoreando",
+      "identified": "Identificado",
+      "viewDetails": "Ver Detalles"
+    },
+    "metrics": {
+      "title": "Métricas del Sistema",
+      "uptime": "Tiempo de Actividad",
+      "responseTime": "Tiempo de Respuesta",
+      "errorRate": "Tasa de Error",
+      "last24h": "Últimas 24 horas",
+      "last7d": "Últimos 7 días",
+      "last30d": "Últimos 30 días"
+    },
+    "subscribe": {
+      "title": "Suscribirse a Actualizaciones",
+      "description": "Recibe notificaciones sobre cambios en el estado del sistema",
+      "email": "Notificaciones por email",
+      "sms": "Alertas SMS",
+      "webhook": "Integración webhook",
+      "subscribe": "Suscribirse"
+    },
+    "history": {
+      "title": "Historial de Estado",
+      "viewHistory": "Ver Historial Completo",
+      "noHistory": "No hay datos históricos disponibles"
+    }
+  }
+}

@@ -1,0 +1,316 @@
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.header h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.header p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+}
+
+.controlsCard {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.searchBar {
+  flex: 1;
+  min-width: 300px;
+  position: relative;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 3rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background-color: var(--surface);
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.1);
+}
+
+.actionButtons {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.filterButton,
+.refreshButton,
+.exportButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filterGroup label {
+  font-weight: 500;
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+.filterGroup input,
+.filterGroup select {
+  padding: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background-color: var(--surface);
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+.clearButton {
+  align-self: flex-end;
+}
+
+.logsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.logCard {
+  padding: 1.5rem;
+  transition: all 0.2s ease;
+}
+
+.logCard:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.logHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.logMeta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.timestamp {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.logIdentity {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.userId,
+.email {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.userId {
+  font-family: monospace;
+}
+
+.logBody {
+  margin-top: 1rem;
+}
+
+.eventType {
+  font-family: monospace;
+  font-size: 1.1rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.metadata,
+.error {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: var(--background);
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
+.metadata pre,
+.error pre {
+  margin: 0.5rem 0 0 0;
+  font-family: monospace;
+  font-size: 0.85rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--text-secondary);
+}
+
+.error {
+  background-color: rgba(var(--error-rgb), 0.1);
+  border: 1px solid rgba(var(--error-rgb), 0.2);
+}
+
+.error pre {
+  color: var(--error);
+}
+
+.logFooter {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.appId,
+.sessionId,
+.duration {
+  font-family: monospace;
+}
+
+/* Log Level Styles */
+.errorLevel {
+  color: var(--error);
+  font-weight: 600;
+}
+
+.warnLevel {
+  color: var(--warning);
+  font-weight: 600;
+}
+
+.infoLevel {
+  color: var(--info);
+  font-weight: 500;
+}
+
+.debugLevel {
+  color: var(--text-secondary);
+}
+
+/* Icon Styles */
+.successIcon {
+  color: var(--success);
+  font-size: 1.2rem;
+}
+
+.errorIcon {
+  color: var(--error);
+  font-size: 1.2rem;
+}
+
+.warningIcon {
+  color: var(--warning);
+  font-size: 1.2rem;
+}
+
+.securityIcon {
+  color: var(--primary);
+  font-size: 1.2rem;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 4rem;
+  color: var(--text-secondary);
+}
+
+.summary {
+  text-align: center;
+  margin-top: 2rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .searchBar {
+    min-width: auto;
+  }
+
+  .actionButtons {
+    justify-content: space-between;
+  }
+
+  .filters {
+    grid-template-columns: 1fr;
+  }
+
+  .logHeader {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .logMeta {
+    flex-wrap: wrap;
+  }
+
+  .logFooter {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

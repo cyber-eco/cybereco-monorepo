@@ -1,0 +1,25 @@
+{
+  "name": "shared-assets",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared-assets/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/shared-assets",
+        "main": "libs/shared-assets/src/index.ts",
+        "tsConfig": "libs/shared-assets/tsconfig.lib.json"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/shared-assets/**/*.ts"]
+      }
+    }
+  },
+  "tags": ["scope:shared", "type:util"]
+}

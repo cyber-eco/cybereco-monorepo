@@ -1,0 +1,8 @@
+/* JustSplit-specific footer styles */
+.footer {
+  margin-top: auto; /* Push footer to bottom */
+  background-color: var(--footer-bg, #f8f9fa);
+  border-top: 1px solid var(--border-color);
+}
+
+/* Additional JustSplit-specific styling can be added here */
