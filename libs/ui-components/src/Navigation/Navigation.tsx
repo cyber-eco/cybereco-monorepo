@@ -125,14 +125,14 @@ export default function Navigation({
     }
 
     return (
-      <LinkComponent
-        key={link.href}
-        href={link.href}
-        className={linkClass}
-        onClick={handleClick}
-      >
-        {link.label}
-      </LinkComponent>
+      <div key={link.href} onClick={handleClick}>
+        <LinkComponent
+          href={link.href}
+          className={linkClass}
+        >
+          {link.label}
+        </LinkComponent>
+      </div>
     );
   };
 

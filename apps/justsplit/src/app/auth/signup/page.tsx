@@ -2,28 +2,23 @@
 
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { useAuth, useHubAuth } from '@/context/JustSplitAuthContext';
-import { useNotification } from '@/context/NotificationContext';
+import { useAuth } from '@/context/JustSplitAuthContext';
 import styles from '../page.module.css';
 
 export default function SignUp() {
-  const { currentUser, userProfile, isLoading } = useAuth();
-  const { redirectToHub } = useHubAuth();
-  const { showNotification } = useNotification();
+  const { currentUser, userProfile, isLoading, redirectToHub } = useAuth();
   const router = useRouter();
 
   useEffect(() => {
     // If user is already authenticated, redirect to home
     if (userProfile && !isLoading) {
       router.push('/');
-      showNotification('You are already signed in!', 'success');
     }
     // If not authenticated and not loading, redirect to Hub
     else if (!currentUser && !isLoading) {
-      showNotification('Redirecting to Hub for account creation...', 'info');
       redirectToHub('signup');
     }
-  }, [currentUser, userProfile, isLoading, router, showNotification, redirectToHub]);
+  }, [currentUser, userProfile, isLoading, router, redirectToHub]);
 
   // Show loading state while checking auth
   return (
