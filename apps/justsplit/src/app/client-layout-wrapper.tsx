@@ -9,7 +9,7 @@ import Providers from '../context/Providers'; // Ensure path is correct
 import Header from '../components/Header/Header';     // Ensure path is correct
 import Footer from '../components/Footer/Footer';     // Import Footer
 import ProtectedRoute from '../components/Auth/ProtectedRoute'; // Ensure path is correct
-import DatabaseErrorRecovery from '../components/ui/DatabaseErrorRecovery'; // Import the recovery component
+// DatabaseErrorRecovery removed - no longer needed since JustSplit uses Hub for auth
 
 function PermissionWrapper({ children }: { children: React.ReactNode }) {
   // In the lightweight architecture, JustSplit accepts any authenticated Hub user
@@ -23,9 +23,6 @@ function ClientLayout({ children }: { children: React.ReactNode }) {
 
   return (
     <Providers>
-      {/* This component will render only when there is a database corruption error */}
-      <DatabaseErrorRecovery />
-      
       {isAuthRoute ? (
         // For /auth/signin, /auth/signup, etc.
         // No Header, no ProtectedRoute wrapper here.

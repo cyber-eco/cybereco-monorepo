@@ -1,13 +1,14 @@
 import React from 'react';
 import { render, screen, waitFor, act } from '@testing-library/react';
 import { JustSplitAuthProvider, useAuth, useHubAuth } from '../JustSplitAuthContext';
-import { auth } from '../../firebase/config';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { generateAuthRedirectUrl, clearSharedAuthState } from '@cybereco/auth';
 
+// Mock Firebase auth - create a mock auth object for tests
+const mockAuth = {};
+
 // Mock Firebase auth
 jest.mock('../../firebase/config', () => ({
-  auth: {},
   db: {}
 }));
 
@@ -285,7 +286,7 @@ describe('JustSplitAuthContext', () => {
   describe('Session Synchronization', () => {
     it('should set up session sync on mount', async () => {
       const mockSessionSync = require('@cybereco/auth').useSessionSync;
-      
+
       render(
         <JustSplitAuthProvider>
           <div>Test</div>
@@ -295,7 +296,7 @@ describe('JustSplitAuthContext', () => {
       await waitFor(() => {
         expect(mockSessionSync).toHaveBeenCalledWith(
           expect.objectContaining({
-            auth,
+            auth: mockAuth,
             syncAcrossTabs: true,
             onSessionChange: expect.any(Function)
           })

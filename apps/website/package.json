@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@cybereco/i18n": "*",
+    "@cybereco/i18n": "file:../../libs/i18n",
     "framer-motion": "^12.15.0",
     "next": "^15.3.2",
     "react": "^18.3.1",
@@ -27,6 +27,7 @@
     "eslint": "^8",
     "eslint-config-next": "^15.3.1",
     "identity-obj-proxy": "^3.0.0",
+    "jest": "^29.7.0",
     "jest-environment-jsdom": "^30.0.0-beta.3",
     "typescript": "^5"
   }

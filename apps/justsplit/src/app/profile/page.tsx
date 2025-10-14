@@ -7,13 +7,14 @@ import Button from '../../components/ui/Button';
 import styles from './page.module.css';
 
 export default function ProfilePage() {
-  const { userProfile, signOut, redirectToHub } = useAuth();
+  const { userProfile, signOut } = useAuth();
   const { showNotification } = NotificationModule.useNotification();
-  
+  const hubUrl = process.env.NEXT_PUBLIC_HUB_URL || 'http://localhost:40000';
+
   const handleEditProfile = () => {
     // Profile updates must be done through Hub
     showNotification('Redirecting to Hub to update profile...', 'info');
-    redirectToHub('profile');
+    window.location.href = `${hubUrl}/profile`;
   };
   
   const handleSignOut = async () => {

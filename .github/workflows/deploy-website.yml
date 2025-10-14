@@ -29,7 +29,7 @@ jobs:
         run: npm ci --legacy-peer-deps
 
       - name: Build Website App
-        run: nx build website --configuration=production
+        run: npx nx build website --configuration=production
 
       - name: Debug - List website build directory contents
         run: ls -la apps/website/out

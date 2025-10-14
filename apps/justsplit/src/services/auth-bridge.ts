@@ -3,7 +3,7 @@
  * Handles retrieving authentication from Hub
  */
 
-import { getSharedAuth, type SharedAuthUser } from '@cybereco/auth';
+import { getSharedAuthState, type SharedAuthUser, type SharedAuthState } from '@cybereco/auth';
 
 const AUTH_BRIDGE_KEY = 'cybereco-auth-bridge';
 const AUTH_BRIDGE_TIMEOUT = 30000; // 30 seconds
@@ -45,21 +45,21 @@ export function getBridgedAuth(): AuthBridgeData | null {
  */
 export function getAuthFromAnySource(): SharedAuthUser | null {
   console.log('🔍 Looking for auth from any source...');
-  
+
   // First try shared auth
-  const sharedAuth = getSharedAuth();
-  if (sharedAuth) {
+  const sharedAuthState = getSharedAuthState();
+  if (sharedAuthState && sharedAuthState.user) {
     console.log('✅ Found auth in shared storage');
-    return sharedAuth;
+    return sharedAuthState.user;
   }
-  
+
   // Then try auth bridge
   const bridgedAuth = getBridgedAuth();
   if (bridgedAuth && bridgedAuth.targetApp === 'justsplit') {
     console.log('✅ Found auth in bridge storage');
     return bridgedAuth.user;
   }
-  
+
   console.log('❌ No auth found in any source');
   return null;
 }

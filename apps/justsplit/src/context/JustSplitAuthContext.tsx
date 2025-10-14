@@ -33,6 +33,17 @@ export function useAuth() {
   return context;
 }
 
+// Hub-specific auth hook
+export function useHubAuth() {
+  const { currentUser, redirectToHub } = useAuth();
+
+  return {
+    isAuthenticated: !!currentUser,
+    needsHubAuth: !currentUser,
+    redirectToHub,
+  };
+}
+
 // JustSplit auth provider that only consumes Hub authentication
 export function JustSplitAuthProvider({ children }: { children: React.ReactNode }) {
   const [currentUser, setCurrentUser] = useState<AuthUser | null>(null);
