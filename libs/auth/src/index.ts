@@ -54,7 +54,7 @@ export {
 // Cross-origin auth exports
 export {
   useCrossOriginAuth,
-  getSharedAuthState,
+  getCrossOriginAuthState,
   clearSharedAuthState as clearCrossOriginAuth,
   waitForSharedAuth
 } from './CrossOriginAuth';
@@ -62,6 +62,7 @@ export {
 // Shared auth state exports for cross-app SSO
 export {
   saveSharedAuthState,
+  getSharedAuthState,
   getSharedAuthState as getSharedAuth,
   clearSharedAuthState as clearSharedAuth,
   subscribeToAuthStateChanges,
@@ -96,17 +97,18 @@ export {
   type AuthMetrics
 } from './services/authLogger';
 
-// Rate limiting exports
-export {
-  createRateLimiter,
-  authRateLimiter,
-  apiRateLimiter,
-  exportRateLimiter,
-  InMemoryRateLimitStore,
-  RedisRateLimitStore,
-  type RateLimitConfig,
-  type RateLimitStore
-} from './middleware/rateLimiter';
+// Rate limiting middleware moved - requires Next.js server runtime
+// Import directly from @cybereco/auth/src/middleware/rateLimiter in Next.js apps
+// export {
+//   createRateLimiter,
+//   authRateLimiter,
+//   apiRateLimiter,
+//   exportRateLimiter,
+//   InMemoryRateLimitStore,
+//   RedisRateLimitStore,
+//   type RateLimitConfig,
+//   type RateLimitStore
+// } from './middleware/rateLimiter';
 
 // Services that require server-side dependencies are not exported here
 // Import them directly from @cybereco/auth/src/services/serverOnly in API routes

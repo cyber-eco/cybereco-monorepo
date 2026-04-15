@@ -1,7 +1,7 @@
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 import { dataExportService, type ExportOptions } from '../../../services/dataExportService';
-import { exportRateLimiter } from '@cybereco/auth';
+import { exportRateLimiter } from '../../../../../../libs/auth/src/middleware/rateLimiter';
 import { jwtService } from '../../../../../../libs/auth/src/services/serverOnly/jwtService.server';
 
 export async function POST(request: NextRequest) {

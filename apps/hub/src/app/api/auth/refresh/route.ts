@@ -1,6 +1,7 @@
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
-import { apiRateLimiter, authLogger } from '@cybereco/auth';
+import { apiRateLimiter } from '../../../../../../../libs/auth/src/middleware/rateLimiter';
+import { authLogger } from '@cybereco/auth';
 import { jwtService } from '../../../../../../../libs/auth/src/services/serverOnly/jwtService.server';
 
 export async function POST(request: NextRequest) {

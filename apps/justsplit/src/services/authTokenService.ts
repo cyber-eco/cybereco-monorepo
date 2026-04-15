@@ -23,9 +23,7 @@ export class AuthTokenService {
         email: decoded.email || '',
         displayName: decoded.name || '',
         photoURL: null,
-        emailVerified: true,
-        permissions: decoded.permissions || [],
-        apps: decoded.apps || []
+        emailVerified: true
       };
 
       debugLog('AuthTokenService', 'Auth token verified successfully', user);

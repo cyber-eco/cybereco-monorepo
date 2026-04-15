@@ -1,6 +1,7 @@
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
-import { authRateLimiter, authLogger } from '@cybereco/auth';
+import { authRateLimiter } from '../../../../../../../libs/auth/src/middleware/rateLimiter';
+import { authLogger } from '@cybereco/auth';
 import { jwtService } from '../../../../../../../libs/auth/src/services/serverOnly/jwtService.server';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { getHubAuth } from '@cybereco/firebase-config';

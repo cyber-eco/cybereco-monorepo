@@ -14,7 +14,8 @@ import { onAuthStateChanged, Auth, User } from 'firebase/auth';
 const AUTH_STATE_KEY = 'cybereco-auth-state';
 const AUTH_STATE_VERSION = '1.0';
 
-interface SharedAuthState {
+// Local interface for CrossOriginAuth - different from shared-auth-state.ts
+interface CrossOriginAuthState {
   version: string;
   uid: string;
   email: string | null;
@@ -29,7 +30,7 @@ export function useCrossOriginAuth(auth: Auth) {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         // Save auth state to localStorage
-        const authState: SharedAuthState = {
+        const authState: CrossOriginAuthState = {
           version: AUTH_STATE_VERSION,
           uid: user.uid,
           email: user.email,
@@ -52,17 +53,17 @@ export function useCrossOriginAuth(auth: Auth) {
   }, [auth]);
 }
 
-export function getSharedAuthState(): SharedAuthState | null {
+export function getCrossOriginAuthState(): CrossOriginAuthState | null {
   try {
     const stored = localStorage.getItem(AUTH_STATE_KEY);
     console.log('[CrossOriginAuth] Checking localStorage for key:', AUTH_STATE_KEY, 'Found:', !!stored);
-    
+
     if (!stored) {
       console.log('[CrossOriginAuth] No auth state in localStorage');
       return null;
     }
-    
-    const authState = JSON.parse(stored) as SharedAuthState;
+
+    const authState = JSON.parse(stored) as CrossOriginAuthState;
     console.log('[CrossOriginAuth] Parsed auth state:', { uid: authState.uid, timestamp: authState.timestamp });
     
     // Check version
@@ -92,24 +93,24 @@ export function clearSharedAuthState() {
 }
 
 // Helper to wait for auth state from another app
-export async function waitForSharedAuth(timeout: number = 5000): Promise<SharedAuthState | null> {
+export async function waitForSharedAuth(timeout: number = 5000): Promise<CrossOriginAuthState | null> {
   console.log('[CrossOriginAuth] Waiting for shared auth state...');
   const startTime = Date.now();
   
   return new Promise((resolve) => {
     // Check immediately
-    const existing = getSharedAuthState();
+    const existing = getCrossOriginAuthState();
     if (existing) {
       console.log('[CrossOriginAuth] Found existing auth state immediately:', existing.uid);
       resolve(existing);
       return;
     }
-    
+
     // Poll for auth state
     let checkCount = 0;
     const interval = setInterval(() => {
       checkCount++;
-      const authState = getSharedAuthState();
+      const authState = getCrossOriginAuthState();
       
       if (checkCount % 10 === 0) {
         console.log(`[CrossOriginAuth] Still waiting... (${checkCount * 100}ms elapsed)`);

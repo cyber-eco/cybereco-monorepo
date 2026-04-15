@@ -3,7 +3,7 @@
   "compilerOptions": {
     "module": "esnext",
     "baseUrl": "../..",
-    "outDir": "../../dist/out-tsc",
+    "outDir": "../../dist/libs/auth",
     "declaration": true,
     "types": ["node"],
     "jsx": "react-jsx",
@@ -13,5 +13,14 @@
     }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "serverOnly.ts"],
-  "exclude": ["jest.config.ts", "src/**/*.spec.ts", "src/**/*.test.ts", "src/**/*.spec.tsx", "src/**/*.test.tsx"]
+  "exclude": [
+    "jest.config.ts",
+    "src/**/*.spec.ts",
+    "src/**/*.test.ts",
+    "src/**/*.spec.tsx",
+    "src/**/*.test.tsx",
+    "src/middleware/**/*",
+    "src/services/serverOnly/**/*",
+    "src/server.ts"
+  ]
 }

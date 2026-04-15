@@ -320,3 +320,5 @@ api-docs/
 # - Protects against build artifacts and backup files from re-appearing
 
 # If you add new apps or libraries, ensure their build outputs are covered above
+# Snyk Security Extension - AI Rules (auto-generated)
+.github/instructions/snyk_rules.instructions.md
